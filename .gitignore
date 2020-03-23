@@ -69,3 +69,13 @@ SoA-Unity/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 /SoA-Unity/[Aa]ssets/[Ss]treamingAssets/aa.meta
 /SoA-Unity/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+#WWise gitignore
+*.akd
+*.prof
+.cache
+IncrementalSoundBankData.xml
+*.validationcache
+*.wsettings
+/SoA-Unity/[Aa]ssets/WwiseSettings.xml
+/SoA-Unity/[Aa]ssets/WwiseSettings.xml.meta

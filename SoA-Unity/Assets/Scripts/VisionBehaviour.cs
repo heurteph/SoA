@@ -72,7 +72,7 @@ public class VisionBehaviour : MonoBehaviour
             }
         }
 
-        Debug.Log(sum);
+     // Debug.Log(sum);
 
         if (sum >= percentageThreshold*t2D.width*t2D.height)
         {

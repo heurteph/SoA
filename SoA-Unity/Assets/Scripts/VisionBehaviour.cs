@@ -8,25 +8,29 @@ public class VisionBehaviour : MonoBehaviour
     private Camera cameraInside;
 
     [SerializeField]
-    private EnergyBehaviour energyBehaviour;
-
-    [SerializeField]
     [Range(0,1)]
-    private float percentageThreshold;
+    private float percentageThreshold = 0.1f;
 
     [SerializeField]
     [Range(0, 255)]
-    private float brightnessThreshold;
+    private float brightnessThreshold = 200f;
 
     [SerializeField]
     [Range(0, 100)]
-    private float brightnessDamage;
+    private float brightnessDamage = 10f;
 
+    [SerializeField]
+    private EnergyBehaviour energyBehaviour;
 
     private delegate void BrightnessThresholdHandler(float b);
     private event BrightnessThresholdHandler brightnessThresholdEvent;
 
 
+    [SerializeField]
+    private DebuggerBehaviour debuggerBehaviour;
+
+    public delegate void GrayscaleChangedHandler(Texture2D t2D);
+    public event GrayscaleChangedHandler grayScaleChangedEvent;
 
     void Awake()
     {
@@ -37,6 +41,7 @@ public class VisionBehaviour : MonoBehaviour
     void Start()
     {
         brightnessThresholdEvent += energyBehaviour.DecreaseEnergy;
+        grayScaleChangedEvent += debuggerBehaviour.DisplayTexture2D;
     }
 
     // Update is called once per frame
@@ -52,6 +57,7 @@ public class VisionBehaviour : MonoBehaviour
         RenderTexture.active = rt;
         t2D.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
         t2D.Apply();
+
         return t2D;
     }
 
@@ -68,7 +74,14 @@ public class VisionBehaviour : MonoBehaviour
                 if (t2D.GetPixel(i, j).grayscale*255 >= brightnessThreshold)
                 {
                     sum++;
+                    t2D.SetPixel(i, j, new Color(1, 1, 1));
                 }
+                else
+                {
+                    t2D.SetPixel(i, j, new Color(0, 0, 0));
+                }
+              //  float grayscale = t2D.GetPixel(i, j).grayscale; // monstre 2
+              //  t2D.SetPixel(i, j, new Color(grayscale,grayscale,grayscale)); // monstre
             }
         }
 
@@ -79,7 +92,8 @@ public class VisionBehaviour : MonoBehaviour
             brightnessThresholdEvent(brightnessDamage);
         }
 
-
+        t2D.Apply();
+        grayScaleChangedEvent(t2D);
     }
 
 } // FINISH

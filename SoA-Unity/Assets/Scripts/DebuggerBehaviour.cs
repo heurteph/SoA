@@ -9,6 +9,9 @@ public class DebuggerBehaviour : MonoBehaviour
     [SerializeField]
     private RawImage grayRawImage;
 
+    [SerializeField]
+    private Text brightnessPercentage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +25,9 @@ public class DebuggerBehaviour : MonoBehaviour
     }
 
 
-    public void DisplayTexture2D (Texture2D t2D) 
+    public void DisplayTexture2D (Texture2D t2D, float percentage) 
     {
         grayRawImage.texture = t2D;
-
+        brightnessPercentage.text = Mathf.Round(percentage*1000)/10 + "%";
     }
 } // FINISH

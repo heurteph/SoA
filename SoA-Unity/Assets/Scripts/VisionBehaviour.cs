@@ -29,7 +29,7 @@ public class VisionBehaviour : MonoBehaviour
     [SerializeField]
     private DebuggerBehaviour debuggerBehaviour;
 
-    public delegate void GrayscaleChangedHandler(Texture2D t2D);
+    public delegate void GrayscaleChangedHandler(Texture2D t, float p);
     public event GrayscaleChangedHandler grayScaleChangedEvent;
 
     void Awake()
@@ -87,13 +87,13 @@ public class VisionBehaviour : MonoBehaviour
 
         Debug.Log(sum);
 
-        if (sum >= percentageThreshold*t2D.width*t2D.height)
+        if (sum >= percentageThreshold * t2D.width * t2D.height)
         {
             brightnessThresholdEvent(brightnessDamage);
         }
 
         t2D.Apply();
-        grayScaleChangedEvent(t2D);
+        grayScaleChangedEvent(t2D, sum / (t2D.width * t2D.height));
     }
 
 } // FINISH

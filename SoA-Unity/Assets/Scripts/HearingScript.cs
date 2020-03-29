@@ -18,17 +18,21 @@ public class HearingScript : MonoBehaviour
     [SerializeField]
     private EnergyBehaviour energyBehaviour;
 
+    [SerializeField]
+    private DebuggerBehaviour debuggerBehaviour;
 
     [SerializeField]
     [Range(0, 0.2f)]
-    private float loudnessThreshold;
+    public float loudnessThreshold;
 
     [SerializeField]
     [Range(0, 100)]
     private float loudnessDamage;
 
-    private delegate void LoudnessThresholdHandler(float b);
-    private event LoudnessThresholdHandler LoudnessThresholdEvent;
+    private delegate void LoudnessHandler(float b);
+    private event LoudnessHandler LoudnessThresholdEvent;
+    private event LoudnessHandler LoudnessUpdateEvent;
+
 
     // Awake Function
     void Awake()
@@ -44,6 +48,8 @@ public class HearingScript : MonoBehaviour
     void Start()
     {
         LoudnessThresholdEvent += energyBehaviour.DecreaseEnergy;
+
+        LoudnessUpdateEvent += debuggerBehaviour.DisplayVolume;
 
         StartCoroutine("Hear");
     }    
@@ -63,6 +69,7 @@ public class HearingScript : MonoBehaviour
             AudioListener.GetOutputData(sampleData, 0);
             //audioSource.GetOutputData(sampleData, 0);
 
+
             /*  CEST TROP LOURD §§§ ET CA MARCHE PAS §§ NIQUE TA RACE MACRON ET LE GONORAVERUS */
             for (int i = 0; i < sampleTotal; i++)
             {
@@ -75,10 +82,13 @@ public class HearingScript : MonoBehaviour
             Debug.Log("Total : " + loudness);
             loudness /= sampleTotal; //Average Volume
 
+            LoudnessUpdateEvent(loudness);
+
             if (loudness >= loudnessThreshold)
             {
                 LoudnessThresholdEvent(loudnessDamage);
             }
+
 
             yield return new WaitForSeconds(sampleSeconds*hearingMultiplier);
         }

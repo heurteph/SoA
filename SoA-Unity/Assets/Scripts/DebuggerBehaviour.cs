@@ -10,10 +10,16 @@ public class DebuggerBehaviour : MonoBehaviour
     private RawImage grayRawImage;
 
     [SerializeField]
+    private Slider insideVisionSlider;
+
+    [SerializeField]
     private Text brightnessPercentage;
 
     [SerializeField]
     private Slider loudnessSlider;
+
+    [SerializeField]
+    private VisionBehaviour visionBehaviour;
 
     [SerializeField]
     private HearingScript hearingScript;
@@ -21,11 +27,18 @@ public class DebuggerBehaviour : MonoBehaviour
     [SerializeField]
     private Text loudnessNumber;
 
+    [SerializeField]
+    private Slider energyBar;
 
     // Start is called before the first frame update
     void Start()
     {
         loudnessSlider.maxValue = Mathf.Min(hearingScript.loudnessThreshold * 3,1);
+
+        energyBar.maxValue = 1000; //To do GAME MANAGER
+        energyBar.value = energyBar.maxValue;
+
+        insideVisionSlider.maxValue = 1;
     }
 
     // Update is called once per frame
@@ -34,10 +47,28 @@ public class DebuggerBehaviour : MonoBehaviour
         
     }
 
-    public void DisplayTexture2D (Texture2D t2D, float percentage) 
+    public void DisplayVision (Texture2D t2D, float percentage) 
     {
         grayRawImage.texture = t2D;
         brightnessPercentage.text = Mathf.Round(percentage*1000)/10 + "%";
+
+        insideVisionSlider.value = percentage;
+
+        if (percentage > visionBehaviour.percentageThreshold * 2)
+        {
+            insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
+            Debug.Log("red");
+        }
+        else if (percentage > visionBehaviour.percentageThreshold)
+        {
+            insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
+            Debug.Log("yellow");
+        }
+        else
+        {
+            insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.white;
+            Debug.Log("white");
+        }
     }
 
     public void DisplayVolume (float volume)
@@ -63,6 +94,11 @@ public class DebuggerBehaviour : MonoBehaviour
         }
 
         loudnessNumber.text = "" + volume;
+    }
+
+    public void DisplayEnergy (float energy)
+    {
+        energyBar.value = energy;
     }
 
 } // FINISH

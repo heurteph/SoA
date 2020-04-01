@@ -8,12 +8,17 @@ public class EnergyBehaviour : MonoBehaviour
     [SerializeField]
     [Range(0,1000)]
     private float energy;
-    
+
+    [SerializeField]
+    private DebuggerBehaviour debuggerBehaviour;
+
+    public delegate void EnergyChangedHandler(float e);
+    public event EnergyChangedHandler EnergyChangedEvent;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        EnergyChangedEvent += debuggerBehaviour.DisplayEnergy;
     }
 
     // Update is called once per frame
@@ -25,6 +30,8 @@ public class EnergyBehaviour : MonoBehaviour
     public void DecreaseEnergy(float e)
     {
         energy -= e;
+
+        EnergyChangedEvent(energy);
 
         if (energy <= 0)
         {

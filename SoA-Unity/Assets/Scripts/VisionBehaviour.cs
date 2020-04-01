@@ -9,7 +9,7 @@ public class VisionBehaviour : MonoBehaviour
 
     [SerializeField]
     [Range(0,1)]
-    private float percentageThreshold = 0.1f;
+    public float percentageThreshold = 0.1f;
 
     [SerializeField]
     [Range(0, 255)]
@@ -41,7 +41,7 @@ public class VisionBehaviour : MonoBehaviour
     void Start()
     {
         brightnessThresholdEvent += energyBehaviour.DecreaseEnergy;
-        grayScaleChangedEvent += debuggerBehaviour.DisplayTexture2D;
+        grayScaleChangedEvent += debuggerBehaviour.DisplayVision;
     }
 
     // Update is called once per frame

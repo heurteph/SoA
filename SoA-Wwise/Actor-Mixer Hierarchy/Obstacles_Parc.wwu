@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}" SchemaVersion="97" RootDocumentID="{3A9D6820-BB86-49BB-B15D-6AB6123F8ABC}">
+	<AudioObjects>
+		<WorkUnit Name="Obstacles_Parc" ID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}" OwnerID="{3A9D6820-BB86-49BB-B15D-6AB6123F8ABC}" PersistMode="Nested"/>
+	</AudioObjects>
+</WwiseDocument>

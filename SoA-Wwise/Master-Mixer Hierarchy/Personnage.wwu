@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{2E8B03C5-B7AB-4730-AC19-BD49D2D89A85}" SchemaVersion="97">
+	<Busses>
+		<WorkUnit Name="Personnage" ID="{2E8B03C5-B7AB-4730-AC19-BD49D2D89A85}" PersistMode="Standalone"/>
+	</Busses>
+</WwiseDocument>

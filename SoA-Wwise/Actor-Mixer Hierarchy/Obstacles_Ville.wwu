@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{290583BA-F78C-4BA8-B982-F97D11B9B649}" SchemaVersion="97" RootDocumentID="{351F24E1-4FF7-47D0-BD07-D422771E5C68}">
+	<AudioObjects>
+		<WorkUnit Name="Obstacles_Ville" ID="{290583BA-F78C-4BA8-B982-F97D11B9B649}" OwnerID="{351F24E1-4FF7-47D0-BD07-D422771E5C68}" PersistMode="Nested">
+			<ChildrenList>
+				<ActorMixer Name="Véhicules_Ville" ID="{A54CD3F0-086B-4930-9E9A-6F45CB0C922B}" ShortID="891785460">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+					</ReferenceList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

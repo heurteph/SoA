@@ -915,7 +915,7 @@ MonoBehaviour:
   cameraInside: {fileID: 459720718}
   percentageThreshold: 0.1
   brightnessThreshold: 200
-  brightnessDamage: 10
+  brightnessDamage: 0
   energyBehaviour: {fileID: 2015501667}
   debuggerBehaviour: {fileID: 2080632879}
 --- !u!1 &650733818
@@ -1511,7 +1511,7 @@ MonoBehaviour:
   energyBehaviour: {fileID: 2015501667}
   debuggerBehaviour: {fileID: 2080632879}
   loudnessThreshold: 0.034
-  loudnessDamage: 20
+  loudnessDamage: 0
 --- !u!81 &893414513
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1626,6 +1626,7 @@ GameObject:
   - component: {fileID: 963194229}
   - component: {fileID: 963194226}
   - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1739,10 +1740,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2015501663}
-  distancePlayerToCamera: 4
-  offsetYCamera: 1.53
-  offsetXCamera: 0.94
-  cameraAngle: 0
+  offsetZCamera: 0
+  offsetYCamera: 2.18
+  offsetXCamera: 1.54
+  cameraAngleX: 0
+  cameraAngleY: 0
+  cameraAngleZ: 0
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe1030626f853f43aecd945da6207fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2015501663}
+  radius: 5
+  latitude: -19
+  longitude: 0
+  cameraAngleX: 0
+  cameraAngleY: 0
+  cameraAngleZ: 0
 --- !u!1 &963996183
 GameObject:
   m_ObjectHideFlags: 0

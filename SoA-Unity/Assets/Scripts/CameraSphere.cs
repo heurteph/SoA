@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraIco : MonoBehaviour
+public class CameraSphere : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
@@ -10,14 +10,23 @@ public class CameraIco : MonoBehaviour
     [SerializeField]
     private Inputs inputs;
 
-    [SerializeField]
-    private float offsetZCamera = 0f;
+    [Header("Camera")]
+    [Space]
 
     [SerializeField]
-    private float offsetYCamera = 0f;
+    [Tooltip("Distance to the player")]
+    [Range(1, 20)]
+    private float radius = 1f;
 
     [SerializeField]
-    private float offsetXCamera = 0f;
+    [Tooltip("Latitude in degrees")]
+    [Range(-90, 90)]
+    private float latitude = 0f;
+
+    [SerializeField]
+    [Tooltip("Longitude in degrees")]
+    [Range(-180, 180)]
+    private float longitude = 0f;
 
     [SerializeField]
     private float cameraAngleX, cameraAngleY, cameraAngleZ;
@@ -59,11 +68,13 @@ public class CameraIco : MonoBehaviour
 
     private void UpdateCamera ()
     {
-        transform.position = player.transform.position + player.transform.forward.normalized * (-offsetZCamera);
+        transform.position = player.transform.position + Quaternion.Euler(90, 0, 0) * new Vector3 (radius * Mathf.Cos(Mathf.Deg2Rad * latitude) * Mathf.Cos(Mathf.Deg2Rad * longitude), 
+                                                                      radius * Mathf.Cos(Mathf.Deg2Rad * latitude) * Mathf.Sin(Mathf.Deg2Rad * longitude),
+                                                                      radius * Mathf.Sin(Mathf.Deg2Rad * latitude));
 
-        transform.rotation = player.transform.rotation;
+        transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
 
-        transform.position += offsetYCamera*transform.up + offsetXCamera*transform.right;
+
 
         transform.rotation *= Quaternion.Euler(cameraAngleX, cameraAngleY, cameraAngleZ);
 

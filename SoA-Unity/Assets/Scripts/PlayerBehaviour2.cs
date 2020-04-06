@@ -5,9 +5,6 @@ using UnityEngine;
 public class PlayerBehaviour2 : MonoBehaviour
 {
     [SerializeField]
-    private GameObject player;
-
-    [SerializeField]
     private CharacterController characterController;
 
     [SerializeField]
@@ -16,16 +13,12 @@ public class PlayerBehaviour2 : MonoBehaviour
     [SerializeField]
     private Inputs inputs;
 
-    private float angle;
+    [Header("Player settings")]
+    [Space]
 
     [SerializeField]
     [Range(1.0f, 10.0f)]
     private float speed = 1;
-    [SerializeField]
-    [Range(1.0f, 360.0f)]
-    private float rotationSpeed = 25;
-
-    private Quaternion originalRotation;
 
 
     void Awake()
@@ -37,7 +30,7 @@ public class PlayerBehaviour2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        originalRotation = transform.rotation;
+
     }
 
     // Update is called once per frame
@@ -69,8 +62,8 @@ public class PlayerBehaviour2 : MonoBehaviour
 
         if (v.magnitude > Mathf.Epsilon)
         {
-            transform.rotation = originalRotation * Quaternion.Euler(0, cameraMain.transform.rotation.eulerAngles.y + Mathf.Atan2(v.y, -v.x) * Mathf.Rad2Deg - 90, 0);
-            characterController.Move(Vector3.ProjectOnPlane(transform.forward, Vector3.up) * 2.0f * v.magnitude);
+            transform.rotation = Quaternion.Euler(0, cameraMain.transform.rotation.eulerAngles.y + Mathf.Rad2Deg * Mathf.Atan2(v.x, v.y), 0);   // cartesian to polar, starting from the Y+ axis as it's the one mapped to the camera's forward, thus using tan-1(x,y) and not tan-1(y,x) / No rotationSpeed * Time.deltaTime as it takes absolute orientation
+            characterController.Move(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized * v.magnitude * speed * Time.deltaTime);  // projection normalized to have the speed independant from the camera angle
         }  
 
     }

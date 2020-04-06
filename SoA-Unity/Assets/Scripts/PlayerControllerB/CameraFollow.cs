@@ -30,12 +30,14 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Speed at which the camera align itself to the character")]
-    [Range(10,100)]
-    private float alignSpeed = 10;
+    [Range(10,500)]
+    private float alignSpeed = 100;
 
     private float originalYRotation;
 
     private Vector3 lastPlayerPosition;
+
+    private Vector2 readInputValue = Vector2.zero;
 
     private void Awake()
     {
@@ -56,10 +58,11 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate()
     {
         UpdateCamera();
-
-        LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
         
         transform.LookAt(player.transform);
+
+        readInputValue = inputs.Player.LookAround.ReadValue<Vector2>();
+        LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
     }
 
     private void OnEnable()
@@ -82,7 +85,6 @@ public class CameraFollow : MonoBehaviour
         //transform.position = player.transform.position + player.transform.forward * cameraOffset.z + transform.up * cameraOffset.y + transform.right * cameraOffset.x;
         //transform.rotation = player.transform.rotation;
         //transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
-
         //transform.position = player.transform.position + transform.rotation * cameraOffset;
 
         Debug.Log("Delta : " + (player.transform.position - lastPlayerPosition));
@@ -94,22 +96,22 @@ public class CameraFollow : MonoBehaviour
     {
         for(; ;)
         {
-            float angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
-            //Debug.Log("Angle : " + angle);
+            if (readInputValue != null && Mathf.Approximately(readInputValue.x,0) && Mathf.Approximately(readInputValue.y,0) )
+            {
+                float angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
 
-            //Debug.Log("STEP : " + alignSpeed * Time.deltaTime); // STEP ~ 5 !!! But it's ok
-            if (Mathf.Abs(angle) >= alignSpeed * Time.deltaTime) // can be adjusted once more
-            {
-                Debug.Log("Aligning");
-                transform.RotateAround(player.transform.position, Vector3.up, Mathf.Sign(angle) * alignSpeed * Time.deltaTime);
-                transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
-            }
-            else
-            {
-                // BUGFIX : The next line is incorrect
-                //transform.rotation = player.transform.rotation; // Snap to the player's forward
-                //transform.position = player.transform.position + transform.rotation * cameraOffset;
-                //Debug.Log("Aligned : " + angle);
+                float smooth = 0.95f * -Mathf.Pow((Mathf.Abs(angle) / 180f - 1), 2) + 1;  // [0.05-1]
+
+                if (Mathf.Abs(angle) >= alignSpeed * smooth * Time.deltaTime)
+                {
+                    transform.RotateAround(player.transform.position, Vector3.up, Mathf.Sign(angle) * alignSpeed * smooth * Time.deltaTime);
+                    transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
+                }
+                else if (!Mathf.Approximately(angle, 0))
+                {
+                    transform.RotateAround(player.transform.position, Vector3.up, angle);
+                    transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
+                }
             }
             yield return null;
         }

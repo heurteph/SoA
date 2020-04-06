@@ -1871,9 +1871,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2015501663}
-  cameraOffset: {x: 0, y: 1, z: -10}
+  cameraOffset: {x: 0, y: 1, z: -3}
   cameraAngularOffset: {x: 0, y: 0, z: 0}
-  alignSpeed: 50
+  alignSpeed: 200
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0

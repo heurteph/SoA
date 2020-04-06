@@ -8,12 +8,13 @@ public class EnergyBehaviour : MonoBehaviour
     [SerializeField]
     [Range(0,1000)]
     private float energy;
-    
+
+    private MonoBehaviour script;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        script = GetComponent<PlayerFollow>() ? GetComponent<PlayerFollow>() : (MonoBehaviour)GetComponent<PlayerFirst>();
     }
 
     // Update is called once per frame
@@ -41,7 +42,7 @@ public class EnergyBehaviour : MonoBehaviour
 
     void OutOfEnergy() // pour l'instant
     {
-        GetComponent<PlayerBehaviour>().enabled = false;
+        script.enabled = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraSphere : MonoBehaviour
+public class CameraFirst : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject player;
 
     [SerializeField]
     private Inputs inputs;
 
-    [Header("Camera")]
+    [Space]
+    [Header("Camera Settings")]
+    [Space]
+
+    [SerializeField]
+    private GameObject player;
+
     [Space]
 
     [SerializeField]
@@ -28,8 +32,11 @@ public class CameraSphere : MonoBehaviour
     [Range(-180, 180)]
     private float longitude = 0f;
 
+    [Space]
+
     [SerializeField]
-    private float cameraAngleX, cameraAngleY, cameraAngleZ;
+    [Tooltip("Camera's angular offset from the player's orientation")]
+    private Vector3 cameraAngularOffset;
 
     private void Awake()
     {
@@ -76,7 +83,7 @@ public class CameraSphere : MonoBehaviour
 
 
 
-        transform.rotation *= Quaternion.Euler(cameraAngleX, cameraAngleY, cameraAngleZ);
+        transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
 
     }
 

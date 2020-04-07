@@ -110,7 +110,7 @@ public class CameraFirst : MonoBehaviour
             accumulator += v * lookAroundSpeed * Time.deltaTime;
             accumulator.x = Mathf.Clamp(accumulator.x, -maxLookAroundAngle, maxLookAroundAngle);
             accumulator.y = Mathf.Clamp(accumulator.y, -maxLookAroundAngle, maxLookAroundAngle);
-            arm.transform.localRotation = Quaternion.Euler(accumulator.y, accumulator.x, 0);
+            arm.transform.localRotation = Quaternion.Euler(-accumulator.y, accumulator.x, 0);
 
             //arm.transform.rotation *= Quaternion.Euler(90 * -v.y, 60 * v.x, 0); // TO DO : make relative and time-based
         }
@@ -118,7 +118,7 @@ public class CameraFirst : MonoBehaviour
         {
             accumulator.x = (1 - Mathf.Sign(accumulator.x)) / 2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * lookAroundSpeed * Time.deltaTime, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * lookAroundSpeed * Time.deltaTime, 0);
             accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * lookAroundSpeed * Time.deltaTime, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * lookAroundSpeed * Time.deltaTime, 0);
-            arm.transform.localRotation = Quaternion.Euler(accumulator.y, accumulator.x, 0);
+            arm.transform.localRotation = Quaternion.Euler(-accumulator.y, accumulator.x, 0);
         }
     }
 

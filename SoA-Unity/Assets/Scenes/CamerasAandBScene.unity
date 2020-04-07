@@ -1865,7 +1865,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b56d941694b14e4dbecae5f100a31f4, type: 3}
   m_Name: 
@@ -1881,16 +1881,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfe1030626f853f43aecd945da6207fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2015501663}
-  radius: 7.3
-  latitude: -53
-  longitude: -53
   cameraAngularOffset: {x: 0, y: 0, z: 0}
+  radius: 1
+  longitude: 80
+  latitude: 90
+  cameraOffset: {x: -0.9848077, y: -0.00000008609462, z: 0.17364818}
 --- !u!1 &963996183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,7 +2761,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015501663}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1442dbc62d199c947b7378903abcd38a, type: 3}
   m_Name: 
@@ -2822,7 +2823,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015501663}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2472a9a10cb05384b8f098c4737cd02b, type: 3}
   m_Name: 

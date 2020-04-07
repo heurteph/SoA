@@ -2763,7 +2763,8 @@ MonoBehaviour:
   cameraAngularOffset: {x: 0, y: 0, z: 0}
   alignSpeed: 200
   arm: {fileID: 963194225}
-  lookAroundSpeed: 50
+  lookAroundSpeed: 80
+  maxLookAroundAngle: 45
 --- !u!114 &1942502037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2778,10 +2779,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2015501663}
   cameraAngularOffset: {x: 0, y: 0, z: 0}
-  radius: 1
-  longitude: 80
-  latitude: 90
-  cameraOffset: {x: -0.9848077, y: -0.00000008609462, z: 0.17364818}
+  radius: 2.0644128
+  longitude: -74.54868
+  latitude: -41.94441
+  cameraOffset: {x: -1.33, y: 1.48, z: -0.55}
+  arm: {fileID: 963194225}
+  lookAroundSpeed: 80
+  maxLookAroundAngle: 45
 --- !u!4 &1942502038
 Transform:
   m_ObjectHideFlags: 0

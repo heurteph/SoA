@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBehaviour : MonoBehaviour
+public class PlayerFirst : MonoBehaviour
 {
+
+    [SerializeField]
+    private Inputs inputs;
+
+    [Space]
+    [Header("Player Settings")]
+    [Space]
+
     [SerializeField]
     private GameObject player;
 
     [SerializeField]
     private CharacterController characterController;
 
-    [SerializeField]
-    private Inputs inputs;
-
     private float angle;
 
+    [Space]
     [SerializeField]
     [Range(1.0f, 10.0f)]
     private float speed = 1;
@@ -48,6 +54,7 @@ public class PlayerBehaviour : MonoBehaviour
         inputs.Player.Enable();
     }
 
+
     void OnDisable()
     {
         inputs.Player.Disable();
@@ -61,8 +68,5 @@ public class PlayerBehaviour : MonoBehaviour
         angle += v.x * rotationSpeed * Time.deltaTime;
         characterController.transform.rotation = Quaternion.Euler(0,angle,0);
     }
-
-
-
 
 } // FINISH

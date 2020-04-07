@@ -147,8 +147,8 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""07a8359f-9483-45df-89ce-12e4da88f14f"",
+                    ""name"": ""right"",
+                    ""id"": ""d37aa716-7dac-4244-b23e-3931becd8a55"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -158,8 +158,8 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""d37aa716-7dac-4244-b23e-3931becd8a55"",
+                    ""name"": ""left"",
+                    ""id"": ""07a8359f-9483-45df-89ce-12e4da88f14f"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",

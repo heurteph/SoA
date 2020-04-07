@@ -33,11 +33,22 @@ public class CameraFollow : MonoBehaviour
     [Range(10,500)]
     private float alignSpeed = 100;
 
+    [Space]
+
+    [SerializeField]
+    private GameObject arm;
+
     private float originalYRotation;
 
     private Vector3 lastPlayerPosition;
 
     private Vector2 readInputValue = Vector2.zero;
+
+    private Vector2 accumulator = Vector2.zero;
+
+    [SerializeField]
+    private float lookAroundSpeed = 5;
+    private float maxLookAroundAngle = 45; // degrees
 
     private void Awake()
     {
@@ -57,11 +68,12 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        UpdateCamera();
-        
-        transform.LookAt(player.transform);
+        UpdatePosition();
+
+        UpdateRotation();
 
         readInputValue = inputs.Player.LookAround.ReadValue<Vector2>();
+
         LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
     }
 
@@ -75,28 +87,27 @@ public class CameraFollow : MonoBehaviour
         inputs.Player.Disable();
     }
 
-    void LookAround(Vector2 v)
-    {
-        transform.rotation *= Quaternion.Euler( 90 * v.y, 60 * v.x, 0); // add time-based
-    }
-
-    private void UpdateCamera ()
+    private void UpdatePosition ()
     {
         //transform.position = player.transform.position + player.transform.forward * cameraOffset.z + transform.up * cameraOffset.y + transform.right * cameraOffset.x;
         //transform.rotation = player.transform.rotation;
         //transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
         //transform.position = player.transform.position + transform.rotation * cameraOffset;
 
-        Debug.Log("Delta : " + (player.transform.position - lastPlayerPosition));
         transform.position += (player.transform.position - lastPlayerPosition);
         lastPlayerPosition = player.transform.position;
+    }
+
+    private void UpdateRotation ()
+    {
+        transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up)); // kind of a lookAt but without the x-rotation
     }
 
     private IEnumerator AlignWithCharacter()
     {
         for(; ;)
         {
-            if (readInputValue != null && Mathf.Approximately(readInputValue.x,0) && Mathf.Approximately(readInputValue.y,0) )
+            if (/*readInputValue != null && Mathf.Approximately(readInputValue.x,0) && Mathf.Approximately(readInputValue.y,0)*/ true)
             {
                 float angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
 
@@ -117,5 +128,23 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
+    void LookAround(Vector2 v)
+    {
+        if (!(Mathf.Approximately(v.x, 0) && Mathf.Approximately(v.y, 0)))
+        {
+            accumulator += v * lookAroundSpeed * Time.deltaTime;
+            accumulator.x = Mathf.Clamp(accumulator.x, -maxLookAroundAngle, maxLookAroundAngle);
+            accumulator.y = Mathf.Clamp(accumulator.y, -maxLookAroundAngle, maxLookAroundAngle);
+            arm.transform.localRotation = Quaternion.Euler(accumulator.y, accumulator.x, 0);
+
+            //arm.transform.rotation *= Quaternion.Euler(90 * -v.y, 60 * v.x, 0); // TO DO : make relative and time-based
+        }
+        else
+        {
+            accumulator.x = (1-Mathf.Sign(accumulator.x))/2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * lookAroundSpeed * Time.deltaTime, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * lookAroundSpeed * Time.deltaTime, 0);
+            accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * lookAroundSpeed * Time.deltaTime, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * lookAroundSpeed * Time.deltaTime, 0);
+            arm.transform.localRotation = Quaternion.Euler(accumulator.y, accumulator.x, 0);
+        }
+    }
 
 } //FINISH

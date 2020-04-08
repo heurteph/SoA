@@ -26,31 +26,32 @@ public class CameraFollow : MonoBehaviour
     [Tooltip("Camera's angular offset from the player's orientation")]
     private Vector3 cameraAngularOffset = Vector3.zero;
 
-    [Space]
-
     [SerializeField]
     [Tooltip("Speed at which the camera align itself to the character")]
     [Range(10,500)]
     private float alignSpeed = 100;
 
     [Space]
+    [Header("Look around")]
+    [Space]
 
     [SerializeField]
-    private GameObject arm;
+    [Tooltip("The camera (must be a child of the camera holder)")]
+    private GameObject cameraArm;
+
+    [SerializeField]
+    [Tooltip("Duration to reach the maxLookAroundAngle when the input is pushed at max")]
+    [Range(0,5)]
+    private float lookAroundTime = 0.5f; // seconds
+
+    [SerializeField]
+    [Tooltip("Max angle of a look around")]
+    [Range(10,90)]
+    private float maxLookAroundAngle = 45; // degrees
 
     private float originalYRotation;
-
     private Vector3 lastPlayerPosition;
-
-    private Vector2 readInputValue = Vector2.zero;
-
     private Vector2 accumulator = Vector2.zero;
-
-    [SerializeField]
-    private float lookAroundSpeed = 5;
-
-    [SerializeField]
-    private float maxLookAroundAngle = 45; // degrees
 
     private void Awake()
     {
@@ -62,8 +63,9 @@ public class CameraFollow : MonoBehaviour
     {
        originalYRotation  = transform.rotation.eulerAngles.y;
        transform.position = player.transform.position + player.transform.rotation * cameraOffset;
-       transform.LookAt(player.transform);
+       UpdateRotation(); //transform.LookAt(player.transform);
        lastPlayerPosition = player.transform.position;
+
        StartCoroutine("AlignWithCharacter");
     }
 
@@ -73,8 +75,6 @@ public class CameraFollow : MonoBehaviour
         UpdatePosition();
 
         UpdateRotation();
-
-        readInputValue = inputs.Player.LookAround.ReadValue<Vector2>();
 
         LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
     }
@@ -96,57 +96,75 @@ public class CameraFollow : MonoBehaviour
         //transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
         //transform.position = player.transform.position + transform.rotation * cameraOffset;
 
+        // recompute if offset have changed
+        //Quaternion rot = Quaternion.FromToRotation(player.transform.forward, (transform.position - player.transform.position).normalized);
+        //transform.position = player.transform.position + rot * cameraOffset;
+
         transform.position += (player.transform.position - lastPlayerPosition);
         lastPlayerPosition = player.transform.position;
     }
 
     private void UpdateRotation ()
     {
-        transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up)); // kind of a lookAt but without the x-rotation
+        transform.rotation  = Quaternion.LookRotation(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up)); // kind of a lookAt but without the rotation around the x-axis
+        transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
     }
 
     private IEnumerator AlignWithCharacter()
     {
         for(; ;)
         {
-            if (/*readInputValue != null && Mathf.Approximately(readInputValue.x,0) && Mathf.Approximately(readInputValue.y,0)*/ true)
+            float angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
+
+            float smooth = 0.95f * -Mathf.Pow((Mathf.Abs(angle) / 180f - 1), 2) + 1;  // [0.05-1]
+
+            if (Mathf.Abs(angle) >= alignSpeed * smooth * Time.deltaTime)
             {
-                float angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
-
-                float smooth = 0.95f * -Mathf.Pow((Mathf.Abs(angle) / 180f - 1), 2) + 1;  // [0.05-1]
-
-                if (Mathf.Abs(angle) >= alignSpeed * smooth * Time.deltaTime)
-                {
-                    transform.RotateAround(player.transform.position, Vector3.up, Mathf.Sign(angle) * alignSpeed * smooth * Time.deltaTime);
-                    transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
-                }
-                else if (!Mathf.Approximately(angle, 0))
-                {
-                    transform.RotateAround(player.transform.position, Vector3.up, angle);
-                    transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
-                }
+                transform.RotateAround(player.transform.position, Vector3.up, Mathf.Sign(angle) * alignSpeed * smooth * Time.deltaTime);
+                transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
+            }
+            else if (!Mathf.Approximately(angle, 0))
+            {
+                transform.RotateAround(player.transform.position, Vector3.up, angle);
+                transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
             }
             yield return null;
         }
     }
 
+    void AbsoluteLookAround(Vector2 v)
+    {
+        cameraArm.transform.rotation *= Quaternion.Euler(90 * -v.y, 60 * v.x, 0);
+    }
+
     void LookAround(Vector2 v)
     {
-        if (!(Mathf.Approximately(v.x, 0) && Mathf.Approximately(v.y, 0)))
-        {
-            accumulator += v * lookAroundSpeed * Time.deltaTime;
-            accumulator.x = Mathf.Clamp(accumulator.x, -maxLookAroundAngle, maxLookAroundAngle);
-            accumulator.y = Mathf.Clamp(accumulator.y, -maxLookAroundAngle, maxLookAroundAngle);
-            arm.transform.localRotation = Quaternion.Euler(-accumulator.y, accumulator.x, 0);
+        float smoothx = 0;
+        float smoothy = 0;
 
-            //arm.transform.rotation *= Quaternion.Euler(90 * -v.y, 60 * v.x, 0); // TO DO : make relative and time-based
+        if (!Mathf.Approximately(v.x, 0))
+        {
+            accumulator.x = Mathf.Clamp(accumulator.x + v.x * Time.deltaTime / lookAroundTime, -1, 1);
+            smoothx = Mathf.Sign(accumulator.x) * ( 1 - Mathf.Pow(accumulator.x - Mathf.Sign(accumulator.x), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
         }
         else
         {
-            accumulator.x = (1-Mathf.Sign(accumulator.x))/2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * lookAroundSpeed * Time.deltaTime, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * lookAroundSpeed * Time.deltaTime, 0);
-            accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * lookAroundSpeed * Time.deltaTime, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * lookAroundSpeed * Time.deltaTime, 0);
-            arm.transform.localRotation = Quaternion.Euler(-accumulator.y, accumulator.x, 0);
+            accumulator.x = (1 - Mathf.Sign(accumulator.x)) / 2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / lookAroundTime, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / lookAroundTime, 0);
+            smoothx = Mathf.Sign(accumulator.x) * Mathf.Pow(accumulator.x, 2); // f(x) = -x^2 for x between 0 and 1, f(x) = x^2 for x between -1 and 0
         }
+
+        if (!Mathf.Approximately(v.y, 0))
+        {
+            accumulator.y = Mathf.Clamp(accumulator.y + v.y * Time.deltaTime / lookAroundTime, -1, 1);
+            smoothy = Mathf.Sign(accumulator.y) * (1 - Mathf.Pow(accumulator.y - Mathf.Sign(accumulator.y), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
+        }
+        else
+        {
+            accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / lookAroundTime, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / lookAroundTime, 0);
+            smoothy = Mathf.Sign(accumulator.y) * Mathf.Pow(accumulator.y, 2);
+        }
+
+        cameraArm.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
     }
 
 } //FINISH

@@ -2104,11 +2104,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2015501663}
-  cameraOffset: {x: 0, y: 1, z: -10}
+  cameraOffset: {x: 0, y: 2, z: -6}
   cameraAngularOffset: {x: 0, y: 0, z: 0}
-  alignSpeed: 100
-  arm: {fileID: 963194225}
-  lookAroundSpeed: 60
+  alignSpeed: 300
+  cameraArm: {fileID: 963194225}
+  lookAroundTime: 0.5
   maxLookAroundAngle: 45
 --- !u!114 &521883420
 MonoBehaviour:
@@ -2128,8 +2128,8 @@ MonoBehaviour:
   longitude: 18.800003
   latitude: 8
   cameraOffset: {x: 0.36822447, y: 2.6200533, z: 7.7719903}
-  arm: {fileID: 963194225}
-  lookAroundSpeed: 60
+  cameraArm: {fileID: 963194225}
+  lookAroundTime: 0.5
   maxLookAroundAngle: 45
 --- !u!1 &524566403
 GameObject:
@@ -7513,7 +7513,7 @@ MonoBehaviour:
   player: {fileID: 2015501663}
   characterController: {fileID: 2015501666}
   speed: 5
-  rotationSpeed: 360
+  rotationSpeed: 120
 --- !u!4 &2015501665
 Transform:
   m_ObjectHideFlags: 0

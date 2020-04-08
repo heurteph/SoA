@@ -18,16 +18,15 @@ public class PlayerFirst : MonoBehaviour
     [SerializeField]
     private CharacterController characterController;
 
-    private float angle;
-
     [Space]
     [SerializeField]
-    [Range(1.0f, 10.0f)]
-    private float speed = 1;
+    [Range(1.0f, 20.0f)]
+    private float speed = 8;
     [SerializeField]
     [Range(1.0f, 360.0f)]
-    private float rotationSpeed = 25;
+    private float rotationSpeed = 150;
 
+    private float angle;
 
     void Awake()
     {
@@ -69,4 +68,8 @@ public class PlayerFirst : MonoBehaviour
         characterController.transform.rotation = Quaternion.Euler(0,angle,0);
     }
 
+    void TurnBack()
+    {
+
+    }
 } // FINISH

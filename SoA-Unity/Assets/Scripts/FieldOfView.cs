@@ -33,21 +33,21 @@ public class FieldOfView : MonoBehaviour
 	private int crowdDamage;
 
 	void Start()
-		{
-			StartCoroutine("FindTargetsWithDelay", .2f);
-
+	{
+	    StartCoroutine("FindTargetsWithDelay", .2f);
+        obstacleMask = ~targetMask;
 		crowdThresholdEvent += energyBehaviour.DecreaseEnergy;
-		}
+	}
 
 
-		IEnumerator FindTargetsWithDelay(float delay)
+	IEnumerator FindTargetsWithDelay(float delay)
+	{
+		while (true)
 		{
-			while (true)
-			{
-				yield return new WaitForSeconds(delay);
-				FindVisibleTargets();
-			}
+			yield return new WaitForSeconds(delay);
+			FindVisibleTargets();
 		}
+	}
 
 
 	void Update()

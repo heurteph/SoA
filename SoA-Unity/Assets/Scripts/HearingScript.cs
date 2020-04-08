@@ -67,19 +67,17 @@ public class HearingScript : MonoBehaviour
             float loudness = 0f; 
 
             AudioListener.GetOutputData(sampleData, 0);
-            //audioSource.GetOutputData(sampleData, 0);
+            //audioSource.GetOutputData(sampleData, 1);
 
-
-            /*  CEST TROP LOURD §§§ ET CA MARCHE PAS §§ NIQUE TA RACE MACRON ET LE GONORAVERUS */
             for (int i = 0; i < sampleTotal; i++)
             {
                 float sample = sampleData[i];
 
-                Debug.Log("Sample : " + sample);
+                //Debug.Log("Sample : " + sample);
                 loudness += Mathf.Abs(sample);
             }
 
-            Debug.Log("Total : " + loudness);
+            //Debug.Log("Total : " + loudness);
             loudness /= sampleTotal; //Average Volume
 
             LoudnessUpdateEvent(loudness);

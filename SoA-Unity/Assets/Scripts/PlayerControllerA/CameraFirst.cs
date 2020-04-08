@@ -50,17 +50,24 @@ public class CameraFirst : MonoBehaviour
     private Vector3 storedCameraOffset;
 
     [Space]
+    [Header("Look around")]
+    [Space]
 
     [SerializeField]
-    private GameObject arm;
+    [Tooltip("The camera (must be a child of the camera holder)")]
+    private GameObject cameraArm;
+
+    [SerializeField]
+    [Tooltip("Duration to reach the maxLookAroundAngle when the input is pushed at max")]
+    [Range(0, 5)]
+    private float lookAroundTime = 0.5f; // seconds
+
+    [SerializeField]
+    [Tooltip("Max angle of a look around")]
+    [Range(10, 90)]
+    private float maxLookAroundAngle = 45; // degrees
 
     private Vector2 accumulator = Vector2.zero;
-
-    [SerializeField]
-    private float lookAroundSpeed = 5;
-
-    [SerializeField]
-    private float maxLookAroundAngle = 45; // degrees
 
     private void Awake()
     {
@@ -103,23 +110,39 @@ public class CameraFirst : MonoBehaviour
 
     }
 
+    void AbsoluteLookAround(Vector2 v)
+    {
+        cameraArm.transform.rotation *= Quaternion.Euler(90 * -v.y, 60 * v.x, 0);
+    }
+
     void LookAround(Vector2 v)
     {
-        if (!(Mathf.Approximately(v.x, 0) && Mathf.Approximately(v.y, 0)))
-        {
-            accumulator += v * lookAroundSpeed * Time.deltaTime;
-            accumulator.x = Mathf.Clamp(accumulator.x, -maxLookAroundAngle, maxLookAroundAngle);
-            accumulator.y = Mathf.Clamp(accumulator.y, -maxLookAroundAngle, maxLookAroundAngle);
-            arm.transform.localRotation = Quaternion.Euler(-accumulator.y, accumulator.x, 0);
+        float smoothx = 0;
+        float smoothy = 0;
 
-            //arm.transform.rotation *= Quaternion.Euler(90 * -v.y, 60 * v.x, 0); // TO DO : make relative and time-based
+        if (!Mathf.Approximately(v.x, 0))
+        {
+            accumulator.x = Mathf.Clamp(accumulator.x + v.x * Time.deltaTime / lookAroundTime, -1, 1);
+            smoothx = Mathf.Sign(accumulator.x) * (1 - Mathf.Pow(accumulator.x - Mathf.Sign(accumulator.x), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
         }
         else
         {
-            accumulator.x = (1 - Mathf.Sign(accumulator.x)) / 2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * lookAroundSpeed * Time.deltaTime, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * lookAroundSpeed * Time.deltaTime, 0);
-            accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * lookAroundSpeed * Time.deltaTime, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * lookAroundSpeed * Time.deltaTime, 0);
-            arm.transform.localRotation = Quaternion.Euler(-accumulator.y, accumulator.x, 0);
+            accumulator.x = (1 - Mathf.Sign(accumulator.x)) / 2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / lookAroundTime, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / lookAroundTime, 0);
+            smoothx = Mathf.Sign(accumulator.x) * Mathf.Pow(accumulator.x, 2); // f(x) = -x^2 for x between 0 and 1, f(x) = x^2 for x between -1 and 0
         }
+
+        if (!Mathf.Approximately(v.y, 0))
+        {
+            accumulator.y = Mathf.Clamp(accumulator.y + v.y * Time.deltaTime / lookAroundTime, -1, 1);
+            smoothy = Mathf.Sign(accumulator.y) * (1 - Mathf.Pow(accumulator.y - Mathf.Sign(accumulator.y), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
+        }
+        else
+        {
+            accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / lookAroundTime, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / lookAroundTime, 0);
+            smoothy = Mathf.Sign(accumulator.y) * Mathf.Pow(accumulator.y, 2);
+        }
+
+        cameraArm.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
     }
 
     /* Spherical-Cartesian conversion functions */

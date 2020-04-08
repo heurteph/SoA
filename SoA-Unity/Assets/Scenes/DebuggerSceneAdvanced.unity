@@ -6693,7 +6693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1752953269
 Transform:
   m_ObjectHideFlags: 0
@@ -7514,6 +7514,7 @@ MonoBehaviour:
   characterController: {fileID: 2015501666}
   speed: 5
   rotationSpeed: 120
+  turnBackTime: 0.35
 --- !u!4 &2015501665
 Transform:
   m_ObjectHideFlags: 0

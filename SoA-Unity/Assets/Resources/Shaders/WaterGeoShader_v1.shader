@@ -1,0 +1,427 @@
+﻿Shader "Shaders/WaterGeoShader_v1"
+{
+	//Tesselation c'est un redécoupage en triangle => comme avec poly découpé en triangle(use algo)
+	//sinon exemple avec Shader Tesselation
+
+	//pour pouvoir modif dans material
+	Properties
+	{
+		[Header(Shading)]
+		_Color("Color", Color) = (1,1,1,1)
+		_TranslucentGain("Translucent Gain", Range(0,1)) = 0.5
+		_CoefTaille("Taille",Range(1,10)) = 1.0
+		//autour de l'axe x sur elle melle
+		//var présente dans fichier tess shader
+		//attention au nom et pas oublier de lettres......
+		_TessellationUniform("Tessellation", Range(1,64)) = 1
+		_WindDistoMap("Wind Disto Map", 2D) = "white"{}
+		_WindFq("Wind Frequence",Vector) = (0.05,0.05,0,0)
+		_WindStrength("Wind Strength",Float) = 1
+		_DynamicRender("Dynamic mode",int) = 1
+	}
+
+		//factorisation des données pour les différentes couches de traitemenet "Pass"
+		CGINCLUDE
+		#include "UnityCG.cginc"
+		#include "Autolight.cginc"
+		
+		#define BLADE_SEGMENTS 3
+		//var dans matériaux globales
+		float4 _Color;
+		float _CoefTaille;
+		sampler2D _WindDistoMap;
+		float4 _WindDistoMap_ST;
+		float2 _WindFq;
+		float _WindStrength;
+		
+		float _TessellationUniform;
+		float distance;
+		int _DynamicRender;
+
+
+		struct vertexInput
+		{
+			float4 vertex : POSITION;
+			float3 normal : NORMAL;
+			float4 tangent : TANGENT;
+		};
+
+		struct vertexOutput
+		{
+			float4 vertex : SV_POSITION;
+			float3 normal : NORMAL;
+			float4 tangent : TANGENT;
+		};
+
+		struct TessellationFactors
+		{
+			float edge[3] : SV_TessFactor;
+			float inside : SV_InsideTessFactor;
+		};
+
+		struct geometryOutput {
+			//mot a droite pour sémantic
+			float4 pos : SV_POSITION;
+			//niveau de texture utilisé comme dans OGL
+			float2 uv : TEXCOORD0;
+			unityShadowCoord4 _ShadowCoord : TEXCOORD1;
+			float3 normal : NORMAL;
+		};
+
+		geometryOutput VertexOutput(float3 pos, float2 uv,float3 normal) {
+			geometryOutput o;
+			o.pos = UnityObjectToClipPos(pos);
+			o.uv = uv;
+			//position shadow into a screen space texture
+			o._ShadowCoord = ComputeScreenPos(o.pos);
+			//convvertion entre différent type de référent
+			//world space
+			o.normal = UnityObjectToWorldNormal(normal);
+			//only in shadow pass
+			#if UNITY_PASS_SHADOWCASTER
+				//apply the linear bias prevents artifacts 
+				o.pos = UnityApplyLinearShadowBias(o.pos);
+			#endif
+			return o;
+		}
+
+		vertexOutput tessVert(vertexInput v)
+		{
+			vertexOutput o;
+			// Note that the vertex is NOT transformed to clip
+			// space here; this is done in the grass geometry shader.
+			o.vertex = v.vertex;
+			o.normal = v.normal;
+			o.tangent = v.tangent;
+			return o;
+		}
+
+		vertexInput vert(vertexInput v)
+		{
+			return v;
+		}
+
+		TessellationFactors patchConstantFunction(InputPatch<vertexInput, 3> patch)
+		{
+			TessellationFactors f;
+			f.edge[0] = _TessellationUniform;
+			f.edge[1] = _TessellationUniform;
+			f.edge[2] = _TessellationUniform;
+			f.inside = _TessellationUniform;
+			return f;
+		}
+
+		[UNITY_domain("tri")]
+		[UNITY_outputcontrolpoints(3)]
+		[UNITY_outputtopology("triangle_cw")]
+		[UNITY_partitioning("integer")]
+		[UNITY_patchconstantfunc("patchConstantFunction")]
+		vertexInput hull(InputPatch<vertexInput, 3> patch, uint id : SV_OutputControlPointID)
+		{
+			return patch[id];
+		}
+
+		[UNITY_domain("tri")]
+		vertexOutput domain(TessellationFactors factors, OutputPatch<vertexInput, 3> patch, float3 barycentricCoordinates : SV_DomainLocation)
+		{
+			vertexInput v;
+
+#define MY_DOMAIN_PROGRAM_INTERPOLATE(fieldName) v.fieldName = \
+		patch[0].fieldName * barycentricCoordinates.x + \
+		patch[1].fieldName * barycentricCoordinates.y + \
+		patch[2].fieldName * barycentricCoordinates.z;
+
+			MY_DOMAIN_PROGRAM_INTERPOLATE(vertex)
+				MY_DOMAIN_PROGRAM_INTERPOLATE(normal)
+				MY_DOMAIN_PROGRAM_INTERPOLATE(tangent)
+
+				return tessVert(v);
+		}
+
+		//rand Trauma
+		float rand(float3 myVector) {
+			return frac(sin(dot(myVector, float3(12.9898, 78.233, 45.5432))) * 43758.5453);
+		}
+
+
+		//calcul d'une matrice pour angle
+		//autour d'un axe pour nous axe z 0 0 1
+		//avec angle aléa entre 0 et 2PI
+		float3x3 AngleAxis3x3(float angle, float3 axis)
+		{
+			float c, s;
+			//angle => return sin et cos de cet anagle
+			sincos(angle, s, c);
+
+			//reste du cos sur PI
+			float t = 1 - c;
+			float x = axis.x;
+			float y = axis.y;
+			float z = axis.z;
+
+			return float3x3(
+				t * x * x + c, t * x * y - s * z, t * x * z + s * y,
+				t * x * y + s * z, t * y * y + c, t * y * z - s * x,
+				t * x * z - s * y, t * y * z + s * x, t * z * z + c
+				);
+		}
+
+		//forward pour curve de l'herbe
+		geometryOutput GenerateGrassVertex(float3 vertexPosition, float width, float height, float forward, float2 uv, float3x3 transformMatrix) {
+			float3 tangentPoint = float3(width, forward, height);
+			
+			//float3 tangentNormal = float3(0, -1, 0);
+			//proportionally scale the Z-axis of our normals
+			float3 tangentNormal = normalize(float3(0, -1, forward));
+			float3 localNormal = mul(transformMatrix, tangentNormal);
+
+			float3 localPosition = vertexPosition + mul(transformMatrix, tangentPoint);
+			//pass the localNormal through VertexOutput to the geometryOutput
+			return VertexOutput(localPosition, uv, localNormal);
+		}
+
+		//penser a mettre position joueur
+		//et point central pour changer Tessellation et mouvement
+
+		//DRY => Don't Repeat Yourself
+
+		//ATTENTION GROUND PLANE => Une seul
+		//GROUND PLANE 10*10 => plusieurs vertices
+
+		//SV_POSITION n'est plus de rigueur car on l'a déjà mis dans la struct d'entrée
+		//void geo(triangle float4 IN[3] : SV_POSITION, inout TriangleStream<geometryOutput> triStream) {
+		//[maxvertexcount(3)]
+		//ajout découpage en plusieurs segments de l'herbe
+		[maxvertexcount(1)]
+		void geo(triangle vertexOutput IN[3], inout TriangleStream<geometryOutput> triStream) {
+			geometryOutput o;
+
+			/*float4 a = IN[0].vertex - IN[1].vertex;
+			float4 b = IN[2].vertex - IN[1].vertex;
+			float3 normal = -normalize(cross(a, b)).rgb;*/
+			float3 pos;
+
+			float3 tmp;
+			pos = IN[0].vertex;
+			float3 vNormal = IN[0].normal;
+			//ICI ON VA UTILISER POUR BITANGENT SPACE POUR TRANSFORMATION LOCAL DANS LE WORLD
+			float4 vTangent = IN[0].tangent;
+			//cross product tangent and normal multilply by the direction here stocked by unity in w homogeneus data to lightened mem usage
+			float3 vBinormal = cross(vNormal, vTangent) * vTangent.w;
+
+			float3x3 tangentToLocal = float3x3(
+				vTangent.x, vBinormal.x, vNormal.x,
+				vTangent.y, vBinormal.y, vNormal.y,
+				vTangent.z, vBinormal.z, vNormal.z
+				);
+
+			//float3x3 facingRotMat = AngleAxis3x3(rand(pos) * UNITY_TWO_PI, float3(0, 0, 1));
+			float3x3 transformationMat;
+			float forward = rand(pos.yyz);
+			float3 tangentPoint = float3(0, forward, 0);
+			float3 tangentNormal = normalize(float3(0, -1, forward));
+
+			if (_DynamicRender) {
+				
+				//pour texture wind => avec fq en fonction du temps
+				float2 uv = pos.xz * _WindDistoMap_ST.xy + _WindDistoMap_ST.zw + _WindFq * _Time.y;
+				//passage de 0 a 1 => -1 1 => utilisation de coord texture entre -1 et 1 pour vecteur et opposé * coef force
+				//ici recup donné sur normal map en gros
+				float2 windSample = (tex2Dlod(_WindDistoMap, float4(uv, 0, 0)).xy * 2 - 1) * _WindStrength;
+
+				//normalisation de ce vecteur recup en prenant uniquement axe x et y
+				float3 wind = normalize(float3(windSample.x, windSample.y, 0));
+
+				//pour rot angle sur 180 degré
+				float3x3 windRot = AngleAxis3x3(UNITY_PI * windSample, wind);
+
+				transformationMat = mul(tangentToLocal, windRot);
+
+				float3 tangentPoint = float3(0, forward, 0);
+
+				//float3 tangentNormal = float3(0, -1, 0);
+				//proportionally scale the Z-axis of our normals
+
+				float3 localNormal = mul(transformationMat, tangentNormal);
+
+				//float3 localPosition = pos + mul(transformationMat, tangentPoint);
+
+				//entre 0 et 1 normalement
+				/*float height = ((rand(pos.zyx) * 2 - 1) * _BladeHeightRand + _BladeHeight) * _CoefTaille;
+				//ordre x y z => pour x et inverse pour z
+				float width = ((rand(pos.xyz) * 2 - 1) * _BladeWidthRand + _BladeWidth) * _CoefTaille;
+
+				float forward = rand(pos.yyz) * _BladeForward;*/
+
+				//v1
+				/*triStream.Append(VertexOutput(pos + mul(tangentToLocal,float3(0.5f*_CoefTaille, 0.0f, 0.0f)),float2(0,0)));
+				triStream.Append(VertexOutput(pos + mul(tangentToLocal,float3(-0.5f*_CoefTaille, 0.0f, 0.0f)), float2(1, 0)));
+				//change the Y dir by conv of Tangent with Z dir
+				triStream.Append(VertexOutput(pos + mul(tangentToLocal,float3(0.0f, 0.0f, 1.0f*_CoefTaille)), float2(0.5, 1)));*/
+
+				//v2 avec rot rand
+				/*triStream.Append(VertexOutput(pos + mul(transformationMat, float3(width, 0.0f, 0.0f)), float2(0, 0)));
+				triStream.Append(VertexOutput(pos + mul(transformationMat, float3(-width, 0.0f, 0.0f)), float2(1, 0)));
+				//change the Y dir by conv of Tangent with Z dir
+				triStream.Append(VertexOutput(pos + mul(transformationMat, float3(0.0f, 0.0f, height)), float2(0.5, 1)));*/
+
+
+				//v3 avec ajustement rot de la base
+				/*triStream.Append(VertexOutput(pos + mul(transformationMatFacing, float3(width, 0.0f, 0.0f)), float2(0, 0)));
+				triStream.Append(VertexOutput(pos + mul(transformationMatFacing, float3(-width, 0.0f, 0.0f)), float2(1, 0)));
+				//change the Y dir by conv of Tangent with Z dir
+				triStream.Append(VertexOutput(pos + mul(transformationMat, float3(0.0f, 0.0f, height)), float2(0.5, 1)));*/
+
+				//v4 avec fonction pour générer deux vertices avec la transformation
+				/*triStream.Append(GenerateGrassVertex(pos, width, 0, float2(0, 0), transformationMat));
+				triStream.Append(GenerateGrassVertex(pos, -width, 0, float2(1, 0), transformationMat));
+				triStream.Append(GenerateGrassVertex(pos, 0, height, float2(0.5, 1), transformationMat));*/
+
+				triStream.Append(VertexOutput(pos + mul(transformationMat, float3(0.0f, 0.0f, 0.0f)), float2(0, 0),localNormal));
+			}
+			//render simple
+			else {
+				//entre 0 et 1 normalement
+				//float height = ((rand(pos.zyx) * 2 - 1) * _BladeHeightRand + _BladeHeight) * _CoefTaille;
+				//ordre x y z => pour x et inverse pour z
+				//float width = ((rand(pos.xyz) * 2 - 1) * _BladeWidthRand + _BladeWidth) * _CoefTaille;
+
+				transformationMat = tangentToLocal;//mul(tangentToLocal, facingRotMat);
+				float3 localNormal = mul(transformationMat, tangentNormal);
+
+				//float3 localPosition = pos + mul(transformationMat, tangentPoint);
+
+				triStream.Append(VertexOutput(pos + mul(transformationMat, float3(0, 0.0f, 0.0f)), float2(0, 0), localNormal));
+			}
+		}
+
+		//LOI de LAMBERT
+		//I = N . L
+
+		//DANS TESSELATION SHADER
+		/*struct vertexInput {
+			float4 vertex : POSITION;
+			float3 normal : NORMAL;
+			float4 tangent : TANGENT;
+			half2 uv : TEXCOORD0;
+		};
+
+		//DANS TESSELATION SHADER
+		//hull and domain qui s'en occupe
+		struct vertexOutput {
+			float4 vertex : SV_POSITION;
+			float3 normal : NORMAL;
+			float4 tangent : TANGENT;
+			half2 uv : TEXCOORD0;
+		};*/
+
+		//pour la sortie
+		/*float4 vert(float4 vertex : POSITION) : SV_POSITION{
+			return vertex;//UnityObjectToClipPos(vertex);
+		}*/
+
+		//DANS TESSELATION SHADER avec juste return vertex => et passage dans un Tess Shader
+		/*vertexOutput vert(vertexInput v) {
+			vertexOutput o;
+			o.vertex = v.vertex;
+			o.normal = v.normal;
+			o.tangent = v.tangent;
+			return o;
+		}*/
+
+
+		ENDCG
+
+			SubShader{
+			//test sur lod
+			//LOD 100
+			//ordre face impacté par geoshader ?
+			//rendu avec ordre point 1 -> 2 -> 3 etc...
+			//Cull Off
+			Cull Off
+
+			Pass
+			{
+				Tags
+				{
+					"RenderType" = "Opaque"
+					//to render to normal buffer
+					"LightMode" = "ForwardBase"
+				}
+
+				CGPROGRAM
+				#pragma vertex vert
+				#pragma geometry geo
+				#pragma fragment frag
+				//gérer dans TESSELATION SHADER
+				#pragma hull hull
+				#pragma domain domain
+				//directiv to compile all necessary shader variants
+				#pragma multi_compile_fwdbase
+				#pragma target 4.6
+
+				#include "Lighting.cginc"
+
+
+				//quand une struct avec un param
+				//float4 frag(float4 vertex : SV_POSITION) : SV_TARGET{
+				//base
+				//float4 frag(geometryOutput i) : SV_TARGET{
+				//VFACE pour s'arrurer du bon cote du rendu de l'herbe (pas à l'envers)
+				//fixed facing return a positiv number if viewing the front of the surface, and negative viewing the back
+				//we use it above to invert the normal when necessary
+				float4 frag(geometryOutput i,fixed facing : VFACE) : SV_Target{
+					//return float4(1,1,1,1);
+				
+					//interpolation lerp entre deux couleur avec la hauteur dans notre cas
+					//interpolation poid
+					//return lerp(_BottomColor,_TopColor,i.uv.y);
+					//macro to retrieve float to determinate in 0...1 rage if shadowed (0) or fully illuminated (1)
+					//return SHADOW_ATTENUATION(i);
+					//return float4(normal * 0.5 + 0.5, 1);
+					float4 col;
+					if (_DynamicRender) {
+						float shadow = SHADOW_ATTENUATION(i);
+						//calcul lumiere simple
+						float NdotL = saturate(saturate(dot(i.normal, _WorldSpaceLightPos0))) * shadow;
+
+						float3 ambient = ShadeSH9(float4(i.normal, 1));
+						float4 lightIntensity = NdotL * _LightColor0 + float4(ambient, 1);
+						col = _Color * lightIntensity;//lerp(_BottomColor, _TopColor * lightIntensity, i.uv.y);
+						//specular => via Phong Gouraud ou Blinn-Phong
+					}
+					else {
+						col = _Color;//lerp(_BottomColor,_TopColor,i.uv.y);
+					}
+					
+					return col;
+				}
+
+				ENDCG
+			}
+			//second Pass to render Shadow to Shadow map => only main Directional Light
+			Pass
+			{
+				Tags
+				{
+					//to render to ShadowMaps buffer
+					"LightMode" = "ShadowCaster"
+				}
+				CGPROGRAM
+				//preprocessor directivs as openmp
+				#pragma vertex vert
+				#pragma fragment frag
+				#pragma hull hull
+				#pragma domain domain
+				#pragma target 4.6
+				//compile all necessary variants required for shadow casting
+				#pragma multi_compile_shadowcaster
+
+				float4 frag(geometryOutput i) : SV_Target
+				{
+					SHADOW_CASTER_FRAGMENT(i)
+				}
+				ENDCG
+			}
+		}
+}

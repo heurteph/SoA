@@ -5,7 +5,7 @@ using UnityEngine;
 public class HearingScript : MonoBehaviour
 {
     const int sampleNumber = 1024; // 32768; // 2^15 number of samples for 0,743 seconds
-    const float sampleSeconds = 0.743f; // 32768 hertz / 44100
+    const float sampleSeconds = 0.2f; //0.743f; // 32768 hertz / 44100
 
     [SerializeField]
     [Range(1, 5)]
@@ -88,7 +88,7 @@ public class HearingScript : MonoBehaviour
             }
 
 
-            yield return new WaitForSeconds(sampleSeconds*hearingMultiplier);
+            yield return new WaitForSeconds(sampleSeconds * hearingMultiplier);
         }
     }
 

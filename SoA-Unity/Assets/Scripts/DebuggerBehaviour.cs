@@ -54,12 +54,12 @@ public class DebuggerBehaviour : MonoBehaviour
 
         insideVisionSlider.value = percentage;
 
-        if (percentage > visionBehaviour.percentageThreshold * 2)
+        if (percentage >= visionBehaviour.percentageThreshold)
         {
             insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
             Debug.Log("red");
         }
-        else if (percentage > visionBehaviour.percentageThreshold)
+        else if (percentage >= visionBehaviour.percentageThreshold * 0.5f)
         {
             insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
             Debug.Log("yellow");
@@ -77,12 +77,12 @@ public class DebuggerBehaviour : MonoBehaviour
 
         Debug.Log("loudness Threshold :" + hearingScript.loudnessThreshold);
 
-        if (volume > hearingScript.loudnessThreshold * 2)
+        if (volume >= hearingScript.loudnessThreshold)
         {
             loudnessSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
             Debug.Log("red");
         } 
-        else if (volume > hearingScript.loudnessThreshold)
+        else if (volume >= hearingScript.loudnessThreshold * 0.5f)
         {
             loudnessSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
             Debug.Log("yellow");

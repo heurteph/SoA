@@ -54,8 +54,8 @@ public class CameraFirst : MonoBehaviour
     [Space]
 
     [SerializeField]
-    [Tooltip("The camera (must be a child of the camera holder)")]
-    private GameObject cameraArm;
+    [Tooltip("The held camera (must be a child of the camera holder)")]
+    private GameObject heldCamera;
 
     [SerializeField]
     [Tooltip("Duration to reach the maxLookAroundAngle when the input is pushed at max")]
@@ -71,13 +71,13 @@ public class CameraFirst : MonoBehaviour
 
     private void Awake()
     {
-       inputs = new Inputs();
+        inputs = new Inputs();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        InitializeConverter();
     }
 
     // Update is called once per frame
@@ -107,12 +107,11 @@ public class CameraFirst : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
 
         transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
-
     }
 
     void AbsoluteLookAround(Vector2 v)
     {
-        cameraArm.transform.rotation *= Quaternion.Euler(90 * -v.y, 60 * v.x, 0);
+        heldCamera.transform.rotation *= Quaternion.Euler(90 * -v.y, 60 * v.x, 0);
     }
 
     void LookAround(Vector2 v)
@@ -142,13 +141,22 @@ public class CameraFirst : MonoBehaviour
             smoothy = Mathf.Sign(accumulator.y) * Mathf.Pow(accumulator.y, 2);
         }
 
-        cameraArm.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
+        heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
     }
 
     /* Spherical-Cartesian conversion functions */
 
+    private void InitializeConverter()
+    {
+        storedCameraOffset = cameraOffset;
+        storedLatitude     = latitude;
+        storedLongitude    = longitude;
+        storedRadius       = radius;
+    }
+
     private void SphericalToCartesian()
     {
+        Debug.Log("Spherical -> Cartesian");
         cameraOffset.x = radius * Mathf.Cos(longitude * Mathf.Deg2Rad) * Mathf.Cos(latitude * Mathf.Deg2Rad);
         cameraOffset.y = radius * Mathf.Sin(longitude * Mathf.Deg2Rad) * Mathf.Cos(latitude * Mathf.Deg2Rad);
         cameraOffset.z = radius * Mathf.Sin(latitude * Mathf.Deg2Rad);
@@ -158,6 +166,7 @@ public class CameraFirst : MonoBehaviour
 
     public void CartesianToSpherical()
     {
+        Debug.Log("Cartesian -> Spherical");
         radius = cameraOffset.magnitude;
         longitude = Mathf.Atan(Mathf.Sqrt(Mathf.Pow(cameraOffset.x,2) + Mathf.Pow(cameraOffset.y,2)) / cameraOffset.z) * Mathf.Rad2Deg;
         latitude = Mathf.Atan(cameraOffset.x / cameraOffset.y) * Mathf.Rad2Deg;
@@ -167,30 +176,33 @@ public class CameraFirst : MonoBehaviour
         storedRadius = radius;
     }
 
+    // OnValidate is called before Awake
     private void OnValidate()
     {
-        if (storedCameraOffset != cameraOffset)
+        if (isActiveAndEnabled)
         {
-            storedCameraOffset = cameraOffset;
-            CartesianToSpherical();
-        }
+            if (storedCameraOffset != cameraOffset)
+            {
+                storedCameraOffset = cameraOffset;
+                CartesianToSpherical();
+            }
 
-        else if (storedRadius != radius)
-        {
-            storedRadius = radius;
-            SphericalToCartesian();
-        }
-        else if (storedLongitude != longitude)
-        {
-            storedLongitude = longitude;
-            SphericalToCartesian();
-        }
-        else if (storedLatitude != latitude)
-        {
-            storedLatitude = latitude;
-            SphericalToCartesian();
+            else if (storedRadius != radius)
+            {
+                storedRadius = radius;
+                SphericalToCartesian();
+            }
+            else if (storedLongitude != longitude)
+            {
+                storedLongitude = longitude;
+                SphericalToCartesian();
+            }
+            else if (storedLatitude != latitude)
+            {
+                storedLatitude = latitude;
+                SphericalToCartesian();
+            }
         }
     }
-
 
 } //FINISH

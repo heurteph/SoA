@@ -38,17 +38,13 @@ public class HearingScript : MonoBehaviour
     void Awake()
     {
     sampleTotal = hearingMultiplier * sampleNumber;
-
     sampleData = new float[sampleTotal];
-
     }
-
 
     // Start is called before the first frame update
     void Start()
     {
         LoudnessThresholdEvent += energyBehaviour.DecreaseEnergy;
-
         LoudnessUpdateEvent += debuggerBehaviour.DisplayVolume;
 
         StartCoroutine("Hear");
@@ -72,12 +68,9 @@ public class HearingScript : MonoBehaviour
             for (int i = 0; i < sampleTotal; i++)
             {
                 float sample = sampleData[i];
-
-                //Debug.Log("Sample : " + sample);
                 loudness += Mathf.Abs(sample);
             }
 
-            //Debug.Log("Total : " + loudness);
             loudness /= sampleTotal; //Average Volume
 
             LoudnessUpdateEvent(loudness);
@@ -86,7 +79,6 @@ public class HearingScript : MonoBehaviour
             {
                 LoudnessThresholdEvent(loudnessDamage);
             }
-
 
             yield return new WaitForSeconds(sampleSeconds * hearingMultiplier);
         }

@@ -36,8 +36,8 @@ public class CameraFollow : MonoBehaviour
     [Space]
 
     [SerializeField]
-    [Tooltip("The camera (must be a child of the camera holder)")]
-    private GameObject cameraArm;
+    [Tooltip("The held camera (must be a child of the camera holder)")]
+    private GameObject heldCamera;
 
     [SerializeField]
     [Tooltip("Duration to reach the maxLookAroundAngle when the input is pushed at max")]
@@ -134,7 +134,7 @@ public class CameraFollow : MonoBehaviour
 
     void AbsoluteLookAround(Vector2 v)
     {
-        cameraArm.transform.rotation *= Quaternion.Euler(90 * -v.y, 60 * v.x, 0);
+        heldCamera.transform.rotation *= Quaternion.Euler(90 * -v.y, 60 * v.x, 0);
     }
 
     void LookAround(Vector2 v)
@@ -164,7 +164,7 @@ public class CameraFollow : MonoBehaviour
             smoothy = Mathf.Sign(accumulator.y) * Mathf.Pow(accumulator.y, 2);
         }
 
-        cameraArm.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
+        heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
     }
 
 } //FINISH

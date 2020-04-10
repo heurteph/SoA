@@ -16,7 +16,8 @@ public class PlayerFollow : MonoBehaviour
     private CharacterController characterController;
 
     [SerializeField]
-    private GameObject cameraMain;
+    [Tooltip("The camera from which the player's forward direction is given")]
+    private GameObject cameraHolder;
 
     [Space]
     [SerializeField]
@@ -40,9 +41,10 @@ public class PlayerFollow : MonoBehaviour
     void Update()
     {
         if (inputs.Player.Walk != null)
-        Walk(inputs.Player.Walk.ReadValue<Vector2>());
+        {
+            Walk(inputs.Player.Walk.ReadValue<Vector2>());
+        }
     }
-
 
     void OnEnable()
     {
@@ -54,7 +56,6 @@ public class PlayerFollow : MonoBehaviour
         inputs.Player.Disable();
     }
 
-
     void Walk(Vector2 v)
     {
         
@@ -64,12 +65,9 @@ public class PlayerFollow : MonoBehaviour
 
         if (v.magnitude > Mathf.Epsilon)
         {
-            transform.rotation = Quaternion.Euler(0, cameraMain.transform.rotation.eulerAngles.y + Mathf.Rad2Deg * Mathf.Atan2(v.x, v.y), 0);   // cartesian to polar, starting from the Y+ axis as it's the one mapped to the camera's forward, thus using tan-1(x,y) and not tan-1(y,x) / No rotationSpeed * Time.deltaTime as it takes absolute orientation
+            transform.rotation = Quaternion.Euler(0, cameraHolder.transform.rotation.eulerAngles.y + Mathf.Rad2Deg * Mathf.Atan2(v.x, v.y), 0);   // cartesian to polar, starting from the Y+ axis as it's the one mapped to the camera's forward, thus using tan-1(x,y) and not tan-1(y,x) / No rotationSpeed * Time.deltaTime as it takes absolute orientation
             characterController.Move(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized * v.magnitude * speed * Time.deltaTime);  // projection normalized to have the speed independant from the camera angle
         }  
     }
-
-
-
 
 } // FINISH

@@ -57,24 +57,20 @@ public class PlayerFirst : MonoBehaviour
         }
     }
 
-
     void OnEnable()
     {
         inputs.Player.Enable();
     }
-
 
     void OnDisable()
     {
         inputs.Player.Disable();
     }
 
-
     void Walk(Vector2 v)
     {
         if (!isTurningBack)
         {
-            Debug.Log("WALK !!!!!!!!!!!!!!!!!!!!");
             Vector3 translation = player.transform.forward * v.y;
             characterController.Move(translation * speed * Time.deltaTime);
             angle += v.x * rotationSpeed * Time.deltaTime;
@@ -97,7 +93,6 @@ public class PlayerFirst : MonoBehaviour
         while (elapsedTime != turnBackTime)
         {
             elapsedTime = Mathf.Min(elapsedTime + Time.deltaTime, turnBackTime);
-            Debug.Log("Elapsed time " + elapsedTime);
             newForward = Vector3.RotateTowards(beginForward, endForward, Mathf.PI * elapsedTime / turnBackTime, 0.0f); // turn back = PI
             transform.rotation = Quaternion.LookRotation(newForward);
             yield return null;

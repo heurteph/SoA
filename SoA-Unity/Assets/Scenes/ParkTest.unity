@@ -33552,13 +33552,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545640115}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b56d941694b14e4dbecae5f100a31f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2015501663}
-  cameraOffset: {x: 0, y: 2, z: -6}
+  cameraOffset: {x: 0, y: 3, z: -12}
   cameraAngularOffset: {x: 0, y: 0, z: 0}
   alignSpeed: 300
   heldCamera: {fileID: 963194225}
@@ -33571,7 +33571,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545640115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfe1030626f853f43aecd945da6207fc, type: 3}
   m_Name: 
@@ -33579,10 +33579,10 @@ MonoBehaviour:
   player: {fileID: 2015501663}
   cameraAngularOffset: {x: 0, y: 0, z: 0}
   radius: 7.512988
-  longitude: -41.000004
-  latitude: -45
-  cameraOffset: {x: 3.4853039, y: -3.4853039, z: -5.670124}
-  heldCamera: {fileID: 545640115}
+  longitude: -29.999998
+  latitude: -49
+  cameraOffset: {x: 2.8350618, y: -2.4644818, z: -6.5064387}
+  heldCamera: {fileID: 963194225}
   lookAroundTime: 0.5
   maxLookAroundAngle: 45
 --- !u!1 &557113256
@@ -119185,13 +119185,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015501663}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2472a9a10cb05384b8f098c4737cd02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 2015501666}
-  cameraHolder: {fileID: 963194225}
+  cameraHolder: {fileID: 545640115}
   speed: 8
 --- !u!114 &2015501669
 MonoBehaviour:
@@ -119200,7 +119200,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015501663}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1442dbc62d199c947b7378903abcd38a, type: 3}
   m_Name: 

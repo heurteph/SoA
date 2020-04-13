@@ -21,6 +21,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     [Tooltip("Camera's translation offset from the player's position")]
     private Vector3 cameraOffset = new Vector3(0, 1, -10);
+    private Vector3 storedCameraOffset;
 
     [SerializeField]
     [Tooltip("Camera's angular offset from the player's orientation")]
@@ -61,18 +62,19 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       originalYRotation  = transform.rotation.eulerAngles.y;
-       transform.position = player.transform.position + player.transform.rotation * cameraOffset;
-       UpdateRotation(); //transform.LookAt(player.transform);
-       lastPlayerPosition = player.transform.position;
+        storedCameraOffset = cameraOffset;
+        originalYRotation  = transform.rotation.eulerAngles.y;
+        transform.position = player.transform.position + player.transform.rotation * cameraOffset;
+        UpdateRotation(); //transform.LookAt(player.transform);
+        lastPlayerPosition = player.transform.position;
 
-       StartCoroutine("AlignWithCharacter");
+        StartCoroutine("AlignWithCharacter");
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        UpdatePosition();
+        //UpdatePosition();
 
         UpdateRotation();
 
@@ -100,6 +102,12 @@ public class CameraFollow : MonoBehaviour
         //Quaternion rot = Quaternion.FromToRotation(player.transform.forward, (transform.position - player.transform.position).normalized);
         //transform.position = player.transform.position + rot * cameraOffset;
 
+        if (cameraOffset != storedCameraOffset) // update from the inspector
+        {
+            transform.position += (cameraOffset - storedCameraOffset);
+            storedCameraOffset = cameraOffset;
+        }
+
         transform.position += (player.transform.position - lastPlayerPosition);
         lastPlayerPosition = player.transform.position;
     }
@@ -114,6 +122,8 @@ public class CameraFollow : MonoBehaviour
     {
         for(; ;)
         {
+            UpdatePosition(); // called here to avoir desynchronization
+
             float angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
 
             float smooth = 0.95f * -Mathf.Pow((Mathf.Abs(angle) / 180f - 1), 2) + 1;  // [0.05-1]

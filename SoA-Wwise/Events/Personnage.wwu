@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{D20AD8BF-469B-4394-9523-16D0018CC167}" SchemaVersion="97">
+	<Events>
+		<WorkUnit Name="Personnage" ID="{D20AD8BF-469B-4394-9523-16D0018CC167}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Texture_Pas" ID="{E7F51318-856C-4019-BCDB-A6820DF54260}">
+					<ChildrenList>
+						<Action Name="" ID="{62F28ACB-5F61-4C2B-B268-B632D3D12A34}" ShortID="916859914">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Texture Pas" ID="{B6E4D10B-DA50-4351-9683-784BD72B2CE6}" WorkUnitID="{1B141676-4414-425B-8493-2A57AC5365FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_RespirationMix" ID="{8A5A111C-5E93-4CD6-AD09-1DF48036C1BB}">
+					<ChildrenList>
+						<Action Name="" ID="{02686CDA-5E75-4980-9155-25057FCCF001}" ShortID="856430375">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RespirationMix" ID="{055421D1-D05E-4EAC-B526-CBDF01854A7F}" WorkUnitID="{1B141676-4414-425B-8493-2A57AC5365FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

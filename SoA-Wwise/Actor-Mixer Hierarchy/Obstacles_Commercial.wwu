@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{4480BAB3-A2C3-4EF4-9FD8-F856D83D0BA9}" SchemaVersion="97" RootDocumentID="{23AB8791-B98A-46BD-8F95-CD1C4D38BE77}">
 	<AudioObjects>
-		<WorkUnit Name="Obstacles_Commercial" ID="{4480BAB3-A2C3-4EF4-9FD8-F856D83D0BA9}" OwnerID="{23AB8791-B98A-46BD-8F95-CD1C4D38BE77}" PersistMode="Nested"/>
+		<WorkUnit Name="Obstacles_Commercial" ID="{4480BAB3-A2C3-4EF4-9FD8-F856D83D0BA9}" OwnerID="{23AB8791-B98A-46BD-8F95-CD1C4D38BE77}" PersistMode="Nested">
+			<ChildrenList>
+				<ActorMixer Name="Caisse" ID="{88A91393-4AB4-4CD7-9372-B6FA2DA49D33}" ShortID="546215700">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+					</ReferenceList>
+				</ActorMixer>
+				<ActorMixer Name="Radio" ID="{EFC1051D-E233-4058-A2CE-42A6AD083397}" ShortID="188454862">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+					</ReferenceList>
+				</ActorMixer>
+				<ActorMixer Name="Foule_Commercial" ID="{0EB4CC49-634D-4F42-8AF8-7832FE1188D1}" ShortID="124878454">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+					</ReferenceList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

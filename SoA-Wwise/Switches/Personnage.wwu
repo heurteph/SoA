@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}" SchemaVersion="97">
+	<Switches>
+		<WorkUnit Name="Personnage" ID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="Pas_Matiere" ID="{B5A97861-3A79-49DC-9CA4-30BD84E287BE}">
+					<ChildrenList>
+						<Switch Name="Terre" ID="{075C11D6-EA5D-44E7-B016-07566D3DE40C}"/>
+						<Switch Name="Herbe" ID="{FD05A887-BA22-4D15-930C-592B452C079F}"/>
+						<Switch Name="Asphalt" ID="{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>

@@ -54,11 +54,15 @@ public class PlayerFirst : MonoBehaviour
 
     private float backToNormalSpeedTimer       = 0; // s
 
+    private bool isHurry;
+    public bool IsHurry { get { return isHurry; } }
+
     void Awake()
     {
         angle = player.transform.rotation.eulerAngles.y;
         inputs = new Inputs();
         isTurningBack = false;
+        isHurry = false;
     }
 
     // Start is called before the first frame update
@@ -122,10 +126,11 @@ public class PlayerFirst : MonoBehaviour
 
     public void Hurry(float energy)
     {
+        isHurry = true;
         backToNormalSpeedTimer = timeTransitionToNormalSpeed;
         if (speed != hurrySpeed)
         {
-            StartCoroutine("BackToNormalSpeed");
+            StartCoroutine("TransitionToNormalSpeed");
         }
         speed = hurrySpeed;
     }
@@ -139,5 +144,6 @@ public class PlayerFirst : MonoBehaviour
         }
         backToNormalSpeedTimer = 0;
         speed = normalSpeed;
+        isHurry = false;
     }
 } // FINISH

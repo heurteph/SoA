@@ -93,12 +93,12 @@ public class PlayerFollow : MonoBehaviour
         backToNormalSpeedTimer = timeTransitionToNormalSpeed;
         if (speed != hurrySpeed)
         {
-            StartCoroutine("BackToNormalSpeed");
+            StartCoroutine("TransitionToNormalSpeed");
         }
         speed = hurrySpeed;
     }
 
-    IEnumerator BackToNormalSpeed()
+    IEnumerator TransitionToNormalSpeed()
     {
         while (backToNormalSpeedTimer > 0)
         {

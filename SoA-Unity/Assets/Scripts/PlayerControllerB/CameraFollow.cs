@@ -54,6 +54,13 @@ public class CameraFollow : MonoBehaviour
     private Vector3 lastPlayerPosition;
     private Vector2 accumulator = Vector2.zero;
 
+    [SerializeField]
+    [Tooltip("Z-Offset when player is in hurry mode")]
+    [Range(0,10)]
+    private float distanceOffsetInHurry = 2;
+
+    private bool recoil;
+
     private void Awake()
     {
        inputs = new Inputs();
@@ -67,6 +74,7 @@ public class CameraFollow : MonoBehaviour
         transform.position = player.transform.position + player.transform.rotation * cameraOffset;
         UpdateRotation(); //transform.LookAt(player.transform);
         lastPlayerPosition = player.transform.position;
+        recoil = false;
 
         StartCoroutine("AlignWithCharacter");
     }
@@ -93,20 +101,11 @@ public class CameraFollow : MonoBehaviour
 
     private void UpdatePosition ()
     {
-        //transform.position = player.transform.position + player.transform.forward * cameraOffset.z + transform.up * cameraOffset.y + transform.right * cameraOffset.x;
-        //transform.rotation = player.transform.rotation;
-        //transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
-        //transform.position = player.transform.position + transform.rotation * cameraOffset;
+        // if values have changed in the inspector
+        UpdateFromInspector();
 
-        // recompute if offset have changed
-        //Quaternion rot = Quaternion.FromToRotation(player.transform.forward, (transform.position - player.transform.position).normalized);
-        //transform.position = player.transform.position + rot * cameraOffset;
-
-        if (cameraOffset != storedCameraOffset) // update from the inspector
-        {
-            transform.position += (cameraOffset - storedCameraOffset);
-            storedCameraOffset = cameraOffset;
-        }
+        // adapt recoil to normal or hurry mode of the player
+        Recoil();
 
         transform.position += (player.transform.position - lastPlayerPosition);
         lastPlayerPosition = player.transform.position;
@@ -175,6 +174,46 @@ public class CameraFollow : MonoBehaviour
         }
 
         heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
+    }
+
+    void UpdateFromInspector()
+    {
+        if (cameraOffset != storedCameraOffset)
+        {
+            transform.position += (cameraOffset - storedCameraOffset);
+            storedCameraOffset = cameraOffset;
+        }
+    }
+
+    void Recoil()
+    {
+        if (!recoil && player.GetComponent<PlayerFirst>().IsHurry)
+        {
+            transform.position -= distanceOffsetInHurry * player.transform.forward;
+            recoil = true;
+        }
+        else if (recoil && !player.GetComponent<PlayerFirst>().IsHurry)
+        {
+            transform.position += distanceOffsetInHurry * player.transform.forward;
+            recoil = false;
+        }
+    }
+
+    IEnumerator RecoilTransitionBack()
+    {
+        //float counter = 0;
+        //counter += distanceOffsetInHurry
+        //transform.position -= distance
+
+        yield return new WaitForSeconds(2);
+    }
+
+    IEnumerator RecoilTransitionForth()
+    {
+        //float counter = 0;
+        //counter += distanceOffsetInHurry
+
+        yield return new WaitForSeconds(2);
     }
 
 } //FINISH

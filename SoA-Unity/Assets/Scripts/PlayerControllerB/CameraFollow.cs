@@ -29,7 +29,7 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Speed at which the camera align itself to the character")]
-    [Range(10,500)]
+    [Range(10, 500)]
     private float alignSpeed = 100;
 
     [Space]
@@ -42,12 +42,12 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Duration to reach the maxLookAroundAngle when the input is pushed at max")]
-    [Range(0,5)]
+    [Range(0, 5)]
     private float lookAroundTime = 0.5f; // seconds
 
     [SerializeField]
     [Tooltip("Max angle of a look around")]
-    [Range(10,90)]
+    [Range(10, 90)]
     private float maxLookAroundAngle = 45; // degrees
 
     private float originalYRotation;
@@ -56,10 +56,21 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Z-Offset when player is in hurry mode")]
-    [Range(0,10)]
+    [Range(0, 10)]
     private float distanceOffsetInHurry = 2;
 
-    private bool recoil;
+    enum STATE { NORMAL, DISTANT, BACKWARD, FORWARD };
+    STATE recoil;
+
+    [SerializeField]
+    [Range(0, 5)]
+    private float timeToRecoil;
+
+    [SerializeField]
+    [Range(0, 5)]
+    private float timeToNormal;
+
+    private float recoilTimer;
 
     private void Awake()
     {
@@ -74,7 +85,8 @@ public class CameraFollow : MonoBehaviour
         transform.position = player.transform.position + player.transform.rotation * cameraOffset;
         UpdateRotation(); //transform.LookAt(player.transform);
         lastPlayerPosition = player.transform.position;
-        recoil = false;
+        recoil = STATE.NORMAL;
+        recoilTimer = 0;
 
         StartCoroutine("AlignWithCharacter");
     }
@@ -187,33 +199,48 @@ public class CameraFollow : MonoBehaviour
 
     void Recoil()
     {
-        if (!recoil && player.GetComponent<PlayerFirst>().IsHurry)
+        if (recoil == STATE.NORMAL && player.GetComponent<PlayerFirst>().IsHurry)
         {
-            transform.position -= distanceOffsetInHurry * player.transform.forward;
-            recoil = true;
+            Debug.Log("Going to distant");
+            recoilTimer = timeToRecoil;
+            recoil = STATE.BACKWARD;
+            StartCoroutine("NormalToRecoil");
+            // transform.position -= distanceOffsetInHurry * player.transform.forward;
         }
-        else if (recoil && !player.GetComponent<PlayerFirst>().IsHurry)
+        else if (recoil == STATE.DISTANT && !player.GetComponent<PlayerFirst>().IsHurry)
         {
-            transform.position += distanceOffsetInHurry * player.transform.forward;
-            recoil = false;
+            Debug.Log("Going to normal");
+            recoilTimer = timeToNormal;
+            recoil = STATE.FORWARD;
+            StartCoroutine("RecoilToNormal");
+            // transform.position += distanceOffsetInHurry * player.transform.forward;
         }
     }
 
-    IEnumerator RecoilTransitionBack()
+    IEnumerator NormalToRecoil()
     {
-        //float counter = 0;
-        //counter += distanceOffsetInHurry
-        //transform.position -= distance
+        while (recoilTimer > 0)
+        {
+            recoilTimer -= Time.deltaTime;
+            transform.position += (-player.transform.forward) * distanceOffsetInHurry * Time.deltaTime / timeToRecoil;
 
-        yield return new WaitForSeconds(2);
+            yield return null;
+        }
+        recoil = STATE.DISTANT;
+        Debug.Log("In distant position");
     }
 
-    IEnumerator RecoilTransitionForth()
+    IEnumerator RecoilToNormal()
     {
-        //float counter = 0;
-        //counter += distanceOffsetInHurry
+        while (recoilTimer > 0)
+        {
+            recoilTimer -= Time.deltaTime;
+            transform.position += player.transform.forward * distanceOffsetInHurry * Time.deltaTime / timeToNormal;
 
-        yield return new WaitForSeconds(2);
+            yield return null;
+        }
+        Debug.Log("Back to normal");
+        recoil = STATE.NORMAL;
     }
 
 } //FINISH

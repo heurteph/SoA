@@ -33564,6 +33564,9 @@ MonoBehaviour:
   heldCamera: {fileID: 963194225}
   lookAroundTime: 0.5
   maxLookAroundAngle: 45
+  distanceOffsetInHurry: 5.01
+  timeToRecoil: 0.19
+  timeToNormal: 1
 --- !u!114 &545640118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33578,10 +33581,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2015501663}
   cameraAngularOffset: {x: 0, y: 0, z: 0}
-  radius: 7.512988
-  longitude: -29.999998
-  latitude: -49
-  cameraOffset: {x: 2.8350618, y: -2.4644818, z: -6.5064387}
+  radius: 14.5
+  longitude: -18.000002
+  latitude: 8.999999
+  cameraOffset: {x: -0.70094305, y: -4.425581, z: -13.790319}
   heldCamera: {fileID: 963194225}
   lookAroundTime: 0.5
   maxLookAroundAngle: 45
@@ -119192,7 +119195,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 2015501666}
   cameraHolder: {fileID: 545640115}
-  speed: 8
+  normalSpeed: 4.73
+  hurrySpeed: 10
+  timeTransitionToHurrySpeed: 3
+  timeTransitionToNormalSpeed: 3
 --- !u!114 &2015501669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119207,9 +119213,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2015501663}
   characterController: {fileID: 2015501666}
-  speed: 18
+  normalSpeed: 18
+  hurrySpeed: 36
   rotationSpeed: 120
   turnBackTime: 0.35
+  timeTransitionToHurrySpeed: 3
+  timeTransitionToNormalSpeed: 3
 --- !u!1 &2015849957
 GameObject:
   m_ObjectHideFlags: 0

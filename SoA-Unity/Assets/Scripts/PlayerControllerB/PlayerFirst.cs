@@ -22,7 +22,14 @@ public class PlayerFirst : MonoBehaviour
 
     [SerializeField]
     [Range(1.0f, 20.0f)]
-    private float speed = 8;
+    private float normalSpeed = 18;
+
+    [SerializeField]
+    [Range(1.0f, 100.0f)]
+    [Tooltip("Speed when the character is losing energy")]
+    private float hurrySpeed = 36;
+
+    private float speed;
 
     [SerializeField]
     [Range(1.0f, 360.0f)]
@@ -35,6 +42,9 @@ public class PlayerFirst : MonoBehaviour
     private float angle;
     private bool isTurningBack;
 
+    private float timeBackToNormalSpeed  = 3; // s
+    private float backToNormalSpeedTimer = 0;    // s
+
     void Awake()
     {
         angle = player.transform.rotation.eulerAngles.y;
@@ -45,7 +55,7 @@ public class PlayerFirst : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        speed = normalSpeed;
     }
 
     // Update is called once per frame
@@ -86,7 +96,7 @@ public class PlayerFirst : MonoBehaviour
 
         Vector3 beginForward =  transform.forward;
         Vector3 endForward   = -transform.forward;
-        Vector3 newForward = beginForward;
+        Vector3 newForward   = beginForward;
 
         float elapsedTime  = 0;
 
@@ -99,5 +109,28 @@ public class PlayerFirst : MonoBehaviour
         }
         angle -= 180; // synchronize with update
         isTurningBack = false;
+    }
+
+    public void Hurry(float energy)
+    {
+        backToNormalSpeedTimer = timeBackToNormalSpeed;
+        if (speed != hurrySpeed)
+        {
+            StartCoroutine("BackToNormalSpeed");
+        }
+        speed = hurrySpeed;
+    }
+
+    IEnumerator BackToNormalSpeed()
+    {
+        Debug.Log("Coroutine");
+        while (backToNormalSpeedTimer > 0)
+        {
+            backToNormalSpeedTimer -= Time.deltaTime;
+            yield return null;
+        }
+        backToNormalSpeedTimer = 0;
+        speed = normalSpeed;
+        Debug.Log("Retour au calme");
     }
 } // FINISH

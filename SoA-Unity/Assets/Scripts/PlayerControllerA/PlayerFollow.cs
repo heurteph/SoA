@@ -24,6 +24,10 @@ public class PlayerFollow : MonoBehaviour
     [Range(1.0f, 10.0f)]
     private float speed = 1;
 
+    [SerializeField]
+    [Range(1.0f, 10.0f)]
+    private float hurrySpeed = 2;
+
 
     void Awake()
     {

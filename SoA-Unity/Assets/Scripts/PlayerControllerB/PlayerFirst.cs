@@ -42,8 +42,17 @@ public class PlayerFirst : MonoBehaviour
     private float angle;
     private bool isTurningBack;
 
-    private float timeBackToNormalSpeed  = 3; // s
-    private float backToNormalSpeedTimer = 0;    // s
+    [SerializeField]
+    [Tooltip("Time in seconds to transition from normal state to hurry state")]
+    [Range(0, 5)]
+    private float timeTransitionToHurrySpeed = 3; // s
+
+    [SerializeField]
+    [Tooltip("Time in seconds to transition from hurry state to normal state")]
+    [Range(0,5)]
+    private float timeTransitionToNormalSpeed  = 3; // s
+
+    private float backToNormalSpeedTimer       = 0; // s
 
     void Awake()
     {
@@ -113,7 +122,7 @@ public class PlayerFirst : MonoBehaviour
 
     public void Hurry(float energy)
     {
-        backToNormalSpeedTimer = timeBackToNormalSpeed;
+        backToNormalSpeedTimer = timeTransitionToNormalSpeed;
         if (speed != hurrySpeed)
         {
             StartCoroutine("BackToNormalSpeed");
@@ -121,9 +130,8 @@ public class PlayerFirst : MonoBehaviour
         speed = hurrySpeed;
     }
 
-    IEnumerator BackToNormalSpeed()
+    IEnumerator TransitionToNormalSpeed()
     {
-        Debug.Log("Coroutine");
         while (backToNormalSpeedTimer > 0)
         {
             backToNormalSpeedTimer -= Time.deltaTime;
@@ -131,6 +139,5 @@ public class PlayerFirst : MonoBehaviour
         }
         backToNormalSpeedTimer = 0;
         speed = normalSpeed;
-        Debug.Log("Retour au calme");
     }
 } // FINISH

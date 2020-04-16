@@ -22,10 +22,15 @@ public class EnergyBehaviour : MonoBehaviour
     {
         script = GetComponent<PlayerFollow>() ? GetComponent<PlayerFollow>() : (MonoBehaviour)GetComponent<PlayerFirst>();
         EnergyChangedEvent += debuggerBehaviour.DisplayEnergy;
-        if (GetComponent<PlayerFirst>())
+        if (GetComponent<PlayerFirst>().isActiveAndEnabled)
         {
-            Debug.Log("Enregistré");
+            Debug.Log("enregistré first");
             EnergyChangedEvent += GetComponent<PlayerFirst>().Hurry;
+        }
+        else if (GetComponent<PlayerFollow>().isActiveAndEnabled)
+        {
+            Debug.Log("enregistré follow");
+            EnergyChangedEvent += GetComponent<PlayerFollow>().Hurry;
         }
     }
 

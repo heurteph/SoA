@@ -83,6 +83,8 @@ public class CameraFollow : MonoBehaviour
 
     private float recoilTimer;
 
+    private float angleFromHurryToHorizon = 0;
+
     private void Awake()
     {
        inputs = new Inputs();
@@ -98,10 +100,12 @@ public class CameraFollow : MonoBehaviour
         lastPlayerPosition = player.transform.position;
         recoil = STATE.NORMAL;
         recoilTimer = 0;
-        // compute the angle between the camera in normal view and hurry view
-        //Vector3 hurryPosition = transform.position + Z_OffsetHurry * transform.forward - Y_OffsetHurry * transform.up;
-        //angleToThePlayer = Vector3.SignedAngle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up), (player.transform.position - hurryPosition).normalized, Vector3.up);
-        
+
+        // compute the angle between the camera in normal view and hurry view for the look-around stabilization
+        Vector3 hurryPosition = transform.position - Z_OffsetHurry * Vector3.ProjectOnPlane((player.transform.position - transform.position).normalized, Vector3.up) + Y_OffsetHurry * transform.up;
+        angleFromHurryToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up).normalized, (player.transform.position - hurryPosition).normalized);
+        Debug.Log("angleFromHurryToHorizon : " + angleFromHurryToHorizon);
+
         StartCoroutine("AlignWithCharacter");
     }
 
@@ -151,7 +155,7 @@ public class CameraFollow : MonoBehaviour
             Vector3 end     = (player.transform.position - endPosition).normalized;
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToFocus - recoilTimer) / timeToFocus);
             Vector3 current = Vector3.Slerp(start, end, (timeToFocus - recoilTimer) / timeToFocus);
-            Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToFocus : " + timeToFocus + ", recoilTimer : " + recoilTimer);
+            //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToFocus : " + timeToFocus + ", recoilTimer : " + recoilTimer);
             transform.rotation = Quaternion.LookRotation(current);
 
             //heldCamera.GetComponent<Camera>().fieldOfView = 60 - (60 - 50) * (timeToFocus - recoilTimer) / timeToFocus;
@@ -168,7 +172,7 @@ public class CameraFollow : MonoBehaviour
             Vector3 end     = Vector3.ProjectOnPlane((player.transform.position - endPosition), Vector3.up);
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
             Vector3 current = Vector3.Slerp(start, end, (timeToNormal - recoilTimer) / timeToNormal);
-            Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
+            //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
             transform.rotation = Quaternion.LookRotation(current);
 
             //heldCamera.GetComponent<Camera>().fieldOfView = 60 - (60 - 50) * recoilTimer / timeToNormal;
@@ -237,7 +241,18 @@ public class CameraFollow : MonoBehaviour
             smoothy = Mathf.Sign(accumulator.y) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.y));
         }
 
-        heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
+        // Stabilization of the look around
+        float y_stabilization = 0;
+        if (recoil == STATE.FOCUS)          { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon; }
+        else if (recoil == STATE.TO_FOCUS)  { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon * (timeToFocus - recoilTimer) / timeToFocus; }
+        else if (recoil == STATE.TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon * recoilTimer / timeToNormal; }
+        
+        // Must separate in two because unity's order for euler is ZYX and we want X-Y-X
+        heldCamera.transform.localRotation  = Quaternion.Euler(y_stabilization, 0, 0);
+        heldCamera.transform.localRotation *= Quaternion.Euler(0, smoothx * maxLookAroundAngle, 0);
+        heldCamera.transform.localRotation *= Quaternion.Euler(-smoothy * maxLookAroundAngle, 0, 0);
+        
+        //heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
     }
 
     void UpdateFromInspector()
@@ -253,6 +268,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (recoil == STATE.NORMAL && player.GetComponent<PlayerFirst>().IsHurry)
         {
+
             recoilTimer = timeToFocus;
             recoil = STATE.TO_FOCUS;
         }

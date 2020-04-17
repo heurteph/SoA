@@ -62,28 +62,26 @@ public class CameraFollow : MonoBehaviour
     [Header("Hurry Mode")]
 
     [SerializeField]
-    [Tooltip("Z-Offset when player is in hurry mode")]
-    [Range(-5, 5)]
+    [Tooltip("Z-Offset when player is in hurry mode (-closer, +farther)")]
+    [Range(-10, 10)]
     private float Z_OffsetHurry = 2.5f;
 
     [SerializeField]
-    [Tooltip("Y-Offset when player is in hurry mode")]
-    [Range(-5, 5)]
+    [Tooltip("Y-Offset when player is in hurry mode (-closer, +farther)")]
+    [Range(-10, 10)]
     private float Y_OffsetHurry = 0;
 
     [SerializeField]
-    [Tooltip("The delay of the focus view on the character")]
+    [Tooltip("The delay to switch to focus view, in seconds")]
     [Range(0, 5)]
     private float timeToFocus;
 
     [SerializeField]
-    [Tooltip("The delay to go back to the normal view")]
+    [Tooltip("The delay to switch to normal view, in seconds")]
     [Range(0, 5)]
     private float timeToNormal;
 
     private float recoilTimer;
-
-    private float angleToThePlayer;
 
     private void Awake()
     {
@@ -101,8 +99,8 @@ public class CameraFollow : MonoBehaviour
         recoil = STATE.NORMAL;
         recoilTimer = 0;
         // compute the angle between the camera in normal view and hurry view
-        Vector3 hurryPosition = transform.position + Z_OffsetHurry * transform.forward - Y_OffsetHurry * transform.up;
-        angleToThePlayer = Vector3.SignedAngle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up), (player.transform.position - hurryPosition).normalized, Vector3.up);
+        //Vector3 hurryPosition = transform.position + Z_OffsetHurry * transform.forward - Y_OffsetHurry * transform.up;
+        //angleToThePlayer = Vector3.SignedAngle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up), (player.transform.position - hurryPosition).normalized, Vector3.up);
         
         StartCoroutine("AlignWithCharacter");
     }
@@ -147,12 +145,16 @@ public class CameraFollow : MonoBehaviour
         }
         else if (recoil == STATE.TO_FOCUS) // focus on the character
         {
-            Vector3 startPosition  = transform.position - (player.transform.forward * Z_OffsetHurry - player.transform.up * Y_OffsetHurry) * (timeToFocus - recoilTimer) / timeToFocus; // recreate original position
-            Vector3 endPosition    = transform.position - (player.transform.forward * Z_OffsetHurry - player.transform.up * Y_OffsetHurry) * recoilTimer / timeToFocus; // recreate original position
-            Vector3 start = Vector3.ProjectOnPlane((player.transform.position - startPosition), Vector3.up);
-            Vector3 end = (player.transform.position - endPosition).normalized;
-            Vector3 current = Vector3.RotateTowards(start, end, angleToThePlayer * Mathf.Deg2Rad * (timeToFocus - recoilTimer) / timeToFocus, 0.0f);
+            Vector3 startPosition  = transform.position - (-player.transform.forward * Z_OffsetHurry + player.transform.up * Y_OffsetHurry) * (timeToFocus - recoilTimer) / timeToFocus; // recreate original position
+            Vector3 endPosition    = transform.position + (-player.transform.forward * Z_OffsetHurry + player.transform.up * Y_OffsetHurry) * recoilTimer / timeToFocus; // recreate original position
+            Vector3 start   = Vector3.ProjectOnPlane((player.transform.position - startPosition), Vector3.up);
+            Vector3 end     = (player.transform.position - endPosition).normalized;
+            //Vector3 current = Vector3.RotateTowards(start, end, angleToThePlayer * Mathf.Deg2Rad * (timeToFocus - recoilTimer) / timeToFocus, 0.0f);
+            Vector3 current = Vector3.Slerp(start, end, (timeToFocus - recoilTimer) / timeToFocus);
+            Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
             transform.rotation = Quaternion.LookRotation(current);
+
+            //heldCamera.GetComponent<Camera>().fieldOfView = 60 - (60 - 50) * (timeToFocus - recoilTimer) / timeToFocus;
         }
         else if (recoil == STATE.FOCUS)
         {
@@ -160,13 +162,16 @@ public class CameraFollow : MonoBehaviour
         }
         else if (recoil == STATE.TO_NORMAL)
         {
-            Vector3 startPosition = transform.position + (player.transform.forward * Z_OffsetHurry - player.transform.up * Y_OffsetHurry) * (timeToNormal - recoilTimer) / timeToNormal; // recreate original position
-            Vector3 endPosition   = transform.position + (player.transform.forward * Z_OffsetHurry - player.transform.up * Y_OffsetHurry) * recoilTimer / timeToNormal; // recreate original position
-            Vector3 start = (player.transform.position - startPosition).normalized;
-            Vector3 end = Vector3.ProjectOnPlane((player.transform.position - endPosition), Vector3.up);
-            Vector3 current = Vector3.RotateTowards(start, end, angleToThePlayer * Mathf.Deg2Rad * (timeToNormal - recoilTimer) / timeToNormal, 0.0f);
-            Debug.Log("Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
+            Vector3 startPosition = transform.position + (-player.transform.forward * Z_OffsetHurry + player.transform.up * Y_OffsetHurry) * (timeToNormal - recoilTimer) / timeToNormal; // recreate original position
+            Vector3 endPosition   = transform.position - (-player.transform.forward * Z_OffsetHurry + player.transform.up * Y_OffsetHurry) * recoilTimer / timeToNormal; // recreate original position
+            Vector3 start   = (player.transform.position - startPosition).normalized;
+            Vector3 end     = Vector3.ProjectOnPlane((player.transform.position - endPosition), Vector3.up);
+            //Vector3 current = Vector3.RotateTowards(start, end, angleToThePlayer * Mathf.Deg2Rad * (timeToNormal - recoilTimer) / timeToNormal, 0.0f);
+            Vector3 current = Vector3.Slerp(start, end, (timeToNormal - recoilTimer) / timeToNormal);
+            Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
             transform.rotation = Quaternion.LookRotation(current);
+
+            //heldCamera.GetComponent<Camera>().fieldOfView = 60 - (60 - 50) * recoilTimer / timeToNormal;
         }
 
         transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
@@ -248,10 +253,15 @@ public class CameraFollow : MonoBehaviour
             recoil = STATE.TO_FOCUS;
         }
 
-        else if (recoil == STATE.TO_FOCUS)
+        if (recoil == STATE.TO_FOCUS)
         {
+            Vector3 startPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position,Vector3.up).normalized * Z_OffsetHurry + transform.up * Y_OffsetHurry) * (timeToFocus - recoilTimer) / timeToFocus; // recreate original position
+            Vector3 endPosition   = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + transform.up * Y_OffsetHurry) * recoilTimer / timeToFocus; // recreate original position
             recoilTimer -= Time.deltaTime;
-            transform.position += (player.transform.forward * Z_OffsetHurry + -player.transform.up * Y_OffsetHurry) * Time.deltaTime / timeToFocus;
+            transform.position = Vector3.Lerp(startPosition, endPosition, (timeToFocus - recoilTimer) / timeToFocus);
+            
+            //recoilTimer -= Time.deltaTime;
+            //transform.position += (Vector3.ProjectOnPlane(player.transform.position - transform.position,Vector3.up).normalized * Z_OffsetHurry + -player.transform.up * Y_OffsetHurry) * Time.deltaTime / timeToFocus;
 
             if (recoilTimer <= 0)
             {
@@ -259,17 +269,23 @@ public class CameraFollow : MonoBehaviour
             }
         }
 
-        else if (recoil == STATE.FOCUS && !player.GetComponent<PlayerFirst>().IsHurry)
+        if (recoil == STATE.FOCUS && !player.GetComponent<PlayerFirst>().IsHurry)
         {
             recoilTimer = timeToNormal;
             recoil = STATE.TO_NORMAL;
         }
 
-        else if (recoil == STATE.TO_NORMAL)
+        if (recoil == STATE.TO_NORMAL)
         {
+            Vector3 startPosition = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + transform.up * Y_OffsetHurry) * (timeToNormal - recoilTimer) / timeToNormal; // recreate original position
+            Vector3 endPosition   = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + transform.up * Y_OffsetHurry) * recoilTimer / timeToNormal; // recreate original position
             recoilTimer -= Time.deltaTime;
-            transform.position += (-player.transform.forward * Z_OffsetHurry + player.transform.up * Y_OffsetHurry) * Time.deltaTime / timeToNormal;
-            Debug.Log("position : " + transform.position + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
+            transform.position = Vector3.Lerp(startPosition, endPosition, (timeToNormal - recoilTimer) / timeToNormal);
+            
+            //recoilTimer -= Time.deltaTime;
+            //transform.position += (-Vector3.ProjectOnPlane(player.transform.position - transform.position,Vector3.up).normalized * Z_OffsetHurry + player.transform.up * Y_OffsetHurry) * Time.deltaTime / timeToNormal;
+            //Debug.Log("position : " + transform.position + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
+            
             if (recoilTimer <= 0)
             {
                 recoil = STATE.NORMAL;

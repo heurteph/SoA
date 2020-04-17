@@ -22,7 +22,14 @@ public class PlayerFirst : MonoBehaviour
 
     [SerializeField]
     [Range(1.0f, 20.0f)]
-    private float speed = 8;
+    private float normalSpeed = 18;
+
+    [SerializeField]
+    [Range(1.0f, 100.0f)]
+    [Tooltip("Speed when the character is losing energy")]
+    private float hurrySpeed = 36;
+
+    private float speed;
 
     [SerializeField]
     [Range(1.0f, 360.0f)]
@@ -35,17 +42,33 @@ public class PlayerFirst : MonoBehaviour
     private float angle;
     private bool isTurningBack;
 
+    [SerializeField]
+    [Tooltip("Time in seconds to transition from normal state to hurry state")]
+    [Range(0, 5)]
+    private float timeTransitionToHurrySpeed = 3; // s
+
+    [SerializeField]
+    [Tooltip("Time in seconds to transition from hurry state to normal state")]
+    [Range(0,5)]
+    private float timeTransitionToNormalSpeed  = 3; // s
+
+    private float backToNormalSpeedTimer       = 0; // s
+
+    private bool isHurry;
+    public bool IsHurry { get { return isHurry; } }
+
     void Awake()
     {
         angle = player.transform.rotation.eulerAngles.y;
         inputs = new Inputs();
         isTurningBack = false;
+        isHurry = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        speed = normalSpeed;
     }
 
     // Update is called once per frame
@@ -57,24 +80,20 @@ public class PlayerFirst : MonoBehaviour
         }
     }
 
-
     void OnEnable()
     {
         inputs.Player.Enable();
     }
-
 
     void OnDisable()
     {
         inputs.Player.Disable();
     }
 
-
     void Walk(Vector2 v)
     {
         if (!isTurningBack)
         {
-            Debug.Log("WALK !!!!!!!!!!!!!!!!!!!!");
             Vector3 translation = player.transform.forward * v.y;
             characterController.Move(translation * speed * Time.deltaTime);
             angle += v.x * rotationSpeed * Time.deltaTime;
@@ -90,19 +109,41 @@ public class PlayerFirst : MonoBehaviour
 
         Vector3 beginForward =  transform.forward;
         Vector3 endForward   = -transform.forward;
-        Vector3 newForward = beginForward;
+        Vector3 newForward   = beginForward;
 
         float elapsedTime  = 0;
 
         while (elapsedTime != turnBackTime)
         {
             elapsedTime = Mathf.Min(elapsedTime + Time.deltaTime, turnBackTime);
-            Debug.Log("Elapsed time " + elapsedTime);
             newForward = Vector3.RotateTowards(beginForward, endForward, Mathf.PI * elapsedTime / turnBackTime, 0.0f); // turn back = PI
             transform.rotation = Quaternion.LookRotation(newForward);
             yield return null;
         }
         angle -= 180; // synchronize with update
         isTurningBack = false;
+    }
+
+    public void Hurry(float energy)
+    {
+        isHurry = true;
+        backToNormalSpeedTimer = timeTransitionToNormalSpeed;
+        if (speed != hurrySpeed)
+        {
+            StartCoroutine("TransitionToNormalSpeed");
+        }
+        speed = hurrySpeed;
+    }
+
+    IEnumerator TransitionToNormalSpeed()
+    {
+        while (backToNormalSpeedTimer > 0)
+        {
+            backToNormalSpeedTimer -= Time.deltaTime;
+            yield return null;
+        }
+        backToNormalSpeedTimer = 0;
+        speed = normalSpeed;
+        isHurry = false;
     }
 } // FINISH

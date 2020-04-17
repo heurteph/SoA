@@ -34,10 +34,8 @@ public class DebuggerBehaviour : MonoBehaviour
     void Start()
     {
         loudnessSlider.maxValue = Mathf.Min(hearingScript.loudnessThreshold * 3,1);
-
-        energyBar.maxValue = 1000; //To do GAME MANAGER
+        energyBar.maxValue = 1000; // TO DO : Place in game manager
         energyBar.value = energyBar.maxValue;
-
         insideVisionSlider.maxValue = 1;
     }
 
@@ -54,20 +52,17 @@ public class DebuggerBehaviour : MonoBehaviour
 
         insideVisionSlider.value = percentage;
 
-        if (percentage > visionBehaviour.percentageThreshold * 2)
+        if (percentage >= visionBehaviour.percentageThreshold)
         {
             insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
-            Debug.Log("red");
         }
-        else if (percentage > visionBehaviour.percentageThreshold)
+        else if (percentage >= visionBehaviour.percentageThreshold * 0.5f)
         {
             insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
-            Debug.Log("yellow");
         }
         else
         {
             insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.white;
-            Debug.Log("white");
         }
     }
 
@@ -75,22 +70,17 @@ public class DebuggerBehaviour : MonoBehaviour
     {
         loudnessSlider.value = volume;
 
-        Debug.Log("loudness Threshold :" + hearingScript.loudnessThreshold);
-
-        if (volume > hearingScript.loudnessThreshold * 2)
+        if (volume >= hearingScript.loudnessThreshold)
         {
             loudnessSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
-            Debug.Log("red");
         } 
-        else if (volume > hearingScript.loudnessThreshold)
+        else if (volume >= hearingScript.loudnessThreshold * 0.5f)
         {
             loudnessSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
-            Debug.Log("yellow");
         }
         else
         {
             loudnessSlider.fillRect.gameObject.GetComponent<Image>().color = Color.white;
-            Debug.Log("white");
         }
 
         loudnessNumber.text = "" + volume;

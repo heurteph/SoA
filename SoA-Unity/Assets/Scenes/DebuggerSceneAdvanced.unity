@@ -7927,10 +7927,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2015501665}
-  - component: {fileID: 2015501666}
   - component: {fileID: 2015501664}
   - component: {fileID: 2015501668}
   - component: {fileID: 2015501667}
+  - component: {fileID: 2015501666}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged

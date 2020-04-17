@@ -25,7 +25,6 @@ public class VisionBehaviour : MonoBehaviour
     private delegate void BrightnessThresholdHandler(float b);
     private event BrightnessThresholdHandler brightnessThresholdEvent;
 
-
     [SerializeField]
     private DebuggerBehaviour debuggerBehaviour;
 
@@ -84,8 +83,6 @@ public class VisionBehaviour : MonoBehaviour
               //  t2D.SetPixel(i, j, new Color(grayscale,grayscale,grayscale)); // monstre
             }
         }
-
-     // Debug.Log(sum);
 
         if (sum >= percentageThreshold * t2D.width * t2D.height)
         {

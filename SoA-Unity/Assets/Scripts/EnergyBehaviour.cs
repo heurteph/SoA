@@ -22,6 +22,15 @@ public class EnergyBehaviour : MonoBehaviour
     {
         script = GetComponent<PlayerFollow>() ? GetComponent<PlayerFollow>() : (MonoBehaviour)GetComponent<PlayerFirst>();
         EnergyChangedEvent += debuggerBehaviour.DisplayEnergy;
+
+        if (GetComponent<PlayerFirst>().isActiveAndEnabled)
+        {
+            EnergyChangedEvent += GetComponent<PlayerFirst>().Hurry;
+        }
+        else if (GetComponent<PlayerFollow>().isActiveAndEnabled)
+        {
+            EnergyChangedEvent += GetComponent<PlayerFollow>().Hurry;
+        }
     }
 
     // Update is called once per frame

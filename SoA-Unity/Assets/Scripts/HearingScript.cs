@@ -5,7 +5,7 @@ using UnityEngine;
 public class HearingScript : MonoBehaviour
 {
     const int sampleNumber = 1024; // 32768; // 2^15 number of samples for 0,743 seconds
-    const float sampleSeconds = 0.743f; // 32768 hertz / 44100
+    const float sampleSeconds = 0.2f; //0.743f; // 32768 hertz / 44100
 
     [SerializeField]
     [Range(1, 5)]
@@ -38,17 +38,13 @@ public class HearingScript : MonoBehaviour
     void Awake()
     {
     sampleTotal = hearingMultiplier * sampleNumber;
-
     sampleData = new float[sampleTotal];
-
     }
-
 
     // Start is called before the first frame update
     void Start()
     {
         LoudnessThresholdEvent += energyBehaviour.DecreaseEnergy;
-
         LoudnessUpdateEvent += debuggerBehaviour.DisplayVolume;
 
         StartCoroutine("Hear");
@@ -72,12 +68,9 @@ public class HearingScript : MonoBehaviour
             for (int i = 0; i < sampleTotal; i++)
             {
                 float sample = sampleData[i];
-
-                //Debug.Log("Sample : " + sample);
                 loudness += Mathf.Abs(sample);
             }
 
-            //Debug.Log("Total : " + loudness);
             loudness /= sampleTotal; //Average Volume
 
             LoudnessUpdateEvent(loudness);
@@ -87,8 +80,7 @@ public class HearingScript : MonoBehaviour
                 LoudnessThresholdEvent(loudnessDamage);
             }
 
-
-            yield return new WaitForSeconds(sampleSeconds*hearingMultiplier);
+            yield return new WaitForSeconds(sampleSeconds * hearingMultiplier);
         }
     }
 

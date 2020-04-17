@@ -54,23 +54,36 @@ public class CameraFollow : MonoBehaviour
     private Vector3 lastPlayerPosition;
     private Vector2 accumulator = Vector2.zero;
 
-    [SerializeField]
-    [Tooltip("Z-Offset when player is in hurry mode")]
-    [Range(0, 10)]
-    private float distanceOffsetInHurry = 2;
-
-    enum STATE { NORMAL, DISTANT, BACKWARD, FORWARD };
+    
+    enum STATE { NORMAL, FOCUS, TO_FOCUS, TO_NORMAL };
     STATE recoil;
 
-    [SerializeField]
-    [Range(0, 5)]
-    private float timeToRecoil;
+    [Space]
+    [Header("Hurry Mode")]
 
     [SerializeField]
+    [Tooltip("Z-Offset when player is in hurry mode")]
+    [Range(-5, 5)]
+    private float Z_OffsetHurry = 2.5f;
+
+    [SerializeField]
+    [Tooltip("Y-Offset when player is in hurry mode")]
+    [Range(-5, 5)]
+    private float Y_OffsetHurry = 0;
+
+    [SerializeField]
+    [Tooltip("The delay of the focus view on the character")]
+    [Range(0, 5)]
+    private float timeToFocus;
+
+    [SerializeField]
+    [Tooltip("The delay to go back to the normal view")]
     [Range(0, 5)]
     private float timeToNormal;
 
     private float recoilTimer;
+
+    private float angleToThePlayer;
 
     private void Awake()
     {
@@ -87,7 +100,10 @@ public class CameraFollow : MonoBehaviour
         lastPlayerPosition = player.transform.position;
         recoil = STATE.NORMAL;
         recoilTimer = 0;
-
+        // compute the angle between the camera in normal view and hurry view
+        Vector3 hurryPosition = transform.position + Z_OffsetHurry * transform.forward - Y_OffsetHurry * transform.up;
+        angleToThePlayer = Vector3.SignedAngle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up), (player.transform.position - hurryPosition).normalized, Vector3.up);
+        
         StartCoroutine("AlignWithCharacter");
     }
 
@@ -125,7 +141,34 @@ public class CameraFollow : MonoBehaviour
 
     private void UpdateRotation ()
     {
-        transform.rotation  = Quaternion.LookRotation(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up)); // kind of a lookAt but without the rotation around the x-axis
+        if (recoil == STATE.NORMAL)
+        {
+            transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up)); // kind of a lookAt but without the rotation around the x-axis
+        }
+        else if (recoil == STATE.TO_FOCUS) // focus on the character
+        {
+            Vector3 startPosition  = transform.position - (player.transform.forward * Z_OffsetHurry - player.transform.up * Y_OffsetHurry) * (timeToFocus - recoilTimer) / timeToFocus; // recreate original position
+            Vector3 endPosition    = transform.position - (player.transform.forward * Z_OffsetHurry - player.transform.up * Y_OffsetHurry) * recoilTimer / timeToFocus; // recreate original position
+            Vector3 start = Vector3.ProjectOnPlane((player.transform.position - startPosition), Vector3.up);
+            Vector3 end = (player.transform.position - endPosition).normalized;
+            Vector3 current = Vector3.RotateTowards(start, end, angleToThePlayer * Mathf.Deg2Rad * (timeToFocus - recoilTimer) / timeToFocus, 0.0f);
+            transform.rotation = Quaternion.LookRotation(current);
+        }
+        else if (recoil == STATE.FOCUS)
+        {
+            transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        }
+        else if (recoil == STATE.TO_NORMAL)
+        {
+            Vector3 startPosition = transform.position + (player.transform.forward * Z_OffsetHurry - player.transform.up * Y_OffsetHurry) * (timeToNormal - recoilTimer) / timeToNormal; // recreate original position
+            Vector3 endPosition   = transform.position + (player.transform.forward * Z_OffsetHurry - player.transform.up * Y_OffsetHurry) * recoilTimer / timeToNormal; // recreate original position
+            Vector3 start = (player.transform.position - startPosition).normalized;
+            Vector3 end = Vector3.ProjectOnPlane((player.transform.position - endPosition), Vector3.up);
+            Vector3 current = Vector3.RotateTowards(start, end, angleToThePlayer * Mathf.Deg2Rad * (timeToNormal - recoilTimer) / timeToNormal, 0.0f);
+            Debug.Log("Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
+            transform.rotation = Quaternion.LookRotation(current);
+        }
+
         transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
     }
 
@@ -201,46 +244,37 @@ public class CameraFollow : MonoBehaviour
     {
         if (recoil == STATE.NORMAL && player.GetComponent<PlayerFirst>().IsHurry)
         {
-            Debug.Log("Going to distant");
-            recoilTimer = timeToRecoil;
-            recoil = STATE.BACKWARD;
-            StartCoroutine("NormalToRecoil");
-            // transform.position -= distanceOffsetInHurry * player.transform.forward;
+            recoilTimer = timeToFocus;
+            recoil = STATE.TO_FOCUS;
         }
-        else if (recoil == STATE.DISTANT && !player.GetComponent<PlayerFirst>().IsHurry)
+
+        else if (recoil == STATE.TO_FOCUS)
         {
-            Debug.Log("Going to normal");
+            recoilTimer -= Time.deltaTime;
+            transform.position += (player.transform.forward * Z_OffsetHurry + -player.transform.up * Y_OffsetHurry) * Time.deltaTime / timeToFocus;
+
+            if (recoilTimer <= 0)
+            {
+                recoil = STATE.FOCUS;
+            }
+        }
+
+        else if (recoil == STATE.FOCUS && !player.GetComponent<PlayerFirst>().IsHurry)
+        {
             recoilTimer = timeToNormal;
-            recoil = STATE.FORWARD;
-            StartCoroutine("RecoilToNormal");
-            // transform.position += distanceOffsetInHurry * player.transform.forward;
+            recoil = STATE.TO_NORMAL;
         }
-    }
 
-    IEnumerator NormalToRecoil()
-    {
-        while (recoilTimer > 0)
+        else if (recoil == STATE.TO_NORMAL)
         {
             recoilTimer -= Time.deltaTime;
-            transform.position += (-player.transform.forward) * distanceOffsetInHurry * Time.deltaTime / timeToRecoil;
-
-            yield return null;
+            transform.position += (-player.transform.forward * Z_OffsetHurry + player.transform.up * Y_OffsetHurry) * Time.deltaTime / timeToNormal;
+            Debug.Log("position : " + transform.position + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
+            if (recoilTimer <= 0)
+            {
+                recoil = STATE.NORMAL;
+            }
         }
-        recoil = STATE.DISTANT;
-        Debug.Log("In distant position");
-    }
-
-    IEnumerator RecoilToNormal()
-    {
-        while (recoilTimer > 0)
-        {
-            recoilTimer -= Time.deltaTime;
-            transform.position += player.transform.forward * distanceOffsetInHurry * Time.deltaTime / timeToNormal;
-
-            yield return null;
-        }
-        Debug.Log("Back to normal");
-        recoil = STATE.NORMAL;
     }
 
 } //FINISH

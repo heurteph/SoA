@@ -149,9 +149,9 @@ public class CameraFollow : MonoBehaviour
             Vector3 endPosition    = transform.position + (-player.transform.forward * Z_OffsetHurry + player.transform.up * Y_OffsetHurry) * recoilTimer / timeToFocus; // recreate original position
             Vector3 start   = Vector3.ProjectOnPlane((player.transform.position - startPosition), Vector3.up);
             Vector3 end     = (player.transform.position - endPosition).normalized;
-            //Vector3 current = Vector3.RotateTowards(start, end, angleToThePlayer * Mathf.Deg2Rad * (timeToFocus - recoilTimer) / timeToFocus, 0.0f);
+            //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToFocus - recoilTimer) / timeToFocus);
             Vector3 current = Vector3.Slerp(start, end, (timeToFocus - recoilTimer) / timeToFocus);
-            Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
+            Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToFocus : " + timeToFocus + ", recoilTimer : " + recoilTimer);
             transform.rotation = Quaternion.LookRotation(current);
 
             //heldCamera.GetComponent<Camera>().fieldOfView = 60 - (60 - 50) * (timeToFocus - recoilTimer) / timeToFocus;
@@ -166,7 +166,7 @@ public class CameraFollow : MonoBehaviour
             Vector3 endPosition   = transform.position - (-player.transform.forward * Z_OffsetHurry + player.transform.up * Y_OffsetHurry) * recoilTimer / timeToNormal; // recreate original position
             Vector3 start   = (player.transform.position - startPosition).normalized;
             Vector3 end     = Vector3.ProjectOnPlane((player.transform.position - endPosition), Vector3.up);
-            //Vector3 current = Vector3.RotateTowards(start, end, angleToThePlayer * Mathf.Deg2Rad * (timeToNormal - recoilTimer) / timeToNormal, 0.0f);
+            //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
             Vector3 current = Vector3.Slerp(start, end, (timeToNormal - recoilTimer) / timeToNormal);
             Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
             transform.rotation = Quaternion.LookRotation(current);
@@ -214,23 +214,27 @@ public class CameraFollow : MonoBehaviour
         if (!Mathf.Approximately(v.x, 0))
         {
             accumulator.x = Mathf.Clamp(accumulator.x + v.x * Time.deltaTime / lookAroundTime, -1, 1);
-            smoothx = Mathf.Sign(accumulator.x) * ( 1 - Mathf.Pow(accumulator.x - Mathf.Sign(accumulator.x), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
+            //smoothx = Mathf.Sign(accumulator.x) * ( 1 - Mathf.Pow(accumulator.x - Mathf.Sign(accumulator.x), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
+            smoothx = Mathf.Sign(accumulator.x) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.x));
         }
         else
         {
             accumulator.x = (1 - Mathf.Sign(accumulator.x)) / 2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / lookAroundTime, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / lookAroundTime, 0);
-            smoothx = Mathf.Sign(accumulator.x) * Mathf.Pow(accumulator.x, 2); // f(x) = -x^2 for x between 0 and 1, f(x) = x^2 for x between -1 and 0
+            //smoothx = Mathf.Sign(accumulator.x) * Mathf.Pow(accumulator.x, 2); // f(x) = -x^2 for x between 0 and 1, f(x) = x^2 for x between -1 and 0
+            smoothx = Mathf.Sign(accumulator.x) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.x));
         }
 
         if (!Mathf.Approximately(v.y, 0))
         {
             accumulator.y = Mathf.Clamp(accumulator.y + v.y * Time.deltaTime / lookAroundTime, -1, 1);
-            smoothy = Mathf.Sign(accumulator.y) * (1 - Mathf.Pow(accumulator.y - Mathf.Sign(accumulator.y), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
+            //smoothy = Mathf.Sign(accumulator.y) * (1 - Mathf.Pow(accumulator.y - Mathf.Sign(accumulator.y), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
+            smoothy = Mathf.Sign(accumulator.y) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.y));
         }
         else
         {
             accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / lookAroundTime, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / lookAroundTime, 0);
-            smoothy = Mathf.Sign(accumulator.y) * Mathf.Pow(accumulator.y, 2);
+            //smoothy = Mathf.Sign(accumulator.y) * Mathf.Pow(accumulator.y, 2);
+            smoothy = Mathf.Sign(accumulator.y) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.y));
         }
 
         heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
@@ -258,6 +262,7 @@ public class CameraFollow : MonoBehaviour
             Vector3 startPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position,Vector3.up).normalized * Z_OffsetHurry + transform.up * Y_OffsetHurry) * (timeToFocus - recoilTimer) / timeToFocus; // recreate original position
             Vector3 endPosition   = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + transform.up * Y_OffsetHurry) * recoilTimer / timeToFocus; // recreate original position
             recoilTimer -= Time.deltaTime;
+            //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToFocus - recoilTimer) / timeToFocus);
             transform.position = Vector3.Lerp(startPosition, endPosition, (timeToFocus - recoilTimer) / timeToFocus);
             
             //recoilTimer -= Time.deltaTime;
@@ -280,6 +285,7 @@ public class CameraFollow : MonoBehaviour
             Vector3 startPosition = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + transform.up * Y_OffsetHurry) * (timeToNormal - recoilTimer) / timeToNormal; // recreate original position
             Vector3 endPosition   = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + transform.up * Y_OffsetHurry) * recoilTimer / timeToNormal; // recreate original position
             recoilTimer -= Time.deltaTime;
+            //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
             transform.position = Vector3.Lerp(startPosition, endPosition, (timeToNormal - recoilTimer) / timeToNormal);
             
             //recoilTimer -= Time.deltaTime;

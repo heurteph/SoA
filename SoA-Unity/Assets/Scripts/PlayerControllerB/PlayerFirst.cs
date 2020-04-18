@@ -58,12 +58,27 @@ public class PlayerFirst : MonoBehaviour
     private bool isHurry;
     public bool IsHurry { get { return isHurry; } }
 
+    private bool isProtected;
+    public bool IsProtected { get { return isProtected; } }
+
     void Awake()
     {
         angle = player.transform.rotation.eulerAngles.y;
+
         inputs = new Inputs();
+        inputs.Player.Protect.performed += _ctx =>
+        {
+            isProtected = true;
+            Debug.Log("Protected");
+        };
+        inputs.Player.Protect.canceled += _ctx => {
+            isProtected = false;
+            Debug.Log("Unprotected");
+        };
+
         isTurningBack = false;
         isHurry = false;
+        isProtected = false;
     }
 
     // Start is called before the first frame update
@@ -147,4 +162,5 @@ public class PlayerFirst : MonoBehaviour
         speed = normalSpeed;
         isHurry = false;
     }
+
 } // FINISH

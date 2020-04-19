@@ -41,6 +41,14 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b24222e-529f-4651-99b5-cc7f1723cde5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -252,6 +260,28 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""Protect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""15012268-4b2f-4229-813f-97b3d8f09b72"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse-Keyboard"",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fec07214-dc13-4b72-b5b8-471cb76eb55a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -274,6 +304,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Player_Walk = m_Player.FindAction("Walk", throwIfNotFound: true);
         m_Player_LookAround = m_Player.FindAction("LookAround", throwIfNotFound: true);
         m_Player_Protect = m_Player.FindAction("Protect", throwIfNotFound: true);
+        m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -326,6 +357,7 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Walk;
     private readonly InputAction m_Player_LookAround;
     private readonly InputAction m_Player_Protect;
+    private readonly InputAction m_Player_Quit;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -333,6 +365,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @Walk => m_Wrapper.m_Player_Walk;
         public InputAction @LookAround => m_Wrapper.m_Player_LookAround;
         public InputAction @Protect => m_Wrapper.m_Player_Protect;
+        public InputAction @Quit => m_Wrapper.m_Player_Quit;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -351,6 +384,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Protect.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
                 @Protect.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
                 @Protect.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
+                @Quit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -364,6 +400,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Protect.started += instance.OnProtect;
                 @Protect.performed += instance.OnProtect;
                 @Protect.canceled += instance.OnProtect;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -391,5 +430,6 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnWalk(InputAction.CallbackContext context);
         void OnLookAround(InputAction.CallbackContext context);
         void OnProtect(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
 }

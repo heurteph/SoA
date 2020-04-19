@@ -61,6 +61,9 @@ public class PlayerFollow : MonoBehaviour
             isProtected = false;
         };
 
+        // TO MOVE TO GAME MANAGER
+        inputs.Player.Quit.performed += _ctx => Application.Quit();
+
         isHurry = false;
         isProtected = false;
     }

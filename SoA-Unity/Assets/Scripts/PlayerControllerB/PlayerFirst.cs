@@ -79,6 +79,9 @@ public class PlayerFirst : MonoBehaviour
             Debug.Log("Unprotected");
         };
 
+        // TO MOVE TO GAME MANAGER
+        inputs.Player.Quit.performed += _ctx => Application.Quit();
+
         isTurningBack = false;
         isHurry = false;
         isProtected = false;

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/ParkTest.unity
+    guid: ddc08389d1adbbf40bc9881ffe34fdb0
+  - enabled: 0
     path: Assets/Scenes/TutorialTest.unity
     guid: aa821834c8184bd44a9fcf9598e40fb7
   m_configObjects:

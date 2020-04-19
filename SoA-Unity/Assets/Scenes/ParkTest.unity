@@ -27447,17 +27447,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6abf002ecd28b4ead1750f1b55d393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 10.38
-  viewAngle: 79
+  frontViewRadius: 0
+  frontViewAngle: 0
+  frontMeshResolution: 0
+  sideViewRadius: 0
+  sideViewAngle: 0
+  sideMeshResolution: 0
+  backViewRadius: 0
+  backViewAngle: 0
+  backMeshResolution: 0
   targetMask:
     serializedVersion: 2
     m_Bits: 2048
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1024
-  meshResolution: 1
   energyBehaviour: {fileID: 2015501667}
-  crowdDamage: 35
+  crowdFrontDamage: 0
+  crowdSideDamage: 0
+  crowdBackDamage: 0
 --- !u!1 &448654810
 GameObject:
   m_ObjectHideFlags: 0
@@ -33562,11 +33570,20 @@ MonoBehaviour:
   cameraAngularOffset: {x: 0, y: 0, z: 0}
   alignSpeed: 300
   heldCamera: {fileID: 963194225}
-  lookAroundTime: 0.5
-  maxLookAroundAngle: 45
-  distanceOffsetInHurry: 5.01
-  timeToRecoil: 0.19
-  timeToNormal: 1
+  maxHorizontalAngle: 45
+  maxVerticalAngle: 45
+  horizontalDuration: 0.5
+  verticalDuration: 0.5
+  timeHurryToNormal: 1.2
+  timeProtectedToNormal: 0.4
+  Z_OffsetHurry: -2
+  Y_OffsetHurry: 0
+  timeNormalToHurry: 0.6
+  timeProtectedToHurry: 0.3
+  Z_OffsetProtected: -9
+  Y_OffsetProtected: 2
+  timeNormalToProtected: 0.4
+  timeHurryToProtected: 0.3
 --- !u!114 &545640118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119214,11 +119231,10 @@ MonoBehaviour:
   player: {fileID: 2015501663}
   characterController: {fileID: 2015501666}
   normalSpeed: 18
-  hurrySpeed: 36
   rotationSpeed: 120
   turnBackTime: 0.35
-  timeTransitionToHurrySpeed: 3
-  timeTransitionToNormalSpeed: 3
+  hurrySpeed: 36
+  delayToNormalState: 3
 --- !u!1 &2015849957
 GameObject:
   m_ObjectHideFlags: 0

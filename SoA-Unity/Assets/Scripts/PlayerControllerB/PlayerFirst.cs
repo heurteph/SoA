@@ -50,7 +50,7 @@ public class PlayerFirst : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Delay in seconds to transition to normal state after the danger has passed")]
-    [Range(0,5)]
+    [Range(0,30)]
     private float delayToNormalState  = 3; // s
 
     private float backToNormalSpeedTimer       = 0; // s

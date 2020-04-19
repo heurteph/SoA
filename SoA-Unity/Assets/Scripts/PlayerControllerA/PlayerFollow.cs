@@ -44,6 +44,10 @@ public class PlayerFollow : MonoBehaviour
     private bool isProtected;
     public bool IsProtected { get { return isProtected; } }
 
+    [SerializeField]
+    private Animator anim;
+
+
     void Awake()
     {
      //    angle = player.transform.rotation.eulerAngles.y;
@@ -70,6 +74,7 @@ public class PlayerFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (inputs.Player.Walk != null)
         {
             Walk(inputs.Player.Walk.ReadValue<Vector2>());
@@ -97,7 +102,14 @@ public class PlayerFollow : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, cameraHolder.transform.rotation.eulerAngles.y + Mathf.Rad2Deg * Mathf.Atan2(v.x, v.y), 0);   // cartesian to polar, starting from the Y+ axis as it's the one mapped to the camera's forward, thus using tan-1(x,y) and not tan-1(y,x) / No rotationSpeed * Time.deltaTime as it takes absolute orientation
             characterController.Move(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized * v.magnitude * speed * Time.deltaTime);  // projection normalized to have the speed independant from the camera angle
-        }  
+
+        
+                anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
     }
 
     public void Hurry(float energy)

@@ -61,6 +61,9 @@ public class PlayerFirst : MonoBehaviour
     private bool isProtected;
     public bool IsProtected { get { return isProtected; } }
 
+    [SerializeField]
+    private Animator anim;
+
     void Awake()
     {
         angle = player.transform.rotation.eulerAngles.y;
@@ -90,9 +93,11 @@ public class PlayerFirst : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (inputs.Player.Walk != null)
         {
             Walk(inputs.Player.Walk.ReadValue<Vector2>());
+          
         }
     }
 
@@ -116,6 +121,14 @@ public class PlayerFirst : MonoBehaviour
             characterController.transform.rotation = Quaternion.Euler(0, angle, 0);
             
             if (v.y < 0) { StartCoroutine("TurnBack"); }
+
+            if (v.magnitude < Mathf.Epsilon)
+            {
+                anim.SetBool("isWalking", false);
+            } else
+            {
+                anim.SetBool("isWalking", true);
+            }
         }
     }
 

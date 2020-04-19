@@ -599,7 +599,6 @@ public class CameraFollow : MonoBehaviour
                 swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Sin(longitude * Mathf.Deg2Rad),
                 swayRadius * Mathf.Cos(latitude * Mathf.Deg2Rad)
             );
-            //cameraSway.transform.position = Vector3.MoveTowards(cameraSway.transform.position, target, swaySpeed * Time.deltaTime);
             
             swayTimer -= Time.deltaTime;
             float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (swayDuration - swayTimer) / swayDuration);

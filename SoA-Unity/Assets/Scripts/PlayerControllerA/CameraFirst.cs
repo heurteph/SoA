@@ -101,12 +101,12 @@ public class CameraFirst : MonoBehaviour
     [SerializeField]
     [Tooltip("The delay to switch from hurry to normal view, in seconds")]
     [Range(0.1f, 5)]
-    private float timeHurryToNormal = 1.2f;
+    private float timeHurryToNormal = 1.5f;
 
     [SerializeField]
     [Tooltip("The delay to switch from protected to normal view, in seconds")]
     [Range(0.1f, 5)]
-    private float timeProtectedToNormal = 0.2f;
+    private float timeProtectedToNormal = 0.7f;
 
     [Space]
     [Header("Hurry Mode")]
@@ -114,7 +114,7 @@ public class CameraFirst : MonoBehaviour
     [SerializeField]
     [Tooltip("Z-Offset when player is in hurry mode (-closer, +farther)")]
     [Range(-10, 10)]
-    private float Z_OffsetHurry = 2.5f;
+    private float Z_OffsetHurry = -4f;
 
     [SerializeField]
     [Tooltip("Y-Offset when player is in hurry mode (-closer, +farther)")]
@@ -124,12 +124,12 @@ public class CameraFirst : MonoBehaviour
     [SerializeField]
     [Tooltip("The delay to switch from normal to hurry view, in seconds")]
     [Range(0.1f, 5)]
-    private float timeNormalToHurry = 0.5f;
+    private float timeNormalToHurry = 0.7f;
 
     [SerializeField]
     [Tooltip("The delay to switch from protected to hurry view, in seconds")]
     [Range(0.1f, 5)]
-    private float timeProtectedToHurry = 0.2f;
+    private float timeProtectedToHurry = 0.4f;
 
     [Space]
     [Header("Protected Mode")]
@@ -137,22 +137,22 @@ public class CameraFirst : MonoBehaviour
     [SerializeField]
     [Tooltip("Z-Offset when player is in protected mode (-closer, +farther)")]
     [Range(-10, 10)]
-    private float Z_OffsetProtected = 2.5f;
+    private float Z_OffsetProtected = -10f;
 
     [SerializeField]
     [Tooltip("Y-Offset when player is in hurry mode (-closer, +farther)")]
     [Range(-10, 10)]
-    private float Y_OffsetProtected = 0;
+    private float Y_OffsetProtected = 4;
 
     [SerializeField]
     [Tooltip("The delay to switch from normal to protected view, in seconds")]
     [Range(0.1f, 5)]
-    private float timeNormalToProtected = 0.2f;
+    private float timeNormalToProtected = 0.7f;
 
     [SerializeField]
     [Tooltip("The delay to switch from hurry to protected view, in seconds")]
     [Range(0.1f, 5)]
-    private float timeHurryToProtected = 0.2f;
+    private float timeHurryToProtected = 0.4f;
 
     private float zoomTimer;
 

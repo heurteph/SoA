@@ -33566,7 +33566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2015501663}
-  cameraOffset: {x: 0, y: 3, z: -12}
+  cameraOffset: {x: 0, y: 4, z: -12}
   cameraAngularOffset: {x: 0, y: 0, z: 0}
   alignSpeed: 250
   heldCamera: {fileID: 963194225}
@@ -33574,16 +33574,16 @@ MonoBehaviour:
   maxVerticalAngle: 15
   horizontalDuration: 0.4
   verticalDuration: 0.5
-  timeHurryToNormal: 1.2
-  timeProtectedToNormal: 0.3
+  timeHurryToNormal: 1.5
+  timeProtectedToNormal: 0.7
   Z_OffsetHurry: -4
   Y_OffsetHurry: 0
-  timeNormalToHurry: 0.6
-  timeProtectedToHurry: 0.3
-  Z_OffsetProtected: -8
-  Y_OffsetProtected: 3
-  timeNormalToProtected: 0.3
-  timeHurryToProtected: 0.3
+  timeNormalToHurry: 0.7
+  timeProtectedToHurry: 0.4
+  Z_OffsetProtected: -10
+  Y_OffsetProtected: 4
+  timeNormalToProtected: 0.7
+  timeHurryToProtected: 0.4
   cameraSway: {fileID: 0}
   swayRadiusMin: 0.01
   swayRadiusMax: 0.05
@@ -33612,16 +33612,16 @@ MonoBehaviour:
   maxVerticalAngle: 20
   horizontalDuration: 0.6
   verticalDuration: 0.3
-  timeHurryToNormal: 1.2
-  timeProtectedToNormal: 0.3
+  timeHurryToNormal: 1.5
+  timeProtectedToNormal: 0.7
   Z_OffsetHurry: -4
   Y_OffsetHurry: 0
-  timeNormalToHurry: 0.6
-  timeProtectedToHurry: 0.3
-  Z_OffsetProtected: -8
-  Y_OffsetProtected: 3
-  timeNormalToProtected: 0.3
-  timeHurryToProtected: 0.3
+  timeNormalToHurry: 0.7
+  timeProtectedToHurry: 0.4
+  Z_OffsetProtected: -10
+  Y_OffsetProtected: 4
+  timeNormalToProtected: 0.7
+  timeHurryToProtected: 0.4
 --- !u!1 &557113256
 GameObject:
   m_ObjectHideFlags: 0

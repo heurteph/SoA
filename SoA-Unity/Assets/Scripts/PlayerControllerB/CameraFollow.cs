@@ -142,6 +142,37 @@ public class CameraFollow : MonoBehaviour
     private float angleFromHurryToHorizon = 0;
     private float angleFromProtectedToHorizon = 0;
 
+    [Space]
+    [Header("Sway")]
+
+    [SerializeField]
+    [Tooltip("The sway pivot")]
+    private GameObject cameraSway;
+
+    [SerializeField]
+    [Tooltip("The minimal sway radius")]
+    [Range(0.001f, 1f)]
+    private float swayRadiusMin = 0.01f;
+
+    [SerializeField]
+    [Tooltip("The maximal sway radius")]
+    [Range(0.001f, 1f)]
+    private float swayRadiusMax = 0.05f;
+
+    private float latitude = 0, longitude = 0, swayRadius = 0;
+
+    [SerializeField]
+    [Tooltip("The sway duration")]
+    [Range(2f, 10f)]
+    private float swayDurationMin = 4f;
+
+    [SerializeField]
+    [Tooltip("The sway duration")]
+    [Range(2f, 10f)]
+    private float swayDurationMax = 6f;
+    private float swayDuration = 0;
+    private float swayTimer = 0;
+
     private void Awake()
     {
        inputs = new Inputs();
@@ -168,6 +199,12 @@ public class CameraFollow : MonoBehaviour
 
         cameraState = STATE.NORMAL;
         zoomTimer = 0;
+
+        if (cameraSway)
+        {
+            InitializeSway();
+            StartCoroutine("Sway");
+        }
 
         StartCoroutine("AlignWithCharacter");
     }
@@ -198,6 +235,8 @@ public class CameraFollow : MonoBehaviour
         UpdateRotation();
 
         LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+
+        if (cameraSway) { Sway(); }
     }
 
     private void UpdatePosition ()
@@ -540,6 +579,41 @@ public class CameraFollow : MonoBehaviour
                 transform.position = endPosition; // should wait one frame more
                 cameraState = STATE.HURRY;
             }
+        }
+    }
+
+    void InitializeSway()
+    {
+        latitude      = Random.Range(0, 180);
+        longitude     = Random.Range(0, 360);
+        swayRadius    = Random.Range(swayRadiusMin, swayRadiusMax);
+        swayDuration  = Random.Range(swayDurationMin, swayDurationMax);
+        swayTimer     = swayDuration;
+    }
+    IEnumerator Sway()
+    {
+        for (; ;)
+        {
+            Vector3 target = transform.position + new Vector3(
+                swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Cos(longitude * Mathf.Deg2Rad),
+                swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Sin(longitude * Mathf.Deg2Rad),
+                swayRadius * Mathf.Cos(latitude * Mathf.Deg2Rad)
+            );
+            //cameraSway.transform.position = Vector3.MoveTowards(cameraSway.transform.position, target, swaySpeed * Time.deltaTime);
+            
+            swayTimer -= Time.deltaTime;
+            float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (swayDuration - swayTimer) / swayDuration);
+            cameraSway.transform.position = Vector3.Lerp(cameraSway.transform.position, target, smoothstep);
+
+            if (Mathf.Approximately((cameraSway.transform.position - target).magnitude, 0))
+            {
+                latitude     = Random.Range(0, 90) + 90 * (1 - Mathf.Sign(latitude - 90) / 2f);
+                longitude    = Random.Range(longitude - 90, longitude + 90) % 360;
+                swayRadius   = Random.Range(swayRadiusMin, swayRadiusMax);
+                swayDuration = Random.Range(swayDurationMin, swayDurationMax);
+                swayTimer    = swayDuration;
+            }
+            yield return null;
         }
     }
 

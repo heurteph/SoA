@@ -33546,7 +33546,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545640115}
   m_LocalRotation: {x: -0, y: 0.733552, z: -0, w: 0.6796333}
-  m_LocalPosition: {x: 12.293194, y: 0.5, z: -0.94514847}
+  m_LocalPosition: {x: 110.46401, y: -105.91733, z: -212.5001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
@@ -33560,7 +33560,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545640115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b56d941694b14e4dbecae5f100a31f4, type: 3}
   m_Name: 
@@ -33591,20 +33591,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545640115}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfe1030626f853f43aecd945da6207fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2015501663}
   cameraAngularOffset: {x: 0, y: 0, z: 0}
-  radius: 14.5
-  longitude: -18.000002
-  latitude: 8.999999
-  cameraOffset: {x: -0.70094305, y: -4.425581, z: -13.790319}
+  radius: 23.000002
+  longitude: -40.300003
+  latitude: -37
+  cameraOffset: {x: 8.9527, y: -11.880634, z: -17.541372}
   heldCamera: {fileID: 963194225}
-  lookAroundTime: 0.5
-  maxLookAroundAngle: 45
+  maxHorizontalAngle: 45
+  maxVerticalAngle: 20
+  horizontalDuration: 0.5
+  verticalDuration: 0.3
+  timeHurryToNormal: 1.2
+  timeProtectedToNormal: 0.3
+  Z_OffsetHurry: 8
+  Y_OffsetHurry: 1
+  timeNormalToHurry: 0.4
+  timeProtectedToHurry: 0.4
+  Z_OffsetProtected: -8
+  Y_OffsetProtected: -6
+  timeNormalToProtected: 0.3
+  timeHurryToProtected: 0.3
 --- !u!1 &557113256
 GameObject:
   m_ObjectHideFlags: 0
@@ -119205,7 +119217,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015501663}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2472a9a10cb05384b8f098c4737cd02b, type: 3}
   m_Name: 
@@ -119214,8 +119226,7 @@ MonoBehaviour:
   cameraHolder: {fileID: 545640115}
   normalSpeed: 4.73
   hurrySpeed: 10
-  timeTransitionToHurrySpeed: 3
-  timeTransitionToNormalSpeed: 3
+  delayToNormalState: 3
 --- !u!114 &2015501669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119223,7 +119234,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015501663}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1442dbc62d199c947b7378903abcd38a, type: 3}
   m_Name: 

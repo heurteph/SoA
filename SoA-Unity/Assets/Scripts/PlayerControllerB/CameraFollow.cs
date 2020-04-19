@@ -16,6 +16,9 @@ public class CameraFollow : MonoBehaviour
     [Tooltip("The character followed by the camera")]
     private GameObject player;
 
+    private float originalYRotation;
+    private Vector3 lastPlayerPosition;
+
     [Space]
 
     [SerializeField]
@@ -60,8 +63,6 @@ public class CameraFollow : MonoBehaviour
     [Range(0.1f, 5)]
     private float verticalDuration = 0.5f; // seconds
 
-    private float originalYRotation;
-    private Vector3 lastPlayerPosition;
     private Vector2 accumulator = Vector2.zero;
 
     enum STATE { 
@@ -137,6 +138,7 @@ public class CameraFollow : MonoBehaviour
     private float timeHurryToProtected = 0.2f;
 
     private float zoomTimer;
+
     private float angleFromHurryToHorizon = 0;
     private float angleFromProtectedToHorizon = 0;
 
@@ -153,8 +155,6 @@ public class CameraFollow : MonoBehaviour
         transform.position = player.transform.position + player.transform.rotation * cameraOffset;
         UpdateRotation(); //transform.LookAt(player.transform);
         lastPlayerPosition = player.transform.position;
-        cameraState = STATE.NORMAL;
-        zoomTimer = 0;
 
         // compute the angle between the camera in normal view and hurry view for the look-around stabilization
         Vector3 hurryPosition = transform.position - Z_OffsetHurry * Vector3.ProjectOnPlane((player.transform.position - transform.position).normalized, Vector3.up) + Y_OffsetHurry * Vector3.up;
@@ -165,6 +165,9 @@ public class CameraFollow : MonoBehaviour
         Vector3 protectedPosition = transform.position - Z_OffsetProtected * Vector3.ProjectOnPlane((player.transform.position - transform.position).normalized, Vector3.up) + Y_OffsetProtected * Vector3.up;
         angleFromProtectedToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up).normalized, (player.transform.position - protectedPosition).normalized);
         Debug.Log("angleFromProtectedToHorizon : " + angleFromProtectedToHorizon);
+
+        cameraState = STATE.NORMAL;
+        zoomTimer = 0;
 
         StartCoroutine("AlignWithCharacter");
     }
@@ -202,7 +205,7 @@ public class CameraFollow : MonoBehaviour
         // if values have changed in the inspector
         UpdateFromInspector();
 
-        // adapt recoil to normal or hurry mode of the player
+        // adapt recoil to normal, hurry or protected mode from the player
         UpdateRecoilPosition();
 
         transform.position += (player.transform.position - lastPlayerPosition);
@@ -539,15 +542,5 @@ public class CameraFollow : MonoBehaviour
             }
         }
     }
-
-    /*
-    void Zoom (float y, float z, float totalDuration)
-    {
-        Vector3 startPosition = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * z + Vector3.up * y) * (totalDuration - recoilTimer) / totalDuration; // recreate original position
-        Vector3 endPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * z + Vector3.up * y) * recoilTimer / totalDuration; // recreate original position
-        recoilTimer -= Time.deltaTime;
-        //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
-        transform.position = Vector3.Lerp(startPosition, endPosition, (timeToNormal - recoilTimer) / timeToNormal);
-    }*/
 
 } //FINISH

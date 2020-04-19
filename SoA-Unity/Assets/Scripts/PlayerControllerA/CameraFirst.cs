@@ -106,7 +106,7 @@ public class CameraFirst : MonoBehaviour
     [SerializeField]
     [Tooltip("The delay to switch from protected to normal view, in seconds")]
     [Range(0.1f, 5)]
-    private float timeProtectedToNormal = 1.2f;
+    private float timeProtectedToNormal = 0.2f;
 
     [Space]
     [Header("Hurry Mode")]
@@ -124,7 +124,7 @@ public class CameraFirst : MonoBehaviour
     [SerializeField]
     [Tooltip("The delay to switch from normal to hurry view, in seconds")]
     [Range(0.1f, 5)]
-    private float timeNormalToHurry = 0.4f;
+    private float timeNormalToHurry = 0.5f;
 
     [SerializeField]
     [Tooltip("The delay to switch from protected to hurry view, in seconds")]
@@ -147,7 +147,7 @@ public class CameraFirst : MonoBehaviour
     [SerializeField]
     [Tooltip("The delay to switch from normal to protected view, in seconds")]
     [Range(0.1f, 5)]
-    private float timeNormalToProtected = 0.4f;
+    private float timeNormalToProtected = 0.2f;
 
     [SerializeField]
     [Tooltip("The delay to switch from hurry to protected view, in seconds")]

@@ -2056,7 +2056,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285684
+<<<<<<< HEAD
+  m_Name: pb_Mesh19646
+=======
+  m_Name: pb_Mesh59178
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5133,7 +5137,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282488
+<<<<<<< HEAD
+  m_Name: pb_Mesh16458
+=======
+  m_Name: pb_Mesh55990
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7992,7 +8000,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283780
+<<<<<<< HEAD
+  m_Name: pb_Mesh17746
+=======
+  m_Name: pb_Mesh57278
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8451,7 +8463,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285718
+<<<<<<< HEAD
+  m_Name: pb_Mesh19680
+=======
+  m_Name: pb_Mesh59212
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8708,7 +8724,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283710
+<<<<<<< HEAD
+  m_Name: pb_Mesh17676
+=======
+  m_Name: pb_Mesh57208
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11524,7 +11544,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282550
+<<<<<<< HEAD
+  m_Name: pb_Mesh16520
+=======
+  m_Name: pb_Mesh56052
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16237,7 +16261,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283936
+<<<<<<< HEAD
+  m_Name: pb_Mesh17902
+=======
+  m_Name: pb_Mesh57434
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16493,7 +16521,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283874
+<<<<<<< HEAD
+  m_Name: pb_Mesh17840
+=======
+  m_Name: pb_Mesh57372
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16720,7 +16752,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282448
+<<<<<<< HEAD
+  m_Name: pb_Mesh16418
+=======
+  m_Name: pb_Mesh55950
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19055,7 +19091,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283230
+<<<<<<< HEAD
+  m_Name: pb_Mesh17196
+=======
+  m_Name: pb_Mesh56728
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22973,7 +23013,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283620
+<<<<<<< HEAD
+  m_Name: pb_Mesh17586
+=======
+  m_Name: pb_Mesh57118
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23378,7 +23422,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284190
+<<<<<<< HEAD
+  m_Name: pb_Mesh18156
+=======
+  m_Name: pb_Mesh57688
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23541,7 +23589,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282056
+<<<<<<< HEAD
+  m_Name: pb_Mesh16026
+=======
+  m_Name: pb_Mesh55558
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -23734,7 +23786,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284104
+<<<<<<< HEAD
+  m_Name: pb_Mesh18070
+=======
+  m_Name: pb_Mesh57602
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25849,7 +25905,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283142
+<<<<<<< HEAD
+  m_Name: pb_Mesh17108
+=======
+  m_Name: pb_Mesh56640
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26012,7 +26072,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282402
+<<<<<<< HEAD
+  m_Name: pb_Mesh16372
+=======
+  m_Name: pb_Mesh55904
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26175,7 +26239,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282856
+<<<<<<< HEAD
+  m_Name: pb_Mesh16826
+=======
+  m_Name: pb_Mesh56358
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26946,7 +27014,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282826
+<<<<<<< HEAD
+  m_Name: pb_Mesh16796
+=======
+  m_Name: pb_Mesh56328
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -29684,7 +29756,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283242
+<<<<<<< HEAD
+  m_Name: pb_Mesh17208
+=======
+  m_Name: pb_Mesh56740
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -30163,7 +30239,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284744
+<<<<<<< HEAD
+  m_Name: pb_Mesh18710
+=======
+  m_Name: pb_Mesh58242
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -33570,25 +33650,36 @@ MonoBehaviour:
   cameraAngularOffset: {x: 0, y: 0, z: 0}
   alignSpeed: 250
   heldCamera: {fileID: 963194225}
+<<<<<<< HEAD
+  maxHorizontalAngle: 45
+  maxVerticalAngle: 45
+  horizontalDuration: 0.5
+  verticalDuration: 0.5
+  timeHurryToNormal: 1.2
+  timeProtectedToNormal: 0.4
+  Z_OffsetHurry: -2
+  Y_OffsetHurry: 0
+  timeNormalToHurry: 0.6
+  timeProtectedToHurry: 0.3
+  Z_OffsetProtected: -9
+  Y_OffsetProtected: 2
+  timeNormalToProtected: 0.4
+  timeHurryToProtected: 0.3
+  cameraSway: {fileID: 1440286777}
+  swayRadiusMin: 0.01
+  swayRadiusMax: 0.05
+  swayDurationMin: 4
+  swayDurationMax: 8
+=======
   maxHorizontalAngle: 30
   maxVerticalAngle: 15
   horizontalDuration: 0.4
   verticalDuration: 0.5
-  timeHurryToNormal: 1.2
-  timeProtectedToNormal: 0.3
-  Z_OffsetHurry: -4
-  Y_OffsetHurry: 0
-  timeNormalToHurry: 0.6
-  timeProtectedToHurry: 0.3
-  Z_OffsetProtected: -8
-  Y_OffsetProtected: 3
-  timeNormalToProtected: 0.3
-  timeHurryToProtected: 0.3
-  cameraSway: {fileID: 0}
-  swayRadiusMin: 0.01
-  swayRadiusMax: 0.05
-  swayDurationMin: 4
-  swayDurationMax: 6
+  Z_OffsetHurry: -6
+  Y_OffsetHurry: 1
+  timeToFocus: 0.4
+  timeToNormal: 1.2
+>>>>>>> AvatarTest
 --- !u!114 &545640118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33610,16 +33701,16 @@ MonoBehaviour:
   heldCamera: {fileID: 963194225}
   maxHorizontalAngle: 45
   maxVerticalAngle: 20
-  horizontalDuration: 0.6
+  horizontalDuration: 0.5
   verticalDuration: 0.3
   timeHurryToNormal: 1.2
   timeProtectedToNormal: 0.3
-  Z_OffsetHurry: -4
-  Y_OffsetHurry: 0
-  timeNormalToHurry: 0.6
-  timeProtectedToHurry: 0.3
+  Z_OffsetHurry: 8
+  Y_OffsetHurry: 1
+  timeNormalToHurry: 0.4
+  timeProtectedToHurry: 0.4
   Z_OffsetProtected: -8
-  Y_OffsetProtected: 3
+  Y_OffsetProtected: -6
   timeNormalToProtected: 0.3
   timeHurryToProtected: 0.3
 --- !u!1 &557113256
@@ -34212,7 +34303,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285282
+<<<<<<< HEAD
+  m_Name: pb_Mesh19244
+=======
+  m_Name: pb_Mesh58776
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -34481,7 +34576,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285608
+<<<<<<< HEAD
+  m_Name: pb_Mesh19570
+=======
+  m_Name: pb_Mesh59102
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -34644,7 +34743,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285180
+<<<<<<< HEAD
+  m_Name: pb_Mesh19142
+=======
+  m_Name: pb_Mesh58674
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -35211,7 +35314,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282022
+<<<<<<< HEAD
+  m_Name: pb_Mesh15992
+=======
+  m_Name: pb_Mesh55524
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41720,7 +41827,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283534
+<<<<<<< HEAD
+  m_Name: pb_Mesh17500
+=======
+  m_Name: pb_Mesh57032
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -42053,7 +42164,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285058
+<<<<<<< HEAD
+  m_Name: pb_Mesh19020
+=======
+  m_Name: pb_Mesh58552
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -45146,7 +45261,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283996
+<<<<<<< HEAD
+  m_Name: pb_Mesh17962
+=======
+  m_Name: pb_Mesh57494
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -45309,7 +45428,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284906
+<<<<<<< HEAD
+  m_Name: pb_Mesh18868
+=======
+  m_Name: pb_Mesh58400
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -45566,7 +45689,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284842
+<<<<<<< HEAD
+  m_Name: pb_Mesh18808
+=======
+  m_Name: pb_Mesh58340
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46380,7 +46507,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284498
+<<<<<<< HEAD
+  m_Name: pb_Mesh18464
+=======
+  m_Name: pb_Mesh57996
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -48830,7 +48961,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285302
+<<<<<<< HEAD
+  m_Name: pb_Mesh19264
+=======
+  m_Name: pb_Mesh58796
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -48993,7 +49128,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284438
+<<<<<<< HEAD
+  m_Name: pb_Mesh18404
+=======
+  m_Name: pb_Mesh57936
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -49375,7 +49514,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282088
+<<<<<<< HEAD
+  m_Name: pb_Mesh16058
+=======
+  m_Name: pb_Mesh55590
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -49538,7 +49681,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284264
+<<<<<<< HEAD
+  m_Name: pb_Mesh18230
+=======
+  m_Name: pb_Mesh57762
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -51454,7 +51601,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285810
+<<<<<<< HEAD
+  m_Name: pb_Mesh19772
+=======
+  m_Name: pb_Mesh59304
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -51780,7 +51931,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283632
+<<<<<<< HEAD
+  m_Name: pb_Mesh17598
+=======
+  m_Name: pb_Mesh57130
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -52037,7 +52192,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282248
+<<<<<<< HEAD
+  m_Name: pb_Mesh16218
+=======
+  m_Name: pb_Mesh55750
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -60140,7 +60299,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284960
+<<<<<<< HEAD
+  m_Name: pb_Mesh18922
+=======
+  m_Name: pb_Mesh58454
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -60397,7 +60560,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282640
+<<<<<<< HEAD
+  m_Name: pb_Mesh16610
+=======
+  m_Name: pb_Mesh56142
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -60560,7 +60727,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283010
+<<<<<<< HEAD
+  m_Name: pb_Mesh16980
+=======
+  m_Name: pb_Mesh56512
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -60895,7 +61066,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283948
+<<<<<<< HEAD
+  m_Name: pb_Mesh17914
+=======
+  m_Name: pb_Mesh57446
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -61441,7 +61616,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283164
+<<<<<<< HEAD
+  m_Name: pb_Mesh17130
+=======
+  m_Name: pb_Mesh56662
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62296,7 +62475,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285842
+<<<<<<< HEAD
+  m_Name: pb_Mesh19804
+=======
+  m_Name: pb_Mesh59336
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -66486,7 +66669,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285732
+<<<<<<< HEAD
+  m_Name: pb_Mesh19694
+=======
+  m_Name: pb_Mesh59226
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -72619,7 +72806,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283768
+<<<<<<< HEAD
+  m_Name: pb_Mesh17734
+=======
+  m_Name: pb_Mesh57266
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -72782,7 +72973,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283124
+<<<<<<< HEAD
+  m_Name: pb_Mesh17090
+=======
+  m_Name: pb_Mesh56622
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -73213,7 +73408,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284994
+<<<<<<< HEAD
+  m_Name: pb_Mesh18956
+=======
+  m_Name: pb_Mesh58488
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -73686,7 +73885,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282326
+<<<<<<< HEAD
+  m_Name: pb_Mesh16296
+=======
+  m_Name: pb_Mesh55828
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -78914,7 +79117,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283606
+<<<<<<< HEAD
+  m_Name: pb_Mesh17572
+=======
+  m_Name: pb_Mesh57104
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -80197,7 +80404,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284128
+<<<<<<< HEAD
+  m_Name: pb_Mesh18094
+=======
+  m_Name: pb_Mesh57626
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -81438,7 +81649,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh281854
+<<<<<<< HEAD
+  m_Name: pb_Mesh15824
+=======
+  m_Name: pb_Mesh55356
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -82570,7 +82785,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284218
+<<<<<<< HEAD
+  m_Name: pb_Mesh18184
+=======
+  m_Name: pb_Mesh57716
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -86362,7 +86581,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285744
+<<<<<<< HEAD
+  m_Name: pb_Mesh19706
+=======
+  m_Name: pb_Mesh59238
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -87159,7 +87382,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284068
+<<<<<<< HEAD
+  m_Name: pb_Mesh18034
+=======
+  m_Name: pb_Mesh57566
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -87494,7 +87721,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285774
+<<<<<<< HEAD
+  m_Name: pb_Mesh19736
+=======
+  m_Name: pb_Mesh59268
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -87657,7 +87888,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282314
+<<<<<<< HEAD
+  m_Name: pb_Mesh16284
+=======
+  m_Name: pb_Mesh55816
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -87820,7 +88055,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283314
+<<<<<<< HEAD
+  m_Name: pb_Mesh17280
+=======
+  m_Name: pb_Mesh56812
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -90997,7 +91236,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh286168
+<<<<<<< HEAD
+  m_Name: pb_Mesh20128
+=======
+  m_Name: pb_Mesh59660
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -91938,7 +92181,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285918
+<<<<<<< HEAD
+  m_Name: pb_Mesh19880
+=======
+  m_Name: pb_Mesh59412
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -92131,7 +92378,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282992
+<<<<<<< HEAD
+  m_Name: pb_Mesh16962
+=======
+  m_Name: pb_Mesh56494
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -92915,7 +93166,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284600
+<<<<<<< HEAD
+  m_Name: pb_Mesh18566
+=======
+  m_Name: pb_Mesh58098
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -94902,7 +95157,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283476
+<<<<<<< HEAD
+  m_Name: pb_Mesh17442
+=======
+  m_Name: pb_Mesh56974
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -95867,7 +96126,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284528
+<<<<<<< HEAD
+  m_Name: pb_Mesh18494
+=======
+  m_Name: pb_Mesh58026
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -96533,7 +96796,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh284140
+<<<<<<< HEAD
+  m_Name: pb_Mesh18106
+=======
+  m_Name: pb_Mesh57638
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -96790,7 +97057,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh281918
+<<<<<<< HEAD
+  m_Name: pb_Mesh15888
+=======
+  m_Name: pb_Mesh55420
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -96953,7 +97224,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282906
+<<<<<<< HEAD
+  m_Name: pb_Mesh16876
+=======
+  m_Name: pb_Mesh56408
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -98842,7 +99117,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283360
+<<<<<<< HEAD
+  m_Name: pb_Mesh17326
+=======
+  m_Name: pb_Mesh56858
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -99005,7 +99284,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282226
+<<<<<<< HEAD
+  m_Name: pb_Mesh16196
+=======
+  m_Name: pb_Mesh55728
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -99551,7 +99834,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh282338
+<<<<<<< HEAD
+  m_Name: pb_Mesh16308
+=======
+  m_Name: pb_Mesh55840
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -101356,7 +101643,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285168
+<<<<<<< HEAD
+  m_Name: pb_Mesh19130
+=======
+  m_Name: pb_Mesh58662
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -104476,7 +104767,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285964
+<<<<<<< HEAD
+  m_Name: pb_Mesh19926
+=======
+  m_Name: pb_Mesh59458
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -105014,7 +105309,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285508
+<<<<<<< HEAD
+  m_Name: pb_Mesh19470
+=======
+  m_Name: pb_Mesh59002
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -105519,7 +105818,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh286048
+<<<<<<< HEAD
+  m_Name: pb_Mesh20008
+=======
+  m_Name: pb_Mesh59540
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -109910,7 +110213,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285410
+<<<<<<< HEAD
+  m_Name: pb_Mesh19372
+=======
+  m_Name: pb_Mesh58904
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -118809,7 +119116,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh285432
+<<<<<<< HEAD
+  m_Name: pb_Mesh19394
+=======
+  m_Name: pb_Mesh58926
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -119359,8 +119670,13 @@ MonoBehaviour:
   cameraHolder: {fileID: 545640115}
   normalSpeed: 4.73
   hurrySpeed: 10
+<<<<<<< HEAD
   delayToNormalState: 3
+=======
+  timeTransitionToHurrySpeed: 3
+  timeTransitionToNormalSpeed: 3
   anim: {fileID: 603358178}
+>>>>>>> AvatarTest
 --- !u!114 &2015501669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119375,12 +119691,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2015501663}
   characterController: {fileID: 2015501666}
-  normalSpeed: 9.2
+<<<<<<< HEAD
+  normalSpeed: 18
   rotationSpeed: 120
   turnBackTime: 0.35
-  hurrySpeed: 16
+  hurrySpeed: 36
   delayToNormalState: 3
+=======
+  normalSpeed: 9.2
+  hurrySpeed: 16
+  rotationSpeed: 120
+  turnBackTime: 0.35
+  timeTransitionToHurrySpeed: 3
+  timeTransitionToNormalSpeed: 3
   anim: {fileID: 603358178}
+>>>>>>> AvatarTest
 --- !u!1 &2015849957
 GameObject:
   m_ObjectHideFlags: 0
@@ -119681,7 +120006,11 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh283984
+<<<<<<< HEAD
+  m_Name: pb_Mesh17950
+=======
+  m_Name: pb_Mesh57482
+>>>>>>> AvatarTest
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

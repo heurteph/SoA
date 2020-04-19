@@ -32,21 +32,33 @@ public class PlayerFollow : MonoBehaviour
     private float speed;
 
     [SerializeField]
-    [Tooltip("Time in seconds to transition from normal state to hurry state")]
-    [Range(0, 5)]
-    private float timeTransitionToHurrySpeed = 3; // s
-
-    [SerializeField]
     [Tooltip("Time in seconds to transition from hurry state to normal state")]
     [Range(0, 5)]
-    private float timeTransitionToNormalSpeed = 3; // s
+    private float delayToNormalState = 3; // s
 
     private float backToNormalSpeedTimer = 0; // s
+
+    private bool isHurry;
+    public bool IsHurry { get { return isHurry; } }
+
+    private bool isProtected;
+    public bool IsProtected { get { return isProtected; } }
 
     void Awake()
     {
      //    angle = player.transform.rotation.eulerAngles.y;
         inputs = new Inputs();
+
+        inputs.Player.Protect.performed += _ctx =>
+        {
+            isProtected = true;
+        };
+        inputs.Player.Protect.canceled += _ctx => {
+            isProtected = false;
+        };
+
+        isHurry = false;
+        isProtected = false;
     }
 
     // Start is called before the first frame update
@@ -90,7 +102,8 @@ public class PlayerFollow : MonoBehaviour
 
     public void Hurry(float energy)
     {
-        backToNormalSpeedTimer = timeTransitionToNormalSpeed;
+        isHurry = true;
+        backToNormalSpeedTimer = delayToNormalState;
         if (speed != hurrySpeed)
         {
             StartCoroutine("TransitionToNormalSpeed");
@@ -107,6 +120,7 @@ public class PlayerFollow : MonoBehaviour
         }
         backToNormalSpeedTimer = 0;
         speed = normalSpeed;
+        isHurry = false;
     }
 
 } // FINISH

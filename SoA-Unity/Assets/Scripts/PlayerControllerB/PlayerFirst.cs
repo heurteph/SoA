@@ -22,47 +22,63 @@ public class PlayerFirst : MonoBehaviour
 
     [SerializeField]
     [Range(1.0f, 20.0f)]
+    [Tooltip("Speed of the character")]
     private float normalSpeed = 18;
-
-    [SerializeField]
-    [Range(1.0f, 100.0f)]
-    [Tooltip("Speed when the character is losing energy")]
-    private float hurrySpeed = 36;
 
     private float speed;
 
     [SerializeField]
+    [Tooltip("Speed of turning right or left")]
     [Range(1.0f, 360.0f)]
     private float rotationSpeed = 150;
 
     [SerializeField]
+    [Tooltip("Duration of the half-turn")]
     [Range(0.1f,10)]
     float turnBackTime = 0.35f; // seconds
 
     private float angle;
     private bool isTurningBack;
 
-    [SerializeField]
-    [Tooltip("Time in seconds to transition from normal state to hurry state")]
-    [Range(0, 5)]
-    private float timeTransitionToHurrySpeed = 3; // s
+    [Space]
+    [Header("Hurry State")]
 
     [SerializeField]
-    [Tooltip("Time in seconds to transition from hurry state to normal state")]
-    [Range(0,5)]
-    private float timeTransitionToNormalSpeed  = 3; // s
+    [Range(1.0f, 100.0f)]
+    [Tooltip("Speed when the character is losing energy")]
+    private float hurrySpeed = 36;
+
+    [SerializeField]
+    [Tooltip("Delay in seconds to transition to normal state after the danger has passed")]
+    [Range(0,30)]
+    private float delayToNormalState  = 3; // s
 
     private float backToNormalSpeedTimer       = 0; // s
 
     private bool isHurry;
     public bool IsHurry { get { return isHurry; } }
 
+    private bool isProtected;
+    public bool IsProtected { get { return isProtected; } }
+
     void Awake()
     {
         angle = player.transform.rotation.eulerAngles.y;
+
         inputs = new Inputs();
+        inputs.Player.Protect.performed += _ctx =>
+        {
+            isProtected = true;
+            Debug.Log("Protected");
+        };
+        inputs.Player.Protect.canceled += _ctx => {
+            isProtected = false;
+            Debug.Log("Unprotected");
+        };
+
         isTurningBack = false;
         isHurry = false;
+        isProtected = false;
     }
 
     // Start is called before the first frame update
@@ -127,7 +143,7 @@ public class PlayerFirst : MonoBehaviour
     public void Hurry(float energy)
     {
         isHurry = true;
-        backToNormalSpeedTimer = timeTransitionToNormalSpeed;
+        backToNormalSpeedTimer = delayToNormalState;
         if (speed != hurrySpeed)
         {
             StartCoroutine("TransitionToNormalSpeed");
@@ -146,4 +162,5 @@ public class PlayerFirst : MonoBehaviour
         speed = normalSpeed;
         isHurry = false;
     }
+
 } // FINISH

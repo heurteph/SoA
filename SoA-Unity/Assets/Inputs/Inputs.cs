@@ -33,6 +33,14 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Protect"",
+                    ""type"": ""Button"",
+                    ""id"": ""6b7acb6c-6bd3-4e53-964f-60925b18677a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -222,6 +230,28 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""LookAround"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""100f4a26-d12d-4da2-9d98-b3d00f243cee"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Protect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b178e623-8909-40de-bb7a-8fcc285284e8"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse-Keyboard"",
+                    ""action"": ""Protect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -243,6 +273,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Walk = m_Player.FindAction("Walk", throwIfNotFound: true);
         m_Player_LookAround = m_Player.FindAction("LookAround", throwIfNotFound: true);
+        m_Player_Protect = m_Player.FindAction("Protect", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -294,12 +325,14 @@ public class @Inputs : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Walk;
     private readonly InputAction m_Player_LookAround;
+    private readonly InputAction m_Player_Protect;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
         public PlayerActions(@Inputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_Player_Walk;
         public InputAction @LookAround => m_Wrapper.m_Player_LookAround;
+        public InputAction @Protect => m_Wrapper.m_Player_Protect;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -315,6 +348,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @LookAround.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookAround;
                 @LookAround.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookAround;
                 @LookAround.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookAround;
+                @Protect.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
+                @Protect.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
+                @Protect.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -325,6 +361,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @LookAround.started += instance.OnLookAround;
                 @LookAround.performed += instance.OnLookAround;
                 @LookAround.canceled += instance.OnLookAround;
+                @Protect.started += instance.OnProtect;
+                @Protect.performed += instance.OnProtect;
+                @Protect.canceled += instance.OnProtect;
             }
         }
     }
@@ -351,5 +390,6 @@ public class @Inputs : IInputActionCollection, IDisposable
     {
         void OnWalk(InputAction.CallbackContext context);
         void OnLookAround(InputAction.CallbackContext context);
+        void OnProtect(InputAction.CallbackContext context);
     }
 }

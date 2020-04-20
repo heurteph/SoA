@@ -50,18 +50,29 @@ public class EnergyBehaviour : MonoBehaviour
             energy = 0;
             OutOfEnergy();
         }
-
     }
 
     public void IncreaseEnergy(float e)
     {
         energy += e;
+
+        EnergyChangedEvent(energy);
+
+        if(energy > 1000)
+        {
+            energy = 1000;
+        }
     }
 
     void OutOfEnergy() // pour l'instant
     {
         script.enabled = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public bool IsFull()
+    {
+        return energy == 1000;
     }
 
 }   // FINISH

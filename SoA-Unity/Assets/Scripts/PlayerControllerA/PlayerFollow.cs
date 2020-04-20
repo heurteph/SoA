@@ -48,6 +48,11 @@ public class PlayerFollow : MonoBehaviour, IAnimable
     private Animator anim;
     public Animator Anim { get { return anim; } }
 
+    private Vector3 movement;
+
+    [SerializeField]
+    private Transform groundedPosition;
+
     void Awake()
     {
      //    angle = player.transform.rotation.eulerAngles.y;
@@ -58,6 +63,8 @@ public class PlayerFollow : MonoBehaviour, IAnimable
 
         isHurry = false;
         isProtected = false;
+
+        movement = Vector3.zero;
     }
 
     // Start is called before the first frame update
@@ -69,10 +76,15 @@ public class PlayerFollow : MonoBehaviour, IAnimable
     // Update is called once per frame
     void Update()
     {
+        StickToGround();
+
         if (inputs.Player.Walk != null)
         {
             Walk(inputs.Player.Walk.ReadValue<Vector2>());
         }
+
+        characterController.Move(movement);
+        movement = Vector3.zero;
     }
 
     void OnEnable()
@@ -87,21 +99,31 @@ public class PlayerFollow : MonoBehaviour, IAnimable
 
     void Walk(Vector2 v)
     {
-        
-         /* Vector3 translationZ = cameraMain.transform.forward*v.y;
-         Vector3 translationX = cameraMain.transform.right * v.x;
-         characterController.Move((translationX + translationZ)*speed*Time.deltaTime); */
-
         if (v.magnitude > Mathf.Epsilon)
         {
             transform.rotation = Quaternion.Euler(0, cameraHolder.transform.rotation.eulerAngles.y + Mathf.Rad2Deg * Mathf.Atan2(v.x, v.y), 0);   // cartesian to polar, starting from the Y+ axis as it's the one mapped to the camera's forward, thus using tan-1(x,y) and not tan-1(y,x) / No rotationSpeed * Time.deltaTime as it takes absolute orientation
-            characterController.Move(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized * v.magnitude * speed * Time.deltaTime);  // projection normalized to have the speed independant from the camera angle
+            movement += Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized * v.magnitude * speed * Time.deltaTime;  // projection normalized to have the speed independant from the camera angle
 
             anim.SetBool("isWalking", true);
         }
         else
         {
             anim.SetBool("isWalking", false);
+        }
+    }
+
+    void StickToGround()
+    {
+        RaycastHit hit;
+        LayerMask ground = LayerMask.GetMask("Ground");
+
+        if (Physics.Raycast(groundedPosition.position, -Vector3.up, out hit, Mathf.Infinity, ground) || Physics.Raycast(groundedPosition.position, Vector3.up, out hit, Mathf.Infinity, ground))
+        {
+            movement = (hit.point - groundedPosition.position);
+        }
+        else
+        {
+            movement = Vector3.zero;
         }
     }
 

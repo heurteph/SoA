@@ -71,6 +71,11 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     private Animator anim;
     public Animator Anim { get { return anim; } }
 
+    private Vector3 movement;
+
+    [SerializeField]
+    private Transform groundedPosition;
+
     void Awake()
     {
         angle = player.transform.rotation.eulerAngles.y;
@@ -83,6 +88,8 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         isTurningBack = false;
         isHurry = false;
         isProtected = false;
+
+        movement = Vector3.zero;
     }
 
     // Start is called before the first frame update
@@ -94,10 +101,15 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     // Update is called once per frame
     void Update()
     {
+        StickToGround();
+
         if (inputs.Player.Walk != null)
         {
             Walk(inputs.Player.Walk.ReadValue<Vector2>());
         }
+
+        characterController.Move(movement);
+        movement = Vector3.zero;
     }
 
     void OnEnable()
@@ -115,7 +127,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         if (!isTurningBack)
         {
             Vector3 translation = player.transform.forward * v.y;
-            characterController.Move(translation * speed * Time.deltaTime);
+            movement += translation * speed * Time.deltaTime;
             angle += v.x * rotationSpeed * Time.deltaTime;
             characterController.transform.rotation = Quaternion.Euler(0, angle, 0);
             
@@ -128,6 +140,21 @@ public class PlayerFirst : MonoBehaviour, IAnimable
             {
                 anim.SetBool("isWalking", true);
             }
+        }
+    }
+
+    void StickToGround()
+    {
+        RaycastHit hit;
+        LayerMask ground = LayerMask.GetMask("Ground");
+
+        if (Physics.Raycast(groundedPosition.position, -Vector3.up, out hit, Mathf.Infinity, ground) || Physics.Raycast(groundedPosition.position, Vector3.up, out hit, Mathf.Infinity, ground))
+        {
+            movement = (hit.point - groundedPosition.position);
+        }
+        else
+        {
+            movement = Vector3.zero;
         }
     }
 

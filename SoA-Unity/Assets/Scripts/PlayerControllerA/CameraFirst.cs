@@ -404,7 +404,7 @@ public class CameraFirst : MonoBehaviour
         else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = -(angleFromHurryToHorizon * zoomTimer / timeHurryToProtected + angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
         else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = -(angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry + angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
 
-        // Must be separated in two because unity's order for euler is ZYX and we want X-Y-X
+        // Must be separated in three because unity's order for euler is ZYX and we want X-Y-X
         heldCamera.transform.localRotation  = Quaternion.Euler( Mathf.Abs(smoothx) * y_stabilization, 0, 0);
         heldCamera.transform.localRotation *= Quaternion.Euler(0, smoothx * maxHorizontalAngle, 0);
         heldCamera.transform.localRotation *= Quaternion.Euler(-smoothy * maxVerticalAngle, 0, 0);

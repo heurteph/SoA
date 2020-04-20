@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFollow : MonoBehaviour
+public class PlayerFollow : MonoBehaviour, IAnimable
 {
 
     [SerializeField]
@@ -42,33 +42,16 @@ public class PlayerFollow : MonoBehaviour
     public bool IsHurry { get { return isHurry; } }
 
     private bool isProtected;
-    public bool IsProtected { get { return isProtected; } }
+    public bool IsProtected { get { return isProtected; } set { isProtected = value; } }
 
     [SerializeField]
     private Animator anim;
-
+    public Animator Anim { get { return anim; } }
 
     void Awake()
     {
      //    angle = player.transform.rotation.eulerAngles.y;
         inputs = new Inputs();
-
-        inputs.Player.ProtectEyes.performed += _ctx =>
-        {
-            isProtected = true;
-        };
-        inputs.Player.ProtectEyes.canceled += _ctx =>
-        {
-            isProtected = false;
-        };
-        inputs.Player.ProtectEars.performed += _ctx =>
-        {
-            isProtected = true;
-        };
-        inputs.Player.ProtectEars.canceled += _ctx =>
-        {
-            isProtected = false;
-        };
 
         // TO MOVE TO GAME MANAGER
         inputs.Player.Quit.performed += _ctx => Application.Quit();

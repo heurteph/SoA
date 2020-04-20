@@ -23,11 +23,18 @@ public class HearingScript : MonoBehaviour
 
     [SerializeField]
     [Range(0, 0.2f)]
-    public float loudnessThreshold;
+    private float normalLoudnessThreshold = 0.015f;
+
+    [SerializeField]
+    [Range(0, 0.2f)]
+    private float protectedLoudnessThreshold = 0.02f;
+
+    private float loudnessThreshold;
+    public float LoudnessThreshold { get { return loudnessThreshold; } }
 
     [SerializeField]
     [Range(0, 100)]
-    private float loudnessDamage;
+    private float loudnessDamage = 25;
 
     private delegate void LoudnessHandler(float b);
     private event LoudnessHandler LoudnessThresholdEvent;
@@ -37,8 +44,9 @@ public class HearingScript : MonoBehaviour
     // Awake Function
     void Awake()
     {
-    sampleTotal = hearingMultiplier * sampleNumber;
-    sampleData = new float[sampleTotal];
+        sampleTotal = hearingMultiplier * sampleNumber;
+        sampleData = new float[sampleTotal];
+        loudnessThreshold = normalLoudnessThreshold;
     }
 
     // Start is called before the first frame update
@@ -72,7 +80,6 @@ public class HearingScript : MonoBehaviour
             }
 
             loudness /= sampleTotal; //Average Volume
-
             LoudnessUpdateEvent(loudness);
 
             if (loudness >= loudnessThreshold)
@@ -84,5 +91,14 @@ public class HearingScript : MonoBehaviour
         }
     }
 
+    public void PlugEars()
+    {
+        loudnessThreshold = protectedLoudnessThreshold;
+    }
+
+    public void UnplugEars()
+    {
+        loudnessThreshold = normalLoudnessThreshold;
+    }
 
 } // FINISH

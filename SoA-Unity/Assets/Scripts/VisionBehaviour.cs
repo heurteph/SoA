@@ -9,7 +9,14 @@ public class VisionBehaviour : MonoBehaviour
 
     [SerializeField]
     [Range(0,1)]
-    public float percentageThreshold = 0.1f;
+    private float normalPercentageThreshold = 0.5f;
+
+    [SerializeField]
+    [Range(0, 1)]
+    private float protectedPercentageThreshold = 0.6f;
+
+    private float percentageThreshold;
+    public float PercentageThreshold { get { return percentageThreshold; } }
 
     [SerializeField]
     [Range(0, 255)]
@@ -39,6 +46,7 @@ public class VisionBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        percentageThreshold = normalPercentageThreshold;
         brightnessThresholdEvent += energyBehaviour.DecreaseEnergy;
         grayScaleChangedEvent += debuggerBehaviour.DisplayVision;
     }
@@ -92,5 +100,16 @@ public class VisionBehaviour : MonoBehaviour
         t2D.Apply();
         grayScaleChangedEvent(t2D, sum / (t2D.width * t2D.height));
     }
+
+    public void CoverEyes()
+    {
+        percentageThreshold = protectedPercentageThreshold;
+    }
+
+    public void UncoverEyes()
+    {
+        percentageThreshold = normalPercentageThreshold;
+    }
+
 
 } // FINISH

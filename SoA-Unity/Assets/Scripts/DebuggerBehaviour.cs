@@ -13,10 +13,16 @@ public class DebuggerBehaviour : MonoBehaviour
     private Slider insideVisionSlider;
 
     [SerializeField]
+    private Slider thresholdVisionSlider;
+
+    [SerializeField]
     private Text brightnessPercentage;
 
     [SerializeField]
     private Slider loudnessSlider;
+
+    [SerializeField]
+    private Slider loudnessThresholdSlider;
 
     [SerializeField]
     private VisionBehaviour visionBehaviour;
@@ -33,10 +39,12 @@ public class DebuggerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loudnessSlider.maxValue = Mathf.Min(hearingScript.loudnessThreshold * 3,1);
+        loudnessSlider.maxValue = Mathf.Min(hearingScript.LoudnessThreshold * 3,1); // TO REDESIGN
+        loudnessThresholdSlider.maxValue = loudnessSlider.maxValue;
         energyBar.maxValue = 1000; // TO DO : Place in game manager
         energyBar.value = energyBar.maxValue;
         insideVisionSlider.maxValue = 1;
+        thresholdVisionSlider.maxValue = insideVisionSlider.maxValue;
     }
 
     // Update is called once per frame
@@ -51,12 +59,13 @@ public class DebuggerBehaviour : MonoBehaviour
         brightnessPercentage.text = Mathf.Round(percentage*1000)/10 + "%";
 
         insideVisionSlider.value = percentage;
+        thresholdVisionSlider.value = visionBehaviour.PercentageThreshold;
 
-        if (percentage >= visionBehaviour.percentageThreshold)
+        if (percentage >= visionBehaviour.PercentageThreshold)
         {
             insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
         }
-        else if (percentage >= visionBehaviour.percentageThreshold * 0.5f)
+        else if (percentage >= visionBehaviour.PercentageThreshold * 0.5f)
         {
             insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
         }
@@ -69,12 +78,13 @@ public class DebuggerBehaviour : MonoBehaviour
     public void DisplayVolume (float volume)
     {
         loudnessSlider.value = volume;
+        loudnessThresholdSlider.value = hearingScript.LoudnessThreshold;
 
-        if (volume >= hearingScript.loudnessThreshold)
+        if (volume >= hearingScript.LoudnessThreshold)
         {
             loudnessSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
         } 
-        else if (volume >= hearingScript.loudnessThreshold * 0.5f)
+        else if (volume >= hearingScript.LoudnessThreshold * 0.5f)
         {
             loudnessSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
         }

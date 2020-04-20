@@ -2,7 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFirst : MonoBehaviour
+
+public interface IAnimable
+{
+    Animator Anim { get; }
+    bool IsProtected { get; set; }
+}
+public class PlayerFirst : MonoBehaviour, IAnimable
 {
 
     [SerializeField]
@@ -59,37 +65,17 @@ public class PlayerFirst : MonoBehaviour
     public bool IsHurry { get { return isHurry; } }
 
     private bool isProtected;
-    public bool IsProtected { get { return isProtected; } }
+    public bool IsProtected { get { return isProtected; } set { isProtected = value; } }
 
     [SerializeField]
     private Animator anim;
+    public Animator Anim { get { return anim; } }
 
     void Awake()
     {
         angle = player.transform.rotation.eulerAngles.y;
 
         inputs = new Inputs();
-
-        inputs.Player.ProtectEyes.performed += _ctx =>
-        {
-            isProtected = true;
-            anim.SetBool("isProtectingEyes", true);
-        };
-        inputs.Player.ProtectEyes.canceled += _ctx =>
-        {
-            isProtected = false;
-            anim.SetBool("isProtectingEyes", false);
-        };
-        inputs.Player.ProtectEars.performed += _ctx =>
-        {
-            isProtected = true;
-            anim.SetBool("isProtectingEars", true);
-        };
-        inputs.Player.ProtectEars.canceled += _ctx =>
-        {
-            isProtected = false;
-            anim.SetBool("isProtectingEars", false);
-        };
 
         // TO MOVE TO GAME MANAGER
         inputs.Player.Quit.performed += _ctx => Application.Quit();

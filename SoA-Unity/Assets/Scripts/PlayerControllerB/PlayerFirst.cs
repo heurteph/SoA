@@ -69,14 +69,26 @@ public class PlayerFirst : MonoBehaviour
         angle = player.transform.rotation.eulerAngles.y;
 
         inputs = new Inputs();
-        inputs.Player.Protect.performed += _ctx =>
+
+        inputs.Player.ProtectEyes.performed += _ctx =>
         {
             isProtected = true;
-            Debug.Log("Protected");
+            anim.SetBool("isProtectingEyes", true);
         };
-        inputs.Player.Protect.canceled += _ctx => {
+        inputs.Player.ProtectEyes.canceled += _ctx =>
+        {
             isProtected = false;
-            Debug.Log("Unprotected");
+            anim.SetBool("isProtectingEyes", false);
+        };
+        inputs.Player.ProtectEars.performed += _ctx =>
+        {
+            isProtected = true;
+            anim.SetBool("isProtectingEars", true);
+        };
+        inputs.Player.ProtectEars.canceled += _ctx =>
+        {
+            isProtected = false;
+            anim.SetBool("isProtectingEars", false);
         };
 
         // TO MOVE TO GAME MANAGER
@@ -96,11 +108,9 @@ public class PlayerFirst : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (inputs.Player.Walk != null)
         {
             Walk(inputs.Player.Walk.ReadValue<Vector2>());
-          
         }
     }
 

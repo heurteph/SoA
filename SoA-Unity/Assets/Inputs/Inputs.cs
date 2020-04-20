@@ -35,9 +35,25 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Protect"",
+                    ""name"": ""ProtectEyes"",
                     ""type"": ""Button"",
                     ""id"": ""6b7acb6c-6bd3-4e53-964f-60925b18677a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ProtectEars"",
+                    ""type"": ""Button"",
+                    ""id"": ""f454eaaf-bbd5-4e5f-8e16-efd0124aab39"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""7e37496e-044b-4f7a-bf6f-276cf5baccd2"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -246,7 +262,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Protect"",
+                    ""action"": ""ProtectEyes"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -257,7 +273,18 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse-Keyboard"",
-                    ""action"": ""Protect"",
+                    ""action"": ""ProtectEyes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fec07214-dc13-4b72-b5b8-471cb76eb55a"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Quit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -274,12 +301,45 @@ public class @Inputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fec07214-dc13-4b72-b5b8-471cb76eb55a"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""id"": ""a17d6c09-64c9-443c-8456-7d25e0237842"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Quit"",
+                    ""action"": ""ProtectEars"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55fee37f-7d14-432a-bce5-be44e86b75de"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse-Keyboard"",
+                    ""action"": ""ProtectEars"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9ab370b-8ef3-40f5-a51c-f257aade9e3b"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8f794e8-e65c-441e-9263-4493bed3830d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse-Keyboard"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -303,7 +363,9 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Walk = m_Player.FindAction("Walk", throwIfNotFound: true);
         m_Player_LookAround = m_Player.FindAction("LookAround", throwIfNotFound: true);
-        m_Player_Protect = m_Player.FindAction("Protect", throwIfNotFound: true);
+        m_Player_ProtectEyes = m_Player.FindAction("ProtectEyes", throwIfNotFound: true);
+        m_Player_ProtectEars = m_Player.FindAction("ProtectEars", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
     }
 
@@ -356,7 +418,9 @@ public class @Inputs : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Walk;
     private readonly InputAction m_Player_LookAround;
-    private readonly InputAction m_Player_Protect;
+    private readonly InputAction m_Player_ProtectEyes;
+    private readonly InputAction m_Player_ProtectEars;
+    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Quit;
     public struct PlayerActions
     {
@@ -364,7 +428,9 @@ public class @Inputs : IInputActionCollection, IDisposable
         public PlayerActions(@Inputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_Player_Walk;
         public InputAction @LookAround => m_Wrapper.m_Player_LookAround;
-        public InputAction @Protect => m_Wrapper.m_Player_Protect;
+        public InputAction @ProtectEyes => m_Wrapper.m_Player_ProtectEyes;
+        public InputAction @ProtectEars => m_Wrapper.m_Player_ProtectEars;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Quit => m_Wrapper.m_Player_Quit;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -381,9 +447,15 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @LookAround.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookAround;
                 @LookAround.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookAround;
                 @LookAround.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookAround;
-                @Protect.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
-                @Protect.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
-                @Protect.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
+                @ProtectEyes.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtectEyes;
+                @ProtectEyes.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtectEyes;
+                @ProtectEyes.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtectEyes;
+                @ProtectEars.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtectEars;
+                @ProtectEars.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtectEars;
+                @ProtectEars.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtectEars;
+                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Quit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
                 @Quit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
                 @Quit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
@@ -397,9 +469,15 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @LookAround.started += instance.OnLookAround;
                 @LookAround.performed += instance.OnLookAround;
                 @LookAround.canceled += instance.OnLookAround;
-                @Protect.started += instance.OnProtect;
-                @Protect.performed += instance.OnProtect;
-                @Protect.canceled += instance.OnProtect;
+                @ProtectEyes.started += instance.OnProtectEyes;
+                @ProtectEyes.performed += instance.OnProtectEyes;
+                @ProtectEyes.canceled += instance.OnProtectEyes;
+                @ProtectEars.started += instance.OnProtectEars;
+                @ProtectEars.performed += instance.OnProtectEars;
+                @ProtectEars.canceled += instance.OnProtectEars;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
                 @Quit.started += instance.OnQuit;
                 @Quit.performed += instance.OnQuit;
                 @Quit.canceled += instance.OnQuit;
@@ -429,7 +507,9 @@ public class @Inputs : IInputActionCollection, IDisposable
     {
         void OnWalk(InputAction.CallbackContext context);
         void OnLookAround(InputAction.CallbackContext context);
-        void OnProtect(InputAction.CallbackContext context);
+        void OnProtectEyes(InputAction.CallbackContext context);
+        void OnProtectEars(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
     }
 }

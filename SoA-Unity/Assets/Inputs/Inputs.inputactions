@@ -22,9 +22,25 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Protect",
+                    "name": "ProtectEyes",
                     "type": "Button",
                     "id": "6b7acb6c-6bd3-4e53-964f-60925b18677a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ProtectEars",
+                    "type": "Button",
+                    "id": "f454eaaf-bbd5-4e5f-8e16-efd0124aab39",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "7e37496e-044b-4f7a-bf6f-276cf5baccd2",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -233,7 +249,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Protect",
+                    "action": "ProtectEyes",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -244,7 +260,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Mouse-Keyboard",
-                    "action": "Protect",
+                    "action": "ProtectEyes",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fec07214-dc13-4b72-b5b8-471cb76eb55a",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Quit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -261,12 +288,45 @@
                 },
                 {
                     "name": "",
-                    "id": "fec07214-dc13-4b72-b5b8-471cb76eb55a",
-                    "path": "<Gamepad>/start",
+                    "id": "a17d6c09-64c9-443c-8456-7d25e0237842",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Quit",
+                    "action": "ProtectEars",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "55fee37f-7d14-432a-bce5-be44e86b75de",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse-Keyboard",
+                    "action": "ProtectEars",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9ab370b-8ef3-40f5-a51c-f257aade9e3b",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8f794e8-e65c-441e-9263-4493bed3830d",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse-Keyboard",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

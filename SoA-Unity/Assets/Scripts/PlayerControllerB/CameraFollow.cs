@@ -206,7 +206,8 @@ public class CameraFollow : MonoBehaviour
             StartCoroutine("Sway");
         }
 
-        StartCoroutine("AlignWithCharacter");
+        //StartCoroutine("AlignWithCharacter");
+        StartCoroutine("AlignWithCharacter2");
     }
     void UpdateFromInspector()
     {
@@ -362,7 +363,7 @@ public class CameraFollow : MonoBehaviour
     {
         for(; ;)
         {
-            UpdatePosition(); // called here to avoir desynchronization
+            UpdatePosition(); // called here to avoid desynchronization
 
             float angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
 
@@ -380,6 +381,127 @@ public class CameraFollow : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    private IEnumerator AlignWithCharacter2()
+    {
+        float angle, newAngle, newAngleCorrected, lastAngleCorrected;
+        float thisFrame, previousFrame, thisSinerp, previousSinerp;
+        Vector3 lastDirection;
+
+        alignSpeed = 50; // TO DO : change in inspector
+        float obstacleTolerance = 2f; // TO DO : Add in the inspector
+
+        for (; ; )
+        {
+            angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
+            //angle = GetAngleToFirstObstacle(angle); // take obstacles into account
+
+            if (!Mathf.Approximately(angle, 0.0f)) // if not aligned with the character
+            {
+
+                Vector3 startDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+                lastDirection = startDirection;
+                thisFrame = 0;
+                thisSinerp = 0;
+                lastAngleCorrected = 0;
+
+                while (thisFrame != 1.0f)
+                {
+                    UpdatePosition(); // called here to avoid desynchronization 
+
+                    newAngle = Vector3.SignedAngle(startDirection, player.transform.forward, Vector3.up); // new angle from the startDirection
+                    // Problem : SignedAngle's return value is in domain [-180;180]
+                    // if > 180 or < -180
+                    if (Mathf.Sign(newAngle) != Mathf.Sign(angle))
+                    {
+                        if(Mathf.Sign(angle) > 0 && Vector3.SignedAngle(lastDirection, player.transform.forward, Vector3.up) > 0)
+                        {
+                            newAngle += 360;
+                        }
+                        else if (Mathf.Sign(angle) < 0 && Vector3.SignedAngle(lastDirection, player.transform.forward, Vector3.up) < 0)
+                        {
+                            newAngle -= 360;
+                        }
+                    }
+
+                    // save lastDirection to keep track of the last direction of the rotation
+                    lastDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+                    Debug.Log("New Angle : " + newAngle);
+
+                    /* -----
+
+                    newAngleCorrected = GetAngleToFirstObstacle(newAngle); // take obstacles into account
+                    if (Mathf.Abs(newAngle - lastAngleCorrected) > obstacleTolerance)  // avoid infinite oscillation
+                    {
+                        Debug.Log("My new angle is " + newAngleCorrected + ", forget about " + newAngle);
+                        newAngle = newAngleCorrected;
+                    }
+                    lastAngleCorrected = newAngleCorrected;
+                    
+                    ----- */
+
+                    //thisFrame *= angle / newAngle;
+                    if ( ! Mathf.Approximately(newAngle, 0)) // avoid dividing by zero
+                        thisFrame = Mathf.Asin(Mathf.Clamp(thisSinerp * angle / newAngle, -1.0f, 1.0f)) * 2f / Mathf.PI; // get the original [0-1] from the smooth [0-1] updated with the angle modification, need clamping because Asin's domain is [-1,1]
+                    else
+                        thisFrame = 1; // TO CHECK : is it correct ?
+                    //if (float.IsNaN(thisFrame)) Debug.Log("Asin(" + thisSinerp * angle / newAngle + ") is NaN");
+
+                    previousFrame = thisFrame;
+                    angle = newAngle;
+                    thisFrame = Mathf.Min(thisFrame + alignSpeed * Time.deltaTime / Mathf.Abs(angle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
+                    previousSinerp = Mathf.Sin(previousFrame * Mathf.PI / 2f);
+                    thisSinerp     = Mathf.Sin(thisFrame * Mathf.PI / 2f);
+                    //Debug.Log("Rotation delta : " + angle * (thisSinerp - previousSinerp) + " from angle=" + angle + ", thisSinerp=" + thisSinerp + ", previousSinerp=" + previousSinerp + ", thisFrame=" + thisFrame + ", previousFrame=" + previousFrame);
+                    transform.RotateAround(player.transform.position, Vector3.up, angle * (thisSinerp - previousSinerp));
+                    
+                    transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
+
+
+                    yield return null;
+                }
+            }
+            else
+            {
+                UpdatePosition(); // called here to avoir desynchronization
+
+                yield return null;
+            }
+        }
+    }
+
+    private float GetAngleToFirstObstacle(float targetAngle)
+    {
+        float startAngle  = 0;  // in degrees
+        float endAngle    = 0;  // in degrees
+        float maxDegDelta = 10; // in degrees
+        Vector3 startDirection = player.transform.position - transform.position,
+                endDirection   = player.transform.position - transform.position,
+                startPosition  = transform.position,
+                endPosition    = transform.position;
+        RaycastHit hit;
+
+        do {
+            startAngle     = endAngle;
+            startDirection = endDirection;
+            startPosition  = player.transform.position + startDirection;
+
+            endAngle       = Mathf.Max(startAngle + maxDegDelta, targetAngle);
+            endDirection   = Quaternion.Euler(0, endAngle - startAngle, 0) * startDirection;
+            endPosition    = player.transform.position + endDirection;
+
+            if (Physics.Linecast(startPosition, endPosition, out hit))
+            {
+                Debug.Log("Obstacle at : " + hit.point + " while I'm at " + transform.position);
+                Vector3 newDirection = player.transform.position - hit.point;
+                
+                return Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, newDirection, Vector3.up) % 360;
+            }
+
+        } while (endAngle < targetAngle);
+
+        return targetAngle;
     }
 
     void LookAround(Vector2 v)

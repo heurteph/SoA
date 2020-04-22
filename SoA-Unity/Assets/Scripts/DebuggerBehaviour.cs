@@ -2,30 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class DebuggerBehaviour : MonoBehaviour
 {
-
+    // Inside Vision
     [SerializeField]
-    private RawImage grayRawImage;
+    private RawImage grayRawInsideImage;
 
     [SerializeField]
     private Slider insideVisionSlider;
 
     [SerializeField]
-    private Slider thresholdVisionSlider;
+    private Slider thresholdInsideVisionSlider;
 
     [SerializeField]
-    private Text brightnessPercentage;
+    private VisionBehaviour insideVisionBehaviour;
 
+    [SerializeField]
+    private Text insideBrightnessPercentage;
+
+    // Outside Vision
+    [SerializeField]
+    private RawImage grayRawOutsideImage;
+
+    [SerializeField]
+    private Slider outsideVisionSlider;
+
+    [SerializeField]
+    private Slider thresholdOutsideVisionSlider;
+
+    [SerializeField]
+    private VisionBehaviour outsideVisionBehaviour;
+
+    [SerializeField]
+    private Text outsideBrightnessPercentage;
+
+    // Loudness
     [SerializeField]
     private Slider loudnessSlider;
 
     [SerializeField]
     private Slider loudnessThresholdSlider;
-
-    [SerializeField]
-    private VisionBehaviour visionBehaviour;
 
     [SerializeField]
     private HearingScript hearingScript;
@@ -43,8 +61,12 @@ public class DebuggerBehaviour : MonoBehaviour
         loudnessThresholdSlider.maxValue = loudnessSlider.maxValue;
         energyBar.maxValue = 1000; // TO DO : Place in game manager
         energyBar.value = energyBar.maxValue;
+
         insideVisionSlider.maxValue = 1;
-        thresholdVisionSlider.maxValue = insideVisionSlider.maxValue;
+        thresholdInsideVisionSlider.maxValue = insideVisionSlider.maxValue;
+
+        outsideVisionSlider.maxValue = 1;
+        thresholdOutsideVisionSlider.maxValue = outsideVisionSlider.maxValue;
     }
 
     // Update is called once per frame
@@ -52,20 +74,35 @@ public class DebuggerBehaviour : MonoBehaviour
     {
         
     }
-
-    public void DisplayVision (Texture2D t2D, float percentage) 
+    
+    public void DisplayVision(GameObject sender, Texture2D t2D, float percentage)
     {
-        grayRawImage.texture = t2D;
-        brightnessPercentage.text = Mathf.Round(percentage*1000)/10 + "%";
+        Debug.Log("Sender : " + sender.name);
+        if (String.Equals(sender.name,"CameraInside"))
+        {
+            DisplayInsideVision(t2D, percentage);
+            Debug.Log("Display from inside vision");
+        }
+        else if (String.Equals(sender.name,"CameraOutside"))
+        {
+            DisplayOutsideVision(t2D, percentage);
+            Debug.Log("Display from outside vision");
+        }
+    }
+
+    public void DisplayInsideVision (Texture2D t2D, float percentage) 
+    {
+        grayRawInsideImage.texture = t2D;
+        insideBrightnessPercentage.text = Mathf.Round(percentage*1000)/10 + "%";
 
         insideVisionSlider.value = percentage;
-        thresholdVisionSlider.value = visionBehaviour.PercentageThreshold;
+        thresholdInsideVisionSlider.value = insideVisionBehaviour.PercentageThreshold;
 
-        if (percentage >= visionBehaviour.PercentageThreshold)
+        if (percentage >= insideVisionBehaviour.PercentageThreshold)
         {
             insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
         }
-        else if (percentage >= visionBehaviour.PercentageThreshold * 0.5f)
+        else if (percentage >= insideVisionBehaviour.PercentageThreshold * 0.5f)
         {
             insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
         }
@@ -74,6 +111,29 @@ public class DebuggerBehaviour : MonoBehaviour
             insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.white;
         }
     }
+
+    public void DisplayOutsideVision(Texture2D t2D, float percentage)
+    {
+        grayRawOutsideImage.texture = t2D;
+        outsideBrightnessPercentage.text = Mathf.Round(percentage * 1000) / 10 + "%";
+
+        outsideVisionSlider.value = percentage;
+        thresholdOutsideVisionSlider.value = outsideVisionBehaviour.PercentageThreshold;
+
+        if (percentage >= outsideVisionBehaviour.PercentageThreshold)
+        {
+            outsideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
+        }
+        else if (percentage >= outsideVisionBehaviour.PercentageThreshold * 0.5f)
+        {
+            outsideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
+        }
+        else
+        {
+            outsideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.white;
+        }
+    }
+
 
     public void DisplayVolume (float volume)
     {

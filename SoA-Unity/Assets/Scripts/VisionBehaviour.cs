@@ -5,7 +5,7 @@ using UnityEngine;
 public class VisionBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private Camera cameraInside;
+    private Camera visionCamera;
 
     [SerializeField]
     [Range(0,1)]
@@ -35,7 +35,7 @@ public class VisionBehaviour : MonoBehaviour
     [SerializeField]
     private DebuggerBehaviour debuggerBehaviour;
 
-    public delegate void GrayscaleChangedHandler(Texture2D t, float p);
+    public delegate void GrayscaleChangedHandler(GameObject sender, Texture2D t, float p);
     public event GrayscaleChangedHandler grayScaleChangedEvent;
 
     void Awake()
@@ -54,14 +54,14 @@ public class VisionBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Texture2D t2D = RenderTexturetoTexture2D(cameraInside.targetTexture);
+        Texture2D t2D = RenderTexturetoTexture2D(visionCamera.targetTexture);
         ComputeBrightnessAverage(t2D);
     }
 
     Texture2D RenderTexturetoTexture2D (RenderTexture rt)
     {
-        Texture2D t2D = new Texture2D(256, 256, TextureFormat.RGB24, false);
         RenderTexture.active = rt;
+        Texture2D t2D = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
         t2D.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
         t2D.Apply();
 
@@ -98,7 +98,7 @@ public class VisionBehaviour : MonoBehaviour
         }
 
         t2D.Apply();
-        grayScaleChangedEvent(t2D, sum / (t2D.width * t2D.height));
+        grayScaleChangedEvent(this.gameObject, t2D, sum / (t2D.width * t2D.height));
     }
 
     public void CoverEyes()

@@ -101,7 +101,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     // Update is called once per frame
     void Update()
     {
-        StickToGround();
+        //StickToGround();
 
         if (inputs.Player.Walk != null)
         {

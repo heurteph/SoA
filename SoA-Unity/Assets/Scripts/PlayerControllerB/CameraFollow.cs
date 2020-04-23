@@ -173,6 +173,10 @@ public class CameraFollow : MonoBehaviour
     private float swayDuration = 0;
     private float swayTimer = 0;
 
+    bool colliding = false;
+    float lastDistanceToCollider = Mathf.Infinity; // keep consistent with MaxDegDelta when it changes
+    private float collidingAlignSpeed = 20;
+
     private void Awake()
     {
        inputs = new Inputs();
@@ -249,6 +253,8 @@ public class CameraFollow : MonoBehaviour
         UpdateRecoilPosition();
 
         transform.position += (player.transform.position - lastPlayerPosition);
+        if (player.transform.position != lastPlayerPosition)
+            Debug.Log("Camera moving in " + transform.position);
         lastPlayerPosition = player.transform.position;
     }
 
@@ -385,19 +391,22 @@ public class CameraFollow : MonoBehaviour
 
     private IEnumerator AlignWithCharacter2()
     {
-        float angle, newAngle, newAngleCorrected, lastAngleCorrected;
+        float angle, angleCorrected, newAngle, newAngleCorrected, lastAngleCorrected;
         float thisFrame, previousFrame, thisSinerp, previousSinerp;
         Vector3 lastDirection;
 
         alignSpeed = 50; // TO DO : change in inspector
-        float obstacleTolerance = 2f; // TO DO : Add in the inspector
+        float obstacleTolerance = 0.1f * Mathf.Deg2Rad; // TO DO : Add in the inspector
 
         for (; ; )
         {
-            angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
-            //angle = GetAngleToFirstObstacle(angle); // take obstacles into account
+            angle          = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
+            angleCorrected = GetAngleToFirstObstacle(angle); // take obstacles into account
 
-            if (!Mathf.Approximately(angle, 0.0f)) // if not aligned with the character
+            Quaternion lastPlayerRotation = player.transform.rotation;
+            Vector3 lastPlayerPos = player.transform.position;
+
+            if (!Mathf.Approximately(angleCorrected, 0.0f)) // if not aligned with the character
             {
 
                 Vector3 startDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
@@ -410,9 +419,12 @@ public class CameraFollow : MonoBehaviour
                 {
                     UpdatePosition(); // called here to avoid desynchronization 
 
-                    newAngle = Vector3.SignedAngle(startDirection, player.transform.forward, Vector3.up); // new angle from the startDirection
-                    // Problem : SignedAngle's return value is in domain [-180;180]
-                    // if > 180 or < -180
+                    // Compute updated player angle
+                    // SignedAngle's return value is in domain [-180;180], so extend it
+                    // Save lastDirection to keep track of the last direction of the rotation
+
+                    newAngle = Vector3.SignedAngle(startDirection, player.transform.forward, Vector3.up);
+                    
                     if (Mathf.Sign(newAngle) != Mathf.Sign(angle))
                     {
                         if(Mathf.Sign(angle) > 0 && Vector3.SignedAngle(lastDirection, player.transform.forward, Vector3.up) > 0)
@@ -425,31 +437,30 @@ public class CameraFollow : MonoBehaviour
                         }
                     }
 
-                    // save lastDirection to keep track of the last direction of the rotation
                     lastDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
-                    Debug.Log("New Angle : " + newAngle);
 
-                    /* -----
+                    // Check if there is a collision along the rotation path
 
-                    newAngleCorrected = GetAngleToFirstObstacle(newAngle); // take obstacles into account
-                    if (Mathf.Abs(newAngle - lastAngleCorrected) > obstacleTolerance)  // avoid infinite oscillation
-                    {
-                        Debug.Log("My new angle is " + newAngleCorrected + ", forget about " + newAngle);
+                    Debug.Log("t = " + thisFrame);
+                    newAngleCorrected = GetAngleToFirstObstacle(newAngle);
+                    //if (player.transform.position != lastPlayerPos || player.transform.rotation != lastPlayerRotation)  // avoid infinite oscillation
+                    //{
+                        //Debug.Log("My corrected angle is " + newAngleCorrected + ", forget about " + newAngle);
                         newAngle = newAngleCorrected;
-                    }
-                    lastAngleCorrected = newAngleCorrected;
+                    //}
+                    //lastPlayerRotation = player.transform.rotation;
+                    //lastPlayerPos      = player.transform.position;
                     
-                    ----- */
+                    //-----
 
-                    //thisFrame *= angle / newAngle;
                     if ( ! Mathf.Approximately(newAngle, 0)) // avoid dividing by zero
                         thisFrame = Mathf.Asin(Mathf.Clamp(thisSinerp * angle / newAngle, -1.0f, 1.0f)) * 2f / Mathf.PI; // get the original [0-1] from the smooth [0-1] updated with the angle modification, need clamping because Asin's domain is [-1,1]
                     else
-                        thisFrame = 1; // TO CHECK : is it correct ?
-                    //if (float.IsNaN(thisFrame)) Debug.Log("Asin(" + thisSinerp * angle / newAngle + ") is NaN");
+                        thisFrame = 1;
 
-                    previousFrame = thisFrame;
-                    angle = newAngle;
+                    previousFrame  = thisFrame;
+                    angle          = newAngle;
+                    thisFrame = Mathf.Min(thisFrame + collidingAlignSpeed * Time.deltaTime / Mathf.Abs(angle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
                     thisFrame = Mathf.Min(thisFrame + alignSpeed * Time.deltaTime / Mathf.Abs(angle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
                     previousSinerp = Mathf.Sin(previousFrame * Mathf.PI / 2f);
                     thisSinerp     = Mathf.Sin(thisFrame * Mathf.PI / 2f);
@@ -458,9 +469,9 @@ public class CameraFollow : MonoBehaviour
                     
                     transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
 
-
                     yield return null;
                 }
+                //Debug.Log("Finish transition");
             }
             else
             {
@@ -476,28 +487,57 @@ public class CameraFollow : MonoBehaviour
         float startAngle  = 0;  // in degrees
         float endAngle    = 0;  // in degrees
         float maxDegDelta = 10; // in degrees
-        Vector3 startDirection = player.transform.position - transform.position,
-                endDirection   = player.transform.position - transform.position,
+        Vector3 startDirection = transform.position - player.transform.position,
+                endDirection   = transform.position - player.transform.position,
                 startPosition  = transform.position,
                 endPosition    = transform.position;
         RaycastHit hit;
-
+        
         do {
             startAngle     = endAngle;
             startDirection = endDirection;
-            startPosition  = player.transform.position + startDirection;
+            startPosition  = player.transform.position + startDirection; // height ???? it's a the ground level not at the camera's height !!!
 
-            endAngle       = Mathf.Max(startAngle + maxDegDelta, targetAngle);
+            endAngle       = (1 - Mathf.Sign(targetAngle)) / 2f * Mathf.Max(startAngle - maxDegDelta, targetAngle) + (1 + Mathf.Sign(targetAngle)) / 2f * Mathf.Min(startAngle + maxDegDelta, targetAngle); // Sign ? DONE
             endDirection   = Quaternion.Euler(0, endAngle - startAngle, 0) * startDirection;
             endPosition    = player.transform.position + endDirection;
 
             if (Physics.Linecast(startPosition, endPosition, out hit))
             {
-                Debug.Log("Obstacle at : " + hit.point + " while I'm at " + transform.position);
-                Vector3 newDirection = player.transform.position - hit.point;
-                
-                return Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, newDirection, Vector3.up) % 360;
+                Debug.Log("Obstacle in the first linecast, camera at : " + startPosition + ", obstacle at " + hit.point);
+                if (startAngle == 0) // if the first linecast hit an obstacle
+                {
+                    // TO DO : check if the angle to the obstacle is growing or not
+                    if(!colliding)
+                    {
+                        colliding = true;
+                        lastDistanceToCollider = (startPosition - hit.point).magnitude;
+                        Debug.Log("Sticking to the obstacle");
+                        return startAngle;
+                    }
+                    else if (colliding && (startPosition - hit.point).magnitude <= lastDistanceToCollider)
+                    {
+                        Debug.Log("Still sicking to the obstacle, distance stays the same " + (startPosition - hit.point).magnitude);
+                        return startAngle;
+                    }
+
+                    Debug.Log("Moving away from the obstacle, the distance has grown due to player movement : " + (startPosition - hit.point).magnitude);
+                    // else, it means the distance between the obstacle and camera is growing, so do not return as do as usual [...]
+                }
+                else // reset colliding
+                {
+                    Debug.Log("Quitting the obstacle");
+                    colliding = false;
+                }
+                //Debug.Log("Obstacle " + hit.transform.name + " at : " + hit.point + " while I'm at " + transform.position);
+                Vector3 newPosition = Vector3.Lerp(transform.position, hit.point, 0.9f); // keep your distance from the collider
+                Vector3 newDirection = player.transform.position - newPosition;
+                //Debug.DrawLine(startPosition + Vector3.up, newPosition + Vector3.up, Color.red, 1000);
+
+                return Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, newDirection, Vector3.up);
             }
+
+            //Debug.DrawLine(startPosition, endPosition, Color.blue, 2f, false);
 
         } while (endAngle < targetAngle);
 
@@ -553,11 +593,65 @@ public class CameraFollow : MonoBehaviour
         else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
 
         // Must be separated in two because unity's order for euler is ZYX and we want X-Y-X
+        //heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
         heldCamera.transform.localRotation  = Quaternion.Euler(y_stabilization, 0, 0);
         heldCamera.transform.localRotation *= Quaternion.Euler(0, smoothx * maxHorizontalAngle, 0);
         heldCamera.transform.localRotation *= Quaternion.Euler(-smoothy * maxVerticalAngle, 0, 0);
-        
+    }
+
+    void ProjectiveLookAround(Vector2 v)
+    {
+        float smoothx = 0;
+        float smoothy = 0;
+
+        if (!Mathf.Approximately(v.x, 0))
+        {
+            accumulator.x = Mathf.Clamp(accumulator.x + v.x * Time.deltaTime / horizontalDuration, -1, 1);
+            //smoothx = Mathf.Sign(accumulator.x) * ( 1 - Mathf.Pow(accumulator.x - Mathf.Sign(accumulator.x), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
+            //smoothx = Mathf.Sign(accumulator.x) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.x));
+            smoothx = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
+        }
+        else
+        {
+            accumulator.x = (1 - Mathf.Sign(accumulator.x)) / 2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0);
+            //smoothx = Mathf.Sign(accumulator.x) * Mathf.Pow(accumulator.x, 2); // f(x) = -x^2 for x between 0 and 1, f(x) = x^2 for x between -1 and 0
+            //smoothx = Mathf.Sign(accumulator.x) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.x));
+            smoothx = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
+        }
+
+        if (!Mathf.Approximately(v.y, 0))
+        {
+            accumulator.y = Mathf.Clamp(accumulator.y + v.y * Time.deltaTime / verticalDuration, -1, 1);
+            //smoothy = Mathf.Sign(accumulator.y) * (1 - Mathf.Pow(accumulator.y - Mathf.Sign(accumulator.y), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
+            //smoothy = Mathf.Sign(accumulator.y) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.y));
+            smoothy = Mathf.Sign(accumulator.y) * Mathf.Sin(Mathf.Abs(accumulator.y) * Mathf.PI * 0.5f);
+        }
+        else
+        {
+            accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0);
+            //smoothy = Mathf.Sign(accumulator.y) * Mathf.Pow(accumulator.y, 2);
+            //smoothy = Mathf.Sign(accumulator.y) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.y));
+            smoothy = Mathf.Sign(accumulator.y) * Mathf.Sin(Mathf.Abs(accumulator.y) * Mathf.PI * 0.5f);
+        }
+
+        // Stabilization of the look around
+        float y_stabilization = 0;
+        if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon; }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
+
+        else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon; }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
+
+        else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
+
+        // Must be separated in two because unity's order for euler is ZYX and we want X-Y-X
         //heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
+        heldCamera.transform.localRotation = Quaternion.Euler(y_stabilization, 0, 0);
+        heldCamera.transform.localRotation *= Quaternion.Euler(0, smoothx * maxHorizontalAngle, 0);
+        heldCamera.transform.localRotation *= Quaternion.Euler(-smoothy * maxVerticalAngle, 0, 0);
     }
 
     void UpdateRecoilPosition()

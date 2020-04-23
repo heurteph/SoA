@@ -65,6 +65,10 @@ public class CameraFollow : MonoBehaviour
 
     private Vector2 accumulator = Vector2.zero;
 
+    private float forwardAccumulator = 0;
+    private float forwardDuration = 2; //s
+    private float forwardDistance = 3;
+
     enum STATE { 
         NORMAL,
         HURRY,
@@ -240,6 +244,7 @@ public class CameraFollow : MonoBehaviour
         UpdateRotation();
 
         LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+        ProjectiveLookAround(inputs.Player.ProjectiveLook.ReadValue<float>());
 
         if (cameraSway) { Sway(); }
     }
@@ -599,59 +604,24 @@ public class CameraFollow : MonoBehaviour
         heldCamera.transform.localRotation *= Quaternion.Euler(-smoothy * maxVerticalAngle, 0, 0);
     }
 
-    void ProjectiveLookAround(Vector2 v)
+    void ProjectiveLookAround(float v)
     {
-        float smoothx = 0;
-        float smoothy = 0;
-
-        if (!Mathf.Approximately(v.x, 0))
+        float sinerpForward = 0;
+        Debug.Log("V = " + v);
+        if(v != 0)
         {
-            accumulator.x = Mathf.Clamp(accumulator.x + v.x * Time.deltaTime / horizontalDuration, -1, 1);
-            //smoothx = Mathf.Sign(accumulator.x) * ( 1 - Mathf.Pow(accumulator.x - Mathf.Sign(accumulator.x), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
-            //smoothx = Mathf.Sign(accumulator.x) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.x));
-            smoothx = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
+            forwardAccumulator = Mathf.Clamp (forwardAccumulator + Time.deltaTime / forwardDuration, 0, 1);
+            sinerpForward = Mathf.Sin(forwardAccumulator * Mathf.PI * 0.5f);
+            Debug.Log("sinerp : " + sinerpForward);
         }
         else
         {
-            accumulator.x = (1 - Mathf.Sign(accumulator.x)) / 2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0);
-            //smoothx = Mathf.Sign(accumulator.x) * Mathf.Pow(accumulator.x, 2); // f(x) = -x^2 for x between 0 and 1, f(x) = x^2 for x between -1 and 0
-            //smoothx = Mathf.Sign(accumulator.x) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.x));
-            smoothx = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
+            forwardAccumulator = Mathf.Clamp(forwardAccumulator - Time.deltaTime / forwardDuration, 0, 1);
+            sinerpForward = Mathf.Sin(forwardAccumulator * Mathf.PI * 0.5f);
+            Debug.Log("sinerp : " + sinerpForward);
         }
-
-        if (!Mathf.Approximately(v.y, 0))
-        {
-            accumulator.y = Mathf.Clamp(accumulator.y + v.y * Time.deltaTime / verticalDuration, -1, 1);
-            //smoothy = Mathf.Sign(accumulator.y) * (1 - Mathf.Pow(accumulator.y - Mathf.Sign(accumulator.y), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
-            //smoothy = Mathf.Sign(accumulator.y) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.y));
-            smoothy = Mathf.Sign(accumulator.y) * Mathf.Sin(Mathf.Abs(accumulator.y) * Mathf.PI * 0.5f);
-        }
-        else
-        {
-            accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0);
-            //smoothy = Mathf.Sign(accumulator.y) * Mathf.Pow(accumulator.y, 2);
-            //smoothy = Mathf.Sign(accumulator.y) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.y));
-            smoothy = Mathf.Sign(accumulator.y) * Mathf.Sin(Mathf.Abs(accumulator.y) * Mathf.PI * 0.5f);
-        }
-
-        // Stabilization of the look around
-        float y_stabilization = 0;
-        if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
-        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
-
-        else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
-        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
-
-        else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
-        else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
-
-        // Must be separated in two because unity's order for euler is ZYX and we want X-Y-X
-        //heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
-        heldCamera.transform.localRotation = Quaternion.Euler(y_stabilization, 0, 0);
-        heldCamera.transform.localRotation *= Quaternion.Euler(0, smoothx * maxHorizontalAngle, 0);
-        heldCamera.transform.localRotation *= Quaternion.Euler(-smoothy * maxVerticalAngle, 0, 0);
+        //heldCamera.transform.position = (1-v)*transform.position + v* (player.transform.position) + (player.transform.forward * forwardDistance) * sinerpForward;
+        heldCamera.transform.position = transform.position + (player.transform.position + player.transform.forward * forwardDistance - transform.position) * sinerpForward;
     }
 
     void UpdateRecoilPosition()

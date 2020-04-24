@@ -4,11 +4,30 @@ using UnityEngine;
 
 public class ShelterManager : MonoBehaviour
 {
+    [Header("Shelters List")]
+
     [SerializeField]
+    [Tooltip("List of the shelters' entrances")]
     private GameObject[] shelterOutsides;
 
     [SerializeField]
+    [Tooltip("List of the shelters' insides")]
     private GameObject[] shelterInsides;
+
+    [Space]
+    [Header("Shelter Settings")]
+
+    [SerializeField]
+    [Tooltip("The maximum distance to open a door")]
+    [Range(0.1f, 10f)]
+    private float maxDistanceToDoor = 3.0f;
+    public float MaxDistanceToDoor { get { return maxDistanceToDoor; } }
+
+    [SerializeField]
+    [Tooltip("The duration of a transition")]
+    [Range(0.1f,5f)]
+    private float transitionDuration = 2.0f;
+    public float TransitionDuration { get { return transitionDuration; } }
 
     // Start is called before the first frame update
     void Start()

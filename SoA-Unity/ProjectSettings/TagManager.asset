@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Shelter
+  - Shelter Exit
+  - Shelter Entrance
   layers:
   - Default
   - TransparentFX

@@ -16,6 +16,7 @@ public class Shelter : MonoBehaviour
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
+
         inputs.Player.Interact.performed += ctx => OpenDoor();
         inputs.Player.Interact.Disable();
     }
@@ -51,7 +52,7 @@ public class Shelter : MonoBehaviour
         }
         while(!energyBehaviour.IsFull())
         {
-            float step = 15; // TO DO : smoothstep
+            float step = 15; // TO DO : sinerp
             energyBehaviour.IncreaseEnergy(step);
             yield return null;
         }
@@ -64,9 +65,14 @@ public class Shelter : MonoBehaviour
         inputs.Enable();
     }
 
+    IEnumerator Enter()
+    {
+        yield return null;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Shelter"))
+        if (other.CompareTag("Shelter Entrance"))
         {
             // TO DO : Display UI
             inputs.Player.Interact.Enable();
@@ -75,7 +81,7 @@ public class Shelter : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Shelter"))
+        if (other.CompareTag("Shelter Entrance"))
         {
             // TO DO : Display UI
             inputs.Player.Interact.Disable();

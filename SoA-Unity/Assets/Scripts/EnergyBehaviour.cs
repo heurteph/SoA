@@ -17,6 +17,13 @@ public class EnergyBehaviour : MonoBehaviour
     public delegate void EnergyChangedHandler(float e);
     public event EnergyChangedHandler EnergyChangedEvent;
 
+    private bool isReloading;
+    public bool IsReloading { get { return isReloading; } set { isReloading = value; } }
+    
+    [SerializeField]
+    [Tooltip("Refilling speed in energy point/second")]
+    private int refillRate = 10;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +38,16 @@ public class EnergyBehaviour : MonoBehaviour
         {
             EnergyChangedEvent += GetComponent<PlayerFollow>().Hurry;
         }
+        isReloading = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+       if(isReloading)
+       {
+            IncreaseEnergy(refillRate);
+       }
     }
 
     public void DecreaseEnergy(float e)

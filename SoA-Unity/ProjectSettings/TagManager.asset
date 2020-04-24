@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Shelter Exit
   - Shelter Entrance
+  - Shelter
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - Targets
   - Camera
   - Ground
-  - 
-  - 
+  - Shelter Entrance
+  - Shelter Exit
   - 
   - 
   - 

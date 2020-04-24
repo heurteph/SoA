@@ -35,13 +35,29 @@ public class EnterShelter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GetComponent<ExitShelter>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        inputs.Player.Interact.performed -= WorldToShelter;
+        inputs.Player.Interact.Disable();
+        RaycastHit hit;
+        LayerMask mask = LayerMask.GetMask("Shelter Entrance");
+        if(Physics.Raycast(transform.position, transform.forward, out hit, 150.0f, mask)) 
+        {
+      
+                Debug.DrawLine(transform.position, hit.point, Color.red);
+                shelter = shelterManager.GoInside(hit.collider.transform.parent.gameObject);
+                inputs.Player.Interact.performed += WorldToShelter;
+
+                if (inputs.Player.enabled)
+                {
+                    inputs.Player.Interact.Enable();
+                }
+        }
     }
 
     void WorldToShelter(InputAction.CallbackContext ctx)
@@ -62,6 +78,9 @@ public class EnterShelter : MonoBehaviour
         }
         this.GetComponent<Transform>().position = shelter.transform.Find("Warp Position").transform.position + Vector3.up * 3.75f;
 
+        inputs.Player.Interact.performed -= WorldToShelter;
+        inputs.Player.Interact.Disable();
+
         Debug.Log("Camera Switch Main to Shed");
         mainCamera.enabled = false;
         shelter.transform.Find("Shed Camera").GetComponent<Camera>().enabled = true;
@@ -77,9 +96,12 @@ public class EnterShelter : MonoBehaviour
 
         inputs.Player.Interact.Enable();
         inputs.Enable();
+
+        GetComponent<ExitShelter>().enabled = true;
+        GetComponent<EnterShelter>().enabled = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    /* private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Shelter Entrance"))
         {
@@ -92,9 +114,9 @@ public class EnterShelter : MonoBehaviour
                 inputs.Player.Interact.Enable();
             }
         }
-    }
+    } */
 
-    private void OnTriggerExit(Collider other)
+  /*  private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Shelter Entrance"))
         {
@@ -102,10 +124,10 @@ public class EnterShelter : MonoBehaviour
             inputs.Player.Interact.performed -= WorldToShelter;
             inputs.Player.Interact.Disable();
         }
-    }
+    } */
 
     void OnDisable()
     {
-        inputs.Player.Disable();
+        //inputs.Player.Disable();
     }
 }  //FINISH

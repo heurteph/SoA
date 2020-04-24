@@ -39,7 +39,25 @@ public class ExitShelter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        inputs.Player.Interact.performed -= ShelterToWorld;
+        inputs.Player.Interact.Disable();
+
+        RaycastHit hit;
+        LayerMask mask = LayerMask.GetMask("Shelter Exit");
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 10.0f, mask))
+        {
+            Debug.DrawLine(transform.position, hit.point, Color.red);
+            
+            shelterCamera = hit.transform.parent.transform.Find("Shed Camera").GetComponent<Camera>();
+
+            shelter = shelterManager.GoOutside(hit.collider.transform.parent.gameObject);
+            inputs.Player.Interact.performed += ShelterToWorld;
+
+            if (inputs.Player.enabled)
+            {
+                inputs.Player.Interact.Enable();
+            }
+        }
     }
 
     void ShelterToWorld(InputAction.CallbackContext ctx)
@@ -61,6 +79,10 @@ public class ExitShelter : MonoBehaviour
         }
         this.GetComponent<Transform>().position = shelter.transform.Find("Warp Position").transform.position + Vector3.up * 3.75f;
 
+        inputs.Player.Interact.performed -= ShelterToWorld;
+        inputs.Player.Interact.Disable();
+
+
         Debug.Log("Camera Switch Shed to Main");
         mainCamera.enabled = true;
         shelterCamera.enabled = false;
@@ -71,11 +93,16 @@ public class ExitShelter : MonoBehaviour
             yield return null;
         }
         shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, 0);
+
+
         inputs.Player.Interact.Enable();
         inputs.Enable();
+
+        GetComponent<EnterShelter>().enabled = true;
+        GetComponent<ExitShelter>().enabled = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Shelter Exit"))
         {
@@ -89,9 +116,9 @@ public class ExitShelter : MonoBehaviour
                 inputs.Player.Interact.Enable();
             }
         }
-    }
+    } */
 
-    private void OnTriggerExit(Collider other)
+    /* private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Shelter Exit"))
         {
@@ -99,10 +126,10 @@ public class ExitShelter : MonoBehaviour
             inputs.Player.Interact.performed -= ShelterToWorld;
             inputs.Player.Interact.Disable();
         }
-    }
+    } */
 
     void OnDisable()
     {
-        inputs.Player.Disable();
+        //inputs.Player.Disable();
     }
 }

@@ -259,7 +259,7 @@ public class CameraFollow : MonoBehaviour
 
         transform.position += (player.transform.position - lastPlayerPosition);
         if (player.transform.position != lastPlayerPosition)
-            Debug.Log("Camera moving in " + transform.position);
+            /* Debug.Log("Camera moving in " + transform.position); */
         lastPlayerPosition = player.transform.position;
     }
 
@@ -446,7 +446,7 @@ public class CameraFollow : MonoBehaviour
 
                     // Check if there is a collision along the rotation path
 
-                    Debug.Log("t = " + thisFrame);
+                    /* Debug.Log("t = " + thisFrame); */
                     newAngleCorrected = GetAngleToFirstObstacle(newAngle);
                     //if (player.transform.position != lastPlayerPos || player.transform.rotation != lastPlayerRotation)  // avoid infinite oscillation
                     //{
@@ -509,7 +509,7 @@ public class CameraFollow : MonoBehaviour
 
             if (Physics.Linecast(startPosition, endPosition, out hit))
             {
-                Debug.Log("Obstacle in the first linecast, camera at : " + startPosition + ", obstacle at " + hit.point);
+                /* Debug.Log("Obstacle in the first linecast, camera at : " + startPosition + ", obstacle at " + hit.point); */
                 if (startAngle == 0) // if the first linecast hit an obstacle
                 {
                     // TO DO : check if the angle to the obstacle is growing or not
@@ -517,21 +517,21 @@ public class CameraFollow : MonoBehaviour
                     {
                         colliding = true;
                         lastDistanceToCollider = (startPosition - hit.point).magnitude;
-                        Debug.Log("Sticking to the obstacle");
+                        /* Debug.Log("Sticking to the obstacle"); */
                         return startAngle;
                     }
                     else if (colliding && (startPosition - hit.point).magnitude <= lastDistanceToCollider)
                     {
-                        Debug.Log("Still sicking to the obstacle, distance stays the same " + (startPosition - hit.point).magnitude);
+                        /* Debug.Log("Still sicking to the obstacle, distance stays the same " + (startPosition - hit.point).magnitude); */
                         return startAngle;
                     }
 
-                    Debug.Log("Moving away from the obstacle, the distance has grown due to player movement : " + (startPosition - hit.point).magnitude);
+                    /* Debug.Log("Moving away from the obstacle, the distance has grown due to player movement : " + (startPosition - hit.point).magnitude); */
                     // else, it means the distance between the obstacle and camera is growing, so do not return as do as usual [...]
                 }
                 else // reset colliding
                 {
-                    Debug.Log("Quitting the obstacle");
+                    /* Debug.Log("Quitting the obstacle"); */
                     colliding = false;
                 }
                 //Debug.Log("Obstacle " + hit.transform.name + " at : " + hit.point + " while I'm at " + transform.position);

@@ -47,6 +47,59 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_Parc_Oiseaux2" ID="{DD2C23EE-23DF-40CE-95A3-F93D0ACE5DAB}">
+					<ChildrenList>
+						<Action Name="" ID="{831AA569-17D4-48D7-896A-AF76CC537B5D}" ShortID="396528096">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Oiseaux2" ID="{17FBC6E1-D30A-499A-BD89-9A09B696A1EA}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Parc_Eau_Lac" ID="{F90281C9-4866-4212-BCCD-0BDB9DB6DC35}">
+					<ChildrenList>
+						<Action Name="" ID="{1363F16C-F31F-42B1-A341-9CD5695E18C2}" ShortID="528352070">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Eau_Lac" ID="{233E3AF5-A09D-4877-B3A1-148FDD443D47}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Parc_Oiseaux1" ID="{2EC30BB7-A1D3-4C14-8697-896E57F3A5CE}">
+					<ChildrenList>
+						<Action Name="" ID="{CAF2FBA9-BFB9-4242-9B82-3026A6362D5E}" ShortID="66556936">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Oiseaux1" ID="{F5E77440-D485-43CD-8CA1-5F9EE4872930}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Parc_Eau_Lac" ID="{28DECDDB-8CF6-469E-A30A-4B5D52D851BC}">
+					<ChildrenList>
+						<Action Name="" ID="{26D08728-4FFE-44F3-94FF-727BB7379739}" ShortID="516627012">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Eau_Lac" ID="{233E3AF5-A09D-4877-B3A1-148FDD443D47}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

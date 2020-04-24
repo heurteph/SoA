@@ -2,6 +2,10 @@
 <WwiseDocument Type="WorkUnit" ID="{1B141676-4414-425B-8493-2A57AC5365FE}" SchemaVersion="97">
 	<AudioObjects>
 		<WorkUnit Name="Personnage" ID="{1B141676-4414-425B-8493-2A57AC5365FE}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="10"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
 			<ChildrenList>
 				<ActorMixer Name="Respiration" ID="{07534498-07D9-46BD-832A-004A8B8BEB0C}" ShortID="1059427470">
 					<ReferenceList>
@@ -61,7 +65,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="LayerCrossFadeControlInput">
-											<ObjectRef Name="Personnage_Vitesse" ID="{D33DC1A1-B958-4876-99BE-E7A4B0A1668B}" WorkUnitID="{B90F05CD-014F-496C-B6F0-C3FAFBFB2412}"/>
+											<ObjectRef Name="Personnage_Vitesse" ID="{D33DC1A1-B958-4876-99BE-E7A4B0A1668B}" WorkUnitID="{7FF2800C-503A-4DC6-ADB0-DD3696C1E8C4}"/>
 										</Reference>
 									</ReferenceList>
 									<BlendTrackAssocList>
@@ -172,7 +176,7 @@
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="LayerCrossFadeControlInput">
-													<ObjectRef Name="Personnage_Vitesse" ID="{D33DC1A1-B958-4876-99BE-E7A4B0A1668B}" WorkUnitID="{B90F05CD-014F-496C-B6F0-C3FAFBFB2412}"/>
+													<ObjectRef Name="Personnage_Vitesse" ID="{D33DC1A1-B958-4876-99BE-E7A4B0A1668B}" WorkUnitID="{7FF2800C-503A-4DC6-ADB0-DD3696C1E8C4}"/>
 												</Reference>
 											</ReferenceList>
 											<BlendTrackAssocList>

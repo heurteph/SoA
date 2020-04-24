@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}" SchemaVersion="97">
+	<GameParameters>
+		<WorkUnit Name="Obstacles" ID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="VitesseVoitureElec" ID="{5FE77D80-3313-4DB5-B9E4-47E4371E86FA}"/>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

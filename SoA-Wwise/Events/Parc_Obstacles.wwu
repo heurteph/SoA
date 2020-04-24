@@ -91,17 +91,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Pas_Jogger" ID="{775479D6-A1C7-4F28-9AE2-B8AAAD5F6B4E}">
-					<ChildrenList>
-						<Action Name="" ID="{6E22C0A5-5705-4834-8E39-56C95C7500E5}" ShortID="247906406">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Pas_Jogger" ID="{F2ACD7FF-7924-4948-8355-3674D1B98690}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_ArrosageAuto" ID="{17965FBC-5CC9-4E2C-ABD0-E438F5C208BB}">
 					<ChildrenList>
 						<Action Name="" ID="{E8334DFF-FD03-4E01-9BC8-76FBFADBA6C9}" ShortID="822074943">
@@ -146,12 +135,73 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Respiration_Jogger" ID="{6C7DAA32-EF88-424B-A63B-464B665FE05A}">
+				<Event Name="Play_Respiration_JoggueurH" ID="{087B26FB-02F9-4C28-B3CA-70D29CCC3E97}">
 					<ChildrenList>
-						<Action Name="" ID="{3B392E8B-10A9-4842-BE95-AFCDB75C67F4}" ShortID="531834379">
+						<Action Name="" ID="{A478D740-E0D8-4609-8B36-86B26795FFC7}" ShortID="193652086">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Respiration_Jogger" ID="{5E15AE3E-4465-4A74-AAA6-88EE146288F8}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+									<ObjectRef Name="Respiration_JoggueurH" ID="{5E15AE3E-4465-4A74-AAA6-88EE146288F8}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Respiration_JoggueurF" ID="{FC52281D-EA58-4483-A8BB-99DB0304A86D}">
+					<ChildrenList>
+						<Action Name="" ID="{3F6EF4F0-4C76-49B4-ABA3-8539247A1016}" ShortID="666525764">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Respiration_JoggueurF" ID="{1ED09B09-F770-40AF-B4C3-F78B2A23C9DF}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Pas_Joggueur2" ID="{78A06B79-7A7D-447E-B08E-F138C19C86DA}">
+					<ChildrenList>
+						<Action Name="" ID="{C72B0DA9-BD4B-47EB-8B2F-1A494D7DE54A}" ShortID="1032019598">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pas_Joggueur2" ID="{91F508E1-3E12-4E08-B9B8-892E96C155A0}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Pas_Joggueur" ID="{77A4C387-E1CD-4D10-A571-74C78B799202}">
+					<ChildrenList>
+						<Action Name="" ID="{EDB54E97-90C4-48B4-9C43-DC6029121CF3}" ShortID="231993814">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pas_Joggueur" ID="{F2ACD7FF-7924-4948-8355-3674D1B98690}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_ArrosageAuto" ID="{BC87B6AD-FDE6-4EC0-B333-DC0CDFC4554E}">
+					<ChildrenList>
+						<Action Name="" ID="{7BD13784-5EC8-4F04-808C-33202B73D8A5}" ShortID="157692156">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ArrosageAuto" ID="{BFE061EF-A052-4517-89AA-215F4DFF751B}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Parc_Chien" ID="{1D8959DF-D497-4F19-94E0-ADFA6A906A3C}">
+					<ChildrenList>
+						<Action Name="" ID="{C480F05B-B24D-4A8E-B897-458223FA02B1}" ShortID="444803197">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Chien" ID="{74A1B23E-4465-48B6-927F-3CCA3E205FAB}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

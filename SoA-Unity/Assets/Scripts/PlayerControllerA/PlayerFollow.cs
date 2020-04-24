@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerFollow : MonoBehaviour, IAnimable
 {
 
-    [SerializeField]
     private Inputs inputs;
 
     [Space]
@@ -55,8 +54,8 @@ public class PlayerFollow : MonoBehaviour, IAnimable
 
     void Awake()
     {
-     //    angle = player.transform.rotation.eulerAngles.y;
-        inputs = new Inputs();
+        //    angle = player.transform.rotation.eulerAngles.y;
+        inputs = InputsManager.Instance.Inputs;
 
         // TO MOVE TO GAME MANAGER
         inputs.Player.Quit.performed += _ctx => Application.Quit();

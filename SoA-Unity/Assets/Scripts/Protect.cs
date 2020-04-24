@@ -32,7 +32,7 @@ public class Protect : MonoBehaviour
             throw new System.NullReferenceException("No hearing script reference passed to Protect script");
         }
 
-        inputs = new Inputs();
+        inputs = InputsManager.Instance.Inputs;
 
         inputs.Player.ProtectEyes.performed += _ctx =>
         {

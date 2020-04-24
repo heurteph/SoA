@@ -15,7 +15,7 @@ public class Shelter : MonoBehaviour
 
     private void Awake()
     {
-        inputs = new Inputs();
+        inputs = InputsManager.Instance.Inputs;
         inputs.Player.Interact.performed += ctx => OpenDoor();
         inputs.Player.Interact.Disable();
     }
@@ -43,7 +43,7 @@ public class Shelter : MonoBehaviour
 
     IEnumerator Refill()
     {
-        inputs.Player.Disable();
+        inputs.Disable();
         while(!Mathf.Approximately(shade.color.a, 1))
         {
             shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, shade.color.a + 0.05f);
@@ -61,7 +61,7 @@ public class Shelter : MonoBehaviour
             yield return null;
         }
         shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, 0);
-        inputs.Player.Enable();
+        inputs.Enable();
     }
 
     private void OnTriggerEnter(Collider other)

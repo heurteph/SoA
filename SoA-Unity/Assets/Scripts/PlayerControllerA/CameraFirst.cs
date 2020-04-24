@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraFirst : MonoBehaviour
 {
 
-    [SerializeField]
     private Inputs inputs;
 
     [Space]
@@ -162,7 +161,7 @@ public class CameraFirst : MonoBehaviour
 
     private void Awake()
     {
-        inputs = new Inputs();
+        inputs = InputsManager.Instance.Inputs;
     }
 
     // Start is called before the first frame update

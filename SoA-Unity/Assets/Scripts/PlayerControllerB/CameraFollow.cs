@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
 
-    [SerializeField]
     private Inputs inputs;
 
     [Space]
@@ -183,7 +182,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Awake()
     {
-       inputs = new Inputs();
+        inputs = InputsManager.Instance.Inputs;
     }
 
     // Start is called before the first frame update
@@ -243,8 +242,9 @@ public class CameraFollow : MonoBehaviour
 
         UpdateRotation();
 
-        LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
-        ProjectiveLookAround(inputs.Player.ProjectiveLook.ReadValue<float>());
+        //LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+        //ProjectiveLookAround(inputs.Player.ProjectiveLook.ReadValue<float>());
+        ExtendedLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
 
         if (cameraSway) { Sway(); }
     }
@@ -622,6 +622,68 @@ public class CameraFollow : MonoBehaviour
         }
         //heldCamera.transform.position = (1-v)*transform.position + v* (player.transform.position) + (player.transform.forward * forwardDistance) * sinerpForward;
         heldCamera.transform.position = transform.position + (player.transform.position + player.transform.forward * forwardDistance - transform.position) * sinerpForward;
+    }
+
+    void ExtendedLookAround(Vector2 v)
+    {
+        maxHorizontalAngle = 90; // needed
+        float minHorizontalAngle = 45;
+
+        float rotationSmooth = 0;
+        float lateralSmooth  = 0;
+        float forwardSmooth  = 0;
+
+        float rightProjection = 5;
+        float forwardProjection = 12;
+
+        if (!Mathf.Approximately(v.x, 0))
+        {
+            accumulator.x = Mathf.Clamp(accumulator.x + v.x * Time.deltaTime / horizontalDuration, -1, 1);
+            rotationSmooth = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
+            //lateralSmooth = Mathf.Sign(accumulator.x) * (1 - Mathf.Sqrt(1 - Mathf.Pow(accumulator.x,2)));
+            lateralSmooth = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
+        }
+        else
+        {
+            accumulator.x = (1 - Mathf.Sign(accumulator.x)) / 2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0);
+            rotationSmooth = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
+            //lateralSmooth = Mathf.Sign(accumulator.x) * (1 - Mathf.Sqrt(1 - Mathf.Pow(accumulator.x,2)));
+            lateralSmooth = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
+        }
+
+        if (!Mathf.Approximately(v.y, 0))
+        {
+            //inputs.Player.Walk.Disable();
+            accumulator.y = Mathf.Clamp(accumulator.y + v.y * Time.deltaTime / verticalDuration, -1, 1);
+            forwardSmooth = Mathf.Sign(accumulator.y) * Mathf.Sin(Mathf.Abs(accumulator.y) * Mathf.PI * 0.5f);
+        }
+        else
+        {
+            //inputs.Player.Walk.Enable();
+            accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0);
+            forwardSmooth = Mathf.Sign(accumulator.y) * Mathf.Sin(Mathf.Abs(accumulator.y) * Mathf.PI * 0.5f);
+        }
+
+        // Stabilization of the look around
+        float y_stabilization = 0;
+        if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromHurryToHorizon; }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
+
+        else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromProtectedToHorizon; }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
+
+        else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
+
+        // Must be separated in two because unity's order for euler is ZYX and we want X-Y-X
+        //heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
+        heldCamera.transform.localRotation = Quaternion.Euler(y_stabilization, 0, 0);
+        heldCamera.transform.localRotation *= Quaternion.Euler(0, rotationSmooth * (minHorizontalAngle + forwardSmooth * (maxHorizontalAngle - minHorizontalAngle)), 0);
+        //heldCamera.transform.localRotation *= Quaternion.Euler(-smoothy * maxVerticalAngle, 0, 0);
+
+        heldCamera.transform.position = transform.position + transform.right * rightProjection * lateralSmooth + (player.transform.position + player.transform.forward * forwardProjection - transform.position) * forwardSmooth;
     }
 
     void UpdateRecoilPosition()

@@ -11,7 +11,6 @@ public interface IAnimable
 public class PlayerFirst : MonoBehaviour, IAnimable
 {
 
-    [SerializeField]
     private Inputs inputs;
 
     [Space]
@@ -80,7 +79,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     {
         angle = player.transform.rotation.eulerAngles.y;
 
-        inputs = new Inputs();
+        inputs = InputsManager.Instance.Inputs;
 
         // TO MOVE TO GAME MANAGER
         inputs.Player.Quit.performed += _ctx => Application.Quit();

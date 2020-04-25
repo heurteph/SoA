@@ -189,10 +189,22 @@ public class CameraFollow : MonoBehaviour
     private Vector3 endForward = Vector3.zero;
     private Vector3 storedForward = Vector3.zero;
     private Quaternion storedRotation = Quaternion.identity;
-    private float targetingDuration = 2;
     private float targetingTimer = 0;
 
-    private Vector3 targetPosition = new Vector3(2.3f, -1.5f, -16f);
+    [Space]
+    [Header("Targeting")]
+
+    [SerializeField]
+    [Range(0.5f,5f)]
+    [Tooltip("The total duration of the targeting (pause included) in seconds")]
+    private float targetingDuration = 5;
+
+    [SerializeField]
+    [Tooltip("The pause on the target in seconds")]
+    [Range(0.5f, 2f)]
+    private float targetingPause = 1;
+
+    private Vector3 targetPosition = new Vector3(-33.9f, 0, 79.7f);
 
     private void Awake()
     {
@@ -893,31 +905,31 @@ public class CameraFollow : MonoBehaviour
     {
         isTargeting = true;
         targetingTimer = targetingDuration;
+
         storedForward = heldCamera.transform.forward;
         storedRotation = heldCamera.transform.localRotation;
 
-        heldCamera.transform.localRotation = Quaternion.LookRotation((targetPosition - heldCamera.transform.position).normalized, Vector3.up) * Quaternion.Inverse(storedRotation);
-        //heldCamera.transform.forward = (targetPosition - heldCamera.transform.position).normalized;
-
-        //StartCoroutine("SlerpTo");
+        StartCoroutine("SlerpTo");
     }
 
     IEnumerator SlerpTo()
     {
         startForward = storedForward;
-        //transform.LookAt(targetPosition);
         endForward = (targetPosition - heldCamera.transform.position).normalized;
 
-        while (targetingTimer > targetingDuration * 0.5f)
+        Debug.Log(startForward + " =/= " + endForward);
+
+        while (targetingTimer > (targetingDuration - targetingPause) * 0.5f + targetingPause)
         {
-            targetingTimer = Mathf.Max(targetingTimer - Time.deltaTime, 0.5f * targetingDuration);
-            Vector3 current = Vector3.Slerp(startForward, endForward, (targetingDuration * 0.5f - (targetingTimer - targetingDuration * 0.5f)) / (targetingDuration * 0.5f));
-            //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToFocus : " + timeToFocus + ", recoilTimer : " + recoilTimer);
-            heldCamera.transform.localRotation = Quaternion.LookRotation(current);
+            targetingTimer = Mathf.Max(targetingTimer - Time.deltaTime, (targetingDuration - targetingPause) * 0.5f + targetingPause);
+            Vector3 current = Vector3.Slerp(startForward, endForward, ((targetingDuration - targetingPause) * 0.5f - (targetingTimer - ((targetingDuration - targetingPause) * 0.5f + targetingPause))) / ((targetingDuration - targetingPause) * 0.5f));
+            heldCamera.transform.localRotation = Quaternion.Inverse(heldCamera.transform.parent.rotation) * Quaternion.LookRotation(current);
+
             yield return null;
         }
-        yield return new WaitForSeconds(0.5f); // TO DO : Add in the inspector
-
+        yield return new WaitForSeconds(targetingPause);
+        targetingTimer -= targetingPause;
+        Debug.Log("Pause finished");
         StartCoroutine("SlerpFrom");
     }
 
@@ -929,9 +941,8 @@ public class CameraFollow : MonoBehaviour
         while (targetingTimer > 0)
         {
             targetingTimer = Mathf.Max(targetingTimer - Time.deltaTime, 0);
-            Vector3 current = Vector3.Slerp(startForward, endForward, (targetingDuration * 0.5f - targetingTimer) / (targetingDuration * 0.5f));
-            //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToFocus : " + timeToFocus + ", recoilTimer : " + recoilTimer);
-            heldCamera.transform.localRotation = Quaternion.LookRotation(current);
+            Vector3 current = Vector3.Slerp(startForward, endForward, ((targetingDuration - targetingPause) * 0.5f - targetingTimer) / ((targetingDuration - targetingPause) * 0.5f));
+            heldCamera.transform.localRotation = Quaternion.Inverse(heldCamera.transform.parent.rotation) * Quaternion.LookRotation(current);
             yield return null;
         }
         isTargeting = false;

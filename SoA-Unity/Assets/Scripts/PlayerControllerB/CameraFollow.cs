@@ -176,13 +176,28 @@ public class CameraFollow : MonoBehaviour
     private float swayDuration = 0;
     private float swayTimer = 0;
 
-    bool colliding = false;
+    // Collisions
+
+    bool isColliding = false; // TO DO : Set private
     float lastDistanceToCollider = Mathf.Infinity; // keep consistent with MaxDegDelta when it changes
     private float collidingAlignSpeed = 20;
+
+    // Targeting
+
+    private bool isTargeting = false;
+    private Quaternion startRotation = Quaternion.identity;
+    private Quaternion endRotation = Quaternion.identity;
+    private Quaternion storedRotation = Quaternion.identity;
+    private float targetingDuration = 2;
+    private float targetingTimer = 0;
+
+    private Vector3 targetPosition = new Vector3(174.3f, -15.84f, 18.9f);
 
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
+        inputs.Player.Target.performed += ctx => TargetingObstacle();
+        //inputs.Player.Target.canceled  += ctx => UntargetingObstacle();
     }
 
     // Start is called before the first frame update
@@ -242,11 +257,17 @@ public class CameraFollow : MonoBehaviour
 
         UpdateRotation();
 
-        //LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
-        //ProjectiveLookAround(inputs.Player.ProjectiveLook.ReadValue<float>());
-        ExtendedLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+        if (!isTargeting)
+        {
+            LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+            //ProjectiveLookAround(inputs.Player.ProjectiveLook.ReadValue<float>());
+            //ExtendedLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+        }
 
-        if (cameraSway) { Sway(); }
+        if (cameraSway)
+        {
+            Sway();
+        }
     }
 
     private void UpdatePosition ()
@@ -513,14 +534,14 @@ public class CameraFollow : MonoBehaviour
                 if (startAngle == 0) // if the first linecast hit an obstacle
                 {
                     // TO DO : check if the angle to the obstacle is growing or not
-                    if(!colliding)
+                    if(!isColliding)
                     {
-                        colliding = true;
+                        isColliding = true;
                         lastDistanceToCollider = (startPosition - hit.point).magnitude;
                         /* Debug.Log("Sticking to the obstacle"); */
                         return startAngle;
                     }
-                    else if (colliding && (startPosition - hit.point).magnitude <= lastDistanceToCollider)
+                    else if (isColliding && (startPosition - hit.point).magnitude <= lastDistanceToCollider)
                     {
                         /* Debug.Log("Still sicking to the obstacle, distance stays the same " + (startPosition - hit.point).magnitude); */
                         return startAngle;
@@ -532,7 +553,7 @@ public class CameraFollow : MonoBehaviour
                 else // reset colliding
                 {
                     /* Debug.Log("Quitting the obstacle"); */
-                    colliding = false;
+                    isColliding = false;
                 }
                 //Debug.Log("Obstacle " + hit.transform.name + " at : " + hit.point + " while I'm at " + transform.position);
                 Vector3 newPosition = Vector3.Lerp(transform.position, hit.point, 0.9f); // keep your distance from the collider
@@ -553,6 +574,8 @@ public class CameraFollow : MonoBehaviour
     {
         float smoothx = 0;
         float smoothy = 0;
+
+        Debug.Log("Accumulator : " + accumulator);
 
         if (!Mathf.Approximately(v.x, 0))
         {
@@ -862,6 +885,49 @@ public class CameraFollow : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    void TargetingObstacle()
+    {
+        isTargeting = true;
+        targetingTimer = targetingDuration;
+        storedRotation = heldCamera.transform.rotation;
+
+        StartCoroutine("SlerpTo");
+    }
+
+    IEnumerator SlerpTo()
+    {
+        startRotation = heldCamera.transform.localRotation;
+        endRotation = Quaternion.LookRotation(targetPosition - transform.position, Vector3.up);
+
+        while (targetingTimer > targetingDuration * 0.5f)
+        {
+            targetingTimer = Mathf.Max(targetingTimer - Time.deltaTime, 0.5f * targetingDuration);
+            Quaternion current = Quaternion.Slerp(startRotation, endRotation, (targetingDuration * 0.5f - (targetingTimer - targetingDuration * 0.5f)) / (targetingDuration * 0.5f));
+            //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToFocus : " + timeToFocus + ", recoilTimer : " + recoilTimer);
+            transform.rotation = current;
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f); // TO DO : Add in the inspector
+
+        StartCoroutine("SlerpFrom");
+    }
+
+    IEnumerator SlerpFrom()
+    {
+        startRotation = heldCamera.transform.localRotation;
+        endRotation = storedRotation;
+
+        while (targetingTimer > 0)
+        {
+            targetingTimer = Mathf.Max(targetingTimer - Time.deltaTime, 0);
+            Quaternion current = Quaternion.Slerp(startRotation, endRotation, (targetingDuration * 0.5f - targetingTimer) / (targetingDuration * 0.5f));
+            //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToFocus : " + timeToFocus + ", recoilTimer : " + recoilTimer);
+            transform.rotation = current;
+            yield return null;
+        }
+        isTargeting = false;
     }
 
 } //FINISH

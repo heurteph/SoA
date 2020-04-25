@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+	<RootPaths>
+		<ProjectRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\</ProjectRoot>
+		<SourceFilesRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<IncludedAuxBusses>
+				<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+			</IncludedAuxBusses>
+			<GameParameters>
+				<GameParameter Id="133973669" Name="VolumeEcoutePerso" ObjectPath="\Game Parameters\Default Work Unit\VolumeEcoutePerso"/>
+			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="3163481603" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankPC</ObjectPath>
+			<ShortName>SoundBankPC</ShortName>
+			<Path>SoundBankPC.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3389613819" Name="Play_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Play_ArrosageAuto" MaxAttenuation="40.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="52086767" Language="SFX">
+							<ShortName>Parc_Obstacles_EauAuto10.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_EauAuto10_10C4C929.wem</Path>
+						</File>
+						<File Id="190132686" Language="SFX">
+							<ShortName>Parc_Obstacles_EauAuto05.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_EauAuto05_10C4C929.wem</Path>
+						</File>
+						<File Id="241426599" Language="SFX">
+							<ShortName>Parc_Obstacles_EauAuto07.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_EauAuto07_10C4C929.wem</Path>
+						</File>
+						<File Id="338392046" Language="SFX">
+							<ShortName>Parc_Obstacles_EauAuto03.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_EauAuto03_10C4C929.wem</Path>
+						</File>
+						<File Id="526656438" Language="SFX">
+							<ShortName>Parc_Obstacles_EauAuto04.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_EauAuto04_10C4C929.wem</Path>
+						</File>
+						<File Id="538189929" Language="SFX">
+							<ShortName>Parc_Obstacles_EauAuto09.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_EauAuto09_10C4C929.wem</Path>
+						</File>
+						<File Id="681099856" Language="SFX">
+							<ShortName>Parc_Obstacles_EauAuto11.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_EauAuto11_10C4C929.wem</Path>
+						</File>
+						<File Id="738512641" Language="SFX">
+							<ShortName>Parc_Obstacles_EauAuto06.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_EauAuto06_10C4C929.wem</Path>
+						</File>
+						<File Id="744016455" Language="SFX">
+							<ShortName>Parc_Obstacles_EauAuto12.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_EauAuto12_10C4C929.wem</Path>
+						</File>
+						<File Id="889647864" Language="SFX">
+							<ShortName>Parc_Obstacles_EauAuto08.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_EauAuto08_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3185656221" Name="Play_Humain_Joue1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Joue1" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3185656222" Name="Play_Humain_Joue2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Joue2" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3446893022" Name="Play_Humain_Mange1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Mange1" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="16.954771" DurationMax="22.342501">
+					<IncludedMemoryFiles>
+						<File Id="383351680" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Mange01-001.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Mange01-001_10C4C929.wem</Path>
+						</File>
+						<File Id="449509953" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Mange01-002.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Mange01-002_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3446893021" Name="Play_Humain_Mange2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Mange2" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="14.432000" DurationMax="21.525541">
+					<IncludedMemoryFiles>
+						<File Id="353423123" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Mange01-004.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Mange01-004_10C4C929.wem</Path>
+						</File>
+						<File Id="740968882" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Mange01-003.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Mange01-003_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="545734209" Name="Play_Humain_MangeEnfant" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1978073185" Name="Play_Humain_MangeEnfant2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant2" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2314452061" Name="Play_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_Elagueur" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="20.496395" DurationMax="20.496395">
+					<IncludedMemoryFiles>
+						<File Id="487953707" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Moteur_Elagueur01.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Moteur_Elagueur01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1403256204" Name="Play_Moteur_VoitureElec" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_VoitureElec" MaxAttenuation="40.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="840495312" Language="SFX">
+							<ShortName>Parc_Obstacles_VoitureElec_Moteurs Lent.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_VoitureElec_Moteurs Lent_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4134052420" Name="Play_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Play_Parc_Chien" MaxAttenuation="60.000000" DurationType="OneShot" DurationMin="0.160375" DurationMax="0.207813">
+					<IncludedMemoryFiles>
+						<File Id="132806480" Language="SFX">
+							<ShortName>Parc_Obstacles_Chien03.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Chien03_10C4C929.wem</Path>
+						</File>
+						<File Id="179309543" Language="SFX">
+							<ShortName>Parc_Obstacles_Chien07.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Chien07_10C4C929.wem</Path>
+						</File>
+						<File Id="206334665" Language="SFX">
+							<ShortName>Parc_Obstacles_Chien08.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Chien08_10C4C929.wem</Path>
+						</File>
+						<File Id="411106049" Language="SFX">
+							<ShortName>Parc_Obstacles_Chien10.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Chien10_10C4C929.wem</Path>
+						</File>
+						<File Id="457697433" Language="SFX">
+							<ShortName>Parc_Obstacles_Chien06.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Chien06_10C4C929.wem</Path>
+						</File>
+						<File Id="631189636" Language="SFX">
+							<ShortName>Parc_Obstacles_Chien05.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Chien05_10C4C929.wem</Path>
+						</File>
+						<File Id="662478088" Language="SFX">
+							<ShortName>Parc_Obstacles_Chien01.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Chien01_10C4C929.wem</Path>
+						</File>
+						<File Id="775737755" Language="SFX">
+							<ShortName>Parc_Obstacles_Chien09.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Chien09_10C4C929.wem</Path>
+						</File>
+						<File Id="819019520" Language="SFX">
+							<ShortName>Parc_Obstacles_Chien02.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Chien02_10C4C929.wem</Path>
+						</File>
+						<File Id="844544696" Language="SFX">
+							<ShortName>Parc_Obstacles_Chien11.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Chien11_10C4C929.wem</Path>
+						</File>
+						<File Id="1070994121" Language="SFX">
+							<ShortName>Parc_Obstacles_Chien04.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Chien04_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="865874921" Name="Play_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Eau_Lac" DurationType="OneShot" DurationMin="30.011896" DurationMax="30.011896">
+					<IncludedMemoryFiles>
+						<File Id="705099394" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_EauLac01.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_EauLac01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2727595513" Name="Play_Parc_Insectes" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Insectes" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3725651506" Name="Play_Parc_Oiseaux1" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Oiseaux1" MaxAttenuation="80.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="89772251" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula12.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula12_10C4C929.wem</Path>
+						</File>
+						<File Id="104098878" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula08.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula08_10C4C929.wem</Path>
+						</File>
+						<File Id="354188255" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula13.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula13_10C4C929.wem</Path>
+						</File>
+						<File Id="356875336" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula05.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula05_10C4C929.wem</Path>
+						</File>
+						<File Id="404032392" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula10.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula10_10C4C929.wem</Path>
+						</File>
+						<File Id="497953852" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula14.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula14_10C4C929.wem</Path>
+						</File>
+						<File Id="506618177" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula06.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula06_10C4C929.wem</Path>
+						</File>
+						<File Id="531645549" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula-glué04.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula-glué04_10C4C929.wem</Path>
+						</File>
+						<File Id="542641399" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula11.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula11_10C4C929.wem</Path>
+						</File>
+						<File Id="604102644" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula02.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula02_10C4C929.wem</Path>
+						</File>
+						<File Id="695150990" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula15.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula15_10C4C929.wem</Path>
+						</File>
+						<File Id="723033460" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula03.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula03_10C4C929.wem</Path>
+						</File>
+						<File Id="798063889" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula07.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula07_10C4C929.wem</Path>
+						</File>
+						<File Id="840595589" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula09.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula09_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3725651505" Name="Play_Parc_Oiseaux2" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Oiseaux2" MaxAttenuation="100.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="6807920" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula73.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula73_10C4C929.wem</Path>
+						</File>
+						<File Id="19860633" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula75.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula75_10C4C929.wem</Path>
+						</File>
+						<File Id="73671752" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula69.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula69_10C4C929.wem</Path>
+						</File>
+						<File Id="121249294" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula62.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula62_10C4C929.wem</Path>
+						</File>
+						<File Id="230104036" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula63.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula63_10C4C929.wem</Path>
+						</File>
+						<File Id="309108208" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula77.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula77_10C4C929.wem</Path>
+						</File>
+						<File Id="314937739" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula74.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula74_10C4C929.wem</Path>
+						</File>
+						<File Id="319023704" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula71.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula71_10C4C929.wem</Path>
+						</File>
+						<File Id="320324587" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula72.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula72_10C4C929.wem</Path>
+						</File>
+						<File Id="511603571" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula64.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula64_10C4C929.wem</Path>
+						</File>
+						<File Id="574030282" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula67.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula67_10C4C929.wem</Path>
+						</File>
+						<File Id="575434382" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula78.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula78_10C4C929.wem</Path>
+						</File>
+						<File Id="601975509" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula70.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula70_10C4C929.wem</Path>
+						</File>
+						<File Id="704343457" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula61.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula61_10C4C929.wem</Path>
+						</File>
+						<File Id="706557377" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula65.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula65_10C4C929.wem</Path>
+						</File>
+						<File Id="765861156" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula66.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula66_10C4C929.wem</Path>
+						</File>
+						<File Id="880334313" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC113132 - Apalis de Roberts - Oreophilais robertsi16.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC113132 - Apalis de Roberts - Oreophilais robertsi16_10C4C929.wem</Path>
+						</File>
+						<File Id="886426689" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula76.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula76_10C4C929.wem</Path>
+						</File>
+						<File Id="982914376" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula68.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula68_10C4C929.wem</Path>
+						</File>
+						<File Id="1006444249" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC113132 - Apalis de Roberts - Oreophilais robertsi17.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC113132 - Apalis de Roberts - Oreophilais robertsi17_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3725651504" Name="Play_Parc_Oiseaux3" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Oiseaux3" MaxAttenuation="80.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="5258784" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva26.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva26_10C4C929.wem</Path>
+						</File>
+						<File Id="46527227" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41_10C4C929.wem</Path>
+						</File>
+						<File Id="74171240" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55_10C4C929.wem</Path>
+						</File>
+						<File Id="133007546" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva30.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva30_10C4C929.wem</Path>
+						</File>
+						<File Id="135194486" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva22.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva22_10C4C929.wem</Path>
+						</File>
+						<File Id="136869288" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45_10C4C929.wem</Path>
+						</File>
+						<File Id="160326175" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36_10C4C929.wem</Path>
+						</File>
+						<File Id="185204255" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49_10C4C929.wem</Path>
+						</File>
+						<File Id="196091841" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59_10C4C929.wem</Path>
+						</File>
+						<File Id="196199171" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva24.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva24_10C4C929.wem</Path>
+						</File>
+						<File Id="199348966" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva28.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva28_10C4C929.wem</Path>
+						</File>
+						<File Id="226805572" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva18.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva18_10C4C929.wem</Path>
+						</File>
+						<File Id="342802182" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva20.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva20_10C4C929.wem</Path>
+						</File>
+						<File Id="373622773" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54_10C4C929.wem</Path>
+						</File>
+						<File Id="399643746" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva29.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva29_10C4C929.wem</Path>
+						</File>
+						<File Id="400387226" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44_10C4C929.wem</Path>
+						</File>
+						<File Id="416204730" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34_10C4C929.wem</Path>
+						</File>
+						<File Id="434467179" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51_10C4C929.wem</Path>
+						</File>
+						<File Id="437649202" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60_10C4C929.wem</Path>
+						</File>
+						<File Id="445527584" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47_10C4C929.wem</Path>
+						</File>
+						<File Id="455205638" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35_10C4C929.wem</Path>
+						</File>
+						<File Id="474621248" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46_10C4C929.wem</Path>
+						</File>
+						<File Id="517054188" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33_10C4C929.wem</Path>
+						</File>
+						<File Id="576738218" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58_10C4C929.wem</Path>
+						</File>
+						<File Id="590345218" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56_10C4C929.wem</Path>
+						</File>
+						<File Id="600004635" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57_10C4C929.wem</Path>
+						</File>
+						<File Id="629932354" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva19.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva19_10C4C929.wem</Path>
+						</File>
+						<File Id="661410401" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48_10C4C929.wem</Path>
+						</File>
+						<File Id="662284077" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50_10C4C929.wem</Path>
+						</File>
+						<File Id="663455560" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva31.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva31_10C4C929.wem</Path>
+						</File>
+						<File Id="672883393" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42_10C4C929.wem</Path>
+						</File>
+						<File Id="689090821" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva25.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva25_10C4C929.wem</Path>
+						</File>
+						<File Id="712279529" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53_10C4C929.wem</Path>
+						</File>
+						<File Id="736946357" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52_10C4C929.wem</Path>
+						</File>
+						<File Id="763576408" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva23.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva23_10C4C929.wem</Path>
+						</File>
+						<File Id="773241233" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva27.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva27_10C4C929.wem</Path>
+						</File>
+						<File Id="783401644" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43_10C4C929.wem</Path>
+						</File>
+						<File Id="789117852" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva21.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva21_10C4C929.wem</Path>
+						</File>
+						<File Id="851641900" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva32.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva32_10C4C929.wem</Path>
+						</File>
+						<File Id="887674373" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40_10C4C929.wem</Path>
+						</File>
+						<File Id="929091810" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37_10C4C929.wem</Path>
+						</File>
+						<File Id="952246663" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38_10C4C929.wem</Path>
+						</File>
+						<File Id="1043926172" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4135899644" Name="Play_Parc_Vent" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Vent" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="611649318" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_OiseauxetVent01.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_OiseauxetVent01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3266099682" Name="Play_Parc_Vent_01" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Vent_01" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="611649318" Language="SFX">
+							<ShortName>Parc_Ambiance_Nature_OiseauxetVent01.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Nature_OiseauxetVent01_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2173732909" Name="Play_Pas_Joggueur" ObjectPath="\Events\Parc_Obstacles\Play_Pas_Joggueur" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="19.780230" DurationMax="19.780230">
+					<IncludedMemoryFiles>
+						<File Id="771678931" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_Pas01-001.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_Pas01-001_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="596008677" Name="Play_Pas_Joggueur2" ObjectPath="\Events\Parc_Obstacles\Play_Pas_Joggueur2" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="20.277374" DurationMax="20.277374">
+					<IncludedMemoryFiles>
+						<File Id="541119374" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_Pas01-002.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_Pas01-002_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4114146970" Name="Play_Pleure_B_b_" ObjectPath="\Events\Parc_Obstacles\Play_Pleure_B_b_" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1582928683" Name="Play_Respiration_JoggueurF" ObjectPath="\Events\Parc_Obstacles\Play_Respiration_JoggueurF" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="0.886625" DurationMax="1.007667">
+					<IncludedMemoryFiles>
+						<File Id="130358358" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme07.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme07_10C4C929.wem</Path>
+						</File>
+						<File Id="207824243" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme09.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme09_10C4C929.wem</Path>
+						</File>
+						<File Id="245967622" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme10.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme10_10C4C929.wem</Path>
+						</File>
+						<File Id="286080961" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme17.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme17_10C4C929.wem</Path>
+						</File>
+						<File Id="456765206" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme02.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme02_10C4C929.wem</Path>
+						</File>
+						<File Id="511228866" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme11.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme11_10C4C929.wem</Path>
+						</File>
+						<File Id="545504024" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme12.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme12_10C4C929.wem</Path>
+						</File>
+						<File Id="548810718" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme19.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme19_10C4C929.wem</Path>
+						</File>
+						<File Id="570272829" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme16.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme16_10C4C929.wem</Path>
+						</File>
+						<File Id="609767905" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme03.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme03_10C4C929.wem</Path>
+						</File>
+						<File Id="705741971" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme08.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme08_10C4C929.wem</Path>
+						</File>
+						<File Id="750305894" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme13.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme13_10C4C929.wem</Path>
+						</File>
+						<File Id="782901864" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme14.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme14_10C4C929.wem</Path>
+						</File>
+						<File Id="827518391" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme04.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme04_10C4C929.wem</Path>
+						</File>
+						<File Id="912011306" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme06.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme06_10C4C929.wem</Path>
+						</File>
+						<File Id="996782938" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme18.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme18_10C4C929.wem</Path>
+						</File>
+						<File Id="1014155343" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme01.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme01_10C4C929.wem</Path>
+						</File>
+						<File Id="1023285854" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme05.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme05_10C4C929.wem</Path>
+						</File>
+						<File Id="1038001123" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme15.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme15_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1582928677" Name="Play_Respiration_JoggueurH" ObjectPath="\Events\Parc_Obstacles\Play_Respiration_JoggueurH" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="0.556083" DurationMax="0.625687">
+					<IncludedMemoryFiles>
+						<File Id="274192846" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiHomme03.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiHomme03_10C4C929.wem</Path>
+						</File>
+						<File Id="386935321" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiHomme01.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiHomme01_10C4C929.wem</Path>
+						</File>
+						<File Id="575978518" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiHomme05.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiHomme05_10C4C929.wem</Path>
+						</File>
+						<File Id="593473055" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiHomme04.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiHomme04_10C4C929.wem</Path>
+						</File>
+						<File Id="983752399" Language="SFX">
+							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiHomme02.wav</ShortName>
+							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiHomme02_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2793971418" Name="Play_RespirationMix" ObjectPath="\Events\Personnage\Play_RespirationMix" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1047604054" Name="Play_Texture_Pas" ObjectPath="\Events\Personnage\Play_Texture_Pas" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000">
+					<SwitchContainers/>
+				</Event>
+				<Event Id="2746796163" Name="Play_Vetement_Elagueur" ObjectPath="\Events\Parc_Obstacles\Play_Vetement_Elagueur" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1056565793" Name="Stop_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Stop_ArrosageAuto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2301453854" Name="Stop_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Stop_Parc_Chien" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3189001139" Name="Stop_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Eau_Lac" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="152275144" Name="Stop_Parc_Oiseaux1" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux1" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="152275147" Name="Stop_Parc_Oiseaux2" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux2" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="152275146" Name="Stop_Parc_Oiseaux3" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux3" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2647100474" Name="Stop_Parc_Vent" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Vent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="428373397" Name="VitesseVoitureElec" ObjectPath="\Game Parameters\Obstacles\VitesseVoitureElec"/>
+				<GameParameter Id="3665353697" Name="Personnage_Vitesse" ObjectPath="\Game Parameters\Personnage\Personnage_Vitesse"/>
+			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="3869192313" Name="Pas_Matiere" ObjectPath="\Switches\Personnage\Pas_Matiere">
+					<Switches>
+						<Switch Id="508852877" Name="Terre" ObjectPath="\Switches\Personnage\Pas_Matiere\Terre"/>
+						<Switch Id="2495190089" Name="Herbe" ObjectPath="\Switches\Personnage\Pas_Matiere\Herbe"/>
+						<Switch Id="4169408098" Name="Asphalt" ObjectPath="\Switches\Personnage\Pas_Matiere\Asphalt"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

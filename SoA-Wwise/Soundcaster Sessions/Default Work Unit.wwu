@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{74D9B1DE-E1FA-4F93-997C-C6DEFCBB229B}" SchemaVersion="97">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{74D9B1DE-E1FA-4F93-997C-C6DEFCBB229B}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{74D9B1DE-E1FA-4F93-997C-C6DEFCBB229B}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="SoundCaster" ID="{0B387E94-8EAD-4096-8099-BAABE001D6C3}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_TestBird" ID="{CBFF2843-FF20-40AE-BFCC-94360080FBD8}" WorkUnitID="{5EE6A51B-0CDE-422B-96AB-0E8CE8879B3E}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="Personnage_Vitesse" ID="{D33DC1A1-B958-4876-99BE-E7A4B0A1668B}"/>
+							<Value>56.282722513089</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="VitesseVoitureElec" ID="{5FE77D80-3313-4DB5-B9E4-47E4371E86FA}"/>
+							<Value>28.4048758879442</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="VolumeEcoutePerso" ID="{A457383D-5090-4E4B-92FD-35E3CDE1D1A7}"/>
+							<Value>-48</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Asphalt" ID="{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

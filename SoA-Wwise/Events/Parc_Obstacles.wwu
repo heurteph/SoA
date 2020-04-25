@@ -118,7 +118,7 @@
 						<Action Name="" ID="{B4A0B73A-5DBB-462C-BBB8-61DF9450B747}" ShortID="773010283">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Moteur_VoitureElec" ID="{BB6A3D91-434C-4FF7-8134-EE585945222B}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+									<ObjectRef Name="Parc_Obstacles_VoitureElec_Moteurs" ID="{210321C2-8EC9-4A28-ACA5-CF651D961258}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

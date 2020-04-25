@@ -1,0 +1,20 @@
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	133973669	VolumeEcoutePerso			\Default Work Unit\VolumeEcoutePerso	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	351745915	Parc_Envi_Master			\Environnement\Parc_Envi_Master	
+	386419066	PersoMaster			\Personnage\PersoMaster	
+	1797562303	Parc_Obstacles_Master			\Obstacles\Parc_Obstacles_Master	
+	2734641465	NiveauEcoutePerso			\Default Work Unit\NiveauEcoutePerso	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	2093609463	MixEcoutePerso			\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso	
+
+Effect plug-ins	ID	Name	Type				Notes
+	486877881	Wwise_Meter_(Custom)	Wwise Meter			
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

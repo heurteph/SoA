@@ -185,19 +185,19 @@ public class CameraFollow : MonoBehaviour
     // Targeting
 
     private bool isTargeting = false;
-    private Quaternion startRotation = Quaternion.identity;
-    private Quaternion endRotation = Quaternion.identity;
+    private Vector3 startForward = Vector3.zero;
+    private Vector3 endForward = Vector3.zero;
+    private Vector3 storedForward = Vector3.zero;
     private Quaternion storedRotation = Quaternion.identity;
     private float targetingDuration = 2;
     private float targetingTimer = 0;
 
-    private Vector3 targetPosition = new Vector3(174.3f, -15.84f, 18.9f);
+    private Vector3 targetPosition = new Vector3(2.3f, -1.5f, -16f);
 
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
         inputs.Player.Target.performed += ctx => TargetingObstacle();
-        //inputs.Player.Target.canceled  += ctx => UntargetingObstacle();
     }
 
     // Start is called before the first frame update
@@ -887,26 +887,33 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
+    /* Targeting */
+
     void TargetingObstacle()
     {
         isTargeting = true;
         targetingTimer = targetingDuration;
-        storedRotation = heldCamera.transform.rotation;
+        storedForward = heldCamera.transform.forward;
+        storedRotation = heldCamera.transform.localRotation;
 
-        StartCoroutine("SlerpTo");
+        heldCamera.transform.localRotation = Quaternion.LookRotation((targetPosition - heldCamera.transform.position).normalized, Vector3.up) * Quaternion.Inverse(storedRotation);
+        //heldCamera.transform.forward = (targetPosition - heldCamera.transform.position).normalized;
+
+        //StartCoroutine("SlerpTo");
     }
 
     IEnumerator SlerpTo()
     {
-        startRotation = heldCamera.transform.localRotation;
-        endRotation = Quaternion.LookRotation(targetPosition - transform.position, Vector3.up);
+        startForward = storedForward;
+        //transform.LookAt(targetPosition);
+        endForward = (targetPosition - heldCamera.transform.position).normalized;
 
         while (targetingTimer > targetingDuration * 0.5f)
         {
             targetingTimer = Mathf.Max(targetingTimer - Time.deltaTime, 0.5f * targetingDuration);
-            Quaternion current = Quaternion.Slerp(startRotation, endRotation, (targetingDuration * 0.5f - (targetingTimer - targetingDuration * 0.5f)) / (targetingDuration * 0.5f));
+            Vector3 current = Vector3.Slerp(startForward, endForward, (targetingDuration * 0.5f - (targetingTimer - targetingDuration * 0.5f)) / (targetingDuration * 0.5f));
             //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToFocus : " + timeToFocus + ", recoilTimer : " + recoilTimer);
-            transform.rotation = current;
+            heldCamera.transform.localRotation = Quaternion.LookRotation(current);
             yield return null;
         }
         yield return new WaitForSeconds(0.5f); // TO DO : Add in the inspector
@@ -916,15 +923,15 @@ public class CameraFollow : MonoBehaviour
 
     IEnumerator SlerpFrom()
     {
-        startRotation = heldCamera.transform.localRotation;
-        endRotation = storedRotation;
+        startForward = heldCamera.transform.forward;
+        endForward = storedForward;
 
         while (targetingTimer > 0)
         {
             targetingTimer = Mathf.Max(targetingTimer - Time.deltaTime, 0);
-            Quaternion current = Quaternion.Slerp(startRotation, endRotation, (targetingDuration * 0.5f - targetingTimer) / (targetingDuration * 0.5f));
+            Vector3 current = Vector3.Slerp(startForward, endForward, (targetingDuration * 0.5f - targetingTimer) / (targetingDuration * 0.5f));
             //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToFocus : " + timeToFocus + ", recoilTimer : " + recoilTimer);
-            transform.rotation = current;
+            heldCamera.transform.localRotation = Quaternion.LookRotation(current);
             yield return null;
         }
         isTargeting = false;

@@ -60,6 +60,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Target",
+                    "type": "Button",
+                    "id": "f26c2082-7f40-4672-8042-aa1dc6f12b09",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -357,6 +365,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "ProjectiveLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c72369ce-db23-4e88-93c3-c3813ff919f7",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse-Keyboard",
+                    "action": "Target",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -73,6 +73,14 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Target"",
+                    ""type"": ""Button"",
+                    ""id"": ""f26c2082-7f40-4672-8042-aa1dc6f12b09"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -372,6 +380,17 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""ProjectiveLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c72369ce-db23-4e88-93c3-c3813ff919f7"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse-Keyboard"",
+                    ""action"": ""Target"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -398,6 +417,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
         m_Player_ProjectiveLook = m_Player.FindAction("ProjectiveLook", throwIfNotFound: true);
+        m_Player_Target = m_Player.FindAction("Target", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -454,6 +474,7 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Quit;
     private readonly InputAction m_Player_ProjectiveLook;
+    private readonly InputAction m_Player_Target;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -465,6 +486,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Quit => m_Wrapper.m_Player_Quit;
         public InputAction @ProjectiveLook => m_Wrapper.m_Player_ProjectiveLook;
+        public InputAction @Target => m_Wrapper.m_Player_Target;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -495,6 +517,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @ProjectiveLook.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectiveLook;
                 @ProjectiveLook.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectiveLook;
                 @ProjectiveLook.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectiveLook;
+                @Target.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
+                @Target.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
+                @Target.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -520,6 +545,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @ProjectiveLook.started += instance.OnProjectiveLook;
                 @ProjectiveLook.performed += instance.OnProjectiveLook;
                 @ProjectiveLook.canceled += instance.OnProjectiveLook;
+                @Target.started += instance.OnTarget;
+                @Target.performed += instance.OnTarget;
+                @Target.canceled += instance.OnTarget;
             }
         }
     }
@@ -551,5 +579,6 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
         void OnProjectiveLook(InputAction.CallbackContext context);
+        void OnTarget(InputAction.CallbackContext context);
     }
 }

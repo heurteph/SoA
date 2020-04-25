@@ -221,7 +221,7 @@ public class CameraFirst : MonoBehaviour
     {
         if (cameraState == STATE.NORMAL)
         {
-            if (player.GetComponent<PlayerFollow>().IsProtected)
+            if (player.GetComponent<PlayerFollow>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
             {
                 zoomTimer = timeNormalToProtected;
                 cameraState = STATE.NORMAL_TO_PROTECTED;
@@ -236,7 +236,7 @@ public class CameraFirst : MonoBehaviour
 
         else if (cameraState == STATE.HURRY)
         {
-            if (player.GetComponent<PlayerFollow>().IsProtected)
+            if (player.GetComponent<PlayerFollow>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
             {
                 zoomTimer = timeHurryToProtected;
                 cameraState = STATE.HURRY_TO_PROTECTED;
@@ -250,7 +250,7 @@ public class CameraFirst : MonoBehaviour
 
         else if (cameraState == STATE.PROTECTED)
         {
-            if (!player.GetComponent<PlayerFollow>().IsProtected)
+            if (!player.GetComponent<PlayerFollow>().IsProtectingEyes && !player.GetComponent<PlayerFirst>().IsProtectingEars)
             {
                 if (player.GetComponent<PlayerFollow>().IsHurry)
                 {

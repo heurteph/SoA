@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class EnergyBehaviour : MonoBehaviour
 {
+    private Inputs inputs;
+
     [SerializeField]
     [Range(0,1000)]
     private float energy;
@@ -39,6 +41,8 @@ public class EnergyBehaviour : MonoBehaviour
             EnergyChangedEvent += GetComponent<PlayerFollow>().Hurry;
         }
         isReloading = false;
+
+        inputs = InputsManager.Instance.Inputs;
     }
 
     // Update is called once per frame
@@ -61,6 +65,17 @@ public class EnergyBehaviour : MonoBehaviour
             energy = 0;
             OutOfEnergy();
         }
+        if (!GetComponent<PlayerFirst>().IsDamaged)
+        {
+            StartCoroutine("Timer");
+        }
+        GetComponent<PlayerFirst>().IsDamaged = true;
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(3);
+        GetComponent<PlayerFirst>().IsDamaged = false;
     }
 
     public void IncreaseEnergy(float e)

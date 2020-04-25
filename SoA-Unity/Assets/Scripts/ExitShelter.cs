@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class ExitShelter : MonoBehaviour
 {
     private Inputs inputs;
-
     
     [SerializeField]
     private EnergyBehaviour energyBehaviour;

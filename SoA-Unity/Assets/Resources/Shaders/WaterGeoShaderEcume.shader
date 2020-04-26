@@ -1,4 +1,4 @@
-﻿Shader "Shaders/WaterGeoShader"
+﻿Shader "Shaders/WaterGeoShaderEcume"
 {
 	//Tesselation c'est un redécoupage en triangle => comme avec poly découpé en triangle(use algo)
 	//sinon exemple avec Shader Tesselation
@@ -95,9 +95,9 @@
 			//world space
 			float3 worldNormal : NORMAL;
 			uint id : TEXCOORD2;
-			/*bool ecume : TEXCOORD3;
+			bool ecume : TEXCOORD3;
 			float pos_ecume : TEXCOORD4;
-			float segment : TEXCOORD5;*/
+			float segment : TEXCOORD5;
 		};
 
 		struct TessellationFactors
@@ -158,7 +158,7 @@
 			//ECUME géré ici pour économie de calcul
 			//pour repérer si dans le bloc a dessiner
 			//float time = (_Time - ((_Time / _FrequenceEcume) * _FrequenceEcume))/ _FrequenceEcume * 100.0;
-			/*o.ecume = false;
+			o.ecume = false;
 			//_Time => float4 avec t/20, t, 
 			float time = _Time.y - (((int)(_Time.y / _FrequenceEcume)) * _FrequenceEcume);
 			//comme ca on l'a sur 100
@@ -175,12 +175,12 @@
 			value *= 10.0;
 
 
-			*/
+
 			//o.pos_ecume = (int)(time - value);
 			//o.pos_ecume = 0;
 			//o.pos_ecume = (int)(time - value);
 			
-			/*if (time >= value && time < (value + 10)) {
+			if (time >= value && time < (value + 10)) {
 				o.ecume = true;
 				//pos de 0 a 1
 				//au dixieme
@@ -188,14 +188,14 @@
 				//au centieme
 				//o.pos_ecume = (int)((time - value)*10);
 
-				//if (o.pos_ecume < 10.0 && o.pos_ecume >= 0) {
-				//	o.pos_ecume = 0;
-				//}
+				/*if (o.pos_ecume < 10.0 && o.pos_ecume >= 0) {
+					o.pos_ecume = 0;
+				}*/
 				//o.pos_ecume = 0;
 				//o.pos_ecume = 0;
-				//on tronque au dixieme
+				//on tronque au dixieme*/
 				//o.pos_ecume = ((int)(o.pos_ecume * 10.0)) / 10.0f;
-			}*/
+			}
 
 			o.tangent = v.tangent;
 			o.id = v.id;
@@ -292,6 +292,9 @@
 				vTangent.y, vBinormal.y, vNormal.y,
 				vTangent.z, vBinormal.z, vNormal.z
 			);
+			
+			IN[1].ecume = IN[2].ecume = IN[0].ecume;
+			IN[1].pos_ecume = IN[2].pos_ecume = IN[0].pos_ecume;
 
 			for (int i = 0; i < 3; i++) {
 				pos = IN[i].vertex;
@@ -378,7 +381,56 @@
 					//lightColor0 => comme texture => main directional light
 					//present in Lighting.cginc
 					float4 light = lightIntensity * _LightColor0;
-					
+
+					//partie ecume
+					//_Time = 
+					//i.pos_ecume
+					if (i.ecume) {
+						/*float nuv = (i.uv.x - ((int)(i.uv.x * 10) / 10)) * 10;
+						//tronque ici aussi
+						nuv = ((int)(nuv * 10.0)) / 10.0;
+						if(nuv == i.pos_ecume)*/
+						float intervalle = (i.segment / 10.0);
+						
+
+						if (i.uv.x < (1 - (intervalle)) && i.uv.x >= (1 - (intervalle + 0.1))) {
+							//float nuv = 1 - i.uv.x;
+							//nuv = (nuv - ((int)(nuv * 10) / 10)) * 10;
+							//nuv = ((int)(nuv * 10.0)) / 10.0;
+							//float nuv = (i.uv.x - (((int)(i.uv.x * 10)) / 10.0));
+							float nuv = 1 - i.uv.x;
+							//float nuv = (int)( (i.uv.x - (((int)(i.uv.x * 10.0))/10.0)) * 100.0 );
+							//au dixieme
+							nuv = (int)((nuv - (((int)(nuv * 10.0)) / 10.0)) * 100.0);
+							//nuv = (int)((nuv - (((int)(nuv * 100.0)) / 100.0)) * 100.0);
+
+							if (i.pos_ecume == nuv) {
+								_Color = float4(1, 1, 1, 1);
+							}
+						}
+
+						/*if (i.segment == 0) {
+							_Color = float4(1, 1, 1, 1);
+						}*/
+						
+						//compris entre 0 et 1 pour la partie gauche
+						//a l'envers j'ai l'impression :o
+						/*if (i.uv.x < (1 - (intervalle)) && i.uv.x >= (1 - (intervalle + 0.1))) {
+							//float nuv = 1 - i.uv.x;
+							//nuv = (nuv - ((int)(nuv * 10) / 10)) * 10;
+							//nuv = ((int)(nuv * 10.0)) / 10.0;
+							//float nuv = (i.uv.x - (((int)(i.uv.x * 10)) / 10.0));
+							float nuv = 1 - i.uv.x;
+							//float nuv = (int)( (i.uv.x - (((int)(i.uv.x * 10.0))/10.0)) * 100.0 );
+							nuv = (int)((nuv - (((int)(nuv * 10.0)) / 10.0)) * 100.0);
+
+							//nuv = 0;
+							if (i.pos_ecume == 0) {
+								_Color = float4(1, 1, 1, 1);
+							}
+							_Color = float4(1, 1, 1, 1);
+						}*/
+					}
 
 					//return _Color * (_AmbientColor + light + specular + rim);
 					return _Color * sample * (_AmbientColor + light + specular + rim);

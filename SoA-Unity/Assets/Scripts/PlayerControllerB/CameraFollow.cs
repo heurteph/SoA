@@ -190,6 +190,8 @@ public class CameraFollow : MonoBehaviour
     private Vector3 storedForward = Vector3.zero;
     private Quaternion storedRotation = Quaternion.identity;
     private float targetingTimer = 0;
+    private Quaternion initialParentRotation = Quaternion.identity;
+    private Quaternion finalParentRotation = Quaternion.identity;
 
     [Space]
     [Header("Targeting")]
@@ -204,12 +206,11 @@ public class CameraFollow : MonoBehaviour
     [Range(0.5f, 2f)]
     private float targetingPause = 1;
 
-    private Vector3 targetPosition = new Vector3(-33.9f, 0, 79.7f);
+    private Vector3 targetPosition = Vector3.zero;
 
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
-        inputs.Player.Target.performed += ctx => TargetingObstacle();
     }
 
     // Start is called before the first frame update
@@ -429,93 +430,97 @@ public class CameraFollow : MonoBehaviour
 
     private IEnumerator AlignWithCharacter2()
     {
-        float angle, angleCorrected, newAngle, newAngleCorrected, lastAngleCorrected;
-        float thisFrame, previousFrame, thisSinerp, previousSinerp;
-        Vector3 lastDirection;
-
-        alignSpeed = 50; // TO DO : change in inspector
-        float obstacleTolerance = 0.1f * Mathf.Deg2Rad; // TO DO : Add in the inspector
-
-        for (; ; )
+        if (!isTargeting)
         {
-            angle          = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
-            angleCorrected = GetAngleToFirstObstacle(angle); // take obstacles into account
 
-            Quaternion lastPlayerRotation = player.transform.rotation;
-            Vector3 lastPlayerPos = player.transform.position;
+            float angle, angleCorrected, newAngle, newAngleCorrected, lastAngleCorrected;
+            float thisFrame, previousFrame, thisSinerp, previousSinerp;
+            Vector3 lastDirection;
 
-            if (!Mathf.Approximately(angleCorrected, 0.0f)) // if not aligned with the character
+            alignSpeed = 50; // TO DO : change in inspector
+            float obstacleTolerance = 0.1f * Mathf.Deg2Rad; // TO DO : Add in the inspector
+
+            for (; ; )
             {
+                angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
+                angleCorrected = GetAngleToFirstObstacle(angle); // take obstacles into account
 
-                Vector3 startDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
-                lastDirection = startDirection;
-                thisFrame = 0;
-                thisSinerp = 0;
-                lastAngleCorrected = 0;
+                Quaternion lastPlayerRotation = player.transform.rotation;
+                Vector3 lastPlayerPos = player.transform.position;
 
-                while (thisFrame != 1.0f)
+                if (!Mathf.Approximately(angleCorrected, 0.0f)) // if not aligned with the character
                 {
-                    UpdatePosition(); // called here to avoid desynchronization 
 
-                    // Compute updated player angle
-                    // SignedAngle's return value is in domain [-180;180], so extend it
-                    // Save lastDirection to keep track of the last direction of the rotation
+                    Vector3 startDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+                    lastDirection = startDirection;
+                    thisFrame = 0;
+                    thisSinerp = 0;
+                    lastAngleCorrected = 0;
 
-                    newAngle = Vector3.SignedAngle(startDirection, player.transform.forward, Vector3.up);
-                    
-                    if (Mathf.Sign(newAngle) != Mathf.Sign(angle))
+                    while (thisFrame != 1.0f)
                     {
-                        if(Mathf.Sign(angle) > 0 && Vector3.SignedAngle(lastDirection, player.transform.forward, Vector3.up) > 0)
+                        UpdatePosition(); // called here to avoid desynchronization 
+
+                        // Compute updated player angle
+                        // SignedAngle's return value is in domain [-180;180], so extend it
+                        // Save lastDirection to keep track of the last direction of the rotation
+
+                        newAngle = Vector3.SignedAngle(startDirection, player.transform.forward, Vector3.up);
+
+                        if (Mathf.Sign(newAngle) != Mathf.Sign(angle))
                         {
-                            newAngle += 360;
+                            if (Mathf.Sign(angle) > 0 && Vector3.SignedAngle(lastDirection, player.transform.forward, Vector3.up) > 0)
+                            {
+                                newAngle += 360;
+                            }
+                            else if (Mathf.Sign(angle) < 0 && Vector3.SignedAngle(lastDirection, player.transform.forward, Vector3.up) < 0)
+                            {
+                                newAngle -= 360;
+                            }
                         }
-                        else if (Mathf.Sign(angle) < 0 && Vector3.SignedAngle(lastDirection, player.transform.forward, Vector3.up) < 0)
-                        {
-                            newAngle -= 360;
-                        }
-                    }
 
-                    lastDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+                        lastDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
 
-                    // Check if there is a collision along the rotation path
+                        // Check if there is a collision along the rotation path
 
-                    /* Debug.Log("t = " + thisFrame); */
-                    newAngleCorrected = GetAngleToFirstObstacle(newAngle);
-                    //if (player.transform.position != lastPlayerPos || player.transform.rotation != lastPlayerRotation)  // avoid infinite oscillation
-                    //{
+                        /* Debug.Log("t = " + thisFrame); */
+                        newAngleCorrected = GetAngleToFirstObstacle(newAngle);
+                        //if (player.transform.position != lastPlayerPos || player.transform.rotation != lastPlayerRotation)  // avoid infinite oscillation
+                        //{
                         //Debug.Log("My corrected angle is " + newAngleCorrected + ", forget about " + newAngle);
                         newAngle = newAngleCorrected;
-                    //}
-                    //lastPlayerRotation = player.transform.rotation;
-                    //lastPlayerPos      = player.transform.position;
-                    
-                    //-----
+                        //}
+                        //lastPlayerRotation = player.transform.rotation;
+                        //lastPlayerPos      = player.transform.position;
 
-                    if ( ! Mathf.Approximately(newAngle, 0)) // avoid dividing by zero
-                        thisFrame = Mathf.Asin(Mathf.Clamp(thisSinerp * angle / newAngle, -1.0f, 1.0f)) * 2f / Mathf.PI; // get the original [0-1] from the smooth [0-1] updated with the angle modification, need clamping because Asin's domain is [-1,1]
-                    else
-                        thisFrame = 1;
+                        //-----
 
-                    previousFrame  = thisFrame;
-                    angle          = newAngle;
-                    thisFrame = Mathf.Min(thisFrame + collidingAlignSpeed * Time.deltaTime / Mathf.Abs(angle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
-                    thisFrame = Mathf.Min(thisFrame + alignSpeed * Time.deltaTime / Mathf.Abs(angle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
-                    previousSinerp = Mathf.Sin(previousFrame * Mathf.PI / 2f);
-                    thisSinerp     = Mathf.Sin(thisFrame * Mathf.PI / 2f);
-                    //Debug.Log("Rotation delta : " + angle * (thisSinerp - previousSinerp) + " from angle=" + angle + ", thisSinerp=" + thisSinerp + ", previousSinerp=" + previousSinerp + ", thisFrame=" + thisFrame + ", previousFrame=" + previousFrame);
-                    transform.RotateAround(player.transform.position, Vector3.up, angle * (thisSinerp - previousSinerp));
-                    
-                    transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
+                        if (!Mathf.Approximately(newAngle, 0)) // avoid dividing by zero
+                            thisFrame = Mathf.Asin(Mathf.Clamp(thisSinerp * angle / newAngle, -1.0f, 1.0f)) * 2f / Mathf.PI; // get the original [0-1] from the smooth [0-1] updated with the angle modification, need clamping because Asin's domain is [-1,1]
+                        else
+                            thisFrame = 1;
+
+                        previousFrame = thisFrame;
+                        angle = newAngle;
+                        thisFrame = Mathf.Min(thisFrame + collidingAlignSpeed * Time.deltaTime / Mathf.Abs(angle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
+                        thisFrame = Mathf.Min(thisFrame + alignSpeed * Time.deltaTime / Mathf.Abs(angle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
+                        previousSinerp = Mathf.Sin(previousFrame * Mathf.PI / 2f);
+                        thisSinerp = Mathf.Sin(thisFrame * Mathf.PI / 2f);
+                        //Debug.Log("Rotation delta : " + angle * (thisSinerp - previousSinerp) + " from angle=" + angle + ", thisSinerp=" + thisSinerp + ", previousSinerp=" + previousSinerp + ", thisFrame=" + thisFrame + ", previousFrame=" + previousFrame);
+                        transform.RotateAround(player.transform.position, Vector3.up, angle * (thisSinerp - previousSinerp));
+
+                        transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
+
+                        yield return null;
+                    }
+                    //Debug.Log("Finish transition");
+                }
+                else
+                {
+                    UpdatePosition(); // called here to avoir desynchronization
 
                     yield return null;
                 }
-                //Debug.Log("Finish transition");
-            }
-            else
-            {
-                UpdatePosition(); // called here to avoir desynchronization
-
-                yield return null;
             }
         }
     }
@@ -901,15 +906,21 @@ public class CameraFollow : MonoBehaviour
 
     /* Targeting */
 
-    void TargetingObstacle()
+    public void TargetingObstacle(GameObject target)
     {
-        isTargeting = true;
-        targetingTimer = targetingDuration;
+        if (!isTargeting)
+        {
+            isTargeting = true;
+            targetingTimer = targetingDuration;
 
-        storedForward = heldCamera.transform.forward;
-        storedRotation = heldCamera.transform.localRotation;
+            targetPosition = target.transform.position;
 
-        StartCoroutine("SlerpTo");
+            storedForward = heldCamera.transform.forward;
+            storedRotation = heldCamera.transform.localRotation;
+            initialParentRotation = this.transform.rotation;
+
+            StartCoroutine("SlerpTo");
+        }
     }
 
     IEnumerator SlerpTo()
@@ -917,19 +928,20 @@ public class CameraFollow : MonoBehaviour
         startForward = storedForward;
         endForward = (targetPosition - heldCamera.transform.position).normalized;
 
-        Debug.Log(startForward + " =/= " + endForward);
-
         while (targetingTimer > (targetingDuration - targetingPause) * 0.5f + targetingPause)
         {
+            endForward = (targetPosition - heldCamera.transform.position).normalized; // Check if ok
             targetingTimer = Mathf.Max(targetingTimer - Time.deltaTime, (targetingDuration - targetingPause) * 0.5f + targetingPause);
             Vector3 current = Vector3.Slerp(startForward, endForward, ((targetingDuration - targetingPause) * 0.5f - (targetingTimer - ((targetingDuration - targetingPause) * 0.5f + targetingPause))) / ((targetingDuration - targetingPause) * 0.5f));
             heldCamera.transform.localRotation = Quaternion.Inverse(heldCamera.transform.parent.rotation) * Quaternion.LookRotation(current);
 
             yield return null;
         }
-        yield return new WaitForSeconds(targetingPause);
-        targetingTimer -= targetingPause;
-        Debug.Log("Pause finished");
+        while (targetingTimer > (targetingDuration - targetingPause) * 0.5f)
+        {
+            targetingTimer = Mathf.Max(targetingTimer - Time.deltaTime, (targetingDuration - targetingPause) * 0.5f);
+            heldCamera.transform.LookAt(targetPosition);
+        }
         StartCoroutine("SlerpFrom");
     }
 
@@ -946,6 +958,20 @@ public class CameraFollow : MonoBehaviour
             yield return null;
         }
         isTargeting = false;
+
+        /* Let's try this here */
+        /*
+        if (!player.GetComponent<PlayerFirst>().IsDamaged)
+        {
+            StartCoroutine("Timer");
+        }
+        player.GetComponent<PlayerFirst>().IsDamaged = true;*/
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(3);
+        player.GetComponent<PlayerFirst>().IsDamaged = false;
     }
 
 } //FINISH

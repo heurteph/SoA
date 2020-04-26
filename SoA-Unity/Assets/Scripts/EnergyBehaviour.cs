@@ -65,6 +65,7 @@ public class EnergyBehaviour : MonoBehaviour
             energy = 0;
             OutOfEnergy();
         }
+        
         if (!GetComponent<PlayerFirst>().IsDamaged)
         {
             StartCoroutine("Timer");

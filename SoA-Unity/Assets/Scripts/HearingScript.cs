@@ -40,6 +40,14 @@ public class HearingScript : MonoBehaviour
     private event LoudnessHandler LoudnessThresholdEvent;
     private event LoudnessHandler LoudnessUpdateEvent;
 
+    private delegate void DamagingSourceHandler(GameObject o);
+    private event DamagingSourceHandler DamagingSourceEvent;
+
+
+    AudioManager audioManager;
+
+    [SerializeField]
+    private CameraFollow cameraFollow;
 
     // Awake Function
     void Awake()
@@ -52,8 +60,12 @@ public class HearingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = AudioManager.Instance;
+
         LoudnessThresholdEvent += energyBehaviour.DecreaseEnergy;
         LoudnessUpdateEvent += debuggerBehaviour.DisplayVolume;
+
+        DamagingSourceEvent += cameraFollow.TargetingObstacle;
 
         StartCoroutine("Hear");
     }    
@@ -85,6 +97,8 @@ public class HearingScript : MonoBehaviour
             if (loudness >= loudnessThreshold)
             {
                 LoudnessThresholdEvent(loudnessDamage);
+
+                DamagingSourceEvent(ClosestAudioSource());
             }
 
             yield return new WaitForSeconds(sampleSeconds * hearingMultiplier);
@@ -99,6 +113,30 @@ public class HearingScript : MonoBehaviour
     public void UnplugEars()
     {
         loudnessThreshold = normalLoudnessThreshold;
+    }
+
+    public GameObject ClosestAudioSource()
+    {
+        float minDistance = Mathf.Infinity;
+        GameObject closestAudioSource = null;
+
+        foreach (GameObject o in audioManager.GameObjectWithAudioSources)
+        {
+            if (o != null)
+            {
+                float distanceFromAudio = (o.transform.position - transform.parent.transform.parent.transform.position).magnitude;
+
+                if (minDistance > distanceFromAudio)
+                {
+                    minDistance = distanceFromAudio;
+                    closestAudioSource = o;
+                }
+            }
+        }
+
+        Debug.Log(closestAudioSource.transform.name + closestAudioSource.transform.position + " is the closest AudioSource");
+
+        return closestAudioSource;
     }
 
 } // FINISH

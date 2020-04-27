@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerFollow : MonoBehaviour, IAnimable
 {
 
-    [SerializeField]
     private Inputs inputs;
 
     [Space]
@@ -41,8 +40,11 @@ public class PlayerFollow : MonoBehaviour, IAnimable
     private bool isHurry;
     public bool IsHurry { get { return isHurry; } }
 
-    private bool isProtected;
-    public bool IsProtected { get { return isProtected; } set { isProtected = value; } }
+    private bool isProtectingEyes;
+    public bool IsProtectingEyes { get { return isProtectingEyes; } set { isProtectingEyes = value; } }
+
+    private bool isProtectingEars;
+    public bool IsProtectingEars { get { return isProtectingEars; } set { isProtectingEars = value; } }
 
     [SerializeField]
     private Animator anim;
@@ -55,14 +57,15 @@ public class PlayerFollow : MonoBehaviour, IAnimable
 
     void Awake()
     {
-     //    angle = player.transform.rotation.eulerAngles.y;
-        inputs = new Inputs();
+        //    angle = player.transform.rotation.eulerAngles.y;
+        inputs = InputsManager.Instance.Inputs;
 
         // TO MOVE TO GAME MANAGER
         inputs.Player.Quit.performed += _ctx => Application.Quit();
 
         isHurry = false;
-        isProtected = false;
+        isProtectingEyes = false;
+        IsProtectingEars = false;
 
         movement = Vector3.zero;
     }

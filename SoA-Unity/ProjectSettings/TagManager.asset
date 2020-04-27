@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Shelter Exit
+  - Shelter Entrance
   - Shelter
   layers:
   - Default
@@ -20,8 +22,8 @@ TagManager:
   - Targets
   - Camera
   - Ground
-  - 
-  - 
+  - Shelter Entrance
+  - Shelter Exit
   - 
   - 
   - 

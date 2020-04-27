@@ -65,6 +65,22 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ProjectiveLook"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb15cf46-387f-47e3-a16a-0472e37e3b15"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Target"",
+                    ""type"": ""Button"",
+                    ""id"": ""f26c2082-7f40-4672-8042-aa1dc6f12b09"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -342,6 +358,39 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f6ebf42b-51c1-44ba-b1b4-a722cd1a4cbc"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse-Keyboard"",
+                    ""action"": ""ProjectiveLook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dab154ec-d39b-4b06-9489-357896bdae16"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ProjectiveLook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c72369ce-db23-4e88-93c3-c3813ff919f7"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse-Keyboard"",
+                    ""action"": ""Target"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -367,6 +416,8 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Player_ProtectEars = m_Player.FindAction("ProtectEars", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
+        m_Player_ProjectiveLook = m_Player.FindAction("ProjectiveLook", throwIfNotFound: true);
+        m_Player_Target = m_Player.FindAction("Target", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -422,6 +473,8 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_ProtectEars;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Quit;
+    private readonly InputAction m_Player_ProjectiveLook;
+    private readonly InputAction m_Player_Target;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -432,6 +485,8 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @ProtectEars => m_Wrapper.m_Player_ProtectEars;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Quit => m_Wrapper.m_Player_Quit;
+        public InputAction @ProjectiveLook => m_Wrapper.m_Player_ProjectiveLook;
+        public InputAction @Target => m_Wrapper.m_Player_Target;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -459,6 +514,12 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Quit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
                 @Quit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
                 @Quit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
+                @ProjectiveLook.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectiveLook;
+                @ProjectiveLook.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectiveLook;
+                @ProjectiveLook.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProjectiveLook;
+                @Target.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
+                @Target.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
+                @Target.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -481,6 +542,12 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Quit.started += instance.OnQuit;
                 @Quit.performed += instance.OnQuit;
                 @Quit.canceled += instance.OnQuit;
+                @ProjectiveLook.started += instance.OnProjectiveLook;
+                @ProjectiveLook.performed += instance.OnProjectiveLook;
+                @ProjectiveLook.canceled += instance.OnProjectiveLook;
+                @Target.started += instance.OnTarget;
+                @Target.performed += instance.OnTarget;
+                @Target.canceled += instance.OnTarget;
             }
         }
     }
@@ -511,5 +578,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnProtectEars(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
+        void OnProjectiveLook(InputAction.CallbackContext context);
+        void OnTarget(InputAction.CallbackContext context);
     }
 }

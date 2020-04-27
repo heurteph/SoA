@@ -32,30 +32,27 @@ public class Protect : MonoBehaviour
             throw new System.NullReferenceException("No hearing script reference passed to Protect script");
         }
 
-        inputs = new Inputs();
+        inputs = InputsManager.Instance.Inputs;
 
         inputs.Player.ProtectEyes.performed += _ctx =>
         {
-            player.IsProtected = true;
-            player.Anim.SetBool("isProtectingEyes", true);
+            player.IsProtectingEyes = true;    
             visionScript.CoverEyes();
         };
         inputs.Player.ProtectEyes.canceled += _ctx =>
         {
-            player.IsProtected = false;
-            player.Anim.SetBool("isProtectingEyes", false);
+            player.IsProtectingEyes = false;
             visionScript.UncoverEyes();
         };
+
         inputs.Player.ProtectEars.performed += _ctx =>
         {
-            player.IsProtected = true;
-            player.Anim.SetBool("isProtectingEars", true);
+            player.IsProtectingEars = true;
             hearingScript.PlugEars();
         };
         inputs.Player.ProtectEars.canceled += _ctx =>
         {
-            player.IsProtected = false;
-            player.Anim.SetBool("isProtectingEars", false);
+            player.IsProtectingEars = false;
             hearingScript.UnplugEars();
         };
     }

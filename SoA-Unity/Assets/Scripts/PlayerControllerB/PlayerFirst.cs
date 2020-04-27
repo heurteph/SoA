@@ -6,12 +6,12 @@ using UnityEngine;
 public interface IAnimable
 {
     Animator Anim { get; }
-    bool IsProtected { get; set; }
+    bool IsProtectingEyes { get; set; }
+    bool IsProtectingEars { get; set; }
 }
 public class PlayerFirst : MonoBehaviour, IAnimable
 {
 
-    [SerializeField]
     private Inputs inputs;
 
     [Space]
@@ -59,13 +59,20 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     [Range(0,30)]
     private float delayToNormalState  = 3; // s
 
-    private float backToNormalSpeedTimer       = 0; // s
+    private float backToNormalSpeedTimer = 0; // s
 
     private bool isHurry;
     public bool IsHurry { get { return isHurry; } }
 
-    private bool isProtected;
-    public bool IsProtected { get { return isProtected; } set { isProtected = value; } }
+    private bool isProtectingEyes;
+    public bool IsProtectingEyes { get { return isProtectingEyes; } set { isProtectingEyes = value; } }
+
+
+    private bool isProtectingEars;
+    public bool IsProtectingEars { get { return isProtectingEars; } set { isProtectingEars = value; } }
+
+    private bool isDamaged;
+    public bool IsDamaged { get { return isDamaged; } set { isDamaged = value; } }
 
     [SerializeField]
     private Animator anim;
@@ -80,14 +87,15 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     {
         angle = player.transform.rotation.eulerAngles.y;
 
-        inputs = new Inputs();
+        inputs = InputsManager.Instance.Inputs;
 
         // TO MOVE TO GAME MANAGER
         inputs.Player.Quit.performed += _ctx => Application.Quit();
 
         isTurningBack = false;
         isHurry = false;
-        isProtected = false;
+        isProtectingEyes = false;
+        isProtectingEars = false;
 
         movement = Vector3.zero;
     }
@@ -101,7 +109,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     // Update is called once per frame
     void Update()
     {
-        StickToGround();
+        //StickToGround();
 
         if (inputs.Player.Walk != null)
         {
@@ -110,6 +118,28 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
         characterController.Move(movement);
         movement = Vector3.zero;
+
+        if (isDamaged)
+        {
+            inputs.Player.Walk.Disable();
+            inputs.Player.ProtectEyes.Enable();
+            inputs.Player.ProtectEars.Enable();
+        }
+
+        if (isProtectingEyes || isProtectingEars)
+        {
+            inputs.Player.Walk.Enable();
+            isDamaged = false; // To check
+        }
+
+        if(!isDamaged)
+        {
+            inputs.Player.Walk.Enable();
+        }
+
+        anim.SetBool("isProtectingEyes", isProtectingEyes);
+        anim.SetBool("isProtectingEars", isProtectingEars);
+        anim.SetBool("isDamaged", isDamaged);
     }
 
     void OnEnable()

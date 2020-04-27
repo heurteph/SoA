@@ -191,10 +191,14 @@ public class CameraFollow : MonoBehaviour
     private Quaternion storedRotation = Quaternion.identity;
     private float targetingTimer = 0;
     private Quaternion initialParentRotation = Quaternion.identity;
-    private Quaternion finalParentRotation = Quaternion.identity;
+    private Quaternion currentParentRotation = Quaternion.identity;
 
     [Space]
     [Header("Targeting")]
+
+
+    [SerializeField]
+    private GameObject defaultForward;
 
     [SerializeField]
     [Range(0.5f,5f)]
@@ -207,6 +211,9 @@ public class CameraFollow : MonoBehaviour
     private float targetingPause = 1;
 
     private Vector3 targetPosition = Vector3.zero;
+
+    private bool isAvailable;
+    public bool IsAvailable { get { return isAvailable; } set { isAvailable = value; } }
 
     private void Awake()
     {
@@ -234,6 +241,7 @@ public class CameraFollow : MonoBehaviour
 
         cameraState = STATE.NORMAL;
         zoomTimer = 0;
+        isAvailable = true;
 
         if (cameraSway)
         {
@@ -730,16 +738,21 @@ public class CameraFollow : MonoBehaviour
     {
         if (cameraState == STATE.NORMAL)
         {
-            if (player.GetComponent<PlayerFirst>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
+            if (!isTargeting) //isAvailable ?
             {
-                zoomTimer = timeNormalToProtected;
-                cameraState = STATE.NORMAL_TO_PROTECTED;
-            }
+                if (player.GetComponent<PlayerFirst>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
+                {
+                    zoomTimer = timeNormalToProtected;
+                    isAvailable = false;
+                    cameraState = STATE.NORMAL_TO_PROTECTED;
+                }
 
-            else if (player.GetComponent<PlayerFirst>().IsHurry)
-            {
-                zoomTimer = timeNormalToHurry;
-                cameraState = STATE.NORMAL_TO_HURRY;
+                else if (player.GetComponent<PlayerFirst>().IsHurry)
+                {
+                    zoomTimer = timeNormalToHurry;
+                    isAvailable = false;
+                    cameraState = STATE.NORMAL_TO_HURRY;
+                }
             }
         }
 
@@ -755,21 +768,27 @@ public class CameraFollow : MonoBehaviour
             if (zoomTimer <= 0)
             {
                 transform.position = endPosition; // should wait one frame more
+                isAvailable = true;
                 cameraState = STATE.HURRY;
             }
         }
 
         else if (cameraState == STATE.HURRY)
         {
-            if(player.GetComponent<PlayerFirst>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
+            if (!isTargeting) // isAvailable ?
             {
-                zoomTimer = timeHurryToProtected;
-                cameraState = STATE.HURRY_TO_PROTECTED;
-            }
-            else if (!player.GetComponent<PlayerFirst>().IsHurry)
-            {
-                zoomTimer = timeHurryToNormal;
-                cameraState = STATE.HURRY_TO_NORMAL;
+                if (player.GetComponent<PlayerFirst>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
+                {
+                    zoomTimer = timeHurryToProtected;
+                    isAvailable = false;
+                    cameraState = STATE.HURRY_TO_PROTECTED;
+                }
+                else if (!player.GetComponent<PlayerFirst>().IsHurry)
+                {
+                    zoomTimer = timeHurryToNormal;
+                    isAvailable = false;
+                    cameraState = STATE.HURRY_TO_NORMAL;
+                }
             }
         }
 
@@ -782,8 +801,10 @@ public class CameraFollow : MonoBehaviour
             transform.position = Vector3.Lerp(startPosition, endPosition, (timeHurryToNormal - zoomTimer) / timeHurryToNormal);
             
             // Transition
-            if (zoomTimer <= 0) {
+            if (zoomTimer <= 0)
+            {
                 transform.position = endPosition; // should wait one frame more
+                isAvailable = true;
                 cameraState = STATE.NORMAL;
             }
         }
@@ -800,23 +821,29 @@ public class CameraFollow : MonoBehaviour
             if (zoomTimer <= 0)
             {
                 transform.position = endPosition;  // should wait one frame more
+                isAvailable = true;
                 cameraState = STATE.PROTECTED;
             }
         }
 
         else if (cameraState == STATE.PROTECTED)
         {
-            if (!player.GetComponent<PlayerFirst>().IsProtectingEyes && !player.GetComponent<PlayerFirst>().IsProtectingEars)
+            if (!isTargeting) // isAvailable ?
             {
-                if (player.GetComponent<PlayerFirst>().IsHurry)
+                if (!player.GetComponent<PlayerFirst>().IsProtectingEyes && !player.GetComponent<PlayerFirst>().IsProtectingEars)
                 {
-                    zoomTimer = timeProtectedToHurry;
-                    cameraState = STATE.PROTECTED_TO_HURRY;
-                }
-                else
-                {
-                    zoomTimer = timeProtectedToNormal;
-                    cameraState = STATE.PROTECTED_TO_NORMAL;
+                    if (player.GetComponent<PlayerFirst>().IsHurry)
+                    {
+                        zoomTimer = timeProtectedToHurry;
+                        isAvailable = false;
+                        cameraState = STATE.PROTECTED_TO_HURRY;
+                    }
+                    else
+                    {
+                        zoomTimer = timeProtectedToNormal;
+                        isAvailable = false;
+                        cameraState = STATE.PROTECTED_TO_NORMAL;
+                    }
                 }
             }
         }
@@ -832,6 +859,7 @@ public class CameraFollow : MonoBehaviour
             // Transition
             if (zoomTimer <= 0)
             {
+                isAvailable = true;
                 transform.position = endPosition; // should wait one frame more
                 cameraState = STATE.NORMAL;
             }
@@ -849,6 +877,7 @@ public class CameraFollow : MonoBehaviour
             if (zoomTimer <= 0)
             {
                 transform.position = endPosition; // should wait one frame more
+                isAvailable = true;
                 cameraState = STATE.PROTECTED;
             }
         }
@@ -865,6 +894,7 @@ public class CameraFollow : MonoBehaviour
             if (zoomTimer <= 0)
             {
                 transform.position = endPosition; // should wait one frame more
+                isAvailable = true;
                 cameraState = STATE.HURRY;
             }
         }
@@ -908,8 +938,11 @@ public class CameraFollow : MonoBehaviour
 
     public void TargetingObstacle(GameObject target)
     {
-        if (!isTargeting)
+        if (!isTargeting && isAvailable && !player.GetComponent<PlayerFirst>().IsProtectingEyes && !player.GetComponent<PlayerFirst>().IsProtectingEars)
         {
+            //isAvailable = false;
+            inputs.Player.ProtectEars.Disable();
+            inputs.Player.ProtectEyes.Disable();
             isTargeting = true;
             targetingTimer = targetingDuration;
 
@@ -926,15 +959,29 @@ public class CameraFollow : MonoBehaviour
     IEnumerator SlerpTo()
     {
         startForward = storedForward;
-        endForward = (targetPosition - heldCamera.transform.position).normalized;
+        endForward = Vector3.ProjectOnPlane((targetPosition - heldCamera.transform.position).normalized, Vector3.up);
 
         while (targetingTimer > (targetingDuration - targetingPause) * 0.5f + targetingPause)
         {
-            endForward = (targetPosition - heldCamera.transform.position).normalized; // Check if ok
+            currentParentRotation = this.transform.rotation;
+            //startForward = Quaternion.Inverse(currentParentRotation) * storedForward;
+            startForward = Vector3.ProjectOnPlane(defaultForward.transform.forward, Vector3.up);
+            endForward = Vector3.ProjectOnPlane((targetPosition - heldCamera.transform.position).normalized, Vector3.up); // Check if ok
             targetingTimer = Mathf.Max(targetingTimer - Time.deltaTime, (targetingDuration - targetingPause) * 0.5f + targetingPause);
             Vector3 current = Vector3.Slerp(startForward, endForward, ((targetingDuration - targetingPause) * 0.5f - (targetingTimer - ((targetingDuration - targetingPause) * 0.5f + targetingPause))) / ((targetingDuration - targetingPause) * 0.5f));
-            heldCamera.transform.localRotation = Quaternion.Inverse(heldCamera.transform.parent.rotation) * Quaternion.LookRotation(current);
+            //current = new Vector3(current.x, current.y, 0);
+            /* Quaternion rotation = Quaternion.LookRotation(transform.up, -current)
+                                * Quaternion.AngleAxis(90f, Vector3.right);
+            heldCamera.transform.rotation = rotation; */
+            //Quaternion look = Quaternion.LookRotation((new Vector3(current.x,current.y,0)).normalized, Vector3.up);
+            heldCamera.transform.localRotation = Quaternion.Inverse(heldCamera.transform.parent.rotation) * Quaternion.LookRotation(current, Vector3.up);
+            //heldCamera.transform.rotation = Quaternion.LookRotation(current, Vector3.up);
+            //float angle = Vector3.Angle(Vector3.ProjectOnPlane(startForward, Vector3.up), Vector3.ProjectOnPlane(endForward, Vector3.up));
+            //heldCamera.transform.rotation = Quaternion.Inverse(heldCamera.transform.parent.rotation) * Quaternion.Euler(0, -angle, 0);
 
+            //heldCamera.transform.rotation = Quaternion.LookRotation(current);
+
+            Debug.Log("startForward: " + startForward + ", endForward: " + endForward + ", currentForward: " + current);
             yield return null;
         }
         while (targetingTimer > (targetingDuration - targetingPause) * 0.5f)
@@ -958,6 +1005,8 @@ public class CameraFollow : MonoBehaviour
             yield return null;
         }
         isTargeting = false;
+        inputs.Player.ProtectEars.Enable();
+        inputs.Player.ProtectEyes.Enable();
 
         /* Let's try this here */
         /*

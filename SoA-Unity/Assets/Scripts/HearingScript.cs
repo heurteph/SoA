@@ -65,7 +65,7 @@ public class HearingScript : MonoBehaviour
         LoudnessThresholdEvent += energyBehaviour.DecreaseEnergy;
         LoudnessUpdateEvent += debuggerBehaviour.DisplayVolume;
 
-        DamagingSourceEvent += cameraFollow.TargetingObstacle;
+        // DamagingSourceEvent += cameraFollow.TargetingObstacle;
 
         StartCoroutine("Hear");
     }    

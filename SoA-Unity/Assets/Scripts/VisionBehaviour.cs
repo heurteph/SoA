@@ -143,17 +143,20 @@ public class VisionBehaviour : MonoBehaviour
 
     public void InjectCameraToFBX()
     {
-        Debug.Log("Recherche de la tête");
-        headMesh = GameObject.FindWithTag ("Head").transform;
-        Debug.Log("headMesh : " + headMesh.name);
+        headMesh = GameObject.FindWithTag("Head").transform;
+        if(headMesh == null)
+        {
+            throw new System.Exception("Camera Character Error : No head element found");
+        }
         head = new GameObject();
         head.transform.position = headMesh.transform.position + cameraOffset;
         head.transform.rotation = Quaternion.Euler(cameraAngle) * headMesh.transform.rotation;
+        
         visionCamera = head.AddComponent<Camera>();
         visionCamera.nearClipPlane = 0.1f;
         visionCamera.targetTexture = targetTexture;
+        
         head.transform.SetParent(headMesh);
-        Debug.Log("camera set");
     }
 
 

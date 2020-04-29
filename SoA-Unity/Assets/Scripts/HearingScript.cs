@@ -61,6 +61,10 @@ public class HearingScript : MonoBehaviour
     void Start()
     {
         audioManager = AudioManager.Instance;
+        if (audioManager == null)
+        {
+            throw new System.NullReferenceException("The audio manager could not be loaded");
+        }
 
         LoudnessThresholdEvent += energyBehaviour.DecreaseEnergy;
         LoudnessUpdateEvent += debuggerBehaviour.DisplayVolume;

@@ -600,7 +600,7 @@ public class CameraFollow : MonoBehaviour
         float smoothx = 0;
         float smoothy = 0;
 
-        Debug.Log("Accumulator : " + accumulator);
+        //Debug.Log("Accumulator : " + accumulator);
 
         if (!Mathf.Approximately(v.x, 0))
         {

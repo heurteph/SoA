@@ -1649,7 +1649,7 @@ GameObject:
   - component: {fileID: 8586105602282575516}
   m_Layer: 0
   m_Name: mixamorig:Head
-  m_TagString: Untagged
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

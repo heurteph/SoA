@@ -4,8 +4,33 @@ using UnityEngine;
 
 public class VisionBehaviour : MonoBehaviour
 {
+    [Space]
+    [Header("Character Camera")]
+
     [SerializeField]
+    [Tooltip("The offset to the head")]
+    private Vector3 cameraOffset = Vector3.zero;
+    // = new Vector(0, 0.3f, 0.2f); // Inside Offset
+    // = new Vector(0, 0.4f, 0.45f); // Outside Offset
+
+    [SerializeField]
+    [Tooltip("The angle to the head")]
+    private Vector3 cameraAngle = Vector3.zero;
+    // = new Vector(0, 0, 0);    // Inside Angle
+    // = new Vector(30, 180, 0); // Outside Angle
+
+    [SerializeField]
+    [Tooltip("The texture to render the view")]
+    private RenderTexture targetTexture;
+
     private Camera visionCamera;
+    private Transform headMesh;
+    private GameObject head;
+    //[SerializeField]
+    //private GameObject characterMesh;
+
+    [Space]
+    [Header("Brightness Detector")]
 
     [SerializeField]
     [Range(0,1)]
@@ -49,11 +74,16 @@ public class VisionBehaviour : MonoBehaviour
         percentageThreshold = normalPercentageThreshold;
         brightnessThresholdEvent += energyBehaviour.DecreaseEnergy;
         grayScaleChangedEvent += debuggerBehaviour.DisplayVision;
+
+        InjectCameraToFBX(); // create the camera inside the script
     }
 
     // Update is called once per frame
     void Update()
     {
+        //head.transform.position = headMesh.transform.position + cameraOffset;
+        //head.transform.rotation = Quaternion.Euler(cameraAngle) * headMesh.transform.rotation;
+
         Texture2D t2D = RenderTexturetoTexture2D(visionCamera.targetTexture);
         ComputeBrightnessAverage(t2D);
     }
@@ -109,6 +139,21 @@ public class VisionBehaviour : MonoBehaviour
     public void UncoverEyes()
     {
         percentageThreshold = normalPercentageThreshold;
+    }
+
+    public void InjectCameraToFBX()
+    {
+        Debug.Log("Recherche de la tête");
+        headMesh = GameObject.FindWithTag ("Head").transform;
+        Debug.Log("headMesh : " + headMesh.name);
+        head = new GameObject();
+        head.transform.position = headMesh.transform.position + cameraOffset;
+        head.transform.rotation = Quaternion.Euler(cameraAngle) * headMesh.transform.rotation;
+        visionCamera = head.AddComponent<Camera>();
+        visionCamera.nearClipPlane = 0.1f;
+        visionCamera.targetTexture = targetTexture;
+        head.transform.SetParent(headMesh);
+        Debug.Log("camera set");
     }
 
 

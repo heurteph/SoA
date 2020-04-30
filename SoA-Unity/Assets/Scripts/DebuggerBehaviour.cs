@@ -77,16 +77,16 @@ public class DebuggerBehaviour : MonoBehaviour
     
     public void DisplayVision(GameObject sender, Texture2D t2D, float percentage)
     {
-        Debug.Log("Sender : " + sender.name);
+        //Debug.Log("Sender : " + sender.name);
         if (String.Equals(sender.name,"CameraInside"))
         {
             DisplayInsideVision(t2D, percentage);
-            Debug.Log("Display from inside vision");
+            //Debug.Log("Display from inside vision");
         }
         else if (String.Equals(sender.name,"CameraOutside"))
         {
             DisplayOutsideVision(t2D, percentage);
-            Debug.Log("Display from outside vision");
+            //Debug.Log("Display from outside vision");
         }
     }
 

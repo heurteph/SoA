@@ -67,8 +67,8 @@ public class HearingScript : MonoBehaviour
 
         // DamagingSourceEvent += cameraFollow.TargetingObstacle;
 
-        StartCoroutine("Hear");
-        //StartCoroutine("WWiseHear");
+        //StartCoroutine("Hear");
+        StartCoroutine("WwiseHear");
     }    
 
     // Update is called once per frame
@@ -114,7 +114,14 @@ public class HearingScript : MonoBehaviour
             float loudness = 0f;
 
             int type = 1;
-            AkSoundEngine.GetRTPCValue("VolumeEcoutePerso", null, 0, out loudness, ref type);
+            AKRESULT result = AkSoundEngine.GetRTPCValue("VolumeEcoutePerso", null, 0, out loudness, ref type);
+
+            Debug.Log("Loudness is " + loudness);
+
+            if(result == AKRESULT.AK_Fail)
+            {
+                throw new System.Exception("No input from Wwise Meter");
+            }
 
             LoudnessUpdateEvent(loudness);
 

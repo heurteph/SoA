@@ -37,20 +37,23 @@ public class EnterShelter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputs.Player.Interact.performed -= WorldToShelter;
-        inputs.Player.Interact.Disable();
-
-        RaycastHit hit;
-        LayerMask mask = LayerMask.GetMask("Shelter Entrance");
-
-        if(Physics.Raycast(transform.position, transform.forward, out hit, shelterManager.MaxDistanceToDoor, mask)) 
+        if (shelterManager)
         {
-            shelter = shelterManager.GoInside(hit.collider.transform.parent.gameObject);
-            inputs.Player.Interact.performed += WorldToShelter;
+            inputs.Player.Interact.performed -= WorldToShelter;
+            inputs.Player.Interact.Disable();
 
-            if (inputs.Player.enabled)
+            RaycastHit hit;
+            LayerMask mask = LayerMask.GetMask("Shelter Entrance");
+
+            if (Physics.Raycast(transform.position, transform.forward, out hit, shelterManager.MaxDistanceToDoor, mask))
             {
-                inputs.Player.Interact.Enable();
+                shelter = shelterManager.GoInside(hit.collider.transform.parent.gameObject);
+                inputs.Player.Interact.performed += WorldToShelter;
+
+                if (inputs.Player.enabled)
+                {
+                    inputs.Player.Interact.Enable();
+                }
             }
         }
     }

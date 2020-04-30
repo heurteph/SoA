@@ -12,14 +12,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77c895130b2afa4fa5f5b53485f3303, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
-  AcousticTextureWwu: []
-  AuxBusWwu: []
-  BankWwu: []
-  EventWwu: []
-  RtpcWwu: []
-  StateWwu: []
-  SwitchWwu: []
-  TriggerWwu: []
-  ExpandedItems: []
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: bfae619cb436474a8467d7be176f4bba
+    GuidInternal: 
+    m_lastTime: -8586137572160680545
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 55c08963ebf4ed4eaf540e8933e2460a
+    GuidInternal: 
+    m_lastTime: -8586137572160780293
+    List:
+    - name: Master Audio Bus
+      guid: d8a41415a61d2a41a17e75ca0c2149f3
+      id: 3803692087
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: a41f1d3084ab124c8413bed7eef30a31
+    GuidInternal: 
+    m_lastTime: -8586137572160730371
+    List: []
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 1ba5e65ede0c2b4296ab0e8ce8879b3e
+    GuidInternal: 
+    m_lastTime: -8586137572160790269
+    List: []
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: cd050fb94f016c49b6f0c3fafbfb2412
+    GuidInternal: 
+    m_lastTime: -8586137572160790269
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 960e072224f0c74993e7db783e71d19d
+    GuidInternal: 
+    m_lastTime: -8586137572160680545
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 96030f4881df4647bac0b1129aa73690
+    GuidInternal: 
+    m_lastTime: -8586137572160700496
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 6aa79cd013e85f478a913d3d2ad9b620
+    GuidInternal: 
+    m_lastTime: -8586137572160690527
+    List: []
+  ExpandedItems:
+  - /Sense_Of_Adventure_Wwise
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

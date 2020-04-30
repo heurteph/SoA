@@ -114,7 +114,7 @@ public class HearingScript : MonoBehaviour
             float loudness = 0f;
 
             int type = 1;
-            AkSoundEngine.GetRTPCValue("Volume", null, 0, out loudness, ref type);
+            AkSoundEngine.GetRTPCValue("VolumeEcoutePerso", null, 0, out loudness, ref type);
 
             LoudnessUpdateEvent(loudness);
 

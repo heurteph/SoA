@@ -8,7 +8,7 @@
 						<Action Name="" ID="{072E9410-8157-4C01-91A6-48A9F9758ADC}" ShortID="517051262">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Parc_Oiseaux2" ID="{17FBC6E1-D30A-499A-BD89-9A09B696A1EA}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+									<ObjectRef Name="Parc_Oiseaux2" ID="{9885EDB3-662D-4C23-8544-8407A936FAC0}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -55,7 +55,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Parc_Oiseaux2" ID="{17FBC6E1-D30A-499A-BD89-9A09B696A1EA}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+									<ObjectRef Name="Parc_Oiseaux2" ID="{9885EDB3-662D-4C23-8544-8407A936FAC0}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

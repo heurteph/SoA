@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{440B147D-9BDF-47B9-9517-64DF09296C29}" SchemaVersion="97">
+	<AudioObjects>
+		<WorkUnit Name="2_Pavillon" ID="{440B147D-9BDF-47B9-9517-64DF09296C29}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="11"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<WorkUnit Name="Ambiance_Pavillon" ID="{27663BE0-351A-4A38-B043-9E622616E012}" PersistMode="Reference"/>
+				<WorkUnit Name="Obstacles_Pavillon" ID="{CB4B3905-EAE1-4D4F-8FC1-E907453D8170}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

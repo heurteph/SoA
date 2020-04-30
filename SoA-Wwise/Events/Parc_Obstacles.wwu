@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{42D3CBB5-B6AE-4C43-861A-1CE16A08E9C5}" SchemaVersion="97">
+	<Events>
+		<WorkUnit Name="Parc_Obstacles" ID="{42D3CBB5-B6AE-4C43-861A-1CE16A08E9C5}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Moteur_Elagueur" ID="{CEE89A22-D45F-475F-8916-53A8F5E2D20F}">
+					<ChildrenList>
+						<Action Name="" ID="{E29EA003-F5FE-496F-98B7-A6347524B670}" ShortID="236296067">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Moteur_Elagueur" ID="{2BD23EAC-A38C-4C97-A095-5C8562E2A9DA}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Humain_Joue2" ID="{83D63AF6-08E1-4A67-8B2B-CCDAE9B6BB4F}">
+					<ChildrenList>
+						<Action Name="" ID="{1A4C2562-4CA4-47D5-8C8D-C700D2DC195D}" ShortID="702124673">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Humain_Joue2" ID="{787B91F8-7883-4960-98AC-01E303D9CBEB}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Pleure_B_b_" ID="{98F598BD-9909-4F56-9D30-1B024A5DE5E7}">
+					<ChildrenList>
+						<Action Name="" ID="{5C6C0BBD-7856-432A-AD11-349FCF4951B3}" ShortID="951297411">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pleure_Bébé" ID="{45A9980F-A313-4543-9B6F-EDCC1EE2E086}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Humain_Mange1" ID="{A9B8C2C9-8C4C-4AD2-A254-031360FD87B5}">
+					<ChildrenList>
+						<Action Name="" ID="{7513AE34-E2D2-4061-A630-7F1252E864C2}" ShortID="508902035">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Humain_Mange1" ID="{5881D447-7C7A-4D9F-94F8-54CCB9C7264B}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Humain_Joue1" ID="{1B829C5C-AFD3-4751-9444-D87507F6F77B}">
+					<ChildrenList>
+						<Action Name="" ID="{E3BCAD4E-97FE-4735-AFC5-2FEDD32AA351}" ShortID="76157694">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Humain_Joue1" ID="{C342AEC4-C0F9-4529-9383-7FA20EAA9130}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Humain_Mange2" ID="{BE7ECF45-C9CA-4452-8429-E1A50849A3BE}">
+					<ChildrenList>
+						<Action Name="" ID="{C6E5BB37-CCCF-43C7-B682-7C3541C35605}" ShortID="163403653">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Humain_Mange2" ID="{B891E2C8-E33F-443A-9FCB-45613DB4215A}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Humain_MangeEnfant" ID="{8E8FC116-7607-4D35-901B-526244A9FF47}">
+					<ChildrenList>
+						<Action Name="" ID="{17FDB5B1-6653-46F9-898E-F817EBAC2377}" ShortID="738479973">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Humain_MangeEnfant" ID="{902EAF68-CFBE-4339-A182-3795D482ACAE}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Humain_MangeEnfant2" ID="{0C7D5F7C-1619-498C-854A-0D4406D58B1F}">
+					<ChildrenList>
+						<Action Name="" ID="{649E0D9A-67F4-4F1D-ADD4-DB6340ED0D7B}" ShortID="418584918">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Humain_MangeEnfant2" ID="{FC565204-72FC-407E-85A6-F5BA870968D7}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ArrosageAuto" ID="{17965FBC-5CC9-4E2C-ABD0-E438F5C208BB}">
+					<ChildrenList>
+						<Action Name="" ID="{E8334DFF-FD03-4E01-9BC8-76FBFADBA6C9}" ShortID="822074943">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ArrosageAuto" ID="{BFE061EF-A052-4517-89AA-215F4DFF751B}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Parc_Chien" ID="{3DE5DBE1-8B91-45AD-B253-759AA66FF52F}">
+					<ChildrenList>
+						<Action Name="" ID="{C6FA3412-BD2F-42BE-8461-8ECB0F40F344}" ShortID="254133091">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Chien" ID="{74A1B23E-4465-48B6-927F-3CCA3E205FAB}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Moteur_VoitureElec" ID="{01C6D743-A2CA-4910-ADB2-22A47A4D40E8}">
+					<ChildrenList>
+						<Action Name="" ID="{B4A0B73A-5DBB-462C-BBB8-61DF9450B747}" ShortID="773010283">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Obstacles_VoitureElec_Moteurs" ID="{210321C2-8EC9-4A28-ACA5-CF651D961258}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Vetement_Elagueur" ID="{3DC7BBBC-A021-4206-8C4A-CAF879A2E5E6}">
+					<ChildrenList>
+						<Action Name="" ID="{D0007F66-116D-45F7-9C0F-72D16F1E18E3}" ShortID="530594762">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Vetement_Elagueur" ID="{DDCDC36B-62A1-4DA7-A635-5F07E253C93B}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Respiration_JoggueurH" ID="{087B26FB-02F9-4C28-B3CA-70D29CCC3E97}">
+					<ChildrenList>
+						<Action Name="" ID="{A478D740-E0D8-4609-8B36-86B26795FFC7}" ShortID="193652086">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Respiration_JoggueurH" ID="{5E15AE3E-4465-4A74-AAA6-88EE146288F8}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Respiration_JoggueurF" ID="{FC52281D-EA58-4483-A8BB-99DB0304A86D}">
+					<ChildrenList>
+						<Action Name="" ID="{3F6EF4F0-4C76-49B4-ABA3-8539247A1016}" ShortID="666525764">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Respiration_JoggueurF" ID="{1ED09B09-F770-40AF-B4C3-F78B2A23C9DF}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Pas_Joggueur2" ID="{78A06B79-7A7D-447E-B08E-F138C19C86DA}">
+					<ChildrenList>
+						<Action Name="" ID="{C72B0DA9-BD4B-47EB-8B2F-1A494D7DE54A}" ShortID="1032019598">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pas_Joggueur2" ID="{91F508E1-3E12-4E08-B9B8-892E96C155A0}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Pas_Joggueur" ID="{77A4C387-E1CD-4D10-A571-74C78B799202}">
+					<ChildrenList>
+						<Action Name="" ID="{EDB54E97-90C4-48B4-9C43-DC6029121CF3}" ShortID="231993814">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pas_Joggueur" ID="{F2ACD7FF-7924-4948-8355-3674D1B98690}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_ArrosageAuto" ID="{BC87B6AD-FDE6-4EC0-B333-DC0CDFC4554E}">
+					<ChildrenList>
+						<Action Name="" ID="{7BD13784-5EC8-4F04-808C-33202B73D8A5}" ShortID="157692156">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ArrosageAuto" ID="{BFE061EF-A052-4517-89AA-215F4DFF751B}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Parc_Chien" ID="{1D8959DF-D497-4F19-94E0-ADFA6A906A3C}">
+					<ChildrenList>
+						<Action Name="" ID="{C480F05B-B24D-4A8E-B897-458223FA02B1}" ShortID="444803197">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Chien" ID="{74A1B23E-4465-48B6-927F-3CCA3E205FAB}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

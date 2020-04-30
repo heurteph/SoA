@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{01B15F0F-2940-44B2-A966-694C1710A61A}" SchemaVersion="97" RootDocumentID="{23AB8791-B98A-46BD-8F95-CD1C4D38BE77}">
+	<AudioObjects>
+		<WorkUnit Name="Ambiance_Commercial" ID="{01B15F0F-2940-44B2-A966-694C1710A61A}" OwnerID="{23AB8791-B98A-46BD-8F95-CD1C4D38BE77}" PersistMode="Nested">
+			<ChildrenList>
+				<ActorMixer Name="Humain_Commercial" ID="{C0ADF1A3-20C9-438A-9892-8388E79C3A6E}" ShortID="1018108177">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+					</ReferenceList>
+				</ActorMixer>
+				<ActorMixer Name="Machines" ID="{300E32C5-69F4-4F92-8EBC-D8A573B8536C}" ShortID="783274930">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+					</ReferenceList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

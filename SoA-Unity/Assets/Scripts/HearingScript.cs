@@ -1,25 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AK.Wwise;
 
 public class HearingScript : MonoBehaviour
 {
     const int sampleNumber = 1024; // 32768; // 2^15 number of samples for 0,743 seconds
-    const float sampleSeconds = 0.2f; //0.743f; // 32768 hertz / 44100
+    const float sampleSeconds = 0.2f; //0.743f; // 32768 hertz / 48000
+
+    private int sampleTotal;
+    private float[] sampleData;
 
     [SerializeField]
     [Range(1, 5)]
     private int hearingMultiplier = 1;
-
-    private int sampleTotal;
-
-    private float[] sampleData;
-
-    [SerializeField]
-    private EnergyBehaviour energyBehaviour;
-
-    [SerializeField]
-    private DebuggerBehaviour debuggerBehaviour;
 
     [SerializeField]
     [Range(0, 0.2f)]
@@ -36,6 +30,12 @@ public class HearingScript : MonoBehaviour
     [Range(0, 100)]
     private float loudnessDamage = 25;
 
+    [SerializeField]
+    private EnergyBehaviour energyBehaviour;
+
+    [SerializeField]
+    private DebuggerBehaviour debuggerBehaviour;
+
     private delegate void LoudnessHandler(float b);
     private event LoudnessHandler LoudnessThresholdEvent;
     private event LoudnessHandler LoudnessUpdateEvent;
@@ -43,11 +43,7 @@ public class HearingScript : MonoBehaviour
     private delegate void DamagingSourceHandler(GameObject o);
     private event DamagingSourceHandler DamagingSourceEvent;
 
-
-    AudioManager audioManager;
-
-    [SerializeField]
-    private CameraFollow cameraFollow;
+    private AudioManager audioManager;
 
     // Awake Function
     void Awake()
@@ -72,6 +68,7 @@ public class HearingScript : MonoBehaviour
         // DamagingSourceEvent += cameraFollow.TargetingObstacle;
 
         StartCoroutine("Hear");
+        //StartCoroutine("WWiseHear");
     }    
 
     // Update is called once per frame
@@ -87,7 +84,7 @@ public class HearingScript : MonoBehaviour
             float loudness = 0f; 
 
             AudioListener.GetOutputData(sampleData, 0);
-            //audioSource.GetOutputData(sampleData, 1);
+            //AudioListener.GetOutputData(sampleData+1024, 1);
 
             for (int i = 0; i < sampleTotal; i++)
             {
@@ -96,6 +93,7 @@ public class HearingScript : MonoBehaviour
             }
 
             loudness /= sampleTotal; //Average Volume
+           
             LoudnessUpdateEvent(loudness);
 
             if (loudness >= loudnessThreshold)
@@ -105,6 +103,27 @@ public class HearingScript : MonoBehaviour
                 DamagingSourceEvent(ClosestAudioSource());
             }
 
+            yield return new WaitForSeconds(sampleSeconds * hearingMultiplier);
+        }
+    }
+
+    IEnumerator WwiseHear()
+    {
+        for (; ; )
+        {
+            float loudness = 0f;
+
+            int type = 1;
+            AkSoundEngine.GetRTPCValue("Volume", null, 0, out loudness, ref type);
+
+            LoudnessUpdateEvent(loudness);
+
+            if (loudness >= loudnessThreshold)
+            {
+                LoudnessThresholdEvent(loudnessDamage);
+
+                DamagingSourceEvent(ClosestAudioSource());
+            }
             yield return new WaitForSeconds(sampleSeconds * hearingMultiplier);
         }
     }

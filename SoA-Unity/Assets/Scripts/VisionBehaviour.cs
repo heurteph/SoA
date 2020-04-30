@@ -33,6 +33,10 @@ public class VisionBehaviour : MonoBehaviour
     [Header("Brightness Detector")]
 
     [SerializeField]
+    [Tooltip("How many times per second the vision is updated (in Hz)")]
+    private float refreshFrequency = 4;
+
+    [SerializeField]
     [Range(0,1)]
     private float normalPercentageThreshold = 0.5f;
 
@@ -54,11 +58,11 @@ public class VisionBehaviour : MonoBehaviour
     [SerializeField]
     private EnergyBehaviour energyBehaviour;
 
-    private delegate void BrightnessThresholdHandler(float b);
-    private event BrightnessThresholdHandler brightnessThresholdEvent;
-
     [SerializeField]
     private DebuggerBehaviour debuggerBehaviour;
+
+    private delegate void BrightnessThresholdHandler(float b);
+    private event BrightnessThresholdHandler brightnessThresholdEvent;
 
     public delegate void GrayscaleChangedHandler(GameObject sender, Texture2D t, float p);
     public event GrayscaleChangedHandler grayScaleChangedEvent;
@@ -76,6 +80,8 @@ public class VisionBehaviour : MonoBehaviour
         grayScaleChangedEvent += debuggerBehaviour.DisplayVision;
 
         InjectCameraToFBX(); // create the camera inside the script
+
+        StartCoroutine("UpdateVision");
     }
 
     // Update is called once per frame
@@ -83,12 +89,20 @@ public class VisionBehaviour : MonoBehaviour
     {
         //head.transform.position = headMesh.transform.position + cameraOffset;
         //head.transform.rotation = Quaternion.Euler(cameraAngle) * headMesh.transform.rotation;
-
-        Texture2D t2D = RenderTexturetoTexture2D(visionCamera.targetTexture);
-        ComputeBrightnessAverage(t2D);
     }
 
-    Texture2D RenderTexturetoTexture2D (RenderTexture rt)
+    private IEnumerator UpdateVision()
+    {
+        for (; ; )
+        {
+            Texture2D t2D = RenderTexturetoTexture2D(visionCamera.targetTexture);
+            ComputeBrightnessAverage(t2D);
+
+            yield return new WaitForSeconds(1f / refreshFrequency);
+        }
+    }
+
+    private Texture2D RenderTexturetoTexture2D (RenderTexture rt)
     {
         RenderTexture.active = rt;
         Texture2D t2D = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
@@ -100,7 +114,7 @@ public class VisionBehaviour : MonoBehaviour
 
     /* Many methods to compute brightness level of a frame */
 
-    void ComputeBrightnessAverage (Texture2D t2D)
+    private void ComputeBrightnessAverage (Texture2D t2D)
     {
         float sum = 0;
 
@@ -141,7 +155,7 @@ public class VisionBehaviour : MonoBehaviour
         percentageThreshold = normalPercentageThreshold;
     }
 
-    public void InjectCameraToFBX()
+    private void InjectCameraToFBX()
     {
         headMesh = GameObject.FindWithTag("Head").transform;
         if(headMesh == null)

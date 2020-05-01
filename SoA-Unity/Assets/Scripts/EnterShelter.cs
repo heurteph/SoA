@@ -71,11 +71,10 @@ public class EnterShelter : MonoBehaviour
 
         // Reset Character
 
-        this.GetComponent<Transform>().position = shelter.transform.Find("Warp Position").transform.position + Vector3.up * 3.75f;
         if (transform.GetComponent<PlayerFirst>().isActiveAndEnabled)
         {
-            Debug.Log("Reset Rotation");
-            transform.GetComponent<PlayerFirst>().ResetRotation(shelter.transform.Find("Warp Position").transform.rotation.eulerAngles.y);
+            Transform warp = shelter.transform.Find("Warp Position");
+            transform.GetComponent<PlayerFirst>().ResetTransform(warp.position, warp.rotation.eulerAngles.y);
         }
 
         mainCamera.enabled = false;

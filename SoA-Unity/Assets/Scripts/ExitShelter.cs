@@ -81,10 +81,10 @@ public class ExitShelter : MonoBehaviour
 
         // Reset character
 
-        transform.position = shelter.transform.Find("Warp Position").transform.position + Vector3.up * 3.75f; // TO DO : Stick to the ground
         if(transform.GetComponent<PlayerFirst>().isActiveAndEnabled)
         {
-            transform.GetComponent<PlayerFirst>().ResetRotation(shelter.transform.Find("Warp Position").transform.rotation.eulerAngles.y);
+            Transform warp = shelter.transform.Find("Warp Position");
+            GetComponent<PlayerFirst>().ResetTransform(warp.position, warp.rotation.eulerAngles.y);
         }
 
         // Reset camera

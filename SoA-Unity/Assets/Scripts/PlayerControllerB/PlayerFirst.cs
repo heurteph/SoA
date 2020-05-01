@@ -184,8 +184,12 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         }
     }
 
-    public void ResetRotation(float angle)
+    public void ResetTransform(Vector3 position, float angle)
     {
+        transform.position = position;
+        StickToGround();
+        transform.position += movement;
+        movement = Vector3.zero;
         steeringAngle = angle;
         characterController.transform.rotation = Quaternion.Euler(0, steeringAngle, 0);
     }

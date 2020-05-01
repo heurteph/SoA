@@ -132,10 +132,8 @@ public class HearingScript : MonoBehaviour
                 throw new System.Exception("No input from Wwise Meter");
             }
 
-            Debug.Log("Loudness is " + loudness);
             // remap loundess to [0-1] range
             loudness = 1 + loudness / 48.01278f;
-            Debug.Log("After remapping, it's " + loudness);
 
             LoudnessUpdateEvent(loudness);
 

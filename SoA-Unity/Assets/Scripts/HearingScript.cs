@@ -5,30 +5,39 @@ using AK.Wwise;
 
 public class HearingScript : MonoBehaviour
 {
-    const int sampleNumber = 1024; // 32768; // 2^15 number of samples for 0,743 seconds
-    const float sampleSeconds = 0.2f; //0.743f; // 32768 hertz / 48000
+    //const int sampleNumber = 1024; // 32768; // 2^15 number of samples for 0,743 seconds
+    //const float sampleSeconds = 0.2f; //0.743f; // 32768 hertz / 48000
 
-    private int sampleTotal;
-    private float[] sampleData;
+    //private int sampleTotal;
+    //private float[] sampleData;
 
-    [SerializeField]
-    [Range(1, 5)]
-    private int hearingMultiplier = 1;
+    //[SerializeField]
+    //[Range(1, 5)]
+    //private int hearingMultiplier = 1;
 
-    [SerializeField]
-    [Range(0, 0.2f)]
-    private float normalLoudnessThreshold = 0.015f;
+    [Header("Loudness Detector")]
 
     [SerializeField]
-    [Range(0, 0.2f)]
-    private float protectedLoudnessThreshold = 0.02f;
+    [Tooltip("How many times per second the hearing is updated (in Hz)")]
+    private float refreshFrequency = 4;
+
+    [SerializeField]
+    [Range(0, 1)]
+    private float normalLoudnessThreshold = 0.5f; //0.015f
+
+    [SerializeField]
+    [Range(0, 1)]
+    private float protectedLoudnessThreshold = 0.7f; //0.02f
 
     private float loudnessThreshold;
-    public float LoudnessThreshold { get { return loudnessThreshold; } }
+    public float LoudnessThreshold { get { return loudnessThreshold; } set { loudnessThreshold = value; } }
 
     [SerializeField]
     [Range(0, 100)]
     private float loudnessDamage = 25;
+
+    [Space]
+    [Header("References")]
 
     [SerializeField]
     private EnergyBehaviour energyBehaviour;
@@ -48,8 +57,9 @@ public class HearingScript : MonoBehaviour
     // Awake Function
     void Awake()
     {
-        sampleTotal = hearingMultiplier * sampleNumber;
-        sampleData = new float[sampleTotal];
+        //sampleTotal = hearingMultiplier * sampleNumber;
+        //sampleData = new float[sampleTotal];
+        
         loudnessThreshold = normalLoudnessThreshold;
     }
 
@@ -63,7 +73,7 @@ public class HearingScript : MonoBehaviour
         }
 
         LoudnessThresholdEvent += energyBehaviour.DecreaseEnergy;
-        LoudnessUpdateEvent += debuggerBehaviour.DisplayVolume;
+        LoudnessUpdateEvent += debuggerBehaviour.DisplayLoudness;
 
         // DamagingSourceEvent += cameraFollow.TargetingObstacle;
 
@@ -77,6 +87,7 @@ public class HearingScript : MonoBehaviour
         
     }
 
+    /*
     IEnumerator Hear()
     {
         for (; ;)
@@ -105,7 +116,7 @@ public class HearingScript : MonoBehaviour
 
             yield return new WaitForSeconds(sampleSeconds * hearingMultiplier);
         }
-    }
+    }*/
 
     IEnumerator WwiseHear()
     {
@@ -116,12 +127,15 @@ public class HearingScript : MonoBehaviour
             int type = 1;
             AKRESULT result = AkSoundEngine.GetRTPCValue("VolumeEcoutePerso", null, 0, out loudness, ref type);
 
-            Debug.Log("Loudness is " + loudness);
-
             if(result == AKRESULT.AK_Fail)
             {
                 throw new System.Exception("No input from Wwise Meter");
             }
+
+            Debug.Log("Loudness is " + loudness);
+            // remap loundess to [0-1] range
+            loudness = 1 + loudness / 48.01278f;
+            Debug.Log("After remapping, it's " + loudness);
 
             LoudnessUpdateEvent(loudness);
 
@@ -129,9 +143,9 @@ public class HearingScript : MonoBehaviour
             {
                 LoudnessThresholdEvent(loudnessDamage);
 
-                DamagingSourceEvent(ClosestAudioSource());
+                DamagingSourceEvent?.Invoke(ClosestAudioSource()); // more explicit test of existence needed
             }
-            yield return new WaitForSeconds(sampleSeconds * hearingMultiplier);
+            yield return new WaitForSeconds(1f / refreshFrequency);
         }
     }
 
@@ -165,7 +179,6 @@ public class HearingScript : MonoBehaviour
         }
 
         Debug.Log(closestAudioSource.transform.name + closestAudioSource.transform.position + " is the closest AudioSource");
-
         return closestAudioSource;
     }
 

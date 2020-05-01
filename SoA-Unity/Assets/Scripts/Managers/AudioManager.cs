@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
+            gameObjectWithAudioSources = FindObjectsOfType<AudioSource>().Select(item => item.gameObject).ToArray(); // TO DO : Change to AkEvent
+            Debug.Log(gameObjectWithAudioSources.Length + " AudioSources");
             instance = this;
         }
     }
@@ -27,9 +29,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObjectWithAudioSources = FindObjectsOfType<AudioSource>().Select(item => item.gameObject).ToArray();
 
-        Debug.Log(gameObjectWithAudioSources.Length + " AudioSources");
     }
 
     // Update is called once per frame

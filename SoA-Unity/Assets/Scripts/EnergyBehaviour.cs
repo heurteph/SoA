@@ -25,9 +25,8 @@ public class EnergyBehaviour : MonoBehaviour
     [SerializeField]
     [Tooltip("Refilling speed in energy point/second")]
     private int refillRate = 10;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         script = GetComponent<PlayerFollow>() ? GetComponent<PlayerFollow>() : (MonoBehaviour)GetComponent<PlayerFirst>();
         EnergyChangedEvent += debuggerBehaviour.DisplayEnergy;
@@ -43,6 +42,12 @@ public class EnergyBehaviour : MonoBehaviour
         isReloading = false;
 
         inputs = InputsManager.Instance.Inputs;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
     }
 
     // Update is called once per frame

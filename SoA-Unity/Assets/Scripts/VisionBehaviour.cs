@@ -77,7 +77,7 @@ public class VisionBehaviour : MonoBehaviour
     {
         percentageThreshold = normalPercentageThreshold;
         brightnessThresholdEvent += energyBehaviour.DecreaseEnergy;
-        grayScaleChangedEvent += debuggerBehaviour.DisplayVision;
+        grayScaleChangedEvent += debuggerBehaviour.DisplayBrightness;
 
         InjectCameraToFBX(); // create the camera inside the script
 

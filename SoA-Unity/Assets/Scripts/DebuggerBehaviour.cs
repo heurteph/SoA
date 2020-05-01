@@ -6,50 +6,58 @@ using System;
 
 public class DebuggerBehaviour : MonoBehaviour
 {
-    // Inside Vision
-    [SerializeField]
-    private RawImage grayRawInsideImage;
+    [Header("Indirect Brightness Display")]
 
     [SerializeField]
-    private Slider insideVisionSlider;
+    private RawImage indirectBrightnessGreyDisplay;
 
     [SerializeField]
-    private Slider thresholdInsideVisionSlider;
+    private Slider indirectBrightnessGauge;
 
     [SerializeField]
-    private VisionBehaviour insideVisionBehaviour;
+    private Slider indirectBrightnessThresholdGauge;
 
     [SerializeField]
-    private Text insideBrightnessPercentage;
-
-    // Outside Vision
-    [SerializeField]
-    private RawImage grayRawOutsideImage;
+    private VisionBehaviour indirectBrightness;
 
     [SerializeField]
-    private Slider outsideVisionSlider;
+    private Text indirectBrightnessPercentage;
+
+    [Space]
+    [Header("Direct Brightness Display")]
+    
+    [SerializeField]
+    private RawImage directBrightnessGreyDisplay;
 
     [SerializeField]
-    private Slider thresholdOutsideVisionSlider;
+    private Slider directBrightnessGauge;
 
     [SerializeField]
-    private VisionBehaviour outsideVisionBehaviour;
+    private Slider directBrightnessThresholdGauge;
 
     [SerializeField]
-    private Text outsideBrightnessPercentage;
-
-    // Loudness
-    [SerializeField]
-    private Slider loudnessSlider;
+    private VisionBehaviour directBrightness;
 
     [SerializeField]
-    private Slider loudnessThresholdSlider;
+    private Text directBrightnessPercentage;
+
+    [Space]
+    [Header("Loudness Display")]
 
     [SerializeField]
-    private HearingScript hearingScript;
+    private Slider loudnessGauge;
 
     [SerializeField]
-    private Text loudnessNumber;
+    private Slider loudnessThresholdGauge;
+
+    [SerializeField]
+    private HearingScript loudnessScript;
+
+    [SerializeField]
+    private Text loudnessValue;
+
+    [Space]
+    [Header("Energy Display")]
 
     [SerializeField]
     private Slider energyBar;
@@ -57,16 +65,17 @@ public class DebuggerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loudnessSlider.maxValue = Mathf.Min(hearingScript.LoudnessThreshold * 3,1); // TO REDESIGN
-        loudnessThresholdSlider.maxValue = loudnessSlider.maxValue;
         energyBar.maxValue = 1000; // TO DO : Place in game manager
         energyBar.value = energyBar.maxValue;
 
-        insideVisionSlider.maxValue = 1;
-        thresholdInsideVisionSlider.maxValue = insideVisionSlider.maxValue;
+        indirectBrightnessGauge.maxValue = 1;
+        indirectBrightnessThresholdGauge.maxValue = indirectBrightnessGauge.maxValue;
 
-        outsideVisionSlider.maxValue = 1;
-        thresholdOutsideVisionSlider.maxValue = outsideVisionSlider.maxValue;
+        directBrightnessGauge.maxValue = 1;
+        directBrightnessThresholdGauge.maxValue = directBrightnessGauge.maxValue;
+
+        loudnessGauge.maxValue = 1;
+        loudnessThresholdGauge.maxValue = loudnessGauge.maxValue;
     }
 
     // Update is called once per frame
@@ -75,85 +84,86 @@ public class DebuggerBehaviour : MonoBehaviour
         
     }
     
-    public void DisplayVision(GameObject sender, Texture2D t2D, float percentage)
+    public void DisplayBrightness(GameObject sender, Texture2D t2D, float percentage)
     {
         //Debug.Log("Sender : " + sender.name);
-        if (String.Equals(sender.name,"CameraInside"))
+        if (String.Equals(sender.name, indirectBrightness.name))
         {
-            DisplayInsideVision(t2D, percentage);
+            DisplayIndirectBrightness(t2D, percentage);
             //Debug.Log("Display from inside vision");
         }
-        else if (String.Equals(sender.name,"CameraOutside"))
+        else if (String.Equals(sender.name, directBrightness.name))
         {
-            DisplayOutsideVision(t2D, percentage);
+            DisplayDirectBrightness(t2D, percentage);
             //Debug.Log("Display from outside vision");
         }
     }
 
-    public void DisplayInsideVision (Texture2D t2D, float percentage) 
+    public void DisplayIndirectBrightness (Texture2D t2D, float percentage) 
     {
-        grayRawInsideImage.texture = t2D;
-        insideBrightnessPercentage.text = Mathf.Round(percentage*1000)/10 + "%";
+        indirectBrightnessGreyDisplay.texture = t2D;
+        indirectBrightnessPercentage.text = Mathf.Round(percentage*1000)/10 + "%";
 
-        insideVisionSlider.value = percentage;
-        thresholdInsideVisionSlider.value = insideVisionBehaviour.PercentageThreshold;
+        indirectBrightnessGauge.value = percentage;
+        indirectBrightnessThresholdGauge.value = indirectBrightness.PercentageThreshold;
 
-        if (percentage >= insideVisionBehaviour.PercentageThreshold)
+        if (percentage >= indirectBrightness.PercentageThreshold)
         {
-            insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
+            indirectBrightnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.red;
         }
-        else if (percentage >= insideVisionBehaviour.PercentageThreshold * 0.5f)
+        else if (percentage >= indirectBrightness.PercentageThreshold * 0.5f)
         {
-            insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
+            indirectBrightnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
         }
         else
         {
-            insideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.white;
+            indirectBrightnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.white;
         }
     }
 
-    public void DisplayOutsideVision(Texture2D t2D, float percentage)
+    public void DisplayDirectBrightness(Texture2D t2D, float percentage)
     {
-        grayRawOutsideImage.texture = t2D;
-        outsideBrightnessPercentage.text = Mathf.Round(percentage * 1000) / 10 + "%";
+        directBrightnessGreyDisplay.texture = t2D;
+        directBrightnessPercentage.text = Mathf.Round(percentage * 1000) / 10 + "%";
 
-        outsideVisionSlider.value = percentage;
-        thresholdOutsideVisionSlider.value = outsideVisionBehaviour.PercentageThreshold;
+        directBrightnessGauge.value = percentage;
+        directBrightnessThresholdGauge.value = directBrightness.PercentageThreshold;
 
-        if (percentage >= outsideVisionBehaviour.PercentageThreshold)
+        if (percentage >= directBrightness.PercentageThreshold)
         {
-            outsideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
+            directBrightnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.red;
         }
-        else if (percentage >= outsideVisionBehaviour.PercentageThreshold * 0.5f)
+        else if (percentage >= directBrightness.PercentageThreshold * 0.5f)
         {
-            outsideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
+            directBrightnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
         }
         else
         {
-            outsideVisionSlider.fillRect.gameObject.GetComponent<Image>().color = Color.white;
+            directBrightnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.white;
         }
     }
 
 
-    public void DisplayVolume (float volume)
+    public void DisplayLoudness (float volume)
     {
-        loudnessSlider.value = volume;
-        loudnessThresholdSlider.value = hearingScript.LoudnessThreshold;
+        loudnessGauge.value = volume;
+        Debug.Log("Loudness threshold : " + loudnessScript.LoudnessThreshold);
+        loudnessThresholdGauge.value = loudnessScript.LoudnessThreshold;
 
-        if (volume >= hearingScript.LoudnessThreshold)
+        if (volume >= loudnessScript.LoudnessThreshold)
         {
-            loudnessSlider.fillRect.gameObject.GetComponent<Image>().color = Color.red;
+            loudnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.red;
         } 
-        else if (volume >= hearingScript.LoudnessThreshold * 0.5f)
+        else if (volume >= loudnessScript.LoudnessThreshold * 0.5f)
         {
-            loudnessSlider.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
+            loudnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
         }
         else
         {
-            loudnessSlider.fillRect.gameObject.GetComponent<Image>().color = Color.white;
+            loudnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.white;
         }
 
-        loudnessNumber.text = "" + volume;
+        loudnessValue.text = "" + volume;
     }
 
     public void DisplayEnergy (float energy)

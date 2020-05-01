@@ -43,7 +43,8 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     [Range(0.1f,10)]
     float turnBackTime = 0.35f; // seconds
 
-    private float angle;
+    private float steeringAngle;
+    public float SteeringAngle { get { return steeringAngle; } set { steeringAngle = value; } }
     private bool isTurningBack;
 
     [Space]
@@ -85,7 +86,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
     void Awake()
     {
-        angle = player.transform.rotation.eulerAngles.y;
+        steeringAngle = player.transform.rotation.eulerAngles.y;
 
         inputs = InputsManager.Instance.Inputs;
 
@@ -158,8 +159,8 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         {
             Vector3 translation = player.transform.forward * v.y;
             movement += translation * speed * Time.deltaTime;
-            angle += v.x * rotationSpeed * Time.deltaTime;
-            characterController.transform.rotation = Quaternion.Euler(0, angle, 0);
+            steeringAngle += v.x * rotationSpeed * Time.deltaTime;
+            characterController.transform.rotation = Quaternion.Euler(0, steeringAngle, 0);
             
             if (v.y < 0) { StartCoroutine("TurnBack"); }
 
@@ -171,6 +172,12 @@ public class PlayerFirst : MonoBehaviour, IAnimable
                 anim.SetBool("isWalking", true);
             }
         }
+    }
+
+    public void ResetRotation(float angle)
+    {
+        steeringAngle = angle;
+        characterController.transform.rotation = Quaternion.Euler(0, steeringAngle, 0);
     }
 
     void StickToGround()
@@ -205,7 +212,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
             transform.rotation = Quaternion.LookRotation(newForward);
             yield return null;
         }
-        angle -= 180; // synchronize with update
+        steeringAngle -= 180; // synchronize with update
         isTurningBack = false;
     }
 

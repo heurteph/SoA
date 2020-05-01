@@ -215,6 +215,9 @@ public class CameraFollow : MonoBehaviour
     private bool isAvailable;
     public bool IsAvailable { get { return isAvailable; } set { isAvailable = value; } }
 
+    public bool isPausingAlign;
+    public bool IsPausingAlign { get { return isPausingAlign; } set { isPausingAlign = value; } }
+
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
@@ -242,6 +245,7 @@ public class CameraFollow : MonoBehaviour
         cameraState = STATE.NORMAL;
         zoomTimer = 0;
         isAvailable = true;
+        isPausingAlign = false;
 
         if (cameraSway)
         {
@@ -259,6 +263,15 @@ public class CameraFollow : MonoBehaviour
             transform.position += (cameraOffset - storedCameraOffset);
             storedCameraOffset = cameraOffset;
         }
+    }
+
+    public void ResetCameraToFrontView()
+    {
+        lastPlayerPosition = player.transform.position; // disable following during the warp
+        transform.position = player.transform.position + Quaternion.LookRotation(-player.transform.forward, Vector3.up) * cameraOffset;
+
+        // do not align until first player move
+        isPausingAlign = true;
     }
 
     private void OnEnable()
@@ -291,19 +304,7 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-    private void UpdatePosition ()
-    {
-        // if values have changed in the inspector
-        UpdateFromInspector();
 
-        // adapt recoil to normal, hurry or protected mode from the player
-        UpdateRecoilPosition();
-
-        transform.position += (player.transform.position - lastPlayerPosition);
-        if (player.transform.position != lastPlayerPosition)
-            /* Debug.Log("Camera moving in " + transform.position); */
-        lastPlayerPosition = player.transform.position;
-    }
 
     private void UpdateRotation ()
     {
@@ -412,6 +413,27 @@ public class CameraFollow : MonoBehaviour
         transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
     }
 
+    private void UpdatePosition()
+    {
+        // if values have changed in the inspector
+        UpdateFromInspector();
+
+        // adapt recoil to normal, hurry or protected mode from the player
+        UpdateRecoilPosition();
+
+        if (player.transform.position != lastPlayerPosition)
+        {
+            Debug.Log("Camera moving in " + transform.position);
+            transform.position += (player.transform.position - lastPlayerPosition);
+            lastPlayerPosition = player.transform.position;
+        }
+    }
+
+    private bool CheckPlayerMovement()
+    {
+        return (player.transform.position != lastPlayerPosition);
+    }
+
     private IEnumerator AlignWithCharacter()
     {
         for(; ;)
@@ -438,7 +460,7 @@ public class CameraFollow : MonoBehaviour
 
     private IEnumerator AlignWithCharacter2()
     {
-        if (!isTargeting)
+        if (!isTargeting) // CHECK IF CORRECT ?? SHOULDN'T IT BE INSIDE THE FOR LOOP ?
         {
 
             float angle, angleCorrected, newAngle, newAngleCorrected, lastAngleCorrected;
@@ -450,6 +472,15 @@ public class CameraFollow : MonoBehaviour
 
             for (; ; )
             {
+                while (isPausingAlign)
+                {
+                    yield return null;
+                    if(CheckPlayerMovement())
+                    {
+                        isPausingAlign = false;
+                    }
+                }
+
                 angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
                 angleCorrected = GetAngleToFirstObstacle(angle); // take obstacles into account
 

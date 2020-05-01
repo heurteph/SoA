@@ -116,7 +116,7 @@ public class HearingScript : MonoBehaviour
             int type = 1;
             AKRESULT result = AkSoundEngine.GetRTPCValue("VolumeEcoutePerso", null, 0, out loudness, ref type);
 
-            Debug.Log("Loudness is " + loudness);
+            //Debug.Log("Loudness is " + loudness);
 
             if(result == AKRESULT.AK_Fail)
             {

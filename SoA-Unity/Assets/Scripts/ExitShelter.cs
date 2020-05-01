@@ -23,6 +23,9 @@ public class ExitShelter : MonoBehaviour
     [SerializeField]
     private Camera mainCamera;
 
+    [SerializeField]
+    private GameObject cameraHolder;
+
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
@@ -32,7 +35,7 @@ public class ExitShelter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+ 
     }
 
     // Update is called once per frame
@@ -72,12 +75,26 @@ public class ExitShelter : MonoBehaviour
             shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, Mathf.Min(shade.color.a + Time.deltaTime / (shelterManager.TransitionDuration * 0.5f),1));
             yield return null;
         }
-        this.GetComponent<Transform>().position = shelter.transform.Find("Warp Position").transform.position + Vector3.up * 3.75f;
+
+        // Reset character
+
+        transform.position = shelter.transform.Find("Warp Position").transform.position + Vector3.up * 3.75f; // TO DO : Stick to the ground
+        if(transform.GetComponent<PlayerFirst>().isActiveAndEnabled)
+        {
+            transform.GetComponent<PlayerFirst>().ResetRotation(shelter.transform.Find("Warp Position").transform.rotation.eulerAngles.y);
+        }
+        
 
         inputs.Player.Interact.performed -= ShelterToWorld;
         inputs.Player.Interact.Disable();
 
+        // Reset camera
+
         mainCamera.enabled = true;
+        if (cameraHolder.GetComponent<CameraFollow>().isActiveAndEnabled)
+        {
+            cameraHolder.GetComponent<CameraFollow>().ResetCameraToFrontView();
+        }
         shelterCamera.enabled = false;
 
         while (shade.color.a > 0)

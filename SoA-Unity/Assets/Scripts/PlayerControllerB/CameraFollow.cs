@@ -270,13 +270,17 @@ public class CameraFollow : MonoBehaviour
         lastPlayerPosition = player.transform.position; // disable following during the warp
         transform.position = player.transform.position + Quaternion.LookRotation(-player.transform.forward, Vector3.up) * cameraOffset;
 
+        zoomTimer = 0; // check if correct
+        cameraState = STATE.NORMAL;
+
         // do not align until first player move
         isPausingAlign = true;
     }
 
     private void OnEnable()
     {
-        inputs.Player.Enable();
+        // might trigger inputs back during warp to shelter ???
+        // inputs.Player.Enable();
     }
 
     private void OnDisable()
@@ -474,9 +478,11 @@ public class CameraFollow : MonoBehaviour
             {
                 while (isPausingAlign)
                 {
+                    Debug.Log("Align en pause");
                     yield return null;
                     if(CheckPlayerMovement())
                     {
+                        Debug.Log("Sorti de pause");
                         isPausingAlign = false;
                     }
                 }

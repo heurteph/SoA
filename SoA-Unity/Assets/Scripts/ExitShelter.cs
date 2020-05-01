@@ -41,21 +41,24 @@ public class ExitShelter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputs.Player.Interact.performed -= ShelterToWorld;
-        inputs.Player.Interact.Disable();
-
-        RaycastHit hit;
-        LayerMask mask = LayerMask.GetMask("Shelter Exit");
-
-        if (Physics.Raycast(transform.position, transform.forward, out hit, shelterManager.MaxDistanceToDoor, mask))
+        if (shelterManager && inputs.Player.enabled)
         {
-            shelterCamera = hit.transform.parent.transform.Find("Shed Camera").GetComponent<Camera>();
-            shelter = shelterManager.GoOutside(hit.collider.transform.parent.gameObject);
-            inputs.Player.Interact.performed += ShelterToWorld;
+            inputs.Player.Interact.performed -= ShelterToWorld;
+            inputs.Player.Interact.Disable();
 
-            if (inputs.Player.enabled)
+            RaycastHit hit;
+            LayerMask mask = LayerMask.GetMask("Shelter Exit");
+
+            if (Physics.Raycast(transform.position, transform.forward, out hit, shelterManager.MaxDistanceToDoor, mask))
             {
-                inputs.Player.Interact.Enable();
+                shelterCamera = hit.transform.parent.transform.Find("Shed Camera").GetComponent<Camera>();
+                shelter = shelterManager.GoOutside(hit.collider.transform.parent.gameObject);
+                inputs.Player.Interact.performed += ShelterToWorld;
+
+                if (inputs.Player.enabled)
+                {
+                    inputs.Player.Interact.Enable();
+                }
             }
         }
     }
@@ -83,10 +86,6 @@ public class ExitShelter : MonoBehaviour
         {
             transform.GetComponent<PlayerFirst>().ResetRotation(shelter.transform.Find("Warp Position").transform.rotation.eulerAngles.y);
         }
-        
-
-        inputs.Player.Interact.performed -= ShelterToWorld;
-        inputs.Player.Interact.Disable();
 
         // Reset camera
 
@@ -104,8 +103,8 @@ public class ExitShelter : MonoBehaviour
         }
         shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, 0);
 
-        inputs.Player.Interact.Enable();
-        inputs.Enable();
+        inputs.Player.Interact.performed -= ShelterToWorld;
+        inputs.Player.Enable();
 
         GetComponent<EnterShelter>().enabled = true;
         GetComponent<ExitShelter>().enabled = false;

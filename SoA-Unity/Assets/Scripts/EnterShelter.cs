@@ -37,7 +37,7 @@ public class EnterShelter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (shelterManager)
+        if (shelterManager && inputs.Player.enabled)
         {
             inputs.Player.Interact.performed -= WorldToShelter;
             inputs.Player.Interact.Disable();
@@ -49,11 +49,7 @@ public class EnterShelter : MonoBehaviour
             {
                 shelter = shelterManager.GoInside(hit.collider.transform.parent.gameObject);
                 inputs.Player.Interact.performed += WorldToShelter;
-
-                if (inputs.Player.enabled)
-                {
-                    inputs.Player.Interact.Enable();
-                }
+                inputs.Player.Interact.Enable();
             }
         }
     }
@@ -82,9 +78,6 @@ public class EnterShelter : MonoBehaviour
             transform.GetComponent<PlayerFirst>().ResetRotation(shelter.transform.Find("Warp Position").transform.rotation.eulerAngles.y);
         }
 
-        inputs.Player.Interact.performed -= WorldToShelter;
-        inputs.Player.Interact.Disable();
-
         mainCamera.enabled = false;
         shelter.transform.Find("Shed Camera").GetComponent<Camera>().enabled = true;
 
@@ -96,7 +89,7 @@ public class EnterShelter : MonoBehaviour
         shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, 0);
         energyBehaviour.IsReloading = true;
 
-        inputs.Player.Interact.Enable();
+        inputs.Player.Interact.performed -= WorldToShelter;
         inputs.Player.Enable();
 
         GetComponent<ExitShelter>().enabled = true;

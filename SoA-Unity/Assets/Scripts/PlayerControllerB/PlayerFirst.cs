@@ -110,37 +110,41 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     // Update is called once per frame
     void Update()
     {
-        //StickToGround();
-
-        if (inputs.Player.Walk != null)
+        if (inputs.Player.enabled) // Compulsory, as Disabling or Enabling an Action also Enable the ActionGroup !!!
         {
+            //StickToGround();
+
             Walk(inputs.Player.Walk.ReadValue<Vector2>());
+
+            characterController.Move(movement);
+            movement = Vector3.zero;
+
+            if (isDamaged)
+            {
+                inputs.Player.Walk.Disable();
+                inputs.Player.ProtectEyes.Enable();
+                inputs.Player.ProtectEars.Enable();
+            }
+
+            if (isProtectingEyes || isProtectingEars)
+            {
+                inputs.Player.Walk.Enable();
+                isDamaged = false; // To check
+            }
+
+            if (!isDamaged)
+            {
+                inputs.Player.Walk.Enable();
+            }
+
+            anim.SetBool("isProtectingEyes", isProtectingEyes);
+            anim.SetBool("isProtectingEars", isProtectingEars);
+            anim.SetBool("isDamaged", isDamaged);
         }
-
-        characterController.Move(movement);
-        movement = Vector3.zero;
-
-        if (isDamaged)
+        else
         {
-            inputs.Player.Walk.Disable();
-            inputs.Player.ProtectEyes.Enable();
-            inputs.Player.ProtectEars.Enable();
+            anim.SetBool("isWalking", false); // stop animation when warping
         }
-
-        if (isProtectingEyes || isProtectingEars)
-        {
-            inputs.Player.Walk.Enable();
-            isDamaged = false; // To check
-        }
-
-        if(!isDamaged)
-        {
-            inputs.Player.Walk.Enable();
-        }
-
-        anim.SetBool("isProtectingEyes", isProtectingEyes);
-        anim.SetBool("isProtectingEars", isProtectingEars);
-        anim.SetBool("isDamaged", isDamaged);
     }
 
     void OnEnable()

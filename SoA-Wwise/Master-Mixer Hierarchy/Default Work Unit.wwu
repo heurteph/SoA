@@ -11,36 +11,6 @@
 					</ReferenceList>
 				</Bus>
 				<Bus Name="NiveauEcoutePerso" ID="{A4D9FDFA-2BDE-4429-BF04-2EA53793E583}">
-					<PropertyList>
-						<Property Name="BusVolume" Type="Real64">
-							<RTPCList>
-								<RTPC Name="" ID="{CB98AF28-9169-4835-8FC9-EC73E58A3FBD}" ShortID="363609738">
-									<ReferenceList>
-										<Reference Name="ControlInput">
-											<ObjectRef Name="VolumeEcoutePerso" ID="{A457383D-5090-4E4B-92FD-35E3CDE1D1A7}" WorkUnitID="{B90F05CD-014F-496C-B6F0-C3FAFBFB2412}"/>
-										</Reference>
-									</ReferenceList>
-									<Curve Name="" ID="{13692755-32C9-4EAD-8B51-B275E53FDCA7}">
-										<PropertyList>
-											<Property Name="Flags" Type="int32" Value="3"/>
-										</PropertyList>
-										<PointList>
-											<Point>
-												<XPos>-48</XPos>
-												<YPos>-200</YPos>
-												<Flags>5</Flags>
-											</Point>
-											<Point>
-												<XPos>0</XPos>
-												<YPos>0</YPos>
-												<Flags>37</Flags>
-											</Point>
-										</PointList>
-									</Curve>
-								</RTPC>
-							</RTPCList>
-						</Property>
-					</PropertyList>
 					<ReferenceList>
 						<Reference Name="AudioDevice">
 							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>

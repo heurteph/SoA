@@ -21,7 +21,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="VolumeEcoutePerso" ID="{A457383D-5090-4E4B-92FD-35E3CDE1D1A7}"/>
-							<Value>-48</Value>
+							<Value>0</Value>
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true"/>

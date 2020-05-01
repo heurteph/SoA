@@ -9,7 +9,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+							<ObjectRef Name="Parc_Envi_Master" ID="{3B6FD36D-F638-4BE9-9286-B8F46DD470C0}" WorkUnitID="{D4E16142-DC71-48F2-9773-C38FF7F21E94}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>

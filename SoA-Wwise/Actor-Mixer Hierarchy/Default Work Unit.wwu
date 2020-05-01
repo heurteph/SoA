@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{E370F9D8-2A6E-422A-9832-02629F7BFAE2}" SchemaVersion="97">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{E370F9D8-2A6E-422A-9832-02629F7BFAE2}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E370F9D8-2A6E-422A-9832-02629F7BFAE2}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="test" ID="{E9060CD6-51AE-4471-A943-7D23D10B2AAA}" ShortID="842119030">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="NiveauEcoutePerso" ID="{A4D9FDFA-2BDE-4429-BF04-2EA53793E583}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<SourcePlugin Name="Wwise Sine" ID="{CA057317-64FB-4BEE-965B-D4C07D343D65}" ShortID="978210516" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+							<PropertyList>
+								<Property Name="SineDuration" Type="Real32" Value="50"/>
+							</PropertyList>
+							<Language>SFX</Language>
+						</SourcePlugin>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Wwise Sine" ID="{CA057317-64FB-4BEE-965B-D4C07D343D65}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

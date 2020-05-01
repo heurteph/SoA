@@ -1,6 +1,3 @@
-Game Parameter	ID	Name			Wwise Object Path	Notes
-	133973669	VolumeEcoutePerso			\Default Work Unit\VolumeEcoutePerso	
-
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	351745915	Parc_Envi_Master			\Environnement\Parc_Envi_Master	
 	386419066	PersoMaster			\Personnage\PersoMaster	

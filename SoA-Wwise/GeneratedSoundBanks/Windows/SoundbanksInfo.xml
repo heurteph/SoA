@@ -18,9 +18,6 @@
 			<IncludedAuxBusses>
 				<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
 			</IncludedAuxBusses>
-			<GameParameters>
-				<GameParameter Id="133973669" Name="VolumeEcoutePerso" ObjectPath="\Game Parameters\Default Work Unit\VolumeEcoutePerso"/>
-			</GameParameters>
 		</SoundBank>
 		<SoundBank Id="3163481603" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankPC</ObjectPath>
@@ -71,9 +68,9 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3185656221" Name="Play_Humain_Joue1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Joue1" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3185656222" Name="Play_Humain_Joue2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Joue2" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3446893022" Name="Play_Humain_Mange1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Mange1" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="16.954771" DurationMax="22.342501">
+				<Event Id="3185656221" Name="Play_Humain_Joue1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Joue1" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3185656222" Name="Play_Humain_Joue2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Joue2" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3446893022" Name="Play_Humain_Mange1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Mange1" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="16.954771" DurationMax="22.342501">
 					<IncludedMemoryFiles>
 						<File Id="383351680" Language="SFX">
 							<ShortName>Parc_Obstacles_Humain_Mange01-001.wav</ShortName>
@@ -85,7 +82,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3446893021" Name="Play_Humain_Mange2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Mange2" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="14.432000" DurationMax="21.525541">
+				<Event Id="3446893021" Name="Play_Humain_Mange2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Mange2" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="14.432000" DurationMax="21.525541">
 					<IncludedMemoryFiles>
 						<File Id="353423123" Language="SFX">
 							<ShortName>Parc_Obstacles_Humain_Mange01-004.wav</ShortName>
@@ -107,7 +104,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1403256204" Name="Play_Moteur_VoitureElec" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_VoitureElec" MaxAttenuation="40.000000" DurationType="Infinite">
+				<Event Id="1403256204" Name="Play_Moteur_VoitureElec" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_VoitureElec" MaxAttenuation="20.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="840495312" Language="SFX">
 							<ShortName>Parc_Obstacles_VoitureElec_Moteurs Lent.wav</ShortName>
@@ -115,7 +112,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4134052420" Name="Play_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Play_Parc_Chien" MaxAttenuation="60.000000" DurationType="OneShot" DurationMin="0.160375" DurationMax="0.207813">
+				<Event Id="4134052420" Name="Play_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Play_Parc_Chien" MaxAttenuation="60.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="132806480" Language="SFX">
 							<ShortName>Parc_Obstacles_Chien03.wav</ShortName>
@@ -508,7 +505,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2173732909" Name="Play_Pas_Joggueur" ObjectPath="\Events\Parc_Obstacles\Play_Pas_Joggueur" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="19.780230" DurationMax="19.780230">
+				<Event Id="2173732909" Name="Play_Pas_Joggueur" ObjectPath="\Events\Parc_Obstacles\Play_Pas_Joggueur" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="19.780230" DurationMax="19.780230">
 					<IncludedMemoryFiles>
 						<File Id="771678931" Language="SFX">
 							<ShortName>Parc_Obstacles_Humain_Joggueur_Pas01-001.wav</ShortName>
@@ -516,7 +513,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="596008677" Name="Play_Pas_Joggueur2" ObjectPath="\Events\Parc_Obstacles\Play_Pas_Joggueur2" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="20.277374" DurationMax="20.277374">
+				<Event Id="596008677" Name="Play_Pas_Joggueur2" ObjectPath="\Events\Parc_Obstacles\Play_Pas_Joggueur2" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="20.277374" DurationMax="20.277374">
 					<IncludedMemoryFiles>
 						<File Id="541119374" Language="SFX">
 							<ShortName>Parc_Obstacles_Humain_Joggueur_Pas01-002.wav</ShortName>
@@ -524,8 +521,8 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4114146970" Name="Play_Pleure_B_b_" ObjectPath="\Events\Parc_Obstacles\Play_Pleure_B_b_" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1582928683" Name="Play_Respiration_JoggueurF" ObjectPath="\Events\Parc_Obstacles\Play_Respiration_JoggueurF" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="0.886625" DurationMax="1.007667">
+				<Event Id="4114146970" Name="Play_Pleure_B_b_" ObjectPath="\Events\Parc_Obstacles\Play_Pleure_B_b_" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1582928683" Name="Play_Respiration_JoggueurF" ObjectPath="\Events\Parc_Obstacles\Play_Respiration_JoggueurF" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.886625" DurationMax="1.007667">
 					<IncludedMemoryFiles>
 						<File Id="130358358" Language="SFX">
 							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiFemme07.wav</ShortName>
@@ -605,7 +602,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1582928677" Name="Play_Respiration_JoggueurH" ObjectPath="\Events\Parc_Obstacles\Play_Respiration_JoggueurH" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="0.556083" DurationMax="0.625687">
+				<Event Id="1582928677" Name="Play_Respiration_JoggueurH" ObjectPath="\Events\Parc_Obstacles\Play_Respiration_JoggueurH" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.556083" DurationMax="0.625687">
 					<IncludedMemoryFiles>
 						<File Id="274192846" Language="SFX">
 							<ShortName>Parc_Obstacles_Humain_Joggueur_RespiHomme03.wav</ShortName>

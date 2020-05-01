@@ -12,14 +12,666 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77c895130b2afa4fa5f5b53485f3303, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
-  AcousticTextureWwu: []
-  AuxBusWwu: []
-  BankWwu: []
-  EventWwu: []
-  RtpcWwu: []
-  StateWwu: []
-  SwitchWwu: []
-  TriggerWwu: []
-  ExpandedItems: []
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: bfae619cb436474a8467d7be176f4bba
+    GuidInternal: 
+    m_lastTime: -8586166118725516105
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 55c08963ebf4ed4eaf540e8933e2460a
+    GuidInternal: 
+    m_lastTime: -8586140209836110367
+    List:
+    - name: Master Audio Bus
+      guid: d8a41415a61d2a41a17e75ca0c2149f3
+      id: 3803692087
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus
+    - name: MixEcoutePerso
+      guid: c90b4397dceeaa4b90c149425009782d
+      id: 2093609463
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: NiveauEcoutePerso
+        ObjectType: 2
+      - ElementName: MixEcoutePerso
+        ObjectType: 1
+      Path: Default Work Unit\NiveauEcoutePerso\MixEcoutePerso
+    - name: NiveauEcoutePerso
+      guid: fafdd9a4de2b2944bf042ea53793e583
+      id: 2734641465
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: NiveauEcoutePerso
+        ObjectType: 2
+      Path: Default Work Unit\NiveauEcoutePerso
+  - PhysicalPath: Master-Mixer Hierarchy\Environnement.wwu
+    ParentPath: Environnement
+    guid: 4261e1d471dcf2489773c38ff7f21e94
+    GuidInternal: 
+    m_lastTime: -8586142151747630552
+    List:
+    - name: Parc_Envi_Master
+      guid: 6dd36f3b38f6e94b9286b8f46dd470c0
+      id: 351745915
+      PathAndIcons:
+      - ElementName: Environnement
+        ObjectType: 12
+      - ElementName: Parc_Envi_Master
+        ObjectType: 2
+      Path: Environnement\Parc_Envi_Master
+  - PhysicalPath: Master-Mixer Hierarchy\Obstacles.wwu
+    ParentPath: Obstacles
+    guid: 64fed4707e568b49b7eaf267b96bb740
+    GuidInternal: 
+    m_lastTime: -8586142151747350536
+    List:
+    - name: Parc_Obstacles_Master
+      guid: 317d1b4fc0385d45b5f11706648f7b26
+      id: 1797562303
+      PathAndIcons:
+      - ElementName: Obstacles
+        ObjectType: 12
+      - ElementName: Parc_Obstacles_Master
+        ObjectType: 2
+      Path: Obstacles\Parc_Obstacles_Master
+  - PhysicalPath: Master-Mixer Hierarchy\Personnage.wwu
+    ParentPath: Personnage
+    guid: c5038b2eabb73047ac19bd49d2d89a85
+    GuidInternal: 
+    m_lastTime: -8586142151747260530
+    List:
+    - name: PersoMaster
+      guid: 7121887088f10f49bb20d05554da0579
+      id: 386419066
+      PathAndIcons:
+      - ElementName: Personnage
+        ObjectType: 12
+      - ElementName: PersoMaster
+        ObjectType: 2
+      Path: Personnage\PersoMaster
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: a41f1d3084ab124c8413bed7eef30a31
+    GuidInternal: 
+    m_lastTime: -8586138589605747002
+    List:
+    - name: SoundBankPC
+      guid: 74251782b5de004a9650c8c82e35ff74
+      id: 3163481603
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SoundBankPC
+        ObjectType: 7
+      Path: Default Work Unit\SoundBankPC
+  EventWwu:
+  - PhysicalPath: Events\Commercial_Ambiance.wwu
+    ParentPath: Commercial_Ambiance
+    guid: 2dd47259b4c2b342974ccc34517058c6
+    GuidInternal: 
+    m_lastTime: -8586146310354542549
+    List: []
+  - PhysicalPath: Events\Commercial_Obstacles.wwu
+    ParentPath: Commercial_Obstacles
+    guid: 1ba1b556a2e01f4ab9825b1d1a9aec2c
+    GuidInternal: 
+    m_lastTime: -8586146310354577553
+    List: []
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 1ba5e65ede0c2b4296ab0e8ce8879b3e
+    GuidInternal: 
+    m_lastTime: -8586137793286031547
+    List:
+    - name: Play_TestBird
+      guid: 4328ffcb20ffae40bfcc94360080fbd8
+      id: 2276698123
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_TestBird
+        ObjectType: 3
+      Path: Default Work Unit\Play_TestBird
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  - PhysicalPath: Events\Parc_Ambiance.wwu
+    ParentPath: Parc_Ambiance
+    guid: e1864a5a164dae40b85975b7f157855b
+    GuidInternal: 
+    m_lastTime: -8586137787515961518
+    List:
+    - name: Play_Parc_Eau_Lac
+      guid: c98102f966481242bccd0bdb9db6dc35
+      id: 865874921
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Play_Parc_Eau_Lac
+        ObjectType: 3
+      Path: Parc_Ambiance\Play_Parc_Eau_Lac
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Parc_Insectes
+      guid: 5987b9af0a293049b5a8274e5184fce6
+      id: 2727595513
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Play_Parc_Insectes
+        ObjectType: 3
+      Path: Parc_Ambiance\Play_Parc_Insectes
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Parc_Oiseaux1
+      guid: 51c50d8ec35a654e97e06fbfa6636f5d
+      id: 3725651506
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Play_Parc_Oiseaux1
+        ObjectType: 3
+      Path: Parc_Ambiance\Play_Parc_Oiseaux1
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Parc_Oiseaux2
+      guid: 5237e367a7fec4419d7bdfac17d87f2d
+      id: 3725651505
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Play_Parc_Oiseaux2
+        ObjectType: 3
+      Path: Parc_Ambiance\Play_Parc_Oiseaux2
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Parc_Oiseaux3
+      guid: 3f7de32ff6370143b0a8235e75135ca8
+      id: 3725651504
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Play_Parc_Oiseaux3
+        ObjectType: 3
+      Path: Parc_Ambiance\Play_Parc_Oiseaux3
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Parc_Vent
+      guid: 73f67888211f4c4abb932860edb44a08
+      id: 4135899644
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Play_Parc_Vent
+        ObjectType: 3
+      Path: Parc_Ambiance\Play_Parc_Vent
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Parc_Vent_01
+      guid: 29f3f0f9de58c64fb5a318369ea6bcb6
+      id: 3266099682
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Play_Parc_Vent_01
+        ObjectType: 3
+      Path: Parc_Ambiance\Play_Parc_Vent_01
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Stop_Parc_Eau_Lac
+      guid: dbcdde28f68c9e46a30a4b5d52d851bc
+      id: 3189001139
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Stop_Parc_Eau_Lac
+        ObjectType: 3
+      Path: Parc_Ambiance\Stop_Parc_Eau_Lac
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Stop_Parc_Oiseaux1
+      guid: b70bc32ed3a1144c8697896e57f3a5ce
+      id: 152275144
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Stop_Parc_Oiseaux1
+        ObjectType: 3
+      Path: Parc_Ambiance\Stop_Parc_Oiseaux1
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Stop_Parc_Oiseaux2
+      guid: ee232cdddf23ce4095a3f93d0ace5dab
+      id: 152275147
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Stop_Parc_Oiseaux2
+        ObjectType: 3
+      Path: Parc_Ambiance\Stop_Parc_Oiseaux2
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Stop_Parc_Oiseaux3
+      guid: db0d1e64a302b242982f1ec8cfbd6de9
+      id: 152275146
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Stop_Parc_Oiseaux3
+        ObjectType: 3
+      Path: Parc_Ambiance\Stop_Parc_Oiseaux3
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Stop_Parc_Vent
+      guid: 18616b961095ee49b4fdf08c15c3ee98
+      id: 2647100474
+      PathAndIcons:
+      - ElementName: Parc_Ambiance
+        ObjectType: 12
+      - ElementName: Stop_Parc_Vent
+        ObjectType: 3
+      Path: Parc_Ambiance\Stop_Parc_Vent
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  - PhysicalPath: Events\Parc_Obstacles.wwu
+    ParentPath: Parc_Obstacles
+    guid: b5cbd342aeb6434c861a1ce16a08e9c5
+    GuidInternal: 
+    m_lastTime: -8586138589605817006
+    List:
+    - name: Play_ArrosageAuto
+      guid: bc5f9617c95c2c4eabd0e438f5c208bb
+      id: 3389613819
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_ArrosageAuto
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_ArrosageAuto
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Humain_Joue1
+      guid: 5c9c821bd3af51479444d87507f6f77b
+      id: 3185656221
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Humain_Joue1
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Humain_Joue1
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Humain_Joue2
+      guid: f63ad683e108674a8b2bccdae9b6bb4f
+      id: 3185656222
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Humain_Joue2
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Humain_Joue2
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Humain_Mange1
+      guid: c9c2b8a94c8cd24aa254031360fd87b5
+      id: 3446893022
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Humain_Mange1
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Humain_Mange1
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Humain_Mange2
+      guid: 45cf7ebecac952448429e1a50849a3be
+      id: 3446893021
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Humain_Mange2
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Humain_Mange2
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Humain_MangeEnfant
+      guid: 16c18f8e0776354d901b526244a9ff47
+      id: 545734209
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Humain_MangeEnfant
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Humain_MangeEnfant
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Humain_MangeEnfant2
+      guid: 7c5f7d0c19168c49854a0d4406d58b1f
+      id: 1978073185
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Humain_MangeEnfant2
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Humain_MangeEnfant2
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Moteur_Elagueur
+      guid: 229ae8ce5fd45f47891653a8f5e2d20f
+      id: 2314452061
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Moteur_Elagueur
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Moteur_Elagueur
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Moteur_VoitureElec
+      guid: 43d7c601caa21049adb222a47a4d40e8
+      id: 1403256204
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Moteur_VoitureElec
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Moteur_VoitureElec
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Parc_Chien
+      guid: e1dbe53d918bad45b253759aa66ff52f
+      id: 4134052420
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Parc_Chien
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Parc_Chien
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Pas_Joggueur
+      guid: 87c3a477cde1104da57174c78b799202
+      id: 2173732909
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Pas_Joggueur
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Pas_Joggueur
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Pas_Joggueur2
+      guid: 796ba0787d7a7e44b08ef138c19c86da
+      id: 596008677
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Pas_Joggueur2
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Pas_Joggueur2
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Pleure_B_b_
+      guid: bd98f5980999564f9d301b024a5de5e7
+      id: 4114146970
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Pleure_B_b_
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Pleure_B_b_
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Respiration_JoggueurF
+      guid: 1d2852fc58ea8344a8bb99db0304a86d
+      id: 1582928683
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Respiration_JoggueurF
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Respiration_JoggueurF
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Respiration_JoggueurH
+      guid: fb267b08f902284cb3ca70d29ccc3e97
+      id: 1582928677
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Respiration_JoggueurH
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Respiration_JoggueurH
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Vetement_Elagueur
+      guid: bcbbc73d21a006428c4acaf879a2e5e6
+      id: 2746796163
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Play_Vetement_Elagueur
+        ObjectType: 3
+      Path: Parc_Obstacles\Play_Vetement_Elagueur
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Stop_ArrosageAuto
+      guid: adb687bce6fdc04eb333dc0cdfc4554e
+      id: 1056565793
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Stop_ArrosageAuto
+        ObjectType: 3
+      Path: Parc_Obstacles\Stop_ArrosageAuto
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Stop_Parc_Chien
+      guid: df59891d97d4194f94e0adfa6a906a3c
+      id: 2301453854
+      PathAndIcons:
+      - ElementName: Parc_Obstacles
+        ObjectType: 12
+      - ElementName: Stop_Parc_Chien
+        ObjectType: 3
+      Path: Parc_Obstacles\Stop_Parc_Chien
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  - PhysicalPath: Events\Personnage.wwu
+    ParentPath: Personnage
+    guid: bfd80ad29b469443952316d0018cc167
+    GuidInternal: 
+    m_lastTime: -8586146310354512545
+    List:
+    - name: Play_RespirationMix
+      guid: 1c115a8a935ed64cad091df48036c1bb
+      id: 2793971418
+      PathAndIcons:
+      - ElementName: Personnage
+        ObjectType: 12
+      - ElementName: Play_RespirationMix
+        ObjectType: 3
+      Path: Personnage\Play_RespirationMix
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Texture_Pas
+      guid: 1813f5e76c851940bcdba6820df54260
+      id: 1047604054
+      PathAndIcons:
+      - ElementName: Personnage
+        ObjectType: 12
+      - ElementName: Play_Texture_Pas
+        ObjectType: 3
+      Path: Personnage\Play_Texture_Pas
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  - PhysicalPath: Events\Ville_Ambiance.wwu
+    ParentPath: Ville_Ambiance
+    guid: 0ea1263885d63c419e399c83424a5080
+    GuidInternal: 
+    m_lastTime: -8586146310354517546
+    List: []
+  - PhysicalPath: Events\Ville_Obstacles.wwu
+    ParentPath: Ville_Obstacles
+    guid: bd81743292ce45439f23c7e9f3eadd7f
+    GuidInternal: 
+    m_lastTime: -8586146310354482541
+    List: []
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: cd050fb94f016c49b6f0c3fafbfb2412
+    GuidInternal: 
+    m_lastTime: -8586140521908691681
+    List:
+    - name: VolumeEcoutePerso
+      guid: 3d3857a490504b4e92fd35e3cde1d1a7
+      id: 133973669
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: VolumeEcoutePerso
+        ObjectType: 13
+      Path: Default Work Unit\VolumeEcoutePerso
+  - PhysicalPath: Game Parameters\Obstacles.wwu
+    ParentPath: Obstacles
+    guid: d54af4ad67d05749acbfc84aaa6a6255
+    GuidInternal: 
+    m_lastTime: -8586142150627216468
+    List:
+    - name: VitesseVoitureElec
+      guid: 807de75f1333b54db9e447e4371e86fa
+      id: 428373397
+      PathAndIcons:
+      - ElementName: Obstacles
+        ObjectType: 12
+      - ElementName: VitesseVoitureElec
+        ObjectType: 13
+      Path: Obstacles\VitesseVoitureElec
+  - PhysicalPath: Game Parameters\Personnage.wwu
+    ParentPath: Personnage
+    guid: 0c80f27f3a50c64dadb0dd3696c1e8c4
+    GuidInternal: 
+    m_lastTime: -8586146309354445553
+    List:
+    - name: Personnage_Vitesse
+      guid: a1c13dd358b9764899bee7a4b0a1668b
+      id: 3665353697
+      PathAndIcons:
+      - ElementName: Personnage
+        ObjectType: 12
+      - ElementName: Personnage_Vitesse
+        ObjectType: 13
+      Path: Personnage\Personnage_Vitesse
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 960e072224f0c74993e7db783e71d19d
+    GuidInternal: 
+    m_lastTime: -8586166118726476160
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 96030f4881df4647bac0b1129aa73690
+    GuidInternal: 
+    m_lastTime: -8586166118726456159
+    List: []
+  - PhysicalPath: Switches\Personnage.wwu
+    ParentPath: Personnage
+    guid: 2ce1960a383a3c48a2ff3b2c12ada0b0
+    GuidInternal: 
+    m_lastTime: -8586146310354472540
+    List:
+    - name: Pas_Matiere
+      guid: 6178a9b5793adc499ca430bd84e287be
+      id: 3869192313
+      PathAndIcons:
+      - ElementName: Personnage
+        ObjectType: 12
+      - ElementName: Pas_Matiere
+        ObjectType: 11
+      Path: Personnage\Pas_Matiere
+      values:
+      - name: Asphalt
+        guid: 4fd9d836f70d054db8c1701179ba63ef
+        id: 4169408098
+        PathAndIcons:
+        - ElementName: Asphalt
+          ObjectType: 10
+      - name: Herbe
+        guid: 87a805fd22ba154d930c592b452c079f
+        id: 2495190089
+        PathAndIcons:
+        - ElementName: Herbe
+          ObjectType: 10
+      - name: Terre
+        guid: d6115c075deae744b01607566d3de40c
+        id: 508852877
+        PathAndIcons:
+        - ElementName: Terre
+          ObjectType: 10
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    ParentPath: Default Work Unit
+    guid: 6aa79cd013e85f478a913d3d2ad9b620
+    GuidInternal: 
+    m_lastTime: -8586166118726456159
+    List: []
+  ExpandedItems:
+  - /Sense_Of_Adventure_Wwise
+  - /Sense_Of_Adventure_Wwise/Events
+  - /Sense_Of_Adventure_Wwise/Events/Parc_Ambiance
+  - /Sense_Of_Adventure_Wwise/Events/Parc_Obstacles
+  - /Sense_Of_Adventure_Wwise/SoundBanks
+  - /Sense_Of_Adventure_Wwise/SoundBanks/Default Work Unit
+  - /Sense_Of_Adventure_Wwise/Switches
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

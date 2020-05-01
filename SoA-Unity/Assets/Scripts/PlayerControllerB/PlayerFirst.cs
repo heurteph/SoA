@@ -81,8 +81,14 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
     private Vector3 movement;
 
+    [Space]
+    [Header("Ground Detector")]
+
     [SerializeField]
-    private Transform groundedPosition;
+    private Transform groundLevelPosition;
+
+    [SerializeField]
+    private Transform raycastPosition;
 
     void Awake()
     {
@@ -112,7 +118,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     {
         if (inputs.Player.enabled) // Compulsory, as Disabling or Enabling an Action also Enable the ActionGroup !!!
         {
-            //StickToGround();
+            StickToGround();
 
             Walk(inputs.Player.Walk.ReadValue<Vector2>());
 
@@ -189,9 +195,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         RaycastHit hit;
         LayerMask ground = LayerMask.GetMask("Ground");
 
-        if (Physics.Raycast(groundedPosition.position, -Vector3.up, out hit, Mathf.Infinity, ground) || Physics.Raycast(groundedPosition.position, Vector3.up, out hit, Mathf.Infinity, ground))
+        if (Physics.Raycast(raycastPosition.position, -Vector3.up, out hit, Mathf.Infinity, ground))
         {
-            movement = (hit.point - groundedPosition.position);
+            movement = (hit.point - groundLevelPosition.position);
         }
         else
         {

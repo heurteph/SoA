@@ -467,15 +467,20 @@ public class CameraFollow : MonoBehaviour
         if (!isTargeting) // CHECK IF CORRECT ?? SHOULDN'T IT BE INSIDE THE FOR LOOP ?
         {
 
-            float angle, angleCorrected, newAngle, newAngleCorrected, lastAngleCorrected;
+            float angle, angleCorrected, newAngle;
             float thisFrame, previousFrame, thisSinerp, previousSinerp;
             Vector3 lastDirection;
 
             alignSpeed = 50; // TO DO : change in inspector
-            float obstacleTolerance = 0.1f * Mathf.Deg2Rad; // TO DO : Add in the inspector
+            //float obstacleTolerance = 0.1f * Mathf.Deg2Rad; // TO DO : Add in the inspector
 
             for (; ; )
             {
+                while(isTargeting) // Let's try it here, CHECK IF WORKING
+                {
+                    yield return null;
+                }
+
                 while (isPausingAlign)
                 {
                     Debug.Log("Align en pause");
@@ -493,7 +498,7 @@ public class CameraFollow : MonoBehaviour
                 Quaternion lastPlayerRotation = player.transform.rotation;
                 Vector3 lastPlayerPos = player.transform.position;
 
-                if (!Mathf.Approximately(angleCorrected, 0.0f)) // if not aligned with the character
+                if (!Mathf.Approximately(angleCorrected, 0.0f)) // if camera not aligned with the closest position to be aligned with the character
                 {
 
                     Vector3 startDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
@@ -506,11 +511,11 @@ public class CameraFollow : MonoBehaviour
                     {
                         UpdatePosition(); // called here to avoid desynchronization 
 
-                        // Compute updated player angle
-                        // SignedAngle's return value is in domain [-180;180], so extend it
-                        // Save lastDirection to keep track of the last direction of the rotation
+                        // Compute the angle from the current camera position to the align with the character
 
                         newAngle = Vector3.SignedAngle(startDirection, player.transform.forward, Vector3.up);
+
+                        // SignedAngle's return value is in domain [-180;180], so extend it
 
                         if (Mathf.Sign(newAngle) != Mathf.Sign(angle))
                         {
@@ -524,21 +529,13 @@ public class CameraFollow : MonoBehaviour
                             }
                         }
 
+                        // Save lastDirection to keep track of the last direction of the rotation
+
                         lastDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
 
                         // Check if there is a collision along the rotation path
 
-                        /* Debug.Log("t = " + thisFrame); */
-                        newAngleCorrected = GetAngleToFirstObstacle(newAngle);
-                        //if (player.transform.position != lastPlayerPos || player.transform.rotation != lastPlayerRotation)  // avoid infinite oscillation
-                        //{
-                        //Debug.Log("My corrected angle is " + newAngleCorrected + ", forget about " + newAngle);
-                        newAngle = newAngleCorrected;
-                        //}
-                        //lastPlayerRotation = player.transform.rotation;
-                        //lastPlayerPos      = player.transform.position;
-
-                        //-----
+                        newAngle = GetAngleToFirstObstacle(newAngle);
 
                         if (!Mathf.Approximately(newAngle, 0)) // avoid dividing by zero
                             thisFrame = Mathf.Asin(Mathf.Clamp(thisSinerp * angle / newAngle, -1.0f, 1.0f)) * 2f / Mathf.PI; // get the original [0-1] from the smooth [0-1] updated with the angle modification, need clamping because Asin's domain is [-1,1]

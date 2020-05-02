@@ -82,7 +82,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
     [SerializeField]
     private Transform groundedPosition;
-
+    
     void Awake()
     {
         angle = player.transform.rotation.eulerAngles.y;
@@ -231,5 +231,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         speed = normalSpeed;
         isHurry = false;
     }
+   
+    
 
 } // FINISH

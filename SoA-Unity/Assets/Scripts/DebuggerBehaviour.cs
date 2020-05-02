@@ -147,7 +147,6 @@ public class DebuggerBehaviour : MonoBehaviour
     public void DisplayLoudness (float volume)
     {
         loudnessGauge.value = volume;
-        Debug.Log("Loudness threshold : " + loudnessScript.LoudnessThreshold);
         loudnessThresholdGauge.value = loudnessScript.LoudnessThreshold;
 
         if (volume >= loudnessScript.LoudnessThreshold)

@@ -427,7 +427,7 @@ public class CameraFollow : MonoBehaviour
 
         if (player.transform.position != lastPlayerPosition)
         {
-            Debug.Log("Camera moving in " + transform.position);
+            //Debug.Log("Camera moving in " + transform.position);
             transform.position += (player.transform.position - lastPlayerPosition);
             lastPlayerPosition = player.transform.position;
         }
@@ -467,12 +467,11 @@ public class CameraFollow : MonoBehaviour
         if (!isTargeting) // CHECK IF CORRECT ?? SHOULDN'T IT BE INSIDE THE FOR LOOP ?
         {
 
-            float angle, angleCorrected, newAngle;
-            float thisFrame, previousFrame, thisSinerp, previousSinerp;
-            Vector3 lastDirection;
+            float angle, newAngle;
+            float thisPercent;
+            float thisSinerp, previousSinerp;
 
             alignSpeed = 50; // TO DO : change in inspector
-            //float obstacleTolerance = 0.1f * Mathf.Deg2Rad; // TO DO : Add in the inspector
 
             for (; ; )
             {
@@ -493,69 +492,94 @@ public class CameraFollow : MonoBehaviour
                 }
 
                 angle = Vector3.SignedAngle(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized, player.transform.forward, Vector3.up) % 360;
-                angleCorrected = GetAngleToFirstObstacle(angle); // take obstacles into account
+                angle = GetAngleToFirstObstacle(angle);
 
-                Quaternion lastPlayerRotation = player.transform.rotation;
-                Vector3 lastPlayerPos = player.transform.position;
+                // if camera not aligned with the closest position to be aligned with the character
 
-                if (!Mathf.Approximately(angleCorrected, 0.0f)) // if camera not aligned with the closest position to be aligned with the character
+                if (!Mathf.Approximately(angle, 0.0f))
                 {
+                    Debug.Log("Start of an interpolation, angle : " + angle);
 
-                    Vector3 startDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
-                    lastDirection = startDirection;
-                    thisFrame = 0;
+                    Vector3 startForward = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+                    thisPercent = 0;
                     thisSinerp = 0;
-                    lastAngleCorrected = 0;
 
-                    while (thisFrame != 1.0f)
+                    float debugSum = 0;
+
+                    // Launch an interpolation
+
+                    while (thisPercent != 1.0f)
                     {
                         UpdatePosition(); // called here to avoid desynchronization 
 
                         // Compute the angle from the current camera position to the align with the character
 
-                        newAngle = Vector3.SignedAngle(startDirection, player.transform.forward, Vector3.up);
+                        newAngle = Vector3.SignedAngle(startForward, player.transform.forward, Vector3.up);
 
                         // SignedAngle's return value is in domain [-180;180], so extend it
 
                         if (Mathf.Sign(newAngle) != Mathf.Sign(angle))
                         {
-                            if (Mathf.Sign(angle) > 0 && Vector3.SignedAngle(lastDirection, player.transform.forward, Vector3.up) > 0)
+                            Debug.Log("Angle : " + angle + " and NewAngle " + newAngle);
+                            
+                            if((angle - newAngle) > 180)
                             {
                                 newAngle += 360;
+                                Debug.Log("Warp newAngle : " + newAngle);
                             }
-                            else if (Mathf.Sign(angle) < 0 && Vector3.SignedAngle(lastDirection, player.transform.forward, Vector3.up) < 0)
+                            else if ((newAngle - angle) > 180)
                             {
                                 newAngle -= 360;
+                                Debug.Log("Warp newAngle : " + newAngle);
                             }
                         }
 
-                        // Save lastDirection to keep track of the last direction of the rotation
-
-                        lastDirection = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
-
-                        // Check if there is a collision along the rotation path
+                        // Next, check if there is a collision along the new rotation path
 
                         newAngle = GetAngleToFirstObstacle(newAngle);
 
-                        if (!Mathf.Approximately(newAngle, 0)) // avoid dividing by zero
-                            thisFrame = Mathf.Asin(Mathf.Clamp(thisSinerp * angle / newAngle, -1.0f, 1.0f)) * 2f / Mathf.PI; // get the original [0-1] from the smooth [0-1] updated with the angle modification, need clamping because Asin's domain is [-1,1]
+                        if (!Mathf.Approximately(newAngle, angle))
+                        {
+                            // Get the original [0-1] from the smooth [0-1] updated with the angle modification, need clamping because Asin's domain is [-1,1]
+
+                            if (!Mathf.Approximately(newAngle, 0)) // avoid dividing by zero
+                            {
+                                Debug.Log("Remapping the percentage");
+                                thisPercent = InverseSinerp(thisSinerp * angle / newAngle);
+                            }
+                            else
+                            {
+                                thisPercent = 1;
+                            }
+                        }
+                        
+                        // Increment differently when it's colliding
+
+                        if (!isColliding)
+                        {
+                            thisPercent = Mathf.Min(thisPercent + alignSpeed * Time.deltaTime / Mathf.Abs(newAngle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
+                        }
                         else
-                            thisFrame = 1;
+                        {
+                            Debug.Log("Is colliding");
+                            thisPercent = Mathf.Min(thisPercent + collidingAlignSpeed * Time.deltaTime / Mathf.Abs(newAngle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
+                        }
 
-                        previousFrame = thisFrame;
-                        angle = newAngle;
-                        thisFrame = Mathf.Min(thisFrame + collidingAlignSpeed * Time.deltaTime / Mathf.Abs(angle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
-                        thisFrame = Mathf.Min(thisFrame + alignSpeed * Time.deltaTime / Mathf.Abs(angle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
-                        previousSinerp = Mathf.Sin(previousFrame * Mathf.PI / 2f);
-                        thisSinerp = Mathf.Sin(thisFrame * Mathf.PI / 2f);
+                        previousSinerp  = thisSinerp;
+                        thisSinerp      = Sinerp(thisPercent);
                         //Debug.Log("Rotation delta : " + angle * (thisSinerp - previousSinerp) + " from angle=" + angle + ", thisSinerp=" + thisSinerp + ", previousSinerp=" + previousSinerp + ", thisFrame=" + thisFrame + ", previousFrame=" + previousFrame);
-                        transform.RotateAround(player.transform.position, Vector3.up, angle * (thisSinerp - previousSinerp));
+                        debugSum += newAngle * (thisSinerp - previousSinerp);
 
+                        transform.RotateAround(player.transform.position, Vector3.up, newAngle * (thisSinerp - previousSinerp)); // <-- ERROR, THE SUM OF THE FRACTIONS DOESNT RESULT IN newAngle AT THE END
                         transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
 
+                        Debug.Log("Angle interpolation : " + (newAngle * thisSinerp) + "/" + newAngle + ", t = " + thisSinerp);
+
+                        angle = newAngle;
                         yield return null;
                     }
-                    //Debug.Log("Finish transition");
+                    Debug.Log("End of the interpolation, angle : " + angle + "\n---------------------------");
+                    Debug.Log("True angle done : " + debugSum);
                 }
                 else
                 {
@@ -565,6 +589,20 @@ public class CameraFollow : MonoBehaviour
                 }
             }
         }
+    }
+
+    float Sinerp(float x)
+    {
+        if(!(0 <= x && x <= 1))
+        {
+            throw new System.Exception("Sinerp argument must be in range [0-1] : " + x);
+        }
+        return Mathf.Sin(x * Mathf.PI / 2f);
+    }
+
+    float InverseSinerp(float x)
+    {
+        return Mathf.Asin(Mathf.Clamp(x, -1.0f, 1.0f)) * 2f / Mathf.PI; // get the original [0-1] from the smooth [0-1] updated with the angle modification, need clamping because Asin's domain is [-1,1]
     }
 
     private float GetAngleToFirstObstacle(float targetAngle)

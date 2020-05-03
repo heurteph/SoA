@@ -31,8 +31,8 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Speed at which the camera align itself to the character")]
-    [Range(10, 500)]
-    private float alignSpeed = 100;
+    [Range(0.1f, 5)]
+    private float alignSpeed = 0.6f;
 
     [Space]
     [Header("Look around")]
@@ -261,7 +261,7 @@ public class CameraFollow : MonoBehaviour
         if (cameraSway)
         {
             InitializeSway();
-            //StartCoroutine("Sway"); // TO DO : REENABLE IF IT'S NOT CAUSING BUGS IN THE REALIGN
+            StartCoroutine("Sway"); // TO DO : REENABLE IF IT'S NOT CAUSING BUGS IN THE REALIGN ???
         }
 
         //StartCoroutine("AlignWithCharacter");
@@ -313,10 +313,11 @@ public class CameraFollow : MonoBehaviour
             //ExtendedLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
         }
 
+        /*
         if (cameraSway)
         {
             Sway();
-        }
+        }*/
     }
 
 
@@ -527,8 +528,6 @@ public class CameraFollow : MonoBehaviour
 
                     while (thisPercent != 1.0f)
                     {
-                        Debug.Log("Looping ...");
-
                         UpdatePosition(); // called here to avoid desynchronization 
 
                         // Compute the angle from the current camera position to the align with the new character position
@@ -539,8 +538,6 @@ public class CameraFollow : MonoBehaviour
                             newTargetAngle = lastTargetAngle;
                         }
                         lastTargetAngle = newTargetAngle;
-
-                        Debug.Log("newTarget Debug 1 : " + newTargetAngle);
 
                         // SignedAngle's return value is in domain [-180;180], so extend it
 
@@ -561,8 +558,6 @@ public class CameraFollow : MonoBehaviour
                         // Next, check if there is a collision along the new rotation path
 
                         newTargetAngle = LimitAngleToFirstObstacle(newTargetAngle, originalPosition);
-                        
-                        Debug.Log("newTarget Debug 2 : " + newTargetAngle);
 
                         Debug.Log("New angle is : " + newTargetAngle + ", last one was " + targetAngle);
 
@@ -584,7 +579,8 @@ public class CameraFollow : MonoBehaviour
 
                         // Increment percent
 
-                        thisPercent = Mathf.Min(thisPercent + alignSpeed * Time.deltaTime / Mathf.Abs(newTargetAngle), 1.0f); // TO CHECK : Removing division by angle gives quite another gamefeel, but use with alignSpeed = 1
+                        Debug.Log("Linear evolution this frame : " + alignSpeed + " * " + Time.deltaTime + " * " + Mathf.Abs(newTargetAngle) + " / " + 180 + " = " + alignSpeed * Time.deltaTime * Mathf.Abs(newTargetAngle) / 180f);
+                        thisPercent = Mathf.Min(thisPercent + alignSpeed * Time.deltaTime, 1.0f); // TO CHECK : Dependant to angle gives quite another gamefeel
 
                         //previousSinerp  = thisSinerp;
                         previousSinerp =  Sinerp(previousPercent); // HOW IS IT DIFFERENT FROM THE LINE ABOVE ????
@@ -596,13 +592,11 @@ public class CameraFollow : MonoBehaviour
                         transform.RotateAround(player.transform.position, Vector3.up, newTargetAngle * (thisSinerp - previousSinerp)); // <-- ERROR, THE SUM OF THE FRACTIONS DOESNT RESULT IN newAngle AT THE END
                         transform.rotation *= Quaternion.Euler(0, originalYRotation, 0);
 
-                        Debug.Log("Angle interpolation at t = " + thisSinerp + ", (" + (newTargetAngle * thisSinerp) + " /" + newTargetAngle + ")");
+                        Debug.Log("Angle interpolation is at t = " + thisSinerp + ", (" + (newTargetAngle * thisSinerp) + " /" + newTargetAngle + ")");
 
                         targetAngle = newTargetAngle;
 
-                        Debug.Log("targetAngle set to : " + newTargetAngle);
                         yield return null;
-                        Debug.Log("returning ...");
                     }
                     Debug.Log("End of the interpolation, angle : " + targetAngle);
                     Debug.Log("True angle done : " + debugSum);
@@ -665,13 +659,14 @@ public class CameraFollow : MonoBehaviour
                     startForward  = endForward;
                     startPosition = endPosition;
 
-                    Debug.Log("One node backtracked " + startAngle + "/" + targetAngle); i_backward++;
+                    //Debug.Log("One node backtracked " + startAngle + "/" + targetAngle); i_backward++;
                 }
-                Debug.Log("Crossed " + i_forward + " nodes but then backtracked " + i_backward + " nodes from the obstacle");
+                Debug.Log("Crossed " + i_forward + " nodes but then backtracked " + i_backward + " nodes from the hit obstacle");
                 return startAngle; // CHECK : Should it be startAngle or endAngle ?
             }
 
-            Debug.Log("One node crossed : " + endAngle + "/" + targetAngle); i_forward++;
+            i_forward++;
+            //Debug.Log("One node crossed : " + endAngle + "/" + targetAngle);
 
             // Debug.DrawLine(startPosition, endPosition, Color.blue, 2f, false);
 
@@ -685,14 +680,19 @@ public class CameraFollow : MonoBehaviour
 
             if (Mathf.Approximately(startAngle, targetAngle))
             {
+                Debug.Log("Reached the targetAngle without any obstacle, now looking-forward");
+
                 float forwardCheckingAngle      = Mathf.Sign(targetAngle) * InverseArcLength(startForward.magnitude, minDistanceToObstacle); // SIGN !!!!!!!!!!!!!!!!!!!!! / Should increment on startAngle ?
                 Vector3 forwardCheckingForward  = Quaternion.Euler(0, forwardCheckingAngle, 0) * startForward;
                 Vector3 forwardCheckingPosition = player.transform.position + forwardCheckingForward;
 
                 // Do a forward-checking to guarantee the minDistance
 
+                int i_lf_backward = 0;
                 if (Physics.Linecast(startPosition, forwardCheckingPosition, out hit))
                 {
+                    Debug.Log("Hit obstacle during looking-forward");
+
                     Vector3 obstaclePosition = hit.point;
                     float distanceToObstacle = ArcLength(startForward.magnitude, Vector3.Angle(obstaclePosition - player.transform.position, startPosition - player.transform.position));
 
@@ -700,6 +700,7 @@ public class CameraFollow : MonoBehaviour
                         && Mathf.Abs(endAngle) > 0) // SIGN !!! // startAngle or endAngle ??????
                     {
                         // Backtrack to 0, SPECIAL CASE : WHEN EVEN 0 IS NOT ENOUGH TO RESPECT THE MINDISTANCE !!!!!!!!!!!!!!
+                        i_lf_backward++;
 
                         endAngle    = Mathf.Sign(targetAngle) > 0 ? Mathf.Max(startAngle - maxDegDelta, 0) : Mathf.Min(startAngle + maxDegDelta, 0);
                         endForward  = Quaternion.Euler(0, endAngle - startAngle, 0) * startForward;
@@ -712,13 +713,13 @@ public class CameraFollow : MonoBehaviour
                         startPosition = endPosition;
                     }
                 }
+                Debug.Log("Crossed " + i_forward + " nodes and backtracked " + i_lf_backward + " nodes from the obstacle");
                 return startAngle; // should it be startAngle or endAngle ?
             }
 
             // END
         }
 
-        Debug.Log("No problem, we can go through " + i_forward + " nodes to the target, without encountering a single obstacle");
         return targetAngle;
     }
 

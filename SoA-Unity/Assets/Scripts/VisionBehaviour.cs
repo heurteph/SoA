@@ -163,9 +163,9 @@ public class VisionBehaviour : MonoBehaviour
             throw new System.Exception("Camera Character Error : No head element found");
         }
         head = new GameObject();
-        head.transform.position = headMesh.transform.position + cameraOffset;
-        head.transform.rotation = Quaternion.Euler(cameraAngle) * headMesh.transform.rotation;
-        
+        head.transform.position = headMesh.transform.position + transform.rotation * cameraOffset;
+        head.transform.rotation = transform.rotation * Quaternion.Euler(cameraAngle);
+
         visionCamera = head.AddComponent<Camera>();
         visionCamera.nearClipPlane = 0.1f;
         visionCamera.targetTexture = targetTexture;

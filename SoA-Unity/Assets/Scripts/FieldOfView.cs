@@ -34,9 +34,9 @@ public class FieldOfView : MonoBehaviour
     [Space]
 
     [SerializeField]
-    private float idleAnimDamage;
+    private float idleAnimDanger;
     [SerializeField]
-    private float moveAnimDamage, danceAnimDamage; 
+    private float moveAnimDanger, danceAnimDanger; 
 
 
 
@@ -49,7 +49,7 @@ public class FieldOfView : MonoBehaviour
     public float frontViewAngle;
 
     [SerializeField]
-    private float frontViewRadius, totalFrontTargets, frontCrowdInfo, frontPow, frontThreshold;
+    private float frontViewRadius, totalFrontTargets, frontPow, frontCrowdInfo, frontDangerThreshold, crowdFrontDanger;
 
     [SerializeField]
     [Range(0, 100)]
@@ -66,7 +66,7 @@ public class FieldOfView : MonoBehaviour
     public float sideViewAngle;
 
     [SerializeField]
-    private float sideViewRadius, totalSideTargets, sideCrowdInfo, sidePow, sideThreshold;
+    private float sideViewRadius, totalSideTargets, sidePow, sideCrowdInfo, sideDangerThreshold, crowdSideDanger;
 
     [SerializeField]
     [Range(0, 100)]
@@ -83,7 +83,7 @@ public class FieldOfView : MonoBehaviour
     public float backViewAngle;
 
     [SerializeField]
-    private float backViewRadius, totalBackTargets, backCrowdInfo, backPow, backThreshold;
+    private float backViewRadius, totalBackTargets, backPow, backCrowdInfo,  backDangerThreshold, crowdBackDanger;
 
     [SerializeField]
     [Range(0, 100)]
@@ -140,7 +140,7 @@ public class FieldOfView : MonoBehaviour
     {
         frontVisibleTargets.Clear();
         frontCrowdInfo = 0;
-        crowdFrontDamage = 0;
+        crowdFrontDanger = 0;
 
 
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, frontViewRadius, targetMask);
@@ -166,18 +166,18 @@ public class FieldOfView : MonoBehaviour
                     Animator anim = target.GetComponent<Animator>();
                     if (anim.GetBool("isMoving") == true)
                     {
-                        crowdFrontDamage += moveAnimDamage * Mathf.Pow((1 - dstToTarget / frontViewRadius), frontPow);
+                        crowdFrontDanger += moveAnimDanger * Mathf.Pow((1 - dstToTarget / frontViewRadius), frontPow);
                     } else if (anim.GetBool("isDancing") == true)
                     {
-                        crowdFrontDamage += danceAnimDamage * Mathf.Pow((1 - dstToTarget / frontViewRadius), frontPow);
+                        crowdFrontDanger += danceAnimDanger * Mathf.Pow((1 - dstToTarget / frontViewRadius), frontPow);
                     } else
                     {
-                        crowdFrontDamage += idleAnimDamage * Mathf.Pow((1 - dstToTarget / frontViewRadius), frontPow);
+                        crowdFrontDanger += idleAnimDanger * Mathf.Pow((1 - dstToTarget / frontViewRadius), frontPow);
                     }
                 }
 
                 // Apply Damage
-                if (frontCrowdInfo > frontThreshold)
+                if (crowdFrontDanger > frontDangerThreshold)
                 {
                     crowdThresholdEvent(crowdFrontDamage);
                 }
@@ -208,7 +208,7 @@ public class FieldOfView : MonoBehaviour
     {
         sideVisibleTargets.Clear();
         sideCrowdInfo = 0;
-        crowdSideDamage = 0;
+        crowdSideDanger = 0;
 
 
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, sideViewRadius, targetMask);
@@ -235,21 +235,21 @@ public class FieldOfView : MonoBehaviour
                     Animator anim = target.GetComponent<Animator>();
                     if (anim.GetBool("isMoving") == true)
                     {
-                        crowdSideDamage += moveAnimDamage * Mathf.Pow((1 - dstToTarget / sideViewRadius), sidePow);
+                        crowdSideDanger += moveAnimDanger * Mathf.Pow((1 - dstToTarget / sideViewRadius), sidePow);
                     }
                     else if (anim.GetBool("isDancing") == true)
                     {
-                        crowdSideDamage += danceAnimDamage * Mathf.Pow((1 - dstToTarget / sideViewRadius), sidePow);
+                        crowdSideDanger += danceAnimDanger * Mathf.Pow((1 - dstToTarget / sideViewRadius), sidePow);
                     }
                     else
                     {
-                        crowdSideDamage += idleAnimDamage * Mathf.Pow((1 - dstToTarget / sideViewRadius), sidePow);
+                        crowdSideDanger += idleAnimDanger * Mathf.Pow((1 - dstToTarget / sideViewRadius), sidePow);
                     }
                 }
 
 
                 // Apply Damage
-                if (sideCrowdInfo > sideThreshold)
+                if (crowdSideDanger > sideDangerThreshold)
                 {
                     crowdThresholdEvent(crowdSideDamage);
                 }
@@ -276,7 +276,7 @@ public class FieldOfView : MonoBehaviour
     {
         backVisibleTargets.Clear();
         backCrowdInfo = 0;
-        crowdBackDamage = 0;
+        crowdBackDanger = 0;
 
 
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, backViewRadius, targetMask);
@@ -303,21 +303,21 @@ public class FieldOfView : MonoBehaviour
                     Animator anim = target.GetComponent<Animator>();
                     if (anim.GetBool("isMoving") == true)
                     {
-                        crowdBackDamage += moveAnimDamage * Mathf.Pow((1 - dstToTarget / backViewRadius), frontPow);
+                        crowdBackDanger += moveAnimDanger * Mathf.Pow((1 - dstToTarget / backViewRadius), frontPow);
                     }
                     else if (anim.GetBool("isDancing") == true)
                     {
-                        crowdBackDamage += danceAnimDamage * Mathf.Pow((1 - dstToTarget / backViewRadius), frontPow);
+                        crowdBackDanger += danceAnimDanger * Mathf.Pow((1 - dstToTarget / backViewRadius), frontPow);
                     }
                     else
                     {
-                        crowdBackDamage += idleAnimDamage * Mathf.Pow((1 - dstToTarget / backViewRadius), frontPow);
+                        crowdBackDanger += idleAnimDanger * Mathf.Pow((1 - dstToTarget / backViewRadius), frontPow);
                     }
                 }
 
 
                 // Apply Damage
-                if (backCrowdInfo > backThreshold)
+                if (crowdBackDanger > backDangerThreshold)
                 {
                     crowdThresholdEvent(crowdBackDamage);
                 }

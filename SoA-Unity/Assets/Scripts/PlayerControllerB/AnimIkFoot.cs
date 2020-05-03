@@ -23,7 +23,7 @@ public class AnimIkFoot : MonoBehaviour
     [SerializeField]
     private float skinWidth = 0.2f;
 
-
+/*
 
     [SerializeField]
     private float ikWeight = 1;
@@ -44,16 +44,19 @@ public class AnimIkFoot : MonoBehaviour
 
     public float offsetY;
 
+    */
+
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+     /*   anim = GetComponent<Animator>();
 
         leftFoot = anim.GetBoneTransform(HumanBodyBones.LeftFoot);
         rightFoot = anim.GetBoneTransform(HumanBodyBones.RightFoot);
 
         lFrot = leftFoot.rotation;
         rFrot = rightFoot.rotation;
+        */
     }
 
 
@@ -118,8 +121,7 @@ public class AnimIkFoot : MonoBehaviour
 
            private void OnAnimatorIK(int layerIndex)
               {
-                  if (anim)
-                  {
+                  
                       RaycastHit hit;
 
 
@@ -135,11 +137,11 @@ public class AnimIkFoot : MonoBehaviour
                     Vector3 prevPos = ground.transform.position;
                     prevPos.y = footPosition.y - skinWidth;
                     ground.transform.position = prevPos;
-
-             //       player.transform.position = prevPos - ground.transform.position;
+                    
                 }
             }
-
+        if(anim)
+                  {
             //Left Foot
             anim.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1f);
                       anim.SetIKRotationWeight(AvatarIKGoal.LeftFoot, 1f);

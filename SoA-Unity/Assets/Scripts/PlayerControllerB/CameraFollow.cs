@@ -482,7 +482,7 @@ public class CameraFollow : MonoBehaviour
             float thisPercent, previousPercent;
             float thisSinerp, previousSinerp;
 
-            alignSpeed = 50; // TO DO : change in inspector
+            // alignSpeed = 50; // ONLY FOR DEBUG
 
             for (; ; )
             {

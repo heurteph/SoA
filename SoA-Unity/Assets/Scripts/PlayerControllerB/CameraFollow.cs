@@ -511,6 +511,8 @@ public class CameraFollow : MonoBehaviour
                 targetAngle = LimitAngleToFirstObstacle(targetAngle, originalPosition);
                 Debug.Log("My target angle, taking obstacle into account, is " + targetAngle);
 
+                float factor = 1;
+
                 // if camera not aligned with the closest position to be aligned with the character
 
                 if (!Mathf.Approximately(targetAngle, 0.0f))
@@ -577,10 +579,26 @@ public class CameraFollow : MonoBehaviour
                         }
                         previousPercent = thisPercent; // VERY IMPORTANT !!!!! NOT THE TRUE PREVIOUS PERCENT, THE ONE RECOMPUTED ACCORDING TO THE NEW ANGLE !!!!
 
-                        // Increment percent
+                        // Hurry up if there's an obstacle between the camera and the character
 
-                        Debug.Log("Linear evolution this frame : " + alignSpeed + " * " + Time.deltaTime + " * " + Mathf.Abs(newTargetAngle) + " / " + 180 + " = " + alignSpeed * Time.deltaTime * Mathf.Abs(newTargetAngle) / 180f);
-                        thisPercent = Mathf.Min(thisPercent + alignSpeed * Time.deltaTime, 1.0f); // TO CHECK : Dependant to angle gives quite another gamefeel
+                        if(Physics.Linecast(transform.position, player.transform.position, out RaycastHit hit))
+                        {
+                            if( ! hit.transform.CompareTag("Player"))
+                            {
+                                factor = Mathf.Min(factor + 10 * Time.deltaTime, 2);
+                            }
+                            else
+                            {
+                                factor = Mathf.Max(factor - 10 * Time.deltaTime, 1);
+                            }
+                        }
+
+                        // TO DO : Equivalent for behind when the character is facing the camera
+
+                        // Increment to next position
+
+                        Debug.Log("Linear evolution this frame : " + factor + " * " + alignSpeed + " * " + Time.deltaTime + " = " + factor * alignSpeed * Time.deltaTime * Mathf.Abs(newTargetAngle) / 180f);
+                        thisPercent = Mathf.Min(thisPercent + factor * alignSpeed * Time.deltaTime, 1.0f); // TO CHECK : Dependant to angle gives quite another gamefeel
 
                         //previousSinerp  = thisSinerp;
                         previousSinerp =  Sinerp(previousPercent); // HOW IS IT DIFFERENT FROM THE LINE ABOVE ????

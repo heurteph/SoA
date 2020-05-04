@@ -127,14 +127,14 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
             if (isDamaged)
             {
-                inputs.Player.Walk.Disable();
-                inputs.Player.ProtectEyes.Enable();
-                inputs.Player.ProtectEars.Enable();
+                //inputs.Player.Walk.Disable();
+                //inputs.Player.ProtectEyes.Enable();
+                //inputs.Player.ProtectEars.Enable();
             }
 
             if (isProtectingEyes || isProtectingEars)
             {
-                inputs.Player.Walk.Enable();
+                //inputs.Player.Walk.Enable();
                 isDamaged = false; // To check
             }
 

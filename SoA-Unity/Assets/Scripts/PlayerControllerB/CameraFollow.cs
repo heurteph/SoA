@@ -585,7 +585,7 @@ public class CameraFollow : MonoBehaviour
                         {
                             if( ! hit.transform.CompareTag("Player"))
                             {
-                                factor = Mathf.Min(factor + 10 * Time.deltaTime, 2);
+                                factor = Mathf.Min(factor + 10 * Time.deltaTime, 3);
                             }
                             else
                             {

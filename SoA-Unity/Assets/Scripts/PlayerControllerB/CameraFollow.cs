@@ -221,9 +221,9 @@ public class CameraFollow : MonoBehaviour
     private float minDistanceToObstacle = 2;
 
     [SerializeField]
-    [Range(0.1f,25)]
+    [Range(0.1f,5f)]
     [Tooltip("The angle in degrees between the start and end of the LineCasts used to approximate a circular cast")]
-    private float maxDegDelta = 10; // degrees
+    private float maxDegDelta = 1; // degrees
 
     bool isColliding = false; // TO DO : Remove
     float lastDistanceToCollider = Mathf.Infinity; // TO DO : Remove
@@ -641,15 +641,23 @@ public class CameraFollow : MonoBehaviour
                 float distanceToObstacle = ArcLength(endForward.magnitude, Vector3.Angle(startPosition - player.transform.position, obstaclePosition - player.transform.position));
 
                 int i_backward = 0;
+                bool visibility = true;
+
+                if (Physics.Linecast(startPosition, player.transform.position, out hit)) // CHECK if childs should be on layer Play as well
+                {
+                    if (hit.transform.CompareTag("Player")){ visibility = true; }
+                    else { visibility = false; Debug.Log("OCCLUSION");}
+                }
 
                 // Backward tracking if too close to the obstacle, use arc-length for the distances
 
-                while (distanceToObstacle < minDistanceToObstacle
-                &&     Mathf.Abs(endAngle) > 0) // avoid infinite backtracking / SIGN !!!!)
+                while ((distanceToObstacle < minDistanceToObstacle
+                ||      visibility == false)
+                &&      Mathf.Abs(endAngle) < 180) // No backtrack under -180 or above 180 // startAngle or endAngle ??????
                 {
                     // Backtrack to 0, SPECIAL CASE : WHAT HAPPEN WHEN EVEN 0 IS NOT ENOUGH TO RESPECT THE MINDISTANCE !!!!!!!!!!!!!!
 
-                    endAngle    = Mathf.Sign(targetAngle) > 0 ? Mathf.Max(startAngle - maxDegDelta, 0) : Mathf.Min(startAngle + maxDegDelta, 0);
+                    endAngle    = Mathf.Sign(targetAngle) > 0 ? Mathf.Max(startAngle - maxDegDelta, -180) : Mathf.Min(startAngle + maxDegDelta, 180);
                     endForward  = Quaternion.Euler(0, endAngle - startAngle, 0) * startForward;
                     endPosition = player.transform.position + endForward;
 
@@ -658,6 +666,21 @@ public class CameraFollow : MonoBehaviour
                     startAngle    = endAngle;
                     startForward  = endForward;
                     startPosition = endPosition;
+
+                    // Check for occlusions
+
+                    if (Physics.Linecast(startPosition, player.transform.position, out hit)) // CHECK if childs should be on layer Play as well
+                    {
+                        if (hit.transform.CompareTag("Player"))
+                        {
+                            visibility = true;
+                        }
+                        else
+                        {
+                            visibility = false;
+                            Debug.Log("OCCLUSION");
+                        }
+                    }
 
                     //Debug.Log("One node backtracked " + startAngle + "/" + targetAngle); i_backward++;
                 }
@@ -676,7 +699,8 @@ public class CameraFollow : MonoBehaviour
             startForward = endForward;
             startPosition = player.transform.position + startForward; // height ???? it's a the ground level not at the camera's height !!!
 
-            // If reached the target without a single collision, we still have to check for minDistance
+            /* If reached the target without a single collision,
+             * we still have to check for minDistance */
 
             if (Mathf.Approximately(startAngle, targetAngle))
             {
@@ -689,30 +713,82 @@ public class CameraFollow : MonoBehaviour
                 // Do a forward-checking to guarantee the minDistance
 
                 int i_lf_backward = 0;
+                float distanceToObstacle = Mathf.Infinity;
+                Vector3 obstaclePosition = Vector3.positiveInfinity;
+
                 if (Physics.Linecast(startPosition, forwardCheckingPosition, out hit))
                 {
                     Debug.Log("Hit obstacle during looking-forward");
 
-                    Vector3 obstaclePosition = hit.point;
-                    float distanceToObstacle = ArcLength(startForward.magnitude, Vector3.Angle(obstaclePosition - player.transform.position, startPosition - player.transform.position));
+                    obstaclePosition = hit.point;
+                    distanceToObstacle = ArcLength(startForward.magnitude, Vector3.Angle(obstaclePosition - player.transform.position, startPosition - player.transform.position));
+                }
 
-                    while (distanceToObstacle < minDistanceToObstacle
-                        && Mathf.Abs(endAngle) > 0) // SIGN !!! // startAngle or endAngle ??????
+                bool visibility = true;
+
+                if (Physics.Linecast(startPosition, player.transform.position, out hit)) // CHECK if childs should be on layer Play as well
+                {
+                    if(hit.transform.CompareTag("Player"))
                     {
-                        // Backtrack to 0, SPECIAL CASE : WHEN EVEN 0 IS NOT ENOUGH TO RESPECT THE MINDISTANCE !!!!!!!!!!!!!!
-                        i_lf_backward++;
-
-                        endAngle    = Mathf.Sign(targetAngle) > 0 ? Mathf.Max(startAngle - maxDegDelta, 0) : Mathf.Min(startAngle + maxDegDelta, 0);
-                        endForward  = Quaternion.Euler(0, endAngle - startAngle, 0) * startForward;
-                        endPosition = player.transform.position + endForward;
-
-                        distanceToObstacle = ArcLength(endForward.magnitude, Vector3.Angle(obstaclePosition - player.transform.position, startPosition - player.transform.position)); // CHECK : startPosition or endPosition ???
-
-                        startAngle    = endAngle;
-                        startForward  = endForward;
-                        startPosition = endPosition;
+                        visibility = true;
+                    }
+                    else
+                    {
+                        visibility = false;
+                        Debug.Log("OCCLUSION");
                     }
                 }
+
+                // If position isn't available, start a backtracking
+
+                while ((distanceToObstacle < minDistanceToObstacle
+                      || visibility == false)
+                      && Mathf.Abs(endAngle) < 180) // SIGN !!! No backtrack under -180 or above 180 // startAngle or endAngle ??????
+                {
+                    // Backtrack to 0, SPECIAL CASE : WHEN EVEN 0 IS NOT ENOUGH TO RESPECT THE MINDISTANCE !!!!!!!!!!!!!! WE CAN'T GO UNDER 0 BECAUSE WE DON'T KNOW IF THERE ARE OBSTACLES THERE
+                    i_lf_backward++;
+
+                    endAngle = Mathf.Sign(targetAngle) > 0 ? Mathf.Max(startAngle - maxDegDelta, -180) : Mathf.Min(startAngle + maxDegDelta, 180); // 180 degrees beyond 0
+                    endForward = Quaternion.Euler(0, endAngle - startAngle, 0) * startForward;
+                    endPosition = player.transform.position + endForward;
+
+                    if (distanceToObstacle != Mathf.Infinity)
+                        distanceToObstacle = ArcLength(endForward.magnitude, Vector3.Angle(obstaclePosition - player.transform.position, startPosition - player.transform.position)); // CHECK : startPosition or endPosition ???
+
+                    startAngle = endAngle;
+                    startForward = endForward;
+                    startPosition = endPosition;
+
+                    // Check for occlusions
+
+                    if (Physics.Linecast(startPosition, player.transform.position, out hit)) // CHECK if childs should be on layer Play as well
+                    {
+                        if (hit.transform.CompareTag("Player"))
+                        {
+                            visibility = true;
+                        }
+                        else
+                        {
+                            visibility = false;
+                            Debug.Log("OCCLUSION");
+                        }
+                    }
+
+                    // If angle has backtracked to the other side, check for collision on this unknown side
+                    // No need to check for minDistance as we have already checked every other solution
+                    // So on the first opposite obstacle, we know we have no solutions left
+
+                    if ((endAngle < 0 && targetAngle > 0) || (endAngle > 0 && targetAngle < 0))
+                    {
+                        if (Physics.Linecast(startPosition, endPosition, out hit))
+                        {
+                            // no solution, return default angle
+                            Debug.Log("No solution for visibility, reseting angle to 0");
+                            return 0;
+                        }
+                    }
+                }
+
                 Debug.Log("Crossed " + i_forward + " nodes and backtracked " + i_lf_backward + " nodes from the obstacle");
                 return startAngle; // should it be startAngle or endAngle ?
             }

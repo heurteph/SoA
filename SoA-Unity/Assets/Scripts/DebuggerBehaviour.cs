@@ -105,13 +105,13 @@ public class DebuggerBehaviour : MonoBehaviour
         indirectBrightnessPercentage.text = Mathf.Round(percentage*1000)/10 + "%";
 
         indirectBrightnessGauge.value = percentage;
-        indirectBrightnessThresholdGauge.value = indirectBrightness.PercentageThreshold;
+        indirectBrightnessThresholdGauge.value = indirectBrightness.BrightnessThreshold;
 
-        if (percentage >= indirectBrightness.PercentageThreshold)
+        if (percentage >= indirectBrightness.BrightnessThreshold)
         {
             indirectBrightnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.red;
         }
-        else if (percentage >= indirectBrightness.PercentageThreshold * 0.5f)
+        else if (percentage >= indirectBrightness.BrightnessThreshold * 0.5f)
         {
             indirectBrightnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
         }
@@ -127,13 +127,13 @@ public class DebuggerBehaviour : MonoBehaviour
         directBrightnessPercentage.text = Mathf.Round(percentage * 1000) / 10 + "%";
 
         directBrightnessGauge.value = percentage;
-        directBrightnessThresholdGauge.value = directBrightness.PercentageThreshold;
+        directBrightnessThresholdGauge.value = directBrightness.BrightnessThreshold;
 
-        if (percentage >= directBrightness.PercentageThreshold)
+        if (percentage >= directBrightness.BrightnessThreshold)
         {
             directBrightnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.red;
         }
-        else if (percentage >= directBrightness.PercentageThreshold * 0.5f)
+        else if (percentage >= directBrightness.BrightnessThreshold * 0.5f)
         {
             directBrightnessGauge.fillRect.gameObject.GetComponent<Image>().color = Color.yellow;
         }

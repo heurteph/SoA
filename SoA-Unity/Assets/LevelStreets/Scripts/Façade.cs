@@ -9,6 +9,16 @@ public class Façade: MonoBehaviour
     private int index;
 
     [SerializeField]
+    [Range(0,100)]
+    private float lightIntensity;
+
+    [SerializeField]
+    private float lightAngle = 20;
+
+    [SerializeField]
+    private float lightRange = 10;
+
+    [SerializeField]
     private Material darkMat;
 
     [SerializeField]
@@ -64,7 +74,10 @@ public class Façade: MonoBehaviour
         
         windows[index].GetComponent<MeshRenderer>().material = lightMat;
         windows[index].transform.GetChild(0).GetComponent<Light>().enabled = true;
-        windows[index].transform.GetChild(1).GetComponent<MeshRenderer>().enabled = true;
+        windows[index].transform.GetChild(0).GetComponent<Light>().spotAngle = 20;
+        windows[index].transform.GetChild(0).GetComponent<Light>().spotAngle = 10;
+        windows[index].transform.GetChild(0).GetComponent<Light>().intensity = 0.5f;
+        windows[index].transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false; // CILYNDRE A METRE TRUUUUUE CACA
     }
 
     private void LightsOut()

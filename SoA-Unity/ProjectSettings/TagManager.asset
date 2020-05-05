@@ -8,6 +8,7 @@ TagManager:
   - Shelter Entrance
   - Shelter
   - Head
+  - Walkable
   layers:
   - Default
   - TransparentFX

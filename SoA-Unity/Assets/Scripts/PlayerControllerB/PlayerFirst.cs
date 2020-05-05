@@ -252,5 +252,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         speed = normalSpeed;
         isHurry = false;
     }
+   
+    
 
 } // FINISH

@@ -36,24 +36,36 @@ public class VisionBehaviour : MonoBehaviour
     [Tooltip("How many times per second the vision is updated (in Hz)")]
     private float refreshFrequency = 4;
 
+    private enum FILTERMODE { BlackAndWhite, GreyLevels }
     [SerializeField]
-    [Range(0,1)]
-    private float normalPercentageThreshold = 0.5f;
-
-    [SerializeField]
-    [Range(0, 1)]
-    private float protectedPercentageThreshold = 0.6f;
-
-    private float percentageThreshold;
-    public float PercentageThreshold { get { return percentageThreshold; } }
+    [Tooltip("Apply a black and white or a grey levels filter")]
+    private FILTERMODE filterMode = FILTERMODE.BlackAndWhite;
 
     [SerializeField]
     [Range(0, 255)]
-    private float brightnessThreshold = 200f;
+    [Tooltip("When using black and white filter, specify the brightness limit between black and white")]
+    private float blackAndWhiteThreshold = 220f;
+
+    [SerializeField]
+    [Range(0,1)]
+    [Tooltip("Brightness level limit before character starts feeling discomfort in normal mode")]
+    private float normalBrightnessThreshold = 0.5f;
+
+    [SerializeField]
+    [Range(0, 1)]
+    [Tooltip("Brightness level limit before character starts feeling discomfort in protected mode")]
+    private float protectedBrightnessThreshold = 0.6f;
+
+    private float brightnessThreshold;
+    public float BrightnessThreshold { get { return brightnessThreshold; } }
 
     [SerializeField]
     [Range(0, 100)]
-    private float brightnessDamage = 10f;
+    [Tooltip("Damages applied to the character when threshold is reached")]
+    private float damage = 10f;
+
+    [Space]
+    [Header("References")]
 
     [SerializeField]
     private EnergyBehaviour energyBehaviour;
@@ -75,7 +87,7 @@ public class VisionBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        percentageThreshold = normalPercentageThreshold;
+        brightnessThreshold = normalBrightnessThreshold;
         brightnessThresholdEvent += energyBehaviour.DecreaseEnergy;
         grayScaleChangedEvent += debuggerBehaviour.DisplayBrightness;
 
@@ -118,27 +130,35 @@ public class VisionBehaviour : MonoBehaviour
     {
         float sum = 0;
 
+
         for (int i=0; i < t2D.width; i++)
         {
             for (int j=0; j< t2D.height; j++)
             {
-                if (t2D.GetPixel(i, j).grayscale*255 >= brightnessThreshold)
+                if (filterMode == FILTERMODE.BlackAndWhite)
                 {
-                    sum++;
-                    t2D.SetPixel(i, j, new Color(1, 1, 1));
+                    if (t2D.GetPixel(i, j).grayscale * 255 >= blackAndWhiteThreshold)
+                    {
+                        t2D.SetPixel(i, j, new Color(1, 1, 1));
+                        sum++;
+                    }
+                    else
+                    {
+                        t2D.SetPixel(i, j, new Color(0, 0, 0));
+                    }
                 }
-                else
+                else if (filterMode == FILTERMODE.GreyLevels)
                 {
-                    t2D.SetPixel(i, j, new Color(0, 0, 0));
+                    float grey = t2D.GetPixel(i, j).grayscale;
+                    t2D.SetPixel(i, j, new Color(grey,grey,grey));
+                    sum += grey;
                 }
-              //  float grayscale = t2D.GetPixel(i, j).grayscale; // monstre 2
-              //  t2D.SetPixel(i, j, new Color(grayscale,grayscale,grayscale)); // monstre
             }
         }
 
-        if (sum >= percentageThreshold * t2D.width * t2D.height)
+        if (sum >= brightnessThreshold * t2D.width * t2D.height)
         {
-            brightnessThresholdEvent(brightnessDamage);
+            brightnessThresholdEvent(damage);
         }
 
         t2D.Apply();
@@ -147,12 +167,12 @@ public class VisionBehaviour : MonoBehaviour
 
     public void CoverEyes()
     {
-        percentageThreshold = protectedPercentageThreshold;
+        brightnessThreshold = protectedBrightnessThreshold;
     }
 
     public void UncoverEyes()
     {
-        percentageThreshold = normalPercentageThreshold;
+        brightnessThreshold = normalBrightnessThreshold;
     }
 
     private void InjectCameraToFBX()
@@ -163,9 +183,9 @@ public class VisionBehaviour : MonoBehaviour
             throw new System.Exception("Camera Character Error : No head element found");
         }
         head = new GameObject();
-        head.transform.position = headMesh.transform.position + cameraOffset;
-        head.transform.rotation = Quaternion.Euler(cameraAngle) * headMesh.transform.rotation;
-        
+        head.transform.position = headMesh.transform.position + transform.rotation * cameraOffset;
+        head.transform.rotation = transform.rotation * Quaternion.Euler(cameraAngle);
+
         visionCamera = head.AddComponent<Camera>();
         visionCamera.nearClipPlane = 0.1f;
         visionCamera.targetTexture = targetTexture;

@@ -26,7 +26,7 @@ public class Car : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity))
         {
-            transform.position = new Vector3(transform.position.x, hit.transform.position.y + 10, transform.position.z);
+            transform.position = new Vector3(transform.position.x, hit.point.y + 5, transform.position.z);
         }
     }
 
@@ -43,7 +43,7 @@ public class Car : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, Mathf.Infinity))
         {
-            transform.position = new Vector3(transform.position.x, hit.transform.position.y + 10, transform.position.z);
+            transform.position = new Vector3(transform.position.x, hit.point.y + 5, transform.position.z);
         }
     }
 }

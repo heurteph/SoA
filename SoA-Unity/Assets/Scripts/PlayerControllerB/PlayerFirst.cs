@@ -196,16 +196,19 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
     void StickToGround()
     {
-        RaycastHit hit;
-        LayerMask ground = LayerMask.GetMask("Ground");
+        if (raycastPosition && groundLevelPosition)
+        {
+            RaycastHit hit;
+            LayerMask ground = LayerMask.GetMask("Ground");
 
-        if (Physics.Raycast(raycastPosition.position, -Vector3.up, out hit, Mathf.Infinity, ground))
-        {
-            movement = (hit.point - groundLevelPosition.position);
-        }
-        else
-        {
-            movement = Vector3.zero;
+            if (Physics.Raycast(raycastPosition.position, -Vector3.up, out hit, Mathf.Infinity, ground))
+            {
+                movement = (hit.point - groundLevelPosition.position);
+            }
+            else
+            {
+                movement = Vector3.zero;
+            }
         }
     }
 

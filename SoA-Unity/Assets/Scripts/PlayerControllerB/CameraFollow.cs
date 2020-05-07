@@ -63,6 +63,9 @@ public class CameraFollow : MonoBehaviour
     private float verticalDuration = 0.5f; // seconds
 
     private Vector2 accumulator = Vector2.zero;
+    private Vector2 lastInputVector = Vector2.zero;
+    private Vector2 startAccumulator = Vector2.zero;
+    private Vector2 smoothAccumulator = Vector2.zero;
 
     private float forwardAccumulator = 0;
     private float forwardDuration = 2; //s
@@ -308,16 +311,11 @@ public class CameraFollow : MonoBehaviour
 
         if (!isTargeting)
         {
-            LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+            //LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
             //ProjectiveLookAround(inputs.Player.ProjectiveLook.ReadValue<float>());
             //ExtendedLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+            SmoothLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
         }
-
-        /*
-        if (cameraSway)
-        {
-            Sway();
-        }*/
     }
 
 
@@ -896,6 +894,128 @@ public class CameraFollow : MonoBehaviour
         heldCamera.transform.localRotation  = Quaternion.Euler(y_stabilization, 0, 0);
         heldCamera.transform.localRotation *= Quaternion.Euler(0, smoothx * maxHorizontalAngle, 0);
         heldCamera.transform.localRotation *= Quaternion.Euler(-smoothy * maxVerticalAngle, 0, 0);
+    }
+
+    void SmoothLookAround(Vector2 inputVector)
+    {
+        if (!Mathf.Approximately(inputVector.x, 0))
+        {
+            if (lastInputVector.x == 0 || inputVector.x < 0 && lastInputVector.x > 0 || inputVector.x > 0 && lastInputVector.x < 0)
+            {
+                accumulator.x = smoothAccumulator.x;
+                startAccumulator.x = accumulator.x;
+            }
+            else
+            {
+                // WHY HERE ?
+                accumulator.x = Mathf.Clamp(accumulator.x + inputVector.x * Time.deltaTime / horizontalDuration, -1, 1);
+            }
+
+            if (!Mathf.Approximately(Mathf.Sign(inputVector.x), startAccumulator.x)) // avoid dividing by zero
+            {
+                smoothAccumulator.x = Mathf.SmoothStep(startAccumulator.x, Mathf.Sign(inputVector.x), Mathf.Abs(accumulator.x - startAccumulator.x) / Mathf.Abs((Mathf.Sign(inputVector.x) - startAccumulator.x)));
+            }
+            else
+            {
+                smoothAccumulator.x = 1.0f;
+            }
+
+            lastInputVector.x = inputVector.x;
+        }
+        else
+        {
+            if (accumulator.x == 0)
+            {
+                startAccumulator.x = 0;
+            }
+            if (lastInputVector.x != 0)
+            {
+                accumulator.x = smoothAccumulator.x;
+                startAccumulator.x = accumulator.x;
+            }
+            else
+            {
+                // WHY HERE ?
+                accumulator.x = (1 - Mathf.Sign(accumulator.x)) / 2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0);
+                }
+
+            if (startAccumulator.x != 0)
+            {
+                smoothAccumulator.x = Mathf.SmoothStep(startAccumulator.x, 0, Mathf.Abs(accumulator.x - startAccumulator.x) / Mathf.Abs(startAccumulator.x));
+            }
+            else
+            {
+                smoothAccumulator.x = 0.0f;
+            }
+
+            lastInputVector.x = 0;
+        }
+
+        if (!Mathf.Approximately(inputVector.y, 0))
+        {
+            accumulator.y = Mathf.Clamp(accumulator.y + inputVector.y * Time.deltaTime / verticalDuration, -1, 1);
+
+            if (lastInputVector.y == 0 || inputVector.y < 0 && lastInputVector.y > 0 || inputVector.y > 0 && lastInputVector.y < 0)
+            {
+                accumulator.y = smoothAccumulator.y;
+                startAccumulator.y = accumulator.y;
+            }
+
+            if (!Mathf.Approximately(Mathf.Sign(inputVector.y), startAccumulator.y)) // avoid dividing by zero
+            {
+                smoothAccumulator.y = Mathf.SmoothStep(startAccumulator.y, Mathf.Sign(inputVector.y), Mathf.Abs(accumulator.y - startAccumulator.y) / Mathf.Abs((Mathf.Sign(inputVector.y) - startAccumulator.y)));
+            }
+            else
+            {
+                smoothAccumulator.y = 1.0f;
+            }
+            lastInputVector.y = inputVector.y;
+        }
+        else
+        {
+            if (accumulator.y == 0)
+            {
+                startAccumulator.y = 0;
+            }
+
+            if (lastInputVector.y != 0)
+            {
+                accumulator.y = smoothAccumulator.y;
+                startAccumulator.y = accumulator.y;
+            }
+
+            if (startAccumulator.y != 0)
+            {
+                smoothAccumulator.y = Mathf.SmoothStep(startAccumulator.y, 0, Mathf.Abs(accumulator.y - startAccumulator.y) / Mathf.Abs(startAccumulator.y));
+            }
+            else
+            {
+                smoothAccumulator.y = 0.0f;
+            }
+
+            accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0);
+
+            lastInputVector.y = 0;
+        }
+
+        // Stabilization of the look around
+        float y_stabilization = 0;
+        if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon; }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
+
+        else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon; }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
+
+        else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
+
+        // Must be separated in two because unity's order for euler is ZYX and we want X-Y-X
+        //heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
+        heldCamera.transform.localRotation = Quaternion.Euler(y_stabilization, 0, 0);
+        heldCamera.transform.localRotation *= Quaternion.Euler(0, smoothAccumulator.x * maxHorizontalAngle, 0);
+        heldCamera.transform.localRotation *= Quaternion.Euler(-smoothAccumulator.y * maxVerticalAngle, 0, 0);
     }
 
     void ProjectiveLookAround(float v)

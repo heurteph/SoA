@@ -35,18 +35,14 @@ public class Car : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(nextPoint.transform.position.x, transform.position.y, nextPoint.transform.position.z), speed * Time.deltaTime);
 
-        Debug.Log(transform.name + ", test " + transform.position + " against " + nextPoint.transform.position);
-
         if(Vector3.ProjectOnPlane(transform.position,Vector3.up) == Vector3.ProjectOnPlane(nextPoint.transform.position, Vector3.up))
         //if(transform.position.x == nextPoint.transform.position.x && transform.position.z == nextPoint.transform.position.z)
         {
-            Debug.Log("REACHED POSITION : " + transform.position + " at " + index);
             Vector3 startForward = transform.forward;
             index = (index + 1) % points.Length;
             nextPoint = points[index];
             Vector3 endForward = nextPoint.transform.forward;
             StartCoroutine("Turn", new Vector3[2] { startForward, endForward });
-            Debug.Log("MOVING TO MY NEW TARGET : " + nextPoint.transform.position + " at " + index);
         }
 
         RaycastHit hit;
@@ -58,7 +54,6 @@ public class Car : MonoBehaviour
 
     private IEnumerator Turn(Vector3[] vectors)
     {
-        Debug.Log("Start Coroutine");
         float t = 0;
         float speed = 0.4f;
         Vector3 startForward = vectors[0];
@@ -72,6 +67,5 @@ public class Car : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(currentForward);
             yield return null;
         }
-        Debug.Log("End Coroutine");
     }
 }

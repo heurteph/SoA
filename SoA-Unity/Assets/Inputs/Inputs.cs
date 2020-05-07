@@ -217,7 +217,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""OKLM"",
                     ""id"": ""c25cd6c7-55a7-4de6-b05c-c31c163799d8"",
                     ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",

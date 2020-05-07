@@ -24,7 +24,9 @@
 							<Value>0</Value>
 						</RTPCValue>
 					</RTPCValueList>
-					<CurrentStateList ShowAll="true"/>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="Oui" ID="{3B1D87B5-D050-4FB0-A173-6AB9E776B5AA}"/>
+					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Court" ID="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}"/>
 						<CurrentSwitchRef Name="Droit" ID="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}"/>

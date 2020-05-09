@@ -7,6 +7,15 @@ public class SplineUser : MonoBehaviour
     [SerializeField] [Tooltip("The user of the spline")]
     private Transform target;
 
+    [SerializeField]
+    [Tooltip("The raycaster")]
+    private Transform raycaster;
+
+    [SerializeField]
+    [Tooltip("The ground level")]
+    private Transform groundLevel;
+    private float groundOffset;
+
     [SerializeField] [Tooltip("The spline used by the object")]
     private Spline spline;
 
@@ -35,6 +44,7 @@ public class SplineUser : MonoBehaviour
 
     private void Start()
     {
+        groundOffset = target.transform.position.y - groundLevel.transform.position.y;
         movingState = STATE.NORMAL;
         if      (directionState == DIRECTION.FORWARD)  { directionalRotation = Quaternion.identity; }
         else if (directionState == DIRECTION.BACKWARD) { directionalRotation = Quaternion.Euler(0, 180, 0); }
@@ -61,10 +71,12 @@ public class SplineUser : MonoBehaviour
                 else if (directionState == DIRECTION.BACKWARD) { smoothstep = Mathf.SmoothStep(startPercentage, 1, 1 - percentage); }
 
                 CurveDetail cd = spline.GetCurve(smoothstep);
-                Debug.Log(transform.name + "on curve " + cd.currentCurve);
+                Debug.Log(transform.name + "on curve " + cd.currentCurve); // TO DO : Stop before a turn
 
                 target.position = spline.GetPosition(smoothstep);
                 target.rotation = Quaternion.LookRotation(directionalRotation * spline.GetDirection(smoothstep));
+                StickToTheGround();
+
                 if (percentage == 1)
                 {
                     percentage = 0;
@@ -85,9 +97,18 @@ public class SplineUser : MonoBehaviour
         movingState = STATE.NORMAL;
     }
 
+    private void StickToTheGround()
+    {
+        LayerMask mask = LayerMask.GetMask("Ground");
+        if(Physics.Raycast(raycaster.transform.position, Vector3.down, out RaycastHit hit, Mathf.Infinity, mask))
+        {
+            target.position = new Vector3(target.position.x, hit.point.y + groundOffset, target.position.z);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        if(other.transform.CompareTag("Player"))
+        if(other.transform.CompareTag("Player") || other.transform.CompareTag("Vehicle"))
         {
             if (movingState != STATE.FREEZE)
             {

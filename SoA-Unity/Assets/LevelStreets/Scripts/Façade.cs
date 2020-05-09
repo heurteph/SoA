@@ -10,7 +10,7 @@ public class Façade: MonoBehaviour
 
     [SerializeField]
     [Range(0,100)]
-    private float lightIntensity;
+    private float lightIntensity = 1;
 
     [SerializeField]
     private float lightAngle = 20;
@@ -27,7 +27,7 @@ public class Façade: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        windows = new GameObject[4];
+        windows = new GameObject[transform.childCount];
         for (int i = 0; i < transform.childCount; i++)
         {
             windows[i] = transform.GetChild(i).gameObject;

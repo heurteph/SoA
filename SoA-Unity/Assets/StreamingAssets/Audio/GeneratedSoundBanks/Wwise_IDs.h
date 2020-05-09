@@ -49,6 +49,28 @@ namespace AK
 
     namespace SWITCHES
     {
+        namespace COURT_MARCHE
+        {
+            static const AkUniqueID GROUP = 4156334155U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID COURT = 2871560606U;
+                static const AkUniqueID MARCHE = 1630799659U;
+            } // namespace SWITCH
+        } // namespace COURT_MARCHE
+
+        namespace DROIT_GAUCHE
+        {
+            static const AkUniqueID GROUP = 3079589013U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DROIT = 2723061045U;
+                static const AkUniqueID GAUCHE = 1211705900U;
+            } // namespace SWITCH
+        } // namespace DROIT_GAUCHE
+
         namespace PAS_MATIERE
         {
             static const AkUniqueID GROUP = 3869192313U;
@@ -56,8 +78,9 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID ASPHALT = 4169408098U;
+                static const AkUniqueID BETON = 386080821U;
+                static const AkUniqueID GRAVIER = 2434290853U;
                 static const AkUniqueID HERBE = 2495190089U;
-                static const AkUniqueID TERRE = 508852877U;
             } // namespace SWITCH
         } // namespace PAS_MATIERE
 

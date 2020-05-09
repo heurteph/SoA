@@ -141,7 +141,7 @@ public class HearingScript : MonoBehaviour
             {
                 LoudnessThresholdEvent(loudnessDamage);
 
-                DamagingSourceEvent?.Invoke(ClosestAudioSource()); // more explicit test of existence needed
+                //DamagingSourceEvent?.Invoke(ClosestAudioSource()); // more explicit test of existence needed
             }
             yield return new WaitForSeconds(1f / refreshFrequency);
         }
@@ -157,6 +157,7 @@ public class HearingScript : MonoBehaviour
         loudnessThreshold = normalLoudnessThreshold;
     }
 
+    /*
     public GameObject ClosestAudioSource()
     {
         float minDistance = Mathf.Infinity;
@@ -179,5 +180,6 @@ public class HearingScript : MonoBehaviour
         Debug.Log(closestAudioSource.transform.name + closestAudioSource.transform.position + " is the closest AudioSource");
         return closestAudioSource;
     }
+    */
 
 } // FINISH

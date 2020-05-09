@@ -19,6 +19,9 @@ public class EnergyBehaviour : MonoBehaviour
     public delegate void EnergyChangedHandler(float e);
     public event EnergyChangedHandler EnergyChangedEvent;
 
+    public delegate void OutOfEnergyHandler();
+    public event OutOfEnergyHandler OutOfEnergyEvent;
+
     private bool isReloading;
     public bool IsReloading { get { return isReloading; } set { isReloading = value; } }
     
@@ -99,6 +102,7 @@ public class EnergyBehaviour : MonoBehaviour
     void OutOfEnergy() // pour l'instant
     {
         script.enabled = false;
+        OutOfEnergyEvent?.Invoke();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

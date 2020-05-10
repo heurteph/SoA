@@ -627,7 +627,698 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2793971418" Name="Play_RespirationMix" ObjectPath="\Events\Personnage\Play_RespirationMix" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2860278991" Name="Play_Respiration_Mouvement" ObjectPath="\Events\Personnage\Play_Respiration_Mouvement" DurationType="OneShot" DurationMin="0.261021" DurationMax="1.311500">
+					<IncludedMemoryFiles>
+						<File Id="30899550" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 05.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="36818040" Language="SFX">
+							<ShortName>Respiration_Court_Expire 27.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 27_10C4C929.wem</Path>
+						</File>
+						<File Id="43277341" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 06.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="54279077" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 06.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="57464071" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 13.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 13_10C4C929.wem</Path>
+						</File>
+						<File Id="70032186" Language="SFX">
+							<ShortName>Respiration_Court_Expire 31.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 31_10C4C929.wem</Path>
+						</File>
+						<File Id="84562496" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 09.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="87131940" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 08.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="91899094" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 04.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 04_10C4C929.wem</Path>
+						</File>
+						<File Id="106680139" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 15.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 15_10C4C929.wem</Path>
+						</File>
+						<File Id="107858183" Language="SFX">
+							<ShortName>Respiration_Court_Expire 19.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 19_10C4C929.wem</Path>
+						</File>
+						<File Id="111522123" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 05.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="118356139" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 13.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 13_10C4C929.wem</Path>
+						</File>
+						<File Id="130250283" Language="SFX">
+							<ShortName>Respiration_Court_Expire 12.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 12_10C4C929.wem</Path>
+						</File>
+						<File Id="133567054" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 25.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 25_10C4C929.wem</Path>
+						</File>
+						<File Id="140338834" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 15.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 15_10C4C929.wem</Path>
+						</File>
+						<File Id="149083432" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 14.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 14_10C4C929.wem</Path>
+						</File>
+						<File Id="156857300" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 16.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 16_10C4C929.wem</Path>
+						</File>
+						<File Id="159366355" Language="SFX">
+							<ShortName>Respiration_Court_Expire 20.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 20_10C4C929.wem</Path>
+						</File>
+						<File Id="159895497" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 14.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 14_10C4C929.wem</Path>
+						</File>
+						<File Id="161278889" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 21.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 21_10C4C929.wem</Path>
+						</File>
+						<File Id="177025609" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 01.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="178787808" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 24.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 24_10C4C929.wem</Path>
+						</File>
+						<File Id="183878012" Language="SFX">
+							<ShortName>Respiration_Court_Expire 09.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="186202236" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 21.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 21_10C4C929.wem</Path>
+						</File>
+						<File Id="188543872" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 13.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 13_10C4C929.wem</Path>
+						</File>
+						<File Id="188782225" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 06.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="199712462" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 15.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 15_10C4C929.wem</Path>
+						</File>
+						<File Id="209981714" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 03.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="210028815" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 01.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="228934976" Language="SFX">
+							<ShortName>Respiration_Court_Expire 03.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="229385197" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 29.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 29_10C4C929.wem</Path>
+						</File>
+						<File Id="231901108" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 12.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 12_10C4C929.wem</Path>
+						</File>
+						<File Id="248803067" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 32.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 32_10C4C929.wem</Path>
+						</File>
+						<File Id="252085283" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 07.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="253863537" Language="SFX">
+							<ShortName>Respiration_Court_Expire 10.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="280271623" Language="SFX">
+							<ShortName>Respiration_Court_Expire 08.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="282237338" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 03.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="305116361" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 11.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="306907996" Language="SFX">
+							<ShortName>Respiration_Court_Expire 17.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 17_10C4C929.wem</Path>
+						</File>
+						<File Id="307856252" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 04.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 04_10C4C929.wem</Path>
+						</File>
+						<File Id="312508325" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 31.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 31_10C4C929.wem</Path>
+						</File>
+						<File Id="340456702" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 02.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="362447976" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 02.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="379507300" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 03.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="381539701" Language="SFX">
+							<ShortName>Respiration_Court_Expire 15.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 15_10C4C929.wem</Path>
+						</File>
+						<File Id="382862239" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 10.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="384291082" Language="SFX">
+							<ShortName>Respiration_Court_Expire 28.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 28_10C4C929.wem</Path>
+						</File>
+						<File Id="392784057" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 11.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="402146478" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 16.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 16_10C4C929.wem</Path>
+						</File>
+						<File Id="418887644" Language="SFX">
+							<ShortName>Respiration_Court_Expire 01.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="433335509" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 18.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 18_10C4C929.wem</Path>
+						</File>
+						<File Id="436971117" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 20.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 20_10C4C929.wem</Path>
+						</File>
+						<File Id="444252992" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 16.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 16_10C4C929.wem</Path>
+						</File>
+						<File Id="449988057" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 09.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="450549691" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 08.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="455359272" Language="SFX">
+							<ShortName>Respiration_Court_Expire 05.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="458197160" Language="SFX">
+							<ShortName>Respiration_Court_Expire 02.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="483073926" Language="SFX">
+							<ShortName>Respiration_Court_Expire 22.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 22_10C4C929.wem</Path>
+						</File>
+						<File Id="507658070" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 05.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="511408266" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 18.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 18_10C4C929.wem</Path>
+						</File>
+						<File Id="516043458" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 03.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="532423818" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 14.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 14_10C4C929.wem</Path>
+						</File>
+						<File Id="532933540" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 12.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 12_10C4C929.wem</Path>
+						</File>
+						<File Id="535655208" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 09.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="539993137" Language="SFX">
+							<ShortName>Respiration_Court_Expire 18.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 18_10C4C929.wem</Path>
+						</File>
+						<File Id="559708279" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 17.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 17_10C4C929.wem</Path>
+						</File>
+						<File Id="568891064" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 03.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="571487502" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 12.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 12_10C4C929.wem</Path>
+						</File>
+						<File Id="571748929" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 10.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="588766014" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 17.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 17_10C4C929.wem</Path>
+						</File>
+						<File Id="614843199" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 07.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="619732760" Language="SFX">
+							<ShortName>Respiration_Court_Expire 30.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 30_10C4C929.wem</Path>
+						</File>
+						<File Id="622114062" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 19.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 19_10C4C929.wem</Path>
+						</File>
+						<File Id="623099669" Language="SFX">
+							<ShortName>Respiration_Court_Expire 11.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="626197802" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 11.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="627039395" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 23.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 23_10C4C929.wem</Path>
+						</File>
+						<File Id="627085209" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 08.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="632805930" Language="SFX">
+							<ShortName>Respiration_Court_Expire 04.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 04_10C4C929.wem</Path>
+						</File>
+						<File Id="633524349" Language="SFX">
+							<ShortName>Respiration_Court_Expire 25.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 25_10C4C929.wem</Path>
+						</File>
+						<File Id="669259752" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 02.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="676054846" Language="SFX">
+							<ShortName>Respiration_Court_Expire 33.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 33_10C4C929.wem</Path>
+						</File>
+						<File Id="700042068" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 20.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 20_10C4C929.wem</Path>
+						</File>
+						<File Id="701125589" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 06.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="702162200" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 09.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="716989158" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 06.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="730485733" Language="SFX">
+							<ShortName>Respiration_Court_Expire 16.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 16_10C4C929.wem</Path>
+						</File>
+						<File Id="743095582" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 21.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 21_10C4C929.wem</Path>
+						</File>
+						<File Id="756654577" Language="SFX">
+							<ShortName>Respiration_Court_Expire 07.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="770857165" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 22.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 22_10C4C929.wem</Path>
+						</File>
+						<File Id="770947216" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 05.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="771826963" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 02.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="772554524" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 01.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="780509655" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 04.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 04_10C4C929.wem</Path>
+						</File>
+						<File Id="811214925" Language="SFX">
+							<ShortName>Respiration_Court_Expire 06.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="826261588" Language="SFX">
+							<ShortName>Respiration_Court_Expire 32.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 32_10C4C929.wem</Path>
+						</File>
+						<File Id="841283315" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 10.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="842948694" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 07.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="843784372" Language="SFX">
+							<ShortName>Respiration_Court_Expire 13.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 13_10C4C929.wem</Path>
+						</File>
+						<File Id="849712625" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 26.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 26_10C4C929.wem</Path>
+						</File>
+						<File Id="849994248" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 19.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 19_10C4C929.wem</Path>
+						</File>
+						<File Id="866769560" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 09.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="884500584" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 04.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 04_10C4C929.wem</Path>
+						</File>
+						<File Id="886475815" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 19.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 19_10C4C929.wem</Path>
+						</File>
+						<File Id="913027824" Language="SFX">
+							<ShortName>Respiration_Court_Expire 26.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 26_10C4C929.wem</Path>
+						</File>
+						<File Id="917660478" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 30.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 30_10C4C929.wem</Path>
+						</File>
+						<File Id="917899947" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 27.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 27_10C4C929.wem</Path>
+						</File>
+						<File Id="924004420" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 10.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="928414524" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 17.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 17_10C4C929.wem</Path>
+						</File>
+						<File Id="937504818" Language="SFX">
+							<ShortName>Respiration_Court_Expire 24.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 24_10C4C929.wem</Path>
+						</File>
+						<File Id="941276710" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 11.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="947831295" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 05.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="950740234" Language="SFX">
+							<ShortName>Respiration_Court_Expire 29.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 29_10C4C929.wem</Path>
+						</File>
+						<File Id="952469816" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 07.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="954404044" Language="SFX">
+							<ShortName>Respiration_Court_Expire 21.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 21_10C4C929.wem</Path>
+						</File>
+						<File Id="962057161" Language="SFX">
+							<ShortName>Respiration_Court_Expire 14.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 14_10C4C929.wem</Path>
+						</File>
+						<File Id="965758541" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 20.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 20_10C4C929.wem</Path>
+						</File>
+						<File Id="997890582" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 08.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="1013005889" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 01.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="1027620574" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 07.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="1028414217" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 11.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="1031629776" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 28.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 28_10C4C929.wem</Path>
+						</File>
+						<File Id="1038942298" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 02.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="1039921921" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 01.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="1041041130" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 18.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 18_10C4C929.wem</Path>
+						</File>
+						<File Id="1043304638" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 12.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 12_10C4C929.wem</Path>
+						</File>
+						<File Id="1053702375" Language="SFX">
+							<ShortName>Respiration_Court_Expire 23.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 23_10C4C929.wem</Path>
+						</File>
+						<File Id="1066520133" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 10.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="1066828473" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 08.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="1073189581" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 04.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 04_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}">
+							<Children>
+								<SwitchContainer SwitchValue="{F7D3A280-1D9A-4432-998D-4526DC3381AD}">
+									<Media>
+										<File Id="772554524"/>
+										<File Id="669259752"/>
+										<File Id="516043458"/>
+										<File Id="307856252"/>
+										<File Id="507658070"/>
+										<File Id="716989158"/>
+										<File Id="252085283"/>
+										<File Id="1066828473"/>
+										<File Id="702162200"/>
+										<File Id="924004420"/>
+										<File Id="626197802"/>
+										<File Id="1043304638"/>
+										<File Id="118356139"/>
+										<File Id="532423818"/>
+										<File Id="106680139"/>
+										<File Id="402146478"/>
+										<File Id="928414524"/>
+										<File Id="1041041130"/>
+										<File Id="849994248"/>
+										<File Id="436971117"/>
+										<File Id="743095582"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{152A661B-51BD-489D-9139-5473AC644C77}">
+									<Media>
+										<File Id="1013005889"/>
+										<File Id="340456702"/>
+										<File Id="568891064"/>
+										<File Id="91899094"/>
+										<File Id="30899550"/>
+										<File Id="54279077"/>
+										<File Id="1027620574"/>
+										<File Id="627085209"/>
+										<File Id="535655208"/>
+										<File Id="1066520133"/>
+										<File Id="1028414217"/>
+										<File Id="231901108"/>
+										<File Id="188543872"/>
+										<File Id="149083432"/>
+										<File Id="199712462"/>
+										<File Id="156857300"/>
+										<File Id="559708279"/>
+										<File Id="511408266"/>
+										<File Id="886475815"/>
+										<File Id="965758541"/>
+										<File Id="186202236"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}">
+							<Children>
+								<SwitchContainer SwitchValue="{F7D3A280-1D9A-4432-998D-4526DC3381AD}">
+									<Media>
+										<File Id="418887644"/>
+										<File Id="458197160"/>
+										<File Id="228934976"/>
+										<File Id="632805930"/>
+										<File Id="455359272"/>
+										<File Id="811214925"/>
+										<File Id="756654577"/>
+										<File Id="280271623"/>
+										<File Id="183878012"/>
+										<File Id="253863537"/>
+										<File Id="623099669"/>
+										<File Id="130250283"/>
+										<File Id="843784372"/>
+										<File Id="962057161"/>
+										<File Id="381539701"/>
+										<File Id="730485733"/>
+										<File Id="306907996"/>
+										<File Id="539993137"/>
+										<File Id="107858183"/>
+										<File Id="159366355"/>
+										<File Id="954404044"/>
+										<File Id="483073926"/>
+										<File Id="1053702375"/>
+										<File Id="937504818"/>
+										<File Id="633524349"/>
+										<File Id="913027824"/>
+										<File Id="36818040"/>
+										<File Id="384291082"/>
+										<File Id="950740234"/>
+										<File Id="619732760"/>
+										<File Id="70032186"/>
+										<File Id="826261588"/>
+										<File Id="676054846"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{152A661B-51BD-489D-9139-5473AC644C77}">
+									<Media>
+										<File Id="177025609"/>
+										<File Id="362447976"/>
+										<File Id="209981714"/>
+										<File Id="780509655"/>
+										<File Id="111522123"/>
+										<File Id="701125589"/>
+										<File Id="952469816"/>
+										<File Id="997890582"/>
+										<File Id="449988057"/>
+										<File Id="841283315"/>
+										<File Id="941276710"/>
+										<File Id="571487502"/>
+										<File Id="57464071"/>
+										<File Id="159895497"/>
+										<File Id="140338834"/>
+										<File Id="444252992"/>
+										<File Id="588766014"/>
+										<File Id="433335509"/>
+										<File Id="622114062"/>
+										<File Id="700042068"/>
+										<File Id="161278889"/>
+										<File Id="770857165"/>
+										<File Id="627039395"/>
+										<File Id="178787808"/>
+										<File Id="133567054"/>
+										<File Id="849712625"/>
+										<File Id="917899947"/>
+										<File Id="1031629776"/>
+										<File Id="229385197"/>
+										<File Id="917660478"/>
+										<File Id="312508325"/>
+										<File Id="248803067"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{735E6AAB-BB90-4C0D-8F0B-E13EA2E2848F}">
+							<Children>
+								<SwitchContainer SwitchValue="{F7D3A280-1D9A-4432-998D-4526DC3381AD}">
+									<Media>
+										<File Id="210028815"/>
+										<File Id="771826963"/>
+										<File Id="379507300"/>
+										<File Id="884500584"/>
+										<File Id="770947216"/>
+										<File Id="43277341"/>
+										<File Id="614843199"/>
+										<File Id="87131940"/>
+										<File Id="84562496"/>
+										<File Id="571748929"/>
+										<File Id="392784057"/>
+										<File Id="532933540"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{152A661B-51BD-489D-9139-5473AC644C77}">
+									<Media>
+										<File Id="1039921921"/>
+										<File Id="1038942298"/>
+										<File Id="282237338"/>
+										<File Id="1073189581"/>
+										<File Id="947831295"/>
+										<File Id="188782225"/>
+										<File Id="842948694"/>
+										<File Id="450549691"/>
+										<File Id="866769560"/>
+										<File Id="382862239"/>
+										<File Id="305116361"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="1047604054" Name="Play_Texture_Pas" ObjectPath="\Events\Personnage\Play_Texture_Pas" DurationType="OneShot" DurationMin="0.063854" DurationMax="0.621896">
 					<IncludedMemoryFiles>
 						<File Id="1721556" Language="SFX">
@@ -2177,7 +2868,6 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="428373397" Name="VitesseVoitureElec" ObjectPath="\Game Parameters\Obstacles\VitesseVoitureElec"/>
-				<GameParameter Id="3665353697" Name="Personnage_Vitesse" ObjectPath="\Game Parameters\Personnage\Personnage_Vitesse"/>
 			</GameParameters>
 			<SwitchGroups>
 				<SwitchGroup Id="3079589013" Name="Droit_Gauche" ObjectPath="\Switches\Personnage\Droit_Gauche">
@@ -2194,10 +2884,17 @@
 						<Switch Id="386080821" Name="Beton" ObjectPath="\Switches\Personnage\Pas_Matiere\Beton"/>
 					</Switches>
 				</SwitchGroup>
+				<SwitchGroup Id="3885082437" Name="Respiration_Ex_or_In" ObjectPath="\Switches\Personnage\Respiration_Ex_or_In">
+					<Switches>
+						<Switch Id="567704981" Name="Inspire" ObjectPath="\Switches\Personnage\Respiration_Ex_or_In\Inspire"/>
+						<Switch Id="3370304008" Name="Expire" ObjectPath="\Switches\Personnage\Respiration_Ex_or_In\Expire"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="4156334155" Name="Court_Marche" ObjectPath="\Switches\Personnage\Court_Marche">
 					<Switches>
 						<Switch Id="1630799659" Name="Marche" ObjectPath="\Switches\Personnage\Court_Marche\Marche"/>
 						<Switch Id="2871560606" Name="Court" ObjectPath="\Switches\Personnage\Court_Marche\Court"/>
+						<Switch Id="1874288895" Name="Idle" ObjectPath="\Switches\Personnage\Court_Marche\Idle"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>

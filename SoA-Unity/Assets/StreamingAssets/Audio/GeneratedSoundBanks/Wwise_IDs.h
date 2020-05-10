@@ -35,7 +35,7 @@ namespace AK
         static const AkUniqueID PLAY_PLEURE_B_B_ = 4114146970U;
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURF = 1582928683U;
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURH = 1582928677U;
-        static const AkUniqueID PLAY_RESPIRATIONMIX = 2793971418U;
+        static const AkUniqueID PLAY_RESPIRATION_MOUVEMENT = 2860278991U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
         static const AkUniqueID PLAY_VETEMENT_ELAGUEUR = 2746796163U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;
@@ -72,6 +72,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID COURT = 2871560606U;
+                static const AkUniqueID IDLE = 1874288895U;
                 static const AkUniqueID MARCHE = 1630799659U;
             } // namespace SWITCH
         } // namespace COURT_MARCHE
@@ -100,11 +101,21 @@ namespace AK
             } // namespace SWITCH
         } // namespace PAS_MATIERE
 
+        namespace RESPIRATION_EX_OR_IN
+        {
+            static const AkUniqueID GROUP = 3885082437U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID EXPIRE = 3370304008U;
+                static const AkUniqueID INSPIRE = 567704981U;
+            } // namespace SWITCH
+        } // namespace RESPIRATION_EX_OR_IN
+
     } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {
-        static const AkUniqueID PERSONNAGE_VITESSE = 3665353697U;
         static const AkUniqueID VITESSEVOITUREELEC = 428373397U;
         static const AkUniqueID VOLUMEECOUTEPERSO = 133973669U;
     } // namespace GAME_PARAMETERS

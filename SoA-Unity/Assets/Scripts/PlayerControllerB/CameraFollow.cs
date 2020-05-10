@@ -90,6 +90,7 @@ public class CameraFollow : MonoBehaviour
         PROTECTED_TO_HURRY
     };
     STATE cameraState;
+    STATE lastCameraState;
 
     [Space]
     [Header("Normal Mode")]
@@ -163,33 +164,51 @@ public class CameraFollow : MonoBehaviour
     private GameObject cameraSway;
 
     [SerializeField]
-    [Tooltip("The minimal sway radius")]
+    [Tooltip("The minimal sway radius when in Normal Mode")]
     [Range(0.001f, 1f)]
-    private float swayRadiusMin = 0.01f;
+    private float swayNormalRadiusMin = 0.01f;
 
     [SerializeField]
-    [Tooltip("The maximal sway radius")]
+    [Tooltip("The maximal sway radius when in Normal Mode")]
     [Range(0.001f, 1f)]
-    private float swayRadiusMax = 0.05f;
+    private float swayNormalRadiusMax = 0.05f;
 
     private float latitude = 0, longitude = 0, swayRadius = 0;
 
     [SerializeField]
-    [Tooltip("The minimum sway duration")]
+    [Tooltip("The minimum sway duration when in Normal Mode")]
     [Range(2f, 10f)]
-    private float swayDurationMin = 4f;
+    private float swayNormalDurationMin = 4f;
 
     [SerializeField]
-    [Tooltip("The maximum sway duration")]
+    [Tooltip("The maximum sway duration when in Normal Mode")]
     [Range(2f, 10f)]
-    private float swayDurationMax = 6f;
+    private float swayNormalDurationMax = 6f;
+
+    [SerializeField]
+    [Tooltip("The minimal sway radius when in Hurry Mode")]
+    [Range(0.001f, 1f)]
+    private float swayHurryRadiusMin = 0.01f;
+
+    [SerializeField]
+    [Tooltip("The maximal sway radius when in Hurry Mode")]
+    [Range(0.001f, 1f)]
+    private float swayHurryRadiusMax = 0.02f;
+
+    [SerializeField]
+    [Range(0.001f, 1f)]
+    [Tooltip("The minimum sway duration when in Hurry Mode")]
+    private float swayHurryDurationMin = 0.01f;
+
+    [SerializeField]
+    [Range(0.001f, 1f)]
+    [Tooltip("The maximum sway duration when in Hurry Mode")]
+    private float swayHurryDurationMax = 0.02f;
+
     private float swayDuration = 0;
     private float swayTimer = 0;
 
-    [SerializeField]
-    [Range(1f, 5f)]
-    [Tooltip("The sway factor used when in hurry mode")]
-    private float swayHurryFactor = 2.5f;
+    private Vector3 originalSwayPosition = Vector3.zero;
 
     // Targeting
 
@@ -276,10 +295,10 @@ public class CameraFollow : MonoBehaviour
         isPausingAlign = false;
         noCollision = ~ LayerMask.GetMask("NoObstacle");
 
-        if (cameraSway)
+        if (cameraSway != null)
         {
             InitializeSway();
-            StartCoroutine("Sway");
+            //StartCoroutine("Sway");
         }
 
         //StartCoroutine("AlignWithCharacter");
@@ -324,13 +343,17 @@ public class CameraFollow : MonoBehaviour
 
         UpdateRotation();
 
+        if (cameraSway != null)
+        {
+            //Sway(); // Let's try this here
+        }
         if (!isTargeting)
         {
             //LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
             //ProjectiveLookAround(inputs.Player.ProjectiveLook.ReadValue<float>());
             //ExtendedLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
-            //SmoothLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
-            SmoothProjectiveLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+            SmoothLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+            //SmoothProjectiveLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
         }
     }
 
@@ -1029,6 +1052,7 @@ public class CameraFollow : MonoBehaviour
 
         // Must be separated in two because unity's order for euler is ZYX and we want X-Y-X
         //heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
+        
         heldCamera.transform.localRotation = Quaternion.Euler(y_stabilization, 0, 0);
         heldCamera.transform.localRotation *= Quaternion.Euler(0, smoothAccumulator.x * maxHorizontalAngle, 0);
         heldCamera.transform.localRotation *= Quaternion.Euler(-smoothAccumulator.y * maxVerticalAngle, 0, 0);
@@ -1427,38 +1451,58 @@ public class CameraFollow : MonoBehaviour
     {
         latitude      = Random.Range(0, 180);
         longitude     = Random.Range(0, 360);
-        swayRadius    = Random.Range(swayRadiusMin, swayRadiusMax);
-        swayDuration  = Random.Range(swayDurationMin, swayDurationMax);
+        swayRadius    = Random.Range(swayNormalRadiusMin, swayNormalRadiusMax);
+        swayDuration  = Random.Range(swayNormalDurationMin, swayNormalDurationMax);
         swayTimer     = swayDuration;
+
+        originalSwayPosition = cameraSway.transform.position;
     }
     IEnumerator Sway()
     {
         for (; ;)
         {
+            if ((cameraState == STATE.HURRY || cameraState == STATE.NORMAL_TO_HURRY) && lastCameraState != STATE.HURRY && lastCameraState != STATE.NORMAL_TO_HURRY)
+            {
+                // immediately speed up
+                float newSwayDuration = Random.Range(swayHurryDurationMin, swayHurryDurationMax);
+
+                swayTimer *= (newSwayDuration / swayDuration); // rescale timer
+                swayDuration = newSwayDuration;
+            }
+
             Vector3 target = transform.position + new Vector3(
                 swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Cos(longitude * Mathf.Deg2Rad),
                 swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Sin(longitude * Mathf.Deg2Rad),
                 swayRadius * Mathf.Cos(latitude * Mathf.Deg2Rad)
             );
-            
-            swayTimer -= Time.deltaTime;
+
+            swayTimer = Mathf.Max(swayTimer - Time.deltaTime, 0.0f);
             float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (swayDuration - swayTimer) / swayDuration);
-            cameraSway.transform.position = Vector3.Lerp(cameraSway.transform.position, target, smoothstep);
+            
+            cameraSway.transform.position = Vector3.Lerp(originalSwayPosition, target, smoothstep);
 
-            if (Mathf.Approximately((cameraSway.transform.position - target).magnitude, 0))
+            if (smoothstep == 1)
             {
-                latitude     = Random.Range(0, 90) + 90 * (1 - Mathf.Sign(latitude - 90) / 2f);
-                longitude    = Random.Range(longitude - 90, longitude + 90) % 360;
-                swayRadius   = Random.Range(swayRadiusMin, swayRadiusMax);
-                swayDuration = Random.Range(swayDurationMin, swayDurationMax);
-                swayTimer    = swayDuration;
+                latitude  = Random.Range(0, 90) + 90 * (1 - Mathf.Sign(latitude - 90) / 2f);
+                longitude = Random.Range(longitude - 90, longitude + 90) % 360;
 
-                if(cameraState == STATE.HURRY || cameraState == STATE.NORMAL_TO_HURRY)
+                if (cameraState != STATE.HURRY && cameraState != STATE.NORMAL_TO_HURRY)
                 {
-                    swayRadius *= 2;
-                    swayDuration /= 2;
+                    swayRadius   = Random.Range(swayNormalRadiusMin, swayNormalRadiusMax);
+                    swayDuration = Random.Range(swayNormalDurationMin, swayNormalDurationMax);
+                    swayTimer    = swayDuration;
                 }
+                else
+                {
+                    swayRadius   = Random.Range(swayHurryRadiusMin, swayHurryRadiusMax);
+                    swayDuration = Random.Range(swayHurryDurationMin, swayHurryDurationMax);
+                    swayTimer    = swayDuration;
+                }
+                originalSwayPosition = cameraSway.transform.position;
             }
+
+            lastCameraState = cameraState;
+
             yield return null;
         }
     }

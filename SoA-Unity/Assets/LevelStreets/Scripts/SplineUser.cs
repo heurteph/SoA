@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Pixelplacement;
 
 public class SplineUser : MonoBehaviour
@@ -24,8 +25,29 @@ public class SplineUser : MonoBehaviour
     private float percentage;
     private float smoothstep;
 
-    [SerializeField] [Range(0.05f, 0.5f)] [Tooltip("The speed of the object")]
     private float speed = 0.1f;
+
+    [SerializeField]
+    [Range(0.05f, 0.5f)]
+    [Tooltip("The speed of the object on a LONG")]
+    private float longSpeed = 0.1f;
+
+    [SerializeField]
+    [Range(0.05f, 0.5f)]
+    [Tooltip("The speed of the object on a STRAIGHT")]
+    private float straightSpeed = 0.1f;
+
+    [SerializeField]
+    [Range(0.05f, 0.5f)]
+    [Tooltip("The speed of the object on a TURN")]
+    private float turnSpeed = 0.1f;
+
+    [SerializeField]
+    [Range(0.05f, 0.5f)]
+    [Tooltip("The speed of the object on a SHARP")]
+    private float sharpSpeed = 0.1f;
+
+    private Dictionary<ROADSECTION, float> speedZones;
 
     [SerializeField][Range(0f, 10f)][Tooltip("The duration of the pause")]
     private float stopDuration = 0;
@@ -44,11 +66,18 @@ public class SplineUser : MonoBehaviour
 
     private void Start()
     {
+        speedZones = new Dictionary<ROADSECTION, float>();
+        speedZones.Add(ROADSECTION.LONG, longSpeed);
+        speedZones.Add(ROADSECTION.STRAIGHT, straightSpeed);
+        speedZones.Add(ROADSECTION.TURN, turnSpeed);
+        speedZones.Add(ROADSECTION.SHARP, sharpSpeed);
+
         groundOffset = target.transform.position.y - groundLevel.transform.position.y;
         movingState = STATE.NORMAL;
         if      (directionState == DIRECTION.FORWARD)  { directionalRotation = Quaternion.identity; }
         else if (directionState == DIRECTION.BACKWARD) { directionalRotation = Quaternion.Euler(0, 180, 0); }
-        target.position = spline.GetPosition(percentage);
+        Vector3 position = spline.GetPosition(percentage);
+        target.position = StickToTheGround(position);
         StartCoroutine("Move");
     }
 
@@ -63,6 +92,19 @@ public class SplineUser : MonoBehaviour
         {
             if (movingState == STATE.NORMAL)
             {
+                // Approach the current section speed
+                CurveDetail curve = spline.GetCurve(smoothstep);
+                Debug.Log(transform.name + "on curve " + curve.currentCurve); // TO DO : Stop before a turn
+                ROADSECTION roadSection = spline.GetComponent<SplineRoadmap>().RoadSections[curve.currentCurve];
+                if(speed < speedZones[roadSection])
+                {
+                    speed = Mathf.Min(speed + 0.01f * Time.deltaTime, speedZones[roadSection]);
+                }
+                else if (speed > speedZones[roadSection])
+                {
+                    speed = Mathf.Max(speed - 0.1f * Time.deltaTime, speedZones[roadSection]);
+                }
+
                 if (startPercentage != 1) // avoid dividing by zero
                 {
                     percentage = Mathf.Min(percentage + speed * Time.deltaTime / (1f - startPercentage), 1f);
@@ -70,12 +112,9 @@ public class SplineUser : MonoBehaviour
                 if (directionState == DIRECTION.FORWARD)       { smoothstep = Mathf.SmoothStep(startPercentage, 1, percentage); }
                 else if (directionState == DIRECTION.BACKWARD) { smoothstep = Mathf.SmoothStep(startPercentage, 1, 1 - percentage); }
 
-                CurveDetail cd = spline.GetCurve(smoothstep);
-                Debug.Log(transform.name + "on curve " + cd.currentCurve); // TO DO : Stop before a turn
-
-                target.position = spline.GetPosition(smoothstep);
+                Vector3 position = spline.GetPosition(smoothstep);
                 target.rotation = Quaternion.LookRotation(directionalRotation * spline.GetDirection(smoothstep));
-                StickToTheGround();
+                target.position = StickToTheGround(position);
 
                 if (percentage == 1)
                 {
@@ -97,13 +136,14 @@ public class SplineUser : MonoBehaviour
         movingState = STATE.NORMAL;
     }
 
-    private void StickToTheGround()
+    private Vector3 StickToTheGround(Vector3 position)
     {
         LayerMask mask = LayerMask.GetMask("Ground");
         if(Physics.Raycast(raycaster.transform.position, Vector3.down, out RaycastHit hit, Mathf.Infinity, mask))
         {
-            target.position = new Vector3(target.position.x, hit.point.y + groundOffset, target.position.z);
+            return new Vector3(position.x, hit.point.y + groundOffset, position.z);
         }
+        return position;
     }
 
     private void OnTriggerStay(Collider other)

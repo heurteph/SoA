@@ -209,6 +209,7 @@ public class CameraFollow : MonoBehaviour
     private float swayTimer = 0;
 
     private Vector3 originalSwayPosition = Vector3.zero;
+    private Vector3 targetSwayPosition = Vector3.zero;
 
     // Targeting
 
@@ -343,10 +344,6 @@ public class CameraFollow : MonoBehaviour
 
         UpdateRotation();
 
-        if (cameraSway != null)
-        {
-            //Sway(); // Let's try this here
-        }
         if (!isTargeting)
         {
             //LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
@@ -354,6 +351,10 @@ public class CameraFollow : MonoBehaviour
             //ExtendedLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
             SmoothLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
             //SmoothProjectiveLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+        }
+        if (cameraSway != null)
+        {
+            Sway(); // Let's try this here
         }
     }
 
@@ -1455,7 +1456,13 @@ public class CameraFollow : MonoBehaviour
         swayDuration  = Random.Range(swayNormalDurationMin, swayNormalDurationMax);
         swayTimer     = swayDuration;
 
-        originalSwayPosition = cameraSway.transform.position;
+        originalSwayPosition = cameraSway.transform.localPosition;
+
+        targetSwayPosition = cameraSway.transform.localPosition + new Vector3(
+            swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Cos(longitude * Mathf.Deg2Rad),
+            swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Sin(longitude * Mathf.Deg2Rad),
+            swayRadius * Mathf.Cos(latitude * Mathf.Deg2Rad)
+        );
     }
     IEnumerator Sway()
     {
@@ -1470,16 +1477,10 @@ public class CameraFollow : MonoBehaviour
                 swayDuration = newSwayDuration;
             }
 
-            Vector3 target = transform.position + new Vector3(
-                swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Cos(longitude * Mathf.Deg2Rad),
-                swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Sin(longitude * Mathf.Deg2Rad),
-                swayRadius * Mathf.Cos(latitude * Mathf.Deg2Rad)
-            );
-
             swayTimer = Mathf.Max(swayTimer - Time.deltaTime, 0.0f);
             float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (swayDuration - swayTimer) / swayDuration);
             
-            cameraSway.transform.position = Vector3.Lerp(originalSwayPosition, target, smoothstep);
+            cameraSway.transform.localPosition = Vector3.Lerp(originalSwayPosition, targetSwayPosition, smoothstep);
 
             if (smoothstep == 1)
             {
@@ -1498,7 +1499,7 @@ public class CameraFollow : MonoBehaviour
                     swayDuration = Random.Range(swayHurryDurationMin, swayHurryDurationMax);
                     swayTimer    = swayDuration;
                 }
-                originalSwayPosition = cameraSway.transform.position;
+                originalSwayPosition = cameraSway.transform.localPosition;
             }
 
             lastCameraState = cameraState;

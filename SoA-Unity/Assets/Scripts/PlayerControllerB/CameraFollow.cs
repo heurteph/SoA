@@ -1262,6 +1262,7 @@ public class CameraFollow : MonoBehaviour
             {
                 if (player.GetComponent<PlayerFirst>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
                 {
+                    Debug.Log("CAMERA DETECTED THAT PLAYER IS PROTECTING");
                     zoomTimer = timeNormalToProtected;
                     isAvailable = false;
                     cameraState = STATE.NORMAL_TO_PROTECTED;
@@ -1269,7 +1270,7 @@ public class CameraFollow : MonoBehaviour
 
                 else if (player.GetComponent<PlayerFirst>().IsHurry)
                 {
-                    Debug.Log("Camera detected that player is hurry");
+                    Debug.Log("CAMERA DETECTED THAT PLAYER IS HURRY");
                     zoomTimer = timeNormalToHurry;
                     isAvailable = false;
                     cameraState = STATE.NORMAL_TO_HURRY;
@@ -1279,6 +1280,7 @@ public class CameraFollow : MonoBehaviour
 
         else if (cameraState == STATE.NORMAL_TO_HURRY)
         {
+            Debug.Log("NORMAL TO HURRY !!!!!!!!!!!!!");
             Vector3 startPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position,Vector3.up).normalized * Z_OffsetHurry + Vector3.up * Y_OffsetHurry) * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; // recreate original position
             Vector3 endPosition   = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + Vector3.up * Y_OffsetHurry) * zoomTimer / timeNormalToHurry; // recreate original position
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToFocus - recoilTimer) / timeToFocus);

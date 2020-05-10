@@ -94,7 +94,7 @@ public class SplineUser : MonoBehaviour
             {
                 // Approach the current section speed
                 CurveDetail curve = spline.GetCurve(smoothstep);
-                Debug.Log(transform.name + "on curve " + curve.currentCurve); // TO DO : Stop before a turn
+                //Debug.Log(transform.name + "on curve " + curve.currentCurve); // TO DO : Stop before a turn
                 ROADSECTION roadSection = spline.GetComponent<SplineRoadmap>().RoadSections[curve.currentCurve];
                 if(speed < speedZones[roadSection])
                 {

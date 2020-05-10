@@ -198,10 +198,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     {
         if (raycastPosition && groundLevelPosition)
         {
-            RaycastHit hit;
             LayerMask ground = LayerMask.GetMask("Ground");
 
-            if (Physics.Raycast(raycastPosition.position, -Vector3.up, out hit, Mathf.Infinity, ground))
+            if (Physics.Raycast(raycastPosition.position, -Vector3.up, out RaycastHit hit, Mathf.Infinity, ground))
             {
                 movement = (hit.point - groundLevelPosition.position);
             }

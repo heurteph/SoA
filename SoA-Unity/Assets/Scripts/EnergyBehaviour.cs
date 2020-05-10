@@ -31,17 +31,6 @@ public class EnergyBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        script = GetComponent<PlayerFollow>() ? GetComponent<PlayerFollow>() : (MonoBehaviour)GetComponent<PlayerFirst>();
-        EnergyChangedEvent += debuggerBehaviour.DisplayEnergy;
-
-        if (GetComponent<PlayerFirst>().isActiveAndEnabled)
-        {
-            EnergyChangedEvent += GetComponent<PlayerFirst>().Hurry;
-        }
-        else if (GetComponent<PlayerFollow>().isActiveAndEnabled)
-        {
-            EnergyChangedEvent += GetComponent<PlayerFollow>().Hurry;
-        }
         isReloading = false;
 
         inputs = InputsManager.Instance.Inputs;
@@ -50,7 +39,18 @@ public class EnergyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        script = GetComponent<PlayerFollow>() ? GetComponent<PlayerFollow>() : (MonoBehaviour)GetComponent<PlayerFirst>();
+        EnergyChangedEvent += debuggerBehaviour.DisplayEnergy;
+        Debug.Log("INSIDE ENERGYBEHAVIOUR");
+        if (GetComponent<PlayerFirst>().isActiveAndEnabled)
+        {
+            Debug.Log("HURRY REGISTERED");
+            EnergyChangedEvent += GetComponent<PlayerFirst>().Hurry;
+        }
+        else if (GetComponent<PlayerFollow>().isActiveAndEnabled)
+        {
+            EnergyChangedEvent += GetComponent<PlayerFollow>().Hurry;
+        }
     }
 
     // Update is called once per frame

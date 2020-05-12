@@ -220,7 +220,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
                 movement = (hit.point - groundLevelPosition.position);
 
                 // Load the correct sound according to the ground
-                AKRESULT result = AkSoundEngine.SetSwitch("Pas_Matiere", GetGroundType(hit.transform.gameObject), wwiseGameObject);
+                //AKRESULT result = AkSoundEngine.SetSwitch("Pas_Matiere", GetGroundType(hit.transform.gameObject), wwiseGameObject);
             }
             else
             {
@@ -229,12 +229,6 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         }
     }
 
-    private static string GetGroundType(GameObject o)
-    {
-        if (o.layer == LayerMask.NameToLayer("GrassGround")){ return "Herbe"; }
-        if (o.layer == LayerMask.NameToLayer("Ground")){ return "Asphalt"; }
-        return "Beton";
-    }
 
     IEnumerator TurnBack()
     {

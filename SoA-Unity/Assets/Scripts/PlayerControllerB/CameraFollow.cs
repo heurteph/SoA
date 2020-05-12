@@ -208,6 +208,9 @@ public class CameraFollow : MonoBehaviour
     private float swayDuration = 0;
     private float swayTimer = 0;
 
+    private float swayDurationMin, swayDurationMax;
+    private float swayRadiusMin, swayRadiusMax;
+
     private Vector3 originalSwayPosition = Vector3.zero;
     private Vector3 targetSwayPosition = Vector3.zero;
 
@@ -224,7 +227,6 @@ public class CameraFollow : MonoBehaviour
 
     [Space]
     [Header("Targeting")]
-
 
     [SerializeField]
     private GameObject defaultForward;
@@ -299,7 +301,7 @@ public class CameraFollow : MonoBehaviour
         if (cameraSway != null)
         {
             InitializeSway();
-            //StartCoroutine("Sway");
+            StartCoroutine("Sway");
         }
 
         //StartCoroutine("AlignWithCharacter");
@@ -354,7 +356,7 @@ public class CameraFollow : MonoBehaviour
         }
         if (cameraSway != null)
         {
-            Sway(); // Let's try this here
+            //Sway(); // Let's try this here
         }
     }
 
@@ -532,11 +534,11 @@ public class CameraFollow : MonoBehaviour
 
                 while (isPausingAlign)
                 {
-                    Debug.Log("Align en pause");
+                    //Debug.Log("Align en pause");
                     yield return null;
                     if(CheckPlayerMovement())
                     {
-                        Debug.Log("Sorti de pause");
+                        //Debug.Log("Sorti de pause");
                         isPausingAlign = false;
                     }
                 }
@@ -889,30 +891,22 @@ public class CameraFollow : MonoBehaviour
         if (!Mathf.Approximately(v.x, 0))
         {
             accumulator.x = Mathf.Clamp(accumulator.x + v.x * Time.deltaTime / horizontalDuration, -1, 1);
-            //smoothx = Mathf.Sign(accumulator.x) * ( 1 - Mathf.Pow(accumulator.x - Mathf.Sign(accumulator.x), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
-            //smoothx = Mathf.Sign(accumulator.x) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.x));
             smoothx = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
         }
         else
         {
             accumulator.x = (1 - Mathf.Sign(accumulator.x)) / 2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0);
-            //smoothx = Mathf.Sign(accumulator.x) * Mathf.Pow(accumulator.x, 2); // f(x) = -x^2 for x between 0 and 1, f(x) = x^2 for x between -1 and 0
-            //smoothx = Mathf.Sign(accumulator.x) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.x));
             smoothx = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
         }
 
         if (!Mathf.Approximately(v.y, 0))
         {
             accumulator.y = Mathf.Clamp(accumulator.y + v.y * Time.deltaTime / verticalDuration, -1, 1);
-            //smoothy = Mathf.Sign(accumulator.y) * (1 - Mathf.Pow(accumulator.y - Mathf.Sign(accumulator.y), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
-            //smoothy = Mathf.Sign(accumulator.y) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.y));
             smoothy = Mathf.Sign(accumulator.y) * Mathf.Sin(Mathf.Abs(accumulator.y) * Mathf.PI * 0.5f);
         }
         else
         {
             accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0);
-            //smoothy = Mathf.Sign(accumulator.y) * Mathf.Pow(accumulator.y, 2);
-            //smoothy = Mathf.Sign(accumulator.y) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.y));
             smoothy = Mathf.Sign(accumulator.y) * Mathf.Sin(Mathf.Abs(accumulator.y) * Mathf.PI * 0.5f);
         }
 
@@ -1205,13 +1199,11 @@ public class CameraFollow : MonoBehaviour
         {
             projectiveAccumulator = Mathf.Clamp (projectiveAccumulator + Time.deltaTime / projectiveDuration, 0, 1);
             sinerpForward = Mathf.Sin(projectiveAccumulator * Mathf.PI * 0.5f);
-            Debug.Log("sinerp : " + sinerpForward);
         }
         else
         {
             projectiveAccumulator = Mathf.Clamp(projectiveAccumulator - Time.deltaTime / projectiveDuration, 0, 1);
             sinerpForward = Mathf.Sin(projectiveAccumulator * Mathf.PI * 0.5f);
-            Debug.Log("sinerp : " + sinerpForward);
         }
         //heldCamera.transform.position = (1-v)*transform.position + v* (player.transform.position) + (player.transform.forward * forwardDistance) * sinerpForward;
         heldCamera.transform.position = transform.position + (player.transform.position + player.transform.forward * projectiveDistance - transform.position) * sinerpForward;
@@ -1295,7 +1287,6 @@ public class CameraFollow : MonoBehaviour
 
                 else if (player.GetComponent<PlayerFirst>().IsHurry)
                 {
-                    Debug.Log("CAMERA DETECTED THAT PLAYER IS HURRY");
                     zoomTimer = timeNormalToHurry;
                     isAvailable = false;
                     cameraState = STATE.NORMAL_TO_HURRY;
@@ -1305,7 +1296,6 @@ public class CameraFollow : MonoBehaviour
 
         else if (cameraState == STATE.NORMAL_TO_HURRY)
         {
-            Debug.Log("NORMAL TO HURRY !!!!!!!!!!!!!");
             Vector3 startPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position,Vector3.up).normalized * Z_OffsetHurry + Vector3.up * Y_OffsetHurry) * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; // recreate original position
             Vector3 endPosition   = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + Vector3.up * Y_OffsetHurry) * zoomTimer / timeNormalToHurry; // recreate original position
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToFocus - recoilTimer) / timeToFocus);
@@ -1448,17 +1438,20 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
+    /* Floating */
+
     void InitializeSway()
     {
         latitude      = Random.Range(0, 180);
         longitude     = Random.Range(0, 360);
-        swayRadius    = Random.Range(swayNormalRadiusMin, swayNormalRadiusMax);
+        swayRadius    = Random.Range(swayNormalRadiusMin,   swayNormalRadiusMax);
         swayDuration  = Random.Range(swayNormalDurationMin, swayNormalDurationMax);
         swayTimer     = swayDuration;
 
-        originalSwayPosition = cameraSway.transform.localPosition;
+        originalSwayPosition = heldCamera.transform.localPosition;
 
-        targetSwayPosition = cameraSway.transform.localPosition + new Vector3(
+        targetSwayPosition = heldCamera.transform.localPosition + heldCamera.transform.localRotation * new Vector3
+        (
             swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Cos(longitude * Mathf.Deg2Rad),
             swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Sin(longitude * Mathf.Deg2Rad),
             swayRadius * Mathf.Cos(latitude * Mathf.Deg2Rad)
@@ -1479,7 +1472,6 @@ public class CameraFollow : MonoBehaviour
 
             swayTimer = Mathf.Max(swayTimer - Time.deltaTime, 0.0f);
             float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (swayDuration - swayTimer) / swayDuration);
-            
             cameraSway.transform.localPosition = Vector3.Lerp(originalSwayPosition, targetSwayPosition, smoothstep);
 
             if (smoothstep == 1)
@@ -1495,11 +1487,18 @@ public class CameraFollow : MonoBehaviour
                 }
                 else
                 {
-                    swayRadius   = Random.Range(swayHurryRadiusMin, swayHurryRadiusMax);
+                    swayRadius   = Random.Range(swayHurryRadiusMin, swayHurryRadiusMax); // Revenir progressivement à swayNormalRadiusMin, swayNormalRadiusMax
                     swayDuration = Random.Range(swayHurryDurationMin, swayHurryDurationMax);
                     swayTimer    = swayDuration;
                 }
                 originalSwayPosition = cameraSway.transform.localPosition;
+
+                targetSwayPosition = heldCamera.transform.localPosition + heldCamera.transform.localRotation * new Vector3
+                (
+                    swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Cos(longitude * Mathf.Deg2Rad),
+                    swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Sin(longitude * Mathf.Deg2Rad),
+                    swayRadius * Mathf.Cos(latitude * Mathf.Deg2Rad)
+                );
             }
 
             lastCameraState = cameraState;

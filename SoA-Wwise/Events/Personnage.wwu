@@ -14,12 +14,12 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_RespirationMix" ID="{8A5A111C-5E93-4CD6-AD09-1DF48036C1BB}">
+				<Event Name="Play_Respiration_Mouvement" ID="{93D5F583-4E03-42F3-94E0-091378FDF157}">
 					<ChildrenList>
-						<Action Name="" ID="{02686CDA-5E75-4980-9155-25057FCCF001}" ShortID="856430375">
+						<Action Name="" ID="{CF699CCB-554B-438F-AE9B-7F137320171F}" ShortID="624591670">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="RespirationMix" ID="{055421D1-D05E-4EAC-B526-CBDF01854A7F}" WorkUnitID="{1B141676-4414-425B-8493-2A57AC5365FE}"/>
+									<ObjectRef Name="Respiration_Mouvement" ID="{0D197C24-9DC2-45FC-A3E9-1AC4FCEF1A0A}" WorkUnitID="{1B141676-4414-425B-8493-2A57AC5365FE}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

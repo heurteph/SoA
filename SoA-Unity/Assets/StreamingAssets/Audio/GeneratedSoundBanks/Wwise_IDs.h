@@ -35,7 +35,7 @@ namespace AK
         static const AkUniqueID PLAY_PLEURE_B_B_ = 4114146970U;
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURF = 1582928683U;
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURH = 1582928677U;
-        static const AkUniqueID PLAY_RESPIRATIONMIX = 2793971418U;
+        static const AkUniqueID PLAY_RESPIRATION_MOUVEMENT = 2860278991U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
         static const AkUniqueID PLAY_VETEMENT_ELAGUEUR = 2746796163U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;
@@ -47,6 +47,22 @@ namespace AK
         static const AkUniqueID STOP_PARC_VENT = 2647100474U;
     } // namespace EVENTS
 
+    namespace STATES
+    {
+        namespace DANS_LIEU_REPOS
+        {
+            static const AkUniqueID GROUP = 3986250553U;
+
+            namespace STATE
+            {
+                static const AkUniqueID NON = 544973834U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID OUI = 645492566U;
+            } // namespace STATE
+        } // namespace DANS_LIEU_REPOS
+
+    } // namespace STATES
+
     namespace SWITCHES
     {
         namespace COURT_MARCHE
@@ -56,6 +72,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID COURT = 2871560606U;
+                static const AkUniqueID IDLE = 1874288895U;
                 static const AkUniqueID MARCHE = 1630799659U;
             } // namespace SWITCH
         } // namespace COURT_MARCHE
@@ -79,16 +96,26 @@ namespace AK
             {
                 static const AkUniqueID ASPHALT = 4169408098U;
                 static const AkUniqueID BETON = 386080821U;
-                static const AkUniqueID GRAVIER = 2434290853U;
                 static const AkUniqueID HERBE = 2495190089U;
+                static const AkUniqueID TERRE = 508852877U;
             } // namespace SWITCH
         } // namespace PAS_MATIERE
+
+        namespace RESPIRATION_EX_OR_IN
+        {
+            static const AkUniqueID GROUP = 3885082437U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID EXPIRE = 3370304008U;
+                static const AkUniqueID INSPIRE = 567704981U;
+            } // namespace SWITCH
+        } // namespace RESPIRATION_EX_OR_IN
 
     } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {
-        static const AkUniqueID PERSONNAGE_VITESSE = 3665353697U;
         static const AkUniqueID VITESSEVOITUREELEC = 428373397U;
         static const AkUniqueID VOLUMEECOUTEPERSO = 133973669U;
     } // namespace GAME_PARAMETERS
@@ -102,6 +129,7 @@ namespace AK
     namespace BUSSES
     {
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MIX_REVERB = 3296604463U;
         static const AkUniqueID NIVEAUECOUTEPERSO = 2734641465U;
         static const AkUniqueID PARC_ENVI_MASTER = 351745915U;
         static const AkUniqueID PARC_OBSTACLES_MASTER = 1797562303U;
@@ -111,6 +139,7 @@ namespace AK
     namespace AUX_BUSSES
     {
         static const AkUniqueID MIXECOUTEPERSO = 2093609463U;
+        static const AkUniqueID REVERB_LIEU_REPOS = 3204322453U;
     } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES

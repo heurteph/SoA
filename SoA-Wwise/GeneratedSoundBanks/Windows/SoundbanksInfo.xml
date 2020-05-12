@@ -17,6 +17,7 @@
 			<Path>Init.bnk</Path>
 			<IncludedAuxBusses>
 				<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+				<AuxBus Id="3204322453" Name="Reverb_Lieu_Repos" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Lieu_Repos"/>
 			</IncludedAuxBusses>
 		</SoundBank>
 		<SoundBank Id="3163481603" Language="SFX">
@@ -626,16 +627,711 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2793971418" Name="Play_RespirationMix" ObjectPath="\Events\Personnage\Play_RespirationMix" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2860278991" Name="Play_Respiration_Mouvement" ObjectPath="\Events\Personnage\Play_Respiration_Mouvement" DurationType="OneShot" DurationMin="0.261021" DurationMax="1.311500">
+					<IncludedMemoryFiles>
+						<File Id="30899550" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 05.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="36818040" Language="SFX">
+							<ShortName>Respiration_Court_Expire 27.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 27_10C4C929.wem</Path>
+						</File>
+						<File Id="43277341" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 06.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="54279077" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 06.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="57464071" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 13.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 13_10C4C929.wem</Path>
+						</File>
+						<File Id="70032186" Language="SFX">
+							<ShortName>Respiration_Court_Expire 31.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 31_10C4C929.wem</Path>
+						</File>
+						<File Id="84562496" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 09.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="87131940" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 08.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="91899094" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 04.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 04_10C4C929.wem</Path>
+						</File>
+						<File Id="106680139" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 15.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 15_10C4C929.wem</Path>
+						</File>
+						<File Id="107858183" Language="SFX">
+							<ShortName>Respiration_Court_Expire 19.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 19_10C4C929.wem</Path>
+						</File>
+						<File Id="111522123" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 05.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="118356139" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 13.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 13_10C4C929.wem</Path>
+						</File>
+						<File Id="130250283" Language="SFX">
+							<ShortName>Respiration_Court_Expire 12.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 12_10C4C929.wem</Path>
+						</File>
+						<File Id="133567054" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 25.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 25_10C4C929.wem</Path>
+						</File>
+						<File Id="140338834" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 15.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 15_10C4C929.wem</Path>
+						</File>
+						<File Id="149083432" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 14.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 14_10C4C929.wem</Path>
+						</File>
+						<File Id="156857300" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 16.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 16_10C4C929.wem</Path>
+						</File>
+						<File Id="159366355" Language="SFX">
+							<ShortName>Respiration_Court_Expire 20.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 20_10C4C929.wem</Path>
+						</File>
+						<File Id="159895497" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 14.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 14_10C4C929.wem</Path>
+						</File>
+						<File Id="161278889" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 21.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 21_10C4C929.wem</Path>
+						</File>
+						<File Id="177025609" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 01.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="178787808" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 24.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 24_10C4C929.wem</Path>
+						</File>
+						<File Id="183878012" Language="SFX">
+							<ShortName>Respiration_Court_Expire 09.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="186202236" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 21.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 21_10C4C929.wem</Path>
+						</File>
+						<File Id="188543872" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 13.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 13_10C4C929.wem</Path>
+						</File>
+						<File Id="188782225" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 06.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="199712462" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 15.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 15_10C4C929.wem</Path>
+						</File>
+						<File Id="209981714" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 03.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="210028815" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 01.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="228934976" Language="SFX">
+							<ShortName>Respiration_Court_Expire 03.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="229385197" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 29.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 29_10C4C929.wem</Path>
+						</File>
+						<File Id="231901108" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 12.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 12_10C4C929.wem</Path>
+						</File>
+						<File Id="248803067" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 32.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 32_10C4C929.wem</Path>
+						</File>
+						<File Id="252085283" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 07.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="253863537" Language="SFX">
+							<ShortName>Respiration_Court_Expire 10.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="280271623" Language="SFX">
+							<ShortName>Respiration_Court_Expire 08.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="282237338" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 03.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="305116361" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 11.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="306907996" Language="SFX">
+							<ShortName>Respiration_Court_Expire 17.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 17_10C4C929.wem</Path>
+						</File>
+						<File Id="307856252" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 04.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 04_10C4C929.wem</Path>
+						</File>
+						<File Id="312508325" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 31.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 31_10C4C929.wem</Path>
+						</File>
+						<File Id="340456702" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 02.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="362447976" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 02.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="379507300" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 03.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="381539701" Language="SFX">
+							<ShortName>Respiration_Court_Expire 15.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 15_10C4C929.wem</Path>
+						</File>
+						<File Id="382862239" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 10.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="384291082" Language="SFX">
+							<ShortName>Respiration_Court_Expire 28.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 28_10C4C929.wem</Path>
+						</File>
+						<File Id="392784057" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 11.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="402146478" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 16.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 16_10C4C929.wem</Path>
+						</File>
+						<File Id="418887644" Language="SFX">
+							<ShortName>Respiration_Court_Expire 01.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="433335509" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 18.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 18_10C4C929.wem</Path>
+						</File>
+						<File Id="436971117" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 20.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 20_10C4C929.wem</Path>
+						</File>
+						<File Id="444252992" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 16.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 16_10C4C929.wem</Path>
+						</File>
+						<File Id="449988057" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 09.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="450549691" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 08.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="455359272" Language="SFX">
+							<ShortName>Respiration_Court_Expire 05.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="458197160" Language="SFX">
+							<ShortName>Respiration_Court_Expire 02.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="483073926" Language="SFX">
+							<ShortName>Respiration_Court_Expire 22.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 22_10C4C929.wem</Path>
+						</File>
+						<File Id="507658070" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 05.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="511408266" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 18.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 18_10C4C929.wem</Path>
+						</File>
+						<File Id="516043458" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 03.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="532423818" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 14.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 14_10C4C929.wem</Path>
+						</File>
+						<File Id="532933540" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 12.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 12_10C4C929.wem</Path>
+						</File>
+						<File Id="535655208" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 09.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="539993137" Language="SFX">
+							<ShortName>Respiration_Court_Expire 18.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 18_10C4C929.wem</Path>
+						</File>
+						<File Id="559708279" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 17.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 17_10C4C929.wem</Path>
+						</File>
+						<File Id="568891064" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 03.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 03_10C4C929.wem</Path>
+						</File>
+						<File Id="571487502" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 12.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 12_10C4C929.wem</Path>
+						</File>
+						<File Id="571748929" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 10.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="588766014" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 17.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 17_10C4C929.wem</Path>
+						</File>
+						<File Id="614843199" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 07.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="619732760" Language="SFX">
+							<ShortName>Respiration_Court_Expire 30.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 30_10C4C929.wem</Path>
+						</File>
+						<File Id="622114062" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 19.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 19_10C4C929.wem</Path>
+						</File>
+						<File Id="623099669" Language="SFX">
+							<ShortName>Respiration_Court_Expire 11.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="626197802" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 11.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="627039395" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 23.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 23_10C4C929.wem</Path>
+						</File>
+						<File Id="627085209" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 08.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="632805930" Language="SFX">
+							<ShortName>Respiration_Court_Expire 04.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 04_10C4C929.wem</Path>
+						</File>
+						<File Id="633524349" Language="SFX">
+							<ShortName>Respiration_Court_Expire 25.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 25_10C4C929.wem</Path>
+						</File>
+						<File Id="669259752" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 02.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="676054846" Language="SFX">
+							<ShortName>Respiration_Court_Expire 33.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 33_10C4C929.wem</Path>
+						</File>
+						<File Id="700042068" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 20.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 20_10C4C929.wem</Path>
+						</File>
+						<File Id="701125589" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 06.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="702162200" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 09.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="716989158" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 06.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="730485733" Language="SFX">
+							<ShortName>Respiration_Court_Expire 16.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 16_10C4C929.wem</Path>
+						</File>
+						<File Id="743095582" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 21.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 21_10C4C929.wem</Path>
+						</File>
+						<File Id="756654577" Language="SFX">
+							<ShortName>Respiration_Court_Expire 07.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="770857165" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 22.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 22_10C4C929.wem</Path>
+						</File>
+						<File Id="770947216" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 05.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="771826963" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 02.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="772554524" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 01.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="780509655" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 04.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 04_10C4C929.wem</Path>
+						</File>
+						<File Id="811214925" Language="SFX">
+							<ShortName>Respiration_Court_Expire 06.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 06_10C4C929.wem</Path>
+						</File>
+						<File Id="826261588" Language="SFX">
+							<ShortName>Respiration_Court_Expire 32.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 32_10C4C929.wem</Path>
+						</File>
+						<File Id="841283315" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 10.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="842948694" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 07.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="843784372" Language="SFX">
+							<ShortName>Respiration_Court_Expire 13.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 13_10C4C929.wem</Path>
+						</File>
+						<File Id="849712625" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 26.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 26_10C4C929.wem</Path>
+						</File>
+						<File Id="849994248" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 19.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 19_10C4C929.wem</Path>
+						</File>
+						<File Id="866769560" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 09.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 09_10C4C929.wem</Path>
+						</File>
+						<File Id="884500584" Language="SFX">
+							<ShortName>Respiration_Idle_Expire 04.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Expire 04_10C4C929.wem</Path>
+						</File>
+						<File Id="886475815" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 19.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 19_10C4C929.wem</Path>
+						</File>
+						<File Id="913027824" Language="SFX">
+							<ShortName>Respiration_Court_Expire 26.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 26_10C4C929.wem</Path>
+						</File>
+						<File Id="917660478" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 30.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 30_10C4C929.wem</Path>
+						</File>
+						<File Id="917899947" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 27.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 27_10C4C929.wem</Path>
+						</File>
+						<File Id="924004420" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 10.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="928414524" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 17.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 17_10C4C929.wem</Path>
+						</File>
+						<File Id="937504818" Language="SFX">
+							<ShortName>Respiration_Court_Expire 24.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 24_10C4C929.wem</Path>
+						</File>
+						<File Id="941276710" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 11.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="947831295" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 05.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 05_10C4C929.wem</Path>
+						</File>
+						<File Id="950740234" Language="SFX">
+							<ShortName>Respiration_Court_Expire 29.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 29_10C4C929.wem</Path>
+						</File>
+						<File Id="952469816" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 07.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="954404044" Language="SFX">
+							<ShortName>Respiration_Court_Expire 21.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 21_10C4C929.wem</Path>
+						</File>
+						<File Id="962057161" Language="SFX">
+							<ShortName>Respiration_Court_Expire 14.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 14_10C4C929.wem</Path>
+						</File>
+						<File Id="965758541" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 20.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 20_10C4C929.wem</Path>
+						</File>
+						<File Id="997890582" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 08.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="1013005889" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 01.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="1027620574" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 07.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 07_10C4C929.wem</Path>
+						</File>
+						<File Id="1028414217" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 11.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 11_10C4C929.wem</Path>
+						</File>
+						<File Id="1031629776" Language="SFX">
+							<ShortName>Respiration_Court_Inspire 28.wav</ShortName>
+							<Path>SFX\Respiration_Court_Inspire 28_10C4C929.wem</Path>
+						</File>
+						<File Id="1038942298" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 02.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 02_10C4C929.wem</Path>
+						</File>
+						<File Id="1039921921" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 01.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 01_10C4C929.wem</Path>
+						</File>
+						<File Id="1041041130" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 18.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 18_10C4C929.wem</Path>
+						</File>
+						<File Id="1043304638" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 12.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 12_10C4C929.wem</Path>
+						</File>
+						<File Id="1053702375" Language="SFX">
+							<ShortName>Respiration_Court_Expire 23.wav</ShortName>
+							<Path>SFX\Respiration_Court_Expire 23_10C4C929.wem</Path>
+						</File>
+						<File Id="1066520133" Language="SFX">
+							<ShortName>Respiration_Marche_Inspire 10.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Inspire 10_10C4C929.wem</Path>
+						</File>
+						<File Id="1066828473" Language="SFX">
+							<ShortName>Respiration_Marche_Expire 08.wav</ShortName>
+							<Path>SFX\Respiration_Marche_Expire 08_10C4C929.wem</Path>
+						</File>
+						<File Id="1073189581" Language="SFX">
+							<ShortName>Respiration_Idle_Inspire 04.wav</ShortName>
+							<Path>SFX\Respiration_Idle_Inspire 04_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}">
+							<Children>
+								<SwitchContainer SwitchValue="{F7D3A280-1D9A-4432-998D-4526DC3381AD}">
+									<Media>
+										<File Id="772554524"/>
+										<File Id="669259752"/>
+										<File Id="516043458"/>
+										<File Id="307856252"/>
+										<File Id="507658070"/>
+										<File Id="716989158"/>
+										<File Id="252085283"/>
+										<File Id="1066828473"/>
+										<File Id="702162200"/>
+										<File Id="924004420"/>
+										<File Id="626197802"/>
+										<File Id="1043304638"/>
+										<File Id="118356139"/>
+										<File Id="532423818"/>
+										<File Id="106680139"/>
+										<File Id="402146478"/>
+										<File Id="928414524"/>
+										<File Id="1041041130"/>
+										<File Id="849994248"/>
+										<File Id="436971117"/>
+										<File Id="743095582"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{152A661B-51BD-489D-9139-5473AC644C77}">
+									<Media>
+										<File Id="1013005889"/>
+										<File Id="340456702"/>
+										<File Id="568891064"/>
+										<File Id="91899094"/>
+										<File Id="30899550"/>
+										<File Id="54279077"/>
+										<File Id="1027620574"/>
+										<File Id="627085209"/>
+										<File Id="535655208"/>
+										<File Id="1066520133"/>
+										<File Id="1028414217"/>
+										<File Id="231901108"/>
+										<File Id="188543872"/>
+										<File Id="149083432"/>
+										<File Id="199712462"/>
+										<File Id="156857300"/>
+										<File Id="559708279"/>
+										<File Id="511408266"/>
+										<File Id="886475815"/>
+										<File Id="965758541"/>
+										<File Id="186202236"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}">
+							<Children>
+								<SwitchContainer SwitchValue="{F7D3A280-1D9A-4432-998D-4526DC3381AD}">
+									<Media>
+										<File Id="418887644"/>
+										<File Id="458197160"/>
+										<File Id="228934976"/>
+										<File Id="632805930"/>
+										<File Id="455359272"/>
+										<File Id="811214925"/>
+										<File Id="756654577"/>
+										<File Id="280271623"/>
+										<File Id="183878012"/>
+										<File Id="253863537"/>
+										<File Id="623099669"/>
+										<File Id="130250283"/>
+										<File Id="843784372"/>
+										<File Id="962057161"/>
+										<File Id="381539701"/>
+										<File Id="730485733"/>
+										<File Id="306907996"/>
+										<File Id="539993137"/>
+										<File Id="107858183"/>
+										<File Id="159366355"/>
+										<File Id="954404044"/>
+										<File Id="483073926"/>
+										<File Id="1053702375"/>
+										<File Id="937504818"/>
+										<File Id="633524349"/>
+										<File Id="913027824"/>
+										<File Id="36818040"/>
+										<File Id="384291082"/>
+										<File Id="950740234"/>
+										<File Id="619732760"/>
+										<File Id="70032186"/>
+										<File Id="826261588"/>
+										<File Id="676054846"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{152A661B-51BD-489D-9139-5473AC644C77}">
+									<Media>
+										<File Id="177025609"/>
+										<File Id="362447976"/>
+										<File Id="209981714"/>
+										<File Id="780509655"/>
+										<File Id="111522123"/>
+										<File Id="701125589"/>
+										<File Id="952469816"/>
+										<File Id="997890582"/>
+										<File Id="449988057"/>
+										<File Id="841283315"/>
+										<File Id="941276710"/>
+										<File Id="571487502"/>
+										<File Id="57464071"/>
+										<File Id="159895497"/>
+										<File Id="140338834"/>
+										<File Id="444252992"/>
+										<File Id="588766014"/>
+										<File Id="433335509"/>
+										<File Id="622114062"/>
+										<File Id="700042068"/>
+										<File Id="161278889"/>
+										<File Id="770857165"/>
+										<File Id="627039395"/>
+										<File Id="178787808"/>
+										<File Id="133567054"/>
+										<File Id="849712625"/>
+										<File Id="917899947"/>
+										<File Id="1031629776"/>
+										<File Id="229385197"/>
+										<File Id="917660478"/>
+										<File Id="312508325"/>
+										<File Id="248803067"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{735E6AAB-BB90-4C0D-8F0B-E13EA2E2848F}">
+							<Children>
+								<SwitchContainer SwitchValue="{F7D3A280-1D9A-4432-998D-4526DC3381AD}">
+									<Media>
+										<File Id="210028815"/>
+										<File Id="771826963"/>
+										<File Id="379507300"/>
+										<File Id="884500584"/>
+										<File Id="770947216"/>
+										<File Id="43277341"/>
+										<File Id="614843199"/>
+										<File Id="87131940"/>
+										<File Id="84562496"/>
+										<File Id="571748929"/>
+										<File Id="392784057"/>
+										<File Id="532933540"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{152A661B-51BD-489D-9139-5473AC644C77}">
+									<Media>
+										<File Id="1039921921"/>
+										<File Id="1038942298"/>
+										<File Id="282237338"/>
+										<File Id="1073189581"/>
+										<File Id="947831295"/>
+										<File Id="188782225"/>
+										<File Id="842948694"/>
+										<File Id="450549691"/>
+										<File Id="866769560"/>
+										<File Id="382862239"/>
+										<File Id="305116361"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="1047604054" Name="Play_Texture_Pas" ObjectPath="\Events\Personnage\Play_Texture_Pas" DurationType="OneShot" DurationMin="0.063854" DurationMax="0.621896">
 					<IncludedMemoryFiles>
 						<File Id="1721556" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Droit16.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Droit16_10C4C929.wem</Path>
 						</File>
-						<File Id="2729660" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit05.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit05_10C4C929.wem</Path>
+						<File Id="2728857" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche03.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche03_10C4C929.wem</Path>
+						</File>
+						<File Id="6629935" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche08.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche08_10C4C929.wem</Path>
 						</File>
 						<File Id="13222006" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_DroitFeuille11.wav</ShortName>
@@ -645,9 +1341,25 @@
 							<ShortName>Asphalt_Run_Pied_Droit12.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Droit12_10C4C929.wem</Path>
 						</File>
+						<File Id="21886201" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit03.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit03_10C4C929.wem</Path>
+						</File>
 						<File Id="22221799" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Droit11.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Droit11_10C4C929.wem</Path>
+						</File>
+						<File Id="22939392" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit17.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit17_10C4C929.wem</Path>
+						</File>
+						<File Id="25247234" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche18.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche18_10C4C929.wem</Path>
+						</File>
+						<File Id="26979648" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche20.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche20_10C4C929.wem</Path>
 						</File>
 						<File Id="29233260" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Droit01.wav</ShortName>
@@ -657,21 +1369,17 @@
 							<ShortName>Herbe_Run_Pied_Droit11.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Droit11_10C4C929.wem</Path>
 						</File>
-						<File Id="39210698" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche01.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche01_10C4C929.wem</Path>
-						</File>
 						<File Id="48762085" Language="SFX">
 							<ShortName>Beton_Run_Pied_Droit15.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit15_10C4C929.wem</Path>
 						</File>
+						<File Id="49249385" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit05.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit05_10C4C929.wem</Path>
+						</File>
 						<File Id="50710265" Language="SFX">
 							<ShortName>Beton_Run_Pied_Gauche07.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Gauche07_10C4C929.wem</Path>
-						</File>
-						<File Id="52903834" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche06.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche06_10C4C929.wem</Path>
 						</File>
 						<File Id="57175498" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Droit05.wav</ShortName>
@@ -680,10 +1388,6 @@
 						<File Id="57720864" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Gauche12.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Gauche12_10C4C929.wem</Path>
-						</File>
-						<File Id="59784268" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche14.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche14_10C4C929.wem</Path>
 						</File>
 						<File Id="60042527" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Gauche22.wav</ShortName>
@@ -701,6 +1405,10 @@
 							<ShortName>Asphalt_Walk_Pied_Droit08.wav</ShortName>
 							<Path>SFX\Asphalt_Walk_Pied_Droit08_10C4C929.wem</Path>
 						</File>
+						<File Id="67259563" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche09.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche09_10C4C929.wem</Path>
+						</File>
 						<File Id="72106722" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_GaucheFeuille08.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_GaucheFeuille08_10C4C929.wem</Path>
@@ -708,10 +1416,6 @@
 						<File Id="74804852" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Gauche12.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Gauche12_10C4C929.wem</Path>
-						</File>
-						<File Id="80766588" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche07.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche07_10C4C929.wem</Path>
 						</File>
 						<File Id="86344228" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Gauche06.wav</ShortName>
@@ -721,17 +1425,17 @@
 							<ShortName>Beton_Run_Pied_Droit22.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit22_10C4C929.wem</Path>
 						</File>
-						<File Id="103873768" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche19.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche19_10C4C929.wem</Path>
+						<File Id="105743425" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche03.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche03_10C4C929.wem</Path>
 						</File>
 						<File Id="107685051" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Droit09.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Droit09_10C4C929.wem</Path>
 						</File>
-						<File Id="107976113" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche13.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche13_10C4C929.wem</Path>
+						<File Id="108983281" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit21.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit21_10C4C929.wem</Path>
 						</File>
 						<File Id="111311136" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Gauche01.wav</ShortName>
@@ -740,14 +1444,6 @@
 						<File Id="111629030" Language="SFX">
 							<ShortName>Beton_Run_Pied_Droit02.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit02_10C4C929.wem</Path>
-						</File>
-						<File Id="113982267" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche01.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche01_10C4C929.wem</Path>
-						</File>
-						<File Id="114053687" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit12.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit12_10C4C929.wem</Path>
 						</File>
 						<File Id="115439359" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_DroitFeuille05.wav</ShortName>
@@ -761,10 +1457,6 @@
 							<ShortName>Beton_Walk_Pied_Droit03.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Droit03_10C4C929.wem</Path>
 						</File>
-						<File Id="125527315" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit15.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit15_10C4C929.wem</Path>
-						</File>
 						<File Id="125551037" Language="SFX">
 							<ShortName>Beton_Run_Pied_Droit04.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit04_10C4C929.wem</Path>
@@ -773,21 +1465,29 @@
 							<ShortName>Herbe_Walk_Pied_DroitFeuille01.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_DroitFeuille01_10C4C929.wem</Path>
 						</File>
+						<File Id="131622681" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit06.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit06_10C4C929.wem</Path>
+						</File>
 						<File Id="132412263" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Droit15.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Droit15_10C4C929.wem</Path>
 						</File>
-						<File Id="139049676" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche08.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche08_10C4C929.wem</Path>
+						<File Id="137895801" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit06.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit06_10C4C929.wem</Path>
+						</File>
+						<File Id="156127746" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit07.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit07_10C4C929.wem</Path>
 						</File>
 						<File Id="158808919" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_GaucheFeuille12.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_GaucheFeuille12_10C4C929.wem</Path>
 						</File>
-						<File Id="158867484" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche04.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche04_10C4C929.wem</Path>
+						<File Id="164735666" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche05.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche05_10C4C929.wem</Path>
 						</File>
 						<File Id="171144529" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Droit05.wav</ShortName>
@@ -805,9 +1505,9 @@
 							<ShortName>Asphalt_Run_Pied_Droit01.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Droit01_10C4C929.wem</Path>
 						</File>
-						<File Id="187529775" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche17.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche17_10C4C929.wem</Path>
+						<File Id="187593691" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche11.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche11_10C4C929.wem</Path>
 						</File>
 						<File Id="193711933" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Droit08.wav</ShortName>
@@ -817,10 +1517,6 @@
 							<ShortName>Asphalt_Run_Pied_Droit14.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Droit14_10C4C929.wem</Path>
 						</File>
-						<File Id="203879415" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit09.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit09_10C4C929.wem</Path>
-						</File>
 						<File Id="204689402" Language="SFX">
 							<ShortName>Beton_Run_Pied_Droit17.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit17_10C4C929.wem</Path>
@@ -828,10 +1524,6 @@
 						<File Id="204724719" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Droit05.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Droit05_10C4C929.wem</Path>
-						</File>
-						<File Id="205510086" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit13.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit13_10C4C929.wem</Path>
 						</File>
 						<File Id="208401075" Language="SFX">
 							<ShortName>Beton_Run_Pied_Gauche18.wav</ShortName>
@@ -853,9 +1545,9 @@
 							<ShortName>Asphalt_Run_Pied_Droit10.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Droit10_10C4C929.wem</Path>
 						</File>
-						<File Id="211106149" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit12.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit12_10C4C929.wem</Path>
+						<File Id="211388952" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche19.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche19_10C4C929.wem</Path>
 						</File>
 						<File Id="215688502" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Droit04.wav</ShortName>
@@ -865,25 +1557,45 @@
 							<ShortName>Beton_Run_Pied_Droit11.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit11_10C4C929.wem</Path>
 						</File>
-						<File Id="220746582" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche12.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche12_10C4C929.wem</Path>
+						<File Id="220684427" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche14.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche14_10C4C929.wem</Path>
+						</File>
+						<File Id="222403688" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche16.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche16_10C4C929.wem</Path>
+						</File>
+						<File Id="230445707" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche12.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche12_10C4C929.wem</Path>
 						</File>
 						<File Id="236767555" Language="SFX">
 							<ShortName>Beton_Run_Pied_Droit24.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit24_10C4C929.wem</Path>
 						</File>
+						<File Id="237859903" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit10.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit10_10C4C929.wem</Path>
+						</File>
 						<File Id="237887359" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Gauche13.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Gauche13_10C4C929.wem</Path>
 						</File>
+						<File Id="241317655" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche06.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche06_10C4C929.wem</Path>
+						</File>
+						<File Id="246014222" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit18.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit18_10C4C929.wem</Path>
+						</File>
+						<File Id="247265446" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche02.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche02_10C4C929.wem</Path>
+						</File>
 						<File Id="250474064" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Droit06.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Droit06_10C4C929.wem</Path>
-						</File>
-						<File Id="254690780" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche07.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche07_10C4C929.wem</Path>
 						</File>
 						<File Id="263950618" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Gauche19.wav</ShortName>
@@ -905,10 +1617,6 @@
 							<ShortName>Beton_Walk_Pied_Droit11.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Droit11_10C4C929.wem</Path>
 						</File>
-						<File Id="270392445" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit06.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit06_10C4C929.wem</Path>
-						</File>
 						<File Id="271225794" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Gauche04.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Gauche04_10C4C929.wem</Path>
@@ -916,6 +1624,10 @@
 						<File Id="274839210" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_GaucheFeuille10.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_GaucheFeuille10_10C4C929.wem</Path>
+						</File>
+						<File Id="275171033" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit13.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit13_10C4C929.wem</Path>
 						</File>
 						<File Id="275809528" Language="SFX">
 							<ShortName>Beton_Run_Pied_Droit20.wav</ShortName>
@@ -925,13 +1637,13 @@
 							<ShortName>Beton_Walk_Pied_Droit06.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Droit06_10C4C929.wem</Path>
 						</File>
+						<File Id="281133102" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit07.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit07_10C4C929.wem</Path>
+						</File>
 						<File Id="281558757" Language="SFX">
 							<ShortName>Beton_Run_Pied_Gauche19.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Gauche19_10C4C929.wem</Path>
-						</File>
-						<File Id="282034329" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche09.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche09_10C4C929.wem</Path>
 						</File>
 						<File Id="283254426" Language="SFX">
 							<ShortName>Beton_Run_Pied_Gauche23.wav</ShortName>
@@ -949,49 +1661,29 @@
 							<ShortName>Beton_Run_Pied_Gauche03.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Gauche03_10C4C929.wem</Path>
 						</File>
-						<File Id="288108976" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit08.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit08_10C4C929.wem</Path>
-						</File>
-						<File Id="288414181" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche09.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche09_10C4C929.wem</Path>
-						</File>
 						<File Id="288999139" Language="SFX">
 							<ShortName>Beton_Run_Pied_Droit14.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit14_10C4C929.wem</Path>
 						</File>
-						<File Id="297882001" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche21.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche21_10C4C929.wem</Path>
+						<File Id="289829302" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit05.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit05_10C4C929.wem</Path>
 						</File>
 						<File Id="299200781" Language="SFX">
 							<ShortName>Beton_Run_Pied_Droit28.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit28_10C4C929.wem</Path>
 						</File>
-						<File Id="301334657" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche10.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche10_10C4C929.wem</Path>
-						</File>
-						<File Id="301500602" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche16.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche16_10C4C929.wem</Path>
-						</File>
 						<File Id="302262921" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Droit04.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Droit04_10C4C929.wem</Path>
 						</File>
-						<File Id="307631469" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche11.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche11_10C4C929.wem</Path>
+						<File Id="310446775" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit04.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit04_10C4C929.wem</Path>
 						</File>
-						<File Id="317270868" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit03.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit03_10C4C929.wem</Path>
-						</File>
-						<File Id="318175834" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit06.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit06_10C4C929.wem</Path>
+						<File Id="313329078" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche07.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche07_10C4C929.wem</Path>
 						</File>
 						<File Id="318195985" Language="SFX">
 							<ShortName>Asphalt_Walk_Pied_Droit04.wav</ShortName>
@@ -1000,10 +1692,6 @@
 						<File Id="323452233" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Droit10.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Droit10_10C4C929.wem</Path>
-						</File>
-						<File Id="324186236" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit18.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit18_10C4C929.wem</Path>
 						</File>
 						<File Id="336934920" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_GaucheFeuille02.wav</ShortName>
@@ -1037,21 +1725,17 @@
 							<ShortName>Herbe_Run_Pied_Droit03.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Droit03_10C4C929.wem</Path>
 						</File>
-						<File Id="373744272" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche02.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche02_10C4C929.wem</Path>
-						</File>
-						<File Id="375514911" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit17.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit17_10C4C929.wem</Path>
-						</File>
-						<File Id="378605908" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit09.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit09_10C4C929.wem</Path>
-						</File>
 						<File Id="381275051" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Gauche14.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Gauche14_10C4C929.wem</Path>
+						</File>
+						<File Id="384875578" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche01.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche01_10C4C929.wem</Path>
+						</File>
+						<File Id="386549593" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit11.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit11_10C4C929.wem</Path>
 						</File>
 						<File Id="389212472" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_DroitFeuille09.wav</ShortName>
@@ -1069,13 +1753,13 @@
 							<ShortName>Herbe_Walk_Pied_DroitFeuille10.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_DroitFeuille10_10C4C929.wem</Path>
 						</File>
-						<File Id="400047950" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit07.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit07_10C4C929.wem</Path>
-						</File>
 						<File Id="404242804" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Gauche11.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Gauche11_10C4C929.wem</Path>
+						</File>
+						<File Id="404511014" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche17.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche17_10C4C929.wem</Path>
 						</File>
 						<File Id="405695541" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Gauche03.wav</ShortName>
@@ -1089,21 +1773,17 @@
 							<ShortName>Beton_Walk_Pied_Droit13.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Droit13_10C4C929.wem</Path>
 						</File>
-						<File Id="417161003" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit02.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit02_10C4C929.wem</Path>
-						</File>
-						<File Id="430520787" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit04.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit04_10C4C929.wem</Path>
+						<File Id="418922630" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche04.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche04_10C4C929.wem</Path>
 						</File>
 						<File Id="433688706" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Gauche09.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Gauche09_10C4C929.wem</Path>
 						</File>
-						<File Id="436680406" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit08.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit08_10C4C929.wem</Path>
+						<File Id="435816669" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit02.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit02_10C4C929.wem</Path>
 						</File>
 						<File Id="440551842" Language="SFX">
 							<ShortName>Beton_Run_Pied_Gauche17.wav</ShortName>
@@ -1124,6 +1804,14 @@
 						<File Id="452488105" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_DroitFeuille03.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_DroitFeuille03_10C4C929.wem</Path>
+						</File>
+						<File Id="459371115" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche04.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche04_10C4C929.wem</Path>
+						</File>
+						<File Id="464928524" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit10.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit10_10C4C929.wem</Path>
 						</File>
 						<File Id="467050496" Language="SFX">
 							<ShortName>Beton_Run_Pied_Droit21.wav</ShortName>
@@ -1153,9 +1841,9 @@
 							<ShortName>Herbe_Walk_Pied_DroitFeuille06.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_DroitFeuille06_10C4C929.wem</Path>
 						</File>
-						<File Id="493287553" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche04.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche04_10C4C929.wem</Path>
+						<File Id="495357685" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche21.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche21_10C4C929.wem</Path>
 						</File>
 						<File Id="497692895" Language="SFX">
 							<ShortName>Asphalt_Walk_Pied_Gauche08.wav</ShortName>
@@ -1168,6 +1856,10 @@
 						<File Id="501703006" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_GaucheFeuille13.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_GaucheFeuille13_10C4C929.wem</Path>
+						</File>
+						<File Id="502550029" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit08.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit08_10C4C929.wem</Path>
 						</File>
 						<File Id="517782537" Language="SFX">
 							<ShortName>Asphalt_Walk_Pied_Droit01.wav</ShortName>
@@ -1193,6 +1885,10 @@
 							<ShortName>Beton_Walk_Pied_Gauche10.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Gauche10_10C4C929.wem</Path>
 						</File>
+						<File Id="528755542" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit11.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit11_10C4C929.wem</Path>
+						</File>
 						<File Id="531437487" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Droit15.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Droit15_10C4C929.wem</Path>
@@ -1213,9 +1909,13 @@
 							<ShortName>Herbe_Run_Pied_Gauche14.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Gauche14_10C4C929.wem</Path>
 						</File>
-						<File Id="552729723" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche05.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche05_10C4C929.wem</Path>
+						<File Id="548210182" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit15.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit15_10C4C929.wem</Path>
+						</File>
+						<File Id="551106139" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit08.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit08_10C4C929.wem</Path>
 						</File>
 						<File Id="558555770" Language="SFX">
 							<ShortName>Beton_Run_Pied_Gauche13.wav</ShortName>
@@ -1249,6 +1949,10 @@
 							<ShortName>Herbe_Walk_Pied_GaucheFeuille11.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_GaucheFeuille11_10C4C929.wem</Path>
 						</File>
+						<File Id="574992919" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit12.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit12_10C4C929.wem</Path>
+						</File>
 						<File Id="575593122" Language="SFX">
 							<ShortName>Beton_Run_Pied_Gauche25.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Gauche25_10C4C929.wem</Path>
@@ -1273,17 +1977,21 @@
 							<ShortName>Herbe_Run_Pied_Droit19.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Droit19_10C4C929.wem</Path>
 						</File>
+						<File Id="600111461" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche01.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche01_10C4C929.wem</Path>
+						</File>
 						<File Id="605511991" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_GaucheFeuille01.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_GaucheFeuille01_10C4C929.wem</Path>
 						</File>
+						<File Id="608506652" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche12.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche12_10C4C929.wem</Path>
+						</File>
 						<File Id="609558426" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Droit08.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Droit08_10C4C929.wem</Path>
-						</File>
-						<File Id="610416684" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit10.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit10_10C4C929.wem</Path>
 						</File>
 						<File Id="611095066" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Gauche13.wav</ShortName>
@@ -1293,17 +2001,9 @@
 							<ShortName>Herbe_Run_Pied_Gauche08.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Gauche08_10C4C929.wem</Path>
 						</File>
-						<File Id="618021363" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit20.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit20_10C4C929.wem</Path>
-						</File>
 						<File Id="619189501" Language="SFX">
 							<ShortName>Asphalt_Walk_Pied_Droit09.wav</ShortName>
 							<Path>SFX\Asphalt_Walk_Pied_Droit09_10C4C929.wem</Path>
-						</File>
-						<File Id="621812656" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit19.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit19_10C4C929.wem</Path>
 						</File>
 						<File Id="622043092" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_GaucheFeuille03.wav</ShortName>
@@ -1313,9 +2013,13 @@
 							<ShortName>Herbe_Walk_Pied_GaucheFeuille05.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_GaucheFeuille05_10C4C929.wem</Path>
 						</File>
-						<File Id="633362008" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit10.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit10_10C4C929.wem</Path>
+						<File Id="626971123" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche10.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche10_10C4C929.wem</Path>
+						</File>
+						<File Id="628052130" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit04.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit04_10C4C929.wem</Path>
 						</File>
 						<File Id="633394615" Language="SFX">
 							<ShortName>Asphalt_Walk_Pied_Gauche03.wav</ShortName>
@@ -1329,13 +2033,17 @@
 							<ShortName>Herbe_Run_Pied_Gauche16.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Gauche16_10C4C929.wem</Path>
 						</File>
+						<File Id="652607693" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit09.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit09_10C4C929.wem</Path>
+						</File>
 						<File Id="663473506" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Gauche17.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Gauche17_10C4C929.wem</Path>
 						</File>
-						<File Id="666063622" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche18.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche18_10C4C929.wem</Path>
+						<File Id="664977610" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit16.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit16_10C4C929.wem</Path>
 						</File>
 						<File Id="666693833" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Gauche05.wav</ShortName>
@@ -1349,17 +2057,21 @@
 							<ShortName>Asphalt_Run_Pied_Gauche16.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Gauche16_10C4C929.wem</Path>
 						</File>
+						<File Id="673082167" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche13.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche13_10C4C929.wem</Path>
+						</File>
 						<File Id="681073708" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Droit03.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Droit03_10C4C929.wem</Path>
 						</File>
-						<File Id="686024919" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit16.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit16_10C4C929.wem</Path>
-						</File>
 						<File Id="687058015" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_GaucheFeuille04.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_GaucheFeuille04_10C4C929.wem</Path>
+						</File>
+						<File Id="687548667" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit20.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit20_10C4C929.wem</Path>
 						</File>
 						<File Id="691934992" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Droit10.wav</ShortName>
@@ -1417,10 +2129,6 @@
 							<ShortName>Herbe_Run_Pied_Gauche20.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Gauche20_10C4C929.wem</Path>
 						</File>
-						<File Id="739812157" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche11.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche11_10C4C929.wem</Path>
-						</File>
 						<File Id="740676531" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Gauche02.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Gauche02_10C4C929.wem</Path>
@@ -1453,9 +2161,9 @@
 							<ShortName>Beton_Walk_Pied_Droit19.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Droit19_10C4C929.wem</Path>
 						</File>
-						<File Id="770477279" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche03.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche03_10C4C929.wem</Path>
+						<File Id="764658584" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit02.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit02_10C4C929.wem</Path>
 						</File>
 						<File Id="781216236" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Gauche01.wav</ShortName>
@@ -1465,17 +2173,17 @@
 							<ShortName>Beton_Run_Pied_Droit06.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit06_10C4C929.wem</Path>
 						</File>
-						<File Id="783249343" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit01.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit01_10C4C929.wem</Path>
-						</File>
 						<File Id="786060376" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Droit16.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Droit16_10C4C929.wem</Path>
 						</File>
-						<File Id="789170062" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit11.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit11_10C4C929.wem</Path>
+						<File Id="788154994" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit12.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit12_10C4C929.wem</Path>
+						</File>
+						<File Id="794477665" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit14.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit14_10C4C929.wem</Path>
 						</File>
 						<File Id="802402667" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Gauche11.wav</ShortName>
@@ -1485,21 +2193,13 @@
 							<ShortName>Herbe_Run_Pied_Droit20.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Droit20_10C4C929.wem</Path>
 						</File>
+						<File Id="804778451" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche08.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche08_10C4C929.wem</Path>
+						</File>
 						<File Id="807791647" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Droit14.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Droit14_10C4C929.wem</Path>
-						</File>
-						<File Id="814736378" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche03.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche03_10C4C929.wem</Path>
-						</File>
-						<File Id="819730191" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche02.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche02_10C4C929.wem</Path>
-						</File>
-						<File Id="820284770" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche06.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche06_10C4C929.wem</Path>
 						</File>
 						<File Id="822589587" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Droit18.wav</ShortName>
@@ -1525,9 +2225,25 @@
 							<ShortName>Herbe_Run_Pied_Gauche17.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Gauche17_10C4C929.wem</Path>
 						</File>
+						<File Id="850740143" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche06.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche06_10C4C929.wem</Path>
+						</File>
 						<File Id="850898348" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Gauche18.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Gauche18_10C4C929.wem</Path>
+						</File>
+						<File Id="855518174" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche10.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche10_10C4C929.wem</Path>
+						</File>
+						<File Id="856111639" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche11.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche11_10C4C929.wem</Path>
+						</File>
+						<File Id="865378766" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit19.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit19_10C4C929.wem</Path>
 						</File>
 						<File Id="866288804" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Droit07.wav</ShortName>
@@ -1549,6 +2265,10 @@
 							<ShortName>Asphalt_Walk_Pied_Droit03.wav</ShortName>
 							<Path>SFX\Asphalt_Walk_Pied_Droit03_10C4C929.wem</Path>
 						</File>
+						<File Id="880154750" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche09.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche09_10C4C929.wem</Path>
+						</File>
 						<File Id="882032009" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_DroitFeuille02.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_DroitFeuille02_10C4C929.wem</Path>
@@ -1557,13 +2277,17 @@
 							<ShortName>Beton_Walk_Pied_Droit17.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Droit17_10C4C929.wem</Path>
 						</File>
-						<File Id="885218732" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit04.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit04_10C4C929.wem</Path>
+						<File Id="885179142" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit09.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit09_10C4C929.wem</Path>
 						</File>
 						<File Id="888415579" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Gauche05.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Gauche05_10C4C929.wem</Path>
+						</File>
+						<File Id="889712637" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche15.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche15_10C4C929.wem</Path>
 						</File>
 						<File Id="892643883" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Droit02.wav</ShortName>
@@ -1605,6 +2329,10 @@
 							<ShortName>Beton_Run_Pied_Droit26.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit26_10C4C929.wem</Path>
 						</File>
+						<File Id="925683840" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Gauche05.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Gauche05_10C4C929.wem</Path>
+						</File>
 						<File Id="926856122" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Droit06.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Droit06_10C4C929.wem</Path>
@@ -1621,41 +2349,25 @@
 							<ShortName>Herbe_Run_Pied_Gauche19.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Gauche19_10C4C929.wem</Path>
 						</File>
-						<File Id="947356862" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit14.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit14_10C4C929.wem</Path>
-						</File>
 						<File Id="951376891" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Gauche20.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Gauche20_10C4C929.wem</Path>
-						</File>
-						<File Id="951495531" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit21.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit21_10C4C929.wem</Path>
 						</File>
 						<File Id="957647150" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Gauche15.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Gauche15_10C4C929.wem</Path>
 						</File>
-						<File Id="964428452" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit07.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit07_10C4C929.wem</Path>
+						<File Id="962743250" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit01.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit01_10C4C929.wem</Path>
 						</File>
 						<File Id="965237657" Language="SFX">
 							<ShortName>Beton_Run_Pied_Droit05.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit05_10C4C929.wem</Path>
 						</File>
-						<File Id="966642457" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit05.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit05_10C4C929.wem</Path>
-						</File>
 						<File Id="970273545" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Gauche14.wav</ShortName>
 							<Path>SFX\Asphalt_Run_Pied_Gauche14_10C4C929.wem</Path>
-						</File>
-						<File Id="971974921" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit02.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit02_10C4C929.wem</Path>
 						</File>
 						<File Id="978982568" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Droit02.wav</ShortName>
@@ -1665,6 +2377,10 @@
 							<ShortName>Beton_Walk_Pied_Droit07.wav</ShortName>
 							<Path>SFX\Beton_Walk_Pied_Droit07_10C4C929.wem</Path>
 						</File>
+						<File Id="982650422" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche07.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche07_10C4C929.wem</Path>
+						</File>
 						<File Id="982982533" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Gauche05.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Gauche05_10C4C929.wem</Path>
@@ -1672,18 +2388,6 @@
 						<File Id="985545429" Language="SFX">
 							<ShortName>Beton_Run_Pied_Gauche15.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Gauche15_10C4C929.wem</Path>
-						</File>
-						<File Id="988507262" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit03.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit03_10C4C929.wem</Path>
-						</File>
-						<File Id="990122216" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Droit11.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Droit11_10C4C929.wem</Path>
-						</File>
-						<File Id="992905032" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Droit01.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Droit01_10C4C929.wem</Path>
 						</File>
 						<File Id="993487532" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Gauche08.wav</ShortName>
@@ -1709,37 +2413,29 @@
 							<ShortName>Beton_Run_Pied_Gauche11.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Gauche11_10C4C929.wem</Path>
 						</File>
-						<File Id="1013412532" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche05.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche05_10C4C929.wem</Path>
-						</File>
-						<File Id="1019136729" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche15.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche15_10C4C929.wem</Path>
-						</File>
 						<File Id="1019879237" Language="SFX">
 							<ShortName>Beton_Run_Pied_Gauche21.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Gauche21_10C4C929.wem</Path>
-						</File>
-						<File Id="1021931628" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche08.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche08_10C4C929.wem</Path>
 						</File>
 						<File Id="1027929693" Language="SFX">
 							<ShortName>Asphalt_Walk_Pied_Gauche05.wav</ShortName>
 							<Path>SFX\Asphalt_Walk_Pied_Gauche05_10C4C929.wem</Path>
 						</File>
+						<File Id="1030895886" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Gauche02.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Gauche02_10C4C929.wem</Path>
+						</File>
 						<File Id="1030916672" Language="SFX">
 							<ShortName>Beton_Run_Pied_Droit08.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Droit08_10C4C929.wem</Path>
 						</File>
+						<File Id="1031617590" Language="SFX">
+							<ShortName>Terre_Gravier_Run_Pied_Droit03.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Run_Pied_Droit03_10C4C929.wem</Path>
+						</File>
 						<File Id="1032081421" Language="SFX">
 							<ShortName>Herbe_Walk_Pied_DroitFeuille07.wav</ShortName>
 							<Path>SFX\Herbe_Walk_Pied_DroitFeuille07_10C4C929.wem</Path>
-						</File>
-						<File Id="1051073171" Language="SFX">
-							<ShortName>Gravier_Run_Pied_Gauche20.wav</ShortName>
-							<Path>SFX\Gravier_Run_Pied_Gauche20_10C4C929.wem</Path>
 						</File>
 						<File Id="1053192198" Language="SFX">
 							<ShortName>Beton_Walk_Pied_Droit04.wav</ShortName>
@@ -1749,21 +2445,17 @@
 							<ShortName>Beton_Run_Pied_Gauche06.wav</ShortName>
 							<Path>SFX\Beton_Run_Pied_Gauche06_10C4C929.wem</Path>
 						</File>
+						<File Id="1059949754" Language="SFX">
+							<ShortName>Terre_Gravier_Walk_Pied_Droit01.wav</ShortName>
+							<Path>SFX\Terre_Gravier_Walk_Pied_Droit01_10C4C929.wem</Path>
+						</File>
 						<File Id="1061602778" Language="SFX">
 							<ShortName>Herbe_Run_Pied_Gauche15.wav</ShortName>
 							<Path>SFX\Herbe_Run_Pied_Gauche15_10C4C929.wem</Path>
 						</File>
-						<File Id="1061710297" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche10.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche10_10C4C929.wem</Path>
-						</File>
 						<File Id="1061791003" Language="SFX">
 							<ShortName>Asphalt_Walk_Pied_Gauche07.wav</ShortName>
 							<Path>SFX\Asphalt_Walk_Pied_Gauche07_10C4C929.wem</Path>
-						</File>
-						<File Id="1062400065" Language="SFX">
-							<ShortName>Gravier_Walk_Pied_Gauche12.wav</ShortName>
-							<Path>SFX\Gravier_Walk_Pied_Gauche12_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<SwitchContainers>
@@ -1997,52 +2689,52 @@
 									<Children>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
-												<File Id="783249343"/>
-												<File Id="417161003"/>
-												<File Id="317270868"/>
-												<File Id="430520787"/>
-												<File Id="2729660"/>
-												<File Id="270392445"/>
-												<File Id="400047950"/>
-												<File Id="288108976"/>
-												<File Id="378605908"/>
-												<File Id="633362008"/>
-												<File Id="990122216"/>
-												<File Id="211106149"/>
-												<File Id="205510086"/>
-												<File Id="947356862"/>
-												<File Id="125527315"/>
-												<File Id="686024919"/>
-												<File Id="375514911"/>
-												<File Id="324186236"/>
-												<File Id="621812656"/>
-												<File Id="618021363"/>
-												<File Id="951495531"/>
+												<File Id="962743250"/>
+												<File Id="435816669"/>
+												<File Id="1031617590"/>
+												<File Id="310446775"/>
+												<File Id="49249385"/>
+												<File Id="131622681"/>
+												<File Id="281133102"/>
+												<File Id="502550029"/>
+												<File Id="885179142"/>
+												<File Id="464928524"/>
+												<File Id="528755542"/>
+												<File Id="788154994"/>
+												<File Id="275171033"/>
+												<File Id="794477665"/>
+												<File Id="548210182"/>
+												<File Id="664977610"/>
+												<File Id="22939392"/>
+												<File Id="246014222"/>
+												<File Id="865378766"/>
+												<File Id="687548667"/>
+												<File Id="108983281"/>
 											</Media>
 										</SwitchContainer>
 										<SwitchContainer SwitchValue="{9A26DE1D-4A5C-46F7-91EA-87FCBDFE108F}">
 											<Media>
-												<File Id="39210698"/>
-												<File Id="819730191"/>
-												<File Id="770477279"/>
-												<File Id="493287553"/>
-												<File Id="552729723"/>
-												<File Id="52903834"/>
-												<File Id="254690780"/>
-												<File Id="139049676"/>
-												<File Id="282034329"/>
-												<File Id="301334657"/>
-												<File Id="307631469"/>
-												<File Id="220746582"/>
-												<File Id="107976113"/>
-												<File Id="59784268"/>
-												<File Id="1019136729"/>
-												<File Id="301500602"/>
-												<File Id="187529775"/>
-												<File Id="666063622"/>
-												<File Id="103873768"/>
-												<File Id="1051073171"/>
-												<File Id="297882001"/>
+												<File Id="600111461"/>
+												<File Id="1030895886"/>
+												<File Id="105743425"/>
+												<File Id="459371115"/>
+												<File Id="164735666"/>
+												<File Id="241317655"/>
+												<File Id="982650422"/>
+												<File Id="6629935"/>
+												<File Id="67259563"/>
+												<File Id="855518174"/>
+												<File Id="187593691"/>
+												<File Id="230445707"/>
+												<File Id="673082167"/>
+												<File Id="220684427"/>
+												<File Id="889712637"/>
+												<File Id="222403688"/>
+												<File Id="404511014"/>
+												<File Id="25247234"/>
+												<File Id="211388952"/>
+												<File Id="26979648"/>
+												<File Id="495357685"/>
 											</Media>
 										</SwitchContainer>
 									</Children>
@@ -2051,34 +2743,34 @@
 									<Children>
 										<SwitchContainer SwitchValue="{9A26DE1D-4A5C-46F7-91EA-87FCBDFE108F}">
 											<Media>
-												<File Id="113982267"/>
-												<File Id="373744272"/>
-												<File Id="814736378"/>
-												<File Id="158867484"/>
-												<File Id="1013412532"/>
-												<File Id="820284770"/>
-												<File Id="80766588"/>
-												<File Id="1021931628"/>
-												<File Id="288414181"/>
-												<File Id="1061710297"/>
-												<File Id="739812157"/>
-												<File Id="1062400065"/>
+												<File Id="384875578"/>
+												<File Id="247265446"/>
+												<File Id="2728857"/>
+												<File Id="418922630"/>
+												<File Id="925683840"/>
+												<File Id="850740143"/>
+												<File Id="313329078"/>
+												<File Id="804778451"/>
+												<File Id="880154750"/>
+												<File Id="626971123"/>
+												<File Id="856111639"/>
+												<File Id="608506652"/>
 											</Media>
 										</SwitchContainer>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
-												<File Id="992905032"/>
-												<File Id="971974921"/>
-												<File Id="988507262"/>
-												<File Id="885218732"/>
-												<File Id="966642457"/>
-												<File Id="318175834"/>
-												<File Id="964428452"/>
-												<File Id="436680406"/>
-												<File Id="203879415"/>
-												<File Id="610416684"/>
-												<File Id="789170062"/>
-												<File Id="114053687"/>
+												<File Id="1059949754"/>
+												<File Id="764658584"/>
+												<File Id="21886201"/>
+												<File Id="628052130"/>
+												<File Id="289829302"/>
+												<File Id="137895801"/>
+												<File Id="156127746"/>
+												<File Id="551106139"/>
+												<File Id="652607693"/>
+												<File Id="237859903"/>
+												<File Id="386549593"/>
+												<File Id="574992919"/>
 											</Media>
 										</SwitchContainer>
 									</Children>
@@ -2176,7 +2868,6 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="428373397" Name="VitesseVoitureElec" ObjectPath="\Game Parameters\Obstacles\VitesseVoitureElec"/>
-				<GameParameter Id="3665353697" Name="Personnage_Vitesse" ObjectPath="\Game Parameters\Personnage\Personnage_Vitesse"/>
 			</GameParameters>
 			<SwitchGroups>
 				<SwitchGroup Id="3079589013" Name="Droit_Gauche" ObjectPath="\Switches\Personnage\Droit_Gauche">
@@ -2187,16 +2878,23 @@
 				</SwitchGroup>
 				<SwitchGroup Id="3869192313" Name="Pas_Matiere" ObjectPath="\Switches\Personnage\Pas_Matiere">
 					<Switches>
-						<Switch Id="2434290853" Name="Gravier" ObjectPath="\Switches\Personnage\Pas_Matiere\Gravier"/>
+						<Switch Id="508852877" Name="Terre" ObjectPath="\Switches\Personnage\Pas_Matiere\Terre"/>
 						<Switch Id="2495190089" Name="Herbe" ObjectPath="\Switches\Personnage\Pas_Matiere\Herbe"/>
 						<Switch Id="4169408098" Name="Asphalt" ObjectPath="\Switches\Personnage\Pas_Matiere\Asphalt"/>
 						<Switch Id="386080821" Name="Beton" ObjectPath="\Switches\Personnage\Pas_Matiere\Beton"/>
+					</Switches>
+				</SwitchGroup>
+				<SwitchGroup Id="3885082437" Name="Respiration_Ex_or_In" ObjectPath="\Switches\Personnage\Respiration_Ex_or_In">
+					<Switches>
+						<Switch Id="567704981" Name="Inspire" ObjectPath="\Switches\Personnage\Respiration_Ex_or_In\Inspire"/>
+						<Switch Id="3370304008" Name="Expire" ObjectPath="\Switches\Personnage\Respiration_Ex_or_In\Expire"/>
 					</Switches>
 				</SwitchGroup>
 				<SwitchGroup Id="4156334155" Name="Court_Marche" ObjectPath="\Switches\Personnage\Court_Marche">
 					<Switches>
 						<Switch Id="1630799659" Name="Marche" ObjectPath="\Switches\Personnage\Court_Marche\Marche"/>
 						<Switch Id="2871560606" Name="Court" ObjectPath="\Switches\Personnage\Court_Marche\Court"/>
+						<Switch Id="1874288895" Name="Idle" ObjectPath="\Switches\Personnage\Court_Marche\Idle"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>

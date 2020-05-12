@@ -34,6 +34,22 @@
 						<AuxBus Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}"/>
 					</ChildrenList>
 				</Bus>
+				<Bus Name="Mix REVERB" ID="{404D764E-40BF-41E7-AEDC-123650CF2EBF}">
+					<ReferenceList>
+						<Reference Name="AudioDevice">
+							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AuxBus Name="Reverb_Lieu_Repos" ID="{750C87B6-70DB-41F7-89DF-6704CEDFEACC}">
+							<ReferenceList>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Have_U_Ever_Been_Outside" ID="{FE29AE8D-FD86-4652-A95D-68D32F5760EC}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+							</ReferenceList>
+						</AuxBus>
+					</ChildrenList>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>

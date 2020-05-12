@@ -12,10 +12,6 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
-							<GameParameterRef Name="Personnage_Vitesse" ID="{D33DC1A1-B958-4876-99BE-E7A4B0A1668B}"/>
-							<Value>56.282722513089</Value>
-						</RTPCValue>
-						<RTPCValue>
 							<GameParameterRef Name="VitesseVoitureElec" ID="{5FE77D80-3313-4DB5-B9E4-47E4371E86FA}"/>
 							<Value>28.4048758879442</Value>
 						</RTPCValue>
@@ -24,10 +20,13 @@
 							<Value>0</Value>
 						</RTPCValue>
 					</RTPCValueList>
-					<CurrentStateList ShowAll="true"/>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="Oui" ID="{3B1D87B5-D050-4FB0-A173-6AB9E776B5AA}"/>
+					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Court" ID="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}"/>
 						<CurrentSwitchRef Name="Droit" ID="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}"/>
+						<CurrentSwitchRef Name="Expire" ID="{F7D3A280-1D9A-4432-998D-4526DC3381AD}"/>
 						<CurrentSwitchRef Name="Asphalt" ID="{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>

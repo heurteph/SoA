@@ -18,8 +18,24 @@ public class PostWwiseEvent : MonoBehaviour
     {
 
     }
-    public void PlayFootstepSound()
+    public void PlayRightFootstepSound()
     {
+        AKRESULT result = AkSoundEngine.SetSwitch("Droit_Gauche", "Droit", gameObject); // Right foot step sounds
+        if(result == AKRESULT.AK_Fail)
+        {
+            throw new System.Exception("Could set the side of the footstep wwise sound");
+        }
+        MyEvent.Post(gameObject);
+    }
+
+    public void PlayLeftFootstepSound()
+    {
+        AKRESULT result = AkSoundEngine.SetSwitch("Droit_Gauche", "Gauche", gameObject); // Left foot step sounds
+
+        if (result == AKRESULT.AK_Fail)
+        {
+            throw new System.Exception("Could set the side of the footstep wwise sound");
+        }
         MyEvent.Post(gameObject);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using AK.Wwise;
 
 public interface IAnimable
 {
@@ -90,6 +90,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     [SerializeField]
     private Transform raycastPosition;
 
+    [SerializeField]
+    private GameObject wwiseGameObject;
+
     void Awake()
     {
         steeringAngle = player.transform.rotation.eulerAngles.y;
@@ -105,6 +108,11 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         isProtectingEars = false;
 
         movement = Vector3.zero;
+
+        if(wwiseGameObject == null)
+        {
+            throw new System.Exception("Missing reference to a Wwise GameObject");
+        }
     }
 
     // Start is called before the first frame update
@@ -130,12 +138,15 @@ public class PlayerFirst : MonoBehaviour, IAnimable
                 //inputs.Player.Walk.Disable();
                 //inputs.Player.ProtectEyes.Enable();
                 //inputs.Player.ProtectEars.Enable();
+
+                AKRESULT result = AkSoundEngine.SetSwitch("Court_Marche", "Court", wwiseGameObject); // Running step sounds
             }
 
             if (isProtectingEyes || isProtectingEars)
             {
                 //inputs.Player.Walk.Enable();
                 isDamaged = false; // To check
+                AKRESULT result = AkSoundEngine.SetSwitch("Court_Marche", "Court", wwiseGameObject); // Running step sounds
             }
 
             if (!isDamaged)
@@ -150,6 +161,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         else
         {
             anim.SetBool("isWalking", false); // stop animation when warping
+            AKRESULT result = AkSoundEngine.SetSwitch("Court_Marche", "Idle", wwiseGameObject); // Idle step sounds
         }
     }
 
@@ -177,9 +189,11 @@ public class PlayerFirst : MonoBehaviour, IAnimable
             if (v.magnitude < Mathf.Epsilon)
             {
                 anim.SetBool("isWalking", false);
+                AKRESULT result = AkSoundEngine.SetSwitch("Court_Marche", "Idle", wwiseGameObject); // Idle step sounds
             } else
             {
                 anim.SetBool("isWalking", true);
+                AKRESULT result = AkSoundEngine.SetSwitch("Court_Marche", "Marche", wwiseGameObject); // Walking step sounds
             }
         }
     }
@@ -199,16 +213,27 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         if (raycastPosition && groundLevelPosition)
         {
             LayerMask ground = LayerMask.GetMask("Ground");
+            ground |= LayerMask.GetMask("GrassGround");
 
             if (Physics.Raycast(raycastPosition.position, -Vector3.up, out RaycastHit hit, Mathf.Infinity, ground))
             {
                 movement = (hit.point - groundLevelPosition.position);
+
+                // Load the correct sound according to the ground
+                AKRESULT result = AkSoundEngine.SetSwitch("Pas_Matiere", GetGroundType(hit.transform.gameObject), wwiseGameObject);
             }
             else
             {
                 movement = Vector3.zero;
             }
         }
+    }
+
+    private static string GetGroundType(GameObject o)
+    {
+        if (o.layer == LayerMask.NameToLayer("GrassGround")){ return "Herbe"; }
+        if (o.layer == LayerMask.NameToLayer("Ground")){ return "Asphalt"; }
+        return "Beton";
     }
 
     IEnumerator TurnBack()

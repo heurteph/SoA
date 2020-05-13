@@ -18,8 +18,8 @@ public class PostWwiseEventBreath : MonoBehaviour
 
     private const float breathPerMinuteIdle = 15;
     private const float breathPerMinuteRunning = 20;
-    private const float breathPerMinuteHurry = 25;
-    private const float breathPerMinuteProtected = 30;
+    private const float breathPerMinuteHurry = 35;
+    private const float breathPerMinuteProtected = 25;
 
     // Use this for initialization.
     void Start()

@@ -75,6 +75,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     private bool isDamaged;
     public bool IsDamaged { get { return isDamaged; } set { isDamaged = value; } }
 
+    private bool isRunning;
+    public bool IsRunning { get { return isRunning; } set { isRunning = value; } }
+
     [SerializeField]
     private Animator anim;
     public Animator Anim { get { return anim; } }
@@ -106,6 +109,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         isHurry = false;
         isProtectingEyes = false;
         isProtectingEars = false;
+        isRunning = false;
 
         movement = Vector3.zero;
 
@@ -188,10 +192,12 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
             if (v.magnitude < Mathf.Epsilon)
             {
+                isRunning = false;
                 anim.SetBool("isWalking", false);
                 AKRESULT result = AkSoundEngine.SetSwitch("Court_Marche", "Idle", wwiseGameObject); // Idle step sounds
             } else
             {
+                isRunning = true;
                 anim.SetBool("isWalking", true);
                 AKRESULT result = AkSoundEngine.SetSwitch("Court_Marche", "Marche", wwiseGameObject); // Walking step sounds
             }

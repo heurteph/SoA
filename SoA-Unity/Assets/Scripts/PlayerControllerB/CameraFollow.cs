@@ -210,6 +210,7 @@ public class CameraFollow : MonoBehaviour
 
     private float swayDurationMin, swayDurationMax;
     private float swayRadiusMin, swayRadiusMax;
+    private float backToNormalSpeed;
 
     private Vector3 originalSwayPosition = Vector3.zero;
     private Vector3 targetSwayPosition = Vector3.zero;
@@ -1444,8 +1445,12 @@ public class CameraFollow : MonoBehaviour
     {
         latitude      = Random.Range(0, 180);
         longitude     = Random.Range(0, 360);
-        swayRadius    = Random.Range(swayNormalRadiusMin,   swayNormalRadiusMax);
-        swayDuration  = Random.Range(swayNormalDurationMin, swayNormalDurationMax);
+        swayRadiusMin = swayNormalRadiusMin;
+        swayRadiusMax = swayNormalRadiusMax;
+        swayDurationMin = swayNormalDurationMin;
+        swayDurationMax = swayNormalDurationMax;
+        swayRadius    = Random.Range(swayRadiusMin, swayRadiusMax);
+        swayDuration  = Random.Range(swayDurationMin, swayDurationMax);
         swayTimer     = swayDuration;
 
         originalSwayPosition = heldCamera.transform.localPosition;
@@ -1463,11 +1468,20 @@ public class CameraFollow : MonoBehaviour
         {
             if ((cameraState == STATE.HURRY || cameraState == STATE.NORMAL_TO_HURRY) && lastCameraState != STATE.HURRY && lastCameraState != STATE.NORMAL_TO_HURRY)
             {
+                Debug.Log("HURRY UP !!!!!!!!!!!!!!!!!!");
+
                 // immediately speed up
                 float newSwayDuration = Random.Range(swayHurryDurationMin, swayHurryDurationMax);
 
                 swayTimer *= (newSwayDuration / swayDuration); // rescale timer
                 swayDuration = newSwayDuration;
+
+                // for next iteration
+                swayDurationMin = swayHurryDurationMin;
+                swayDurationMax = swayHurryDurationMax;
+                swayRadiusMin = swayHurryRadiusMin;
+                swayRadiusMax = swayHurryRadiusMax;
+                backToNormalSpeed = 0.5f;
             }
 
             swayTimer = Mathf.Max(swayTimer - Time.deltaTime, 0.0f);
@@ -1479,20 +1493,19 @@ public class CameraFollow : MonoBehaviour
                 latitude  = Random.Range(0, 90) + 90 * (1 - Mathf.Sign(latitude - 90) / 2f);
                 longitude = Random.Range(longitude - 90, longitude + 90) % 360;
 
-                if (cameraState != STATE.HURRY && cameraState != STATE.NORMAL_TO_HURRY)
-                {
-                    swayRadius   = Random.Range(swayNormalRadiusMin, swayNormalRadiusMax);
-                    swayDuration = Random.Range(swayNormalDurationMin, swayNormalDurationMax);
-                    swayTimer    = swayDuration;
-                }
-                else
-                {
-                    swayRadius   = Random.Range(swayHurryRadiusMin, swayHurryRadiusMax); // Revenir progressivement à swayNormalRadiusMin, swayNormalRadiusMax
-                    swayDuration = Random.Range(swayHurryDurationMin, swayHurryDurationMax);
-                    swayTimer    = swayDuration;
-                }
-                originalSwayPosition = cameraSway.transform.localPosition;
+                // Revenir progressivement à swayNormalRadiusMin, swayNormalRadiusMax
+                // WARNING : Here we suppose that radius is greater in hurry than in normal, and conversely for the duration
+                backToNormalSpeed = Mathf.Max(backToNormalSpeed - Time.deltaTime, 0.1f);
+                swayRadiusMin   = Mathf.Max(swayRadiusMin   - Time.deltaTime * backToNormalSpeed, swayNormalRadiusMin);
+                swayRadiusMax   = Mathf.Max(swayRadiusMax   - Time.deltaTime * backToNormalSpeed, swayNormalRadiusMax);
+                swayDurationMin = Mathf.Min(swayDurationMin + Time.deltaTime * backToNormalSpeed, swayNormalDurationMin);
+                swayDurationMax = Mathf.Min(swayDurationMax + Time.deltaTime * backToNormalSpeed, swayNormalDurationMax);
 
+                swayRadius   = Random.Range(swayRadiusMin, swayRadiusMax);
+                swayDuration = Random.Range(swayDurationMin, swayDurationMax);
+                swayTimer    = swayDuration;
+
+                originalSwayPosition = cameraSway.transform.localPosition;
                 targetSwayPosition = heldCamera.transform.localPosition + heldCamera.transform.localRotation * new Vector3
                 (
                     swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Cos(longitude * Mathf.Deg2Rad),

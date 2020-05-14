@@ -18,6 +18,9 @@
 					</ReferenceList>
 					<ChildrenList>
 						<SwitchContainer Name="Respiration_Mouvement" ID="{0D197C24-9DC2-45FC-A3E9-1AC4FCEF1A0A}" ShortID="648705171">
+							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -26,7 +29,7 @@
 									<ObjectRef Name="Idle" ID="{735E6AAB-BB90-4C0D-8F0B-E13EA2E2848F}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+									<ObjectRef Name="PersoMaster" ID="{70882171-F188-490F-BB20-D05554DA0579}" WorkUnitID="{2E8B03C5-B7AB-4730-AC19-BD49D2D89A85}"/>
 								</Reference>
 								<Reference Name="SwitchGroupOrStateGroup">
 									<ObjectRef Name="Court_Marche" ID="{5A845B8A-97CC-41CA-93E6-53692BECD86F}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>
@@ -34,6 +37,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<SwitchContainer Name="Marche_Ex or in" ID="{64C8A4E0-352D-4ADB-8226-1FDA3D79A0A8}" ShortID="179158061">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1024,6 +1034,13 @@
 									</GroupingInfo>
 								</SwitchContainer>
 								<SwitchContainer Name="Court_Ex or in" ID="{58B6093B-57AF-4FC1-A9E5-2DB789780921}" ShortID="436774924">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -2520,6 +2537,13 @@
 									</GroupingInfo>
 								</SwitchContainer>
 								<SwitchContainer Name="Idle_Ex or in" ID="{9DF82FEA-F7B9-4A84-B616-C70A39D47A25}" ShortID="31647763">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -3140,7 +3164,13 @@
 					<ChildrenList>
 						<SwitchContainer Name="Texture Pas" ID="{B6E4D10B-DA50-4351-9683-784BD72B2CE6}" ShortID="135134845">
 							<PropertyList>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -3150,7 +3180,7 @@
 									<ObjectRef Name="Asphalt" ID="{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+									<ObjectRef Name="PersoMaster" ID="{70882171-F188-490F-BB20-D05554DA0579}" WorkUnitID="{2E8B03C5-B7AB-4730-AC19-BD49D2D89A85}"/>
 								</Reference>
 								<Reference Name="SwitchGroupOrStateGroup">
 									<ObjectRef Name="Pas_Matiere" ID="{B5A97861-3A79-49DC-9CA4-30BD84E287BE}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>
@@ -3161,6 +3191,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<SwitchContainer Name="Court_Marche_Herbe" ID="{F986B788-9BB8-4ADB-9FB9-DF2E5718DF32}" ShortID="36495283">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>

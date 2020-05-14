@@ -13,13 +13,13 @@ public class PostWwiseEventBreath : MonoBehaviour
     private float breathPerMinute;
     private float breathPerMinuteNext;
 
-    private const float transitionSpeedUp   = 6f;
-    private const float transitionSpeedDown = 2f;
+    private const float transitionSpeedUp = 100f; //= 6f;
+    private const float transitionSpeedDown = 100f; //= 2f;
 
-    private const float breathPerMinuteIdle = 15;
-    private const float breathPerMinuteRunning = 20;
-    private const float breathPerMinuteHurry = 35;
-    private const float breathPerMinuteProtected = 25;
+    private const float breathPerMinuteIdle = 20;
+    private const float breathPerMinuteRunning = 30;
+    private const float breathPerMinuteHurry = 60;
+    private const float breathPerMinuteProtected = 60;
 
     // Use this for initialization.
     void Start()

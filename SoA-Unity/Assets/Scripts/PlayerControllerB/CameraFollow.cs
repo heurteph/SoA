@@ -187,13 +187,13 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The minimal sway radius when in Hurry Mode")]
-    [Range(0.001f, 1f)]
-    private float swayHurryRadiusMin = 0.01f;
+    [Range(0.001f, 2f)]
+    private float swayHurryRadiusMin = 0.8f;
 
     [SerializeField]
     [Tooltip("The maximal sway radius when in Hurry Mode")]
-    [Range(0.001f, 1f)]
-    private float swayHurryRadiusMax = 0.02f;
+    [Range(0.001f, 2f)]
+    private float swayHurryRadiusMax = 1f;
 
     [SerializeField]
     [Range(0.001f, 1f)]
@@ -210,7 +210,8 @@ public class CameraFollow : MonoBehaviour
 
     private float swayDurationMin, swayDurationMax;
     private float swayRadiusMin, swayRadiusMax;
-    private float backToNormalSpeed;
+    private float backToNormalRadiusSpeed;
+    private float backToNormalRadiusAcceleration;
 
     private Vector3 originalSwayPosition = Vector3.zero;
     private Vector3 targetSwayPosition = Vector3.zero;
@@ -1468,8 +1469,6 @@ public class CameraFollow : MonoBehaviour
         {
             if ((cameraState == STATE.HURRY || cameraState == STATE.NORMAL_TO_HURRY) && lastCameraState != STATE.HURRY && lastCameraState != STATE.NORMAL_TO_HURRY)
             {
-                Debug.Log("HURRY UP !!!!!!!!!!!!!!!!!!");
-
                 // immediately speed up
                 float newSwayDuration = Random.Range(swayHurryDurationMin, swayHurryDurationMax);
 
@@ -1481,7 +1480,16 @@ public class CameraFollow : MonoBehaviour
                 swayDurationMax = swayHurryDurationMax;
                 swayRadiusMin = swayHurryRadiusMin;
                 swayRadiusMax = swayHurryRadiusMax;
-                backToNormalSpeed = 0.5f;
+                backToNormalRadiusSpeed = 2f;
+                backToNormalRadiusAcceleration = 2.5f;
+            }
+            else if (cameraState == STATE.NORMAL && lastCameraState != STATE.NORMAL)
+            {
+                // for next iteration
+                swayDurationMin = swayNormalDurationMin;
+                swayDurationMax = swayNormalDurationMax;
+                swayRadiusMin = swayNormalRadiusMin;
+                swayRadiusMax = swayNormalRadiusMax;
             }
 
             swayTimer = Mathf.Max(swayTimer - Time.deltaTime, 0.0f);
@@ -1495,11 +1503,12 @@ public class CameraFollow : MonoBehaviour
 
                 // Revenir progressivement à swayNormalRadiusMin, swayNormalRadiusMax
                 // WARNING : Here we suppose that radius is greater in hurry than in normal, and conversely for the duration
-                backToNormalSpeed = Mathf.Max(backToNormalSpeed - Time.deltaTime, 0.1f);
-                swayRadiusMin   = Mathf.Max(swayRadiusMin   - Time.deltaTime * backToNormalSpeed, swayNormalRadiusMin);
-                swayRadiusMax   = Mathf.Max(swayRadiusMax   - Time.deltaTime * backToNormalSpeed, swayNormalRadiusMax);
-                swayDurationMin = Mathf.Min(swayDurationMin + Time.deltaTime * backToNormalSpeed, swayNormalDurationMin);
-                swayDurationMax = Mathf.Min(swayDurationMax + Time.deltaTime * backToNormalSpeed, swayNormalDurationMax);
+                // Transition for the radius, but not for the duration
+                backToNormalRadiusSpeed = Mathf.Max(backToNormalRadiusSpeed + Time.deltaTime * backToNormalRadiusAcceleration, 0.1f);
+                swayRadiusMin   = Mathf.Max(swayRadiusMin   - Time.deltaTime * backToNormalRadiusSpeed, swayNormalRadiusMin);
+                swayRadiusMax   = Mathf.Max(swayRadiusMax   - Time.deltaTime * backToNormalRadiusSpeed, swayNormalRadiusMax);
+                //swayDurationMin = Mathf.Min(swayDurationMin + Time.deltaTime * backToNormalRadiusSpeed, swayNormalDurationMin);
+                //swayDurationMax = Mathf.Min(swayDurationMax + Time.deltaTime * backToNormalRadiusSpeed, swayNormalDurationMax);
 
                 swayRadius   = Random.Range(swayRadiusMin, swayRadiusMax);
                 swayDuration = Random.Range(swayDurationMin, swayDurationMax);

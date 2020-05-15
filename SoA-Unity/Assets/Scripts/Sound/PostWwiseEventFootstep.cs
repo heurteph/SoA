@@ -58,7 +58,7 @@ public class PostWwiseEventFootstep : MonoBehaviour
         if (o.layer == LayerMask.NameToLayer("GrassGround")) { return "Herbe"; }
         if (o.layer == LayerMask.NameToLayer("SoilGround")) { return "Terre"; }
         if (o.layer == LayerMask.NameToLayer("ConcreteGround")) { return "Beton"; }
-        else { return "Asphalt"; }
+        else { return "None"; }
     }
 
     public void PlayRightFootstepSound()

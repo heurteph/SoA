@@ -239,10 +239,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
             if (Physics.Raycast(raycastPosition.position, -Vector3.up, out RaycastHit hit, Mathf.Infinity, ground))
             {
-                movement = (hit.point - groundLevelPosition.position);
-
-                // Load the correct sound according to the ground
-                //AKRESULT result = AkSoundEngine.SetSwitch("Pas_Matiere", GetGroundType(hit.transform.gameObject), wwiseGameObject);
+                movement = new Vector3(0, (hit.point - groundLevelPosition.position).y, 0);
             }
             else
             {

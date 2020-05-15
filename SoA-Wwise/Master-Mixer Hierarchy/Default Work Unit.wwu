@@ -50,6 +50,29 @@
 						</AuxBus>
 					</ChildrenList>
 				</Bus>
+				<Bus Name="MixPROTECTION" ID="{34536272-9AA9-46D1-8DC5-A23EB5AF7505}">
+					<ReferenceList>
+						<Reference Name="AudioDevice">
+							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AuxBus Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}">
+							<ReferenceList>
+								<Reference Name="Effect0">
+									<Custom>
+										<Effect Name="Wwise_Parametric_EQ_(Custom)" ID="{4C929F15-7717-47DF-A11D-3366C891A323}" ShortID="365387103" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<PropertyList>
+												<Property Name="FrequencyBand3" Type="Real32" Value="1215"/>
+												<Property Name="GainBand3" Type="Real32" Value="-24"/>
+											</PropertyList>
+										</Effect>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+						</AuxBus>
+					</ChildrenList>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>

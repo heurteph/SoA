@@ -11,6 +11,9 @@
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Parc_Envi_Master" ID="{3B6FD36D-F638-4BE9-9286-B8F46DD470C0}" WorkUnitID="{D4E16142-DC71-48F2-9773-C38FF7F21E94}"/>
 						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<RandomSequenceContainer Name="Parc_Oiseaux1" ID="{F5E77440-D485-43CD-8CA1-5F9EE4872930}" ShortID="656758646">
@@ -2099,6 +2102,35 @@
 							</PositioningInfo>
 						</RandomSequenceContainer>
 					</ChildrenList>
+					<StateInfo>
+						<StatePropertyList>
+							<Property Name="OutputBusVolume"/>
+							<Property Name="UserAuxSendVolume0"/>
+						</StatePropertyList>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Protection_Oui_Non" ID="{46C8E2FC-DB1E-4729-A3D2-B09D21025B1D}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
+								<CustomState Name="" ID="{B425E812-2253-4C68-B652-EA2EBFC7299E}" ShortID="662404909">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume0" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
+								<CustomState Name="" ID="{EAB580C1-36D2-4369-98B2-483E077B26CB}" ShortID="932523941">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-20"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

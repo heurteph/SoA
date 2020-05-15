@@ -18,6 +18,7 @@
 			<IncludedAuxBusses>
 				<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
 				<AuxBus Id="3204322453" Name="Reverb_Lieu_Repos" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Lieu_Repos"/>
+				<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
 			</IncludedAuxBusses>
 		</SoundBank>
 		<SoundBank Id="3163481603" Language="SFX">

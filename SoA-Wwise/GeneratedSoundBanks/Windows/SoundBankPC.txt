@@ -52,15 +52,34 @@ Switch	ID	Name	Switch Group			Notes
 	2871560606	Court	Court_Marche			
 
 State Group	ID	Name			Wwise Object Path	Notes
+	2773598748	Protection_Oui_Non			\Protection\Protection_Oui_Non	
 	3986250553	Dans_Lieu_Repos			\Lieux\Dans_Lieu_Repos	
 
 State	ID	Name	State Group			Notes
+	58138747	Active	Protection_Oui_Non			
+	748895195	None	Protection_Oui_Non			
+	2270773720	Pas_Active	Protection_Oui_Non			
 	544973834	Non	Dans_Lieu_Repos			
 	645492566	Oui	Dans_Lieu_Repos			
 	748895195	None	Dans_Lieu_Repos			
 
 Custom State	ID	Name	State Group	Owner		Notes
+	20623495	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_VoitureElec		
+	122069286	Non	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
+	265548802	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
 	335263818	Non	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Pas\Texture Pas		
+	388657980	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain		
+	485765438	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Nature		
+	494918475	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Nature		
+	504445497	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Pas\Texture Pas		
+	662404909	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Ambiance_Parc\Nature_Parc		
+	677616223	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Pas\Texture Pas		
+	693012108	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
+	883883622	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_VoitureElec		
+	893835973	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Pas\Texture Pas		
+	932523941	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Ambiance_Parc\Nature_Parc		
+	1000141261	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
+	1036616796	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	428373397	VitesseVoitureElec			\Obstacles\VitesseVoitureElec	

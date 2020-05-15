@@ -24,13 +24,13 @@ TagManager:
   - Obstacles
   - Targets
   - Camera
-  - Ground
+  - AsphaltGround
   - Shelter Entrance
   - Shelter Exit
   - Player
   - NoObstacle
   - GrassGround
-  - 
+  - SoilGround
   - 
   - 
   - 

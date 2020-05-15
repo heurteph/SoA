@@ -235,8 +235,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     {
         if (raycastPosition && groundLevelPosition)
         {
-            LayerMask ground = LayerMask.GetMask("Ground");
-            ground |= LayerMask.GetMask("GrassGround");
+            LayerMask ground = LayerMask.GetMask("AsphaltGround") | LayerMask.GetMask("GrassGround") | LayerMask.GetMask("ConcreteGround") | LayerMask.GetMask("SoilGround");
 
             if (Physics.Raycast(raycastPosition.position, -Vector3.up, out RaycastHit hit, Mathf.Infinity, ground))
             {

@@ -21,8 +21,7 @@ public class PostWwiseEventFootstep : MonoBehaviour
     // Use this for initialization.
     void Start()
     {
-        ground  = LayerMask.GetMask("Ground");
-        ground |= LayerMask.GetMask("GrassGround");
+        ground = LayerMask.GetMask("AsphaltGround") | LayerMask.GetMask("GrassGround") | LayerMask.GetMask("ConcreteGround") | LayerMask.GetMask("SoilGround");
 
         if (rightFoot == null)
         {
@@ -55,9 +54,11 @@ public class PostWwiseEventFootstep : MonoBehaviour
 
     private static string GetGroundType(GameObject o)
     {
-        if (o.layer == LayerMask.NameToLayer("GrassGround")) { return "Herbe";   }
-        if (o.layer == LayerMask.NameToLayer("Ground")) { return "Asphalt"; }
-        else { return "Beton"; }
+        if (o.layer == LayerMask.NameToLayer("AsphaltGround")) { return "Asphalt"; }
+        if (o.layer == LayerMask.NameToLayer("GrassGround")) { return "Herbe"; }
+        if (o.layer == LayerMask.NameToLayer("SoilGround")) { return "Terre"; }
+        if (o.layer == LayerMask.NameToLayer("ConcreteGround")) { return "Beton"; }
+        else { return "Asphalt"; }
     }
 
     public void PlayRightFootstepSound()
@@ -71,6 +72,7 @@ public class PostWwiseEventFootstep : MonoBehaviour
         if (Physics.Raycast(rightFoot.transform.position, -Vector3.up, out RaycastHit hit, Mathf.Infinity, ground))
         {
             // Load the correct sound according to the ground
+            Debug.Log("IM WALKING ON = " + GetGroundType(hit.transform.gameObject));
             result = AkSoundEngine.SetSwitch("Pas_Matiere", GetGroundType(hit.transform.gameObject), gameObject);
         }
 

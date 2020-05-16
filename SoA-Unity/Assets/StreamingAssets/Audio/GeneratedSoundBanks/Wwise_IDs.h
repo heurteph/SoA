@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_ARROSAGEAUTO = 3389613819U;
+        static const AkUniqueID PLAY_CRIS_TOUS = 2464503011U;
         static const AkUniqueID PLAY_HUMAIN_JOUE1 = 3185656221U;
         static const AkUniqueID PLAY_HUMAIN_JOUE2 = 3185656222U;
         static const AkUniqueID PLAY_HUMAIN_MANGE1 = 3446893022U;

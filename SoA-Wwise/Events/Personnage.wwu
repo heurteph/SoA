@@ -25,6 +25,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Cris_Tous" ID="{7B3A9395-56BB-4D65-B7F8-4ABDCA08C855}">
+					<ChildrenList>
+						<Action Name="" ID="{A1616DC2-8B85-4AC7-B91E-73B5254B7352}" ShortID="858431164">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Cris_Tous" ID="{9E8E97AA-8709-42F8-9409-1C1763E0B9D3}" WorkUnitID="{1B141676-4414-425B-8493-2A57AC5365FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

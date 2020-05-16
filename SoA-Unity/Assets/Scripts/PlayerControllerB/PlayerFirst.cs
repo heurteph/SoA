@@ -49,9 +49,14 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     private float turnBackThreshold = -0.5f;
 
     [SerializeField]
-    [Tooltip("Sensitivity of the Y-Axis to trigger walking")]
+    [Tooltip("Minimum Y-Axis value")]
     [Range(0, 1)]
-    private float walkingForwardThreshold = 0.1f;
+    private float walkingForwardThreshold = 0.6f;
+
+    [SerializeField]
+    [Tooltip("Minimum X-Axis value")]
+    [Range(0, 1)]
+    private float turningAngleThreshold = 0.6f;
 
     [SerializeField]
     [Tooltip("Total angle of the joystick (in degrees) that trigger the turn back")]
@@ -214,17 +219,24 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     {
         if (!isTurningBack)
         {
-            if (IsInTurnBackSector(v) && !turningBackPressed) { turningBackPressed = true; StartCoroutine("TurnBack"); return; }
+            if (IsInTurnBackSector(v) && !turningBackPressed)  { turningBackPressed = true; StartCoroutine("TurnBack"); return; }
             if (turningBackPressed && v.y > turnBackThreshold) { turningBackPressed = false; }
-            if (v.y > walkingForwardThreshold) { movement += player.transform.forward * Mathf.Clamp(v.y, walkingForwardThreshold, 1f) * speed * Time.deltaTime; }
-
-            if (!IsInFullForwardSector(v) && v.y > walkingForwardThreshold)
+            
+            if (v.y > 0)
             {
-                steeringAngle += v.x * rotationSpeed * Time.deltaTime;
+                movement += player.transform.forward * Mathf.Clamp(v.y, walkingForwardThreshold, 1f) * speed * Time.deltaTime;
+            }
+            if (!IsInFullForwardSector(v) && !IsInTurnBackSector(v))
+            {
+                steeringAngle += Mathf.Sign(v.x) * Mathf.Clamp(Mathf.Abs(v.x), turningAngleThreshold, 1f) * rotationSpeed * Time.deltaTime; // TO DO : Minimum rotation speed threshold, just like the walkingForwardThreshold
                 characterController.transform.rotation = Quaternion.Euler(0, steeringAngle, 0);
+                if(v.y <= 0)
+                {
+                    movement += player.transform.forward * walkingForwardThreshold * speed * Time.deltaTime;
+                }
             }
 
-            if (v.y < walkingForwardThreshold)
+            if (v.magnitude == 0)
             {
                 isRunning = false;
                 anim.SetBool("isWalking", false);

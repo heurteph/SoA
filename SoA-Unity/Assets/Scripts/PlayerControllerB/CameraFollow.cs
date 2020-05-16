@@ -280,8 +280,9 @@ public class CameraFollow : MonoBehaviour
     {
         storedCameraOffset = cameraOffset;
         originalYRotation  = transform.rotation.eulerAngles.y;
-        transform.position = player.transform.position + player.transform.rotation * Quaternion.Euler(0,90,0) * cameraOffset;
-        UpdateRotation(); //transform.LookAt(player.transform);
+        // TO DO : Start from a higher point like an angel coming down
+        transform.position = player.transform.position + player.transform.rotation /* * Quaternion.Euler(0,90,0) */ * cameraOffset;
+        UpdateRotation();
         lastPlayerPosition = player.transform.position;
 
         // compute the angle between the camera in normal view and hurry view for the look-around stabilization

@@ -6,6 +6,7 @@
 				<SoundBank Name="SoundBankPC" ID="{82172574-DEB5-4A00-9650-C8C82E35FF74}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Parc_Ambiance" ID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Ville_Obstacles" ID="{327481BD-CE92-4345-9F23-C7E9F3EADD7F}" WorkUnitID="{327481BD-CE92-4345-9F23-C7E9F3EADD7F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Personnage" ID="{D20AD8BF-469B-4394-9523-16D0018CC167}" WorkUnitID="{D20AD8BF-469B-4394-9523-16D0018CC167}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Parc_Obstacles" ID="{42D3CBB5-B6AE-4C43-861A-1CE16A08E9C5}" WorkUnitID="{42D3CBB5-B6AE-4C43-861A-1CE16A08E9C5}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>

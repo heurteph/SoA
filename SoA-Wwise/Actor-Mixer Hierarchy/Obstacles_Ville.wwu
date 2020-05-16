@@ -3,15 +3,162 @@
 	<AudioObjects>
 		<WorkUnit Name="Obstacles_Ville" ID="{290583BA-F78C-4BA8-B982-F97D11B9B649}" OwnerID="{351F24E1-4FF7-47D0-BD07-D422771E5C68}" PersistMode="Nested">
 			<ChildrenList>
-				<ActorMixer Name="Véhicules_Ville" ID="{A54CD3F0-086B-4930-9E9A-6F45CB0C922B}" ShortID="891785460">
+				<ActorMixer Name="Voitures" ID="{A54CD3F0-086B-4930-9E9A-6F45CB0C922B}" ShortID="891785460">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+							<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend1">
+							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="VoituresFixe" ID="{9414C60B-7F5E-4F44-B24B-FEEA9C18437E}" ShortID="350581621">
+							<PropertyList>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="MOTOR_Car_FixeLoop02" ID="{F06173FC-2075-481C-8305-82E0550F0332}" ShortID="382140046">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MOTOR_Car_FixeLoop02" ID="{8DD85A8B-34A3-496F-A280-B06C09E62585}">
+											<Language>SFX</Language>
+											<AudioFile>MOTOR_Car_FixeLoop02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1023817673"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MOTOR_Car_FixeLoop02" ID="{8DD85A8B-34A3-496F-A280-B06C09E62585}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="MOTOR_Car_FixeLoop03" ID="{0E86AAA7-72F1-4A2A-B251-1363B4B3C3BF}" ShortID="362023538">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MOTOR_Car_FixeLoop03" ID="{D2EF2A6B-C68F-4589-9666-D0DB9FD396DA}">
+											<Language>SFX</Language>
+											<AudioFile>MOTOR_Car_FixeLoop03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="598973429"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MOTOR_Car_FixeLoop03" ID="{D2EF2A6B-C68F-4589-9666-D0DB9FD396DA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="MOTOR_Car_FixeLoop04" ID="{B26795AF-674B-4D50-80E6-7205F315A2E7}" ShortID="72979059">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MOTOR_Car_FixeLoop04" ID="{94192818-FF94-4C8D-B850-7063274D879E}">
+											<Language>SFX</Language>
+											<AudioFile>MOTOR_Car_FixeLoop04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="455030035"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MOTOR_Car_FixeLoop04" ID="{94192818-FF94-4C8D-B850-7063274D879E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="MOTOR_Car_FixeLoop05" ID="{BC4FF84B-98AC-43ED-8EB7-735D6A314A80}" ShortID="927861683">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MOTOR_Car_FixeLoop05" ID="{99D37547-A103-4CB2-AD75-57109387AB5C}">
+											<Language>SFX</Language>
+											<AudioFile>MOTOR_Car_FixeLoop05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="73488680"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MOTOR_Car_FixeLoop05" ID="{99D37547-A103-4CB2-AD75-57109387AB5C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<StateInfo>
+						<StatePropertyList>
+							<Property Name="OutputBusVolume"/>
+							<Property Name="UserAuxSendVolume1"/>
+						</StatePropertyList>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Protection_Oui_Non" ID="{46C8E2FC-DB1E-4729-A3D2-B09D21025B1D}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
+								<CustomState Name="" ID="{18C39FBE-B8A7-4883-B560-CCB9D4AF82DD}" ShortID="826408821">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume1" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
+								<CustomState Name="" ID="{16358B83-F465-4A80-ABB7-595277FE6D57}" ShortID="279448485">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-24"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 				</ActorMixer>
 				<ActorMixer Name="Foule_Ville" ID="{3832EAAD-DE06-4E4A-826C-47F2105ADF11}" ShortID="78325837">
 					<ReferenceList>
@@ -22,6 +169,102 @@
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 					</ReferenceList>
+				</ActorMixer>
+				<ActorMixer Name="Bus" ID="{CBC2E2DD-66FE-43AA-A1CC-B5890042221F}" ShortID="164344237">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend1">
+							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="BusFixe" ID="{66A3F8CB-B567-41DF-A4BC-062E489EA7C3}" ShortID="157199031">
+							<PropertyList>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+								</Reference>
+								<Reference Name="UserAuxSend1">
+									<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="MOTOR_Bus_FixeLoop" ID="{629E7BC2-1713-4BF1-9DC8-5243F6E7BF00}" ShortID="910509174">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="MOTOR_Bus_FixeLoop" ID="{A5B9E66A-789D-48FD-B7D1-FC4DC8344503}">
+											<Language>SFX</Language>
+											<AudioFile>MOTOR_Bus_FixeLoop.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="695868094"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="MOTOR_Bus_FixeLoop" ID="{A5B9E66A-789D-48FD-B7D1-FC4DC8344503}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+					<StateInfo>
+						<StatePropertyList>
+							<Property Name="OutputBusVolume"/>
+							<Property Name="UserAuxSendVolume1"/>
+						</StatePropertyList>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Protection_Oui_Non" ID="{46C8E2FC-DB1E-4729-A3D2-B09D21025B1D}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
+								<CustomState Name="" ID="{DC483C80-9546-4305-9D78-7CEBC49C33B4}" ShortID="366618753">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume1" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
+								<CustomState Name="" ID="{4BD18B74-5DB9-427F-9713-3569928158E9}" ShortID="99283411">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-24"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

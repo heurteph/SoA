@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{327481BD-CE92-4345-9F23-C7E9F3EADD7F}" SchemaVersion="97">
 	<Events>
-		<WorkUnit Name="Ville_Obstacles" ID="{327481BD-CE92-4345-9F23-C7E9F3EADD7F}" PersistMode="Standalone"/>
+		<WorkUnit Name="Ville_Obstacles" ID="{327481BD-CE92-4345-9F23-C7E9F3EADD7F}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_BusFixe" ID="{0B85B6A5-6C20-4D5F-80C2-FC06B9B7C8FF}">
+					<ChildrenList>
+						<Action Name="" ID="{44F6AEF0-4C06-4C2B-B7E5-4E642D42661A}" ShortID="259582515">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BusFixe" ID="{66A3F8CB-B567-41DF-A4BC-062E489EA7C3}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_VoituresFixe" ID="{ABD040DB-AE8E-440C-9624-3ED41C0CF553}">
+					<ChildrenList>
+						<Action Name="" ID="{CE71AA22-A448-4AD2-9EB7-07AF267A440D}" ShortID="236015303">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="VoituresFixe" ID="{9414C60B-7F5E-4F44-B24B-FEEA9C18437E}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_BusFixe" ID="{76406859-C1A6-43CF-9B36-DABEB0F98968}">
+					<ChildrenList>
+						<Action Name="" ID="{4B0C03FB-8593-484F-B229-98D7892CE67A}" ShortID="716975119">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BusFixe" ID="{66A3F8CB-B567-41DF-A4BC-062E489EA7C3}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_VoituresFixe" ID="{4EA63548-0EAA-40CC-B6C4-8DBEB47A5576}">
+					<ChildrenList>
+						<Action Name="" ID="{A4DF8898-11B5-4260-AE6E-843E0F90679A}" ShortID="368695903">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="VoituresFixe" ID="{9414C60B-7F5E-4F44-B24B-FEEA9C18437E}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

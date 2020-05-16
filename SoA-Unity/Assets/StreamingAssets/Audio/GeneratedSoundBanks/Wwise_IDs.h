@@ -61,6 +61,18 @@ namespace AK
             } // namespace STATE
         } // namespace DANS_LIEU_REPOS
 
+        namespace PROTECTION_OUI_NON
+        {
+            static const AkUniqueID GROUP = 2773598748U;
+
+            namespace STATE
+            {
+                static const AkUniqueID ACTIVE = 58138747U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID PAS_ACTIVE = 2270773720U;
+            } // namespace STATE
+        } // namespace PROTECTION_OUI_NON
+
     } // namespace STATES
 
     namespace SWITCHES
@@ -130,6 +142,7 @@ namespace AK
     {
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MIX_REVERB = 3296604463U;
+        static const AkUniqueID MIXPROTECTION = 2740603104U;
         static const AkUniqueID NIVEAUECOUTEPERSO = 2734641465U;
         static const AkUniqueID PARC_ENVI_MASTER = 351745915U;
         static const AkUniqueID PARC_OBSTACLES_MASTER = 1797562303U;
@@ -138,6 +151,7 @@ namespace AK
 
     namespace AUX_BUSSES
     {
+        static const AkUniqueID EQ_PROTECTION = 3971758071U;
         static const AkUniqueID MIXECOUTEPERSO = 2093609463U;
         static const AkUniqueID REVERB_LIEU_REPOS = 3204322453U;
     } // namespace AUX_BUSSES

@@ -1,7 +1,11 @@
 State Group	ID	Name			Wwise Object Path	Notes
+	2773598748	Protection_Oui_Non			\Protection\Protection_Oui_Non	
 	3986250553	Dans_Lieu_Repos			\Lieux\Dans_Lieu_Repos	
 
 State	ID	Name	State Group			Notes
+	58138747	Active	Protection_Oui_Non			
+	748895195	None	Protection_Oui_Non			
+	2270773720	Pas_Active	Protection_Oui_Non			
 	544973834	Non	Dans_Lieu_Repos			
 	645492566	Oui	Dans_Lieu_Repos			
 	748895195	None	Dans_Lieu_Repos			
@@ -11,15 +15,18 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	386419066	PersoMaster			\Personnage\PersoMaster	
 	1797562303	Parc_Obstacles_Master			\Obstacles\Parc_Obstacles_Master	
 	2734641465	NiveauEcoutePerso			\Default Work Unit\NiveauEcoutePerso	
+	2740603104	MixPROTECTION			\Default Work Unit\MixPROTECTION	
 	3296604463	Mix REVERB			\Default Work Unit\Mix REVERB	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	2093609463	MixEcoutePerso			\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso	
 	3204322453	Reverb_Lieu_Repos			\Default Work Unit\Mix REVERB\Reverb_Lieu_Repos	
+	3971758071	EQ_Protection			\Default Work Unit\MixPROTECTION\EQ_Protection	
 
 Effect plug-ins	ID	Name	Type				Notes
 	48620415	Have_U_Ever_Been_Outside	Wwise RoomVerb			
+	365387103	Wwise_Parametric_EQ_(Custom)	Wwise Parametric EQ			
 	486877881	Wwise_Meter_(Custom)	Wwise Meter			
 
 Audio Devices	ID	Name	Type				Notes

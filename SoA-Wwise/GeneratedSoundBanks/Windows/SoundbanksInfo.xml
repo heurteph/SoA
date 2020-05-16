@@ -70,6 +70,46 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2464503011" Name="Play_Cris_Tous" ObjectPath="\Events\Personnage\Play_Cris_Tous" DurationType="OneShot" DurationMin="0.311854" DurationMax="1.055458">
+					<IncludedMemoryFiles>
+						<File Id="85790283" Language="SFX">
+							<ShortName>Perso_Douleur 09.wav</ShortName>
+							<Path>SFX\Perso_Douleur 09_10C4C929.wem</Path>
+						</File>
+						<File Id="344723482" Language="SFX">
+							<ShortName>Perso_Douleur 07.wav</ShortName>
+							<Path>SFX\Perso_Douleur 07_10C4C929.wem</Path>
+						</File>
+						<File Id="466247134" Language="SFX">
+							<ShortName>Perso_Douleur 01.wav</ShortName>
+							<Path>SFX\Perso_Douleur 01_10C4C929.wem</Path>
+						</File>
+						<File Id="537397659" Language="SFX">
+							<ShortName>Perso_Douleur 08.wav</ShortName>
+							<Path>SFX\Perso_Douleur 08_10C4C929.wem</Path>
+						</File>
+						<File Id="575651839" Language="SFX">
+							<ShortName>Perso_Douleur 02.wav</ShortName>
+							<Path>SFX\Perso_Douleur 02_10C4C929.wem</Path>
+						</File>
+						<File Id="757634971" Language="SFX">
+							<ShortName>Perso_Douleur 04.wav</ShortName>
+							<Path>SFX\Perso_Douleur 04_10C4C929.wem</Path>
+						</File>
+						<File Id="806953138" Language="SFX">
+							<ShortName>Perso_Douleur 06.wav</ShortName>
+							<Path>SFX\Perso_Douleur 06_10C4C929.wem</Path>
+						</File>
+						<File Id="875153335" Language="SFX">
+							<ShortName>Perso_Douleur 05.wav</ShortName>
+							<Path>SFX\Perso_Douleur 05_10C4C929.wem</Path>
+						</File>
+						<File Id="1035857833" Language="SFX">
+							<ShortName>Perso_Douleur 03.wav</ShortName>
+							<Path>SFX\Perso_Douleur 03_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3185656221" Name="Play_Humain_Joue1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Joue1" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3185656222" Name="Play_Humain_Joue2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Joue2" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3446893022" Name="Play_Humain_Mange1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Mange1" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="16.954771" DurationMax="22.342501">

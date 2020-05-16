@@ -8655,6 +8655,9 @@
 															</ReferenceList>
 															<ChildrenList>
 																<AudioFileSource Name="Terre_Gravier_Walk_Pied_Droit01" ID="{1A6587EC-DC57-4A48-96E1-C04789822825}">
+																	<PropertyList>
+																		<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																	</PropertyList>
 																	<Language>SFX</Language>
 																	<AudioFile>Terre_Gravier_Walk_Pied_Droit01.wav</AudioFile>
 																	<MediaIDList>
@@ -8677,6 +8680,9 @@
 															</ReferenceList>
 															<ChildrenList>
 																<AudioFileSource Name="Terre_Gravier_Walk_Pied_Droit02" ID="{C45F15D5-7089-4967-B155-2A453EDBA477}">
+																	<PropertyList>
+																		<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																	</PropertyList>
 																	<Language>SFX</Language>
 																	<AudioFile>Terre_Gravier_Walk_Pied_Droit02.wav</AudioFile>
 																	<MediaIDList>
@@ -8699,6 +8705,10 @@
 															</ReferenceList>
 															<ChildrenList>
 																<AudioFileSource Name="Terre_Gravier_Walk_Pied_Droit03" ID="{85475D96-70DD-4DF3-AE4C-0E695CECDF7D}">
+																	<PropertyList>
+																		<Property Name="LoopBegin" Type="Real64" Value="0.12518493150685"/>
+																		<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																	</PropertyList>
 																	<Language>SFX</Language>
 																	<AudioFile>Terre_Gravier_Walk_Pied_Droit03.wav</AudioFile>
 																	<MediaIDList>

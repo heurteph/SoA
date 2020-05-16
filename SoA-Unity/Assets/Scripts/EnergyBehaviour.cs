@@ -53,7 +53,6 @@ public class EnergyBehaviour : MonoBehaviour
         {
             EnergyChangedEvent += GetComponent<PlayerFollow>().Hurry;
         }
-        EnterDamageStateEvent += GetComponent<PostWwiseEventCry>().PlayCrySound;
     }
 
     // Update is called once per frame

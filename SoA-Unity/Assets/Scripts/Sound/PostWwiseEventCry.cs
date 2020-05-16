@@ -7,10 +7,13 @@ public class PostWwiseEventCry : MonoBehaviour
     [SerializeField]
     private AK.Wwise.Event MyEvent;
 
+    [SerializeField]
+    private GameObject player;
+
     // Use this for initialization.
     void Start()
     {
-
+        player.GetComponent<EnergyBehaviour>().EnterDamageStateEvent += PlayCrySound;
     }
 
     // Update is called once per frame.
@@ -21,6 +24,9 @@ public class PostWwiseEventCry : MonoBehaviour
 
     public void PlayCrySound()
     {
-        MyEvent.Post(gameObject);
+        if (!player.GetComponent<PlayerFirst>().IsProtectingEars && !player.GetComponent<PlayerFirst>().IsProtectingEyes)
+        {
+            MyEvent.Post(gameObject);
+        }
     }
 }

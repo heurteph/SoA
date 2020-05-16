@@ -38,13 +38,13 @@ public class Protect : MonoBehaviour
         {
             player.IsProtectingEyes = true;    
             visionScript.CoverEyes();
-            AkSoundEngine.SetState("Protection_Oui_Non", "Active");
+            AkSoundEngine.SetState("Protection_Oui_Non", "Active"); // Wwise
         };
         inputs.Player.ProtectEyes.canceled += _ctx =>
         {
             player.IsProtectingEyes = false;
             visionScript.UncoverEyes();
-            AkSoundEngine.SetState("Protection_Oui_Non", "Pas_active");
+            AkSoundEngine.SetState("Protection_Oui_Non", "Pas_active"); // Wwise
         };
 
         inputs.Player.ProtectEars.performed += _ctx =>

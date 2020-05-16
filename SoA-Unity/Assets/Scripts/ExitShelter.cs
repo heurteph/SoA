@@ -96,6 +96,9 @@ public class ExitShelter : MonoBehaviour
         }
         shelterCamera.enabled = false;
 
+        // Reset sound
+        AkSoundEngine.SetState("Dans_Lieu_Repos", "Non");
+
         while (shade.color.a > 0)
         {
             shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, Mathf.Max(shade.color.a - Time.deltaTime / (shelterManager.TransitionDuration * 0.5f),0));

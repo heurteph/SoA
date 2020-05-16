@@ -77,8 +77,14 @@ public class EnterShelter : MonoBehaviour
             transform.GetComponent<PlayerFirst>().ResetTransform(warp.position, warp.rotation.eulerAngles.y);
         }
 
+        // Reset Camera
+
         mainCamera.enabled = false;
         shelter.transform.Find("Shed Camera").GetComponent<Camera>().enabled = true;
+
+        // Reset sound
+
+        AkSoundEngine.SetState("Dans_Lieu_Repos", "Oui");
 
         while (shade.color.a > 0)
         {

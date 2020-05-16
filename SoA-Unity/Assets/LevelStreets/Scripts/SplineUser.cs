@@ -138,7 +138,7 @@ public class SplineUser : MonoBehaviour
 
     private Vector3 StickToTheGround(Vector3 position)
     {
-        LayerMask mask = LayerMask.GetMask("Ground");
+        LayerMask mask = LayerMask.GetMask("AsphaltGround") | LayerMask.GetMask("GrassGround") | LayerMask.GetMask("SoilGround");
         if(Physics.Raycast(raycaster.transform.position, Vector3.down, out RaycastHit hit, Mathf.Infinity, mask))
         {
             return new Vector3(position.x, hit.point.y + groundOffset, position.z);

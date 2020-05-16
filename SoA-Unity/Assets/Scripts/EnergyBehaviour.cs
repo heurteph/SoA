@@ -19,6 +19,9 @@ public class EnergyBehaviour : MonoBehaviour
     public delegate void EnergyChangedHandler(float e);
     public event EnergyChangedHandler EnergyChangedEvent;
 
+    public delegate void EnterDamageStateHandler();
+    public event EnterDamageStateHandler EnterDamageStateEvent;
+
     public delegate void OutOfEnergyHandler();
     public event OutOfEnergyHandler OutOfEnergyEvent;
 
@@ -49,6 +52,7 @@ public class EnergyBehaviour : MonoBehaviour
         {
             EnergyChangedEvent += GetComponent<PlayerFollow>().Hurry;
         }
+        EnterDamageStateEvent += GetComponent<PostWwiseEventCry>().PlayCrySound;
     }
 
     // Update is called once per frame
@@ -74,6 +78,7 @@ public class EnergyBehaviour : MonoBehaviour
         
         if (!GetComponent<PlayerFirst>().IsDamaged)
         {
+            EnterDamageStateEvent?.Invoke();
             StartCoroutine("Timer");
         }
         GetComponent<PlayerFirst>().IsDamaged = true;

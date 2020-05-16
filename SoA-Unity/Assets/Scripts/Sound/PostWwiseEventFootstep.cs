@@ -33,7 +33,7 @@ public class PostWwiseEventFootstep : MonoBehaviour
         }
 
         verticalOffset = new Vector3(0, 0.5f, 0);
-        forwardOffset = new Vector3(-0f, 0, 0);
+        forwardOffset = new Vector3(0.25f, 0, 0);
 
         GameObject rightFootRaycaster = new GameObject("R_Raycaster");
         rightFootRaycaster.transform.SetParent (rightFoot.transform);

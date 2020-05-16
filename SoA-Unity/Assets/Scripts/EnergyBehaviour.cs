@@ -10,6 +10,7 @@ public class EnergyBehaviour : MonoBehaviour
     [SerializeField]
     [Range(0,1000)]
     private float energy;
+    public float Energy { get { return energy; } set { energy = value; } }
 
     private MonoBehaviour script;
 

@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_ARROSAGEAUTO = 3389613819U;
+        static const AkUniqueID PLAY_BUSFIXE = 3680267894U;
         static const AkUniqueID PLAY_CRIS_TOUS = 2464503011U;
         static const AkUniqueID PLAY_HUMAIN_JOUE1 = 3185656221U;
         static const AkUniqueID PLAY_HUMAIN_JOUE2 = 3185656222U;
@@ -39,13 +40,16 @@ namespace AK
         static const AkUniqueID PLAY_RESPIRATION_MOUVEMENT = 2860278991U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
         static const AkUniqueID PLAY_VETEMENT_ELAGUEUR = 2746796163U;
+        static const AkUniqueID PLAY_VOITURESFIXE = 327753639U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;
+        static const AkUniqueID STOP_BUSFIXE = 958439308U;
         static const AkUniqueID STOP_PARC_CHIEN = 2301453854U;
         static const AkUniqueID STOP_PARC_EAU_LAC = 3189001139U;
         static const AkUniqueID STOP_PARC_OISEAUX1 = 152275144U;
         static const AkUniqueID STOP_PARC_OISEAUX2 = 152275147U;
         static const AkUniqueID STOP_PARC_OISEAUX3 = 152275146U;
         static const AkUniqueID STOP_PARC_VENT = 2647100474U;
+        static const AkUniqueID STOP_VOITURESFIXE = 3171623001U;
     } // namespace EVENTS
 
     namespace STATES
@@ -136,7 +140,9 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID SOUNDBANKOBSTACLES = 2603708050U;
         static const AkUniqueID SOUNDBANKPC = 3163481603U;
+        static const AkUniqueID SOUNDBANKPERSOAMBIANCE = 820650383U;
     } // namespace BANKS
 
     namespace BUSSES
@@ -148,6 +154,7 @@ namespace AK
         static const AkUniqueID PARC_ENVI_MASTER = 351745915U;
         static const AkUniqueID PARC_OBSTACLES_MASTER = 1797562303U;
         static const AkUniqueID PERSOMASTER = 386419066U;
+        static const AkUniqueID VILLE_OBSTACLES_MASTER = 2278553081U;
     } // namespace BUSSES
 
     namespace AUX_BUSSES

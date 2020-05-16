@@ -48,9 +48,26 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     [Range(-1,0)]
     private float turnBackThreshold = -0.5f;
 
+    [SerializeField]
+    [Tooltip("Sensitivity of the Y-Axis to trigger walking")]
+    [Range(0, 1)]
+    private float walkingForwardThreshold = 0.1f;
+
+    [SerializeField]
+    [Tooltip("Total angle of the joystick (in degrees) that trigger the turn back")]
+    [Range(0, 180)]
+    float turnBackAngle = 30; // degs
+
+    [SerializeField]
+    [Tooltip("Total angle of the joystick (in degrees) that trigger full forward movement")]
+    [Range(0, 180)]
+    float fullForwardAngle = 60; // degs
+
     private float steeringAngle;
     public float SteeringAngle { get { return steeringAngle; } set { steeringAngle = value; } }
     private bool isTurningBack;
+
+    private bool turningBackPressed;
 
     [Space]
     [Header("Hurry State")]
@@ -118,6 +135,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         isProtectingEyes = false;
         isProtectingEars = false;
         isRunning = false;
+        turningBackPressed = false;
 
         movement = Vector3.zero;
 
@@ -196,14 +214,17 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     {
         if (!isTurningBack)
         {
-            Vector3 translation = player.transform.forward * v.y;
-            movement += translation * speed * Time.deltaTime;
-            steeringAngle += v.x * rotationSpeed * Time.deltaTime;
-            characterController.transform.rotation = Quaternion.Euler(0, steeringAngle, 0);
-            
-            if (v.y < turnBackThreshold) { StartCoroutine("TurnBack"); }
+            if (IsInTurnBackSector(v) && !turningBackPressed) { turningBackPressed = true; StartCoroutine("TurnBack"); return; }
+            if (turningBackPressed && v.y > turnBackThreshold) { turningBackPressed = false; }
+            if (v.y > walkingForwardThreshold) { movement += player.transform.forward * Mathf.Clamp(v.y, walkingForwardThreshold, 1f) * speed * Time.deltaTime; }
 
-            if (v.magnitude < Mathf.Epsilon)
+            if (!IsInFullForwardSector(v) && v.y > walkingForwardThreshold)
+            {
+                steeringAngle += v.x * rotationSpeed * Time.deltaTime;
+                characterController.transform.rotation = Quaternion.Euler(0, steeringAngle, 0);
+            }
+
+            if (v.y < walkingForwardThreshold)
             {
                 isRunning = false;
                 anim.SetBool("isWalking", false);
@@ -219,6 +240,16 @@ public class PlayerFirst : MonoBehaviour, IAnimable
                 result = AkSoundEngine.SetSwitch("Court_Marche", "Marche", wwiseGameObjectBreath); // Walking step sounds
             }
         }
+    }
+
+    private bool IsInTurnBackSector(Vector2 point)
+    {
+        return point.y <= turnBackThreshold && Mathf.Abs(Mathf.Atan2(point.x, -point.y)) <= turnBackAngle / 2f * Mathf.Deg2Rad;
+    }
+
+    private bool IsInFullForwardSector(Vector2 point)
+    {
+        return Mathf.Abs(Mathf.Atan2(point.x, point.y)) <= fullForwardAngle / 2f * Mathf.Deg2Rad;
     }
 
     public void ResetTransform(Vector3 position, float angle)
@@ -252,6 +283,10 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     IEnumerator TurnBack()
     {
         isTurningBack = true;
+
+        // TO DO : verifiy these two
+        isRunning = true;
+        anim.SetBool("isWalking", true);
 
         AKRESULT result;
         result = AkSoundEngine.SetSwitch("Court_Marche", "Marche", wwiseGameObjectFootstep);

@@ -3,7 +3,17 @@
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{301D1FA4-AB84-4C12-8413-BED7EEF30A31}" PersistMode="Standalone">
 			<ChildrenList>
-				<SoundBank Name="SoundBankPC" ID="{82172574-DEB5-4A00-9650-C8C82E35FF74}">
+				<SoundBank Name="SoundBankObstacles" ID="{82172574-DEB5-4A00-9650-C8C82E35FF74}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="SoundBankPersoAmbiance" ID="{9A3CEA79-F730-4B22-9DBD-8CF4D3831FF5}">
+					<ObjectInclusionList/>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="SoundBankPC" ID="{23D02350-F77C-4A29-A62F-4B604A7B936D}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Parc_Ambiance" ID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Ville_Obstacles" ID="{327481BD-CE92-4345-9F23-C7E9F3EADD7F}" WorkUnitID="{327481BD-CE92-4345-9F23-C7E9F3EADD7F}" Origin="Manual" Filter="7"/>

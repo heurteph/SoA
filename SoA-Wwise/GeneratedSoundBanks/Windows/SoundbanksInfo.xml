@@ -80,7 +80,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3680267894" Name="Play_BusFixe" ObjectPath="\Events\Ville_Obstacles\Play_BusFixe" DurationType="Infinite">
+				<Event Id="3680267894" Name="Play_BusFixe" ObjectPath="\Events\Ville_Obstacles\Play_BusFixe" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="695868094" Language="SFX">
 							<ShortName>MOTOR_Bus_FixeLoop.wav</ShortName>
@@ -2917,7 +2917,7 @@
 					</SwitchContainers>
 				</Event>
 				<Event Id="2746796163" Name="Play_Vetement_Elagueur" ObjectPath="\Events\Parc_Obstacles\Play_Vetement_Elagueur" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="327753639" Name="Play_VoituresFixe" ObjectPath="\Events\Ville_Obstacles\Play_VoituresFixe" DurationType="Infinite">
+				<Event Id="327753639" Name="Play_VoituresFixe" ObjectPath="\Events\Ville_Obstacles\Play_VoituresFixe" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="73488680" Language="SFX">
 							<ShortName>MOTOR_Car_FixeLoop05.wav</ShortName>

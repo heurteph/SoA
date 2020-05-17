@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62b992a2f44b774ebb9a773683263fc, type: 3}
   m_Name: 82172574-DEB5-4A00-9650-C8C82E35FF74
   m_EditorClassIdentifier: 
-  objectName: SoundBankPC
-  id: 3163481603
+  objectName: SoundBankObstacles
+  id: 2603708050
   guid: 82172574-DEB5-4A00-9650-C8C82E35FF74

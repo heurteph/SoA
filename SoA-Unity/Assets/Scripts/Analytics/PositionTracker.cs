@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 public class PositionTracker : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("The player")]
+    [Tooltip("Reference to the player")]
     private GameObject player;
 
     [SerializeField]

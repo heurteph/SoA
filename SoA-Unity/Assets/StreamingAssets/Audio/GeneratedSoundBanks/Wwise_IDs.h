@@ -32,13 +32,12 @@ namespace AK
         static const AkUniqueID PLAY_PARC_OISEAUX3 = 3725651504U;
         static const AkUniqueID PLAY_PARC_VENT = 4135899644U;
         static const AkUniqueID PLAY_PARC_VENT_01 = 3266099682U;
-        static const AkUniqueID PLAY_PAS_JOGGUEUR = 2173732909U;
-        static const AkUniqueID PLAY_PAS_JOGGUEUR2 = 596008677U;
         static const AkUniqueID PLAY_PLEURE_B_B_ = 4114146970U;
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURF = 1582928683U;
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURH = 1582928677U;
         static const AkUniqueID PLAY_RESPIRATION_MOUVEMENT = 2860278991U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
+        static const AkUniqueID PLAY_TEXTURE_PAS_JOGGER = 482787459U;
         static const AkUniqueID PLAY_VETEMENT_ELAGUEUR = 2746796163U;
         static const AkUniqueID PLAY_VOITURESFIXE = 327753639U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;

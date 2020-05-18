@@ -157,28 +157,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Pas_Joggueur2" ID="{78A06B79-7A7D-447E-B08E-F138C19C86DA}">
-					<ChildrenList>
-						<Action Name="" ID="{C72B0DA9-BD4B-47EB-8B2F-1A494D7DE54A}" ShortID="1032019598">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Pas_Joggueur2" ID="{91F508E1-3E12-4E08-B9B8-892E96C155A0}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_Pas_Joggueur" ID="{77A4C387-E1CD-4D10-A571-74C78B799202}">
-					<ChildrenList>
-						<Action Name="" ID="{EDB54E97-90C4-48B4-9C43-DC6029121CF3}" ShortID="231993814">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Pas_Joggueur" ID="{F2ACD7FF-7924-4948-8355-3674D1B98690}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Stop_ArrosageAuto" ID="{BC87B6AD-FDE6-4EC0-B333-DC0CDFC4554E}">
 					<ChildrenList>
 						<Action Name="" ID="{7BD13784-5EC8-4F04-808C-33202B73D8A5}" ShortID="157692156">
@@ -202,6 +180,17 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Parc_Chien" ID="{74A1B23E-4465-48B6-927F-3CCA3E205FAB}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Texture_Pas_Jogger" ID="{DD11A694-5AA2-4056-A0FE-8D3243A39214}">
+					<ChildrenList>
+						<Action Name="" ID="{194B0FA3-601C-4C4E-9664-2F10815A3C95}" ShortID="53608031">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Texture Pas" ID="{53D24EE7-14EE-4979-B2D4-085D6ABC7C03}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

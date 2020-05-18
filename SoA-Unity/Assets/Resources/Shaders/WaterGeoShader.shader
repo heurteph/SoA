@@ -316,12 +316,14 @@
 				{
 					"LightMode" = "ForwardBase"
 					"PassFlags" = "OnlyDirectional"
-					/*"Queue" = "Transparent"
-					"RenderType" = "Transparent"*/
+					"Queue" = "Transparent"
+					"RenderType" = "Transparent"
 				}
 				//avec ZWrite On => abération chromatique avec décalage buffer
-				//Blend SrcAlpha OneMinusSrcAlpha
-				//ZWrite off
+				Blend SrcAlpha OneMinusSrcAlpha
+				Cull off
+				//cull avec sens vertex rendu horaire ou anti horaire
+				ZWrite off
 				
 				CGPROGRAM
 				#pragma vertex vert
@@ -381,7 +383,13 @@
 					
 
 					//return _Color * (_AmbientColor + light + specular + rim);
-					return _Color * sample * (_AmbientColor + light + specular + rim);
+					//return _Color * sample * (_AmbientColor + light + specular + rim);
+					//complément en 1 pour inversion effet quand on se rapproche rim augmente
+					rim = float4(1.0f, 1.0f, 1.0f, 1.0f) - rim;
+					rim.a = 1.0f;
+					float4 res = _Color * (_AmbientColor + light + specular + rim);
+					res.a = _Color.a;
+					return res;
 				}
 
 				ENDCG

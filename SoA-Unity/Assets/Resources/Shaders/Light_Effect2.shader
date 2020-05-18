@@ -9,6 +9,7 @@
 		_Position("Position",Vector) = (0.0,0.0,0.0,0.0)
 		_ecart("Ecart", Float) = 0.4
 		_height("Hauteur",Float) = 10.0
+		_PourcentHeight("Height display",Range(0.0,1.0)) = 1.0
 	}
 		//Bien selectionner dans Shader RenderQueue Transparent
 		SubShader{
@@ -39,7 +40,9 @@
 
 			//float total_grey;
 			//groupshared float tab[1];
-		shared float res = 0.0f;	
+		//ca partagé
+		shared float res = 0.0f;
+
 		uniform sampler2D _MainTex;
 		uniform sampler2D _MaskTex;
 		uniform float type;
@@ -50,6 +53,12 @@
 		uniform float _ecart;
 		uniform float _height;
 		uniform float4 _color;
+		uniform float _PourcentHeight;
+		uniform float height_scale;
+
+
+		//pour composante Main_Text
+		float4 _MainTex_ST;
 
 
 		struct vertexInput {
@@ -128,7 +137,8 @@
 			o.id = v.id;
 			o.normal = v.normal;
 			o.tangent = v.tangent;
-			o.uv = v.uv;//TRANSFORM_TEX(uv, _MainTex);
+			o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+			//v.uv;
 
 			//UNITY_TRANSFER_FOG(o, o.pos);
 			return o;
@@ -177,17 +187,19 @@
 			
 			float4 col = _color;//float4(0.0f,0.0f,1.0f,0.5f);
 			
+			float taille = (height_scale * 2.0f);
+
 			//lerp(c1,c2,interpolation entre 0 et 1);
 			//col = (col, float4(col.r,col.g,col.b,0.5f),im.vertex.y);
 			//interpolation entre sommet et point base
 			//uv pour interpolation
 			//col = lerp(col, float4(col.r, col.g, col.b, 0.2f),im.uv.y);
-			float uv = 4.15f - im.uv.y;
+			float uv = taille - im.uv.y;
 			
 
-
 			//4.15f
-			float alpha = (uv >= 0 && uv <= 4.15f ? (4.15f - uv)/(4.15f*2.0f) : 0.1f );//(im.uv.y > 0.0f && im.uv.y <= 1.0f ? im.uv.y : 0.1f);//abs(1.0f - im.uv.y);
+			//float alpha = (uv >= 0 && uv <= taille ? (taille - uv)/(taille*2.0f) : 0.1f );//(im.uv.y > 0.0f && im.uv.y <= 1.0f ? im.uv.y : 0.1f);//abs(1.0f - im.uv.y);
+			//float alpha = im.uv.y / taille;//(taille - uv) / taille;//(uv >= 0 && uv <= taille ? (taille - uv) / (taille*2.0f) : 0.1f);
 			//col.a = alpha;
 			//col.a = 1.0f;
 
@@ -196,15 +208,29 @@
 			//col.a *= tex2D(_MainTex, uv).x;
 			float tmp = (tex2D(_MainTex, uv).x + tex2D(_MainTex, uv).y + tex2D(_MainTex, uv).z)/3.0f;
 			//col = lerp(col, float4(1.0f,1.0f,1.0f,1.0f) * (time%uv.y == 0 ? 1 : 0.0f), _SinTime.y);
-			if ((time%im.uv.x) == 0) {
+			/*if ((time%im.uv.x) == 0) {
 				col = lerp(col, float4(1.0f, 1.0f, 1.0f, 1.0f), sin(_Time.w));//_SinTime.w);
-			}
-
-			col.a = alpha;
+			}*/
 			/*if (im.up)
 				col.a = 1.0f;
 			else
 				col.a = 0.0f;*/
+			/*float pourcent = (1.0f - _PourcentHeight) / 2.0f;
+			float min = taille * pourcent;
+			float max = taille - (taille * pourcent);
+			if (im.uv.y <= min || im.uv.y >= max) {
+				discard;
+			}*/
+			float seuil = taille * _PourcentHeight;
+			float alpha = im.uv.y / (taille - (taille - seuil));
+			//alpha = (alpha >= 0 && alpha <= 1.0f ? alpha : 0.0f);
+			
+			if (im.uv.y >= seuil) {
+				discard;
+			}
+			
+			col.a = alpha;
+
 			return col;		
 		}
 		ENDCG

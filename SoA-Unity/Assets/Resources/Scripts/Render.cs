@@ -13,14 +13,33 @@ public class Render : MonoBehaviour
     public bool shader_actif = false;
     private Material mat;
     public string shader_name = "NoVision";
+    private Camera cam;
+    private RenderTexture RT;
     int it = 0;
 
     float time_actual = 0.0f;
-    float time_refresh = 0.25f;
+    float time_refresh = 1.0f;
 
     // Start is called before the first frame update
+    //a l'init ici
     void Awake()
     {
+        cam = GetComponent<Camera>();
+
+        /*RT = new RenderTexture(cam.pixelWidth, cam.pixelHeight, 24, RenderTextureFormat.ARGB32, 4);
+        RT.volumeDepth = 3;
+
+        RT.useMipMap = true;
+        RT.autoGenerateMips = true;
+        RT.enableRandomWrite = true;
+        RT.Create();
+
+        cam.targetTexture = RT;
+
+        //Debug.Log("Camera " + cam.pixelWidth + " " + cam.pixelHeight);
+
+
+        Debug.Log("RT " + RT);*/
         changeShader("NoVision");
         //Debug.Log("Resolution "+Screen.currentResolution);
         mat.SetFloat("height", Screen.currentResolution.height);
@@ -32,6 +51,11 @@ public class Render : MonoBehaviour
         shader_name = name;
         mat = new Material(Shader.Find("Shaders/" + shader_name));
     }
+
+    /*private void OnPreRender()
+    {
+        cam.targetTexture = RT;
+    }*/
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
@@ -61,8 +85,10 @@ public class Render : MonoBehaviour
 
             if (Time.realtimeSinceStartup - time_actual > time_refresh)
             {
+                //before create
+                //source.useMipMap = true;
+                //source.GenerateMips();
                 ComputeShader shader = Resources.Load<ComputeShader>("Shaders/Test");
-
                 Debug.Log("Depth est de " + source.format);
 
                 /*RenderTexture RT_0 = new RenderTexture(source.width, source.height, source.depth, source.format, RenderTextureReadWrite.Default);
@@ -72,23 +98,54 @@ public class Render : MonoBehaviour
                 RT_0.Create();*/
 
 
+                //RenderTexture RT_0 = new RenderTexture(source);
+                //RenderTexture RT_0 = new RenderTexture(source.width, source.height, source.depth, source.format, RenderTextureReadWrite.Default);
+                RenderTexture RT_0 = new RenderTexture(source.width, source.height, source.depth, source.format, 4);
+                //RT_0.dimension = UnityEngine.Rendering.TextureDimension.Tex2DArray;
+                //RT_0.enableRandomWrite = true;
+                RT_0.volumeDepth = 3;
 
-                RenderTexture RT_0 = new RenderTexture(source);
+                RT_0.useMipMap = true;
+                RT_0.autoGenerateMips = true;
                 RT_0.enableRandomWrite = true;
+                RT_0.Create();
 
-                int w = Screen.currentResolution.width;
-                int h = Screen.currentResolution.height;
+                //Graphics.CopyTexture(source, RT_0);
+                Graphics.Blit(source, RT_0);
+
+                //RT_0.GenerateMips();
+
+
+
+                Debug.Log("Refresh, width " + RT_0.width + " et height " + RT_0.height);
+                
+
+
+                int w = source.width;//Screen.currentResolution.width;
+                int h = source.height;//Screen.currentResolution.height;
+
+                //ca c'est pour redim de la texture
                 float ratio = 16.0f / 9.0f;
-                float n_w = 1024.0f;
+                float n_w = 128.0f;
                 float n_h = n_w / ratio;
 
-                /*Texture2D tex = new Texture2D(source.width, source.height, TextureFormat.ARGB32, false);
-                RenderTexture.active = source;
-                tex.ReadPixels(new Rect(0, 0, w, h), 0, 0);
-                tex.Apply();
-                tex.Resize((int)n_w, (int)n_h);*/
+                //a mettre de base
+                n_w = w;
+                n_h = h;
 
-                Debug.Log("Width " + w + " et Height " + h);
+
+                /*Texture2D tex = new Texture2D(source.width, source.height, TextureFormat.ARGB32, true);
+                tex.minimumMipmapLevel = 1;
+                RenderTexture.active = source;
+                tex.ReadPixels(new Rect(0, 0, source.width, source.height), 0, 0);
+                tex.Apply();
+                
+
+                //tex.Resize((int)n_w, (int)n_h);*/
+
+
+
+                Debug.Log("Width " + n_w + " et Height " + n_h);//+ " Nb de level "+tex.mipmapCount);
 
                 shader.SetFloat("width", w);
                 shader.SetFloat("height", h);
@@ -99,7 +156,7 @@ public class Render : MonoBehaviour
                 //pour tab
                 int nb_element = 1;//w * h;
 
-
+                float mipLevel = 2;
 
                 uint[] values = new uint[nb_element];
                 values[0] = 0;
@@ -108,19 +165,27 @@ public class Render : MonoBehaviour
                 ComputeBuffer cb = new ComputeBuffer(nb_element, sizeof(uint));
                 cb.SetData(values);
 
+
+                n_w /= mipLevel;
+                n_h /= mipLevel;
+
                 //qd pas trouvé erreur compilation
                 int indexKernel = shader.FindKernel("CSMain");
 
                 shader.SetBuffer(indexKernel, "res", cb);
 
                 //exemple metter une texture dans shader
-                shader.SetTexture(indexKernel, "Result", source);
+                //de base
+                //shader.SetTexture(indexKernel, "Result", source);
+                shader.SetTexture(indexKernel, "Result", RT_0,(int)(mipLevel-1));
+                //avec redim
+                //shader.SetTexture(indexKernel, "Result", tex);
 
                 //comme en cuda
                 //partage en 16 zones
 
-                n_w = source.width;
-                n_h = source.height;
+                //n_w = source.width;
+                //n_h = source.height;
 
 
                 int x, y, z;
@@ -139,12 +204,13 @@ public class Render : MonoBehaviour
                 Debug.Log("x est de " + x + " y est de " + y);
 
                 shader.Dispatch(indexKernel, x, y, z);
+
                 cb.GetData(values);
                 cb.Release();
 
                 double total = values[0];
                 total /= 100.0f;
-                total /= (w * h);
+                total /= (n_w * n_h);
 
                 if (total > 0.5f)
                 {
@@ -153,6 +219,9 @@ public class Render : MonoBehaviour
 
                 Debug.Log("Values est de " + total);
                 time_actual = Time.realtimeSinceStartup;
+                
+                //before create
+                //source.useMipMap = false;
             }
 
 

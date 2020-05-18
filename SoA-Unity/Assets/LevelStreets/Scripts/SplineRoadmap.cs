@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ROADSECTION { LONG, STRAIGHT, TURN, SHARP }
+public enum ROADSECTION { FAST, NORMAL, SLOW, CAUTIOUS }
 
 public class SplineRoadmap : MonoBehaviour
 {

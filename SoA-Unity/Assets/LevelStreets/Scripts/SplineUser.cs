@@ -20,32 +20,41 @@ public class SplineUser : MonoBehaviour
     [SerializeField] [Tooltip("The spline used by the object")]
     private Spline spline;
 
+    [SerializeField]
+    private bool onStart = true;
+
     [SerializeField] [Range(0, 1)] [Tooltip("Initial position on the spline (in percent)")]
     private float startPercentage = 0;
     private float percentage;
     private float smoothstep;
 
-    private float speed = 0.1f;
+    [SerializeField]
+    [Tooltip("The position of the stop")]
+    [Range(0, 1)]
+    private float stopPercentage;
+    private bool hasStopped;
+
+    private float speed = 50f;
 
     [SerializeField]
-    [Range(0.05f, 0.5f)]
+    [Range(0f, 100f)]
     [Tooltip("The speed of the object on a LONG")]
-    private float longSpeed = 0.1f;
+    private float longSpeed = 70f;
 
     [SerializeField]
-    [Range(0.05f, 0.5f)]
+    [Range(0f, 100f)]
     [Tooltip("The speed of the object on a STRAIGHT")]
-    private float straightSpeed = 0.1f;
+    private float straightSpeed = 60f;
 
     [SerializeField]
-    [Range(0.05f, 0.5f)]
+    [Range(0f, 100f)]
     [Tooltip("The speed of the object on a TURN")]
-    private float turnSpeed = 0.1f;
+    private float turnSpeed = 20f;
 
     [SerializeField]
-    [Range(0.05f, 0.5f)]
+    [Range(0f, 100f)]
     [Tooltip("The speed of the object on a SHARP")]
-    private float sharpSpeed = 0.1f;
+    private float sharpSpeed = 10f;
 
     private Dictionary<ROADSECTION, float> speedZones;
 
@@ -67,10 +76,10 @@ public class SplineUser : MonoBehaviour
     private void Start()
     {
         speedZones = new Dictionary<ROADSECTION, float>();
-        speedZones.Add(ROADSECTION.LONG, longSpeed);
-        speedZones.Add(ROADSECTION.STRAIGHT, straightSpeed);
-        speedZones.Add(ROADSECTION.TURN, turnSpeed);
-        speedZones.Add(ROADSECTION.SHARP, sharpSpeed);
+        speedZones.Add(ROADSECTION.FAST, longSpeed);
+        speedZones.Add(ROADSECTION.NORMAL, straightSpeed);
+        speedZones.Add(ROADSECTION.SLOW, turnSpeed);
+        speedZones.Add(ROADSECTION.CAUTIOUS, sharpSpeed);
 
         groundOffset = target.transform.position.y - groundLevel.transform.position.y;
         movingState = STATE.NORMAL;
@@ -78,7 +87,19 @@ public class SplineUser : MonoBehaviour
         else if (directionState == DIRECTION.BACKWARD) { directionalRotation = Quaternion.Euler(0, 180, 0); }
         Vector3 position = spline.GetPosition(percentage);
         target.position = StickToTheGround(position);
-        StartCoroutine("Move");
+
+        spline.CalculateLength();
+        hasStopped = false;
+        target.rotation = Quaternion.LookRotation(spline.GetDirection(0.01f, true)); // initial rotation
+        if (onStart) { StartCoroutine("Move"); }
+    }
+
+    public void Trigger()
+    {
+        if (!onStart)
+        {
+            StartCoroutine("Move");
+        }
     }
 
     void Update()
@@ -98,16 +119,18 @@ public class SplineUser : MonoBehaviour
                 ROADSECTION roadSection = spline.GetComponent<SplineRoadmap>().RoadSections[curve.currentCurve];
                 if(speed < speedZones[roadSection])
                 {
-                    speed = Mathf.Min(speed + 0.01f * Time.deltaTime, speedZones[roadSection]);
+                    speed = Mathf.Min(speed + 10 * Time.deltaTime, speedZones[roadSection]);
+                    //speed = speedZones[roadSection];
                 }
                 else if (speed > speedZones[roadSection])
                 {
-                    speed = Mathf.Max(speed - 0.1f * Time.deltaTime, speedZones[roadSection]);
+                    speed = Mathf.Max(speed - 10 * Time.deltaTime, speedZones[roadSection]);
+                    //speed = speedZones[roadSection];
                 }
 
                 if (startPercentage != 1) // avoid dividing by zero
                 {
-                    percentage = Mathf.Min(percentage + speed * Time.deltaTime / (1f - startPercentage), 1f);
+                    percentage = Mathf.Min(percentage + speed * Time.deltaTime / ((1f - startPercentage) * spline.Length), 1f);
                 }
                 if (directionState == DIRECTION.FORWARD)       { smoothstep = Mathf.SmoothStep(startPercentage, 1, percentage); }
                 else if (directionState == DIRECTION.BACKWARD) { smoothstep = Mathf.SmoothStep(startPercentage, 1, 1 - percentage); }
@@ -116,10 +139,20 @@ public class SplineUser : MonoBehaviour
                 target.rotation = Quaternion.LookRotation(directionalRotation * spline.GetDirection(smoothstep));
                 target.position = StickToTheGround(position);
 
+                if(percentage >= stopPercentage && !hasStopped)
+                {
+                    hasStopped = true;
+                    if (stopDuration > 0)
+                    {
+                        yield return new WaitForSeconds(stopDuration);
+                    }
+                }
+
                 if (percentage == 1)
                 {
                     percentage = 0;
                     startPercentage = 0;
+                    hasStopped = false;
                     if (stopDuration > 0)
                     {
                         yield return new WaitForSeconds(stopDuration);

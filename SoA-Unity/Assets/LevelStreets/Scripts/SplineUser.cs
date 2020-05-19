@@ -33,6 +33,7 @@ public class SplineUser : MonoBehaviour
     [Range(0, 1)]
     private float stopPercentage;
     private bool hasStopped;
+    public bool HasStopped { get { return hasStopped; } }
 
     private float speed = 50f;
 
@@ -63,6 +64,10 @@ public class SplineUser : MonoBehaviour
 
     [SerializeField][Range(1f, 5f)][Tooltip("The duration of the pause")]
     private float freezeDuration = 3f;
+
+    [SerializeField]
+    [Tooltip("Does the user use smoothstep ?")]
+    private bool useSmoothstep = false;
 
     private enum DIRECTION { FORWARD, BACKWARD }
     [SerializeField]
@@ -134,12 +139,29 @@ public class SplineUser : MonoBehaviour
                 {
                     percentage = Mathf.Min(percentage + speed * Time.deltaTime / spline.Length, 1f);
                 }
-                
-                //if (directionState == DIRECTION.FORWARD)       { smoothstep = Mathf.SmoothStep(startPercentage, 1, percentage); }
-                //else if (directionState == DIRECTION.BACKWARD) { smoothstep = Mathf.SmoothStep(startPercentage, 1, 1 - percentage); }
 
-                if (directionState == DIRECTION.FORWARD)       { smoothstep = percentage; }
-                else if (directionState == DIRECTION.BACKWARD) { smoothstep = 1 - percentage; }
+                if (useSmoothstep)
+                {
+                    if (directionState == DIRECTION.FORWARD)
+                    {
+                        // first
+                        smoothstep = Mathf.SmoothStep(startPercentage, stopPercentage, percentage);
+                        // last
+                        smoothstep = Mathf.SmoothStep(stopPercentage, 1, percentage);
+                    }
+                    else if (directionState == DIRECTION.BACKWARD)
+                    {
+                        // first
+                        smoothstep = Mathf.SmoothStep(startPercentage, stopPercentage, 1 - percentage);
+                        // last
+                        smoothstep = Mathf.SmoothStep(stopPercentage, 1, 1 - percentage);
+                    }
+                }
+                else
+                {
+                    if (directionState == DIRECTION.FORWARD) { smoothstep = percentage; }
+                    else if (directionState == DIRECTION.BACKWARD) { smoothstep = 1 - percentage; }
+                }
 
                 Vector3 position = spline.GetPosition(smoothstep);
                 target.rotation = Quaternion.LookRotation(directionalRotation * spline.GetDirection(smoothstep));

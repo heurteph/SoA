@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpreadSeeds : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("The prefab of the flower")]
-    private GameObject flowerPrefab;
+    [Tooltip("The prefabs of the flower")]
+    private GameObject[] flowerPrefabs;
 
     [SerializeField]
     [Tooltip("The number of seed")]
@@ -32,7 +32,7 @@ public class SpreadSeeds : MonoBehaviour
             position.x = transform.position.x + radius * Mathf.Cos(theta);
             position.z = transform.position.z + radius * Mathf.Sin(theta);
             rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
-            GameObject flower = Object.Instantiate(flowerPrefab, position, rotation);
+            GameObject flower = Object.Instantiate(flowerPrefabs[Random.Range(0,flowerPrefabs.Length)], position, rotation);
             flower.name = transform.name + " " + (i + 1).ToString();
         }
     }

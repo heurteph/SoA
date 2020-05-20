@@ -28,6 +28,20 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_Moteur_Elagueur" ID="{D6E50C16-75EE-4179-9D9E-0E9A465929D0}">
+					<ChildrenList>
+						<Action Name="" ID="{7CDEBD7A-C439-438B-95DA-EA2505100538}" ShortID="534782956">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Moteur_Elagueur" ID="{2BD23EAC-A38C-4C97-A095-5C8562E2A9DA}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

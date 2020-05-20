@@ -103,7 +103,7 @@
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{B19C97F7-5E0C-47DB-8EDC-00F46F1E0AA5}" ShortID="424615363">
 											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="20"/>
+												<Property Name="RadiusMax" Type="Real64" Value="50"/>
 											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
@@ -119,7 +119,7 @@
 																	<Flags>5</Flags>
 																</Point>
 																<Point>
-																	<XPos>20</XPos>
+																	<XPos>50</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -817,6 +817,53 @@
 								</RandomSequenceContainer>
 								<SwitchContainer Name="Texture Pas" ID="{53D24EE7-14EE-4979-B2D4-085D6ABC7C03}" ShortID="627161832">
 									<ReferenceList>
+										<Reference Name="Attenuation">
+											<Custom>
+												<Attenuation Name="Attenuation (Custom)" ID="{57683AF4-BFB3-4E2A-9610-15C0980664D6}" ShortID="905445995">
+													<CurveUsageInfoList>
+														<VolumeDryUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+																<Curve Name="VolumeDry" ID="{D20D3F48-FA32-4DAC-8525-90DD0D1566B3}">
+																	<PropertyList>
+																		<Property Name="Flags" Type="int32" Value="3"/>
+																	</PropertyList>
+																	<PointList>
+																		<Point>
+																			<XPos>0</XPos>
+																			<YPos>0</YPos>
+																			<Flags>5</Flags>
+																		</Point>
+																		<Point>
+																			<XPos>100</XPos>
+																			<YPos>-200</YPos>
+																			<Flags>37</Flags>
+																		</Point>
+																	</PointList>
+																</Curve>
+															</CurveUsageInfo>
+														</VolumeDryUsage>
+														<VolumeWetGameUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+														</VolumeWetGameUsage>
+														<VolumeWetUserUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+														</VolumeWetUserUsage>
+														<LowPassFilterUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</LowPassFilterUsage>
+														<HighPassFilterUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</HighPassFilterUsage>
+														<SpreadUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</SpreadUsage>
+														<FocusUsage>
+															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+														</FocusUsage>
+													</CurveUsageInfoList>
+												</Attenuation>
+											</Custom>
+										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 										</Reference>
@@ -838,13 +885,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<SwitchContainer Name="Court_Marche_Herbe" ID="{217675CE-8B7C-498D-B110-1BAAD930945D}" ShortID="1025183774">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-4</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -8257,6 +8297,8 @@
 								<RandomSequenceContainer Name="Moteur_Elagueur" ID="{2BD23EAC-A38C-4C97-A095-5C8562E2A9DA}" ShortID="380246769">
 									<PropertyList>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">

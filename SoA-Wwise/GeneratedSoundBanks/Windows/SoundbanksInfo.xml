@@ -80,7 +80,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3680267894" Name="Play_BusFixe" ObjectPath="\Events\Ville_Obstacles\Play_BusFixe" MaxAttenuation="100.000000" DurationType="Infinite">
+				<Event Id="3680267894" Name="Play_BusFixe" ObjectPath="\Events\Ville_Obstacles\Play_BusFixe" MaxAttenuation="60.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="695868094" Language="SFX">
 							<ShortName>MOTOR_Bus_FixeLoop.wav</ShortName>
@@ -156,7 +156,7 @@
 				</Event>
 				<Event Id="545734209" Name="Play_Humain_MangeEnfant" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1978073185" Name="Play_Humain_MangeEnfant2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant2" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2314452061" Name="Play_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_Elagueur" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="20.496395" DurationMax="20.496395">
+				<Event Id="2314452061" Name="Play_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_Elagueur" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="487953707" Language="SFX">
 							<ShortName>Parc_Obstacles_Humain_Moteur_Elagueur01.wav</ShortName>
@@ -2900,7 +2900,7 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="482787459" Name="Play_Texture_Pas_Jogger" ObjectPath="\Events\Parc_Obstacles\Play_Texture_Pas_Jogger" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="0.063854" DurationMax="0.621896">
+				<Event Id="482787459" Name="Play_Texture_Pas_Jogger" ObjectPath="\Events\Parc_Obstacles\Play_Texture_Pas_Jogger" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.063854" DurationMax="0.621896">
 					<IncludedMemoryFiles>
 						<File Id="1721556" Language="SFX">
 							<ShortName>Asphalt_Run_Pied_Droit16.wav</ShortName>
@@ -4439,7 +4439,7 @@
 					</SwitchContainers>
 				</Event>
 				<Event Id="2746796163" Name="Play_Vetement_Elagueur" ObjectPath="\Events\Parc_Obstacles\Play_Vetement_Elagueur" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="327753639" Name="Play_VoituresFixe" ObjectPath="\Events\Ville_Obstacles\Play_VoituresFixe" MaxAttenuation="100.000000" DurationType="Infinite">
+				<Event Id="327753639" Name="Play_VoituresFixe" ObjectPath="\Events\Ville_Obstacles\Play_VoituresFixe" MaxAttenuation="60.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="73488680" Language="SFX">
 							<ShortName>MOTOR_Car_FixeLoop05.wav</ShortName>
@@ -4461,6 +4461,7 @@
 				</Event>
 				<Event Id="1056565793" Name="Stop_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Stop_ArrosageAuto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="958439308" Name="Stop_BusFixe" ObjectPath="\Events\Ville_Obstacles\Stop_BusFixe" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2301453854" Name="Stop_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Stop_Parc_Chien" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3189001139" Name="Stop_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Eau_Lac" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="152275144" Name="Stop_Parc_Oiseaux1" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux1" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

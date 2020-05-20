@@ -42,6 +42,7 @@ namespace AK
         static const AkUniqueID PLAY_VOITURESFIXE = 327753639U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;
         static const AkUniqueID STOP_BUSFIXE = 958439308U;
+        static const AkUniqueID STOP_MOTEUR_ELAGUEUR = 1194390427U;
         static const AkUniqueID STOP_PARC_CHIEN = 2301453854U;
         static const AkUniqueID STOP_PARC_EAU_LAC = 3189001139U;
         static const AkUniqueID STOP_PARC_OISEAUX1 = 152275144U;

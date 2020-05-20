@@ -9,6 +9,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	958439308	Stop_BusFixe			\Ville_Obstacles\Stop_BusFixe	
 	1047604054	Play_Texture_Pas			\Personnage\Play_Texture_Pas	
 	1056565793	Stop_ArrosageAuto			\Parc_Obstacles\Stop_ArrosageAuto	
+	1194390427	Stop_Moteur_Elagueur			\Parc_Obstacles\Stop_Moteur_Elagueur	
 	1403256204	Play_Moteur_VoitureElec			\Parc_Obstacles\Play_Moteur_VoitureElec	
 	1582928677	Play_Respiration_JoggueurH			\Parc_Obstacles\Play_Respiration_JoggueurH	
 	1582928683	Play_Respiration_JoggueurF			\Parc_Obstacles\Play_Respiration_JoggueurF	

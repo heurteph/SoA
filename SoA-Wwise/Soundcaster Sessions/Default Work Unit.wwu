@@ -16,6 +16,10 @@
 							<Value>28.4048758879442</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="VolumeEcoutePerso" ID="{A457383D-5090-4E4B-92FD-35E3CDE1D1A7}"/>
 							<Value>0</Value>
 						</RTPCValue>

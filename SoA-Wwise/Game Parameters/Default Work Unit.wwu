@@ -11,6 +11,7 @@
 						<Property Name="RTPCRamping" Type="int16" Value="1"/>
 					</PropertyList>
 				</GameParameter>
+				<GameParameter Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

@@ -124,17 +124,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Vetement_Elagueur" ID="{3DC7BBBC-A021-4206-8C4A-CAF879A2E5E6}">
-					<ChildrenList>
-						<Action Name="" ID="{D0007F66-116D-45F7-9C0F-72D16F1E18E3}" ShortID="530594762">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Vetement_Elagueur" ID="{DDCDC36B-62A1-4DA7-A635-5F07E253C93B}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Respiration_JoggueurH" ID="{087B26FB-02F9-4C28-B3CA-70D29CCC3E97}">
 					<ChildrenList>
 						<Action Name="" ID="{A478D740-E0D8-4609-8B36-86B26795FFC7}" ShortID="193652086">

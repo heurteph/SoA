@@ -15,7 +15,9 @@ namespace AK
     {
         static const AkUniqueID PLAY_ARROSAGEAUTO = 3389613819U;
         static const AkUniqueID PLAY_BUSFIXE = 3680267894U;
+        static const AkUniqueID PLAY_CLIMATISEUR = 1692441862U;
         static const AkUniqueID PLAY_CRIS_TOUS = 2464503011U;
+        static const AkUniqueID PLAY_ELECTRIQUE_BUZZ = 2500875145U;
         static const AkUniqueID PLAY_HUMAIN_JOUE1 = 3185656221U;
         static const AkUniqueID PLAY_HUMAIN_JOUE2 = 3185656222U;
         static const AkUniqueID PLAY_HUMAIN_MANGE1 = 3446893022U;
@@ -38,7 +40,6 @@ namespace AK
         static const AkUniqueID PLAY_RESPIRATION_MOUVEMENT = 2860278991U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
         static const AkUniqueID PLAY_TEXTURE_PAS_JOGGER = 482787459U;
-        static const AkUniqueID PLAY_VETEMENT_ELAGUEUR = 2746796163U;
         static const AkUniqueID PLAY_VOITURESFIXE = 327753639U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;
         static const AkUniqueID STOP_BUSFIXE = 958439308U;
@@ -133,6 +134,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID VITESSEVEHICULE = 3154243729U;
         static const AkUniqueID VITESSEVOITUREELEC = 428373397U;
         static const AkUniqueID VOLUMEECOUTEPERSO = 133973669U;
     } // namespace GAME_PARAMETERS

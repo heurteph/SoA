@@ -53,6 +53,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Climatiseur" ID="{B5A115C9-B7AE-41B2-8DD2-6974077619B8}">
+					<ChildrenList>
+						<Action Name="" ID="{EF4BA1E5-93EC-4156-AC18-265EB286FA9A}" ShortID="585097043">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Climatiseur" ID="{FB216AFD-62CA-4E45-81EC-47F5B7844CAD}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Electrique_Buzz" ID="{5499020E-F082-4008-941D-06306155E01E}">
+					<ChildrenList>
+						<Action Name="" ID="{F9C46762-F5EC-4117-A069-80F4EA926D12}" ShortID="126104485">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Electrique_Buzz" ID="{356C1D3A-CA95-4CDD-9A57-8A43F5F7D328}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

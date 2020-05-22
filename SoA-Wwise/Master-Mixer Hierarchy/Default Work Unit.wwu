@@ -2,6 +2,10 @@
 <WwiseDocument Type="WorkUnit" ID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}" SchemaVersion="97">
 	<Busses>
 		<WorkUnit Name="Default Work Unit" ID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="1"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
 					<ReferenceList>

@@ -88,6 +88,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1692441862" Name="Play_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Play_Climatiseur" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="12.720125" DurationMax="12.720125">
+					<IncludedMemoryFiles>
+						<File Id="709197503" Language="SFX">
+							<ShortName>Climatiseur.wav</ShortName>
+							<Path>SFX\Climatiseur_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2464503011" Name="Play_Cris_Tous" ObjectPath="\Events\Personnage\Play_Cris_Tous" DurationType="OneShot" DurationMin="0.311854" DurationMax="1.055458">
 					<IncludedMemoryFiles>
 						<File Id="85790283" Language="SFX">
@@ -125,6 +133,14 @@
 						<File Id="1035857833" Language="SFX">
 							<ShortName>Perso_Douleur 03.wav</ShortName>
 							<Path>SFX\Perso_Douleur 03_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2500875145" Name="Play_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Play_Electrique_Buzz" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="12.720125" DurationMax="12.720125">
+					<IncludedMemoryFiles>
+						<File Id="274683280" Language="SFX">
+							<ShortName>Electrique_Buzz.wav</ShortName>
+							<Path>SFX\Electrique_Buzz_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -4438,7 +4454,6 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="2746796163" Name="Play_Vetement_Elagueur" ObjectPath="\Events\Parc_Obstacles\Play_Vetement_Elagueur" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="327753639" Name="Play_VoituresFixe" ObjectPath="\Events\Ville_Obstacles\Play_VoituresFixe" MaxAttenuation="60.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="73488680" Language="SFX">

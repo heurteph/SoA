@@ -18,7 +18,9 @@ public class SpawnStreetLampsSpline : MonoBehaviour
     [Tooltip("The spline used to spawn the street lights")]
     private Spline spline;
 
-    private Quaternion rotationFixer = Quaternion.Euler(0, -90, 0);
+    [SerializeField]
+    private Vector3 rotationFixer;
+    private Quaternion qRotationFixer;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +36,10 @@ public class SpawnStreetLampsSpline : MonoBehaviour
 
         for (int i = 0; i < splineLength; i++)
         {
+            qRotationFixer = Quaternion.Euler(rotationFixer);
             Vector3 pos = spline.GetPosition((i + 1f) / (splineLength + 1f));
-            Quaternion rot = rotationFixer * Quaternion.LookRotation(spline.GetDirection((i + 1f) / (splineLength + 1f)));
+            //Quaternion rot = qRotationFixer * Quaternion.LookRotation(spline.GetDirection((i + 1f) / (splineLength + 1f)));
+            Quaternion rot = qRotationFixer * Quaternion.LookRotation(transform.forward);
             GameObject streetLight = Object.Instantiate(streetLightPrefab, pos, rot);
             streetLight.transform.SetParent(transform, true);
             streetLight.name = "StreetLamp " + i.ToString();

@@ -26,6 +26,7 @@ public class SplineUser : MonoBehaviour
     [SerializeField] [Range(0, 1)] [Tooltip("Initial position on the spline (in percent)")]
     private float startPercentage = 0;
     private float percentage;
+    public float Percentage { get { return percentage; } set { percentage = value; } }
     private float smoothstep;
 
     [SerializeField]

@@ -28,6 +28,34 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_Climatiseur" ID="{FB25C3DB-DC79-4E6E-A0F5-4CB06F5CBA06}">
+					<ChildrenList>
+						<Action Name="" ID="{80B9E509-7006-4C63-9DCA-D2B3DA8E473E}" ShortID="237665071">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Climatiseur" ID="{FB216AFD-62CA-4E45-81EC-47F5B7844CAD}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Electrique_Buzz" ID="{4710F0AA-997B-4437-A32C-577E0C5E0AE1}">
+					<ChildrenList>
+						<Action Name="" ID="{40959B60-DA52-4AF1-AC0F-0AFA029E11CD}" ShortID="737588920">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Electrique_Buzz" ID="{356C1D3A-CA95-4CDD-9A57-8A43F5F7D328}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

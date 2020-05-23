@@ -88,11 +88,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1692441862" Name="Play_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Play_Climatiseur" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="12.720125" DurationMax="12.720125">
+				<Event Id="1692441862" Name="Play_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Play_Climatiseur" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="709197503" Language="SFX">
 							<ShortName>Climatiseur.wav</ShortName>
-							<Path>SFX\Climatiseur_3F75BDB9.wem</Path>
+							<Path>SFX\Climatiseur_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -136,11 +136,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2500875145" Name="Play_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Play_Electrique_Buzz" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="12.720125" DurationMax="12.720125">
+				<Event Id="2500875145" Name="Play_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Play_Electrique_Buzz" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="274683280" Language="SFX">
 							<ShortName>Electrique_Buzz.wav</ShortName>
-							<Path>SFX\Electrique_Buzz_3F75BDB9.wem</Path>
+							<Path>SFX\Electrique_Buzz_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

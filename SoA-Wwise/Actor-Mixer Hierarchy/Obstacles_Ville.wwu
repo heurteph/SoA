@@ -502,6 +502,7 @@
 				</ActorMixer>
 				<Sound Name="Electrique_Buzz" ID="{356C1D3A-CA95-4CDD-9A57-8A43F5F7D328}" ShortID="706558503">
 					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-8</Value>
@@ -615,10 +616,16 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Climatiseur" ID="{FB216AFD-62CA-4E45-81EC-47F5B7844CAD}" ShortID="878436305">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
 							<Custom>
 								<Attenuation Name="Attenuation (Custom)" ID="{76AE188F-DB0F-40F0-8A41-A9B8BACFFC00}" ShortID="550467389">
+									<PropertyList>
+										<Property Name="RadiusMax" Type="Real64" Value="50"/>
+									</PropertyList>
 									<CurveUsageInfoList>
 										<VolumeDryUsage>
 											<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -633,7 +640,7 @@
 															<Flags>5</Flags>
 														</Point>
 														<Point>
-															<XPos>100</XPos>
+															<XPos>50</XPos>
 															<YPos>-200</YPos>
 															<Flags>37</Flags>
 														</Point>

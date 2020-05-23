@@ -3,213 +3,6 @@
 	<AudioObjects>
 		<WorkUnit Name="Obstacles_Ville" ID="{290583BA-F78C-4BA8-B982-F97D11B9B649}" OwnerID="{351F24E1-4FF7-47D0-BD07-D422771E5C68}" PersistMode="Nested">
 			<ChildrenList>
-				<ActorMixer Name="Voitures" ID="{A54CD3F0-086B-4930-9E9A-6F45CB0C922B}" ShortID="891785460">
-					<ReferenceList>
-						<Reference Name="Attenuation">
-							<Custom>
-								<Attenuation Name="Attenuation (Custom)" ID="{711DE048-E933-42AA-ADB3-4A0016C8D773}" ShortID="783663083">
-									<PropertyList>
-										<Property Name="RadiusMax" Type="Real64" Value="60"/>
-									</PropertyList>
-									<CurveUsageInfoList>
-										<VolumeDryUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
-												<Curve Name="VolumeDry" ID="{2F76DAD9-E108-4898-9F78-7CAAD206F813}">
-													<PropertyList>
-														<Property Name="Flags" Type="int32" Value="3"/>
-													</PropertyList>
-													<PointList>
-														<Point>
-															<XPos>0</XPos>
-															<YPos>0</YPos>
-															<Flags>5</Flags>
-														</Point>
-														<Point>
-															<XPos>60</XPos>
-															<YPos>-200</YPos>
-															<Flags>37</Flags>
-														</Point>
-													</PointList>
-												</Curve>
-											</CurveUsageInfo>
-										</VolumeDryUsage>
-										<VolumeWetGameUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
-										</VolumeWetGameUsage>
-										<VolumeWetUserUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
-										</VolumeWetUserUsage>
-										<LowPassFilterUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</LowPassFilterUsage>
-										<HighPassFilterUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</HighPassFilterUsage>
-										<SpreadUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</SpreadUsage>
-										<FocusUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</FocusUsage>
-									</CurveUsageInfoList>
-								</Attenuation>
-							</Custom>
-						</Reference>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
-						</Reference>
-						<Reference Name="UserAuxSend0">
-							<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-						</Reference>
-						<Reference Name="UserAuxSend1">
-							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<RandomSequenceContainer Name="VoituresFixe" ID="{9414C60B-7F5E-4F44-B24B-FEEA9C18437E}" ShortID="350581621">
-							<PropertyList>
-								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-5</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="MOTOR_Car_FixeLoop02" ID="{F06173FC-2075-481C-8305-82E0550F0332}" ShortID="382140046">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="MOTOR_Car_FixeLoop02" ID="{8DD85A8B-34A3-496F-A280-B06C09E62585}">
-											<Language>SFX</Language>
-											<AudioFile>MOTOR_Car_FixeLoop02.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="1023817673"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="MOTOR_Car_FixeLoop02" ID="{8DD85A8B-34A3-496F-A280-B06C09E62585}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="MOTOR_Car_FixeLoop03" ID="{0E86AAA7-72F1-4A2A-B251-1363B4B3C3BF}" ShortID="362023538">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="MOTOR_Car_FixeLoop03" ID="{D2EF2A6B-C68F-4589-9666-D0DB9FD396DA}">
-											<Language>SFX</Language>
-											<AudioFile>MOTOR_Car_FixeLoop03.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="598973429"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="MOTOR_Car_FixeLoop03" ID="{D2EF2A6B-C68F-4589-9666-D0DB9FD396DA}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="MOTOR_Car_FixeLoop04" ID="{B26795AF-674B-4D50-80E6-7205F315A2E7}" ShortID="72979059">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="MOTOR_Car_FixeLoop04" ID="{94192818-FF94-4C8D-B850-7063274D879E}">
-											<Language>SFX</Language>
-											<AudioFile>MOTOR_Car_FixeLoop04.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="455030035"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="MOTOR_Car_FixeLoop04" ID="{94192818-FF94-4C8D-B850-7063274D879E}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="MOTOR_Car_FixeLoop05" ID="{BC4FF84B-98AC-43ED-8EB7-735D6A314A80}" ShortID="927861683">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="MOTOR_Car_FixeLoop05" ID="{99D37547-A103-4CB2-AD75-57109387AB5C}">
-											<Language>SFX</Language>
-											<AudioFile>MOTOR_Car_FixeLoop05.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="73488680"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="MOTOR_Car_FixeLoop05" ID="{99D37547-A103-4CB2-AD75-57109387AB5C}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-						</RandomSequenceContainer>
-					</ChildrenList>
-					<StateInfo>
-						<StatePropertyList>
-							<Property Name="OutputBusVolume"/>
-							<Property Name="UserAuxSendVolume1"/>
-						</StatePropertyList>
-						<StateGroupList>
-							<StateGroupInfo>
-								<StateGroupRef Name="Protection_Oui_Non" ID="{46C8E2FC-DB1E-4729-A3D2-B09D21025B1D}"/>
-							</StateGroupInfo>
-						</StateGroupList>
-						<CustomStateList>
-							<CustomState>
-								<StateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
-								<CustomState Name="" ID="{18C39FBE-B8A7-4883-B560-CCB9D4AF82DD}" ShortID="826408821">
-									<PropertyList>
-										<Property Name="UserAuxSendVolume1" Type="Real64" Value="-108"/>
-									</PropertyList>
-								</CustomState>
-							</CustomState>
-							<CustomState>
-								<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
-								<CustomState Name="" ID="{16358B83-F465-4A80-ABB7-595277FE6D57}" ShortID="279448485">
-									<PropertyList>
-										<Property Name="OutputBusVolume" Type="Real64" Value="-24"/>
-									</PropertyList>
-								</CustomState>
-							</CustomState>
-						</CustomStateList>
-					</StateInfo>
-				</ActorMixer>
 				<ActorMixer Name="Foule_Ville" ID="{3832EAAD-DE06-4E4A-826C-47F2105ADF11}" ShortID="78325837">
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -220,58 +13,8 @@
 						</Reference>
 					</ReferenceList>
 				</ActorMixer>
-				<ActorMixer Name="Bus" ID="{CBC2E2DD-66FE-43AA-A1CC-B5890042221F}" ShortID="164344237">
+				<ActorMixer Name="Véhicules" ID="{CBDEC49D-CECE-4D7B-97DB-7939BF0CB74D}" ShortID="218551838">
 					<ReferenceList>
-						<Reference Name="Attenuation">
-							<Custom>
-								<Attenuation Name="Attenuation (Custom)" ID="{D63EF845-CEEB-4BD9-AABB-62FEDA5C1551}" ShortID="225018215">
-									<PropertyList>
-										<Property Name="RadiusMax" Type="Real64" Value="60"/>
-									</PropertyList>
-									<CurveUsageInfoList>
-										<VolumeDryUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
-												<Curve Name="VolumeDry" ID="{6D68C214-E709-4907-BF33-EDCCE05B844E}">
-													<PropertyList>
-														<Property Name="Flags" Type="int32" Value="3"/>
-													</PropertyList>
-													<PointList>
-														<Point>
-															<XPos>0</XPos>
-															<YPos>0</YPos>
-															<Flags>5</Flags>
-														</Point>
-														<Point>
-															<XPos>60</XPos>
-															<YPos>-200</YPos>
-															<Flags>37</Flags>
-														</Point>
-													</PointList>
-												</Curve>
-											</CurveUsageInfo>
-										</VolumeDryUsage>
-										<VolumeWetGameUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
-										</VolumeWetGameUsage>
-										<VolumeWetUserUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
-										</VolumeWetUserUsage>
-										<LowPassFilterUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</LowPassFilterUsage>
-										<HighPassFilterUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</HighPassFilterUsage>
-										<SpreadUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</SpreadUsage>
-										<FocusUsage>
-											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-										</FocusUsage>
-									</CurveUsageInfoList>
-								</Attenuation>
-							</Custom>
-						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
@@ -286,55 +29,2691 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<RandomSequenceContainer Name="BusFixe" ID="{66A3F8CB-B567-41DF-A4BC-062E489EA7C3}" ShortID="157199031">
-							<PropertyList>
-								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-4</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
+						<SwitchContainer Name="Quel_Moteur" ID="{7445910D-FA20-4B55-9B58-F094D1CF6133}" ShortID="674230531">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="M1" ID="{FCFCE899-E509-4001-A272-B16E990DB770}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 								</Reference>
-								<Reference Name="UserAuxSend0">
-									<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-								</Reference>
-								<Reference Name="UserAuxSend1">
-									<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="Quel_Moteur" ID="{305C613F-AD4C-4A87-91CE-F9A9C2A0E778}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="MOTOR_Bus_FixeLoop" ID="{629E7BC2-1713-4BF1-9DC8-5243F6E7BF00}" ShortID="910509174">
+								<SwitchContainer Name="M1" ID="{ADA4A311-8DB1-4CD1-8967-42234C80A9BD}" ShortID="213561228">
+									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
 										<Reference Name="OutputBus">
 											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="EtatVoiture" ID="{85B0257B-EB48-4E32-86C9-571726763156}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="MOTOR_Bus_FixeLoop" ID="{A5B9E66A-789D-48FD-B7D1-FC4DC8344503}">
-											<Language>SFX</Language>
-											<AudioFile>MOTOR_Bus_FixeLoop.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="695868094"/>
-											</MediaIDList>
-										</AudioFileSource>
+										<BlendContainer Name="Idle" ID="{19FF3B43-6727-421A-874A-A46B8F865F63}" ShortID="1061693297">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M1_Idle" ID="{1A047BE3-9313-4815-BFF6-D7CDB8D5DB51}" ShortID="447729232">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M1_Idle" ID="{5DDC25EC-B3E8-4733-88E2-D116509AAB27}">
+															<Language>SFX</Language>
+															<AudioFile>M1_Idle.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="41790791"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M1_Idle" ID="{5DDC25EC-B3E8-4733-88E2-D116509AAB27}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Stop" ID="{1B86F4BE-EDB8-46FF-8713-9C77E013F06F}" ShortID="955651138">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M1_Stop" ID="{31B3357C-7032-4FF1-A67E-D3674FBF2E8F}" ShortID="581036048">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M1_Stop" ID="{CCF2C1B8-C16D-4F5D-883B-1B1FCD805C73}">
+															<Language>SFX</Language>
+															<AudioFile>M1_Stop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="559815610"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M1_Stop" ID="{CCF2C1B8-C16D-4F5D-883B-1B1FCD805C73}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Demarre" ID="{C33722D1-6F76-48E6-9C32-F83FB5866F4A}" ShortID="171835370">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M1_Démarre" ID="{EDD87D79-DC4D-4A20-A909-2C42268C2BBD}" ShortID="966466845">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M1_Démarre" ID="{E42333B9-89A2-476E-85C4-F968E79FE359}">
+															<Language>SFX</Language>
+															<AudioFile>M1_Démarre.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="574415820"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M1_Démarre" ID="{E42333B9-89A2-476E-85C4-F968E79FE359}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Vitesse2" ID="{BBF09FC9-560E-45F7-8321-7081C4754B14}" ShortID="1062082202">
+											<PropertyList>
+												<Property Name="BlendBehavior" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+												<Reference Name="UserAuxSend1">
+													<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M1_Idle" ID="{5705A556-F16D-4ABD-BC78-90E9B0D03466}" ShortID="336218600">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M1_Idle" ID="{2A7D937B-376A-4D3B-BEC5-53524E33095C}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="569.053"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.391997665348275"/>
+																<Property Name="LoopEnd" Type="Real64" Value="26.5845689408921"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M1_Idle.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="89973454"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M1_Idle" ID="{2A7D937B-376A-4D3B-BEC5-53524E33095C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="New Blend Track" ID="{362FC934-D041-453E-89DC-2E3B4ACBFC80}" ShortID="1000550575">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<RTPCList>
+																<RTPC Name="" ID="{EDF3EA3F-5696-44DB-99B5-89229010AB29}" ShortID="168652007">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{41FC3C0A-619E-46AE-9F54-6D71F15CBBBD}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="65537"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-600</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>70</XPos>
+																				<YPos>1971</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="M1_Idle" ID="{5705A556-F16D-4ABD-BC78-90E9B0D03466}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>70</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
 									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="MOTOR_Bus_FixeLoop" ID="{A5B9E66A-789D-48FD-B7D1-FC4DC8344503}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Idle" ID="{19FF3B43-6727-421A-874A-A46B8F865F63}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Stop" ID="{1B86F4BE-EDB8-46FF-8713-9C77E013F06F}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Vitesse2" ID="{BBF09FC9-560E-45F7-8321-7081C4754B14}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Demarre" ID="{C33722D1-6F76-48E6-9C32-F83FB5866F4A}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}"/>
+												<ItemList>
+													<ItemRef Name="Stop" ID="{1B86F4BE-EDB8-46FF-8713-9C77E013F06F}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="C_Idle" ID="{575AC416-23B8-43F6-8005-669346C1342C}"/>
+												<ItemList>
+													<ItemRef Name="Idle" ID="{19FF3B43-6727-421A-874A-A46B8F865F63}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="B_Demarre" ID="{EBDA39D6-6A19-45D7-900F-698420931972}"/>
+												<ItemList>
+													<ItemRef Name="Demarre" ID="{C33722D1-6F76-48E6-9C32-F83FB5866F4A}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="M4" ID="{B98DD576-5DA0-4945-AEDC-38B0FA885A02}" ShortID="677432506">
+									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="EtatVoiture" ID="{85B0257B-EB48-4E32-86C9-571726763156}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<BlendContainer Name="Idle" ID="{CA355A71-2166-4B7B-BA42-341FFADA593E}" ShortID="114089134">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M4_Idle" ID="{39134B02-A23A-41F1-951B-F9054444AEE3}" ShortID="59297296">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M4_Idle" ID="{BE671A71-C1D1-4B65-8FD8-7C715E2FD55C}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="405.219"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.214288302021534"/>
+																<Property Name="LoopEnd" Type="Real64" Value="16.8723842012744"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M4_Idle.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="503920608"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M4_Idle" ID="{BE671A71-C1D1-4B65-8FD8-7C715E2FD55C}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Stop" ID="{D24D099D-4D87-43EE-A576-FC08B97DEF4B}" ShortID="27582284">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M4_Stop" ID="{7125D882-7328-4F31-8073-E6B71A31318E}" ShortID="421497441">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M4_Stop" ID="{8EBDA974-896C-439A-AFAD-7D1BF5AE2AE3}">
+															<PropertyList>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.999237585616448"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="2.20102333047945"/>
+																<Property Name="TrimEnd" Type="Real64" Value="3.2002609160959"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M4_Stop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="508124765"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M4_Stop" ID="{8EBDA974-896C-439A-AFAD-7D1BF5AE2AE3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Demarre" ID="{C9E8D389-3632-49F7-B6CA-152BAD421581}" ShortID="367267902">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M4_Démarre" ID="{F8D3BC79-FF9B-41A3-AD40-23C9AC6E3AEE}" ShortID="348373150">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M4_Démarre" ID="{B2625F44-E75A-48F5-A958-1A30BC6F8DC1}">
+															<Language>SFX</Language>
+															<AudioFile>M4_Démarre.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="520596885"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M4_Démarre" ID="{B2625F44-E75A-48F5-A958-1A30BC6F8DC1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Vitesse2" ID="{9E031955-5133-44F0-93F3-C110A52C356C}" ShortID="801664190">
+											<PropertyList>
+												<Property Name="BlendBehavior" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+												<Reference Name="UserAuxSend1">
+													<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M4_Avance-004" ID="{427CD4F5-BB17-444E-8428-7C687982BEF7}" ShortID="246251172">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M4_Avance-004" ID="{8E531706-99EA-4F29-8E81-724DEBA5138B}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="267.817"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.452820562214612"/>
+																<Property Name="LoopEnd" Type="Real64" Value="12.3291970605023"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M4_Avance-004.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="932237990"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M4_Avance-004" ID="{8E531706-99EA-4F29-8E81-724DEBA5138B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="New Blend Track" ID="{B1422919-67A7-43DB-BB8A-B40EFAD2BCD5}" ShortID="573632638">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<RTPCList>
+																<RTPC Name="" ID="{10102135-7036-4FD2-B083-878C811E9F10}" ShortID="273773521">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{3507235B-A558-4BD7-B3A7-EBA9105F78EB}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="65537"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-1114</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>70</XPos>
+																				<YPos>1200</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="M4_Avance-004" ID="{427CD4F5-BB17-444E-8428-7C687982BEF7}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>70</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Vitesse2" ID="{9E031955-5133-44F0-93F3-C110A52C356C}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Idle" ID="{CA355A71-2166-4B7B-BA42-341FFADA593E}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Demarre" ID="{C9E8D389-3632-49F7-B6CA-152BAD421581}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Stop" ID="{D24D099D-4D87-43EE-A576-FC08B97DEF4B}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}"/>
+												<ItemList>
+													<ItemRef Name="Stop" ID="{D24D099D-4D87-43EE-A576-FC08B97DEF4B}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="C_Idle" ID="{575AC416-23B8-43F6-8005-669346C1342C}"/>
+												<ItemList>
+													<ItemRef Name="Idle" ID="{CA355A71-2166-4B7B-BA42-341FFADA593E}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="B_Demarre" ID="{EBDA39D6-6A19-45D7-900F-698420931972}"/>
+												<ItemList>
+													<ItemRef Name="Demarre" ID="{C9E8D389-3632-49F7-B6CA-152BAD421581}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="M3" ID="{64DFCA49-08FB-4F80-8ED4-4F71CB75E86C}" ShortID="556091129">
+									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="EtatVoiture" ID="{85B0257B-EB48-4E32-86C9-571726763156}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<BlendContainer Name="Idle" ID="{4D18E0DB-5EB6-40D9-8092-720274007B81}" ShortID="191937014">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M3_Idle" ID="{375F4D75-3063-4A83-8A3F-4EC4588970CF}" ShortID="629960458">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M3_Idle" ID="{A803C15D-BB40-46C1-8427-55808CE99C5E}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="214.76"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.138332976268952"/>
+																<Property Name="LoopEnd" Type="Real64" Value="11.4893221956713"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M3_Idle.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="355492977"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M3_Idle" ID="{A803C15D-BB40-46C1-8427-55808CE99C5E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Stop" ID="{8CE8A241-8EC5-42B0-8D15-B68090478610}" ShortID="275190741">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M3_Stop" ID="{8AE4FCA5-4A3A-4552-8578-3F3E076C50CB}" ShortID="343501706">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M3_Stop" ID="{977A8DB7-E8D6-4E54-A0CC-E78A071BBB70}">
+															<Language>SFX</Language>
+															<AudioFile>M3_Stop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="216462785"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M3_Stop" ID="{977A8DB7-E8D6-4E54-A0CC-E78A071BBB70}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Demarre" ID="{0C7F4E2C-D5F7-49CE-A713-0901787101FD}" ShortID="956430461">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M3_Démarre" ID="{95B7B75E-F984-4D24-9EEE-D684C0396BA0}" ShortID="268812494">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M3_Démarre" ID="{CE7B62D4-C50B-4C1C-AC20-B524815C0DA3}">
+															<Language>SFX</Language>
+															<AudioFile>M3_Démarre.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="868106906"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M3_Démarre" ID="{CE7B62D4-C50B-4C1C-AC20-B524815C0DA3}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Vitesse2" ID="{426705E7-D8CF-4E55-B856-34D5D937239E}" ShortID="19059201">
+											<PropertyList>
+												<Property Name="BlendBehavior" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+												<Reference Name="UserAuxSend1">
+													<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M3_Idle" ID="{9D776BB9-28C3-4FEB-8AEE-4358885FD23A}" ShortID="833298313">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M3_Idle" ID="{015FE017-0065-4761-A43D-1D9FD96DA4E9}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="92.04"/>
+																<Property Name="LoopBegin" Type="Real64" Value="1.16045996758954"/>
+																<Property Name="LoopEnd" Type="Real64" Value="5.04915363381674"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="1.07592314875851"/>
+																<Property Name="TrimEnd" Type="Real64" Value="5.11063495660294"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M3_Idle.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="737993180"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M3_Idle" ID="{015FE017-0065-4761-A43D-1D9FD96DA4E9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="New Blend Track" ID="{E5272294-A5D0-47A8-AF80-CDBE2A052A32}" ShortID="285287619">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<RTPCList>
+																<RTPC Name="" ID="{935DAEDB-BC99-4618-89A5-354B8D736334}" ShortID="609034532">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{B0E161E5-E195-4AB1-BFCB-4A61C038B995}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="65537"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-258</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>70</XPos>
+																				<YPos>2399</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="M3_Idle" ID="{9D776BB9-28C3-4FEB-8AEE-4358885FD23A}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>70</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Demarre" ID="{0C7F4E2C-D5F7-49CE-A713-0901787101FD}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Stop" ID="{8CE8A241-8EC5-42B0-8D15-B68090478610}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Idle" ID="{4D18E0DB-5EB6-40D9-8092-720274007B81}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Vitesse2" ID="{426705E7-D8CF-4E55-B856-34D5D937239E}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}"/>
+												<ItemList>
+													<ItemRef Name="Stop" ID="{8CE8A241-8EC5-42B0-8D15-B68090478610}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="C_Idle" ID="{575AC416-23B8-43F6-8005-669346C1342C}"/>
+												<ItemList>
+													<ItemRef Name="Idle" ID="{4D18E0DB-5EB6-40D9-8092-720274007B81}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="B_Demarre" ID="{EBDA39D6-6A19-45D7-900F-698420931972}"/>
+												<ItemList>
+													<ItemRef Name="Demarre" ID="{0C7F4E2C-D5F7-49CE-A713-0901787101FD}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="M5" ID="{789DDBF8-8490-4FA4-94CD-803D7CEDB73F}" ShortID="654076536">
+									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="EtatVoiture" ID="{85B0257B-EB48-4E32-86C9-571726763156}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<BlendContainer Name="Idle" ID="{BF3D8C7D-87BA-4719-B3D5-B7B53ECCBF30}" ShortID="29065650">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M5_Idle" ID="{B8072B23-7922-4B96-B254-249308C6670B}" ShortID="993241103">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M5_Idle" ID="{E884B847-8417-481A-A015-30B9826AB4A4}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="485.987"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.284053147659855"/>
+																<Property Name="LoopEnd" Type="Real64" Value="30.4951343523401"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M5_Idle.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="326768680"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M5_Idle" ID="{E884B847-8417-481A-A015-30B9826AB4A4}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Stop" ID="{38F4ABF7-9C36-47AB-8A95-A103FF00492B}" ShortID="678267430">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M5_Stop" ID="{C519D2C0-C361-45C6-8234-D969AE19BB83}" ShortID="602580388">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M5_Stop" ID="{5246F60F-CB18-4C16-A30B-D8E8369BA32F}">
+															<Language>SFX</Language>
+															<AudioFile>M5_Stop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="75097178"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M5_Stop" ID="{5246F60F-CB18-4C16-A30B-D8E8369BA32F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Demarre" ID="{DC583C4E-D03C-45AD-BDA5-FEC31BDCC12E}" ShortID="52234963">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+										</BlendContainer>
+										<BlendContainer Name="Vitesse2" ID="{636BC8FF-973A-497F-97F6-6DBC6E1DA747}" ShortID="172617455">
+											<PropertyList>
+												<Property Name="BlendBehavior" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+												<Reference Name="UserAuxSend1">
+													<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M5_Avance" ID="{8AA0ECEC-9063-4546-8448-72DCEB7F2F32}" ShortID="299575922">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M5_Avance" ID="{7B836054-DECE-4E68-8670-5233E9502F4A}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="1271.043"/>
+																<Property Name="LoopBegin" Type="Real64" Value="2.73814676719402"/>
+																<Property Name="LoopEnd" Type="Real64" Value="21.5231071467809"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="1.65562362667546"/>
+																<Property Name="TrimEnd" Type="Real64" Value="22.2872411283235"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M5_Avance.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="889386419"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M5_Avance" ID="{7B836054-DECE-4E68-8670-5233E9502F4A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="New Blend Track" ID="{E58732CC-DEBE-4AC1-A3ED-C081F7A73A80}" ShortID="953278553">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<RTPCList>
+																<RTPC Name="" ID="{8FCAE7FA-6ADF-443D-8878-760D702A2124}" ShortID="982953613">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{A91A291B-EFF7-46BC-A38B-0D7BB5318BDC}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="65537"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-687</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>70</XPos>
+																				<YPos>1542</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="M5_Avance" ID="{8AA0ECEC-9063-4546-8448-72DCEB7F2F32}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>70</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Demarre" ID="{DC583C4E-D03C-45AD-BDA5-FEC31BDCC12E}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Idle" ID="{BF3D8C7D-87BA-4719-B3D5-B7B53ECCBF30}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Stop" ID="{38F4ABF7-9C36-47AB-8A95-A103FF00492B}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Vitesse2" ID="{636BC8FF-973A-497F-97F6-6DBC6E1DA747}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}"/>
+												<ItemList>
+													<ItemRef Name="Stop" ID="{38F4ABF7-9C36-47AB-8A95-A103FF00492B}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="C_Idle" ID="{575AC416-23B8-43F6-8005-669346C1342C}"/>
+												<ItemList>
+													<ItemRef Name="Idle" ID="{BF3D8C7D-87BA-4719-B3D5-B7B53ECCBF30}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="B_Demarre" ID="{EBDA39D6-6A19-45D7-900F-698420931972}"/>
+												<ItemList>
+													<ItemRef Name="Demarre" ID="{DC583C4E-D03C-45AD-BDA5-FEC31BDCC12E}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="M6_Camion" ID="{76F1CA40-C390-41F2-A307-C7C826C6978C}" ShortID="587386470">
+									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="EtatVoiture" ID="{85B0257B-EB48-4E32-86C9-571726763156}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<BlendContainer Name="Idle" ID="{FD68C71D-4954-40C8-B565-FFC3F69094BE}" ShortID="1011161553">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M6_Idle-002" ID="{832761E5-68F6-4BF4-B296-35E722A63023}" ShortID="766406302">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+														<Property Name="Pitch" Type="int32">
+															<ValueList>
+																<Value>-250</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M6_Idle-002" ID="{5A547F34-D2A4-41DF-A003-80930DC3B6AD}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="217.459"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.132289538013623"/>
+																<Property Name="LoopEnd" Type="Real64" Value="11.6414793451989"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M6_Idle-002.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="151701882"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M6_Idle-002" ID="{5A547F34-D2A4-41DF-A003-80930DC3B6AD}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Stop" ID="{123347BE-7D77-45D5-9F40-EFF7300B0E79}" ShortID="383846328">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M6_Stop" ID="{50A988BB-33A5-4601-914A-511D64B8F98B}" ShortID="929670268">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M6_Stop" ID="{516B1EE3-DD4F-45C8-9F5F-35031FE5C9D0}">
+															<Language>SFX</Language>
+															<AudioFile>M6_Stop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="135250868"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M6_Stop" ID="{516B1EE3-DD4F-45C8-9F5F-35031FE5C9D0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Demarre" ID="{2B612FA5-3015-4861-AF86-4EFC50A97496}" ShortID="71930956">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+										</BlendContainer>
+										<BlendContainer Name="Vitesse2" ID="{441D6784-D75A-430F-A472-ED3C063B6081}" ShortID="983158722">
+											<PropertyList>
+												<Property Name="BlendBehavior" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+												<Reference Name="UserAuxSend1">
+													<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M6_Avance-003" ID="{2807698F-BA2E-4C00-8596-54DCC9BC169A}" ShortID="116824643">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M6_Avance-003" ID="{D5B81D10-6FD0-4467-84F9-8A7D582DB71A}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="688.485"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.718590007690617"/>
+																<Property Name="LoopEnd" Type="Real64" Value="15.162249162272"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimEnd" Type="Real64" Value="15.6365185673478"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M6_Avance-003.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="470425386"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M6_Avance-003" ID="{D5B81D10-6FD0-4467-84F9-8A7D582DB71A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="New Blend Track" ID="{A87763F5-3215-43BF-BAB5-48D05A304D90}" ShortID="789503539">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<RTPCList>
+																<RTPC Name="" ID="{9E84DE09-DD20-454B-89B2-1F93F9391E43}" ShortID="374378386">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{F52F0660-5D0A-4A82-A1AD-3B8672A6FF15}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="65537"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-430</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>70</XPos>
+																				<YPos>468</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="M6_Avance-003" ID="{2807698F-BA2E-4C00-8596-54DCC9BC169A}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>70</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Idle" ID="{FD68C71D-4954-40C8-B565-FFC3F69094BE}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Vitesse2" ID="{441D6784-D75A-430F-A472-ED3C063B6081}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Demarre" ID="{2B612FA5-3015-4861-AF86-4EFC50A97496}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Stop" ID="{123347BE-7D77-45D5-9F40-EFF7300B0E79}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}"/>
+												<ItemList>
+													<ItemRef Name="Stop" ID="{123347BE-7D77-45D5-9F40-EFF7300B0E79}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="C_Idle" ID="{575AC416-23B8-43F6-8005-669346C1342C}"/>
+												<ItemList>
+													<ItemRef Name="Idle" ID="{FD68C71D-4954-40C8-B565-FFC3F69094BE}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="B_Demarre" ID="{EBDA39D6-6A19-45D7-900F-698420931972}"/>
+												<ItemList>
+													<ItemRef Name="Demarre" ID="{2B612FA5-3015-4861-AF86-4EFC50A97496}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="M7_Camion" ID="{231740B9-0A21-4919-9231-EC1B8304A2FA}" ShortID="946927004">
+									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="EtatVoiture" ID="{85B0257B-EB48-4E32-86C9-571726763156}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<BlendContainer Name="Idle" ID="{6A3AC828-8FBC-45EC-BD5C-DC5715B545AB}" ShortID="964313717">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M7_Idle-002" ID="{95B854BE-C2D0-4152-8FA5-CDBB180B0365}" ShortID="1031169274">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+														<Property Name="Pitch" Type="int32">
+															<ValueList>
+																<Value>-80</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M7_Idle-002" ID="{1CC31934-E4B6-4D20-ABDA-9ABA3EE991A6}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="135.292"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.112965969017798"/>
+																<Property Name="LoopEnd" Type="Real64" Value="5.64453291858932"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M7_Idle-002.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="482622786"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M7_Idle-002" ID="{1CC31934-E4B6-4D20-ABDA-9ABA3EE991A6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Stop" ID="{21365BD7-CBA9-4C76-8F4C-B0DB9C8B452C}" ShortID="521514664">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M7_Stop-001" ID="{E709FA63-7BFB-4784-929F-2D07B8B0338F}" ShortID="141995594">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M7_Stop-001" ID="{45833724-AE48-403E-A7BD-E0EF978C24CF}">
+															<Language>SFX</Language>
+															<AudioFile>M7_Stop-001.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="994162649"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M7_Stop-001" ID="{45833724-AE48-403E-A7BD-E0EF978C24CF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Demarre" ID="{4B97F732-930D-413A-BF85-B3ECC8731820}" ShortID="326495180">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M7_Démarre" ID="{B1E1BA4D-05A9-45C8-BCD8-CFB197ACF16B}" ShortID="372824954">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M7_Démarre" ID="{955F00C1-6C14-445B-B311-C3D410B7F8B2}">
+															<Language>SFX</Language>
+															<AudioFile>M7_Démarre.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="844890846"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M7_Démarre" ID="{955F00C1-6C14-445B-B311-C3D410B7F8B2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Vitesse2" ID="{4E8A0BC1-E709-4049-BA84-58E9315783B2}" ShortID="377443970">
+											<PropertyList>
+												<Property Name="BlendBehavior" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+												<Reference Name="UserAuxSend1">
+													<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M7_Avance" ID="{F5C9EB5C-CA02-47B8-AD8B-29A42371587F}" ShortID="352511589">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M7_Avance" ID="{F3E8875B-D10E-420B-A672-2F1277B3C7B1}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="523.707"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.415420951439244"/>
+																<Property Name="LoopEnd" Type="Real64" Value="10.2106097011646"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimEnd" Type="Real64" Value="10.6478949132059"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M7_Avance.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="615755781"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M7_Avance" ID="{F3E8875B-D10E-420B-A672-2F1277B3C7B1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="New Blend Track" ID="{E09C5EF4-32E5-4326-B923-46F748431385}" ShortID="809343482">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<RTPCList>
+																<RTPC Name="" ID="{99989D1B-3757-4E0B-9C66-92AE68B062E9}" ShortID="666415806">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{CD81FF55-8BA9-45A1-A8F7-05D394C8CFCF}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="65537"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-87</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>70</XPos>
+																				<YPos>1117</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="M7_Avance" ID="{F5C9EB5C-CA02-47B8-AD8B-29A42371587F}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>70</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Idle" ID="{6A3AC828-8FBC-45EC-BD5C-DC5715B545AB}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Demarre" ID="{4B97F732-930D-413A-BF85-B3ECC8731820}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Vitesse2" ID="{4E8A0BC1-E709-4049-BA84-58E9315783B2}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Stop" ID="{21365BD7-CBA9-4C76-8F4C-B0DB9C8B452C}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}"/>
+												<ItemList>
+													<ItemRef Name="Stop" ID="{21365BD7-CBA9-4C76-8F4C-B0DB9C8B452C}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="C_Idle" ID="{575AC416-23B8-43F6-8005-669346C1342C}"/>
+												<ItemList>
+													<ItemRef Name="Idle" ID="{6A3AC828-8FBC-45EC-BD5C-DC5715B545AB}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="B_Demarre" ID="{EBDA39D6-6A19-45D7-900F-698420931972}"/>
+												<ItemList>
+													<ItemRef Name="Demarre" ID="{4B97F732-930D-413A-BF85-B3ECC8731820}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="M8" ID="{03BAE36E-B93D-411C-8A16-0966CBCC531A}" ShortID="347352988">
+									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="EtatVoiture" ID="{85B0257B-EB48-4E32-86C9-571726763156}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<BlendContainer Name="Idle" ID="{00DB7584-8A32-496E-8F60-DCC78A838D46}" ShortID="358327465">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M8_Idle-002" ID="{3DA111D6-E7B0-4DCB-B59E-4A5767EBCCAE}" ShortID="514703180">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+														<Property Name="Lowpass" Type="int16">
+															<ValueList>
+																<Value>27</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Pitch" Type="int32">
+															<ValueList>
+																<Value>-150</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M8_Idle-002" ID="{1E2E98BA-583C-4408-B51F-C0DD40C4D936}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="392.291"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.255493668973852"/>
+																<Property Name="LoopEnd" Type="Real64" Value="10.1804400406504"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimEnd" Type="Real64" Value="10.5735072236871"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M8_Idle-002.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="447576262"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M8_Idle-002" ID="{1E2E98BA-583C-4408-B51F-C0DD40C4D936}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Stop" ID="{F25B4E7B-5E28-4283-B189-4F8DD0457D30}" ShortID="8543563">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+										</BlendContainer>
+										<BlendContainer Name="Demarre" ID="{313C7A04-2EBA-4267-A293-009F91B11CF6}" ShortID="535346656">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+										</BlendContainer>
+										<BlendContainer Name="Vitesse2" ID="{0AE38DCD-157B-4CBE-B0F8-ADC04E208CF8}" ShortID="1026221151">
+											<PropertyList>
+												<Property Name="BlendBehavior" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+												<Reference Name="UserAuxSend1">
+													<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M8_Avance-001" ID="{DC7A707E-27B3-4BAA-9E7F-A17A6A07BC5F}" ShortID="359347215">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M8_Avance-001" ID="{CAFB86D1-0EA1-46A8-888D-19F6A4509725}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="190.717"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.164553394858273"/>
+																<Property Name="LoopEnd" Type="Real64" Value="7.95164469347396"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M8_Avance-001.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="974711196"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M8_Avance-001" ID="{CAFB86D1-0EA1-46A8-888D-19F6A4509725}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="New Blend Track" ID="{AB86E695-A002-4A3E-AC43-14D0D9B2AA5A}" ShortID="641277125">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<RTPCList>
+																<RTPC Name="" ID="{6BB03161-6F74-403E-ACC0-1DA702623F1E}" ShortID="89027940">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{DD5E2C32-3C6C-4913-92AD-495840DFD51B}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="65537"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-430</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>70</XPos>
+																				<YPos>1028</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="M8_Avance-001" ID="{DC7A707E-27B3-4BAA-9E7F-A17A6A07BC5F}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>70</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Demarre" ID="{313C7A04-2EBA-4267-A293-009F91B11CF6}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Stop" ID="{F25B4E7B-5E28-4283-B189-4F8DD0457D30}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Idle" ID="{00DB7584-8A32-496E-8F60-DCC78A838D46}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Vitesse2" ID="{0AE38DCD-157B-4CBE-B0F8-ADC04E208CF8}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}"/>
+												<ItemList>
+													<ItemRef Name="Stop" ID="{F25B4E7B-5E28-4283-B189-4F8DD0457D30}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="C_Idle" ID="{575AC416-23B8-43F6-8005-669346C1342C}"/>
+												<ItemList>
+													<ItemRef Name="Idle" ID="{00DB7584-8A32-496E-8F60-DCC78A838D46}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="B_Demarre" ID="{EBDA39D6-6A19-45D7-900F-698420931972}"/>
+												<ItemList>
+													<ItemRef Name="Demarre" ID="{313C7A04-2EBA-4267-A293-009F91B11CF6}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="M9_Bus" ID="{34F46496-E526-4CAD-AA29-8959AAEE177D}" ShortID="853318987">
+									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="EtatVoiture" ID="{85B0257B-EB48-4E32-86C9-571726763156}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<BlendContainer Name="Idle" ID="{457E5BE1-50D0-4205-BA5A-519155782DA8}" ShortID="17359010">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M9_Avance" ID="{9A0026EF-D146-4C6C-9C5F-7894DA02B859}" ShortID="324403206">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+														<Property Name="Pitch" Type="int32">
+															<ValueList>
+																<Value>-80</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>10</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M9_Avance" ID="{611485DD-A2AB-4914-AD06-FAAED4BB8E58}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="126.452"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.079188777191826"/>
+																<Property Name="LoopEnd" Type="Real64" Value="0.839401038233355"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimEnd" Type="Real64" Value="0.918589815425182"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M9_Avance.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="752329446"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M9_Avance" ID="{611485DD-A2AB-4914-AD06-FAAED4BB8E58}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Stop" ID="{56FA7F94-055D-444C-B732-402AC7D06608}" ShortID="572012314">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M9_Stop" ID="{9157B5BB-C675-4E46-B949-D463E5CA7F76}" ShortID="422352625">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M9_Stop" ID="{53FECE7B-BA3E-486E-8ED0-3C8F9295A782}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="1.30226270325203"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M9_Stop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="610589191"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M9_Stop" ID="{53FECE7B-BA3E-486E-8ED0-3C8F9295A782}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Demarre" ID="{FE571F75-BF40-4D9B-9627-E876DB36415F}" ShortID="356663174">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M9_Démarre" ID="{04ACA1A8-7B9B-4D48-8F7F-9D2A629D273A}" ShortID="882870918">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M9_Démarre" ID="{848031F9-9D11-4600-A616-13450FF9F64D}">
+															<PropertyList>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="0.0241304795649308"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M9_Démarre.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="946590415"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M9_Démarre" ID="{848031F9-9D11-4600-A616-13450FF9F64D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Vitesse2" ID="{4CC1F5F8-69C8-424B-819E-3110CD0A58B7}" ShortID="569657336">
+											<PropertyList>
+												<Property Name="BlendBehavior" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+												<Reference Name="UserAuxSend1">
+													<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M9_Avance" ID="{56958C45-C7A9-4FB0-A639-C42C8B9A45AA}" ShortID="87746422">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M9_Avance" ID="{46EF9C30-D938-40B9-A105-B8005AF634D6}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="316.13"/>
+																<Property Name="LoopBegin" Type="Real64" Value="9.45513999670402"/>
+																<Property Name="LoopEnd" Type="Real64" Value="11.7357767798286"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M9_Avance.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="141483284"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M9_Avance" ID="{46EF9C30-D938-40B9-A105-B8005AF634D6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="New Blend Track" ID="{746FDA4B-DE09-452F-B800-F48298F40BA7}" ShortID="111693036">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<RTPCList>
+																<RTPC Name="" ID="{1C44EDD6-E08C-4B40-A37C-9A5DF98EA2B9}" ShortID="202006519">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{4B4C522C-B28D-450D-A4BC-D3B2873EE38E}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="65537"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-430</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>70</XPos>
+																				<YPos>556</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="M9_Avance" ID="{56958C45-C7A9-4FB0-A639-C42C8B9A45AA}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>70</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Demarre" ID="{FE571F75-BF40-4D9B-9627-E876DB36415F}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Stop" ID="{56FA7F94-055D-444C-B732-402AC7D06608}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Idle" ID="{457E5BE1-50D0-4205-BA5A-519155782DA8}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Vitesse2" ID="{4CC1F5F8-69C8-424B-819E-3110CD0A58B7}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}"/>
+												<ItemList>
+													<ItemRef Name="Stop" ID="{56FA7F94-055D-444C-B732-402AC7D06608}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="C_Idle" ID="{575AC416-23B8-43F6-8005-669346C1342C}"/>
+												<ItemList>
+													<ItemRef Name="Idle" ID="{457E5BE1-50D0-4205-BA5A-519155782DA8}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="B_Demarre" ID="{EBDA39D6-6A19-45D7-900F-698420931972}"/>
+												<ItemList>
+													<ItemRef Name="Demarre" ID="{FE571F75-BF40-4D9B-9627-E876DB36415F}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+								<SwitchContainer Name="M2_Moto" ID="{AC9B7F3B-2394-4977-82ED-38B1C3A2266B}" ShortID="721443840">
+									<PropertyList>
+										<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="EtatVoiture" ID="{85B0257B-EB48-4E32-86C9-571726763156}" WorkUnitID="{FE2FFB21-E96C-4796-BF5D-DFD9A0776034}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+										<Reference Name="UserAuxSend1">
+											<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<BlendContainer Name="Idle" ID="{78FA6F0E-357F-48AB-B87A-C2A2147809C0}" ShortID="907094857">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M2_Idle-001" ID="{D73287A7-2355-46B4-B554-07F633CDC508}" ShortID="921776532">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M2_Idle-001" ID="{1D6D5611-BF2A-441F-B4B0-7E8FD79A96BB}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="34.508"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.0321061579872556"/>
+																<Property Name="LoopEnd" Type="Real64" Value="1.85598290210943"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M2_Idle-001.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="999241290"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M2_Idle-001" ID="{1D6D5611-BF2A-441F-B4B0-7E8FD79A96BB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Stop" ID="{ECFEEA88-15B4-4638-A749-68A459E0E423}" ShortID="449869823">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M2_Stop" ID="{3591E302-4610-4AB8-A1B6-05E8CC68D490}" ShortID="253220945">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M2_Stop" ID="{634FC606-C5B1-441B-886E-84F5F5323B36}">
+															<Language>SFX</Language>
+															<AudioFile>M2_Stop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="672179160"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M2_Stop" ID="{634FC606-C5B1-441B-886E-84F5F5323B36}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Demarre" ID="{405EC3D8-4AC1-4289-BF45-22E5DDDE45C2}" ShortID="1030175624">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M2_Démarre" ID="{CE9D788D-0C80-4D92-A4D1-13E585BA785D}" ShortID="1024431605">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M2_Démarre" ID="{1AAE5BB4-7DAD-4315-B95B-0C90872127E1}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="0"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimEnd" Type="Real64" Value="0.644264474840694"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M2_Démarre.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="501584764"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M2_Démarre" ID="{1AAE5BB4-7DAD-4315-B95B-0C90872127E1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</BlendContainer>
+										<BlendContainer Name="Vitesse2" ID="{D8ED07A6-B917-4537-BA2F-0CB5789FFA80}" ShortID="84401163">
+											<PropertyList>
+												<Property Name="BlendBehavior" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Ville_Obstacles_Master" ID="{5E003C9F-9F8F-4D70-93C3-3AA1FF01CDA8}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+												</Reference>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+												<Reference Name="UserAuxSend1">
+													<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="M2_Idle-002" ID="{D8C970B9-73C9-450C-A596-FB668B76A8E4}" ShortID="837889345">
+													<PropertyList>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="M2_Idle-002" ID="{C2998877-E4F3-49CC-85E0-384D0A89CBD5}">
+															<PropertyList>
+																<Property Name="CrossfadeDuration" Type="Real64" Value="47.789"/>
+																<Property Name="LoopBegin" Type="Real64" Value="0.053868984838497"/>
+																<Property Name="LoopEnd" Type="Real64" Value="2.23855559217754"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>M2_Idle-002.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="403360833"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="M2_Idle-002" ID="{C2998877-E4F3-49CC-85E0-384D0A89CBD5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<BlendTrackList>
+												<BlendTrack Name="New Blend Track" ID="{F4CCFBA1-2BB3-4040-B1AD-B9094257800B}" ShortID="669019631">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<RTPCList>
+																<RTPC Name="" ID="{3C40473D-0A31-413E-8D85-310184C3737E}" ShortID="273682806">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{E621F809-0C7B-4860-AF98-CBD049CDABBD}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="65537"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-600</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>70</XPos>
+																				<YPos>1971</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="LayerCrossFadeControlInput">
+															<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{ADF44AD5-D067-4957-ACBF-C84AAA6A6255}"/>
+														</Reference>
+													</ReferenceList>
+													<BlendTrackAssocList>
+														<BlendTrackAssoc>
+															<ItemRef Name="M2_Idle-002" ID="{D8C970B9-73C9-450C-A596-FB668B76A8E4}"/>
+															<CrossfadingInfo>
+																<LeftEdgePos>0</LeftEdgePos>
+																<LeftFadingMode>Automatic</LeftFadingMode>
+																<RightEdgePos>70</RightEdgePos>
+																<RightFadingMode>Automatic</RightFadingMode>
+															</CrossfadingInfo>
+														</BlendTrackAssoc>
+													</BlendTrackAssocList>
+												</BlendTrack>
+											</BlendTrackList>
+										</BlendContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="Idle" ID="{78FA6F0E-357F-48AB-B87A-C2A2147809C0}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Stop" ID="{ECFEEA88-15B4-4638-A749-68A459E0E423}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Vitesse2" ID="{D8ED07A6-B917-4537-BA2F-0CB5789FFA80}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="Demarre" ID="{405EC3D8-4AC1-4289-BF45-22E5DDDE45C2}"/>
+												<PropertyList>
+													<Property Name="FadeOutTime" Type="Real64">
+														<ValueList>
+															<Value>0.5</Value>
+														</ValueList>
+													</Property>
+												</PropertyList>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}"/>
+												<ItemList>
+													<ItemRef Name="Stop" ID="{ECFEEA88-15B4-4638-A749-68A459E0E423}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="C_Idle" ID="{575AC416-23B8-43F6-8005-669346C1342C}"/>
+												<ItemList>
+													<ItemRef Name="Idle" ID="{78FA6F0E-357F-48AB-B87A-C2A2147809C0}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="B_Demarre" ID="{EBDA39D6-6A19-45D7-900F-698420931972}"/>
+												<ItemList>
+													<ItemRef Name="Demarre" ID="{405EC3D8-4AC1-4289-BF45-22E5DDDE45C2}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
 							</ChildrenList>
-						</RandomSequenceContainer>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="M1" ID="{ADA4A311-8DB1-4CD1-8967-42234C80A9BD}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="M2_Moto" ID="{AC9B7F3B-2394-4977-82ED-38B1C3A2266B}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="M6_Camion" ID="{76F1CA40-C390-41F2-A307-C7C826C6978C}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="M3" ID="{64DFCA49-08FB-4F80-8ED4-4F71CB75E86C}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="M8" ID="{03BAE36E-B93D-411C-8A16-0966CBCC531A}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="M4" ID="{B98DD576-5DA0-4945-AEDC-38B0FA885A02}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="M9_Bus" ID="{34F46496-E526-4CAD-AA29-8959AAEE177D}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="M7_Camion" ID="{231740B9-0A21-4919-9231-EC1B8304A2FA}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="M5" ID="{789DDBF8-8490-4FA4-94CD-803D7CEDB73F}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="M7_Camion" ID="{0167492A-AABC-4E2D-A2BF-A91488D1D4F8}"/>
+										<ItemList>
+											<ItemRef Name="M7_Camion" ID="{231740B9-0A21-4919-9231-EC1B8304A2FA}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="M5" ID="{9E1CEE2D-D169-4824-8F10-62506E9760A2}"/>
+										<ItemList>
+											<ItemRef Name="M5" ID="{789DDBF8-8490-4FA4-94CD-803D7CEDB73F}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="M6_Camion" ID="{7F0D8038-1B7E-4153-91CA-C0534557D6B7}"/>
+										<ItemList>
+											<ItemRef Name="M6_Camion" ID="{76F1CA40-C390-41F2-A307-C7C826C6978C}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="M3" ID="{D13F1666-0A64-4026-9C02-E0B8E505EFA4}"/>
+										<ItemList>
+											<ItemRef Name="M3" ID="{64DFCA49-08FB-4F80-8ED4-4F71CB75E86C}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="M8" ID="{4E476E70-45DD-4B66-B879-A10E60F4DC07}"/>
+										<ItemList>
+											<ItemRef Name="M8" ID="{03BAE36E-B93D-411C-8A16-0966CBCC531A}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="M2_Moto" ID="{D9DFBE8B-AC74-4DF0-B1F1-F96C7CF1EF8D}"/>
+										<ItemList>
+											<ItemRef Name="M2_Moto" ID="{AC9B7F3B-2394-4977-82ED-38B1C3A2266B}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="M1" ID="{FCFCE899-E509-4001-A272-B16E990DB770}"/>
+										<ItemList>
+											<ItemRef Name="M1" ID="{ADA4A311-8DB1-4CD1-8967-42234C80A9BD}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="M9_Bus" ID="{270BE1CE-08E1-408F-9C4F-5F390CAFFD6B}"/>
+										<ItemList>
+											<ItemRef Name="M9_Bus" ID="{34F46496-E526-4CAD-AA29-8959AAEE177D}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="M4" ID="{6F29EDEB-2EAE-498A-BEF7-A0318A987B0D}"/>
+										<ItemList>
+											<ItemRef Name="M4" ID="{B98DD576-5DA0-4945-AEDC-38B0FA885A02}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
 					</ChildrenList>
 					<StateInfo>
 						<StatePropertyList>
@@ -349,7 +2728,7 @@
 						<CustomStateList>
 							<CustomState>
 								<StateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
-								<CustomState Name="" ID="{DC483C80-9546-4305-9D78-7CEBC49C33B4}" ShortID="366618753">
+								<CustomState Name="" ID="{D1AEBA62-E0E3-47E0-B21D-5FBC32C437BC}" ShortID="502318422">
 									<PropertyList>
 										<Property Name="UserAuxSendVolume1" Type="Real64" Value="-108"/>
 									</PropertyList>
@@ -357,148 +2736,14 @@
 							</CustomState>
 							<CustomState>
 								<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
-								<CustomState Name="" ID="{4BD18B74-5DB9-427F-9713-3569928158E9}" ShortID="99283411">
+								<CustomState Name="" ID="{37D000A9-1C5E-4CCC-BF36-494923A70C2A}" ShortID="99628228">
 									<PropertyList>
-										<Property Name="OutputBusVolume" Type="Real64" Value="-24"/>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-20"/>
 									</PropertyList>
 								</CustomState>
 							</CustomState>
 						</CustomStateList>
 					</StateInfo>
-				</ActorMixer>
-				<ActorMixer Name="Moteur 1" ID="{CBDEC49D-CECE-4D7B-97DB-7939BF0CB74D}" ShortID="218551838">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<BlendContainer Name="Vitesse" ID="{74862394-BE05-4F91-9FC7-5EC22F870E19}" ShortID="503437610">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<RandomSequenceContainer Name="Accélère" ID="{15120554-1D55-4E53-A673-320E2FFC5F04}" ShortID="74829932">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-								</RandomSequenceContainer>
-								<Sound Name="Démarre" ID="{6614B260-4DF2-4F73-AB17-A2DF56B2FBD3}" ShortID="859720884">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-								</Sound>
-								<Sound Name="Stop" ID="{7636BA88-CE45-46AC-95F8-017AF96EDBFD}" ShortID="646728440">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-								</Sound>
-								<RandomSequenceContainer Name="Ralenti" ID="{D473369B-1E9D-4714-9D72-1072341D786F}" ShortID="559191198">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-								</RandomSequenceContainer>
-								<Sound Name="Idle" ID="{3055B94F-EB77-49F2-89EA-FDAEEF954CF7}" ShortID="74098878">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-								</Sound>
-								<Sound Name="Avance" ID="{43AE5516-4CF9-433E-8360-621318D87B65}" ShortID="853104808">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-								</Sound>
-							</ChildrenList>
-							<BlendTrackList>
-								<BlendTrack Name="Moteur 1 Vitesse" ID="{C30E4322-FE85-46DE-B3E8-2036D6610EF9}" ShortID="319224261">
-									<PropertyList>
-										<Property Name="EnableCrossFading" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="LayerCrossFadeControlInput">
-											<ObjectRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}" WorkUnitID="{B90F05CD-014F-496C-B6F0-C3FAFBFB2412}"/>
-										</Reference>
-									</ReferenceList>
-									<BlendTrackAssocList>
-										<BlendTrackAssoc>
-											<ItemRef Name="Idle" ID="{3055B94F-EB77-49F2-89EA-FDAEEF954CF7}"/>
-											<CrossfadingInfo>
-												<LeftEdgePos>0</LeftEdgePos>
-												<LeftFadingMode>Automatic</LeftFadingMode>
-												<RightEdgePos>3.17370876963351</RightEdgePos>
-												<RightFadingMode>Automatic</RightFadingMode>
-											</CrossfadingInfo>
-										</BlendTrackAssoc>
-										<BlendTrackAssoc>
-											<ItemRef Name="Accélère" ID="{15120554-1D55-4E53-A673-320E2FFC5F04}"/>
-											<CrossfadingInfo>
-												<LeftEdgePos>1.8976557591623</LeftEdgePos>
-												<LeftFadingMode>Automatic</LeftFadingMode>
-												<RightEdgePos>5.10471204188482</RightEdgePos>
-												<RightFadingMode>Automatic</RightFadingMode>
-											</CrossfadingInfo>
-										</BlendTrackAssoc>
-										<BlendTrackAssoc>
-											<ItemRef Name="Avance" ID="{43AE5516-4CF9-433E-8360-621318D87B65}"/>
-											<CrossfadingInfo>
-												<LeftEdgePos>3.88409980366492</LeftEdgePos>
-												<LeftFadingMode>Automatic</LeftFadingMode>
-												<RightEdgePos>47.8369793848168</RightEdgePos>
-												<RightFadingMode>Automatic</RightFadingMode>
-											</CrossfadingInfo>
-										</BlendTrackAssoc>
-										<BlendTrackAssoc>
-											<ItemRef Name="Ralenti" ID="{D473369B-1E9D-4714-9D72-1072341D786F}"/>
-											<CrossfadingInfo>
-												<LeftEdgePos>52.50025</LeftEdgePos>
-												<LeftFadingMode>Automatic</LeftFadingMode>
-												<RightEdgePos>72.50025</RightEdgePos>
-												<RightFadingMode>Automatic</RightFadingMode>
-											</CrossfadingInfo>
-										</BlendTrackAssoc>
-									</BlendTrackAssocList>
-								</BlendTrack>
-							</BlendTrackList>
-						</BlendContainer>
-					</ChildrenList>
 				</ActorMixer>
 				<Sound Name="Electrique_Buzz" ID="{356C1D3A-CA95-4CDD-9A57-8A43F5F7D328}" ShortID="706558503">
 					<PropertyList>

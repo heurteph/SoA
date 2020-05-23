@@ -3,56 +3,6 @@
 	<Events>
 		<WorkUnit Name="Ville_Obstacles" ID="{327481BD-CE92-4345-9F23-C7E9F3EADD7F}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Play_BusFixe" ID="{0B85B6A5-6C20-4D5F-80C2-FC06B9B7C8FF}">
-					<ChildrenList>
-						<Action Name="" ID="{44F6AEF0-4C06-4C2B-B7E5-4E642D42661A}" ShortID="259582515">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="BusFixe" ID="{66A3F8CB-B567-41DF-A4BC-062E489EA7C3}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_VoituresFixe" ID="{ABD040DB-AE8E-440C-9624-3ED41C0CF553}">
-					<ChildrenList>
-						<Action Name="" ID="{CE71AA22-A448-4AD2-9EB7-07AF267A440D}" ShortID="236015303">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="VoituresFixe" ID="{9414C60B-7F5E-4F44-B24B-FEEA9C18437E}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Stop_BusFixe" ID="{76406859-C1A6-43CF-9B36-DABEB0F98968}">
-					<ChildrenList>
-						<Action Name="" ID="{4B0C03FB-8593-484F-B229-98D7892CE67A}" ShortID="716975119">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="BusFixe" ID="{66A3F8CB-B567-41DF-A4BC-062E489EA7C3}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Stop_VoituresFixe" ID="{4EA63548-0EAA-40CC-B6C4-8DBEB47A5576}">
-					<ChildrenList>
-						<Action Name="" ID="{A4DF8898-11B5-4260-AE6E-843E0F90679A}" ShortID="368695903">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="VoituresFixe" ID="{9414C60B-7F5E-4F44-B24B-FEEA9C18437E}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Climatiseur" ID="{B5A115C9-B7AE-41B2-8DD2-6974077619B8}">
 					<ChildrenList>
 						<Action Name="" ID="{EF4BA1E5-93EC-4156-AC18-265EB286FA9A}" ShortID="585097043">
@@ -70,6 +20,59 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Electrique_Buzz" ID="{356C1D3A-CA95-4CDD-9A57-8A43F5F7D328}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Climatiseur" ID="{FB25C3DB-DC79-4E6E-A0F5-4CB06F5CBA06}">
+					<ChildrenList>
+						<Action Name="" ID="{80B9E509-7006-4C63-9DCA-D2B3DA8E473E}" ShortID="237665071">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Climatiseur" ID="{FB216AFD-62CA-4E45-81EC-47F5B7844CAD}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Electrique_Buzz" ID="{4710F0AA-997B-4437-A32C-577E0C5E0AE1}">
+					<ChildrenList>
+						<Action Name="" ID="{40959B60-DA52-4AF1-AC0F-0AFA029E11CD}" ShortID="737588920">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Electrique_Buzz" ID="{356C1D3A-CA95-4CDD-9A57-8A43F5F7D328}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Quel_Moteur" ID="{28CDD1CC-471B-476C-96EB-4CDADC2F903C}">
+					<ChildrenList>
+						<Action Name="" ID="{1876B15B-FC4F-4010-B1E8-55F38BA85205}" ShortID="824140370">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Quel_Moteur" ID="{7445910D-FA20-4B55-9B58-F094D1CF6133}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Quel_Moteur" ID="{9A28C3EE-7F19-4CD6-8075-647E48A4CD2A}">
+					<ChildrenList>
+						<Action Name="" ID="{EC079514-3BD6-4492-ADDA-EC4EAB4E63A5}" ShortID="425995125">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Quel_Moteur" ID="{7445910D-FA20-4B55-9B58-F094D1CF6133}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

@@ -9,7 +9,7 @@ public class Herbe : MonoBehaviour
     [SerializeField]
     readonly int RADIUS = 20;
     [SerializeField]
-    readonly float PAS = 5.0f;
+    readonly float PAS = 40.0f;
 
     Material mat;
 

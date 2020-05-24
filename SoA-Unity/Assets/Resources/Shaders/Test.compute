@@ -20,6 +20,7 @@ groupshared int total = 0;
 groupshared int cmpt = 0;
 
 [numthreads(32,32,1)]
+//[numthreads(16, 16, 1)]
 void CSMain (uint3 id : SV_DispatchThreadID)	//choix sémantique pour repérer Thread => plusieurs dispo
 {
     // TODO: insert actual code here!
@@ -69,6 +70,7 @@ void CSMain (uint3 id : SV_DispatchThreadID)	//choix sémantique pour repérer T
 		//dépend de la précision quand veut 100 pour le centieme par exemple
 		float value = tmp * 100.0f;
 		InterlockedAdd(res[0], value);
+		InterlockedAdd(res[1], 1);
 	}
 	//traitement par zone plus somme a la fin avec dernier thread de zone
 	//pour add pour diminuer nombre de locked

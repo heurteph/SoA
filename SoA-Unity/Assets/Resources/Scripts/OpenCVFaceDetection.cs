@@ -36,7 +36,7 @@ public class OpenCVFaceDetection : MonoBehaviour
 
     public static List<Vector2> NormalizedFacePositions { get; private set; }
     public static Vector2 CameraResolution;
-    public static Vector2 positions;
+    public static Vector3 positions;
     public static float taille;
 
     private const int DetectionDownScale = 1;
@@ -112,12 +112,14 @@ public class OpenCVFaceDetection : MonoBehaviour
             {
                 if (!reset)
                 {
+                    //un premier filtre d'input
                     float distance = (NormalizedFacePositions[NormalizedFacePositions.Count-1] - oldPosition).magnitude;
                     if (distance < 100 && distance >= 0.5)
                     {
                         Debug.Log("Distance "+distance);
                         max = _faces[i].Radius;
                         positions = NormalizedFacePositions[NormalizedFacePositions.Count - 1];
+                        positions.z = max;
                         num = i;
                     }
                 }

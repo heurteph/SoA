@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     float yaw = 0.0f;
     Matrix4x4 shear_mat;
 
+    float limit = 1.0f;
+
     Vector3 currentEuler;
 
     // Start is called before the first frame update
@@ -28,6 +30,33 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Render rend = GetComponentInChildren<Camera>().GetComponent<Render>();
+        if (Input.GetKey(KeyCode.G))
+        {
+            rend.offsetX -= rend.coef;
+            rend.offsetX = (rend.offsetX < -limit ? -limit : rend.offsetX);
+        }
+        else if (Input.GetKey(KeyCode.J)){
+            rend.offsetX += rend.coef;
+            rend.offsetX = (rend.offsetX > limit ? limit : rend.offsetX);
+        }
+        if (Input.GetKey(KeyCode.Y))
+        {
+            rend.offsetY += rend.coef;
+            rend.offsetY = (rend.offsetY > limit ? limit : rend.offsetY);
+        }
+        else if (Input.GetKey(KeyCode.H))
+        {
+            rend.offsetY -= rend.coef;
+            rend.offsetY = (rend.offsetY < -limit ? -limit : rend.offsetY);
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            rend.offsetX = rend.offsetY = 0.0f;
+        }
+
         float x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         //float rot = Input.GetAxis("Horizontal") * rot_speed * Time.deltaTime;
         float z = Input.GetAxis("Vertical") * speed * Time.deltaTime;

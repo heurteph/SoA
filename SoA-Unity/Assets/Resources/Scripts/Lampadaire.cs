@@ -18,7 +18,7 @@ public class Lampadaire : MonoBehaviour
     }
     public void Update()
     {
-        Debug.Log(""+transform.localScale.y);
+        //Debug.Log(""+transform.localScale.y);
         mat.SetFloat("height_scale", transform.localScale.y);
         mat.SetColor("_color", l.color);
     }

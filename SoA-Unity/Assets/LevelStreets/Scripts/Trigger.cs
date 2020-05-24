@@ -23,7 +23,7 @@ public class Trigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            bus.GetComponent<SplineUser>().Trigger();
+            bus.GetComponent<SplineStreetUser>().Trigger();
         }
     }
 }

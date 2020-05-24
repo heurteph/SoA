@@ -14,6 +14,9 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_ARROSAGEAUTO = 3389613819U;
+        static const AkUniqueID PLAY_BUS_DOOR_CLOSE = 3232482810U;
+        static const AkUniqueID PLAY_BUS_DOOR_OPEN = 2983975038U;
+        static const AkUniqueID PLAY_CANARD = 932140571U;
         static const AkUniqueID PLAY_CLIMATISEUR = 1692441862U;
         static const AkUniqueID PLAY_CRIS_TOUS = 2464503011U;
         static const AkUniqueID PLAY_ELECTRIQUE_BUZZ = 2500875145U;
@@ -38,9 +41,11 @@ namespace AK
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURF = 1582928683U;
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURH = 1582928677U;
         static const AkUniqueID PLAY_RESPIRATION_MOUVEMENT = 2860278991U;
+        static const AkUniqueID PLAY_RESTORANT = 3628354934U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
         static const AkUniqueID PLAY_TEXTURE_PAS_JOGGER = 482787459U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;
+        static const AkUniqueID STOP_CANARD = 777875661U;
         static const AkUniqueID STOP_CLIMATISEUR = 1059727820U;
         static const AkUniqueID STOP_ELECTRIQUE_BUZZ = 4256011363U;
         static const AkUniqueID STOP_MOTEUR_ELAGUEUR = 1194390427U;
@@ -51,6 +56,7 @@ namespace AK
         static const AkUniqueID STOP_PARC_OISEAUX3 = 152275146U;
         static const AkUniqueID STOP_PARC_VENT = 2647100474U;
         static const AkUniqueID STOP_QUEL_MOTEUR = 3507864100U;
+        static const AkUniqueID STOP_RESTORANT = 970688548U;
     } // namespace EVENTS
 
     namespace STATES

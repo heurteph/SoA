@@ -199,6 +199,31 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_Canard" ID="{E24F9715-7E12-4C59-9514-0548DCD9A3BD}">
+					<ChildrenList>
+						<Action Name="" ID="{A7AF5801-E0E4-45EF-9D43-A44571C8F029}" ShortID="411080456">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Canard" ID="{C10245FF-4241-4B8E-8FD5-8B6F24C09F60}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Canard" ID="{DECA478A-5787-4762-A943-94366A18CA83}">
+					<ChildrenList>
+						<Action Name="" ID="{5BFCCA2B-80A9-4BD0-A407-32F39170C0A9}" ShortID="734977136">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Canard" ID="{C10245FF-4241-4B8E-8FD5-8B6F24C09F60}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

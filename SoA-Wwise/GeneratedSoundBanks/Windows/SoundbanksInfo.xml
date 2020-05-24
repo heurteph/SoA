@@ -80,6 +80,78 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3232482810" Name="Play_Bus_Door_Close" ObjectPath="\Events\Ville_Obstacles\Play_Bus_Door_Close" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="4.892854" DurationMax="4.892854">
+					<IncludedMemoryFiles>
+						<File Id="1004933755" Language="SFX">
+							<ShortName>Bus_Door_Close.wav</ShortName>
+							<Path>SFX\Bus_Door_Close_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2983975038" Name="Play_Bus_Door_Open" ObjectPath="\Events\Ville_Obstacles\Play_Bus_Door_Open" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="5.418667" DurationMax="5.418667">
+					<IncludedMemoryFiles>
+						<File Id="25889806" Language="SFX">
+							<ShortName>Bus_Door_Open.wav</ShortName>
+							<Path>SFX\Bus_Door_Open_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="932140571" Name="Play_Canard" ObjectPath="\Events\Parc_Obstacles\Play_Canard" MaxAttenuation="40.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="137701444" Language="SFX">
+							<ShortName>Canard 05.wav</ShortName>
+							<Path>SFX\Canard 05_3F75BDB9.wem</Path>
+						</File>
+						<File Id="147319260" Language="SFX">
+							<ShortName>Canard 09.wav</ShortName>
+							<Path>SFX\Canard 09_3F75BDB9.wem</Path>
+						</File>
+						<File Id="440666878" Language="SFX">
+							<ShortName>Canard 13.wav</ShortName>
+							<Path>SFX\Canard 13_3F75BDB9.wem</Path>
+						</File>
+						<File Id="463626207" Language="SFX">
+							<ShortName>Canard 10.wav</ShortName>
+							<Path>SFX\Canard 10_3F75BDB9.wem</Path>
+						</File>
+						<File Id="473913855" Language="SFX">
+							<ShortName>Canard 06.wav</ShortName>
+							<Path>SFX\Canard 06_3F75BDB9.wem</Path>
+						</File>
+						<File Id="545595845" Language="SFX">
+							<ShortName>Canard 01.wav</ShortName>
+							<Path>SFX\Canard 01_3F75BDB9.wem</Path>
+						</File>
+						<File Id="602315368" Language="SFX">
+							<ShortName>Canard 11.wav</ShortName>
+							<Path>SFX\Canard 11_3F75BDB9.wem</Path>
+						</File>
+						<File Id="744936221" Language="SFX">
+							<ShortName>Canard 07.wav</ShortName>
+							<Path>SFX\Canard 07_3F75BDB9.wem</Path>
+						</File>
+						<File Id="767741917" Language="SFX">
+							<ShortName>Canard 12.wav</ShortName>
+							<Path>SFX\Canard 12_3F75BDB9.wem</Path>
+						</File>
+						<File Id="780719782" Language="SFX">
+							<ShortName>Canard 02.wav</ShortName>
+							<Path>SFX\Canard 02_3F75BDB9.wem</Path>
+						</File>
+						<File Id="853767280" Language="SFX">
+							<ShortName>Canard 08.wav</ShortName>
+							<Path>SFX\Canard 08_3F75BDB9.wem</Path>
+						</File>
+						<File Id="961813672" Language="SFX">
+							<ShortName>Canard 03.wav</ShortName>
+							<Path>SFX\Canard 03_3F75BDB9.wem</Path>
+						</File>
+						<File Id="1034037602" Language="SFX">
+							<ShortName>Canard 04.wav</ShortName>
+							<Path>SFX\Canard 04_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1692441862" Name="Play_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Play_Climatiseur" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="709197503" Language="SFX">
@@ -590,7 +662,7 @@
 						</File>
 						<File Id="151701882" Language="SFX">
 							<ShortName>M6_Idle-002.wav</ShortName>
-							<Path>SFX\M6_Idle-002_9640A02D.wem</Path>
+							<Path>SFX\M6_Idle-002_C30589D3.wem</Path>
 						</File>
 						<File Id="216462785" Language="SFX">
 							<ShortName>M3_Stop.wav</ShortName>
@@ -598,31 +670,31 @@
 						</File>
 						<File Id="326768680" Language="SFX">
 							<ShortName>M5_Idle.wav</ShortName>
-							<Path>SFX\M5_Idle_91DE321E.wem</Path>
+							<Path>SFX\M5_Idle_F95751D2.wem</Path>
 						</File>
 						<File Id="355492977" Language="SFX">
 							<ShortName>M3_Idle.wav</ShortName>
-							<Path>SFX\M3_Idle_AED05E5E.wem</Path>
+							<Path>SFX\M3_Idle_37DF71EC.wem</Path>
 						</File>
 						<File Id="447576262" Language="SFX">
 							<ShortName>M8_Idle-002.wav</ShortName>
-							<Path>SFX\M8_Idle-002_A279E238.wem</Path>
+							<Path>SFX\M8_Idle-002_18792908.wem</Path>
 						</File>
 						<File Id="482622786" Language="SFX">
 							<ShortName>M7_Idle-002.wav</ShortName>
-							<Path>SFX\M7_Idle-002_6F93DD94.wem</Path>
+							<Path>SFX\M7_Idle-002_8D73637A.wem</Path>
 						</File>
 						<File Id="501584764" Language="SFX">
 							<ShortName>M2_Démarre.wav</ShortName>
-							<Path>SFX\M2_Démarre_CE3A1B49.wem</Path>
+							<Path>SFX\M2_Démarre_E4179718.wem</Path>
 						</File>
 						<File Id="503920608" Language="SFX">
 							<ShortName>M4_Idle.wav</ShortName>
-							<Path>SFX\M4_Idle_F73B6CC1.wem</Path>
+							<Path>SFX\M4_Idle_E89F08A4.wem</Path>
 						</File>
 						<File Id="508124765" Language="SFX">
 							<ShortName>M4_Stop.wav</ShortName>
-							<Path>SFX\M4_Stop_EB386EED.wem</Path>
+							<Path>SFX\M4_Stop_0856DF70.wem</Path>
 						</File>
 						<File Id="520596885" Language="SFX">
 							<ShortName>M4_Démarre.wav</ShortName>
@@ -638,7 +710,7 @@
 						</File>
 						<File Id="610589191" Language="SFX">
 							<ShortName>M9_Stop.wav</ShortName>
-							<Path>SFX\M9_Stop_16A3F10B.wem</Path>
+							<Path>SFX\M9_Stop_F4EFF7E1.wem</Path>
 						</File>
 						<File Id="672179160" Language="SFX">
 							<ShortName>M2_Stop.wav</ShortName>
@@ -646,7 +718,7 @@
 						</File>
 						<File Id="752329446" Language="SFX">
 							<ShortName>M9_Avance.wav</ShortName>
-							<Path>SFX\M9_Avance_C861F79F.wem</Path>
+							<Path>SFX\M9_Avance_18450323.wem</Path>
 						</File>
 						<File Id="844890846" Language="SFX">
 							<ShortName>M7_Démarre.wav</ShortName>
@@ -658,7 +730,7 @@
 						</File>
 						<File Id="946590415" Language="SFX">
 							<ShortName>M9_Démarre.wav</ShortName>
-							<Path>SFX\M9_Démarre_6F55BCAE.wem</Path>
+							<Path>SFX\M9_Démarre_B0DFC3F2.wem</Path>
 						</File>
 						<File Id="994162649" Language="SFX">
 							<ShortName>M7_Stop-001.wav</ShortName>
@@ -666,7 +738,7 @@
 						</File>
 						<File Id="999241290" Language="SFX">
 							<ShortName>M2_Idle-001.wav</ShortName>
-							<Path>SFX\M2_Idle-001_582F0C2B.wem</Path>
+							<Path>SFX\M2_Idle-001_1314D7CF.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<SwitchContainers>
@@ -1645,6 +1717,14 @@
 							</Children>
 						</SwitchContainer>
 					</SwitchContainers>
+				</Event>
+				<Event Id="3628354934" Name="Play_Restorant" ObjectPath="\Events\Ville_Obstacles\Play_Restorant" MaxAttenuation="80.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="630798042" Language="SFX">
+							<ShortName>AMB_Resto 01.wav</ShortName>
+							<Path>SFX\AMB_Resto 01_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1047604054" Name="Play_Texture_Pas" ObjectPath="\Events\Personnage\Play_Texture_Pas" DurationType="OneShot" DurationMin="0.063854" DurationMax="0.621896">
 					<IncludedMemoryFiles>
@@ -4723,6 +4803,7 @@
 					</SwitchContainers>
 				</Event>
 				<Event Id="1056565793" Name="Stop_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Stop_ArrosageAuto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="777875661" Name="Stop_Canard" ObjectPath="\Events\Parc_Obstacles\Stop_Canard" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4256011363" Name="Stop_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Stop_Electrique_Buzz" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -4733,6 +4814,7 @@
 				<Event Id="152275146" Name="Stop_Parc_Oiseaux3" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux3" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2647100474" Name="Stop_Parc_Vent" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Vent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3507864100" Name="Stop_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Stop_Quel_Moteur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="970688548" Name="Stop_Restorant" ObjectPath="\Events\Ville_Obstacles\Stop_Restorant" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="428373397" Name="VitesseVoitureElec" ObjectPath="\Game Parameters\Obstacles\VitesseVoitureElec"/>

@@ -9222,6 +9222,359 @@
 								<ItemRef Name="Silence" ID="{73D0A8EB-26CA-423A-8D31-E2D3E46EB0E8}"/>
 							</Playlist>
 						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Canard" ID="{C10245FF-4241-4B8E-8FD5-8B6F24C09F60}" ShortID="844179801">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<Custom>
+										<Attenuation Name="Attenuation (Custom)" ID="{EF3C73A3-BD0E-4B71-BC67-211ADDB0F921}" ShortID="618841645">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="40"/>
+											</PropertyList>
+											<CurveUsageInfoList>
+												<VolumeDryUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="VolumeDry" ID="{F6406FED-C4E9-421B-80E8-6291DD918D75}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="3"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>40</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</VolumeDryUsage>
+												<VolumeWetGameUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetGameUsage>
+												<VolumeWetUserUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetUserUsage>
+												<LowPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</LowPassFilterUsage>
+												<HighPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</HighPassFilterUsage>
+												<SpreadUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</SpreadUsage>
+												<FocusUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</FocusUsage>
+											</CurveUsageInfoList>
+										</Attenuation>
+									</Custom>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Canard 01" ID="{4667EE7A-590E-458D-8FF1-8F93C6B39B3E}" ShortID="788498230">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 01" ID="{E1984447-CAFF-4133-B239-DF20A7850B09}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="545595845"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 01" ID="{E1984447-CAFF-4133-B239-DF20A7850B09}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 02" ID="{C94656DA-37CA-48E6-8E57-92ADD5BE9500}" ShortID="843462507">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 02" ID="{5F5DA0C9-D483-48CF-8EE9-6D83B3D1466E}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="780719782"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 02" ID="{5F5DA0C9-D483-48CF-8EE9-6D83B3D1466E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 03" ID="{4EB035AE-24A0-4735-96B6-7738BBC07656}" ShortID="1047823010">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 03" ID="{11C7AC10-5D46-40A7-A8C0-428693FE828D}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="961813672"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 03" ID="{11C7AC10-5D46-40A7-A8C0-428693FE828D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 04" ID="{CDE74CAE-3638-44D1-90E2-2B852E2A0A54}" ShortID="441882835">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 04" ID="{B7C15899-735A-4E05-84F3-4A5A213A00BE}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1034037602"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 04" ID="{B7C15899-735A-4E05-84F3-4A5A213A00BE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 05" ID="{1B9F3E50-0033-47F9-A7E4-0E5ED19EA8E4}" ShortID="923484658">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 05" ID="{389E01E7-EF34-4B0D-92E1-E56F5648E25F}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="137701444"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 05" ID="{389E01E7-EF34-4B0D-92E1-E56F5648E25F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 06" ID="{A72784C8-4949-4053-866C-9D91CA174EEF}" ShortID="225561214">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 06" ID="{3836C373-1F10-48A2-B02A-06AD7F0C0E1A}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 06.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="473913855"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 06" ID="{3836C373-1F10-48A2-B02A-06AD7F0C0E1A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 07" ID="{FD8602EB-7135-4A21-94A5-1534DC4AF370}" ShortID="365195603">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 07" ID="{77106ADD-2D69-4B8E-B946-5029C29A4BDD}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 07.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="744936221"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 07" ID="{77106ADD-2D69-4B8E-B946-5029C29A4BDD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 08" ID="{6AC5D019-F8AF-4E86-8631-094E203C9E8E}" ShortID="11722206">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 08" ID="{49CE083C-5944-4368-AD79-4D5445D6F249}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 08.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="853767280"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 08" ID="{49CE083C-5944-4368-AD79-4D5445D6F249}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 09" ID="{1087D9BE-A09A-443D-B3CF-2259E13ECFB1}" ShortID="218123510">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 09" ID="{6CFA3091-01EA-45FE-A497-CEF25B3306F6}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 09.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="147319260"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 09" ID="{6CFA3091-01EA-45FE-A497-CEF25B3306F6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 10" ID="{216C7F79-B2C7-4B4D-B1D2-429AA70B4E80}" ShortID="833945103">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 10" ID="{BE3F1145-9941-4313-8AEE-99B8C8CAB976}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 10.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="463626207"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 10" ID="{BE3F1145-9941-4313-8AEE-99B8C8CAB976}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 11" ID="{968D3ECE-EE72-4BC7-A8AA-38B1E81FE644}" ShortID="477370303">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 11" ID="{66DD0642-4AB3-4F30-B72A-050F3CC871CB}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 11.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="602315368"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 11" ID="{66DD0642-4AB3-4F30-B72A-050F3CC871CB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 12" ID="{E468AE0E-66D2-4810-AA24-C4239CE82538}" ShortID="995840158">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 12" ID="{63C51823-F866-469D-8281-5C3D40E864EF}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 12.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="767741917"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 12" ID="{63C51823-F866-469D-8281-5C3D40E864EF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Canard 13" ID="{84AC864A-9482-4173-A419-DBC1E05675FB}" ShortID="305717923">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Canard 13" ID="{246B2818-FB57-4472-A3F8-568A04CFEAD9}">
+											<Language>SFX</Language>
+											<AudioFile>Canard 13.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="440666878"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Canard 13" ID="{246B2818-FB57-4472-A3F8-568A04CFEAD9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 					<StateInfo>
 						<StatePropertyList>

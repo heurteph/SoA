@@ -78,6 +78,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Bus_Door_Close" ID="{7B64BCE5-32D3-4A88-8255-F53A2E914ED3}">
+					<ChildrenList>
+						<Action Name="" ID="{FA8CB8EE-FD8B-4C57-8538-4E78A12B6503}" ShortID="719880278">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Bus_Door_Close" ID="{DAFC0F8E-E53E-4471-BE37-E715ABF6B384}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Bus_Door_Open" ID="{60C27D3A-8FF3-45B8-BB60-C4D893C3C876}">
+					<ChildrenList>
+						<Action Name="" ID="{D1FC5734-B72C-4AA5-9E62-2051A9730D00}" ShortID="864798774">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Bus_Door_Open" ID="{186CB1BC-D732-4696-9F1F-3A9F036C6B7E}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

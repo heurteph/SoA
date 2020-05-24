@@ -2714,6 +2714,627 @@
 								</GroupingList>
 							</GroupingInfo>
 						</SwitchContainer>
+						<BlendContainer Name="Bus_Porte" ID="{B46C3AE6-478D-446C-834E-53FD6EB1E47E}" ShortID="549657347">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<Custom>
+										<Attenuation Name="Attenuation (Custom)" ID="{F8A11304-B437-4E05-80BA-9A328F16332B}" ShortID="80510673">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="40"/>
+											</PropertyList>
+											<CurveUsageInfoList>
+												<VolumeDryUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="VolumeDry" ID="{48D3B4DD-417C-475D-9B78-3DAA26CA8BE6}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="3"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>40</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</VolumeDryUsage>
+												<VolumeWetGameUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetGameUsage>
+												<VolumeWetUserUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetUserUsage>
+												<LowPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</LowPassFilterUsage>
+												<HighPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</HighPassFilterUsage>
+												<SpreadUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</SpreadUsage>
+												<FocusUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</FocusUsage>
+											</CurveUsageInfoList>
+										</Attenuation>
+									</Custom>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Bus_Door_Close" ID="{DAFC0F8E-E53E-4471-BE37-E715ABF6B384}" ShortID="116498856">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Bus_Door_Close" ID="{236D1D33-E62C-4D13-A01C-F0B1CF1ACCDA}">
+											<Language>SFX</Language>
+											<AudioFile>Bus_Door_Close.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1004933755"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Bus_Door_Close" ID="{236D1D33-E62C-4D13-A01C-F0B1CF1ACCDA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Bus_Door_Open" ID="{186CB1BC-D732-4696-9F1F-3A9F036C6B7E}" ShortID="802049729">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Bus_Door_Open" ID="{E300D112-A126-4EF7-B1BB-CB1529B7468D}">
+											<Language>SFX</Language>
+											<AudioFile>Bus_Door_Open.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="25889806"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Bus_Door_Open" ID="{E300D112-A126-4EF7-B1BB-CB1529B7468D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</BlendContainer>
+						<RandomSequenceContainer Name="Klaxons" ID="{2258DD63-5905-444F-ADA8-A6D2FF2744FC}" ShortID="500394307">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<Custom>
+										<Attenuation Name="Attenuation (Custom)" ID="{CE365268-634A-40FD-8F69-1F31A4F5F991}" ShortID="502848373">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="70"/>
+											</PropertyList>
+											<CurveUsageInfoList>
+												<VolumeDryUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="VolumeDry" ID="{34CD01C5-78E4-43E4-B17A-E9D9778FFC69}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="3"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>0</YPos>
+																	<Flags>5</Flags>
+																</Point>
+																<Point>
+																	<XPos>70</XPos>
+																	<YPos>-200</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
+												</VolumeDryUsage>
+												<VolumeWetGameUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetGameUsage>
+												<VolumeWetUserUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+												</VolumeWetUserUsage>
+												<LowPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</LowPassFilterUsage>
+												<HighPassFilterUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</HighPassFilterUsage>
+												<SpreadUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</SpreadUsage>
+												<FocusUsage>
+													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+												</FocusUsage>
+											</CurveUsageInfoList>
+										</Attenuation>
+									</Custom>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Klaxon 01" ID="{4A00385C-B5E1-4967-B266-A82DABB9AA4E}" ShortID="1027958696">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 01" ID="{BE7C94B1-EBCA-4D36-8340-66A622D92EAA}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="22338118"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 01" ID="{BE7C94B1-EBCA-4D36-8340-66A622D92EAA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 02" ID="{F21E4F5E-3391-4DD0-BF82-870D9FFEA3F6}" ShortID="151718690">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 02" ID="{36F96806-E540-4101-B656-E5D20C5D1E83}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="72386766"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 02" ID="{36F96806-E540-4101-B656-E5D20C5D1E83}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 03" ID="{5AE9FEFE-BAF5-47A2-927A-B122FBB409F4}" ShortID="942910204">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 03" ID="{81027BDF-0DDB-4358-A329-4620D26145A5}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="301364361"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 03" ID="{81027BDF-0DDB-4358-A329-4620D26145A5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 04" ID="{EA2B005A-669E-425F-8CDC-A21B2CACF4D5}" ShortID="644150323">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 04" ID="{6563374C-4E9B-4A8A-988B-49F34FFEEBA5}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="8263096"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 04" ID="{6563374C-4E9B-4A8A-988B-49F34FFEEBA5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 05" ID="{B34E8B3E-1738-4444-B62B-8E1743453C74}" ShortID="142479358">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 05" ID="{F0274C4C-05F7-4064-8572-C967A6D3B99A}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="121929836"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 05" ID="{F0274C4C-05F7-4064-8572-C967A6D3B99A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 07" ID="{4CA7490C-3F69-459E-BF00-A3EC4446C079}" ShortID="44894393">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 07" ID="{A133D6E2-E419-461A-A822-7CBEECB00060}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 07.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="245036596"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 07" ID="{A133D6E2-E419-461A-A822-7CBEECB00060}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 09" ID="{5425FA70-C64F-4DA7-8736-62143975C20F}" ShortID="734084292">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 09" ID="{DB4FC284-FCF4-4353-9E33-49844D9191A3}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 09.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="476399181"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 09" ID="{DB4FC284-FCF4-4353-9E33-49844D9191A3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 10" ID="{EC9F70AB-A889-4350-A6D5-851CDA827C9C}" ShortID="1039675558">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 10" ID="{9F0C7B81-2741-4DFE-9262-75C84D446EA3}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 10.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="458487246"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 10" ID="{9F0C7B81-2741-4DFE-9262-75C84D446EA3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 12" ID="{2F71C042-1B5C-4E75-91A8-865149ADD658}" ShortID="239337525">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 12" ID="{A304C348-4CBF-415F-9F9C-EAD55467B8B4}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 12.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="714680607"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 12" ID="{A304C348-4CBF-415F-9F9C-EAD55467B8B4}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 13" ID="{C7FD343F-4AD7-48D6-9761-1F12AA8BA4E6}" ShortID="91411491">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 13" ID="{D5971DD2-512D-4C4F-8C8D-1395D73908B5}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 13.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="408632699"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 13" ID="{D5971DD2-512D-4C4F-8C8D-1395D73908B5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 14" ID="{4A57BD61-54D3-48F5-972F-0600F6CD742C}" ShortID="737339297">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 14" ID="{35AD1785-F17E-43D5-A7A1-E3F100DFBA3C}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 14.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="747464776"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 14" ID="{35AD1785-F17E-43D5-A7A1-E3F100DFBA3C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 15" ID="{A780B7CB-38C4-4709-8F88-4A600FC79160}" ShortID="795876105">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 15" ID="{9C74DD65-60F8-45E0-A108-11FF3B4A4AF1}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 15.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="311025340"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 15" ID="{9C74DD65-60F8-45E0-A108-11FF3B4A4AF1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 16" ID="{C9AF7BEF-35DC-4EF3-96C6-8E7F35E35ABF}" ShortID="366954495">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 16" ID="{5DD29ED1-5916-46D9-8C5E-6AC63F83D353}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 16.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="68463282"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 16" ID="{5DD29ED1-5916-46D9-8C5E-6AC63F83D353}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 17" ID="{7BE9A5F7-2318-48E2-B16B-4F77A79A07BB}" ShortID="334611203">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 17" ID="{AFEB5622-09A6-4C8F-B786-8DE1EC54B5F9}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0561128872775214"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.264610772357724"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 17.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="340859228"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 17" ID="{AFEB5622-09A6-4C8F-B786-8DE1EC54B5F9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 19" ID="{0A047A8A-9E2B-4F23-AA42-24BABC05576E}" ShortID="543396037">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 19" ID="{C65B7EF6-6F41-4618-8E0D-E1F39A1CE7E6}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0309414414414415"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.193950010986596"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 19.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="57598454"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 19" ID="{C65B7EF6-6F41-4618-8E0D-E1F39A1CE7E6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 20" ID="{EF0524D8-66DB-4479-BDFC-4B4B88FA21E5}" ShortID="769241611">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 20" ID="{99AA4C34-5A43-49A7-8ED0-E4B735F77EA5}">
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 20.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="127209381"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 20" ID="{99AA4C34-5A43-49A7-8ED0-E4B735F77EA5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 21" ID="{F3AF88D2-8AA9-4098-BE6E-3EFFEEC72E86}" ShortID="498305367">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 21" ID="{35112EC8-4696-4B05-9F83-3AA223F0C4B3}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0186214293561855"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.00536549659415513"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.211463689299055"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 21.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="886460443"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 21" ID="{35112EC8-4696-4B05-9F83-3AA223F0C4B3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 22" ID="{79B3C6A7-ED16-4878-A55C-5692796293D3}" ShortID="583426667">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 22" ID="{81ED27C2-AFA9-4C0C-BEA5-68B148B83F1F}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0283000988793672"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.00716935838277302"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.27054894528675"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 22.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="56736329"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 22" ID="{81ED27C2-AFA9-4C0C-BEA5-68B148B83F1F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Klaxon 23" ID="{77365FA3-0858-49A6-ACB5-C1B520274881}" ShortID="11237249">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Klaxon 23" ID="{7E9D3EE2-B8A0-440B-8F78-25885E4B45C3}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0289613546473302"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.00656457372006153"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.241730773456383"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Klaxon 23.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="845992198"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Klaxon 23" ID="{7E9D3EE2-B8A0-440B-8F78-25885E4B45C3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 					<StateInfo>
 						<StatePropertyList>

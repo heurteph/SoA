@@ -35,6 +35,9 @@ public class TrafficManager : MonoBehaviour
     {
         CheckForward();
         CheckCrossroad();
+
+        // compare which one is closer !
+
     }
 
     void CheckForward()
@@ -50,7 +53,7 @@ public class TrafficManager : MonoBehaviour
                 {
                     if ( ! GameObject.ReferenceEquals(user, otherUser))
                     {
-                        Debug.Log("Comparing " + user.name + " at " + user.GetComponent<SplineStreetUser>().Percentage + " and " + otherUser.name + " at " + otherUser.GetComponent<SplineStreetUser>().Percentage + " !!!!!!!!!!!!!");
+                        //Debug.Log("Comparing " + user.name + " at " + user.GetComponent<SplineStreetUser>().Percentage + " and " + otherUser.name + " at " + otherUser.GetComponent<SplineStreetUser>().Percentage + " !!!!!!!!!!!!!");
                         float distance = otherUser.GetComponent<SplineStreetUser>().Percentage - user.GetComponent<SplineStreetUser>().Percentage;
 
                         // TO DO : ADD Forward/Backward Distinction
@@ -58,36 +61,45 @@ public class TrafficManager : MonoBehaviour
                         float minWatchPercentage = Mathf.Max(user.GetComponent<SplineStreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
 
                         // Join the end and the start of the spline
-                        if ((0 <= distance && distance <= minWatchPercentage) || -1 <= distance &&  distance <= -1 + minWatchPercentage)
+                        if ((0 <= distance && distance <= minWatchPercentage) || (-1 <= distance && distance <= -1 + minWatchPercentage))
                         {
-                            Debug.Log(otherUser.name + " IS IN FRONT OF " + user.name + " !!!!");
+                            //Debug.Log(otherUser.name + " IS IN FRONT OF " + user.name + " !!!!");
                             user.GetComponent<SplineStreetUser>().FrontSpeed = otherUser.GetComponent<SplineStreetUser>().Speed;
                             user.GetComponent<SplineStreetUser>().MovingState = SplineStreetUser.STATE.STAYBEHIND;
                             float minSafetyPercentage = minSafetyDistance / spline.Length;
-                            user.GetComponent<SplineStreetUser>().ObstaclePercentage = Mathf.Repeat(otherUser.GetComponent<SplineStreetUser>().Percentage - minSafetyPercentage + 1, 1);
+                            user.GetComponent<SplineStreetUser>().ObstaclePercentage = Mathf.Repeat(otherUser.GetComponent<SplineStreetUser>().Percentage - minSafetyPercentage + 1, 1);  // +1 because Repeat does not take negative numbers into argument
                             // TO DO : When there are two vehicules in front ! Choose the closer one !!!
                         }
                     }
                 }
+
                 foreach (Colinearity colinearity in spline.GetComponent<SplineStreetMap>().Colinearities)
                 {
-                    if(user.GetComponent<SplineStreetUser>().Percentage >= colinearity.percentageStart && user.GetComponent<SplineStreetUser>().Percentage <= colinearity.percentageEnd)
+                    if(IsInRange(user.GetComponent<SplineStreetUser>().Percentage, colinearity.percentageStart, colinearity.percentageEnd))
                     {
                         foreach (GameObject otherUser in colinearity.otherSpline.GetComponent<SplineStreetMap>().Users)
                         {
-                            // Règle de trois
-                            float otherUserMappedPercentage = Remap(otherUser.GetComponent<SplineStreetUser>().Percentage, colinearity.otherPercentageStart, colinearity.otherPercentageEnd, colinearity.percentageStart, colinearity.percentageEnd);
-
-                            float distance = otherUserMappedPercentage - user.GetComponent<SplineStreetUser>().Percentage;
-
-                            // TO DO : ADD Forward/Backward Distinction
-                            float minSafetyPercentage = minWatchDistance / spline.Length;
-                            if (distance > 0 && distance < minSafetyPercentage)
+                            if (IsInRange(otherUser.GetComponent<SplineStreetUser>().Percentage, colinearity.otherPercentageStart, colinearity.otherPercentageEnd))
                             {
-                                user.GetComponent<SplineStreetUser>().MovingState = SplineStreetUser.STATE.STAYBEHIND;
-                                user.GetComponent<SplineStreetUser>().FrontSpeed = otherUser.GetComponent<SplineStreetUser>().Speed;
+                                // Règle de trois
+                                float otherUserMappedPercentage = Remap(otherUser.GetComponent<SplineStreetUser>().Percentage, colinearity.otherPercentageStart, colinearity.otherPercentageEnd, colinearity.percentageStart, colinearity.percentageEnd);
 
-                                // TO DO : When there are two vehicules in front ! Choose the closer !!!
+                                Debug.Log("COLINEARITY OF TWO VEHICLES : " + user.name + " at " + user.GetComponent<SplineStreetUser>().Percentage + " and the other " + otherUser.name + " at " + otherUserMappedPercentage);
+
+                                float distance = otherUserMappedPercentage - user.GetComponent<SplineStreetUser>().Percentage;
+
+                                // TO DO : ADD Forward/Backward Distinction
+                                float minWatchPercentage = Mathf.Max(user.GetComponent<SplineStreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
+                                if ((0 <= distance && distance < minWatchPercentage) || (-1 <= distance && distance <= -1 + minWatchPercentage))
+                                {
+                                    Debug.Log(otherUser.name + " IS IN FRONT OF " + user.name + " BY COLINEARITY !!!!");
+                                    user.GetComponent<SplineStreetUser>().MovingState = SplineStreetUser.STATE.STAYBEHIND;
+                                    user.GetComponent<SplineStreetUser>().FrontSpeed = otherUser.GetComponent<SplineStreetUser>().Speed; // TO DO : Remap too ?
+                                    float minSafetyPercentage = minSafetyDistance / spline.Length;
+                                    user.GetComponent<SplineStreetUser>().ObstaclePercentage = Mathf.Repeat(otherUserMappedPercentage - minSafetyPercentage + 1, 1); // +1 because Repeat does not take negative numbers into argument
+                                    Debug.Log("COLINEARITY TRIGGER WITH OBSTACLE PERCENTAGE AT " + user.GetComponent<SplineStreetUser>().ObstaclePercentage);
+                                    // TO DO : When there are two vehicules in front ! Choose the closer !!!
+                                }
                             }
                         }
                     }
@@ -96,9 +108,70 @@ public class TrafficManager : MonoBehaviour
         }
     }
 
+    public static bool IsInRange(float value, float start, float end)
+    {
+        if (!(0 <= value && value <= 1 && 0 <= start && start <= 1 && 0 <= end && end <= 1))
+        {
+            throw new System.ArgumentOutOfRangeException("Values are not in a valid range [0,1]");
+        }
+        if(start < end)
+        {
+            return start <= value && value <= end;
+        }
+        if(end < start)
+        {
+            return start <= value || value <= end;
+        }
+        else // end == start
+        {
+            return value == end && start == value;
+        }
+    }
+
     public static float Remap(float value, float start1, float end1, float start2, float end2)
     {
-        return start2 + ((value - start1) / (end1 - start1)) + (end2 - start2);
+        if (start1 < end1 && start2 < end2)
+        {
+            return start2 + ((value - start1) / (end1 - start1)) * (end2 - start2);
+        }
+
+        else if (end1 < start1 && start2 < end2)
+        {
+            float x = 0;
+            if(start1 <= value)
+            {
+                x = (value - start1) / (1 - start1 + end1);
+            }
+            else if(value <= end1)
+            {
+                x = (1 - start1 + value) / (1 - start1 + end1);
+            }
+            else
+            {
+                throw new System.ArgumentOutOfRangeException("Wrong value for remapping");
+            }
+            return start2 + x * (end2 - start2);
+        }
+
+        else if (start1 < end1 && end2 < start2)
+        {
+            return Mathf.Repeat(start2 + ((value - start1) / (end1 - start1)) * (1 - start2 + end2), 1);
+        }
+
+        else if (end1 < start1 && end2 < start2)
+        {
+            float x = 0;
+            if (value >= start1)
+            {
+                x = (value - start1) / (1 - start1 + end1);
+            }
+            else if (value <= end1)
+            {
+                x = (1 - start1 + value) / (1 - start1 + end1);
+            }
+            return Mathf.Repeat(start2 + x * (1 - start2 + end2), 1);
+        }
+        return value;
     }
 
     void CheckCrossroad()
@@ -116,7 +189,7 @@ public class TrafficManager : MonoBehaviour
                     {
                         foreach (GameObject otherUser in intersection.otherSpline.GetComponent<SplineStreetMap>().Users)
                         {
-                            Debug.Log("Comparing " + user.name + " on " + spline.name + " at " + user.GetComponent<SplineStreetUser>().Percentage + " with " + otherUser.name + " on " + intersection.otherSpline.name + " at " + otherUser.GetComponent<SplineStreetUser>().Percentage + " !!!!!!!!!!!!!");
+                            //Debug.Log("Comparing " + user.name + " on " + spline.name + " at " + user.GetComponent<SplineStreetUser>().Percentage + " with " + otherUser.name + " on " + intersection.otherSpline.name + " at " + otherUser.GetComponent<SplineStreetUser>().Percentage + " !!!!!!!!!!!!!");
 
                             float otherDistanceToIntersection = intersection.otherPercentage - otherUser.GetComponent<SplineStreetUser>().Percentage;
                             float otherMinWatchPercentage = Mathf.Max(otherUser.GetComponent<SplineStreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;

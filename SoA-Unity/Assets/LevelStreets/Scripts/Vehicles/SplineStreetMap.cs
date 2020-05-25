@@ -22,7 +22,7 @@ public struct Intersection
     public float percentage;
     public Spline otherSpline;
     public float otherPercentage;
-    public bool priority;
+    //public bool priority;
 }
 
 

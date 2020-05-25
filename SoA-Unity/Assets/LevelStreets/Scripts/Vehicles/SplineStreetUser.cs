@@ -226,22 +226,38 @@ public class SplineStreetUser : MonoBehaviour
                 }
                 else if (movingState == STATE.STAYBEHIND)
                 {
-                    /* UPDATE SPEED ACCORDING TO THE FRONT VEHICLE'S SPEED */
+                    /* UPDATE SPEED ACCORDING TO THE FRONT VEHICLE'S SPEED AND POSITION */
+
+                    // TO DO : Use obstaclePercentage to keep moving till it's not reached
 
                     Debug.Log(transform.name + "IN STAYBEHIND MODE");
 
-                    if (speed > frontSpeed)
+                    if (speed >= frontSpeed)
                     {
-                        speed = Mathf.Max(speed - (Mathf.Max(speed, decelerationObstacle) + (obstaclePercentage - percentage)) * Time.deltaTime, frontSpeed); // deceleration proportionnal to speed
                         //speed = frontSpeed;
+                        speed = Mathf.Max(speed - (Mathf.Max(speed, decelerationObstacle) + 10 * (obstaclePercentage - percentage)) * Time.deltaTime, frontSpeed); // deceleration proportionnal to speed
+                        
+                        // move towards the target
+                        /*
+                        if(speed == frontSpeed && obstaclePercentage > percentage)
+                        {
+                            speed += (obstaclePercentage - percentage) * Time.deltaTime;
+                        }*/
                     }
                 }
                 else if (movingState == STATE.STOP)
                 {
-                    if (speed > 0)
+                    if (speed >= 0)
                     {
-                        speed = Mathf.Max(speed - (Mathf.Max(speed, decelerationStop) - (intersectionPercentage - percentage)) * Time.deltaTime, 0); // deceleration proportionnal to speed
                         //speed = 0;
+                        speed = Mathf.Max(speed - (Mathf.Max(speed, decelerationStop) - 10 * (intersectionPercentage - percentage)) * Time.deltaTime, 0); // deceleration proportionnal to speed
+
+                        // move towards the target
+                        /*
+                        if (speed == 0 && intersectionPercentage > percentage)
+                        {
+                            speed = (intersectionPercentage - percentage) * Time.deltaTime;
+                        }*/
                     }
                 }
 

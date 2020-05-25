@@ -14,7 +14,9 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_ARROSAGEAUTO = 3389613819U;
-        static const AkUniqueID PLAY_BUSFIXE = 3680267894U;
+        static const AkUniqueID PLAY_BUS_DOOR_CLOSE = 3232482810U;
+        static const AkUniqueID PLAY_BUS_DOOR_OPEN = 2983975038U;
+        static const AkUniqueID PLAY_CANARD = 932140571U;
         static const AkUniqueID PLAY_CLIMATISEUR = 1692441862U;
         static const AkUniqueID PLAY_CRIS_TOUS = 2464503011U;
         static const AkUniqueID PLAY_ELECTRIQUE_BUZZ = 2500875145U;
@@ -35,14 +37,17 @@ namespace AK
         static const AkUniqueID PLAY_PARC_VENT = 4135899644U;
         static const AkUniqueID PLAY_PARC_VENT_01 = 3266099682U;
         static const AkUniqueID PLAY_PLEURE_B_B_ = 4114146970U;
+        static const AkUniqueID PLAY_QUEL_MOTEUR = 3518090694U;
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURF = 1582928683U;
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURH = 1582928677U;
         static const AkUniqueID PLAY_RESPIRATION_MOUVEMENT = 2860278991U;
+        static const AkUniqueID PLAY_RESTORANT = 3628354934U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
         static const AkUniqueID PLAY_TEXTURE_PAS_JOGGER = 482787459U;
-        static const AkUniqueID PLAY_VOITURESFIXE = 327753639U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;
-        static const AkUniqueID STOP_BUSFIXE = 958439308U;
+        static const AkUniqueID STOP_CANARD = 777875661U;
+        static const AkUniqueID STOP_CLIMATISEUR = 1059727820U;
+        static const AkUniqueID STOP_ELECTRIQUE_BUZZ = 4256011363U;
         static const AkUniqueID STOP_MOTEUR_ELAGUEUR = 1194390427U;
         static const AkUniqueID STOP_PARC_CHIEN = 2301453854U;
         static const AkUniqueID STOP_PARC_EAU_LAC = 3189001139U;
@@ -50,7 +55,8 @@ namespace AK
         static const AkUniqueID STOP_PARC_OISEAUX2 = 152275147U;
         static const AkUniqueID STOP_PARC_OISEAUX3 = 152275146U;
         static const AkUniqueID STOP_PARC_VENT = 2647100474U;
-        static const AkUniqueID STOP_VOITURESFIXE = 3171623001U;
+        static const AkUniqueID STOP_QUEL_MOTEUR = 3507864100U;
+        static const AkUniqueID STOP_RESTORANT = 970688548U;
     } // namespace EVENTS
 
     namespace STATES
@@ -106,6 +112,19 @@ namespace AK
             } // namespace SWITCH
         } // namespace DROIT_GAUCHE
 
+        namespace ETATVOITURE
+        {
+            static const AkUniqueID GROUP = 3645350675U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID A_STOP = 129212061U;
+                static const AkUniqueID B_DEMARRE = 2409485060U;
+                static const AkUniqueID C_IDLE = 1094992157U;
+                static const AkUniqueID D_ACCELERE = 4192991124U;
+            } // namespace SWITCH
+        } // namespace ETATVOITURE
+
         namespace PAS_MATIERE
         {
             static const AkUniqueID GROUP = 3869192313U;
@@ -118,6 +137,24 @@ namespace AK
                 static const AkUniqueID TERRE = 508852877U;
             } // namespace SWITCH
         } // namespace PAS_MATIERE
+
+        namespace QUEL_MOTEUR
+        {
+            static const AkUniqueID GROUP = 2782977595U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID M1 = 1685527111U;
+                static const AkUniqueID M2_MOTO = 3872364728U;
+                static const AkUniqueID M3 = 1685527109U;
+                static const AkUniqueID M4 = 1685527106U;
+                static const AkUniqueID M5 = 1685527107U;
+                static const AkUniqueID M6_CAMION = 1022333622U;
+                static const AkUniqueID M7_CAMION = 2804710365U;
+                static const AkUniqueID M8 = 1685527118U;
+                static const AkUniqueID M9_BUS = 3057612808U;
+            } // namespace SWITCH
+        } // namespace QUEL_MOTEUR
 
         namespace RESPIRATION_EX_OR_IN
         {
@@ -134,6 +171,8 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID QUEL_MOTEUR = 2782977595U;
+        static const AkUniqueID RALENTI_ACCELERE = 731750351U;
         static const AkUniqueID VITESSEVEHICULE = 3154243729U;
         static const AkUniqueID VITESSEVOITUREELEC = 428373397U;
         static const AkUniqueID VOLUMEECOUTEPERSO = 133973669U;

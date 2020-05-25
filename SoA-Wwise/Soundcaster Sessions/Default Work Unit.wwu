@@ -12,6 +12,14 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
+							<GameParameterRef Name="Quel_Moteur" ID="{4334FE7B-10DD-42E4-98D0-492C5EE9992A}"/>
+							<Value>1</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Ralenti_Accelere" ID="{31E46C5C-8DDC-4581-B657-7283D6F89339}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="VitesseVoitureElec" ID="{5FE77D80-3313-4DB5-B9E4-47E4371E86FA}"/>
 							<Value>28.4048758879442</Value>
 						</RTPCValue>

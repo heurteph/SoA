@@ -80,19 +80,83 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3680267894" Name="Play_BusFixe" ObjectPath="\Events\Ville_Obstacles\Play_BusFixe" MaxAttenuation="60.000000" DurationType="Infinite">
+				<Event Id="3232482810" Name="Play_Bus_Door_Close" ObjectPath="\Events\Ville_Obstacles\Play_Bus_Door_Close" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="4.892854" DurationMax="4.892854">
 					<IncludedMemoryFiles>
-						<File Id="695868094" Language="SFX">
-							<ShortName>MOTOR_Bus_FixeLoop.wav</ShortName>
-							<Path>SFX\MOTOR_Bus_FixeLoop_3F75BDB9.wem</Path>
+						<File Id="1004933755" Language="SFX">
+							<ShortName>Bus_Door_Close.wav</ShortName>
+							<Path>SFX\Bus_Door_Close_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1692441862" Name="Play_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Play_Climatiseur" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="12.720125" DurationMax="12.720125">
+				<Event Id="2983975038" Name="Play_Bus_Door_Open" ObjectPath="\Events\Ville_Obstacles\Play_Bus_Door_Open" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="5.418667" DurationMax="5.418667">
+					<IncludedMemoryFiles>
+						<File Id="25889806" Language="SFX">
+							<ShortName>Bus_Door_Open.wav</ShortName>
+							<Path>SFX\Bus_Door_Open_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="932140571" Name="Play_Canard" ObjectPath="\Events\Parc_Obstacles\Play_Canard" MaxAttenuation="40.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="137701444" Language="SFX">
+							<ShortName>Canard 05.wav</ShortName>
+							<Path>SFX\Canard 05_3F75BDB9.wem</Path>
+						</File>
+						<File Id="147319260" Language="SFX">
+							<ShortName>Canard 09.wav</ShortName>
+							<Path>SFX\Canard 09_3F75BDB9.wem</Path>
+						</File>
+						<File Id="440666878" Language="SFX">
+							<ShortName>Canard 13.wav</ShortName>
+							<Path>SFX\Canard 13_3F75BDB9.wem</Path>
+						</File>
+						<File Id="463626207" Language="SFX">
+							<ShortName>Canard 10.wav</ShortName>
+							<Path>SFX\Canard 10_3F75BDB9.wem</Path>
+						</File>
+						<File Id="473913855" Language="SFX">
+							<ShortName>Canard 06.wav</ShortName>
+							<Path>SFX\Canard 06_3F75BDB9.wem</Path>
+						</File>
+						<File Id="545595845" Language="SFX">
+							<ShortName>Canard 01.wav</ShortName>
+							<Path>SFX\Canard 01_3F75BDB9.wem</Path>
+						</File>
+						<File Id="602315368" Language="SFX">
+							<ShortName>Canard 11.wav</ShortName>
+							<Path>SFX\Canard 11_3F75BDB9.wem</Path>
+						</File>
+						<File Id="744936221" Language="SFX">
+							<ShortName>Canard 07.wav</ShortName>
+							<Path>SFX\Canard 07_3F75BDB9.wem</Path>
+						</File>
+						<File Id="767741917" Language="SFX">
+							<ShortName>Canard 12.wav</ShortName>
+							<Path>SFX\Canard 12_3F75BDB9.wem</Path>
+						</File>
+						<File Id="780719782" Language="SFX">
+							<ShortName>Canard 02.wav</ShortName>
+							<Path>SFX\Canard 02_3F75BDB9.wem</Path>
+						</File>
+						<File Id="853767280" Language="SFX">
+							<ShortName>Canard 08.wav</ShortName>
+							<Path>SFX\Canard 08_3F75BDB9.wem</Path>
+						</File>
+						<File Id="961813672" Language="SFX">
+							<ShortName>Canard 03.wav</ShortName>
+							<Path>SFX\Canard 03_3F75BDB9.wem</Path>
+						</File>
+						<File Id="1034037602" Language="SFX">
+							<ShortName>Canard 04.wav</ShortName>
+							<Path>SFX\Canard 04_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1692441862" Name="Play_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Play_Climatiseur" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="709197503" Language="SFX">
 							<ShortName>Climatiseur.wav</ShortName>
-							<Path>SFX\Climatiseur_3F75BDB9.wem</Path>
+							<Path>SFX\Climatiseur_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -136,11 +200,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2500875145" Name="Play_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Play_Electrique_Buzz" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="12.720125" DurationMax="12.720125">
+				<Event Id="2500875145" Name="Play_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Play_Electrique_Buzz" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="274683280" Language="SFX">
 							<ShortName>Electrique_Buzz.wav</ShortName>
-							<Path>SFX\Electrique_Buzz_3F75BDB9.wem</Path>
+							<Path>SFX\Electrique_Buzz_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -582,6 +646,282 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="4114146970" Name="Play_Pleure_B_b_" ObjectPath="\Events\Parc_Obstacles\Play_Pleure_B_b_" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3518090694" Name="Play_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Play_Quel_Moteur" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="41790791" Language="SFX">
+							<ShortName>M1_Idle.wav</ShortName>
+							<Path>SFX\M1_Idle_9EDFC787.wem</Path>
+						</File>
+						<File Id="75097178" Language="SFX">
+							<ShortName>M5_Stop.wav</ShortName>
+							<Path>SFX\M5_Stop_3F75BDB9.wem</Path>
+						</File>
+						<File Id="135250868" Language="SFX">
+							<ShortName>M6_Stop.wav</ShortName>
+							<Path>SFX\M6_Stop_3F75BDB9.wem</Path>
+						</File>
+						<File Id="151701882" Language="SFX">
+							<ShortName>M6_Idle-002.wav</ShortName>
+							<Path>SFX\M6_Idle-002_C30589D3.wem</Path>
+						</File>
+						<File Id="216462785" Language="SFX">
+							<ShortName>M3_Stop.wav</ShortName>
+							<Path>SFX\M3_Stop_3F75BDB9.wem</Path>
+						</File>
+						<File Id="326768680" Language="SFX">
+							<ShortName>M5_Idle.wav</ShortName>
+							<Path>SFX\M5_Idle_F95751D2.wem</Path>
+						</File>
+						<File Id="355492977" Language="SFX">
+							<ShortName>M3_Idle.wav</ShortName>
+							<Path>SFX\M3_Idle_37DF71EC.wem</Path>
+						</File>
+						<File Id="447576262" Language="SFX">
+							<ShortName>M8_Idle-002.wav</ShortName>
+							<Path>SFX\M8_Idle-002_18792908.wem</Path>
+						</File>
+						<File Id="482622786" Language="SFX">
+							<ShortName>M7_Idle-002.wav</ShortName>
+							<Path>SFX\M7_Idle-002_8D73637A.wem</Path>
+						</File>
+						<File Id="501584764" Language="SFX">
+							<ShortName>M2_Démarre.wav</ShortName>
+							<Path>SFX\M2_Démarre_E4179718.wem</Path>
+						</File>
+						<File Id="503920608" Language="SFX">
+							<ShortName>M4_Idle.wav</ShortName>
+							<Path>SFX\M4_Idle_E89F08A4.wem</Path>
+						</File>
+						<File Id="508124765" Language="SFX">
+							<ShortName>M4_Stop.wav</ShortName>
+							<Path>SFX\M4_Stop_0856DF70.wem</Path>
+						</File>
+						<File Id="520596885" Language="SFX">
+							<ShortName>M4_Démarre.wav</ShortName>
+							<Path>SFX\M4_Démarre_3F75BDB9.wem</Path>
+						</File>
+						<File Id="559815610" Language="SFX">
+							<ShortName>M1_Stop.wav</ShortName>
+							<Path>SFX\M1_Stop_3F75BDB9.wem</Path>
+						</File>
+						<File Id="574415820" Language="SFX">
+							<ShortName>M1_Démarre.wav</ShortName>
+							<Path>SFX\M1_Démarre_3F75BDB9.wem</Path>
+						</File>
+						<File Id="610589191" Language="SFX">
+							<ShortName>M9_Stop.wav</ShortName>
+							<Path>SFX\M9_Stop_F4EFF7E1.wem</Path>
+						</File>
+						<File Id="672179160" Language="SFX">
+							<ShortName>M2_Stop.wav</ShortName>
+							<Path>SFX\M2_Stop_3F75BDB9.wem</Path>
+						</File>
+						<File Id="752329446" Language="SFX">
+							<ShortName>M9_Avance.wav</ShortName>
+							<Path>SFX\M9_Avance_18450323.wem</Path>
+						</File>
+						<File Id="844890846" Language="SFX">
+							<ShortName>M7_Démarre.wav</ShortName>
+							<Path>SFX\M7_Démarre_3F75BDB9.wem</Path>
+						</File>
+						<File Id="868106906" Language="SFX">
+							<ShortName>M3_Démarre.wav</ShortName>
+							<Path>SFX\M3_Démarre_3F75BDB9.wem</Path>
+						</File>
+						<File Id="946590415" Language="SFX">
+							<ShortName>M9_Démarre.wav</ShortName>
+							<Path>SFX\M9_Démarre_B0DFC3F2.wem</Path>
+						</File>
+						<File Id="994162649" Language="SFX">
+							<ShortName>M7_Stop-001.wav</ShortName>
+							<Path>SFX\M7_Stop-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="999241290" Language="SFX">
+							<ShortName>M2_Idle-001.wav</ShortName>
+							<Path>SFX\M2_Idle-001_1314D7CF.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{FCFCE899-E509-4001-A272-B16E990DB770}">
+							<Media>
+								<File Id="89973454"/>
+							</Media>
+							<Children>
+								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
+									<Media>
+										<File Id="41790791"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{3DE31401-7944-4243-AB4C-A04EC18D2004}">
+									<Media>
+										<File Id="559815610"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{EBDA39D6-6A19-45D7-900F-698420931972}">
+									<Media>
+										<File Id="574415820"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{6F29EDEB-2EAE-498A-BEF7-A0318A987B0D}">
+							<Media>
+								<File Id="932237990"/>
+							</Media>
+							<Children>
+								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
+									<Media>
+										<File Id="503920608"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{3DE31401-7944-4243-AB4C-A04EC18D2004}">
+									<Media>
+										<File Id="508124765"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{EBDA39D6-6A19-45D7-900F-698420931972}">
+									<Media>
+										<File Id="520596885"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{D13F1666-0A64-4026-9C02-E0B8E505EFA4}">
+							<Media>
+								<File Id="737993180"/>
+							</Media>
+							<Children>
+								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
+									<Media>
+										<File Id="355492977"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{3DE31401-7944-4243-AB4C-A04EC18D2004}">
+									<Media>
+										<File Id="216462785"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{EBDA39D6-6A19-45D7-900F-698420931972}">
+									<Media>
+										<File Id="868106906"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{9E1CEE2D-D169-4824-8F10-62506E9760A2}">
+							<Media>
+								<File Id="889386419"/>
+							</Media>
+							<Children>
+								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
+									<Media>
+										<File Id="326768680"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{3DE31401-7944-4243-AB4C-A04EC18D2004}">
+									<Media>
+										<File Id="75097178"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{7F0D8038-1B7E-4153-91CA-C0534557D6B7}">
+							<Media>
+								<File Id="470425386"/>
+							</Media>
+							<Children>
+								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
+									<Media>
+										<File Id="151701882"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{3DE31401-7944-4243-AB4C-A04EC18D2004}">
+									<Media>
+										<File Id="135250868"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{0167492A-AABC-4E2D-A2BF-A91488D1D4F8}">
+							<Media>
+								<File Id="615755781"/>
+							</Media>
+							<Children>
+								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
+									<Media>
+										<File Id="482622786"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{3DE31401-7944-4243-AB4C-A04EC18D2004}">
+									<Media>
+										<File Id="994162649"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{EBDA39D6-6A19-45D7-900F-698420931972}">
+									<Media>
+										<File Id="844890846"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{4E476E70-45DD-4B66-B879-A10E60F4DC07}">
+							<Media>
+								<File Id="974711196"/>
+							</Media>
+							<Children>
+								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
+									<Media>
+										<File Id="447576262"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{270BE1CE-08E1-408F-9C4F-5F390CAFFD6B}">
+							<Media>
+								<File Id="141483284"/>
+							</Media>
+							<Children>
+								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
+									<Media>
+										<File Id="752329446"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{3DE31401-7944-4243-AB4C-A04EC18D2004}">
+									<Media>
+										<File Id="610589191"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{EBDA39D6-6A19-45D7-900F-698420931972}">
+									<Media>
+										<File Id="946590415"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{D9DFBE8B-AC74-4DF0-B1F1-F96C7CF1EF8D}">
+							<Media>
+								<File Id="403360833"/>
+							</Media>
+							<Children>
+								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
+									<Media>
+										<File Id="999241290"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{3DE31401-7944-4243-AB4C-A04EC18D2004}">
+									<Media>
+										<File Id="672179160"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{EBDA39D6-6A19-45D7-900F-698420931972}">
+									<Media>
+										<File Id="501584764"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="1582928683" Name="Play_Respiration_JoggueurF" ObjectPath="\Events\Parc_Obstacles\Play_Respiration_JoggueurF" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.886625" DurationMax="1.007667">
 					<IncludedMemoryFiles>
 						<File Id="130358358" Language="SFX">
@@ -1377,6 +1717,14 @@
 							</Children>
 						</SwitchContainer>
 					</SwitchContainers>
+				</Event>
+				<Event Id="3628354934" Name="Play_Restorant" ObjectPath="\Events\Ville_Obstacles\Play_Restorant" MaxAttenuation="80.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="630798042" Language="SFX">
+							<ShortName>AMB_Resto 01.wav</ShortName>
+							<Path>SFX\AMB_Resto 01_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1047604054" Name="Play_Texture_Pas" ObjectPath="\Events\Personnage\Play_Texture_Pas" DurationType="OneShot" DurationMin="0.063854" DurationMax="0.621896">
 					<IncludedMemoryFiles>
@@ -4454,28 +4802,10 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="327753639" Name="Play_VoituresFixe" ObjectPath="\Events\Ville_Obstacles\Play_VoituresFixe" MaxAttenuation="60.000000" DurationType="Infinite">
-					<IncludedMemoryFiles>
-						<File Id="73488680" Language="SFX">
-							<ShortName>MOTOR_Car_FixeLoop05.wav</ShortName>
-							<Path>SFX\MOTOR_Car_FixeLoop05_3F75BDB9.wem</Path>
-						</File>
-						<File Id="455030035" Language="SFX">
-							<ShortName>MOTOR_Car_FixeLoop04.wav</ShortName>
-							<Path>SFX\MOTOR_Car_FixeLoop04_3F75BDB9.wem</Path>
-						</File>
-						<File Id="598973429" Language="SFX">
-							<ShortName>MOTOR_Car_FixeLoop03.wav</ShortName>
-							<Path>SFX\MOTOR_Car_FixeLoop03_3F75BDB9.wem</Path>
-						</File>
-						<File Id="1023817673" Language="SFX">
-							<ShortName>MOTOR_Car_FixeLoop02.wav</ShortName>
-							<Path>SFX\MOTOR_Car_FixeLoop02_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
 				<Event Id="1056565793" Name="Stop_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Stop_ArrosageAuto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="958439308" Name="Stop_BusFixe" ObjectPath="\Events\Ville_Obstacles\Stop_BusFixe" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="777875661" Name="Stop_Canard" ObjectPath="\Events\Parc_Obstacles\Stop_Canard" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4256011363" Name="Stop_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Stop_Electrique_Buzz" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2301453854" Name="Stop_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Stop_Parc_Chien" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3189001139" Name="Stop_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Eau_Lac" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -4483,16 +4813,41 @@
 				<Event Id="152275147" Name="Stop_Parc_Oiseaux2" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux2" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="152275146" Name="Stop_Parc_Oiseaux3" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux3" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2647100474" Name="Stop_Parc_Vent" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Vent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3171623001" Name="Stop_VoituresFixe" ObjectPath="\Events\Ville_Obstacles\Stop_VoituresFixe" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3507864100" Name="Stop_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Stop_Quel_Moteur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="970688548" Name="Stop_Restorant" ObjectPath="\Events\Ville_Obstacles\Stop_Restorant" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="428373397" Name="VitesseVoitureElec" ObjectPath="\Game Parameters\Obstacles\VitesseVoitureElec"/>
+				<GameParameter Id="731750351" Name="Ralenti_Accelere" ObjectPath="\Game Parameters\Obstacles\Ralenti_Accelere"/>
+				<GameParameter Id="2782977595" Name="Quel_Moteur" ObjectPath="\Game Parameters\Obstacles\Quel_Moteur"/>
+				<GameParameter Id="3154243729" Name="VitesseVehicule" ObjectPath="\Game Parameters\Obstacles\VitesseVehicule"/>
 			</GameParameters>
 			<SwitchGroups>
+				<SwitchGroup Id="2782977595" Name="Quel_Moteur" ObjectPath="\Switches\Voiture\Quel_Moteur">
+					<Switches>
+						<Switch Id="1685527111" Name="M1" ObjectPath="\Switches\Voiture\Quel_Moteur\M1"/>
+						<Switch Id="3872364728" Name="M2_Moto" ObjectPath="\Switches\Voiture\Quel_Moteur\M2_Moto"/>
+						<Switch Id="1685527109" Name="M3" ObjectPath="\Switches\Voiture\Quel_Moteur\M3"/>
+						<Switch Id="1685527106" Name="M4" ObjectPath="\Switches\Voiture\Quel_Moteur\M4"/>
+						<Switch Id="1685527107" Name="M5" ObjectPath="\Switches\Voiture\Quel_Moteur\M5"/>
+						<Switch Id="1022333622" Name="M6_Camion" ObjectPath="\Switches\Voiture\Quel_Moteur\M6_Camion"/>
+						<Switch Id="2804710365" Name="M7_Camion" ObjectPath="\Switches\Voiture\Quel_Moteur\M7_Camion"/>
+						<Switch Id="1685527118" Name="M8" ObjectPath="\Switches\Voiture\Quel_Moteur\M8"/>
+						<Switch Id="3057612808" Name="M9_Bus" ObjectPath="\Switches\Voiture\Quel_Moteur\M9_Bus"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="3079589013" Name="Droit_Gauche" ObjectPath="\Switches\Personnage\Droit_Gauche">
 					<Switches>
 						<Switch Id="2723061045" Name="Droit" ObjectPath="\Switches\Personnage\Droit_Gauche\Droit"/>
 						<Switch Id="1211705900" Name="Gauche" ObjectPath="\Switches\Personnage\Droit_Gauche\Gauche"/>
+					</Switches>
+				</SwitchGroup>
+				<SwitchGroup Id="3645350675" Name="EtatVoiture" ObjectPath="\Switches\Voiture\EtatVoiture">
+					<Switches>
+						<Switch Id="4192991124" Name="D_Accelere" ObjectPath="\Switches\Voiture\EtatVoiture\D_Accelere"/>
+						<Switch Id="2409485060" Name="B_Demarre" ObjectPath="\Switches\Voiture\EtatVoiture\B_Demarre"/>
+						<Switch Id="1094992157" Name="C_Idle" ObjectPath="\Switches\Voiture\EtatVoiture\C_Idle"/>
+						<Switch Id="129212061" Name="A_Stop" ObjectPath="\Switches\Voiture\EtatVoiture\A_Stop"/>
 					</Switches>
 				</SwitchGroup>
 				<SwitchGroup Id="3869192313" Name="Pas_Matiere" ObjectPath="\Switches\Personnage\Pas_Matiere">

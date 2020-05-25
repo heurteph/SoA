@@ -16,13 +16,16 @@ Event	ID	Name			Wwise Object Path	Notes
 	1582928677	Play_Respiration_JoggueurH			\Parc_Obstacles\Play_Respiration_JoggueurH	
 	1582928683	Play_Respiration_JoggueurF			\Parc_Obstacles\Play_Respiration_JoggueurF	
 	1692441862	Play_Climatiseur			\Ville_Obstacles\Play_Climatiseur	
+	1753498456	Play_Ecole			\Ville_Obstacles\Play_Ecole	
 	1978073185	Play_Humain_MangeEnfant2			\Parc_Obstacles\Play_Humain_MangeEnfant2	
+	2077251707	Stop_Travaux			\Ville_Obstacles\Stop_Travaux	
 	2301453854	Stop_Parc_Chien			\Parc_Obstacles\Stop_Parc_Chien	
 	2314452061	Play_Moteur_Elagueur			\Parc_Obstacles\Play_Moteur_Elagueur	
 	2464503011	Play_Cris_Tous			\Personnage\Play_Cris_Tous	
 	2500875145	Play_Electrique_Buzz			\Ville_Obstacles\Play_Electrique_Buzz	
 	2647100474	Stop_Parc_Vent			\Parc_Ambiance\Stop_Parc_Vent	
 	2727595513	Play_Parc_Insectes			\Parc_Ambiance\Play_Parc_Insectes	
+	2738893335	Stop_Marteau_Piqueur			\Ville_Obstacles\Stop_Marteau_Piqueur	
 	2860278991	Play_Respiration_Mouvement			\Personnage\Play_Respiration_Mouvement	
 	2983975038	Play_Bus_Door_Open			\Ville_Obstacles\Play_Bus_Door_Open	
 	3185656221	Play_Humain_Joue1			\Parc_Obstacles\Play_Humain_Joue1	
@@ -30,15 +33,18 @@ Event	ID	Name			Wwise Object Path	Notes
 	3189001139	Stop_Parc_Eau_Lac			\Parc_Ambiance\Stop_Parc_Eau_Lac	
 	3232482810	Play_Bus_Door_Close			\Ville_Obstacles\Play_Bus_Door_Close	
 	3266099682	Play_Parc_Vent_01			\Parc_Ambiance\Play_Parc_Vent_01	
+	3267333498	Stop_Ecole			\Ville_Obstacles\Stop_Ecole	
 	3389613819	Play_ArrosageAuto			\Parc_Obstacles\Play_ArrosageAuto	
 	3446893021	Play_Humain_Mange2			\Parc_Obstacles\Play_Humain_Mange2	
 	3446893022	Play_Humain_Mange1			\Parc_Obstacles\Play_Humain_Mange1	
 	3507864100	Stop_Quel_Moteur			\Ville_Obstacles\Stop_Quel_Moteur	
+	3516174833	Play_Marteau_Piqueur			\Ville_Obstacles\Play_Marteau_Piqueur	
 	3518090694	Play_Quel_Moteur			\Ville_Obstacles\Play_Quel_Moteur	
 	3628354934	Play_Restorant			\Ville_Obstacles\Play_Restorant	
 	3725651504	Play_Parc_Oiseaux3			\Parc_Ambiance\Play_Parc_Oiseaux3	
 	3725651505	Play_Parc_Oiseaux2			\Parc_Ambiance\Play_Parc_Oiseaux2	
 	3725651506	Play_Parc_Oiseaux1			\Parc_Ambiance\Play_Parc_Oiseaux1	
+	3782749553	Play_Travaux			\Ville_Obstacles\Play_Travaux	
 	4114146970	Play_Pleure_B_b_			\Parc_Obstacles\Play_Pleure_B_b_	
 	4134052420	Play_Parc_Chien			\Parc_Obstacles\Play_Parc_Chien	
 	4135899644	Play_Parc_Vent			\Parc_Ambiance\Play_Parc_Vent	
@@ -96,7 +102,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	100427968	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas		
 	122069286	Non	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
 	265548802	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
-	278231684	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Foule_Ville		
+	278231684	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Humain_Ville		
 	315095427	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Electrique_Buzz		
 	335263818	Non	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Pas\Texture Pas		
 	388657980	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain		
@@ -118,7 +124,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	959651477	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas		
 	1000141261	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
 	1036616796	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain		
-	1038162749	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Foule_Ville		
+	1038162749	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Humain_Ville		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	428373397	VitesseVoitureElec			\Obstacles\VitesseVoitureElec	
@@ -253,6 +259,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	219355564	Beton_Run_Pied_Droit11	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Beton_Run_Pied_Droit11_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Beton\Droite_Gauche_Beton_Court\Beton_Court_Pied_Droit\Beton_Run_Pied_Droit11		1617
 	220684427	Terre_Gravier_Run_Pied_Gauche14	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Terre_Gravier_Run_Pied_Gauche14_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Terre\Droite_Gauche_Terre_Court\Terre_Court_Pied_Gauche\Terre_Gravier_Run_Pied_Gauche14		4682
 	222403688	Terre_Gravier_Run_Pied_Gauche16	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Terre_Gravier_Run_Pied_Gauche16_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Terre\Droite_Gauche_Terre_Court\Terre_Court_Pied_Gauche\Terre_Gravier_Run_Pied_Gauche16		4936
+	224898616	Marteau-piqueur	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Marteau-piqueur_9EDFC787.wem		\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Humain_Ville\Marteau_Piqueur\Marteau-piqueur		941004
 	226805572	Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva18	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva18_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Ambiance_Parc\Nature_Parc\Parc_Oiseaux3\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva18		5223
 	228934976	Respiration_Court_Expire 03	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Expire 03_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Expire\Respiration_Court_Expire 03		4627
 	229385197	Respiration_Court_Inspire 29	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Inspire 29_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Inspire\Respiration_Court_Inspire 29		3800
@@ -492,7 +499,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	627085209	Respiration_Marche_Inspire 08	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Marche_Inspire 08_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Marche_Ex or in\Marche_Inspire\Respiration_Marche_Inspire 08		5935
 	628052130	Terre_Gravier_Walk_Pied_Droit04	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Terre_Gravier_Walk_Pied_Droit04_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Terre\Droite_Gauche_Terre_Marche\Terre_Marche_Pied_Droit\Terre_Gravier_Walk_Pied_Droit04		2973
 	629932354	Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva19	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva19_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Ambiance_Parc\Nature_Parc\Parc_Oiseaux3\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva19		3888
-	630798042	AMB_Resto 01	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\AMB_Resto 01_9EDFC787.wem		\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Foule_Ville\Restorant\AMB_Resto 01		236517
+	630798042	AMB_Resto 01	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\AMB_Resto 01_9EDFC787.wem		\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Humain_Ville\Restorant\AMB_Resto 01		236517
 	631189636	Parc_Obstacles_Chien05	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacles_Chien05_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Nature\Parc_Chien\Parc_Obstacles_Chien05		3387
 	632805930	Respiration_Court_Expire 04	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Expire 04_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Expire\Respiration_Court_Expire 04		4565
 	633394615	Asphalt_Walk_Pied_Gauche03	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Asphalt_Walk_Pied_Gauche03_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Asphalt\Droite_Gauche_Asphalt_Marche\Asphalt_Marche_Pied_Gauche\Asphalt_Walk_Pied_Gauche03		7144
@@ -513,6 +520,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	672179160	M2_Stop	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\M2_Stop_3F75BDB9.wem		\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Véhicules\Quel_Moteur\M2_Moto\Stop\M2_Stop		20780
 	672883393	Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Ambiance_Parc\Nature_Parc\Parc_Oiseaux3\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42		12089
 	673082167	Terre_Gravier_Run_Pied_Gauche13	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Terre_Gravier_Run_Pied_Gauche13_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Terre\Droite_Gauche_Terre_Court\Terre_Court_Pied_Gauche\Terre_Gravier_Run_Pied_Gauche13		3571
+	673273183	School	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\School_9EDFC787.wem		\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Humain_Ville\Ecole\School		957902
 	676054846	Respiration_Court_Expire 33	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Expire 33_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Expire\Respiration_Court_Expire 33		5488
 	681073708	Asphalt_Run_Pied_Droit03	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Asphalt_Run_Pied_Droit03_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Asphalt\Droite_Gauche_Asphalt_Court\Asphalt_Court_Pied_Droit\Asphalt_Run_Pied_Droit03		4313
 	681099856	Parc_Obstacles_EauAuto11	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacles_EauAuto11_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Nature\ArrosageAuto\Eau\Parc_Obstacles_EauAuto11		3660
@@ -591,6 +599,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	806953138	Perso_Douleur 06	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Perso_Douleur 06_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Cris\Cris_Tous\Perso_Douleur 06		4557
 	807791647	Beton_Walk_Pied_Droit14	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Beton_Walk_Pied_Droit14_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Beton\Droite_Gauche_Beton_Marche\Beton_Marche_Pied_Droit\Beton_Walk_Pied_Droit14		2057
 	811214925	Respiration_Court_Expire 06	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Expire 06_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Expire\Respiration_Court_Expire 06		5062
+	816991328	Chantier	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Chantier_9EDFC787.wem		\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Humain_Ville\Travaux\Chantier		856106
 	819019520	Parc_Obstacles_Chien02	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacles_Chien02_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Nature\Parc_Chien\Parc_Obstacles_Chien02		3006
 	822589587	Herbe_Run_Pied_Droit18	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Herbe_Run_Pied_Droit18_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Herbe\Droite_Gauche_Herbe_Court\Herbe_Court_Pied_Droit\Herbe_Run_Pied_Droit18		5066
 	826261588	Respiration_Court_Expire 32	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Expire 32_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Expire\Respiration_Court_Expire 32		4445

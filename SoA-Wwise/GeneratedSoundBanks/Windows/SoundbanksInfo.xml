@@ -200,6 +200,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1753498456" Name="Play_Ecole" ObjectPath="\Events\Ville_Obstacles\Play_Ecole" MaxAttenuation="80.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="673273183" Language="SFX">
+							<ShortName>School.wav</ShortName>
+							<Path>SFX\School_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2500875145" Name="Play_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Play_Electrique_Buzz" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="274683280" Language="SFX">
@@ -236,6 +244,14 @@
 				</Event>
 				<Event Id="545734209" Name="Play_Humain_MangeEnfant" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1978073185" Name="Play_Humain_MangeEnfant2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant2" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3516174833" Name="Play_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Play_Marteau_Piqueur" MaxAttenuation="90.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="224898616" Language="SFX">
+							<ShortName>Marteau-piqueur.wav</ShortName>
+							<Path>SFX\Marteau-piqueur_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2314452061" Name="Play_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_Elagueur" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="487953707" Language="SFX">
@@ -4802,10 +4818,20 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="3782749553" Name="Play_Travaux" ObjectPath="\Events\Ville_Obstacles\Play_Travaux" MaxAttenuation="90.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="816991328" Language="SFX">
+							<ShortName>Chantier.wav</ShortName>
+							<Path>SFX\Chantier_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1056565793" Name="Stop_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Stop_ArrosageAuto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="777875661" Name="Stop_Canard" ObjectPath="\Events\Parc_Obstacles\Stop_Canard" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3267333498" Name="Stop_Ecole" ObjectPath="\Events\Ville_Obstacles\Stop_Ecole" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4256011363" Name="Stop_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Stop_Electrique_Buzz" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2738893335" Name="Stop_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Stop_Marteau_Piqueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2301453854" Name="Stop_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Stop_Parc_Chien" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3189001139" Name="Stop_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Eau_Lac" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -4815,6 +4841,7 @@
 				<Event Id="2647100474" Name="Stop_Parc_Vent" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Vent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3507864100" Name="Stop_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Stop_Quel_Moteur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="970688548" Name="Stop_Restorant" ObjectPath="\Events\Ville_Obstacles\Stop_Restorant" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2077251707" Name="Stop_Travaux" ObjectPath="\Events\Ville_Obstacles\Stop_Travaux" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="428373397" Name="VitesseVoitureElec" ObjectPath="\Game Parameters\Obstacles\VitesseVoitureElec"/>

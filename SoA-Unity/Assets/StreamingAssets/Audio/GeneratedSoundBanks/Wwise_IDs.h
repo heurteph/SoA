@@ -19,6 +19,7 @@ namespace AK
         static const AkUniqueID PLAY_CANARD = 932140571U;
         static const AkUniqueID PLAY_CLIMATISEUR = 1692441862U;
         static const AkUniqueID PLAY_CRIS_TOUS = 2464503011U;
+        static const AkUniqueID PLAY_ECOLE = 1753498456U;
         static const AkUniqueID PLAY_ELECTRIQUE_BUZZ = 2500875145U;
         static const AkUniqueID PLAY_HUMAIN_JOUE1 = 3185656221U;
         static const AkUniqueID PLAY_HUMAIN_JOUE2 = 3185656222U;
@@ -26,6 +27,7 @@ namespace AK
         static const AkUniqueID PLAY_HUMAIN_MANGE2 = 3446893021U;
         static const AkUniqueID PLAY_HUMAIN_MANGEENFANT = 545734209U;
         static const AkUniqueID PLAY_HUMAIN_MANGEENFANT2 = 1978073185U;
+        static const AkUniqueID PLAY_MARTEAU_PIQUEUR = 3516174833U;
         static const AkUniqueID PLAY_MOTEUR_ELAGUEUR = 2314452061U;
         static const AkUniqueID PLAY_MOTEUR_VOITUREELEC = 1403256204U;
         static const AkUniqueID PLAY_PARC_CHIEN = 4134052420U;
@@ -44,10 +46,13 @@ namespace AK
         static const AkUniqueID PLAY_RESTORANT = 3628354934U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
         static const AkUniqueID PLAY_TEXTURE_PAS_JOGGER = 482787459U;
+        static const AkUniqueID PLAY_TRAVAUX = 3782749553U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;
         static const AkUniqueID STOP_CANARD = 777875661U;
         static const AkUniqueID STOP_CLIMATISEUR = 1059727820U;
+        static const AkUniqueID STOP_ECOLE = 3267333498U;
         static const AkUniqueID STOP_ELECTRIQUE_BUZZ = 4256011363U;
+        static const AkUniqueID STOP_MARTEAU_PIQUEUR = 2738893335U;
         static const AkUniqueID STOP_MOTEUR_ELAGUEUR = 1194390427U;
         static const AkUniqueID STOP_PARC_CHIEN = 2301453854U;
         static const AkUniqueID STOP_PARC_EAU_LAC = 3189001139U;
@@ -57,6 +62,7 @@ namespace AK
         static const AkUniqueID STOP_PARC_VENT = 2647100474U;
         static const AkUniqueID STOP_QUEL_MOTEUR = 3507864100U;
         static const AkUniqueID STOP_RESTORANT = 970688548U;
+        static const AkUniqueID STOP_TRAVAUX = 2077251707U;
     } // namespace EVENTS
 
     namespace STATES
@@ -195,6 +201,7 @@ namespace AK
         static const AkUniqueID PARC_ENVI_MASTER = 351745915U;
         static const AkUniqueID PARC_OBSTACLES_MASTER = 1797562303U;
         static const AkUniqueID PERSOMASTER = 386419066U;
+        static const AkUniqueID VILLE_ENVI_MASTER = 3757400157U;
         static const AkUniqueID VILLE_OBSTACLES_MASTER = 2278553081U;
     } // namespace BUSSES
 

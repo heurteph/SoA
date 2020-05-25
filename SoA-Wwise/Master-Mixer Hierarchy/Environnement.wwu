@@ -18,6 +18,13 @@
 						</Reference>
 					</ReferenceList>
 				</Bus>
+				<Bus Name="Ville_Envi_Master" ID="{F1860E38-0929-4B83-9B6E-CEC81BBB8A53}">
+					<ReferenceList>
+						<Reference Name="AudioDevice">
+							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
+						</Reference>
+					</ReferenceList>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>

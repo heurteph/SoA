@@ -100,6 +100,106 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Restorant" ID="{30DD6754-A887-4E5B-A7A6-93893506322E}">
+					<ChildrenList>
+						<Action Name="" ID="{6EA5195A-C2D2-456B-A723-D3C939002E59}" ShortID="650773373">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Restorant" ID="{1BD63102-4ACC-4C35-9283-8BAA7686FB60}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Restorant" ID="{A4039B40-1C85-47A6-AC5E-B8724A85AA56}">
+					<ChildrenList>
+						<Action Name="" ID="{AF993D4A-5E39-42E8-B02B-935C600264E4}" ShortID="964239370">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Restorant" ID="{1BD63102-4ACC-4C35-9283-8BAA7686FB60}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Marteau_Piqueur" ID="{F96A5848-482E-4F0C-BA2D-D580BAB8B49C}">
+					<ChildrenList>
+						<Action Name="" ID="{604EAD3B-6708-4812-9AD3-688A19E0DE6D}" ShortID="208118521">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Marteau_Piqueur" ID="{1FD4B5DB-8C0D-4537-9506-E3ED4BDAFA05}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Travaux" ID="{AD50FF56-2FFD-4254-A019-0EA0B2441E9E}">
+					<ChildrenList>
+						<Action Name="" ID="{AD109A49-C316-4A66-BF5C-FC794E552D0F}" ShortID="435227969">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Travaux" ID="{0E3BA0F0-4374-49AB-89B0-1FE054C88C0D}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Ecole" ID="{C67AB054-0DAC-431D-B9BC-4A4603134111}">
+					<ChildrenList>
+						<Action Name="" ID="{FED0EAF0-E297-478F-BB0B-D7A5BBAC7140}" ShortID="881914108">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ecole" ID="{BCC3DACB-A013-448B-9DAB-74CE018EE1D7}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Ecole" ID="{38C5D097-9844-4E57-9495-F9A4D81996DA}">
+					<ChildrenList>
+						<Action Name="" ID="{05197BED-D546-434D-9D24-D97BBAED043C}" ShortID="319548255">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ecole" ID="{BCC3DACB-A013-448B-9DAB-74CE018EE1D7}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Travaux" ID="{EA3866DF-0780-4FE7-878E-55E8065B90D2}">
+					<ChildrenList>
+						<Action Name="" ID="{173B004E-3539-4E1F-BC7D-A10203984FC4}" ShortID="930050816">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Travaux" ID="{0E3BA0F0-4374-49AB-89B0-1FE054C88C0D}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Marteau_Piqueur" ID="{F5C736DE-CC36-457C-A3EB-76A3A5917C6B}">
+					<ChildrenList>
+						<Action Name="" ID="{09A145A2-9162-4E15-925C-2CDD200BB205}" ShortID="688155688">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Marteau_Piqueur" ID="{1FD4B5DB-8C0D-4537-9506-E3ED4BDAFA05}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

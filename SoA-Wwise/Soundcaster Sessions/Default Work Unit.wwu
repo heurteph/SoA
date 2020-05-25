@@ -4,12 +4,6 @@
 		<WorkUnit Name="Default Work Unit" ID="{74D9B1DE-E1FA-4F93-997C-C6DEFCBB229B}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundcasterSession Name="SoundCaster" ID="{0B387E94-8EAD-4096-8099-BAABE001D6C3}">
-					<ModuleList>
-						<Module>
-							<ObjectRef Name="Play_TestBird" ID="{CBFF2843-FF20-40AE-BFCC-94360080FBD8}" WorkUnitID="{5EE6A51B-0CDE-422B-96AB-0E8CE8879B3E}"/>
-							<Position X="0" Y="0"/>
-						</Module>
-					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
 							<GameParameterRef Name="Quel_Moteur" ID="{4334FE7B-10DD-42E4-98D0-492C5EE9992A}"/>

@@ -75,21 +75,30 @@ public class TrafficManager : MonoBehaviour
 
                 foreach (Colinearity colinearity in spline.GetComponent<StreetMap>().Colinearities)
                 {
-                    if(IsInRange(user.GetComponent<StreetUser>().Percentage, colinearity.percentageStart, colinearity.percentageEnd))
+                    // TO DO : Take into account the minWatchPercentage to check colinearity before we're in
+                    float minWatchPercentage = Mathf.Max(user.GetComponent<StreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
+                    float colinearityPercentageForward = Mathf.Repeat(colinearity.percentageStart - minWatchPercentage + 1, 1);
+
+                    if (IsInRange(user.GetComponent<StreetUser>().Percentage, colinearityPercentageForward, colinearity.percentageEnd)) // used to be : colinearity.percentageStart
                     {
                         foreach (GameObject otherUser in colinearity.otherSpline.GetComponent<StreetMap>().Users)
                         {
-                            if (IsInRange(otherUser.GetComponent<StreetUser>().Percentage, colinearity.otherPercentageStart, colinearity.otherPercentageEnd))
+                            // TO DO : Take into account the minWatchPercentage to check colinearity before we're in
+                            float otherMinWatchPercentage = Mathf.Max(otherUser.GetComponent<StreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
+                            float colinearityOtherPercentageForward = Mathf.Repeat(colinearity.otherPercentageStart - otherMinWatchPercentage + 1, 1);
+
+                            if (IsInRange(otherUser.GetComponent<StreetUser>().Percentage, colinearityOtherPercentageForward, colinearity.otherPercentageEnd))
                             {
                                 // Règle de trois
-                                float otherUserMappedPercentage = Remap(otherUser.GetComponent<StreetUser>().Percentage, colinearity.otherPercentageStart, colinearity.otherPercentageEnd, colinearity.percentageStart, colinearity.percentageEnd);
+                                //float otherUserMappedPercentage = Remap(otherUser.GetComponent<StreetUser>().Percentage, colinearity.otherPercentageStart, colinearity.otherPercentageEnd, colinearity.percentageStart, colinearity.percentageEnd);
+                                float otherUserMappedPercentage = Remap(otherUser.GetComponent<StreetUser>().Percentage, colinearityOtherPercentageForward, colinearity.otherPercentageEnd, colinearityPercentageForward, colinearity.percentageEnd);
 
                                 Debug.Log("COLINEARITY OF TWO VEHICLES : " + user.name + " at " + user.GetComponent<StreetUser>().Percentage + " and the other " + otherUser.name + " at " + otherUserMappedPercentage);
 
                                 float distance = otherUserMappedPercentage - user.GetComponent<StreetUser>().Percentage;
 
-                                // TO DO : ADD Forward/Backward Distinction
-                                float minWatchPercentage = Mathf.Max(user.GetComponent<StreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
+                                // TO DO : ADD Forward/Backward Distinction -> Remove Backward handling
+                                minWatchPercentage = Mathf.Max(user.GetComponent<StreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
                                 if ((0 <= distance && distance < minWatchPercentage) || (-1 <= distance && distance <= -1 + minWatchPercentage))
                                 {
                                     Debug.Log(otherUser.name + " IS IN FRONT OF " + user.name + " BY COLINEARITY !!!!");

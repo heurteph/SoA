@@ -36,6 +36,7 @@ public class StreetUsersManager : MonoBehaviour
     {
         // TO DO : Make sure it's not already in there before adding it
         availableUsers.Add(car);
+        Debug.Log("One car added to the pool, " + availableUsers.Count + " cars are available");
     }
 
     public GameObject PopCar()
@@ -47,6 +48,7 @@ public class StreetUsersManager : MonoBehaviour
         int randomIndex = Random.Range(0, availableUsers.Count);
         GameObject car = availableUsers[randomIndex];
         availableUsers.RemoveAt(randomIndex);
+        Debug.Log("One car removed from the pool, " + availableUsers.Count + " cars are available");
         return car;
     }
 }

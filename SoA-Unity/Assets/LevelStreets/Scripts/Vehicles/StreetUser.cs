@@ -295,7 +295,7 @@ public class StreetUser : MonoBehaviour
                     // TO DO : Use obstaclePercentage to keep moving till it's not reached
 
                     Debug.Log(transform.name + "IN STAYBEHIND MODE");
-
+                    
                     if (speed >= frontSpeed)
                     {
                         //speed = frontSpeed;

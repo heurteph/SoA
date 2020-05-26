@@ -16,7 +16,7 @@ public class PassengerDissapear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.GetComponent<SplineStreetUser>().HasStopped)
+        if (gameObject.GetComponent<StreetUser>().HasStopped)
         {
             StartCoroutine("Dissappear");
         }

@@ -200,26 +200,26 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Stop_Klaxons" ID="{DDDB1477-49F4-44BB-A56D-6CCB47F0AA53}">
+				<Event Name="Stop_Klaxons" ID="{439B54F1-251D-4ADD-B085-0DD6C632C2D8}">
 					<ChildrenList>
-						<Action Name="" ID="{B1DAB702-13D0-4A7A-802A-19EA9CB832CC}" ShortID="910612572">
+						<Action Name="" ID="{143E7AAB-C4B1-4D05-B9AB-7C1D6BC45A0D}" ShortID="373957298">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Klaxons" ID="{2258DD63-5905-444F-ADA8-A6D2FF2744FC}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+									<ObjectRef Name="Klaxons" ID="{78735680-415E-4B64-8977-22F4BC8A2F88}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Klaxons" ID="{D210C401-9BAF-4251-AFFA-7E4113D87070}">
+				<Event Name="Play_Klaxons" ID="{A8808823-60AB-48AC-B14D-EBD5B3332C0B}">
 					<ChildrenList>
-						<Action Name="" ID="{976A3B7B-F4C7-4441-B5B3-76C110F2B7A1}" ShortID="801025904">
+						<Action Name="" ID="{005F0E4E-F797-4AED-B9DE-2D0CF237F9EA}" ShortID="132400397">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Klaxons" ID="{2258DD63-5905-444F-ADA8-A6D2FF2744FC}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+									<ObjectRef Name="Klaxons" ID="{78735680-415E-4B64-8977-22F4BC8A2F88}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

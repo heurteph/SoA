@@ -80,6 +80,26 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2412280354" Name="Play_Branches_Tombent" ObjectPath="\Events\Parc_Obstacles\Play_Branches_Tombent" MaxAttenuation="40.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="207466086" Language="SFX">
+							<ShortName>Parc_Obstacle_Branches_Tombent-002.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Branches_Tombent-002_3F75BDB9.wem</Path>
+						</File>
+						<File Id="510249237" Language="SFX">
+							<ShortName>Parc_Obstacle_Branches_Tombent-004.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Branches_Tombent-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="536871920" Language="SFX">
+							<ShortName>Parc_Obstacle_Branches_Tombent-001.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Branches_Tombent-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="570900884" Language="SFX">
+							<ShortName>Parc_Obstacle_Branches_Tombent-003.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Branches_Tombent-003_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3232482810" Name="Play_Bus_Door_Close" ObjectPath="\Events\Ville_Obstacles\Play_Bus_Door_Close" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="4.892854" DurationMax="4.892854">
 					<IncludedMemoryFiles>
 						<File Id="1004933755" Language="SFX">
@@ -244,7 +264,7 @@
 				</Event>
 				<Event Id="545734209" Name="Play_Humain_MangeEnfant" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1978073185" Name="Play_Humain_MangeEnfant2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant2" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2894920242" Name="Play_Klaxons" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons" MaxAttenuation="70.000000" DurationType="OneShot" DurationMin="0.115583" DurationMax="0.393208">
+				<Event Id="2894920242" Name="Play_Klaxons" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.115583" DurationMax="0.393208">
 					<IncludedMemoryFiles>
 						<File Id="8263096" Language="SFX">
 							<ShortName>Klaxon 04.wav</ShortName>
@@ -323,6 +343,47 @@
 							<Path>SFX\Klaxon 21_1C85F76B.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{B79D7107-7C1E-4E54-BAC2-703ED42CDFEA}">
+							<Media>
+								<File Id="127209381"/>
+								<File Id="886460443"/>
+								<File Id="56736329"/>
+								<File Id="845992198"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{2BDD3531-1918-44DD-8213-464243CC1BB8}">
+							<Media>
+								<File Id="301364361"/>
+								<File Id="8263096"/>
+								<File Id="121929836"/>
+								<File Id="245036596"/>
+								<File Id="476399181"/>
+								<File Id="458487246"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{7E32C675-752B-4BE7-8755-A5D70CD92762}">
+							<Media>
+								<File Id="714680607"/>
+								<File Id="408632699"/>
+								<File Id="747464776"/>
+								<File Id="311025340"/>
+								<File Id="68463282"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{D5FD7B18-DE3A-4989-A8D2-D45F1AE91DB8}">
+							<Media>
+								<File Id="340859228"/>
+								<File Id="57598454"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{8BB8AF89-EF19-45B4-9ADC-94E814EA87B8}">
+							<Media>
+								<File Id="22338118"/>
+								<File Id="72386766"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
 				</Event>
 				<Event Id="3516174833" Name="Play_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Play_Marteau_Piqueur" MaxAttenuation="90.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -4907,6 +4968,7 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1056565793" Name="Stop_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Stop_ArrosageAuto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3668248268" Name="Stop_Branches_Tombent" ObjectPath="\Events\Parc_Obstacles\Stop_Branches_Tombent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="777875661" Name="Stop_Canard" ObjectPath="\Events\Parc_Obstacles\Stop_Canard" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3267333498" Name="Stop_Ecole" ObjectPath="\Events\Ville_Obstacles\Stop_Ecole" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -4931,6 +4993,15 @@
 				<GameParameter Id="3154243729" Name="VitesseVehicule" ObjectPath="\Game Parameters\Obstacles\VitesseVehicule"/>
 			</GameParameters>
 			<SwitchGroups>
+				<SwitchGroup Id="310721727" Name="Klaxons" ObjectPath="\Switches\Voiture\Klaxons">
+					<Switches>
+						<Switch Id="84696446" Name="A" ObjectPath="\Switches\Voiture\Klaxons\A"/>
+						<Switch Id="84696445" Name="B" ObjectPath="\Switches\Voiture\Klaxons\B"/>
+						<Switch Id="84696444" Name="C" ObjectPath="\Switches\Voiture\Klaxons\C"/>
+						<Switch Id="84696443" Name="D" ObjectPath="\Switches\Voiture\Klaxons\D"/>
+						<Switch Id="84696442" Name="E" ObjectPath="\Switches\Voiture\Klaxons\E"/>
+					</Switches>
+				</SwitchGroup>
 				<SwitchGroup Id="2782977595" Name="Quel_Moteur" ObjectPath="\Switches\Voiture\Quel_Moteur">
 					<Switches>
 						<Switch Id="1685527111" Name="M1" ObjectPath="\Switches\Voiture\Quel_Moteur\M1"/>

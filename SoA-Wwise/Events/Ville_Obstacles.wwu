@@ -200,6 +200,31 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_Klaxons" ID="{DDDB1477-49F4-44BB-A56D-6CCB47F0AA53}">
+					<ChildrenList>
+						<Action Name="" ID="{B1DAB702-13D0-4A7A-802A-19EA9CB832CC}" ShortID="910612572">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Klaxons" ID="{2258DD63-5905-444F-ADA8-A6D2FF2744FC}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Klaxons" ID="{D210C401-9BAF-4251-AFFA-7E4113D87070}">
+					<ChildrenList>
+						<Action Name="" ID="{976A3B7B-F4C7-4441-B5B3-76C110F2B7A1}" ShortID="801025904">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Klaxons" ID="{2258DD63-5905-444F-ADA8-A6D2FF2744FC}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

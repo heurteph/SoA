@@ -74,13 +74,6 @@ public class StreetMap : MonoBehaviour
             throw new System.Exception(transform.name + " : Anchor percentages and speed zones arrays not of the same length");
         }
 
-        int k = 0;
-        Debug.Log("Zones of " + transform.name);
-        foreach(float percentage in percentages)
-        {
-            Debug.Log(k +" : " + percentage);
-        }
-
         speedZones = percentages.Zip(speedLimits, (first, second) => new { first, second }).ToDictionary(val => val.first, val => val.second);
     }
 
@@ -92,5 +85,10 @@ public class StreetMap : MonoBehaviour
     public void UnregisterUser(GameObject user)
     {
         users.Remove(user);
+    }
+
+    public override string ToString()
+    {
+        return gameObject.name + " has currently " + users.Count + " vehicles taking it";
     }
 }

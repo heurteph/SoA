@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pixelplacement;
+using System.Linq;
 
 [System.Serializable]
 struct Flow
@@ -62,25 +63,30 @@ public class FlowsManager : MonoBehaviour
         for(int i = 0; i < schedules.Length; i++)
         {
             // if one schedule reach its limit, reschedule immediately
-            Schedule schedule = schedules[i];
-            Flow flow = flows[i];
-
-            if (Time.time >= schedule.endTime)
+            if (Time.time >= schedules[i].endTime)
             {
-                Reschedule(ref schedule, flow);
+                Debug.Log("RESCHEDULE NOW FOR " + flows[i].spline.name + " !!!!!!!!!!!!! PREVIOUS END TIME : " + schedules[i].endTime);
+                Reschedule(ref schedules[i], flows[i]);
+                Debug.Log("RESCHEDULED FOR " + flows[i].spline.name + " !!!!!!!!!!!!! NEXT END TIME : " + schedules[i].endTime);
+
             }
             // spawn cars
-            foreach(float spawnTime in schedule.spawnTimes)
+            foreach(float spawnTime in schedules[i].spawnTimes.ToList()) // work on a copy not to remove item on an foreach enumeration
             {
                 if(Time.time >= spawnTime)
                 {
-                    schedule.spawnTimes.Remove(spawnTime);
+                    Debug.Log("SPAWN CAR ON " + flows[i].spline.name + " AT " + spawnTime);
+                    schedules[i].spawnTimes.Remove(spawnTime);
+
                     float fastSpeed = flows[i].averageFastSpeed + Random.Range(-flows[i].variability, flows[i].variability);
                     float normalSpeed = flows[i].averageNormalSpeed + Random.Range(-flows[i].variability, flows[i].variability);
                     float slowSpeed = flows[i].averageSlowSpeed + Random.Range(-flows[i].variability, flows[i].variability);
                     float cautiousSpeed = flows[i].averageCautiousSpeed + Random.Range(-flows[i].variability, flows[i].variability);
                     GameObject car = streetUsersManager.GetComponent<StreetUsersManager>().PopCar();
-                    car.GetComponent<StreetUser>().Reset(flows[i].spline, fastSpeed, normalSpeed, slowSpeed, cautiousSpeed);
+                    if (car != null)
+                    {
+                        car.GetComponent<StreetUser>().SpecificSet(flows[i].spline, fastSpeed, normalSpeed, slowSpeed, cautiousSpeed);
+                    }
                 }
             }
         }

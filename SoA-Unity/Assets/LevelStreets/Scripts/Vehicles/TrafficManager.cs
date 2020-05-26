@@ -27,7 +27,11 @@ public class TrafficManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // Compute the length of every splines before using them
+        foreach(Spline streetSpline in streetSplines)
+        {
+            streetSpline.CalculateLength();
+        }
     }
 
     // Update is called once per frame
@@ -121,7 +125,7 @@ public class TrafficManager : MonoBehaviour
     {
         if (!(0 <= value && value <= 1 && 0 <= start && start <= 1 && 0 <= end && end <= 1))
         {
-            throw new System.ArgumentOutOfRangeException("Values are not in a valid range [0,1]");
+            throw new System.ArgumentOutOfRangeException("Values are not in a valid range [0,1] : start = " + start + ", end = " + end + ", value = " + value);
         }
         if(start < end)
         {

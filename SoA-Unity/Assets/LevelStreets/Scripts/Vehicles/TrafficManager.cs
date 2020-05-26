@@ -50,8 +50,11 @@ public class TrafficManager : MonoBehaviour
         {
             foreach (GameObject user in spline.GetComponent<StreetMap>().Users)
             {
-                // Set default state
-                user.GetComponent<StreetUser>().MovingState = StreetUser.STATE.NORMAL;
+                // Set default state, except if in FREEZE mode
+                if(user.GetComponent<StreetUser>().MovingState != StreetUser.STATE.FREEZE)
+                {
+                    user.GetComponent<StreetUser>().MovingState = StreetUser.STATE.NORMAL;
+                }
 
                 foreach (GameObject otherUser in spline.GetComponent<StreetMap>().Users)
                 {
@@ -193,6 +196,8 @@ public class TrafficManager : MonoBehaviour
         {
             foreach (GameObject user in spline.GetComponent<StreetMap>().Users)
             {
+                // No need to set the default mode, as CheckCrossroad is called after CheckForward
+
                 foreach (Intersection intersection in spline.GetComponent<StreetMap>().Intersections)
                 {
                     float distanceToIntersection = intersection.percentage - user.GetComponent<StreetUser>().Percentage;

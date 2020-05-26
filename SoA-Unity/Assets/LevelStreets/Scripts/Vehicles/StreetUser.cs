@@ -260,8 +260,6 @@ public class StreetUser : MonoBehaviour
         spline.GetComponent<StreetMap>().RegisterUser(gameObject);
         spline.CalculateLength();
 
-        movingState = STATE.NORMAL;
-
         // Set the initial position
         percentage = startPercentage;
         Vector3 position = spline.GetPosition(percentage);
@@ -298,6 +296,7 @@ public class StreetUser : MonoBehaviour
 
         hasStopped = false;
         if (onStart) { movingState = STATE.NORMAL; }
+        else { movingState = STATE.OFF; }
     }
 
     public void CommonSet(float acceleration, float deceleration, float decelerationObstacle, float decelerationStop, float freezeDuration)
@@ -367,8 +366,11 @@ public class StreetUser : MonoBehaviour
         if (!onStart && movingState == STATE.OFF) { movingState = STATE.NORMAL; }
     }
 
+    /* COUNTDOWNS */
+
     private IEnumerator FreezeCountdown()
     {
+        AkSoundEngine.PostEvent("Play_Klaxons", gameObject);
         yield return new WaitForSeconds(freezeDuration);
         movingState = STATE.NORMAL;
     }
@@ -416,15 +418,13 @@ public class StreetUser : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.transform.CompareTag("Player") || other.transform.CompareTag("Vehicle"))
+        if (other.transform.CompareTag("Player") || other.transform.CompareTag("Vehicle"))
         {
             if (movingState != STATE.FREEZE)
             {
                 movingState = STATE.FREEZE;
                 speed = 0; // TO DO : Find a progressive way
                 StartCoroutine("FreezeCountdown");
-
-                // TO DO : Use car horn
             }
         }
     }

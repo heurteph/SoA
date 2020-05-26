@@ -244,39 +244,27 @@
 				</Event>
 				<Event Id="545734209" Name="Play_Humain_MangeEnfant" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1978073185" Name="Play_Humain_MangeEnfant2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant2" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2894920242" Name="Play_Klaxons" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons" MaxAttenuation="70.000000" DurationType="OneShot" DurationMin="0.115583" DurationMax="0.393208">
+				<Event Id="2289222314" Name="Play_Klaxons_A" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons_A" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.211896" DurationMax="0.220146">
 					<IncludedMemoryFiles>
-						<File Id="8263096" Language="SFX">
-							<ShortName>Klaxon 04.wav</ShortName>
-							<Path>SFX\Klaxon 04_3F75BDB9.wem</Path>
-						</File>
 						<File Id="22338118" Language="SFX">
 							<ShortName>Klaxon 01.wav</ShortName>
 							<Path>SFX\Klaxon 01_3F75BDB9.wem</Path>
-						</File>
-						<File Id="56736329" Language="SFX">
-							<ShortName>Klaxon 22.wav</ShortName>
-							<Path>SFX\Klaxon 22_9312C2DD.wem</Path>
-						</File>
-						<File Id="57598454" Language="SFX">
-							<ShortName>Klaxon 19.wav</ShortName>
-							<Path>SFX\Klaxon 19_26CF1E75.wem</Path>
-						</File>
-						<File Id="68463282" Language="SFX">
-							<ShortName>Klaxon 16.wav</ShortName>
-							<Path>SFX\Klaxon 16_3F75BDB9.wem</Path>
 						</File>
 						<File Id="72386766" Language="SFX">
 							<ShortName>Klaxon 02.wav</ShortName>
 							<Path>SFX\Klaxon 02_3F75BDB9.wem</Path>
 						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2289222313" Name="Play_Klaxons_B" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons_B" MaxAttenuation="70.000000" DurationType="OneShot" DurationMin="0.115583" DurationMax="0.247667">
+					<IncludedMemoryFiles>
+						<File Id="8263096" Language="SFX">
+							<ShortName>Klaxon 04.wav</ShortName>
+							<Path>SFX\Klaxon 04_3F75BDB9.wem</Path>
+						</File>
 						<File Id="121929836" Language="SFX">
 							<ShortName>Klaxon 05.wav</ShortName>
 							<Path>SFX\Klaxon 05_3F75BDB9.wem</Path>
-						</File>
-						<File Id="127209381" Language="SFX">
-							<ShortName>Klaxon 20.wav</ShortName>
-							<Path>SFX\Klaxon 20_3F75BDB9.wem</Path>
 						</File>
 						<File Id="245036596" Language="SFX">
 							<ShortName>Klaxon 07.wav</ShortName>
@@ -286,18 +274,6 @@
 							<ShortName>Klaxon 03.wav</ShortName>
 							<Path>SFX\Klaxon 03_3F75BDB9.wem</Path>
 						</File>
-						<File Id="311025340" Language="SFX">
-							<ShortName>Klaxon 15.wav</ShortName>
-							<Path>SFX\Klaxon 15_3F75BDB9.wem</Path>
-						</File>
-						<File Id="340859228" Language="SFX">
-							<ShortName>Klaxon 17.wav</ShortName>
-							<Path>SFX\Klaxon 17_123D64DA.wem</Path>
-						</File>
-						<File Id="408632699" Language="SFX">
-							<ShortName>Klaxon 13.wav</ShortName>
-							<Path>SFX\Klaxon 13_3F75BDB9.wem</Path>
-						</File>
 						<File Id="458487246" Language="SFX">
 							<ShortName>Klaxon 10.wav</ShortName>
 							<Path>SFX\Klaxon 10_3F75BDB9.wem</Path>
@@ -306,6 +282,22 @@
 							<ShortName>Klaxon 09.wav</ShortName>
 							<Path>SFX\Klaxon 09_3F75BDB9.wem</Path>
 						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2289222312" Name="Play_Klaxons_C" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons_C" MaxAttenuation="70.000000" DurationType="OneShot" DurationMin="0.181896" DurationMax="0.393208">
+					<IncludedMemoryFiles>
+						<File Id="68463282" Language="SFX">
+							<ShortName>Klaxon 16.wav</ShortName>
+							<Path>SFX\Klaxon 16_3F75BDB9.wem</Path>
+						</File>
+						<File Id="311025340" Language="SFX">
+							<ShortName>Klaxon 15.wav</ShortName>
+							<Path>SFX\Klaxon 15_3F75BDB9.wem</Path>
+						</File>
+						<File Id="408632699" Language="SFX">
+							<ShortName>Klaxon 13.wav</ShortName>
+							<Path>SFX\Klaxon 13_3F75BDB9.wem</Path>
+						</File>
 						<File Id="714680607" Language="SFX">
 							<ShortName>Klaxon 12.wav</ShortName>
 							<Path>SFX\Klaxon 12_3F75BDB9.wem</Path>
@@ -313,6 +305,30 @@
 						<File Id="747464776" Language="SFX">
 							<ShortName>Klaxon 14.wav</ShortName>
 							<Path>SFX\Klaxon 14_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2289222319" Name="Play_Klaxons_D" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons_D" MaxAttenuation="70.000000" DurationType="OneShot" DurationMin="0.193950" DurationMax="0.264611">
+					<IncludedMemoryFiles>
+						<File Id="57598454" Language="SFX">
+							<ShortName>Klaxon 19.wav</ShortName>
+							<Path>SFX\Klaxon 19_26CF1E75.wem</Path>
+						</File>
+						<File Id="340859228" Language="SFX">
+							<ShortName>Klaxon 17.wav</ShortName>
+							<Path>SFX\Klaxon 17_123D64DA.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2289222318" Name="Play_Klaxons_E" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons_E" MaxAttenuation="70.000000" DurationType="OneShot" DurationMin="0.206098" DurationMax="0.374479">
+					<IncludedMemoryFiles>
+						<File Id="56736329" Language="SFX">
+							<ShortName>Klaxon 22.wav</ShortName>
+							<Path>SFX\Klaxon 22_9312C2DD.wem</Path>
+						</File>
+						<File Id="127209381" Language="SFX">
+							<ShortName>Klaxon 20.wav</ShortName>
+							<Path>SFX\Klaxon 20_3F75BDB9.wem</Path>
 						</File>
 						<File Id="845992198" Language="SFX">
 							<ShortName>Klaxon 23.wav</ShortName>
@@ -4911,7 +4927,11 @@
 				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3267333498" Name="Stop_Ecole" ObjectPath="\Events\Ville_Obstacles\Stop_Ecole" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4256011363" Name="Stop_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Stop_Electrique_Buzz" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="882878844" Name="Stop_Klaxons" ObjectPath="\Events\Ville_Obstacles\Stop_Klaxons" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2654597648" Name="Stop_Klaxons_A" ObjectPath="\Events\Ville_Obstacles\Stop_Klaxons_A" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2654597651" Name="Stop_Klaxons_B" ObjectPath="\Events\Ville_Obstacles\Stop_Klaxons_B" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2654597650" Name="Stop_Klaxons_C" ObjectPath="\Events\Ville_Obstacles\Stop_Klaxons_C" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2654597653" Name="Stop_Klaxons_D" ObjectPath="\Events\Ville_Obstacles\Stop_Klaxons_D" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2654597652" Name="Stop_Klaxons_E" ObjectPath="\Events\Ville_Obstacles\Stop_Klaxons_E" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2738893335" Name="Stop_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Stop_Marteau_Piqueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2301453854" Name="Stop_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Stop_Parc_Chien" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

@@ -80,6 +80,26 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2412280354" Name="Play_Branches_Tombent" ObjectPath="\Events\Parc_Obstacles\Play_Branches_Tombent" MaxAttenuation="40.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="207466086" Language="SFX">
+							<ShortName>Parc_Obstacle_Branches_Tombent-002.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Branches_Tombent-002_3F75BDB9.wem</Path>
+						</File>
+						<File Id="510249237" Language="SFX">
+							<ShortName>Parc_Obstacle_Branches_Tombent-004.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Branches_Tombent-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="536871920" Language="SFX">
+							<ShortName>Parc_Obstacle_Branches_Tombent-001.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Branches_Tombent-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="570900884" Language="SFX">
+							<ShortName>Parc_Obstacle_Branches_Tombent-003.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Branches_Tombent-003_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3232482810" Name="Play_Bus_Door_Close" ObjectPath="\Events\Ville_Obstacles\Play_Bus_Door_Close" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="4.892854" DurationMax="4.892854">
 					<IncludedMemoryFiles>
 						<File Id="1004933755" Language="SFX">
@@ -4948,6 +4968,7 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1056565793" Name="Stop_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Stop_ArrosageAuto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3668248268" Name="Stop_Branches_Tombent" ObjectPath="\Events\Parc_Obstacles\Stop_Branches_Tombent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="777875661" Name="Stop_Canard" ObjectPath="\Events\Parc_Obstacles\Stop_Canard" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3267333498" Name="Stop_Ecole" ObjectPath="\Events\Ville_Obstacles\Stop_Ecole" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

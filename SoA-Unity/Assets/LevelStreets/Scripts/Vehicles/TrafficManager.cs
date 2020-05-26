@@ -44,60 +44,60 @@ public class TrafficManager : MonoBehaviour
     {
         foreach (Spline spline in streetSplines)
         {
-            foreach (GameObject user in spline.GetComponent<SplineStreetMap>().Users)
+            foreach (GameObject user in spline.GetComponent<StreetMap>().Users)
             {
                 // Set default state
-                user.GetComponent<SplineStreetUser>().MovingState = SplineStreetUser.STATE.NORMAL;
+                user.GetComponent<StreetUser>().MovingState = StreetUser.STATE.NORMAL;
 
-                foreach (GameObject otherUser in spline.GetComponent<SplineStreetMap>().Users)
+                foreach (GameObject otherUser in spline.GetComponent<StreetMap>().Users)
                 {
                     if ( ! GameObject.ReferenceEquals(user, otherUser))
                     {
                         //Debug.Log("Comparing " + user.name + " at " + user.GetComponent<SplineStreetUser>().Percentage + " and " + otherUser.name + " at " + otherUser.GetComponent<SplineStreetUser>().Percentage + " !!!!!!!!!!!!!");
-                        float distance = otherUser.GetComponent<SplineStreetUser>().Percentage - user.GetComponent<SplineStreetUser>().Percentage;
+                        float distance = otherUser.GetComponent<StreetUser>().Percentage - user.GetComponent<StreetUser>().Percentage;
 
                         // TO DO : ADD Forward/Backward Distinction
                         // minSafetyDistance proportional to speed of the object
-                        float minWatchPercentage = Mathf.Max(user.GetComponent<SplineStreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
+                        float minWatchPercentage = Mathf.Max(user.GetComponent<StreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
 
                         // Join the end and the start of the spline
                         if ((0 <= distance && distance <= minWatchPercentage) || (-1 <= distance && distance <= -1 + minWatchPercentage))
                         {
                             //Debug.Log(otherUser.name + " IS IN FRONT OF " + user.name + " !!!!");
-                            user.GetComponent<SplineStreetUser>().FrontSpeed = otherUser.GetComponent<SplineStreetUser>().Speed;
-                            user.GetComponent<SplineStreetUser>().MovingState = SplineStreetUser.STATE.STAYBEHIND;
+                            user.GetComponent<StreetUser>().FrontSpeed = otherUser.GetComponent<StreetUser>().Speed;
+                            user.GetComponent<StreetUser>().MovingState = StreetUser.STATE.STAYBEHIND;
                             float minSafetyPercentage = minSafetyDistance / spline.Length;
-                            user.GetComponent<SplineStreetUser>().ObstaclePercentage = Mathf.Repeat(otherUser.GetComponent<SplineStreetUser>().Percentage - minSafetyPercentage + 1, 1);  // +1 because Repeat does not take negative numbers into argument
+                            user.GetComponent<StreetUser>().ObstaclePercentage = Mathf.Repeat(otherUser.GetComponent<StreetUser>().Percentage - minSafetyPercentage + 1, 1);  // +1 because Repeat does not take negative numbers into argument
                             // TO DO : When there are two vehicules in front ! Choose the closer one !!!
                         }
                     }
                 }
 
-                foreach (Colinearity colinearity in spline.GetComponent<SplineStreetMap>().Colinearities)
+                foreach (Colinearity colinearity in spline.GetComponent<StreetMap>().Colinearities)
                 {
-                    if(IsInRange(user.GetComponent<SplineStreetUser>().Percentage, colinearity.percentageStart, colinearity.percentageEnd))
+                    if(IsInRange(user.GetComponent<StreetUser>().Percentage, colinearity.percentageStart, colinearity.percentageEnd))
                     {
-                        foreach (GameObject otherUser in colinearity.otherSpline.GetComponent<SplineStreetMap>().Users)
+                        foreach (GameObject otherUser in colinearity.otherSpline.GetComponent<StreetMap>().Users)
                         {
-                            if (IsInRange(otherUser.GetComponent<SplineStreetUser>().Percentage, colinearity.otherPercentageStart, colinearity.otherPercentageEnd))
+                            if (IsInRange(otherUser.GetComponent<StreetUser>().Percentage, colinearity.otherPercentageStart, colinearity.otherPercentageEnd))
                             {
                                 // Règle de trois
-                                float otherUserMappedPercentage = Remap(otherUser.GetComponent<SplineStreetUser>().Percentage, colinearity.otherPercentageStart, colinearity.otherPercentageEnd, colinearity.percentageStart, colinearity.percentageEnd);
+                                float otherUserMappedPercentage = Remap(otherUser.GetComponent<StreetUser>().Percentage, colinearity.otherPercentageStart, colinearity.otherPercentageEnd, colinearity.percentageStart, colinearity.percentageEnd);
 
-                                Debug.Log("COLINEARITY OF TWO VEHICLES : " + user.name + " at " + user.GetComponent<SplineStreetUser>().Percentage + " and the other " + otherUser.name + " at " + otherUserMappedPercentage);
+                                Debug.Log("COLINEARITY OF TWO VEHICLES : " + user.name + " at " + user.GetComponent<StreetUser>().Percentage + " and the other " + otherUser.name + " at " + otherUserMappedPercentage);
 
-                                float distance = otherUserMappedPercentage - user.GetComponent<SplineStreetUser>().Percentage;
+                                float distance = otherUserMappedPercentage - user.GetComponent<StreetUser>().Percentage;
 
                                 // TO DO : ADD Forward/Backward Distinction
-                                float minWatchPercentage = Mathf.Max(user.GetComponent<SplineStreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
+                                float minWatchPercentage = Mathf.Max(user.GetComponent<StreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
                                 if ((0 <= distance && distance < minWatchPercentage) || (-1 <= distance && distance <= -1 + minWatchPercentage))
                                 {
                                     Debug.Log(otherUser.name + " IS IN FRONT OF " + user.name + " BY COLINEARITY !!!!");
-                                    user.GetComponent<SplineStreetUser>().MovingState = SplineStreetUser.STATE.STAYBEHIND;
-                                    user.GetComponent<SplineStreetUser>().FrontSpeed = otherUser.GetComponent<SplineStreetUser>().Speed; // TO DO : Remap too ?
+                                    user.GetComponent<StreetUser>().MovingState = StreetUser.STATE.STAYBEHIND;
+                                    user.GetComponent<StreetUser>().FrontSpeed = otherUser.GetComponent<StreetUser>().Speed; // TO DO : Remap too ?
                                     float minSafetyPercentage = minSafetyDistance / spline.Length;
-                                    user.GetComponent<SplineStreetUser>().ObstaclePercentage = Mathf.Repeat(otherUserMappedPercentage - minSafetyPercentage + 1, 1); // +1 because Repeat does not take negative numbers into argument
-                                    Debug.Log("COLINEARITY TRIGGER WITH OBSTACLE PERCENTAGE AT " + user.GetComponent<SplineStreetUser>().ObstaclePercentage);
+                                    user.GetComponent<StreetUser>().ObstaclePercentage = Mathf.Repeat(otherUserMappedPercentage - minSafetyPercentage + 1, 1); // +1 because Repeat does not take negative numbers into argument
+                                    Debug.Log("COLINEARITY TRIGGER WITH OBSTACLE PERCENTAGE AT " + user.GetComponent<StreetUser>().ObstaclePercentage);
                                     // TO DO : When there are two vehicules in front ! Choose the closer !!!
                                 }
                             }
@@ -178,28 +178,28 @@ public class TrafficManager : MonoBehaviour
     {
         foreach(Spline spline in streetSplines)
         {
-            foreach (GameObject user in spline.GetComponent<SplineStreetMap>().Users)
+            foreach (GameObject user in spline.GetComponent<StreetMap>().Users)
             {
-                foreach (Intersection intersection in spline.GetComponent<SplineStreetMap>().Intersections)
+                foreach (Intersection intersection in spline.GetComponent<StreetMap>().Intersections)
                 {
-                    float distanceToIntersection = intersection.percentage - user.GetComponent<SplineStreetUser>().Percentage;
-                    float minWatchPercentage = Mathf.Max(user.GetComponent<SplineStreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
+                    float distanceToIntersection = intersection.percentage - user.GetComponent<StreetUser>().Percentage;
+                    float minWatchPercentage = Mathf.Max(user.GetComponent<StreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
 
                     if ((0 <= distanceToIntersection && distanceToIntersection <= minWatchPercentage) || (-1 <= distanceToIntersection && distanceToIntersection <= -1 + minWatchPercentage))
                     {
-                        foreach (GameObject otherUser in intersection.otherSpline.GetComponent<SplineStreetMap>().Users)
+                        foreach (GameObject otherUser in intersection.otherSpline.GetComponent<StreetMap>().Users)
                         {
                             //Debug.Log("Comparing " + user.name + " on " + spline.name + " at " + user.GetComponent<SplineStreetUser>().Percentage + " with " + otherUser.name + " on " + intersection.otherSpline.name + " at " + otherUser.GetComponent<SplineStreetUser>().Percentage + " !!!!!!!!!!!!!");
 
-                            float otherDistanceToIntersection = intersection.otherPercentage - otherUser.GetComponent<SplineStreetUser>().Percentage;
-                            float otherMinWatchPercentage = Mathf.Max(otherUser.GetComponent<SplineStreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
+                            float otherDistanceToIntersection = intersection.otherPercentage - otherUser.GetComponent<StreetUser>().Percentage;
+                            float otherMinWatchPercentage = Mathf.Max(otherUser.GetComponent<StreetUser>().Speed * minSafetySpeedFactor, minWatchDistance) / spline.Length;
 
                             // Join the end and the start of the spline
                             if ((0 <= otherDistanceToIntersection && otherDistanceToIntersection <= otherMinWatchPercentage) || (-1 <= otherDistanceToIntersection && otherDistanceToIntersection <= -1 + otherMinWatchPercentage))
                             {
-                                user.GetComponent<SplineStreetUser>().MovingState = SplineStreetUser.STATE.STOP;
+                                user.GetComponent<StreetUser>().MovingState = StreetUser.STATE.STOP;
                                 float minSafetyPercentage = minSafetyDistance / spline.Length;
-                                user.GetComponent<SplineStreetUser>().IntersectionPercentage = Mathf.Repeat(intersection.percentage - minSafetyPercentage + 1, 1);
+                                user.GetComponent<StreetUser>().IntersectionPercentage = Mathf.Repeat(intersection.percentage - minSafetyPercentage + 1, 1);
                             }
                         }
                     }

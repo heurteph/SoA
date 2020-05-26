@@ -68,7 +68,7 @@
 							<PointList>
 								<Point>
 									<XPos>0</XPos>
-									<YPos>-0</YPos>
+									<YPos>0</YPos>
 									<Flags>5</Flags>
 								</Point>
 								<Point>
@@ -119,6 +119,15 @@
 							</PointList>
 						</Curve>
 					</SwitchOnRTPC>
+				</SwitchGroup>
+				<SwitchGroup Name="Klaxons" ID="{BAEDEFCA-72E8-454C-910E-BA49EB1B92F2}">
+					<ChildrenList>
+						<Switch Name="A" ID="{8BB8AF89-EF19-45B4-9ADC-94E814EA87B8}"/>
+						<Switch Name="B" ID="{2BDD3531-1918-44DD-8213-464243CC1BB8}"/>
+						<Switch Name="C" ID="{7E32C675-752B-4BE7-8755-A5D70CD92762}"/>
+						<Switch Name="D" ID="{D5FD7B18-DE3A-4989-A8D2-D45F1AE91DB8}"/>
+						<Switch Name="E" ID="{B79D7107-7C1E-4E54-BAC2-703ED42CDFEA}"/>
+					</ChildrenList>
 				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>

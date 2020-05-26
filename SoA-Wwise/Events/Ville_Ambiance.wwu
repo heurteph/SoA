@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{3826A10E-D685-413C-9E39-9C83424A5080}" SchemaVersion="97">
 	<Events>
-		<WorkUnit Name="Ville_Ambiance" ID="{3826A10E-D685-413C-9E39-9C83424A5080}" PersistMode="Standalone"/>
+		<WorkUnit Name="Ville_Ambiance" ID="{3826A10E-D685-413C-9E39-9C83424A5080}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Pigeon" ID="{3970AFCB-7070-40E1-9A66-E7BDFCC0F0A7}">
+					<ChildrenList>
+						<Action Name="" ID="{57370610-18CB-45DB-ADFD-C4AC9099A691}" ShortID="923912020">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pigeon" ID="{7F1C7036-725A-4DF7-A5E5-3244E290AFCB}" WorkUnitID="{42260FA2-A153-4E82-AFED-FE420DEE6A3F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Pigeon" ID="{287FA844-3381-42CF-B313-4D0AE223CF55}">
+					<ChildrenList>
+						<Action Name="" ID="{00E44FD3-A425-47D8-A802-76A26EF62870}" ShortID="311771007">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pigeon" ID="{7F1C7036-725A-4DF7-A5E5-3244E290AFCB}" WorkUnitID="{42260FA2-A153-4E82-AFED-FE420DEE6A3F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

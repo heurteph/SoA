@@ -123,6 +123,9 @@ public class StreetUser : MonoBehaviour
     {
         groundOffset = transform.position.y - groundLevel.transform.position.y;
 
+        // Define which car horn type to use
+        AkSoundEngine.SetSwitch("Klaxons", new string[5]{ "A", "B", "C", "D", "E" }[Random.Range(0, 5)], gameObject);
+
         movingState = STATE.OFF;
     }
     private void Start()
@@ -368,11 +371,24 @@ public class StreetUser : MonoBehaviour
 
     /* COUNTDOWNS */
 
+    /*
     private IEnumerator FreezeCountdown()
     {
-        AkSoundEngine.PostEvent("Play_Klaxons", gameObject);
         yield return new WaitForSeconds(freezeDuration);
         movingState = STATE.NORMAL;
+    }*/
+
+    private IEnumerator CarHornCountdown()
+    {
+        float delay; // seconds
+        float maxDelay = 3; // seconds
+        while (movingState == STATE.FREEZE)
+        {
+            AkSoundEngine.PostEvent("Play_Klaxons", gameObject);
+            maxDelay = Mathf.Max(maxDelay * 7f/8f, 0);
+            delay = Mathf.Max(Random.Range(0, maxDelay), 0.2f); // driver gets annoyed
+            yield return new WaitForSeconds(delay);
+        }
     }
 
     /* SOUND RELATED FUNCTIONS */
@@ -418,14 +434,22 @@ public class StreetUser : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.CompareTag("Player") || other.transform.CompareTag("Vehicle"))
+        if (other.transform.CompareTag("Player"))
         {
             if (movingState != STATE.FREEZE)
             {
                 movingState = STATE.FREEZE;
                 speed = 0; // TO DO : Find a progressive way
-                StartCoroutine("FreezeCountdown");
+                StartCoroutine("CarHornCountdown");
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.CompareTag("Player"))
+        {
+            movingState = STATE.NORMAL;
         }
     }
 }

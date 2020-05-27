@@ -51,11 +51,13 @@ public class Protect : MonoBehaviour
         {
             player.IsProtectingEars = true;
             hearingScript.PlugEars();
+            AkSoundEngine.SetState("Protection_Oui_Non", "Active"); // Wwise
         };
         inputs.Player.ProtectEars.canceled += _ctx =>
         {
             player.IsProtectingEars = false;
             hearingScript.UnplugEars();
+            AkSoundEngine.SetState("Protection_Oui_Non", "Pas_active"); // Wwise
         };
     }
 

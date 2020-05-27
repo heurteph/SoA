@@ -399,9 +399,30 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3783189458" Name="Play_Music_Main_Title" ObjectPath="\Events\Music\Play_Music_Main_Title" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1699343283" Name="Play_Music_Menu" ObjectPath="\Events\Music\Play_Music_Menu" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2207892326" Name="Play_Music_Safe_Zone" ObjectPath="\Events\Music\Play_Music_Safe_Zone" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3783189458" Name="Play_Music_Main_Title" ObjectPath="\Events\Music\Play_Music_Main_Title" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="717185924" Language="SFX">
+							<ShortName>Main Title v4 R128.wav</ShortName>
+							<Path>SFX\Main Title v4 R128_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1699343283" Name="Play_Music_Menu" ObjectPath="\Events\Music\Play_Music_Menu" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="544637628" Language="SFX">
+							<ShortName>Menu v2 R128.wav</ShortName>
+							<Path>SFX\Menu v2 R128_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2207892326" Name="Play_Music_Safe_Zone" ObjectPath="\Events\Music\Play_Music_Safe_Zone" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="506133042" Language="SFX">
+							<ShortName>Safe Zone v2 LOOP R128.wav</ShortName>
+							<Path>SFX\Safe Zone v2 LOOP R128_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="4134052420" Name="Play_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Play_Parc_Chien" MaxAttenuation="60.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="132806480" Language="SFX">

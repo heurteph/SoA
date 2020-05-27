@@ -5,7 +5,21 @@
 			<ChildrenList>
 				<Event Name="Play_Music_Main_Title" ID="{D7B912B2-7228-427F-8486-8F9F537B030E}">
 					<ChildrenList>
+						<Action Name="" ID="{5E651BEE-AC7B-43B6-86B4-085BD27CC988}" ShortID="358924666">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Menu" ID="{936B9095-0283-4BCE-AF79-807F62B13C7E}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{03753868-C055-4362-97A7-E64468D1A981}" ShortID="266999723">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Music_Main_Title" ID="{105B29AE-971A-420D-9973-4772AD7D3D83}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
@@ -16,7 +30,21 @@
 				</Event>
 				<Event Name="Play_Music_Menu" ID="{1209BCC7-16E4-403A-A1A8-21D24501CDD2}">
 					<ChildrenList>
+						<Action Name="" ID="{9A635FC9-C219-424E-9C42-3A56AE128FDB}" ShortID="186228975">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Main_Title" ID="{105B29AE-971A-420D-9973-4772AD7D3D83}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{3A99B8E8-4B8D-4D30-9CC1-C215CB6D1217}" ShortID="598288577">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Music_Menu" ID="{936B9095-0283-4BCE-AF79-807F62B13C7E}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
@@ -28,6 +56,9 @@
 				<Event Name="Play_Music_Safe_Zone" ID="{A1E59453-2C7C-4173-9EFE-3E223F47DD75}">
 					<ChildrenList>
 						<Action Name="" ID="{F5CF0537-A6DB-4786-911B-6900C36A4CE7}" ShortID="581177532">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Music_Safe_Zone" ID="{CC95DF91-F346-4CD7-8A56-5979D8BB965A}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
@@ -41,6 +72,7 @@
 						<Action Name="" ID="{53B5A1DE-4E89-410D-8B92-09B3A513EAC2}" ShortID="427569044">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">

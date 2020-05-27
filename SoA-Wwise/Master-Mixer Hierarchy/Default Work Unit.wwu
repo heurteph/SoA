@@ -77,6 +77,13 @@
 						</AuxBus>
 					</ChildrenList>
 				</Bus>
+				<Bus Name="MixMusic" ID="{6E7E03F7-57B0-47CD-8A3B-E2F9E7A42E98}">
+					<ReferenceList>
+						<Reference Name="AudioDevice">
+							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
+						</Reference>
+					</ReferenceList>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>

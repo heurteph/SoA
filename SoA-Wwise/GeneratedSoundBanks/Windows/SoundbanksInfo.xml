@@ -11,11 +11,6 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="820650383" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankPersoAmbiance</ObjectPath>
-			<ShortName>SoundBankPersoAmbiance</ShortName>
-			<Path>SoundBankPersoAmbiance.bnk</Path>
-		</SoundBank>
 		<SoundBank Id="1355168291" Language="SFX">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
@@ -25,11 +20,6 @@
 				<AuxBus Id="3204322453" Name="Reverb_Lieu_Repos" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Lieu_Repos"/>
 				<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
 			</IncludedAuxBusses>
-		</SoundBank>
-		<SoundBank Id="2603708050" Language="SFX">
-			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankObstacles</ObjectPath>
-			<ShortName>SoundBankObstacles</ShortName>
-			<Path>SoundBankObstacles.bnk</Path>
 		</SoundBank>
 		<SoundBank Id="3163481603" Language="SFX">
 			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankPC</ObjectPath>
@@ -409,6 +399,9 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3783189458" Name="Play_Music_Main_Title" ObjectPath="\Events\Music\Play_Music_Main_Title" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1699343283" Name="Play_Music_Menu" ObjectPath="\Events\Music\Play_Music_Menu" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2207892326" Name="Play_Music_Safe_Zone" ObjectPath="\Events\Music\Play_Music_Safe_Zone" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4134052420" Name="Play_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Play_Parc_Chien" MaxAttenuation="60.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="132806480" Language="SFX">
@@ -799,6 +792,46 @@
 						<File Id="611649318" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_OiseauxetVent01.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_OiseauxetVent01_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2968327968" Name="Play_Pigeon" ObjectPath="\Events\Ville_Ambiance\Play_Pigeon" MaxAttenuation="70.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="17005130" Language="SFX">
+							<ShortName>Pigeon 09.wav</ShortName>
+							<Path>SFX\Pigeon 09_3F75BDB9.wem</Path>
+						</File>
+						<File Id="69740469" Language="SFX">
+							<ShortName>Pigeon 04.wav</ShortName>
+							<Path>SFX\Pigeon 04_3F75BDB9.wem</Path>
+						</File>
+						<File Id="91571436" Language="SFX">
+							<ShortName>Pigeon 03.wav</ShortName>
+							<Path>SFX\Pigeon 03_3F75BDB9.wem</Path>
+						</File>
+						<File Id="417849634" Language="SFX">
+							<ShortName>Pigeon 05.wav</ShortName>
+							<Path>SFX\Pigeon 05_3F75BDB9.wem</Path>
+						</File>
+						<File Id="656886493" Language="SFX">
+							<ShortName>Pigeon 06.wav</ShortName>
+							<Path>SFX\Pigeon 06_3F75BDB9.wem</Path>
+						</File>
+						<File Id="667690016" Language="SFX">
+							<ShortName>Pigeon 02.wav</ShortName>
+							<Path>SFX\Pigeon 02_3F75BDB9.wem</Path>
+						</File>
+						<File Id="868565761" Language="SFX">
+							<ShortName>Pigeon 08.wav</ShortName>
+							<Path>SFX\Pigeon 08_3F75BDB9.wem</Path>
+						</File>
+						<File Id="965543181" Language="SFX">
+							<ShortName>Pigeon 07.wav</ShortName>
+							<Path>SFX\Pigeon 07_3F75BDB9.wem</Path>
+						</File>
+						<File Id="1002150556" Language="SFX">
+							<ShortName>Pigeon 01.wav</ShortName>
+							<Path>SFX\Pigeon 01_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -4976,12 +5009,16 @@
 				<Event Id="882878844" Name="Stop_Klaxons" ObjectPath="\Events\Ville_Obstacles\Stop_Klaxons" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2738893335" Name="Stop_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Stop_Marteau_Piqueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3194051996" Name="Stop_Music_Main_Title" ObjectPath="\Events\Music\Stop_Music_Main_Title" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="106912753" Name="Stop_Music_Menu" ObjectPath="\Events\Music\Stop_Music_Menu" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3846531396" Name="Stop_Music_Safe_Zone" ObjectPath="\Events\Music\Stop_Music_Safe_Zone" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2301453854" Name="Stop_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Stop_Parc_Chien" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3189001139" Name="Stop_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Eau_Lac" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="152275144" Name="Stop_Parc_Oiseaux1" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux1" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="152275147" Name="Stop_Parc_Oiseaux2" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux2" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="152275146" Name="Stop_Parc_Oiseaux3" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux3" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2647100474" Name="Stop_Parc_Vent" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Vent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2048920818" Name="Stop_Pigeon" ObjectPath="\Events\Ville_Ambiance\Stop_Pigeon" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3507864100" Name="Stop_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Stop_Quel_Moteur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="970688548" Name="Stop_Restorant" ObjectPath="\Events\Ville_Obstacles\Stop_Restorant" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2077251707" Name="Stop_Travaux" ObjectPath="\Events\Ville_Obstacles\Stop_Travaux" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

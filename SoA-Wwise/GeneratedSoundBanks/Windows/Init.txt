@@ -33,6 +33,7 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	351745915	Parc_Envi_Master			\Environnement\Parc_Envi_Master	
 	386419066	PersoMaster			\Personnage\PersoMaster	
 	1797562303	Parc_Obstacles_Master			\Obstacles\Parc_Obstacles_Master	
+	2111362598	MixMusic			\Default Work Unit\MixMusic	
 	2278553081	Ville_Obstacles_Master			\Obstacles\Ville_Obstacles_Master	
 	2734641465	NiveauEcoutePerso			\Default Work Unit\NiveauEcoutePerso	
 	2740603104	MixPROTECTION			\Default Work Unit\MixPROTECTION	

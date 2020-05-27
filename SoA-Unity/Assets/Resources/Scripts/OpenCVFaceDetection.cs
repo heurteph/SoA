@@ -41,6 +41,10 @@ public class OpenCVFaceDetection : MonoBehaviour
 
     private const int DetectionDownScale = 1;
 
+    //ne marche pas avec static
+    [SerializeField]
+    private bool activate = true;
+
     private bool _ready;
     private int _maxFaceDetectCount = 5;
     private bool reset = true;
@@ -79,62 +83,75 @@ public class OpenCVFaceDetection : MonoBehaviour
         }
     }
 
+    public void setActivate(bool state)
+    {
+        this.activate = state;
+    }
+
+    public bool getActivate()
+    {
+        return this.activate;
+    }
+
     void Update()
     {
-        if (!_ready)
-            return;
-
-        int detectedFaceCount = 0;
-        unsafe
+        if (activate)
         {
-            fixed(CvCircle* outFaces = _faces)
+            if (!_ready)
+                return;
+
+            int detectedFaceCount = 0;
+            unsafe
             {
-                OpenCVInterop.Detect(outFaces, _maxFaceDetectCount, ref detectedFaceCount);
-            }
-        }
-        NormalizedFacePositions.Clear();
-        int max = 0;
-        int num = -1;
-
-        if (detectedFaceCount == 0 || oldPosition == null)
-        {
-            reset = true;
-        }
-        else
-        {
-            reset = false;
-        }
-
-        for (int i = 0; i < detectedFaceCount; i++)
-        {
-            NormalizedFacePositions.Add(new Vector2((_faces[i].X * DetectionDownScale) / CameraResolution.x, 1f - ((_faces[i].Y * DetectionDownScale) / CameraResolution.y)));
-            if(max < _faces[i].Radius)
-            {
-                if (!reset)
+                fixed (CvCircle* outFaces = _faces)
                 {
-                    //un premier filtre d'input
-                    float distance = (NormalizedFacePositions[NormalizedFacePositions.Count-1] - oldPosition).magnitude;
-                    if (distance < 100 && distance >= 0.5)
+                    OpenCVInterop.Detect(outFaces, _maxFaceDetectCount, ref detectedFaceCount);
+                }
+            }
+            NormalizedFacePositions.Clear();
+            int max = 0;
+            int num = -1;
+
+            if (detectedFaceCount == 0 || oldPosition == null)
+            {
+                reset = true;
+            }
+            else
+            {
+                reset = false;
+            }
+
+            for (int i = 0; i < detectedFaceCount; i++)
+            {
+                NormalizedFacePositions.Add(new Vector2((_faces[i].X * DetectionDownScale) / CameraResolution.x, 1f - ((_faces[i].Y * DetectionDownScale) / CameraResolution.y)));
+                if (max < _faces[i].Radius)
+                {
+                    if (!reset)
                     {
-                        Debug.Log("Distance "+distance);
+                        //un premier filtre d'input
+                        float distance = (NormalizedFacePositions[NormalizedFacePositions.Count - 1] - oldPosition).magnitude;
+                        if (distance < 100 && distance >= 0.5)
+                        {
+                            Debug.Log("Distance " + distance);
+                            max = _faces[i].Radius;
+                            positions = NormalizedFacePositions[NormalizedFacePositions.Count - 1];
+                            positions.z = max;
+                            num = i;
+                        }
+                    }
+                    else
+                    {
                         max = _faces[i].Radius;
                         positions = NormalizedFacePositions[NormalizedFacePositions.Count - 1];
-                        positions.z = max;
                         num = i;
                     }
                 }
-                else
-                {
-                    max = _faces[i].Radius;
-                    positions = NormalizedFacePositions[NormalizedFacePositions.Count - 1];
-                    num = i;
-                }
             }
-        }
-        taille = max;
-        if (num < 0)
-        {
-            detectedFaceCount = 0;
+            taille = max;
+            if (num < 0)
+            {
+                detectedFaceCount = 0;
+            }
         }
     }
 }

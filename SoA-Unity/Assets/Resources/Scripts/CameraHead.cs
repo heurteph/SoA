@@ -20,6 +20,8 @@ public class CameraHead : MonoBehaviour
     float offsetZ;
     [SerializeField]
     private float factor = 1.0f;
+    [SerializeField]
+    private OpenCVFaceDetection opencv;
     float a00, a01, a02;
     float a10, a11, a12;
     float a20, a21, a22;
@@ -106,26 +108,28 @@ public class CameraHead : MonoBehaviour
          //transform.position = Camera.main.ViewportToWorldPoint(new Vector3(OpenCVFaceDetection.positions.x, 1 - OpenCVFaceDetection.positions.y, _camDistance));
 
 
-         float radius_median = 85.0f;
+        float radius_median = 85.0f;
+        float marge_erreur = 0.025f;
+        float marge_erreur_radius = 5.0f;
 
-         offSet.x = (OpenCVFaceDetection.positions.x * 2.0f)-1.0f;
-         offSet.y = (OpenCVFaceDetection.positions.y * 2.0f) - 1.0f;
-         //offsetZ = OpenCVFaceDetection.positions.z/radius_median;
+        if (opencv.getActivate())
+        {
+            offSet.x = (OpenCVFaceDetection.positions.x * 2.0f) - 1.0f;
+            offSet.y = (OpenCVFaceDetection.positions.y * 2.0f) - 1.0f;
+            //offsetZ = OpenCVFaceDetection.positions.z/radius_median;
+            Debug.Log("Radius est de " + OpenCVFaceDetection.positions.z);
 
-         Debug.Log("Radius est de " + OpenCVFaceDetection.positions.z);
+            Debug.Log("Offsets dot " + Mathf.Acos(offSet.x * old_offset.x + offSet.y * old_offset.y));
 
-         Debug.Log("Offsets dot "+ Mathf.Acos(offSet.x * old_offset.x + offSet.y * old_offset.y));
+            Debug.Log("Marge erreur " + Mathf.Abs(offSet.x - old_offset.x) + " et " + Mathf.Abs(offSet.y - old_offset.y));
+        }
 
-         float marge_erreur = 0.025f;
-         float marge_erreur_radius = 5.0f;
-         Debug.Log("Marge erreur "+ Mathf.Abs(offSet.x - old_offset.x)+" et "+ Mathf.Abs(offSet.y - old_offset.y));
+        //un second filtre pour calibrage du cadrage
 
-         //un second filtre pour calibrage du cadrage
-
-         //ici détermine si marge d'erreur pour éviter tremblements
-         //en angle ? => pour dot product evaluation
-         //if(Mathf.Abs(Mathf.Acos(offSet.x * old_offset.x + offSet.y * old_offset.y)) >= (Mathf.Deg2Rad * 90.0f))
-         if(Mathf.Abs(offSet.x - old_offset.x) > marge_erreur || Mathf.Abs(offSet.y - old_offset.y) > marge_erreur )//|| Mathf.Abs(offsetZ - old_offset_z) > marge_erreur_radius )
+        //ici détermine si marge d'erreur pour éviter tremblements
+        //en angle ? => pour dot product evaluation
+        //if(Mathf.Abs(Mathf.Acos(offSet.x * old_offset.x + offSet.y * old_offset.y)) >= (Mathf.Deg2Rad * 90.0f))
+        if (opencv.getActivate() && Mathf.Abs(offSet.x - old_offset.x) > marge_erreur || Mathf.Abs(offSet.y - old_offset.y) > marge_erreur )//|| Mathf.Abs(offsetZ - old_offset_z) > marge_erreur_radius )
          {
              Matrix4x4 shear = Matrix4x4.identity;
              //shear.SetRow(1,new Vector4(0,1,2,0));

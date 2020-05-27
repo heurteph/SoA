@@ -125,22 +125,12 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Parc_Vent_01" ID="{F9F0F329-58DE-4FC6-B5A3-18369EA6BCB6}">
-					<ChildrenList>
-						<Action Name="" ID="{E21D635B-DAC1-408F-91D5-92D33F58BF7D}" ShortID="1053506588">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Parc_Vent" ID="{AF53DAD7-15E5-4DA3-A016-9FE6C2618527}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Stop_Parc_Vent" ID="{966B6118-9510-49EE-B4FD-F08C15C3EE98}">
 					<ChildrenList>
 						<Action Name="" ID="{379842B3-0BC9-4C4F-8A8C-A021953715B9}" ShortID="992202594">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">

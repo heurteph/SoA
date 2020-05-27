@@ -6,6 +6,9 @@
 				<Event Name="Play_Parc_Oiseaux2" ID="{67E33752-FEA7-41C4-9D7B-DFAC17D87F2D}">
 					<ChildrenList>
 						<Action Name="" ID="{072E9410-8157-4C01-91A6-48A9F9758ADC}" ShortID="517051262">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Parc_Oiseaux2" ID="{9885EDB3-662D-4C23-8544-8407A936FAC0}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
@@ -28,6 +31,9 @@
 				<Event Name="Play_Parc_Vent" ID="{8878F673-1F21-4A4C-BB93-2860EDB44A08}">
 					<ChildrenList>
 						<Action Name="" ID="{29D2FC58-6A81-40F8-A8B5-2622B897111E}" ShortID="304481046">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Parc_Vent" ID="{AF53DAD7-15E5-4DA3-A016-9FE6C2618527}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
@@ -39,6 +45,9 @@
 				<Event Name="Play_Parc_Oiseaux1" ID="{8E0DC551-5AC3-4E65-97E0-6FBFA6636F5D}">
 					<ChildrenList>
 						<Action Name="" ID="{1F88DF40-0C6C-4E3A-BFB8-E7E291B26CB2}" ShortID="532627725">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Parc_Oiseaux1" ID="{F5E77440-D485-43CD-8CA1-5F9EE4872930}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
@@ -52,6 +61,7 @@
 						<Action Name="" ID="{831AA569-17D4-48D7-896A-AF76CC537B5D}" ShortID="396528096">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -77,6 +87,7 @@
 						<Action Name="" ID="{CAF2FBA9-BFB9-4242-9B82-3026A6362D5E}" ShortID="66556936">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -103,6 +114,9 @@
 				<Event Name="Play_Parc_Oiseaux3" ID="{2FE37D3F-37F6-4301-B0A8-235E75135CA8}">
 					<ChildrenList>
 						<Action Name="" ID="{2E122585-3D72-493A-82E3-9073099E0133}" ShortID="586665924">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Parc_Oiseaux3" ID="{E6EBF856-29C2-4753-92EF-92D1EB6F4680}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
@@ -116,6 +130,7 @@
 						<Action Name="" ID="{D41944D1-768C-4C31-9122-411EED8AC741}" ShortID="441924025">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">

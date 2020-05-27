@@ -6,6 +6,9 @@
 				<Event Name="Play_Pigeon" ID="{3970AFCB-7070-40E1-9A66-E7BDFCC0F0A7}">
 					<ChildrenList>
 						<Action Name="" ID="{57370610-18CB-45DB-ADFD-C4AC9099A691}" ShortID="923912020">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Pigeon" ID="{7F1C7036-725A-4DF7-A5E5-3244E290AFCB}" WorkUnitID="{42260FA2-A153-4E82-AFED-FE420DEE6A3F}"/>
@@ -52,7 +55,7 @@
 						<Action Name="" ID="{00E44FD3-A425-47D8-A802-76A26EF62870}" ShortID="311771007">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
-								<Property Name="FadeTime" Type="Real64" Value="1"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">

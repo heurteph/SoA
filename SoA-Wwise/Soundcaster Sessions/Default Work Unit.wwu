@@ -6,16 +6,36 @@
 				<SoundcasterSession Name="SoundCaster" ID="{0B387E94-8EAD-4096-8099-BAABE001D6C3}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="Play_Music_Main_Title" ID="{D7B912B2-7228-427F-8486-8F9F537B030E}" WorkUnitID="{5CA3354F-DAF8-4AA3-87C4-683190286603}"/>
+							<ObjectRef Name="Play_Parc_Oiseaux1" ID="{8E0DC551-5AC3-4E65-97E0-6FBFA6636F5D}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Play_Music_Menu" ID="{1209BCC7-16E4-403A-A1A8-21D24501CDD2}" WorkUnitID="{5CA3354F-DAF8-4AA3-87C4-683190286603}"/>
+							<ObjectRef Name="Stop_Parc_Oiseaux1" ID="{2EC30BB7-A1D3-4C14-8697-896E57F3A5CE}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Pigeon" ID="{3970AFCB-7070-40E1-9A66-E7BDFCC0F0A7}" WorkUnitID="{3826A10E-D685-413C-9E39-9C83424A5080}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Parc_Oiseaux2" ID="{67E33752-FEA7-41C4-9D7B-DFAC17D87F2D}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
 							<Position X="1" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Play_Music_Safe_Zone" ID="{A1E59453-2C7C-4173-9EFE-3E223F47DD75}" WorkUnitID="{5CA3354F-DAF8-4AA3-87C4-683190286603}"/>
+							<ObjectRef Name="Stop_Parc_Oiseaux2" ID="{DD2C23EE-23DF-40CE-95A3-F93D0ACE5DAB}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Stop_Pigeon" ID="{287FA844-3381-42CF-B313-4D0AE223CF55}" WorkUnitID="{3826A10E-D685-413C-9E39-9C83424A5080}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Parc_Oiseaux3" ID="{2FE37D3F-37F6-4301-B0A8-235E75135CA8}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
 							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Stop_Parc_Oiseaux3" ID="{641E0DDB-02A3-42B2-982F-1EC8CFBD6DE9}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
+							<Position X="2" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">

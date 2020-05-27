@@ -808,14 +808,6 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3266099682" Name="Play_Parc_Vent_01" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Vent_01" DurationType="Infinite">
-					<IncludedMemoryFiles>
-						<File Id="611649318" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_OiseauxetVent01.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_OiseauxetVent01_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
 				<Event Id="2968327968" Name="Play_Pigeon" ObjectPath="\Events\Ville_Ambiance\Play_Pigeon" MaxAttenuation="70.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="17005130" Language="SFX">

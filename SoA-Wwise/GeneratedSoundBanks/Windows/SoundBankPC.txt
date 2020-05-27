@@ -41,7 +41,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	3189001139	Stop_Parc_Eau_Lac			\Parc_Ambiance\Stop_Parc_Eau_Lac	
 	3194051996	Stop_Music_Main_Title			\Music\Stop_Music_Main_Title	
 	3232482810	Play_Bus_Door_Close			\Ville_Obstacles\Play_Bus_Door_Close	
-	3266099682	Play_Parc_Vent_01			\Parc_Ambiance\Play_Parc_Vent_01	
 	3267333498	Stop_Ecole			\Ville_Obstacles\Stop_Ecole	
 	3389613819	Play_ArrosageAuto			\Parc_Obstacles\Play_ArrosageAuto	
 	3446893021	Play_Humain_Mange2			\Parc_Obstacles\Play_Humain_Mange2	

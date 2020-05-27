@@ -33,13 +33,13 @@ public class TriggerAmbiance : MonoBehaviour
 
             if (ambiance == AMBIANCE.PARK)
             {
-                other.GetComponent<PostWwiseAmbiance>().CityAmbianceEvent.Stop(other.gameObject);
-                other.GetComponent<PostWwiseAmbiance>().ParkAmbianceEvent.Post(other.gameObject);
+                other.GetComponent<PostWwiseAmbiance>().CityAmbianceEventStop.Post(other.gameObject);
+                other.GetComponent<PostWwiseAmbiance>().ParkAmbianceEventPlay.Post(other.gameObject);
             }
             else if (ambiance == AMBIANCE.CITY)
             {
-                other.GetComponent<PostWwiseAmbiance>().ParkAmbianceEvent.Stop(other.gameObject);
-                other.GetComponent<PostWwiseAmbiance>().CityAmbianceEvent.Post(other.gameObject);
+                other.GetComponent<PostWwiseAmbiance>().ParkAmbianceEventStop.Post(other.gameObject);
+                other.GetComponent<PostWwiseAmbiance>().CityAmbianceEventPlay.Post(other.gameObject);
             }
         }
     }

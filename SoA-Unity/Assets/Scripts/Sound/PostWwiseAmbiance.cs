@@ -6,14 +6,24 @@ using AK.Wwise;
 public class PostWwiseAmbiance : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("The event of the park ambiance")]
-    private AK.Wwise.Event parkAmbianceEvent;
-    public AK.Wwise.Event ParkAmbianceEvent { get { return parkAmbianceEvent; } }
+    [Tooltip("The play event of the park ambiance")]
+    private AK.Wwise.Event parkAmbianceEventPlay;
+    public AK.Wwise.Event ParkAmbianceEventPlay { get { return parkAmbianceEventPlay; } }
 
     [SerializeField]
-    [Tooltip("The event of the city ambiance")]
-    private AK.Wwise.Event cityAmbianceEvent;
-    public AK.Wwise.Event CityAmbianceEvent { get { return cityAmbianceEvent; } }
+    [Tooltip("The stop event of the park ambiance")]
+    private AK.Wwise.Event parkAmbianceEventStop;
+    public AK.Wwise.Event ParkAmbianceEventStop { get { return parkAmbianceEventStop; } }
+
+    [SerializeField]
+    [Tooltip("The play event of the city ambiance")]
+    private AK.Wwise.Event cityAmbianceEventPlay;
+    public AK.Wwise.Event CityAmbianceEventPlay { get { return cityAmbianceEventPlay; } }
+
+    [SerializeField]
+    [Tooltip("The stop event of the city ambiance")]
+    private AK.Wwise.Event cityAmbianceEventStop;
+    public AK.Wwise.Event CityAmbianceEventStop { get { return cityAmbianceEventStop; } }
 
     [SerializeField]
     [Tooltip("The ambiance the game starts with")]
@@ -22,24 +32,32 @@ public class PostWwiseAmbiance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(parkAmbianceEvent == null)
+        if(parkAmbianceEventPlay == null)
         {
-            throw new System.NullReferenceException("No parkAmbiance sound event set on the script PostWwiseAmbiance");
+            throw new System.NullReferenceException("No parkAmbiance play sound event set on the script PostWwiseAmbiance");
         }
-        if (cityAmbianceEvent == null)
+        if (cityAmbianceEventPlay == null)
         {
-            throw new System.NullReferenceException("No cityAmbiance sound event set on the script PostWwiseAmbiance");
+            throw new System.NullReferenceException("No cityAmbiance play sound event set on the script PostWwiseAmbiance");
+        }
+        if (parkAmbianceEventStop == null)
+        {
+            throw new System.NullReferenceException("No parkAmbiance stop sound event set on the script PostWwiseAmbiance");
+        }
+        if (cityAmbianceEventStop == null)
+        {
+            throw new System.NullReferenceException("No cityAmbiance stop sound event set on the script PostWwiseAmbiance");
         }
 
         switch (ambiance)
         {
             case AMBIANCE.PARK:
-                CityAmbianceEvent.Stop(gameObject);
-                ParkAmbianceEvent.Post(gameObject);
+                CityAmbianceEventStop.Post(gameObject);
+                ParkAmbianceEventPlay.Post(gameObject);
                 break;
             case AMBIANCE.CITY:
-                ParkAmbianceEvent.Stop(gameObject);
-                CityAmbianceEvent.Post(gameObject);
+                ParkAmbianceEventStop.Post(gameObject);
+                CityAmbianceEventPlay.Post(gameObject);
                 break;
         }
     }

@@ -14,17 +14,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Humain_Joue2" ID="{83D63AF6-08E1-4A67-8B2B-CCDAE9B6BB4F}">
-					<ChildrenList>
-						<Action Name="" ID="{1A4C2562-4CA4-47D5-8C8D-C700D2DC195D}" ShortID="702124673">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Humain_Joue2" ID="{787B91F8-7883-4960-98AC-01E303D9CBEB}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Pleure_B_b_" ID="{98F598BD-9909-4F56-9D30-1B024A5DE5E7}">
 					<ChildrenList>
 						<Action Name="" ID="{5C6C0BBD-7856-432A-AD11-349FCF4951B3}" ShortID="951297411">
@@ -47,45 +36,12 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Humain_Joue1" ID="{1B829C5C-AFD3-4751-9444-D87507F6F77B}">
-					<ChildrenList>
-						<Action Name="" ID="{E3BCAD4E-97FE-4735-AFC5-2FEDD32AA351}" ShortID="76157694">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Humain_Joue1" ID="{C342AEC4-C0F9-4529-9383-7FA20EAA9130}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Humain_Mange2" ID="{BE7ECF45-C9CA-4452-8429-E1A50849A3BE}">
 					<ChildrenList>
 						<Action Name="" ID="{C6E5BB37-CCCF-43C7-B682-7C3541C35605}" ShortID="163403653">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Humain_Mange2" ID="{B891E2C8-E33F-443A-9FCB-45613DB4215A}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_Humain_MangeEnfant" ID="{8E8FC116-7607-4D35-901B-526244A9FF47}">
-					<ChildrenList>
-						<Action Name="" ID="{17FDB5B1-6653-46F9-898E-F817EBAC2377}" ShortID="738479973">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Humain_MangeEnfant" ID="{902EAF68-CFBE-4339-A182-3795D482ACAE}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_Humain_MangeEnfant2" ID="{0C7D5F7C-1619-498C-854A-0D4406D58B1F}">
-					<ChildrenList>
-						<Action Name="" ID="{649E0D9A-67F4-4F1D-ADD4-DB6340ED0D7B}" ShortID="418584918">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Humain_MangeEnfant2" ID="{FC565204-72FC-407E-85A6-F5BA870968D7}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -244,6 +200,20 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Branches_Tombent" ID="{5C72AD16-B2B2-4898-A26B-8658E188F7B8}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Pleure_B_b_" ID="{4C143AEB-CA08-487E-8774-9B711194A589}">
+					<ChildrenList>
+						<Action Name="" ID="{7F22BF9D-5E6C-49E8-9B03-AF3A2CA0BD86}" ShortID="462190294">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pleure_Bébé" ID="{45A9980F-A313-4543-9B6F-EDCC1EE2E086}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

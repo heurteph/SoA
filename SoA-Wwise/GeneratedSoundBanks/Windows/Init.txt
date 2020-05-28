@@ -33,6 +33,7 @@ Audio Bus	ID	Name			Wwise Object Path	Notes
 	351745915	Parc_Envi_Master			\Environnement\Parc_Envi_Master	
 	386419066	PersoMaster			\Personnage\PersoMaster	
 	1797562303	Parc_Obstacles_Master			\Obstacles\Parc_Obstacles_Master	
+	2033911932	NPCMaster			\Personnage\NPCMaster	
 	2111362598	MixMusic			\Default Work Unit\MixMusic	
 	2278553081	Ville_Obstacles_Master			\Obstacles\Ville_Obstacles_Master	
 	2734641465	NiveauEcoutePerso			\Default Work Unit\NiveauEcoutePerso	
@@ -48,7 +49,6 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	48620415	Have_U_Ever_Been_Outside	Wwise RoomVerb			
-	365387103	Wwise_Parametric_EQ_(Custom)	Wwise Parametric EQ			
 	486877881	Wwise_Meter_(Custom)	Wwise Meter			
 
 Audio Devices	ID	Name	Type				Notes

@@ -226,8 +226,6 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3185656221" Name="Play_Humain_Joue1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Joue1" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3185656222" Name="Play_Humain_Joue2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Joue2" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3446893022" Name="Play_Humain_Mange1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Mange1" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="16.954771" DurationMax="22.342501">
 					<IncludedMemoryFiles>
 						<File Id="383351680" Language="SFX">
@@ -252,8 +250,6 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="545734209" Name="Play_Humain_MangeEnfant" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1978073185" Name="Play_Humain_MangeEnfant2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_MangeEnfant2" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2894920242" Name="Play_Klaxons" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.115583" DurationMax="0.393208">
 					<IncludedMemoryFiles>
 						<File Id="8263096" Language="SFX">
@@ -626,10 +622,6 @@
 				</Event>
 				<Event Id="3725651504" Name="Play_Parc_Oiseaux3" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Oiseaux3" MaxAttenuation="80.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="5258784" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva26.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva26_3F75BDB9.wem</Path>
-						</File>
 						<File Id="46527227" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41_3F75BDB9.wem</Path>
@@ -637,14 +629,6 @@
 						<File Id="74171240" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55_3F75BDB9.wem</Path>
-						</File>
-						<File Id="133007546" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva30.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva30_3F75BDB9.wem</Path>
-						</File>
-						<File Id="135194486" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva22.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva22_3F75BDB9.wem</Path>
 						</File>
 						<File Id="136869288" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45.wav</ShortName>
@@ -662,29 +646,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59_3F75BDB9.wem</Path>
 						</File>
-						<File Id="196199171" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva24.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva24_3F75BDB9.wem</Path>
-						</File>
-						<File Id="199348966" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva28.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva28_3F75BDB9.wem</Path>
-						</File>
-						<File Id="226805572" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva18.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva18_3F75BDB9.wem</Path>
-						</File>
-						<File Id="342802182" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva20.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva20_3F75BDB9.wem</Path>
-						</File>
 						<File Id="373622773" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54_3F75BDB9.wem</Path>
-						</File>
-						<File Id="399643746" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva29.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva29_3F75BDB9.wem</Path>
 						</File>
 						<File Id="400387226" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44.wav</ShortName>
@@ -730,10 +694,6 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57_3F75BDB9.wem</Path>
 						</File>
-						<File Id="629932354" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva19.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva19_3F75BDB9.wem</Path>
-						</File>
 						<File Id="661410401" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48_3F75BDB9.wem</Path>
@@ -742,17 +702,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50_3F75BDB9.wem</Path>
 						</File>
-						<File Id="663455560" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva31.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva31_3F75BDB9.wem</Path>
-						</File>
 						<File Id="672883393" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42_3F75BDB9.wem</Path>
-						</File>
-						<File Id="689090821" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva25.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva25_3F75BDB9.wem</Path>
 						</File>
 						<File Id="712279529" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53.wav</ShortName>
@@ -762,25 +714,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52_3F75BDB9.wem</Path>
 						</File>
-						<File Id="763576408" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva23.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva23_3F75BDB9.wem</Path>
-						</File>
-						<File Id="773241233" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva27.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva27_3F75BDB9.wem</Path>
-						</File>
 						<File Id="783401644" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43_3F75BDB9.wem</Path>
-						</File>
-						<File Id="789117852" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva21.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva21_3F75BDB9.wem</Path>
-						</File>
-						<File Id="851641900" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva32.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva32_3F75BDB9.wem</Path>
 						</File>
 						<File Id="887674373" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40.wav</ShortName>
@@ -848,7 +784,38 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4114146970" Name="Play_Pleure_B_b_" ObjectPath="\Events\Parc_Obstacles\Play_Pleure_B_b_" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4114146970" Name="Play_Pleure_B_b_" ObjectPath="\Events\Parc_Obstacles\Play_Pleure_B_b_" MaxAttenuation="40.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="45625646" Language="SFX">
+							<ShortName>Parc_Obstacle_Bébé Pleure_01.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Bébé Pleure_01_3F75BDB9.wem</Path>
+						</File>
+						<File Id="354843354" Language="SFX">
+							<ShortName>Parc_Obstacle_Bébé Pleure_05.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Bébé Pleure_05_3F75BDB9.wem</Path>
+						</File>
+						<File Id="623632971" Language="SFX">
+							<ShortName>Parc_Obstacle_Bébé Pleure_03.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Bébé Pleure_03_3F75BDB9.wem</Path>
+						</File>
+						<File Id="640670987" Language="SFX">
+							<ShortName>Parc_Obstacle_Bébé Pleure_08.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Bébé Pleure_08_3F75BDB9.wem</Path>
+						</File>
+						<File Id="644078537" Language="SFX">
+							<ShortName>Parc_Obstacle_Bébé Pleure_04.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Bébé Pleure_04_3F75BDB9.wem</Path>
+						</File>
+						<File Id="798436109" Language="SFX">
+							<ShortName>Parc_Obstacle_Bébé Pleure_07.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Bébé Pleure_07_3F75BDB9.wem</Path>
+						</File>
+						<File Id="863615113" Language="SFX">
+							<ShortName>Parc_Obstacle_Bébé Pleure_06.wav</ShortName>
+							<Path>SFX\Parc_Obstacle_Bébé Pleure_06_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3518090694" Name="Play_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Play_Quel_Moteur" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="41790791" Language="SFX">
@@ -5032,6 +4999,7 @@
 				<Event Id="152275146" Name="Stop_Parc_Oiseaux3" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux3" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2647100474" Name="Stop_Parc_Vent" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Vent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2048920818" Name="Stop_Pigeon" ObjectPath="\Events\Ville_Ambiance\Stop_Pigeon" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1235857404" Name="Stop_Pleure_B_b_" ObjectPath="\Events\Parc_Obstacles\Stop_Pleure_B_b_" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3507864100" Name="Stop_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Stop_Quel_Moteur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="970688548" Name="Stop_Restorant" ObjectPath="\Events\Ville_Obstacles\Stop_Restorant" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2077251707" Name="Stop_Travaux" ObjectPath="\Events\Ville_Obstacles\Stop_Travaux" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

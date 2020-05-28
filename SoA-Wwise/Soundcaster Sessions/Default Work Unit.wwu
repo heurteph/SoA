@@ -62,14 +62,16 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
-						<CurrentStateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
+						<CurrentStateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Court" ID="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}"/>
 						<CurrentSwitchRef Name="Droit" ID="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}"/>
 						<CurrentSwitchRef Name="Expire" ID="{F7D3A280-1D9A-4432-998D-4526DC3381AD}"/>
 						<CurrentSwitchRef Name="A" ID="{8BB8AF89-EF19-45B4-9ADC-94E814EA87B8}"/>
+						<CurrentSwitchRef Name="Voix_01" ID="{1B5197C3-1ED2-4B02-A821-50ED71A023F0}"/>
 						<CurrentSwitchRef Name="Asphalt" ID="{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}"/>
+						<CurrentSwitchRef Name="Enfant" ID="{AC782653-54CA-4D62-8F12-E112E3E1A339}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>

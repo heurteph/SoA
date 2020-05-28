@@ -14,6 +14,13 @@
 						</Reference>
 					</ReferenceList>
 				</Bus>
+				<Bus Name="NPCMaster" ID="{C5EF87BE-08B9-4132-9465-421D07734BCA}">
+					<ReferenceList>
+						<Reference Name="AudioDevice">
+							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
+						</Reference>
+					</ReferenceList>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>

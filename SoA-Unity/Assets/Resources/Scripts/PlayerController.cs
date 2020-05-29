@@ -23,39 +23,12 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shear_mat = new Matrix4x4(new Vector4(1,0,a,0), new Vector4(0, 1, b, 0), new Vector4(0, 0, 1, 0), new Vector4(0, 0, 0, 1));
         cam = gameObject.GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        Render rend = GetComponentInChildren<Camera>().GetComponent<Render>();
-        if (Input.GetKey(KeyCode.G))
-        {
-            rend.offsetX -= rend.coef;
-            rend.offsetX = (rend.offsetX < -limit ? -limit : rend.offsetX);
-        }
-        else if (Input.GetKey(KeyCode.J)){
-            rend.offsetX += rend.coef;
-            rend.offsetX = (rend.offsetX > limit ? limit : rend.offsetX);
-        }
-        if (Input.GetKey(KeyCode.Y))
-        {
-            rend.offsetY += rend.coef;
-            rend.offsetY = (rend.offsetY > limit ? limit : rend.offsetY);
-        }
-        else if (Input.GetKey(KeyCode.H))
-        {
-            rend.offsetY -= rend.coef;
-            rend.offsetY = (rend.offsetY < -limit ? -limit : rend.offsetY);
-        }
-
-        if (Input.GetKey(KeyCode.R))
-        {
-            rend.offsetX = rend.offsetY = 0.0f;
-        }
 
         float x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         //float rot = Input.GetAxis("Horizontal") * rot_speed * Time.deltaTime;
@@ -87,46 +60,8 @@ public class PlayerController : MonoBehaviour
         //pour shearing apply
         //=> modify matrix of camera
 
-        Matrix4x4 mat = new Matrix4x4(cam.projectionMatrix.GetColumn(0), cam.projectionMatrix.GetColumn(1), 
-            cam.projectionMatrix.GetColumn(2), cam.projectionMatrix.GetColumn(3));
-        //mat.SetColumn()
-
-
-        //quand on passe pas de changement 
-        //uniquement si on reprend derriere
-        Matrix4x4 matproj = cam.projectionMatrix;
-        //matproj[0, 1] = 1.1f * matproj[0, 1];
-        //matproj[0, 2] = 1.001f * matproj[0, 2];
-
-
-        Debug.Log("Camera look at " + cam.transform.forward);
-
-
-        //cam.projectionMatrix = cam.projectionMatrix * shear_mat;
-        
-        
-        //cam.projectionMatrix[0, 1] = 2 * cam.projectionMatrix[0, 1];// = new Matrix4x4();
-        //cam.projectionMatrix[0, 2] = 2 * cam.projectionMatrix[0, 2];
-
-        Debug.Log("Angles " + cam.transform.eulerAngles);
-        Debug.Log("Local Angles " + cam.transform.eulerAngles);
-
-        /*Vector3 mvt = new Vector3(dir.x * x, 0.0f, dir.z * z);
-
-        Debug.Log("Dir " + dir);
-
-        transform.position += mvt;*/
-
-        //transform.Translate(new Vector3(x*dir.x, 0, z*dir.z));
         transform.Translate(new Vector3(x, 0, z));
 
         transform.forward = cam.transform.forward;
-
-        //ramene la cam en 0 0 0 pour transforme
-        /*cam.transform.position = new Vector3(0, 0, 0);
-        cam.transform.Rotate(0, Hrot, 0);
-        cam.transform.Rotate(Vrot, 0, 0);
-        cam.transform.position = pos;*/
-
     }
 }

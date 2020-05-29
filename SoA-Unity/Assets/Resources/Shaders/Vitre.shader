@@ -147,7 +147,7 @@
 					float4 light = lightIntensity * _LightColor0;
 					
 
-					float4 res = _Color * (_AmbientColor + light + specular);
+					float4 res = _Color * (_AmbientColor + light);// + specular);
 					res.a = _Color.a;
 					return res;
 				}

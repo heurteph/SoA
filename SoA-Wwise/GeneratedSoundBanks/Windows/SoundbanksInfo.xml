@@ -226,6 +226,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1086738306" Name="Play_Horloge" ObjectPath="\Events\Ville_Obstacles\Play_Horloge" MaxAttenuation="50.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="820214069" Language="SFX">
+							<ShortName>Horloge.wav</ShortName>
+							<Path>SFX\Horloge_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3446893022" Name="Play_Humain_Mange1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Mange1" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="16.954771" DurationMax="22.342501">
 					<IncludedMemoryFiles>
 						<File Id="383351680" Language="SFX">
@@ -4986,6 +4994,7 @@
 				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3267333498" Name="Stop_Ecole" ObjectPath="\Events\Ville_Obstacles\Stop_Ecole" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4256011363" Name="Stop_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Stop_Electrique_Buzz" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="725970268" Name="Stop_Horloge" ObjectPath="\Events\Ville_Obstacles\Stop_Horloge" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="882878844" Name="Stop_Klaxons" ObjectPath="\Events\Ville_Obstacles\Stop_Klaxons" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2738893335" Name="Stop_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Stop_Marteau_Piqueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

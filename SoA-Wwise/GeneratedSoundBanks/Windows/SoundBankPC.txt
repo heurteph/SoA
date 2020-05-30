@@ -4,6 +4,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	152275146	Stop_Parc_Oiseaux3			\Parc_Ambiance\Stop_Parc_Oiseaux3	
 	152275147	Stop_Parc_Oiseaux2			\Parc_Ambiance\Stop_Parc_Oiseaux2	
 	482787459	Play_Texture_Pas_Jogger			\Parc_Obstacles\Play_Texture_Pas_Jogger	
+	725970268	Stop_Horloge			\Ville_Obstacles\Stop_Horloge	
 	777875661	Stop_Canard			\Parc_Obstacles\Stop_Canard	
 	865874921	Play_Parc_Eau_Lac			\Parc_Ambiance\Play_Parc_Eau_Lac	
 	882878844	Stop_Klaxons			\Ville_Obstacles\Stop_Klaxons	
@@ -12,6 +13,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1047604054	Play_Texture_Pas			\Personnage\Play_Texture_Pas	
 	1056565793	Stop_ArrosageAuto			\Parc_Obstacles\Stop_ArrosageAuto	
 	1059727820	Stop_Climatiseur			\Ville_Obstacles\Stop_Climatiseur	
+	1086738306	Play_Horloge			\Ville_Obstacles\Play_Horloge	
 	1194390427	Stop_Moteur_Elagueur			\Parc_Obstacles\Stop_Moteur_Elagueur	
 	1235857404	Stop_Pleure_B_b_			\Parc_Obstacles\Stop_Pleure_B_b_	
 	1403256204	Play_Moteur_VoitureElec			\Parc_Obstacles\Play_Moteur_VoitureElec	
@@ -115,6 +117,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	20623495	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_VoitureElec		
 	99628228	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Véhicules		
 	100427968	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas		
+	106812017	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Horloge		
 	122069286	Non	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
 	265548802	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
 	278231684	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Humain_Ville		
@@ -129,6 +132,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	501317675	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Climatiseur		
 	502318422	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Véhicules		
 	504445497	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Pas\Texture Pas		
+	533184396	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Horloge		
 	637056278	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Electrique_Buzz		
 	660901397	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas		
 	662404909	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Ambiance_Parc\Nature_Parc		
@@ -643,6 +647,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	811214925	Respiration_Court_Expire 06	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Expire 06_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Expire\Respiration_Court_Expire 06		5062
 	816991328	Chantier	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Chantier_9EDFC787.wem		\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Humain_Ville\Travaux\Chantier		856106
 	819019520	Parc_Obstacles_Chien02	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacles_Chien02_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Nature\Parc_Chien\Parc_Obstacles_Chien02		3006
+	820214069	Horloge	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Horloge_9EDFC787.wem		\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Horloge		452839
 	822589587	Herbe_Run_Pied_Droit18	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Herbe_Run_Pied_Droit18_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Herbe\Droite_Gauche_Herbe_Court\Herbe_Court_Pied_Droit\Herbe_Run_Pied_Droit18		5066
 	826261588	Respiration_Court_Expire 32	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Expire 32_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Expire\Respiration_Court_Expire 32		4445
 	827518391	Parc_Obstacles_Humain_Joggueur_RespiFemme04	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme04_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Respiration_JoggueurF\Parc_Obstacles_Humain_Joggueur_RespiFemme04		11061

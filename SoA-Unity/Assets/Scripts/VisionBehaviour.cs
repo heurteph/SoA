@@ -68,6 +68,12 @@ public class VisionBehaviour : MonoBehaviour
     [Header("References")]
 
     [SerializeField]
+    private GameObject player;
+
+    [SerializeField]
+    private GameObject esthesia;
+
+    [SerializeField]
     private EnergyBehaviour energyBehaviour;
 
     [SerializeField]
@@ -87,6 +93,14 @@ public class VisionBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(esthesia.GetComponent<Animator>() == null)
+        {
+            throw new System.NullReferenceException("No Animator attached to Esthesia game object");
+        }
+        if (esthesia.GetComponent<EsthesiaAnimation>() == null)
+        {
+            throw new System.NullReferenceException("No Esthesia animation script attached to Esthesia game object");
+        }
         brightnessThreshold = normalBrightnessThreshold;
         brightnessThresholdEvent += energyBehaviour.DecreaseEnergy;
         grayScaleChangedEvent += debuggerBehaviour.DisplayBrightness;
@@ -159,6 +173,14 @@ public class VisionBehaviour : MonoBehaviour
         if (sum >= brightnessThreshold * t2D.width * t2D.height)
         {
             brightnessThresholdEvent(damage);
+
+            // Handle animations
+            if (!player.GetComponent<PlayerFirst>().IsDamagedEars)
+            {
+                player.GetComponent<PlayerFirst>().IsDamagedEyes = true;
+                // Set animation layer weight
+                //esthesia.GetComponent<EsthesiaAnimation>().SelectEyesDamageLayer();
+            }
         }
 
         t2D.Apply();

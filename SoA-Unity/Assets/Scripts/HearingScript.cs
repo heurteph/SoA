@@ -40,6 +40,12 @@ public class HearingScript : MonoBehaviour
     [Header("References")]
 
     [SerializeField]
+    private GameObject player;
+
+    [SerializeField]
+    private GameObject esthesia;
+
+    [SerializeField]
     private EnergyBehaviour energyBehaviour;
 
     [SerializeField]
@@ -70,6 +76,15 @@ public class HearingScript : MonoBehaviour
         if (audioManager == null)
         {
             throw new System.NullReferenceException("The audio manager could not be loaded");
+        }
+
+        if (esthesia.GetComponent<Animator>() == null)
+        {
+            throw new System.NullReferenceException("No Animator attached to Esthesia game object");
+        }
+        if (esthesia.GetComponent<EsthesiaAnimation>() == null)
+        {
+            throw new System.NullReferenceException("No Esthesia animation script attached to Esthesia game object");
         }
 
         LoudnessThresholdEvent += energyBehaviour.DecreaseEnergy;
@@ -140,6 +155,14 @@ public class HearingScript : MonoBehaviour
             if (loudness >= loudnessThreshold)
             {
                 LoudnessThresholdEvent(loudnessDamage);
+
+                // Handle animation
+                if (!player.GetComponent<PlayerFirst>().IsDamagedEyes)
+                {
+                    player.GetComponent<PlayerFirst>().IsDamagedEars = true;
+                    // Set animation layer weight
+                    //esthesia.GetComponent<EsthesiaAnimation>().SelectEarsDamageLayer();
+                }
 
                 //DamagingSourceEvent?.Invoke(ClosestAudioSource()); // more explicit test of existence needed
             }

@@ -75,19 +75,6 @@ public class EnergyBehaviour : MonoBehaviour
             energy = 0;
             OutOfEnergy();
         }
-        
-        if (!GetComponent<PlayerFirst>().IsDamaged)
-        {
-            EnterDamageStateEvent?.Invoke();
-            StartCoroutine("Timer");
-        }
-        GetComponent<PlayerFirst>().IsDamaged = true;
-    }
-
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(3);
-        GetComponent<PlayerFirst>().IsDamaged = false;
     }
 
     public void IncreaseEnergy(float e)

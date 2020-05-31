@@ -1613,10 +1613,12 @@ public class CameraFollow : MonoBehaviour
         player.GetComponent<PlayerFirst>().IsDamaged = true;*/
     }
 
+    // CHECK IF OK TO REMOVE THIS :
+    /*
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(3);
-        player.GetComponent<PlayerFirst>().IsDamaged = false;
-    }
+        player.GetComponent<PlayerFirst>().IsDamagedEyes = false;
+    }*/
 
 } //FINISH

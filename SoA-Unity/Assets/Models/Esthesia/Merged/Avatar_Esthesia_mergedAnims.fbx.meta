@@ -7,9 +7,50 @@ ModelImporter:
       74: -3832641714634462444
     second: idle_calm
   - first:
-      74: 7339084587802446365
-    second: walk_fast
-  externalObjects: {}
+      74: -202909045804930104
+    second: walk_24f
+  - first:
+      74: 7952213202645454071
+    second: walk_cover_eyes
+  - first:
+      74: 7685050369308703812
+    second: walk_cover_right_ear
+  - first:
+      74: 6305158685530150413
+    second: walk_cover_left_ear
+  - first:
+      74: 1976960155312975853
+    second: pose_protect_eyes
+  - first:
+      74: 9029193337599416575
+    second: pose_protect_ears
+  - first:
+      74: -37947346752637486
+    second: idle_damage_eyes_v1
+  - first:
+      74: -341492466195456207
+    second: idle_damage_eyes_v2
+  - first:
+      74: -5089239383092367119
+    second: idle_damage_ears
+  - first:
+      74: 2853417915127229539
+    second: walk_18f
+  - first:
+      74: -4910447036023959970
+    second: walk_damage_eyes_v1
+  - first:
+      74: 5690324956547268160
+    second: walk_damage_eyes_v2
+  - first:
+      74: -3377467182740217040
+    second: walk_damage_ears
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: esthesia
+    second: {fileID: 2100000, guid: 680311c9edb89ad45af55278fd80ea3f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -31,8 +72,69 @@ ModelImporter:
       inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
-      'walk_fast' has import animation warnings that might lower retargeting quality:\nNote:
+      'walk_24f' has import animation warnings that might lower retargeting quality:\nNote:
       Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'walk_cover_eyes' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'RingFinger2_R'
+      has translation animation that will be discarded.\n\t'Scapula_L' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'walk_cover_right_ear' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'walk_cover_left_ear' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'idle_damage_eyes_v1' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'idle_damage_eyes_v2' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'idle_damage_ears' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'walk_18f' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'walk_damage_eyes_v1' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'walk_damage_eyes_v2' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'walk_damage_ears' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
@@ -48,66 +150,8 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: idle_calm
-      takeName: idle_calm
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 425
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: walk_fast
-      takeName: walk_fast
-      internalID: 0
-      firstFrame: 430
-      lastFrame: 670
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    isReadable: 1
+    clipAnimations: []
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -1077,7 +1121,7 @@ ModelImporter:
     - name: FKOffsetMiddleFinger3_R
       parentName: FKXMiddleFinger2_R
       position: {x: -0.063538514, y: -1.6164847e-15, z: -5.1159075e-15}
-      rotation: {x: 0.0033149251, y: -0.039546717, z: 0.021947807, w: 0.99897116}
+      rotation: {x: 0.003314925, y: -0.039546717, z: 0.021947807, w: 0.99897116}
       scale: {x: 1, y: 1, z: 1}
     - name: SDKFKMiddleFinger3_R
       parentName: FKOffsetMiddleFinger3_R
@@ -1122,7 +1166,7 @@ ModelImporter:
     - name: FKOffsetThumbFinger2_R
       parentName: FKXThumbFinger1_R
       position: {x: -0.11044711, y: 1.1368684e-15, z: -1.2789769e-15}
-      rotation: {x: 0.041107003, y: -0.10568145, z: -0.02307759, w: 0.993282}
+      rotation: {x: 0.041107, y: -0.10568144, z: -0.02307759, w: 0.993282}
       scale: {x: 1, y: 1, z: 1}
     - name: SDKFKThumbFinger2_R
       parentName: FKOffsetThumbFinger2_R
@@ -1197,7 +1241,7 @@ ModelImporter:
     - name: FKOffsetIndexFinger2_R
       parentName: FKXIndexFinger1_R
       position: {x: -0.0916811, y: 1.4210854e-15, z: 1.7053025e-15}
-      rotation: {x: 0.008977345, y: -0.15350175, z: 0.0024720046, w: 0.9881045}
+      rotation: {x: 0.008977345, y: -0.15350175, z: 0.0024720044, w: 0.9881045}
       scale: {x: 1, y: 1, z: 1}
     - name: SDKFKIndexFinger2_R
       parentName: FKOffsetIndexFinger2_R
@@ -1222,7 +1266,7 @@ ModelImporter:
     - name: FKOffsetIndexFinger3_R
       parentName: FKXIndexFinger2_R
       position: {x: -0.056932542, y: -5.684342e-16, z: -4.263256e-15}
-      rotation: {x: -0.015060988, y: 0.004727858, z: 0.00892811, w: 0.99983555}
+      rotation: {x: -0.015060987, y: 0.004727858, z: 0.00892811, w: 0.99983555}
       scale: {x: 1, y: 1, z: 1}
     - name: SDKFKIndexFinger3_R
       parentName: FKOffsetIndexFinger3_R
@@ -1347,7 +1391,7 @@ ModelImporter:
     - name: FKOffsetPinkyFinger2_R
       parentName: FKXPinkyFinger1_R
       position: {x: -0.06497931, y: -6.3948843e-16, z: -2.8421708e-15}
-      rotation: {x: 0.013839222, y: -0.14400029, z: 0.02473696, w: 0.9891716}
+      rotation: {x: 0.013839222, y: -0.1440003, z: 0.02473696, w: 0.9891716}
       scale: {x: 1, y: 1, z: 1}
     - name: SDKFKPinkyFinger2_R
       parentName: FKOffsetPinkyFinger2_R
@@ -1372,7 +1416,7 @@ ModelImporter:
     - name: FKOffsetPinkyFinger3_R
       parentName: FKXPinkyFinger2_R
       position: {x: -0.04831985, y: -5.684342e-16, z: 2.8421708e-15}
-      rotation: {x: 0.007925941, y: -0.19937138, z: 0.020015541, w: 0.9796875}
+      rotation: {x: 0.007925941, y: -0.19937137, z: 0.020015541, w: 0.9796875}
       scale: {x: 1, y: 1, z: 1}
     - name: SDKFKPinkyFinger3_R
       parentName: FKOffsetPinkyFinger3_R
@@ -1467,7 +1511,7 @@ ModelImporter:
     - name: AlignIKToWrist_R
       parentName: FKXWrist_R
       position: {x: -0, y: 0, z: -5.684342e-16}
-      rotation: {x: 0.08110815, y: 0.6036819, z: 0.6914806, w: -0.38838673}
+      rotation: {x: 0.081108086, y: 0.6036819, z: 0.6914806, w: -0.38838673}
       scale: {x: 1, y: 1, z: 1}
     - name: FKParentConstraintToChest_M
       parentName: FKSystem
@@ -4148,16 +4192,16 @@ ModelImporter:
       parentName: Chest_M
       position: {x: -0.13270302, y: 0.046755012, z: -0.18621433}
       rotation: {x: -0.013768112, y: 0.7327274, z: 0.05218958, w: -0.67837846}
-      scale: {x: 1.0000002, y: 1.0000002, z: 1}
+      scale: {x: 1.0000006, y: 1.0000002, z: 1.0000002}
     - name: Shoulder_R
       parentName: Scapula_R
       position: {x: -0.19595772, y: -5.684342e-16, z: -3.410605e-15}
-      rotation: {x: 0.17032382, y: -0.10839145, z: 0.022925595, w: 0.9791402}
+      rotation: {x: 0.17032382, y: -0.10839157, z: 0.022925569, w: 0.9791402}
       scale: {x: 1.0000004, y: 1.0000004, z: 1}
     - name: ShoulderPart1_R
       parentName: Shoulder_R
       position: {x: -0.22067139, y: -6.9633185e-15, z: -6.82121e-15}
-      rotation: {x: 0.0000000149011505, y: 0.11798946, z: -0.0062427595, w: 0.9929952}
+      rotation: {x: -0.000000029802301, y: 0.11798943, z: -0.00624271, w: 0.99299526}
       scale: {x: 1.0000002, y: 1.0000005, z: 1.0000005}
     - name: ShoulderPart2_R
       parentName: ShoulderPart1_R
@@ -4167,7 +4211,7 @@ ModelImporter:
     - name: Elbow_R
       parentName: ShoulderPart2_R
       position: {x: -0.22067139, y: -6.9633185e-15, z: -6.536993e-15}
-      rotation: {x: 0.0020342977, y: 0.021709422, z: -0.03804686, w: 0.9990381}
+      rotation: {x: 0.0020343899, y: 0.021709526, z: -0.03804676, w: 0.99903804}
       scale: {x: 1, y: 1.0000001, z: 0.99999994}
     - name: Wrist_R
       parentName: Elbow_R
@@ -4182,12 +4226,12 @@ ModelImporter:
     - name: MiddleFinger2_R
       parentName: MiddleFinger1_R
       position: {x: -0.105269045, y: 1.3145041e-15, z: 1.4743761e-15}
-      rotation: {x: 0.015476203, y: -0.037107997, z: -0.007268689, w: 0.99916506}
+      rotation: {x: 0.015476363, y: -0.0371052, z: -0.007266409, w: 0.9991652}
       scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
     - name: MiddleFinger3_R
       parentName: MiddleFinger2_R
       position: {x: -0.063538514, y: -1.847411e-15, z: -5.1159075e-15}
-      rotation: {x: 0.0033153961, y: -0.036164064, z: 0.02007053, w: 0.99913883}
+      rotation: {x: 0.003315526, y: -0.03616033, z: 0.020068398, w: 0.999139}
       scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
     - name: MiddleFinger4_R
       parentName: MiddleFinger3_R
@@ -4197,12 +4241,12 @@ ModelImporter:
     - name: ThumbFinger1_R
       parentName: Wrist_R
       position: {x: -0.08329148, y: 0.04884855, z: -0.023255799}
-      rotation: {x: -0.501869, y: 0.21790758, z: -0.24708563, w: 0.79974526}
+      rotation: {x: -0.5018689, y: 0.21790826, z: -0.24708554, w: 0.79974526}
       scale: {x: 1, y: 1, z: 0.99999994}
     - name: ThumbFinger2_R
       parentName: ThumbFinger1_R
       position: {x: -0.11044711, y: 9.592326e-16, z: -1.7053025e-15}
-      rotation: {x: 0.041319784, y: -0.037312686, z: -0.008148157, w: 0.9984158}
+      rotation: {x: 0.041319713, y: -0.037312288, z: -0.008148796, w: 0.99841577}
       scale: {x: 1.0000002, y: 1.0000002, z: 0.9999998}
     - name: ThumbFinger3_R
       parentName: ThumbFinger2_R
@@ -4222,7 +4266,7 @@ ModelImporter:
     - name: IndexFinger2_R
       parentName: IndexFinger1_R
       position: {x: -0.0916811, y: 1.5276668e-15, z: 2.344791e-15}
-      rotation: {x: 0.0090790605, y: -0.035853308, z: 0.0005791365, w: 0.9993157}
+      rotation: {x: 0.0090789655, y: -0.03585867, z: 0.000575207, w: 0.9993155}
       scale: {x: 1.0000005, y: 1.0000002, z: 1.0000001}
     - name: IndexFinger3_R
       parentName: IndexFinger2_R
@@ -4237,12 +4281,12 @@ ModelImporter:
     - name: RingFinger1_R
       parentName: Wrist_R
       position: {x: -0.24472772, y: -0.05156626, z: 0.0038179746}
-      rotation: {x: 0.12914474, y: -0.07380711, z: 0.037606783, w: 0.98815984}
+      rotation: {x: 0.12914482, y: -0.0738069, z: 0.037606567, w: 0.9881599}
       scale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
     - name: RingFinger2_R
       parentName: RingFinger1_R
       position: {x: -0.094920166, y: 7.105427e-16, z: 4.3121062e-15}
-      rotation: {x: -0.009950511, y: -0.035286967, z: 0.0013828436, w: 0.99932677}
+      rotation: {x: -0.009950471, y: -0.035284474, z: 0.0013825068, w: 0.9993268}
       scale: {x: 1.0000001, y: 1.0000002, z: 1.0000002}
     - name: RingFinger3_R
       parentName: RingFinger2_R
@@ -4262,12 +4306,12 @@ ModelImporter:
     - name: PinkyFinger2_R
       parentName: PinkyFinger1_R
       position: {x: -0.06497931, y: -5.684342e-16, z: -2.5934808e-15}
-      rotation: {x: 0.013980272, y: -0.03572144, z: 0.006136565, w: 0.9992452}
+      rotation: {x: 0.013980451, y: -0.035723884, z: 0.006135981, w: 0.9992451}
       scale: {x: 1.0000001, y: 1.0000004, z: 1.0000004}
     - name: PinkyFinger3_R
       parentName: PinkyFinger2_R
       position: {x: -0.04831985, y: -5.684342e-16, z: 2.4158453e-15}
-      rotation: {x: 0.008085602, y: -0.03324593, z: 0.0033376515, w: 0.9994089}
+      rotation: {x: 0.008085375, y: -0.03324251, z: 0.0033379123, w: 0.9994091}
       scale: {x: 1.0000001, y: 1, z: 0.9999998}
     - name: PinkyFinger4_R
       parentName: PinkyFinger3_R
@@ -4283,42 +4327,42 @@ ModelImporter:
       parentName: Neck_M
       position: {x: -0.21139497, y: -6.82121e-15, z: -1.8035065e-16}
       rotation: {x: 0.0000000016646113, y: -0.0000000012846345, z: 0.049873672, w: 0.9987556}
-      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000005}
-    - name: Eye_R
-      parentName: Head_M
-      position: {x: -0.26315075, y: 0.22382821, z: -0.088233724}
-      rotation: {x: -0.0000000020134423, y: -0.0000000124898, z: 0.6497668, w: -0.7601337}
-      scale: {x: 1.0000006, y: 1.0000008, z: 1.0000006}
-    - name: EyeEnd_R
-      parentName: Eye_R
-      position: {x: -0.044044573, y: 6.252776e-15, z: 5.32907e-16}
-      rotation: {x: -0, y: -0, z: -0.000000029802312, w: 1}
-      scale: {x: 1.0000005, y: 1.0000012, z: 1.0000005}
+      scale: {x: 1.0000039, y: 1.0000058, z: 1.000005}
     - name: Jaw_M
       parentName: Head_M
       position: {x: 0.055253413, y: 0.114525944, z: -4.010446e-16}
       rotation: {x: -0.00000003071664, y: -0.00000004520287, z: 0.6105515, w: -0.79197663}
-      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+      scale: {x: 1.0000005, y: 1.0000007, z: 1.0000005}
     - name: JawEnd_M
       parentName: Jaw_M
       position: {x: -0.13926673, y: 5.1159075e-15, z: -4.7288505e-16}
       rotation: {x: -1.7763564e-15, y: -0, z: -1.3884803e-15, w: 1}
-      scale: {x: 1.0000001, y: 1.0000004, z: 1}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1.0000002}
     - name: HeadEnd_M
       parentName: Head_M
       position: {x: -0.49046552, y: -3.9790393e-15, z: -8.024437e-16}
       rotation: {x: -0, y: -0, z: 0.0000000037252894, w: 1}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000002}
+    - name: Eye_R
+      parentName: Head_M
+      position: {x: -0.26315075, y: 0.22382821, z: -0.088233724}
+      rotation: {x: -0.0000000020134423, y: -0.0000000124898, z: 0.6497668, w: -0.7601337}
+      scale: {x: 1.000001, y: 1.0000035, z: 1.0000017}
+    - name: EyeEnd_R
+      parentName: Eye_R
+      position: {x: -0.044044573, y: 6.252776e-15, z: 5.32907e-16}
+      rotation: {x: -0, y: -0, z: -0.000000029802312, w: 1}
+      scale: {x: 1.0000032, y: 1.0000072, z: 1.0000026}
     - name: Eye_L
       parentName: Head_M
       position: {x: -0.26315075, y: 0.22382821, z: 0.088233724}
       rotation: {x: -0.0000000020134423, y: -0.0000000124898, z: 0.6497668, w: -0.7601337}
-      scale: {x: 1.0000006, y: 1.0000008, z: 1.0000006}
+      scale: {x: 1.000001, y: 1.0000035, z: 1.0000017}
     - name: EyeEnd_L
       parentName: Eye_L
       position: {x: -0.044044573, y: 2.2737367e-15, z: -4.2632563e-16}
       rotation: {x: -0, y: -0, z: -0.000000029802312, w: 1}
-      scale: {x: 1.0000005, y: 1.0000012, z: 1.0000005}
+      scale: {x: 1.0000032, y: 1.0000072, z: 1.0000026}
     - name: Scapula_L
       parentName: Chest_M
       position: {x: -0.13270302, y: 0.046755012, z: 0.18621433}
@@ -4328,7 +4372,7 @@ ModelImporter:
       parentName: Scapula_L
       position: {x: 0.19595772, y: -8.792966e-16, z: 5.1159075e-15}
       rotation: {x: 0.17032385, y: -0.1083911, z: 0.022925531, w: 0.9791402}
-      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000002}
+      scale: {x: 1.0000004, y: 1.0000007, z: 1.0000002}
     - name: ShoulderPart1_L
       parentName: Shoulder_L
       position: {x: 0.22067139, y: 6.9633185e-15, z: 7.389644e-15}
@@ -4373,12 +4417,12 @@ ModelImporter:
     - name: ThumbFinger1_L
       parentName: Wrist_L
       position: {x: 0.08329148, y: -0.04884855, z: 0.023255799}
-      rotation: {x: -0.50186896, y: 0.21790832, z: -0.24708532, w: 0.7997452}
+      rotation: {x: -0.50186896, y: 0.217908, z: -0.24708529, w: 0.79974526}
       scale: {x: 0.99999994, y: 0.9999998, z: 0.9999997}
     - name: ThumbFinger2_L
       parentName: ThumbFinger1_L
       position: {x: 0.11044711, y: 2.220446e-16, z: 3.2684964e-15}
-      rotation: {x: 0.041319504, y: -0.03731114, z: -0.008146613, w: 0.9984159}
+      rotation: {x: 0.04131977, y: -0.03731114, z: -0.008144906, w: 0.99841595}
       scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
     - name: ThumbFinger3_L
       parentName: ThumbFinger2_L
@@ -4413,12 +4457,12 @@ ModelImporter:
     - name: RingFinger1_L
       parentName: Wrist_L
       position: {x: 0.24472772, y: 0.05156626, z: -0.0038179746}
-      rotation: {x: 0.12914471, y: -0.073806934, z: 0.03760661, w: 0.9881599}
+      rotation: {x: 0.12914467, y: -0.073807366, z: 0.037606854, w: 0.9881598}
       scale: {x: 0.9999998, y: 0.99999946, z: 0.9999998}
     - name: RingFinger2_L
       parentName: RingFinger1_L
       position: {x: 0.094920166, y: -2.2737367e-15, z: -4.2099655e-15}
-      rotation: {x: -0.009950438, y: -0.035284206, z: 0.0013825985, w: 0.9993268}
+      rotation: {x: -0.009950441, y: -0.03528291, z: 0.0013814153, w: 0.9993269}
       scale: {x: 1, y: 1.0000004, z: 1.0000002}
     - name: RingFinger3_L
       parentName: RingFinger2_L
@@ -4485,13 +4529,83 @@ ModelImporter:
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: charaEyes_Esthesia_geo
+    - name: charaEyes_Esthesia_set
       parentName: CharaEsthesia_geo
+      position: {x: -0, y: 4.290912, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: eyes_neutral
+      parentName: charaEyes_Esthesia_set
+      position: {x: -0, y: -4.290912, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: charaEyebrows_NPC_geo
+      parentName: eyes_neutral
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: charaEyes_NPC_geo
+      parentName: eyes_neutral
       position: {x: -0, y: 0.0108741205, z: -0.010154696}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: charaEyebrows_Esthesia_geo
-      parentName: CharaEsthesia_geo
+    - name: eyes_happy
+      parentName: charaEyes_Esthesia_set
+      position: {x: -0, y: -4.290912, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: charaEyebrows_NPC_happy_geo
+      parentName: eyes_happy
+      position: {x: -0, y: 0.01008005, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: charaEyes_NPC_happy_geo
+      parentName: eyes_happy
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: eyes_worry
+      parentName: charaEyes_Esthesia_set
+      position: {x: -0, y: -4.290912, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: charaEyebrows_NPC_worry_geo
+      parentName: eyes_worry
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: charaEyes_NPC_worry_geo
+      parentName: eyes_worry
+      position: {x: -0, y: 0.0108741205, z: -0.010154696}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: eyes_calm
+      parentName: charaEyes_Esthesia_set
+      position: {x: -0, y: 0.091699935, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: charaEyes_NPC_calm_geo
+      parentName: eyes_calm
+      position: {x: -0, y: -4.3841453, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: charaEyebrows_NPC_calm_geo
+      parentName: eyes_calm
+      position: {x: -0, y: -4.3725324, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: eyes_pain
+      parentName: charaEyes_Esthesia_set
+      position: {x: -0, y: -4.290912, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: charaEyebrows_NPC_pain_geo
+      parentName: eyes_pain
+      position: {x: -0, y: -0.00025173565, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: charaEyes_NPC_pain_geo
+      parentName: eyes_pain
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}

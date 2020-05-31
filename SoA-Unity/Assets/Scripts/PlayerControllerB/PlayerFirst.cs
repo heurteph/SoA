@@ -99,8 +99,11 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     private bool isProtectingEars;
     public bool IsProtectingEars { get { return isProtectingEars; } set { isProtectingEars = value; } }
 
-    private bool isDamaged;
-    public bool IsDamaged { get { return isDamaged; } set { isDamaged = value; } }
+    private bool isDamagedEyes;
+    public bool IsDamagedEyes { get { return isDamagedEyes; } set { isDamagedEyes = value; } }
+
+    private bool isDamagedEars;
+    public bool IsDamagedEars { get { return isDamagedEars; } set { isDamagedEars = value; } }
 
     private bool isRunning;
     public bool IsRunning { get { return isRunning; } set { isRunning = value; } }
@@ -108,6 +111,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     [SerializeField]
     private Animator anim;
     public Animator Anim { get { return anim; } }
+
+    [SerializeField]
+    private GameObject esthesia;
 
     private Vector3 movement;
 
@@ -148,6 +154,15 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         {
             throw new System.Exception("Missing reference to a Wwise GameObject");
         }
+
+        if (esthesia.GetComponent<Animator>() == null)
+        {
+            throw new System.NullReferenceException("No Animator attached to Esthesia game object");
+        }
+        if (esthesia.GetComponent<EsthesiaAnimation>() == null)
+        {
+            throw new System.NullReferenceException("No Esthesia animation script attached to Esthesia game object");
+        }
     }
 
     // Start is called before the first frame update
@@ -168,7 +183,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
             characterController.Move(movement);
             movement = Vector3.zero;
 
-            if (isDamaged)
+            if (isDamagedEyes || isDamagedEars) // TO DO : Remove ???
             {
                 //inputs.Player.Walk.Disable();
                 //inputs.Player.ProtectEyes.Enable();
@@ -181,24 +196,29 @@ public class PlayerFirst : MonoBehaviour, IAnimable
             if (isProtectingEyes || isProtectingEars)
             {
                 //inputs.Player.Walk.Enable();
-                isDamaged = false; // To check
+                isDamagedEyes = false; // To check
+                isDamagedEars = false; // To check
                 AKRESULT result;
                 result = AkSoundEngine.SetSwitch("Court_Marche", "Court", wwiseGameObjectFootstep); // Running step sounds
                 result = AkSoundEngine.SetSwitch("Court_Marche", "Court", wwiseGameObjectBreath); // Running step sounds
             }
 
-            if (!isDamaged)
+            if (!isDamagedEyes && !isDamagedEars) // TO DO : Remove ???
             {
                 inputs.Player.Walk.Enable();
             }
 
             anim.SetBool("isProtectingEyes", isProtectingEyes);
             anim.SetBool("isProtectingEars", isProtectingEars);
-            anim.SetBool("isDamaged", isDamaged);
+            anim.SetBool("isDamagedEyes", isDamagedEyes);
+            anim.SetBool("isDamagedEars", isDamagedEars);
         }
         else // World-shelter transition
         {
             anim.SetBool("isWalking", false); // stop animation when warping
+            // handle animation layer
+            esthesia.GetComponent<EsthesiaAnimation>().SelectIdleLayer();
+
             AKRESULT result;
             result = AkSoundEngine.SetSwitch("Court_Marche", "Idle", wwiseGameObjectFootstep); // Idle step sounds
             result = AkSoundEngine.SetSwitch("Court_Marche", "Idle", wwiseGameObjectBreath); // Idle step sounds
@@ -240,6 +260,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
             {
                 isRunning = false;
                 anim.SetBool("isWalking", false);
+                // handle animation layer
+                esthesia.GetComponent<EsthesiaAnimation>().SelectIdleLayer();
+
                 AKRESULT result;
                 result = AkSoundEngine.SetSwitch("Court_Marche", "Idle", wwiseGameObjectFootstep); // Idle step sounds
                 result = AkSoundEngine.SetSwitch("Court_Marche", "Idle", wwiseGameObjectBreath); // Idle step sounds
@@ -247,6 +270,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
             {
                 isRunning = true;
                 anim.SetBool("isWalking", true);
+                // handle animation layer
+                esthesia.GetComponent<EsthesiaAnimation>().SelectWalkLayer();
+
                 AKRESULT result;
                 result = AkSoundEngine.SetSwitch("Court_Marche", "Marche", wwiseGameObjectFootstep); // Walking step sounds
                 result = AkSoundEngine.SetSwitch("Court_Marche", "Marche", wwiseGameObjectBreath); // Walking step sounds
@@ -299,6 +325,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         // TO DO : verifiy these two
         isRunning = true;
         anim.SetBool("isWalking", true);
+
+        // handle animation layer
+        esthesia.GetComponent<EsthesiaAnimation>().SelectWalkLayer();
 
         AKRESULT result;
         result = AkSoundEngine.SetSwitch("Court_Marche", "Marche", wwiseGameObjectFootstep);

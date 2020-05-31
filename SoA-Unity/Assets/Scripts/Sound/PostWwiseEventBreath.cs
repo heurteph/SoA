@@ -21,21 +21,14 @@ public class PostWwiseEventBreath : MonoBehaviour
     private const float breathPerMinuteHurry = 45;
     private const float breathPerMinuteProtected = 45;
 
-    private int holdBreathFactor = 0;
-
-    [SerializeField]
-    [Tooltip("How many seconds the character must hold her breathing during a cry")]
-    [Range(0.5f,2)]
-    private float holdBreathDuration = 2; //s
-
     // Use this for initialization.
     void Start()
     {
-        if(player == null)
+        if (player == null)
         {
             throw new System.Exception("No reference to the player in the PostWwiseEventBreath script");
         }
-        player.GetComponent<EnergyBehaviour>().EnterDamageStateEvent += HoldBreath; // no breathing over the cry
+        //player.GetComponent<EnergyBehaviour>().EnterDamageStateEvent += HoldBreath; // no breathing over the cry
 
         breathPerMinute = breathPerMinuteIdle;
         breathPerMinuteNext = breathPerMinute;
@@ -63,7 +56,7 @@ public class PostWwiseEventBreath : MonoBehaviour
         {
             breathPerMinuteNext = breathPerMinuteIdle;
         }
-        
+
         if (breathPerMinute < breathPerMinuteNext)
         {
             breathPerMinute = Mathf.Min(breathPerMinute + Time.deltaTime * transitionSpeedUp, breathPerMinuteNext);
@@ -79,12 +72,12 @@ public class PostWwiseEventBreath : MonoBehaviour
         for (; ; )
         {
             PlayBreathInSound();
-            for (float timer = 0; timer < 0.5f * 60f / breathPerMinute + holdBreathDuration * holdBreathFactor; timer += Time.deltaTime) { yield return null; }
-            holdBreathFactor = 0;
+            for (float timer = 0; timer < 0.5f * 60f / breathPerMinute; timer += Time.deltaTime) { yield return null; }
+            while (player.GetComponent<PlayerFirst>().IsDamagedEyes || player.GetComponent<PlayerFirst>().IsDamagedEars) { yield return null; } // no breathing during a cry
 
             PlayBreathOutSound();
-            for(float timer = 0; timer < 0.5f * 60f / breathPerMinute + holdBreathDuration * holdBreathFactor; timer += Time.deltaTime) { yield return null; }
-            holdBreathFactor = 0;
+            for (float timer = 0; timer < 0.5f * 60f / breathPerMinute; timer += Time.deltaTime) { yield return null; }
+            while (player.GetComponent<PlayerFirst>().IsDamagedEyes || player.GetComponent<PlayerFirst>().IsDamagedEars) { yield return null; } // no breathing during a cry
         }
     }
 
@@ -106,10 +99,5 @@ public class PostWwiseEventBreath : MonoBehaviour
             throw new System.Exception("Could set the phase of the breath wwise sound");
         }
         MyEvent.Post(gameObject);
-    }
-
-    public void HoldBreath()
-    {
-        holdBreathFactor = 1;
     }
 }

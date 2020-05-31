@@ -250,6 +250,56 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_Sonnette_Magasins" ID="{339E807D-88F4-444C-BAC6-F9328CC2F764}">
+					<ChildrenList>
+						<Action Name="" ID="{08E31BC9-59DC-436E-8DA2-C5C0EF75D9D4}" ShortID="372751081">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sonnette_Magasins" ID="{29E911D6-1C3B-4A7C-A8F1-251C4F97313A}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Sonnette_Magasins" ID="{F115919B-8382-4221-80D5-8493ECDEDFED}">
+					<ChildrenList>
+						<Action Name="" ID="{9F29EB03-825F-42D4-8CAE-A158F1D15EC5}" ShortID="606941836">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sonnette_Magasins" ID="{29E911D6-1C3B-4A7C-A8F1-251C4F97313A}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Egout" ID="{ABEFC411-2AA3-4CFF-A26A-3C2BE74C7492}">
+					<ChildrenList>
+						<Action Name="" ID="{AC97DD36-20C8-42CF-84AB-C403561FB425}" ShortID="267656639">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Egout" ID="{2BD9BCA9-039B-44AB-BA5A-8C9F0F8D5494}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Egout" ID="{E1432AED-2769-4A1A-91D9-5D95B0774BDE}">
+					<ChildrenList>
+						<Action Name="" ID="{D395E458-CF71-483E-94AE-6E0BCF9B174A}" ShortID="1071069413">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Egout" ID="{2BD9BCA9-039B-44AB-BA5A-8C9F0F8D5494}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

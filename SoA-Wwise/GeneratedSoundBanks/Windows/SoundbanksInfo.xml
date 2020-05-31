@@ -162,7 +162,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1692441862" Name="Play_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Play_Climatiseur" MaxAttenuation="50.000000" DurationType="Infinite">
+				<Event Id="1692441862" Name="Play_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Play_Climatiseur" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="709197503" Language="SFX">
 							<ShortName>Climatiseur.wav</ShortName>
@@ -218,7 +218,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2500875145" Name="Play_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Play_Electrique_Buzz" MaxAttenuation="50.000000" DurationType="Infinite">
+				<Event Id="869276618" Name="Play_Egout" ObjectPath="\Events\Ville_Obstacles\Play_Egout" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="884061807" Language="SFX">
+							<ShortName>Ville_Obstacle_Evacuation_Eau.wav</ShortName>
+							<Path>SFX\Ville_Obstacle_Evacuation_Eau_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2500875145" Name="Play_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Play_Electrique_Buzz" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="274683280" Language="SFX">
 							<ShortName>Electrique_Buzz.wav</ShortName>
@@ -226,7 +234,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1086738306" Name="Play_Horloge" ObjectPath="\Events\Ville_Obstacles\Play_Horloge" MaxAttenuation="50.000000" DurationType="Infinite">
+				<Event Id="1086738306" Name="Play_Horloge" ObjectPath="\Events\Ville_Obstacles\Play_Horloge" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="820214069" Language="SFX">
 							<ShortName>Horloge.wav</ShortName>
@@ -255,6 +263,14 @@
 						<File Id="740968882" Language="SFX">
 							<ShortName>Parc_Obstacles_Humain_Mange01-003.wav</ShortName>
 							<Path>SFX\Parc_Obstacles_Humain_Mange01-003_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2607132125" Name="Play_Jingle" ObjectPath="\Events\Commercial_Obstacles\Play_Jingle" DurationType="OneShot" DurationMin="1.461355" DurationMax="1.461355">
+					<IncludedMemoryFiles>
+						<File Id="482977190" Language="SFX">
+							<ShortName>Commerce_Obstacle_Appel_Sonnerie_Test02.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Appel_Sonnerie_Test02_3C0C3867.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -384,6 +400,34 @@
 						<File Id="224898616" Language="SFX">
 							<ShortName>Marteau-piqueur.wav</ShortName>
 							<Path>SFX\Marteau-piqueur_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3366277958" Name="Play_Messages_Radio" ObjectPath="\Events\Commercial_Obstacles\Play_Messages_Radio" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="89828430" Language="SFX">
+							<ShortName>Commerce_Obstacle_Appel_HP_Message_02.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Appel_HP_Message_02_3F75BDB9.wem</Path>
+						</File>
+						<File Id="104034662" Language="SFX">
+							<ShortName>Commerce_Obstacle_Appel_HP_Message_05.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Appel_HP_Message_05_3F75BDB9.wem</Path>
+						</File>
+						<File Id="319715405" Language="SFX">
+							<ShortName>Commerce_Obstacle_Appel_HP_Message_03.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Appel_HP_Message_03_3F75BDB9.wem</Path>
+						</File>
+						<File Id="482977190" Language="SFX">
+							<ShortName>Commerce_Obstacle_Appel_Sonnerie_Test02.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Appel_Sonnerie_Test02_3C0C3867.wem</Path>
+						</File>
+						<File Id="556642986" Language="SFX">
+							<ShortName>Commerce_Obstacle_Appel_HP_Message_01.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Appel_HP_Message_01_3F75BDB9.wem</Path>
+						</File>
+						<File Id="756003203" Language="SFX">
+							<ShortName>Commerce_Obstacle_Appel_HP_Message_04.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Appel_HP_Message_04_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -821,6 +865,62 @@
 						<File Id="863615113" Language="SFX">
 							<ShortName>Parc_Obstacle_Bébé Pleure_06.wav</ShortName>
 							<Path>SFX\Parc_Obstacle_Bébé Pleure_06_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="11904902" Name="Play_Portes_Close" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Close" DurationType="OneShot" DurationMin="1.599425" DurationMax="2.286062">
+					<IncludedMemoryFiles>
+						<File Id="399885347" Language="SFX">
+							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Close_05.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Close_05_3F75BDB9.wem</Path>
+						</File>
+						<File Id="445723425" Language="SFX">
+							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Close_04.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Close_04_3F75BDB9.wem</Path>
+						</File>
+						<File Id="459228429" Language="SFX">
+							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Close_02.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Close_02_3F75BDB9.wem</Path>
+						</File>
+						<File Id="547415648" Language="SFX">
+							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Close_03.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Close_03_3F75BDB9.wem</Path>
+						</File>
+						<File Id="679251941" Language="SFX">
+							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Close_01.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Close_01_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="540531537" Name="Play_Portes_Grande" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Grande" DurationType="OneShot" DurationMin="3.133413" DurationMax="4.482804">
+					<IncludedMemoryFiles>
+						<File Id="560835008" Language="SFX">
+							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Close_Seul.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Close_Seul_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2755465042" Name="Play_Portes_Open" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Open" DurationType="OneShot" DurationMin="1.563316" DurationMax="2.510979">
+					<IncludedMemoryFiles>
+						<File Id="100197332" Language="SFX">
+							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Open_05.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Open_05_3F75BDB9.wem</Path>
+						</File>
+						<File Id="159794191" Language="SFX">
+							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Open_04.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Open_04_3F75BDB9.wem</Path>
+						</File>
+						<File Id="397042027" Language="SFX">
+							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Open_01.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Open_01_3F75BDB9.wem</Path>
+						</File>
+						<File Id="406559118" Language="SFX">
+							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Open_03.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Open_03_3F75BDB9.wem</Path>
+						</File>
+						<File Id="523114705" Language="SFX">
+							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Open_02.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Open_02_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -1901,6 +2001,22 @@
 						<File Id="630798042" Language="SFX">
 							<ShortName>AMB_Resto 01.wav</ShortName>
 							<Path>SFX\AMB_Resto 01_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2056330270" Name="Play_Sonnette_Magasins" ObjectPath="\Events\Ville_Obstacles\Play_Sonnette_Magasins" DurationType="OneShot" DurationMin="1.939708" DurationMax="2.025917">
+					<IncludedMemoryFiles>
+						<File Id="293602221" Language="SFX">
+							<ShortName>Commerce_Obstacle_Sonnette_Entrée_03.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Sonnette_Entrée_03_3F75BDB9.wem</Path>
+						</File>
+						<File Id="356862394" Language="SFX">
+							<ShortName>Commerce_Obstacle_Sonnette_Entrée_02.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Sonnette_Entrée_02_3F75BDB9.wem</Path>
+						</File>
+						<File Id="876074190" Language="SFX">
+							<ShortName>Commerce_Obstacle_Sonnette_Entrée_01.wav</ShortName>
+							<Path>SFX\Commerce_Obstacle_Sonnette_Entrée_01_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -4993,10 +5109,13 @@
 				<Event Id="777875661" Name="Stop_Canard" ObjectPath="\Events\Parc_Obstacles\Stop_Canard" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3267333498" Name="Stop_Ecole" ObjectPath="\Events\Ville_Obstacles\Stop_Ecole" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="623032412" Name="Stop_Egout" ObjectPath="\Events\Ville_Obstacles\Stop_Egout" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4256011363" Name="Stop_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Stop_Electrique_Buzz" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="725970268" Name="Stop_Horloge" ObjectPath="\Events\Ville_Obstacles\Stop_Horloge" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3267998295" Name="Stop_Jingle" ObjectPath="\Events\Commercial_Obstacles\Stop_Jingle" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="882878844" Name="Stop_Klaxons" ObjectPath="\Events\Ville_Obstacles\Stop_Klaxons" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2738893335" Name="Stop_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Stop_Marteau_Piqueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4004627752" Name="Stop_Messages_Radio" ObjectPath="\Events\Commercial_Obstacles\Stop_Messages_Radio" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3194051996" Name="Stop_Music_Main_Title" ObjectPath="\Events\Music\Stop_Music_Main_Title" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="106912753" Name="Stop_Music_Menu" ObjectPath="\Events\Music\Stop_Music_Menu" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -5009,8 +5128,12 @@
 				<Event Id="2647100474" Name="Stop_Parc_Vent" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Vent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2048920818" Name="Stop_Pigeon" ObjectPath="\Events\Ville_Ambiance\Stop_Pigeon" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1235857404" Name="Stop_Pleure_B_b_" ObjectPath="\Events\Parc_Obstacles\Stop_Pleure_B_b_" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="394956184" Name="Stop_Portes_Close" ObjectPath="\Events\Commercial_Obstacles\Stop_Portes_Close" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3373826511" Name="Stop_Portes_Grande" ObjectPath="\Events\Commercial_Obstacles\Stop_Portes_Grande" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2216609116" Name="Stop_Portes_Open" ObjectPath="\Events\Commercial_Obstacles\Stop_Portes_Open" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3507864100" Name="Stop_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Stop_Quel_Moteur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="970688548" Name="Stop_Restorant" ObjectPath="\Events\Ville_Obstacles\Stop_Restorant" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3549513284" Name="Stop_Sonnette_Magasins" ObjectPath="\Events\Ville_Obstacles\Stop_Sonnette_Magasins" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2077251707" Name="Stop_Travaux" ObjectPath="\Events\Ville_Obstacles\Stop_Travaux" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>

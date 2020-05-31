@@ -29,6 +29,13 @@
 						</Reference>
 					</ReferenceList>
 				</Bus>
+				<Bus Name="Commerce_Obstacles_Master" ID="{214CD4C8-AFAC-42BC-9D0B-8258C53725A3}">
+					<ReferenceList>
+						<Reference Name="AudioDevice">
+							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
+						</Reference>
+					</ReferenceList>
+				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>

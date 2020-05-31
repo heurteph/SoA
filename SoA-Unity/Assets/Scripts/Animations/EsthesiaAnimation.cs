@@ -18,9 +18,16 @@ public class EsthesiaAnimation : MonoBehaviour
     [Range(0.01f,0.5f)]
     private float walkToIdleDuration = 0.05f; // s
 
+    [SerializeField]
+    [Tooltip("Minimum delay in seconds between two damage animation")]
+    [Range(1, 3)]
+    private float delayBetweenDamages;
+    private float delay = 0;
+
     private void Awake()
     {
         InitializeAnimationLayers();
+        GetComponent<Animator>().SetBool("IsDamageAvailable", true);
     }
 
     // Start is called before the first frame update
@@ -38,16 +45,12 @@ public class EsthesiaAnimation : MonoBehaviour
 
     }
 
-    public void FinishedEyesDamageAnimation()
+    public void FinishedDamageAnimation()
     {
-        player.GetComponent<PlayerFirst>().IsDamagedEyes = false;
-        //SelectAnimationLayer(0);
-
-    }
-
-    public void FinishedEarsDamageAnimation()
-    {
-        player.GetComponent<PlayerFirst>().IsDamagedEars = false;
+        GetComponent<Animator>().SetBool("IsDamageAvailable", false);
+        delay = delayBetweenDamages;
+        StartCoroutine("StartNextDamageAnimationDelay");
+        //player.GetComponent<PlayerFirst>().IsDamagedEars = false;
         //SelectAnimationLayer(0);
     }
 
@@ -119,5 +122,15 @@ public class EsthesiaAnimation : MonoBehaviour
             GetComponent<Animator>().SetLayerWeight(1, 1 - weight);
             yield return null;
         }
+    }
+
+    private IEnumerator StartNextDamageAnimationDelay()
+    {
+        while (delay > 0)
+        {
+            delay = Mathf.Max(delay - Time.deltaTime, 0);
+            yield return null;
+        }
+        GetComponent<Animator>().SetBool("IsDamageAvailable", true);
     }
 }

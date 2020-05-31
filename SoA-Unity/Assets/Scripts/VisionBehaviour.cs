@@ -177,7 +177,8 @@ public class VisionBehaviour : MonoBehaviour
             // Handle animations
             if (!player.GetComponent<PlayerFirst>().IsDamagedEars)
             {
-                player.GetComponent<PlayerFirst>().IsDamagedEyes = true;
+                player.GetComponent<PlayerFirst>().EyesDamageSources ++;
+                //player.GetComponent<PlayerFirst>().IsDamagedEyes = true;
                 // Set animation layer weight
                 //esthesia.GetComponent<EsthesiaAnimation>().SelectEyesDamageLayer();
             }

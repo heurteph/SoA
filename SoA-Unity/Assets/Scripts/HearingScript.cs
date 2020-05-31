@@ -166,6 +166,10 @@ public class HearingScript : MonoBehaviour
 
                 //DamagingSourceEvent?.Invoke(ClosestAudioSource()); // more explicit test of existence needed
             }
+            else
+            {
+                player.GetComponent<PlayerFirst>().IsDamagedEars = false;
+            }
             yield return new WaitForSeconds(1f / refreshFrequency);
         }
     }

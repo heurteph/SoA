@@ -89,6 +89,7 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
     private float backToNormalSpeedTimer = 0; // s
 
+
     private bool isHurry;
     public bool IsHurry { get { return isHurry; } }
 
@@ -104,6 +105,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
     private bool isDamagedEars;
     public bool IsDamagedEars { get { return isDamagedEars; } set { isDamagedEars = value; } }
+
+    private float eyesDamageSources;
+    public float EyesDamageSources { get { return eyesDamageSources; } set { eyesDamageSources = value; } }
 
     private bool isRunning;
     public bool IsRunning { get { return isRunning; } set { isRunning = value; } }
@@ -148,6 +152,8 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         isRunning = false;
         turningBackPressed = false;
 
+        eyesDamageSources = 0;
+
         movement = Vector3.zero;
 
         if(wwiseGameObjectFootstep == null)
@@ -182,6 +188,12 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
             characterController.Move(movement);
             movement = Vector3.zero;
+
+            /* Manage the two kinds of vision */
+
+            if (eyesDamageSources > 0) { isDamagedEyes = true; }
+            else { isDamagedEyes = false; }
+            eyesDamageSources = 0;
 
             if (isDamagedEyes || isDamagedEars) // TO DO : Remove ???
             {

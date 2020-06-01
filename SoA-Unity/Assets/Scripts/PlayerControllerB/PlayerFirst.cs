@@ -96,7 +96,6 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     private bool isProtectingEyes;
     public bool IsProtectingEyes { get { return isProtectingEyes; } set { isProtectingEyes = value; } }
 
-
     private bool isProtectingEars;
     public bool IsProtectingEars { get { return isProtectingEars; } set { isProtectingEars = value; } }
 
@@ -111,6 +110,15 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
     private bool isRunning;
     public bool IsRunning { get { return isRunning; } set { isRunning = value; } }
+
+    private bool isUncomfortableEyes;
+    public bool IsUncomfortableEyes { get { return isUncomfortableEyes; } set { isUncomfortableEyes = value; } }
+
+    private bool isUncomfortableEars;
+    public bool IsUncomfortableEars { get { return isUncomfortableEars; } set { isUncomfortableEars = value; } }
+
+    private float eyesUncomfortableSources;
+    public float EyesUncomfortableSources { get { return eyesUncomfortableSources; } set { eyesUncomfortableSources = value; } }
 
     [SerializeField]
     private Animator anim;
@@ -152,6 +160,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         isRunning = false;
         turningBackPressed = false;
 
+        isUncomfortableEyes = false;
+        isUncomfortableEars = false;
+        
         eyesDamageSources = 0;
 
         movement = Vector3.zero;
@@ -195,6 +206,10 @@ public class PlayerFirst : MonoBehaviour, IAnimable
             else { isDamagedEyes = false; }
             eyesDamageSources = 0;
 
+            if (eyesUncomfortableSources > 0) { isUncomfortableEyes = true; }
+            else { isUncomfortableEyes = false; }
+            eyesUncomfortableSources = 0;
+
             if (isDamagedEyes || isDamagedEars) // TO DO : Remove ???
             {
                 //inputs.Player.Walk.Disable();
@@ -224,6 +239,8 @@ public class PlayerFirst : MonoBehaviour, IAnimable
             anim.SetBool("isProtectingEars", isProtectingEars);
             anim.SetBool("isDamagedEyes", isDamagedEyes);
             anim.SetBool("isDamagedEars", isDamagedEars);
+            anim.SetBool("isUncomfortableEyes", isUncomfortableEyes);
+            anim.SetBool("isUncomfortableEars", isUncomfortableEars);
         }
         else // World-shelter transition
         {

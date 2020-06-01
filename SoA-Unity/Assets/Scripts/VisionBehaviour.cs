@@ -48,16 +48,21 @@ public class VisionBehaviour : MonoBehaviour
 
     [SerializeField]
     [Range(0,1)]
-    [Tooltip("Brightness level limit before character starts feeling discomfort in normal mode")]
-    private float normalBrightnessThreshold = 0.5f;
+    [Tooltip("Brightness level limit before character starts feeling damage in normal mode")]
+    private float normalBrightnessThreshold = 0.7f;
 
     [SerializeField]
     [Range(0, 1)]
-    [Tooltip("Brightness level limit before character starts feeling discomfort in protected mode")]
-    private float protectedBrightnessThreshold = 0.6f;
+    [Tooltip("Brightness level limit before character starts feeling damage in protected mode")]
+    private float protectedBrightnessThreshold = 0.8f;
 
     private float brightnessThreshold;
     public float BrightnessThreshold { get { return brightnessThreshold; } }
+
+    [SerializeField]
+    [Range(0, 1)]
+    [Tooltip("Brightness level limit before character start feeling disconfort")]
+    private float uncomfortableBrightnessThreshold = 0.6f;
 
     [SerializeField]
     [Range(0, 100)]
@@ -81,6 +86,8 @@ public class VisionBehaviour : MonoBehaviour
 
     private delegate void BrightnessThresholdHandler(float b);
     private event BrightnessThresholdHandler brightnessThresholdEvent;
+
+    private event BrightnessThresholdHandler uncomfortableThresholdEvent;
 
     public delegate void GrayscaleChangedHandler(GameObject sender, Texture2D t, float p);
     public event GrayscaleChangedHandler grayScaleChangedEvent;
@@ -168,6 +175,15 @@ public class VisionBehaviour : MonoBehaviour
                     sum += grey;
                 }
             }
+        }
+
+        if (sum >= uncomfortableBrightnessThreshold * t2D.width * t2D.height)
+        {
+            player.GetComponent<PlayerFirst>().EyesUncomfortableSources ++;
+        }
+        else
+        {
+            player.GetComponent<PlayerFirst>().IsUncomfortableEyes = false;
         }
 
         if (sum >= brightnessThreshold * t2D.width * t2D.height)

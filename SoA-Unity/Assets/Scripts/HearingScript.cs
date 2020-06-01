@@ -23,11 +23,18 @@ public class HearingScript : MonoBehaviour
 
     [SerializeField]
     [Range(0, 1)]
-    private float normalLoudnessThreshold = 0.5f; //0.015f
+    [Tooltip("Loudness level limit before character starts feeling damage in protected mode")]
+    private float normalLoudnessThreshold = 0.7f;
 
     [SerializeField]
     [Range(0, 1)]
-    private float protectedLoudnessThreshold = 0.7f; //0.02f
+    [Tooltip("Loudness level limit before character starts feeling damage in protected mode")]
+    private float protectedLoudnessThreshold = 0.8f;
+
+    [SerializeField]
+    [Range(0, 1)]
+    [Tooltip("Brightness level limit before character starts feeling discomfort")]
+    private float uncomfortableLoudnessThreshold = 0.6f;
 
     private float loudnessThreshold;
     public float LoudnessThreshold { get { return loudnessThreshold; } set { loudnessThreshold = value; } }
@@ -151,6 +158,15 @@ public class HearingScript : MonoBehaviour
             loudness = 1 + loudness / 48.01278f;
 
             LoudnessUpdateEvent(loudness);
+
+            if(loudness >= uncomfortableLoudnessThreshold)
+            {
+                player.GetComponent<PlayerFirst>().IsUncomfortableEars = true;
+            }
+            else
+            {
+                player.GetComponent<PlayerFirst>().IsUncomfortableEars = false;
+            }
 
             if (loudness >= loudnessThreshold)
             {

@@ -153,6 +153,7 @@ public class CameraFollow : MonoBehaviour
 
     private float zoomTimer;
 
+    private float angleFromNormalToHorizon = 0;
     private float angleFromHurryToHorizon = 0;
     private float angleFromProtectedToHorizon = 0;
 
@@ -285,14 +286,22 @@ public class CameraFollow : MonoBehaviour
         UpdateRotation();
         lastPlayerPosition = player.transform.position;
 
+        // compute the angle between the camera in normal view and horizon view for the look-around stabilization
+        //angleFromNormalToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up).normalized, (player.transform.position - transform.position).normalized);
+        //angleFromNormalToHorizon -= cameraAngularOffset.x;
+        angleFromNormalToHorizon = cameraAngularOffset.x;
+        Debug.Log("angleFromNormalToHorizon : " + angleFromNormalToHorizon);
+
         // compute the angle between the camera in normal view and hurry view for the look-around stabilization
         Vector3 hurryPosition = transform.position - Z_OffsetHurry * Vector3.ProjectOnPlane((player.transform.position - transform.position).normalized, Vector3.up) + Y_OffsetHurry * Vector3.up;
-        angleFromHurryToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up).normalized, (player.transform.position - hurryPosition).normalized);
+        angleFromHurryToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - hurryPosition), Vector3.up).normalized, (player.transform.position - hurryPosition).normalized);
+        angleFromHurryToHorizon += cameraAngularOffset.x; // TO DO : Check this out
         Debug.Log("angleFromHurryToHorizon : " + angleFromHurryToHorizon);
 
         // compute the angle between the camera in normal view and protected view for the look-around stabilization
         Vector3 protectedPosition = transform.position - Z_OffsetProtected * Vector3.ProjectOnPlane((player.transform.position - transform.position).normalized, Vector3.up) + Y_OffsetProtected * Vector3.up;
-        angleFromProtectedToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up).normalized, (player.transform.position - protectedPosition).normalized);
+        angleFromProtectedToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - protectedPosition), Vector3.up).normalized, (player.transform.position - protectedPosition).normalized);
+        angleFromProtectedToHorizon += cameraAngularOffset.x; // TO DO : Check this out
         Debug.Log("angleFromProtectedToHorizon : " + angleFromProtectedToHorizon);
 
         cameraState = STATE.NORMAL;
@@ -370,17 +379,22 @@ public class CameraFollow : MonoBehaviour
         if (cameraState == STATE.NORMAL)
         {
             transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up)); // kind of a lookAt but without the rotation around the x-axis
+
+            transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z); // TO DO : ONLY IN NORMAL !!!!!
         }
         else if (cameraState == STATE.NORMAL_TO_HURRY) // focus on the character
         {
             Vector3 startPosition  = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + Vector3.up * Y_OffsetHurry) * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; // recreate original position
             Vector3 endPosition    = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + Vector3.up * Y_OffsetHurry) * zoomTimer / timeNormalToHurry; // recreate original position
             Vector3 start   = Vector3.ProjectOnPlane((player.transform.position - startPosition), Vector3.up).normalized;
+            // TO DO : Check this out
+            start = Quaternion.AngleAxis(-cameraAngularOffset.x, Vector3.Cross(start, Vector3.up)).normalized * start;
             Vector3 end     = (player.transform.position - endPosition).normalized;
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToFocus - recoilTimer) / timeToFocus);
             Vector3 current = Vector3.Slerp(start, end, (timeNormalToHurry - zoomTimer) / timeNormalToHurry);
             //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToFocus : " + timeToFocus + ", recoilTimer : " + recoilTimer);
             transform.rotation = Quaternion.LookRotation(current);
+    
 
             //heldCamera.GetComponent<Camera>().fieldOfView = 60 - (60 - 50) * (timeToFocus - recoilTimer) / timeToFocus;
         }
@@ -399,6 +413,8 @@ public class CameraFollow : MonoBehaviour
             Vector3 endPosition   = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + Vector3.up * Y_OffsetHurry) * zoomTimer / timeHurryToNormal; // recreate original position
             Vector3 start   = (player.transform.position - startPosition).normalized;
             Vector3 end     = Vector3.ProjectOnPlane((player.transform.position - endPosition), Vector3.up).normalized;
+            // TO DO : Check this out
+            end = Quaternion.AngleAxis(-cameraAngularOffset.x, Vector3.Cross(end, Vector3.up)).normalized * end;
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
             Vector3 current = Vector3.Slerp(start, end, (timeHurryToNormal - zoomTimer) / timeHurryToNormal);
             //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
@@ -411,6 +427,8 @@ public class CameraFollow : MonoBehaviour
             Vector3 startPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetProtected + Vector3.up * Y_OffsetProtected) * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; // recreate original position
             Vector3 endPosition = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetProtected + Vector3.up * Y_OffsetProtected) * zoomTimer / timeNormalToProtected; // recreate original position
             Vector3 start = Vector3.ProjectOnPlane((player.transform.position - startPosition), Vector3.up).normalized;
+            // TO DO : Check this out
+            start = Quaternion.AngleAxis(-cameraAngularOffset.x, Vector3.Cross(start, Vector3.up)).normalized * start;
             Vector3 end = (player.transform.position - endPosition).normalized;
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToFocus - recoilTimer) / timeToFocus);
             Vector3 current = Vector3.Slerp(start, end, (timeNormalToProtected - zoomTimer) / timeNormalToProtected);
@@ -425,6 +443,8 @@ public class CameraFollow : MonoBehaviour
             Vector3 endPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetProtected + Vector3.up * Y_OffsetProtected) * zoomTimer / timeProtectedToNormal; // recreate original position
             Vector3 start = (player.transform.position - startPosition).normalized;
             Vector3 end = Vector3.ProjectOnPlane((player.transform.position - endPosition), Vector3.up).normalized;
+            // TO DO : Check this out
+            end = Quaternion.AngleAxis(-cameraAngularOffset.x, Vector3.Cross(end, Vector3.up)).normalized * end;
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
             Vector3 current = Vector3.Slerp(start, end, (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal);
             //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
@@ -469,7 +489,6 @@ public class CameraFollow : MonoBehaviour
             //heldCamera.GetComponent<Camera>().fieldOfView = 60 - (60 - 50) * (timeToFocus - recoilTimer) / timeToFocus;
         }
 
-        transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
     }
 
     private void UpdatePosition()
@@ -915,13 +934,15 @@ public class CameraFollow : MonoBehaviour
 
         // Stabilization of the look around
         float y_stabilization = 0;
-        if      (cameraState == STATE.HURRY)           { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
-        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
+        if      (cameraState == STATE.NORMAL)          { y_stabilization = Mathf.Abs(smoothx) * -angleFromNormalToHorizon; }
+
+        else if (cameraState == STATE.HURRY)           { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon; }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToHurry - angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry); }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToNormal - angleFromNormalToHorizon * (timeHurryToNormal - zoomTimer) / timeHurryToNormal); ; }
 
         else if (cameraState == STATE.PROTECTED)           { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
-        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToProtected - angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal - angleFromNormalToHorizon * (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal); }
 
         else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
         else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
@@ -1037,13 +1058,15 @@ public class CameraFollow : MonoBehaviour
 
         // Stabilization of the look around
         float y_stabilization = 0;
-        if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
-        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
+        if (cameraState == STATE.NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromNormalToHorizon; }
+
+        else if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon; }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToHurry - angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry); }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToNormal - angleFromNormalToHorizon * (timeHurryToNormal - zoomTimer) / timeHurryToNormal); }
 
         else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
-        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToProtected - angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal - angleFromNormalToHorizon * (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal); }
 
         else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
         else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
@@ -1173,13 +1196,15 @@ public class CameraFollow : MonoBehaviour
 
         // Stabilization of the look around
         float y_stabilization = 0;
+        if (cameraState == STATE.NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromNormalToHorizon; }
+
         if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
-        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToHurry - angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry); }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToNormal - angleFromNormalToHorizon * (timeHurryToNormal - zoomTimer) / timeHurryToNormal); }
 
         else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
-        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToProtected - angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal - angleFromNormalToHorizon * (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal); }
 
         else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
         else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
@@ -1254,13 +1279,15 @@ public class CameraFollow : MonoBehaviour
 
         // Stabilization of the look around
         float y_stabilization = 0;
-        if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromHurryToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
-        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
+        if (cameraState == STATE.NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromNormalToHorizon; }
+
+        else if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromHurryToHorizon; }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToHurry - angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry); }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToNormal - angleFromNormalToHorizon * (timeHurryToNormal - zoomTimer) / timeHurryToNormal); }
 
         else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromProtectedToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
-        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToProtected - angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal - angleFromNormalToHorizon * (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal); }
 
         else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
         else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }

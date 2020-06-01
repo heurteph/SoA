@@ -162,7 +162,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1692441862" Name="Play_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Play_Climatiseur" DurationType="Infinite">
+				<Event Id="1692441862" Name="Play_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Play_Climatiseur" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="709197503" Language="SFX">
 							<ShortName>Climatiseur.wav</ShortName>
@@ -218,7 +218,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="869276618" Name="Play_Egout" ObjectPath="\Events\Ville_Obstacles\Play_Egout" DurationType="Infinite">
+				<Event Id="869276618" Name="Play_Egout" ObjectPath="\Events\Ville_Obstacles\Play_Egout" MaxAttenuation="30.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="884061807" Language="SFX">
 							<ShortName>Ville_Obstacle_Evacuation_Eau.wav</ShortName>
@@ -226,7 +226,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2500875145" Name="Play_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Play_Electrique_Buzz" DurationType="Infinite">
+				<Event Id="2500875145" Name="Play_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Play_Electrique_Buzz" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="274683280" Language="SFX">
 							<ShortName>Electrique_Buzz.wav</ShortName>
@@ -234,7 +234,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1086738306" Name="Play_Horloge" ObjectPath="\Events\Ville_Obstacles\Play_Horloge" DurationType="Infinite">
+				<Event Id="1086738306" Name="Play_Horloge" ObjectPath="\Events\Ville_Obstacles\Play_Horloge" MaxAttenuation="30.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="820214069" Language="SFX">
 							<ShortName>Horloge.wav</ShortName>
@@ -270,7 +270,7 @@
 					<IncludedMemoryFiles>
 						<File Id="482977190" Language="SFX">
 							<ShortName>Commerce_Obstacle_Appel_Sonnerie_Test02.wav</ShortName>
-							<Path>SFX\Commerce_Obstacle_Appel_Sonnerie_Test02_3C0C3867.wem</Path>
+							<Path>SFX\Commerce_Obstacle_Appel_Sonnerie_Test02_E2C52900.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -419,7 +419,7 @@
 						</File>
 						<File Id="482977190" Language="SFX">
 							<ShortName>Commerce_Obstacle_Appel_Sonnerie_Test02.wav</ShortName>
-							<Path>SFX\Commerce_Obstacle_Appel_Sonnerie_Test02_3C0C3867.wem</Path>
+							<Path>SFX\Commerce_Obstacle_Appel_Sonnerie_Test02_E2C52900.wem</Path>
 						</File>
 						<File Id="556642986" Language="SFX">
 							<ShortName>Commerce_Obstacle_Appel_HP_Message_01.wav</ShortName>
@@ -2004,7 +2004,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2056330270" Name="Play_Sonnette_Magasins" ObjectPath="\Events\Ville_Obstacles\Play_Sonnette_Magasins" DurationType="OneShot" DurationMin="1.939708" DurationMax="2.025917">
+				<Event Id="2056330270" Name="Play_Sonnette_Magasins" ObjectPath="\Events\Ville_Obstacles\Play_Sonnette_Magasins" MaxAttenuation="70.000000" DurationType="OneShot" DurationMin="1.939708" DurationMax="2.025917">
 					<IncludedMemoryFiles>
 						<File Id="293602221" Language="SFX">
 							<ShortName>Commerce_Obstacle_Sonnette_Entrée_03.wav</ShortName>

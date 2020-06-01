@@ -925,7 +925,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Walk Layer
     m_StateMachine: {fileID: 1729107507296186547}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: 25a197f8c5dad0c4b81af71896bdc821, type: 2}
     m_Motions:
     - serializedVersion: 2
       m_State: {fileID: -5202062202738588993}

@@ -492,6 +492,9 @@
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+								</Reference>
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Parc_Ambiance_Nature_EauLac01" ID="{835E6C4A-9E53-4E81-9681-3263E94D8871}" ShortID="145030422">
@@ -517,6 +520,35 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<StateInfo>
+								<StatePropertyList>
+									<Property Name="OutputBusVolume"/>
+									<Property Name="UserAuxSendVolume0"/>
+								</StatePropertyList>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="Protection_Oui_Non" ID="{46C8E2FC-DB1E-4729-A3D2-B09D21025B1D}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
+										<CustomState Name="" ID="{A563D8DB-F372-4A5A-A32A-F644B520D0F7}" ShortID="300412107">
+											<PropertyList>
+												<Property Name="UserAuxSendVolume0" Type="Real64" Value="-108"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
+										<CustomState Name="" ID="{D9511C1D-473A-4853-9BD2-6E24C69F2E0C}" ShortID="493976544">
+											<PropertyList>
+												<Property Name="OutputBusVolume" Type="Real64" Value="-108"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Parc_Oiseaux2" ID="{9885EDB3-662D-4C23-8544-8407A936FAC0}" ShortID="343757259">
 							<PropertyList>

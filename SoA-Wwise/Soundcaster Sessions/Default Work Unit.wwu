@@ -6,36 +6,8 @@
 				<SoundcasterSession Name="SoundCaster" ID="{0B387E94-8EAD-4096-8099-BAABE001D6C3}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="Play_Parc_Oiseaux1" ID="{8E0DC551-5AC3-4E65-97E0-6FBFA6636F5D}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
+							<ObjectRef Name="Play_Messages_Radio" ID="{5F787544-DF91-44DD-9A8E-14A151B25BF0}" WorkUnitID="{56B5A11B-E0A2-4A1F-B982-5B1D1A9AEC2C}"/>
 							<Position X="0" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Stop_Parc_Oiseaux1" ID="{2EC30BB7-A1D3-4C14-8697-896E57F3A5CE}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
-							<Position X="0" Y="1"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Play_Pigeon" ID="{3970AFCB-7070-40E1-9A66-E7BDFCC0F0A7}" WorkUnitID="{3826A10E-D685-413C-9E39-9C83424A5080}"/>
-							<Position X="0" Y="2"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Play_Parc_Oiseaux2" ID="{67E33752-FEA7-41C4-9D7B-DFAC17D87F2D}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
-							<Position X="1" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Stop_Parc_Oiseaux2" ID="{DD2C23EE-23DF-40CE-95A3-F93D0ACE5DAB}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
-							<Position X="1" Y="1"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Stop_Pigeon" ID="{287FA844-3381-42CF-B313-4D0AE223CF55}" WorkUnitID="{3826A10E-D685-413C-9E39-9C83424A5080}"/>
-							<Position X="1" Y="2"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Play_Parc_Oiseaux3" ID="{2FE37D3F-37F6-4301-B0A8-235E75135CA8}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
-							<Position X="2" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Stop_Parc_Oiseaux3" ID="{641E0DDB-02A3-42B2-982F-1EC8CFBD6DE9}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
-							<Position X="2" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
@@ -62,14 +34,16 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
-						<CurrentStateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
+						<CurrentStateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Court" ID="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}"/>
 						<CurrentSwitchRef Name="Droit" ID="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}"/>
 						<CurrentSwitchRef Name="Expire" ID="{F7D3A280-1D9A-4432-998D-4526DC3381AD}"/>
 						<CurrentSwitchRef Name="A" ID="{8BB8AF89-EF19-45B4-9ADC-94E814EA87B8}"/>
+						<CurrentSwitchRef Name="Voix_01" ID="{1B5197C3-1ED2-4B02-A821-50ED71A023F0}"/>
 						<CurrentSwitchRef Name="Asphalt" ID="{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}"/>
+						<CurrentSwitchRef Name="Enfant" ID="{AC782653-54CA-4D62-8F12-E112E3E1A339}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>

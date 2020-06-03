@@ -123,9 +123,8 @@ public class StreetUser : MonoBehaviour
     {
         groundOffset = transform.position.y - groundLevel.transform.position.y;
 
-        // Define which car horn type to use
-        AkSoundEngine.SetSwitch("Klaxons", new string[5]{ "A", "B", "C", "D", "E" }[Random.Range(0, 5)], gameObject);
-
+        InitializeSound();
+        
         movingState = STATE.OFF;
     }
     private void Start()
@@ -135,7 +134,8 @@ public class StreetUser : MonoBehaviour
 
     private void Update()
     {
-        
+        UpdateSound();
+
         if (movingState != STATE.FREEZE && movingState != STATE.OFF)
         {
             if (movingState == STATE.NORMAL)
@@ -395,6 +395,9 @@ public class StreetUser : MonoBehaviour
 
     private void InitializeSound()
     {
+        // Define which car horn type to use
+        AkSoundEngine.SetSwitch("Klaxons", new string[5] { "A", "B", "C", "D", "E" }[Random.Range(0, 5)], gameObject);
+
         AKRESULT result = AkSoundEngine.SetRTPCValue("Quel_Moteur", 4f, gameObject);
 
         if (result == AKRESULT.AK_Fail)
@@ -402,17 +405,19 @@ public class StreetUser : MonoBehaviour
             throw new System.Exception("WWISE : Could not set the type of the engine");
         }
 
+        /*
         result = AkSoundEngine.SetRTPCValue("Ralenti_Accelere", 1f, gameObject);
 
         if (result == AKRESULT.AK_Fail)
         {
             throw new System.Exception("WWISE : Could not set the state of the engine");
-        }
+        }*/
     }
 
     private void UpdateSound()
     {
         AKRESULT result = AkSoundEngine.SetRTPCValue("VitesseVehicule", speed, gameObject);
+        Debug.Log("SPEED IS AT : " + speed);
 
         if (result == AKRESULT.AK_Fail)
         {

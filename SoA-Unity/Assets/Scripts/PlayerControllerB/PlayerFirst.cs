@@ -346,7 +346,6 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         }
     }
 
-
     IEnumerator TurnBack()
     {
         isTurningBack = true;

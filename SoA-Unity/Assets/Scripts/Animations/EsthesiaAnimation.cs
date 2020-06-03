@@ -24,6 +24,24 @@ public class EsthesiaAnimation : MonoBehaviour
     private float delayBetweenDamages;
     private float delay = 0;
 
+    [Header("Eyes set")]
+    [Space]
+    [SerializeField]
+    [Tooltip("The model of the calm eyes")]
+    private GameObject eyesCalm;
+    [SerializeField]
+    [Tooltip("The model of the happy eyes")]
+    private GameObject eyesHappy;
+    [SerializeField]
+    [Tooltip("The model of the neutral eyes")]
+    private GameObject eyesNeutral;
+    [SerializeField]
+    [Tooltip("The model of the pain eyes")]
+    private GameObject eyesPain;
+    [SerializeField]
+    [Tooltip("The model of the worried eyes")]
+    private GameObject eyesWorry;
+
     private void Awake()
     {
         InitializeAnimationLayers();
@@ -33,6 +51,8 @@ public class EsthesiaAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetEyesNeutral();
+
         if (player == null)
         {
             throw new System.NullReferenceException("No reference to the player set in FinishAnimation script");
@@ -133,4 +153,50 @@ public class EsthesiaAnimation : MonoBehaviour
         }
         GetComponent<Animator>().SetBool("IsDamageAvailable", true);
     }
-}
+
+    private void SetEyesCalm()
+    {
+        eyesCalm.SetActive(true);
+        eyesHappy.SetActive(false);
+        eyesNeutral.SetActive(false);
+        eyesPain.SetActive(false);
+        eyesWorry.SetActive(false);
+    }
+
+    private void SetEyesHappy()
+    {
+        eyesCalm.SetActive(false);
+        eyesHappy.SetActive(true);
+        eyesNeutral.SetActive(false);
+        eyesPain.SetActive(false);
+        eyesWorry.SetActive(false);
+    }
+
+    private void SetEyesNeutral()
+    {
+        eyesCalm.SetActive(false);
+        eyesHappy.SetActive(false);
+        eyesNeutral.SetActive(true);
+        eyesPain.SetActive(false);
+        eyesWorry.SetActive(false);
+    }
+
+    private void SetEyesPain()
+    {
+        eyesCalm.SetActive(false);
+        eyesHappy.SetActive(false);
+        eyesNeutral.SetActive(false);
+        eyesPain.SetActive(true);
+        eyesWorry.SetActive(false);
+    }
+
+    private void SetEyesWorry()
+    {
+        eyesCalm.SetActive(false);
+        eyesHappy.SetActive(false);
+        eyesNeutral.SetActive(false);
+        eyesPain.SetActive(false);
+        eyesWorry.SetActive(true);
+    }
+
+} //FINISH

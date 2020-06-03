@@ -45,6 +45,18 @@ ModelImporter:
   - first:
       74: -3377467182740217040
     second: walk_damage_ears
+  - first:
+      74: -3496113565569630434
+    second: pose_protect_eyes_v2
+  - first:
+      74: 5851901374311237329
+    second: idle_cover_eyes
+  - first:
+      74: 5905008459258295829
+    second: idle_cover_right_ear
+  - first:
+      74: -56066503287334352
+    second: idle_cover_left_ear
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -138,7 +150,20 @@ ModelImporter:
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Scapula_L'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'idle_cover_eyes' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'idle_cover_right_ear' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'idle_cover_left_ear' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Scapula_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ShoulderPart2_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Wrist_L'
+      has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0

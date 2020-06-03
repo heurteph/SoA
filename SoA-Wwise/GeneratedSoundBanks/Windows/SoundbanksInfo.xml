@@ -5138,7 +5138,6 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="428373397" Name="VitesseVoitureElec" ObjectPath="\Game Parameters\Obstacles\VitesseVoitureElec"/>
-				<GameParameter Id="731750351" Name="Ralenti_Accelere" ObjectPath="\Game Parameters\Obstacles\Ralenti_Accelere"/>
 				<GameParameter Id="2782977595" Name="Quel_Moteur" ObjectPath="\Game Parameters\Obstacles\Quel_Moteur"/>
 				<GameParameter Id="3154243729" Name="VitesseVehicule" ObjectPath="\Game Parameters\Obstacles\VitesseVehicule"/>
 			</GameParameters>

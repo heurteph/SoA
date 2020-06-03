@@ -70,6 +70,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="235882589" Name="Play_Battement_Coeur" ObjectPath="\Events\Personnage\Play_Battement_Coeur" DurationType="OneShot" DurationMin="32.277332" DurationMax="32.277332">
+					<IncludedMemoryFiles>
+						<File Id="506381366" Language="SFX">
+							<ShortName>Esthesia_Reaction_HeartBeat.wav</ShortName>
+							<Path>SFX\Esthesia_Reaction_HeartBeat_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2412280354" Name="Play_Branches_Tombent" ObjectPath="\Events\Parc_Obstacles\Play_Branches_Tombent" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="207466086" Language="SFX">
@@ -444,6 +452,34 @@
 						<File Id="840495312" Language="SFX">
 							<ShortName>Parc_Obstacles_VoitureElec_Moteurs Lent.wav</ShortName>
 							<Path>SFX\Parc_Obstacles_VoitureElec_Moteurs Lent_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1625096966" Name="Play_Music_Appart" ObjectPath="\Events\Ville_Obstacles\Play_Music_Appart" MaxAttenuation="50.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="73795334" Language="SFX">
+							<ShortName>Ville_Obstacle_Ana_Dance.wav</ShortName>
+							<Path>SFX\Ville_Obstacle_Ana_Dance_9EDFC787.wem</Path>
+						</File>
+						<File Id="435223295" Language="SFX">
+							<ShortName>Ville_Obstacle_Frozen.wav</ShortName>
+							<Path>SFX\Ville_Obstacle_Frozen_9EDFC787.wem</Path>
+						</File>
+						<File Id="488540021" Language="SFX">
+							<ShortName>Ville_Obstacle_Ana_Loop2.wav</ShortName>
+							<Path>SFX\Ville_Obstacle_Ana_Loop2_9EDFC787.wem</Path>
+						</File>
+						<File Id="602431041" Language="SFX">
+							<ShortName>Ville_Obstacle_Ana_Pulse.wav</ShortName>
+							<Path>SFX\Ville_Obstacle_Ana_Pulse_9EDFC787.wem</Path>
+						</File>
+						<File Id="817344069" Language="SFX">
+							<ShortName>Ville_Obstacle_Ana_Beat.wav</ShortName>
+							<Path>SFX\Ville_Obstacle_Ana_Beat_9EDFC787.wem</Path>
+						</File>
+						<File Id="894881262" Language="SFX">
+							<ShortName>Ville_Obstacle_Ana_Loop1.wav</ShortName>
+							<Path>SFX\Ville_Obstacle_Ana_Loop1_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -5105,6 +5141,7 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1056565793" Name="Stop_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Stop_ArrosageAuto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="383440519" Name="Stop_Battement_Coeur" ObjectPath="\Events\Personnage\Stop_Battement_Coeur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3668248268" Name="Stop_Branches_Tombent" ObjectPath="\Events\Parc_Obstacles\Stop_Branches_Tombent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="777875661" Name="Stop_Canard" ObjectPath="\Events\Parc_Obstacles\Stop_Canard" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -5117,6 +5154,7 @@
 				<Event Id="2738893335" Name="Stop_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Stop_Marteau_Piqueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4004627752" Name="Stop_Messages_Radio" ObjectPath="\Events\Commercial_Obstacles\Stop_Messages_Radio" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3531521436" Name="Stop_Music_Appart" ObjectPath="\Events\Ville_Obstacles\Stop_Music_Appart" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3194051996" Name="Stop_Music_Main_Title" ObjectPath="\Events\Music\Stop_Music_Main_Title" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="106912753" Name="Stop_Music_Menu" ObjectPath="\Events\Music\Stop_Music_Menu" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3846531396" Name="Stop_Music_Safe_Zone" ObjectPath="\Events\Music\Stop_Music_Safe_Zone" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

@@ -300,6 +300,31 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Music_Appart" ID="{CB6BD02C-5BDD-41C3-8F91-1DDBA4908587}">
+					<ChildrenList>
+						<Action Name="" ID="{E45239F2-A50D-4F70-BC23-91AD9C113157}" ShortID="668444441">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Appart" ID="{50EFE673-86A8-412F-801C-F6551728C5F7}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Music_Appart" ID="{B35D6259-DC75-4534-ADB0-9A31877E8380}">
+					<ChildrenList>
+						<Action Name="" ID="{C9B23218-4FDD-4DA5-A413-9783A46C3056}" ShortID="90051178">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Appart" ID="{50EFE673-86A8-412F-801C-F6551728C5F7}" WorkUnitID="{290583BA-F78C-4BA8-B982-F97D11B9B649}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

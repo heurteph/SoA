@@ -431,7 +431,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2314452061" Name="Play_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_Elagueur" MaxAttenuation="100.000000" DurationType="Infinite">
+				<Event Id="2314452061" Name="Play_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_Elagueur" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="487953707" Language="SFX">
 							<ShortName>Parc_Obstacles_Humain_Moteur_Elagueur01.wav</ShortName>
@@ -5138,7 +5138,6 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="428373397" Name="VitesseVoitureElec" ObjectPath="\Game Parameters\Obstacles\VitesseVoitureElec"/>
-				<GameParameter Id="731750351" Name="Ralenti_Accelere" ObjectPath="\Game Parameters\Obstacles\Ralenti_Accelere"/>
 				<GameParameter Id="2782977595" Name="Quel_Moteur" ObjectPath="\Game Parameters\Obstacles\Quel_Moteur"/>
 				<GameParameter Id="3154243729" Name="VitesseVehicule" ObjectPath="\Game Parameters\Obstacles\VitesseVehicule"/>
 			</GameParameters>

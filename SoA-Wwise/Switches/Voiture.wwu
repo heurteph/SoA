@@ -14,7 +14,7 @@
 						<Switch Name="A_Stop" ID="{3DE31401-7944-4243-AB4C-A04EC18D2004}"/>
 					</ChildrenList>
 					<SwitchOnRTPC>
-						<GameParameterRef Name="Ralenti_Accelere" ID="{31E46C5C-8DDC-4581-B657-7283D6F89339}"/>
+						<GameParameterRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}"/>
 						<Curve Name="" ID="{48F335A5-8ECA-434F-B6F5-1090CBA4CBD5}">
 							<PropertyList>
 								<Property Name="Flags" Type="int32" Value="65537"/>
@@ -26,17 +26,22 @@
 									<Flags>5</Flags>
 								</Point>
 								<Point>
-									<XPos>1</XPos>
+									<XPos>1.22185</XPos>
 									<YPos>2</YPos>
 									<Flags>0</Flags>
 								</Point>
 								<Point>
-									<XPos>2</XPos>
+									<XPos>2.08897</XPos>
 									<YPos>3</YPos>
 									<Flags>0</Flags>
 								</Point>
 								<Point>
-									<XPos>3</XPos>
+									<XPos>10.16892</XPos>
+									<YPos>1</YPos>
+									<Flags>0</Flags>
+								</Point>
+								<Point>
+									<XPos>70</XPos>
 									<YPos>1</YPos>
 									<Flags>37</Flags>
 								</Point>

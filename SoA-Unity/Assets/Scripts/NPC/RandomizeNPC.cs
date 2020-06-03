@@ -12,6 +12,8 @@ public class RandomizeNPC : MonoBehaviour
 
     private List<GameObject> eyes;
 
+    private int index;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,10 +55,13 @@ public class RandomizeNPC : MonoBehaviour
     {
         eyes[Random.Range(0, eyes.Count)].SetActive(true);
 
-        beards[Random.Range(0, beards.Count + 1)]?.SetActive(true); // can be beardless
+        index = Random.Range(0, beards.Count + 1);
+        if (index < beards.Count) { beards[index]?.SetActive(true); } // can be beardless
 
-        props[Random.Range(0, props.Count + 1)]?.SetActive(true); // can wear no hat
+        index = Random.Range(0, props.Count + 1);
+        if (index < props.Count) { props[index].SetActive(true); } // can wear no hat
 
-        hairs[Random.Range(0, hairs.Count + 1)]?.SetActive(true); // can be bald
+        index = Random.Range(0, hairs.Count + 1);
+        if (index < hairs.Count) { hairs[index].SetActive(true); } // can be bald
     }
 }

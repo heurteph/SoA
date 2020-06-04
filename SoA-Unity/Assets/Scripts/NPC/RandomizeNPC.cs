@@ -5,11 +5,8 @@ using UnityEngine;
 public class RandomizeNPC : MonoBehaviour
 {
     private List<GameObject> props;
-
     private List<GameObject> beards;
-
     private List<GameObject> hairs;
-
     private List<GameObject> eyes;
 
     private int index;
@@ -21,25 +18,41 @@ public class RandomizeNPC : MonoBehaviour
         beards = new List<GameObject>();
         hairs = new List<GameObject>();
         eyes = new List<GameObject>();
-        foreach (Transform prop in transform.Find("props_M_set01"))
+
+        foreach (Transform category in transform)
         {
-            props.Add(prop.gameObject);
-            prop.gameObject.SetActive(false);
-        }
-        foreach (Transform beard in transform.Find("beard_M_set01"))
-        {
-            beards.Add(beard.gameObject);
-            beard.gameObject.SetActive(false);
-        }
-        foreach (Transform hair in transform.Find("hair_M_set01"))
-        {
-            hairs.Add(hair.gameObject);
-            hair.gameObject.SetActive(false);
-        }
-        foreach (Transform eye in transform.Find("eyes_set05"))
-        {
-            eyes.Add(eye.gameObject);
-            eye.gameObject.SetActive(false);
+            if(category.name.StartsWith("eyes"))
+            {
+                foreach (Transform eye in category)
+                {
+                    eyes.Add(eye.gameObject);
+                    eye.gameObject.SetActive(false);
+                }
+            }
+            else if (category.name.StartsWith("hair"))
+            {
+                foreach (Transform hair in category)
+                {
+                    hairs.Add(hair.gameObject);
+                    hair.gameObject.SetActive(false);
+                }
+            }
+            else if (category.name.StartsWith("beard"))
+            {
+                foreach (Transform beard in category)
+                {
+                    beards.Add(beard.gameObject);
+                    beard.gameObject.SetActive(false);
+                }
+            }
+            else if (category.name.StartsWith("props"))
+            {
+                foreach (Transform prop in category)
+                {
+                    props.Add(prop.gameObject);
+                    prop.gameObject.SetActive(false);
+                }
+            }
         }
 
         RandomizeAppearance();
@@ -53,15 +66,27 @@ public class RandomizeNPC : MonoBehaviour
 
     private void RandomizeAppearance()
     {
-        eyes[Random.Range(0, eyes.Count)].SetActive(true);
+        if (eyes.Count > 0)
+        {
+            eyes[Random.Range(0, eyes.Count)].SetActive(true);
+        }
 
-        index = Random.Range(0, beards.Count + 1);
-        if (index < beards.Count) { beards[index]?.SetActive(true); } // can be beardless
+        if (beards.Count > 0)
+        {
+            index = Random.Range(0, beards.Count + 1);
+            if (index < beards.Count) { beards[index]?.SetActive(true); } // can be beardless
+        }
 
-        index = Random.Range(0, props.Count + 1);
-        if (index < props.Count) { props[index].SetActive(true); } // can wear no hat
+        if (props.Count > 0)
+        {
+            index = Random.Range(0, props.Count + 1);
+            if (index < props.Count) { props[index].SetActive(true); } // can wear no hat
+        }
 
-        index = Random.Range(0, hairs.Count + 1);
-        if (index < hairs.Count) { hairs[index].SetActive(true); } // can be bald
+        if (hairs.Count > 0)
+        {
+            index = Random.Range(0, hairs.Count + 1);
+            if (index < hairs.Count) { hairs[index].SetActive(true); } // can be bald
+        }
     }
 }

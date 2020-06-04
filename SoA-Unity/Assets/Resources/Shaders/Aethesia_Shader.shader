@@ -8,12 +8,17 @@
 		_AmbientColor("Ambient",Color) = (0.4,0.4,0.4,1)
 		[HDR]
 		_SpecularColor("Spec Color",Color) = (0.9,0.9,0.9,1)
+
+		_ShadowPercentColor("Shadow Pourcent Color",Range(0.0,0.5)) = 0.01
+		_ShadowStrenght("Shadow Strenght",Range(0.0,1.0)) = 0.5
+		
 		//ca c'est pour coef de Blinn Phong
 		//coef quadratic
 		_Glossiness("Glossiness",Float) = 32
 		[HDR]
 		_RimColor("Rim Color",Color) = (1,1,1,1)
-		_RimAmount("Rim Amount",Range(0,1)) = 0.716
+		_RimSmooth("Rim Smooth",Range(0.0,1.0)) = 0.0
+		_RimAmount("Rim Amount",Range(0.700,1.0)) = 0.716
 		_RimThreshold("Rim Threshold", Range(0,1)) = 0.1
 	}
 		SubShader
@@ -64,8 +69,11 @@
 			float4 _AmbientColor;
 			float _Glossiness;
 			float4 _SpecularColor;
+			float _ShadowPercentColor;
+			float _ShadowStrenght;
 			float4 _RimColor;
 			float _RimAmount;
+			float _RimSmooth;
 			float _RimThreshold;
 
 			v2f vert(appdata v)
@@ -120,10 +128,10 @@
 				float4 specular = specularIntensity * _SpecularColor;
 
 				if (specularIntensity < 0.5) {
-					specular = float4(0.0f, 0.0f, 0.0f, 0.0f);
+					specular = float4(0.01f, 0.01f, 0.01f, 1.0f) * _SpecularColor;
 				}
 				else {
-					specular = float4(1.0f, 1.0f, 1.0f, 1.0f);
+					specular = float4(1.0f, 1.0f, 1.0f, 1.0f) * _SpecularColor;
 				}
 
 				//rim => defined as surfaces that are facing away from the camera
@@ -137,7 +145,8 @@
 				//ici on va scale le rim
 				
 				float rimIntensity = rimDot * pow(NdotL,_RimThreshold);
-				rimIntensity = smoothstep(_RimAmount - 0.01, _RimAmount + 0.01, rimIntensity);
+				//rimIntensity = smoothstep(_RimAmount - 0.01, _RimAmount + 0.01, rimIntensity);
+				rimIntensity = smoothstep(_RimAmount - _RimSmooth, _RimAmount + _RimSmooth, rimIntensity);
 
 				float4 rim = rimIntensity * _RimColor;
 
@@ -170,13 +179,16 @@
 				//light de la scène
 				//return _Color * sample * (_AmbientColor + light + specular + rimDot);
 				if (lightIntensity < 0.5) {
-					light = float4(0.0f, 0.0f, 0.0f, 0.0f);
-					_AmbientColor = float4(0.5, 0.5f, 0.5f, 1.0f);
+					light = float4(_ShadowPercentColor, _ShadowPercentColor, _ShadowPercentColor, 1.0f) * _LightColor0;
+					_AmbientColor = float4(1.0f-_ShadowStrenght, 1.0f-_ShadowStrenght, 1.0f - _ShadowStrenght, 1.0f);
 				}
 				/*else {
 					light = float4(0.0f, 0.0f, 0.0f, 0.0f);
 				}*/
-				sample *= (_AmbientColor + light);// + specular);// +rim);
+
+				//light = lightIntensity * _LightColor0;
+
+				sample *= (_AmbientColor + light); //+ specular);// +rim);// + specular);// +rim);
 				//sample = (smoothstep(flat.r,  1.0f - (1.0f - flat.r), sample.r), smoothstep(flat.g, 1.0f - (1.0f - flat.g), sample.g), smoothstep(flat.b, 1.0f - (1.0f - flat.b), sample.b), 1.0f);
 				//lissage
 				/*float r, g, b;

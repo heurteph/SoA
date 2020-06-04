@@ -11,6 +11,7 @@
 		//ca c'est pour coef de Blinn Phong
 		//coef quadratic
 		_Glossiness("Glossiness",Float) = 32
+		_ShadowPercentColor("Shadow Pourcent Color",Range(0.0,0.5)) = 0.01
 		[HDR]
 		_RimColor("Rim Color",Color) = (1,1,1,1)
 		_RimAmount("Rim Amount",Range(0,1)) = 0.716
@@ -67,6 +68,7 @@
 			float4 _RimColor;
 			float _RimAmount;
 			float _RimThreshold;
+			float _ShadowPercentColor;
 
 			v2f vert(appdata v)
 			{
@@ -170,7 +172,7 @@
 				//light de la scène
 				//return _Color * sample * (_AmbientColor + light + specular + rimDot);
 				if (lightIntensity < 0.5) {
-					light = float4(0.0f, 0.0f, 0.0f, 0.0f);
+					light = float4(_ShadowPercentColor, _ShadowPercentColor, _ShadowPercentColor, 1.0f) * _LightColor0;
 					_AmbientColor = float4(0.5, 0.5f, 0.5f, 1.0f);
 				}
 				/*else {

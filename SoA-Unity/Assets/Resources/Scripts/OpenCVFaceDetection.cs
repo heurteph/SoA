@@ -53,6 +53,7 @@ public class OpenCVFaceDetection : MonoBehaviour
 
     void Start()
     {
+        activate = false;
         int camWidth = 0, camHeight = 0;
         int result = OpenCVInterop.Init(ref camWidth, ref camHeight);
         if( result < 0)
@@ -124,15 +125,18 @@ public class OpenCVFaceDetection : MonoBehaviour
             for (int i = 0; i < detectedFaceCount; i++)
             {
                 NormalizedFacePositions.Add(new Vector2((_faces[i].X * DetectionDownScale) / CameraResolution.x, 1f - ((_faces[i].Y * DetectionDownScale) / CameraResolution.y)));
+                Debug.Log("Positions " + NormalizedFacePositions[NormalizedFacePositions.Count - 1]);
                 if (max < _faces[i].Radius)
                 {
                     if (!reset)
                     {
                         //un premier filtre d'input
-                        float distance = (NormalizedFacePositions[NormalizedFacePositions.Count - 1] - oldPosition).magnitude;
-                        if (distance < 100 && distance >= 0.5)
+                        //censé être le radius min et max ?
+                        float distance = _faces[i].Radius;//(NormalizedFacePositions[NormalizedFacePositions.Count - 1] - oldPosition).magnitude;
+                        //Debug.Log("Distance est de "+distance);
+                        if (distance < 100.0f && distance >= 0.5f)
                         {
-                            Debug.Log("Distance " + distance);
+                            //Debug.Log("Distance " + distance);
                             max = _faces[i].Radius;
                             positions = NormalizedFacePositions[NormalizedFacePositions.Count - 1];
                             positions.z = max;
@@ -143,6 +147,7 @@ public class OpenCVFaceDetection : MonoBehaviour
                     {
                         max = _faces[i].Radius;
                         positions = NormalizedFacePositions[NormalizedFacePositions.Count - 1];
+                        positions.z = max;
                         num = i;
                     }
                 }
@@ -151,6 +156,10 @@ public class OpenCVFaceDetection : MonoBehaviour
             if (num < 0)
             {
                 detectedFaceCount = 0;
+            }
+            else
+            {
+                oldPosition = new Vector2(positions.x, positions.y);
             }
         }
     }

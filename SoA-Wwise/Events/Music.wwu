@@ -56,9 +56,6 @@
 				<Event Name="Play_Music_Safe_Zone" ID="{A1E59453-2C7C-4173-9EFE-3E223F47DD75}">
 					<ChildrenList>
 						<Action Name="" ID="{F5CF0537-A6DB-4786-911B-6900C36A4CE7}" ShortID="581177532">
-							<PropertyList>
-								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Music_Safe_Zone" ID="{CC95DF91-F346-4CD7-8A56-5979D8BB965A}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
@@ -101,6 +98,7 @@
 						<Action Name="" ID="{D597239F-1BB6-4B59-AD93-DC4D24702CD3}" ShortID="393682367">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">

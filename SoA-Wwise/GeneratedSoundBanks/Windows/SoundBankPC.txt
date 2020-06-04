@@ -26,6 +26,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1403256204	Play_Moteur_VoitureElec			\Parc_Obstacles\Play_Moteur_VoitureElec	
 	1582928677	Play_Respiration_JoggueurH			\Parc_Obstacles\Play_Respiration_JoggueurH	
 	1582928683	Play_Respiration_JoggueurF			\Parc_Obstacles\Play_Respiration_JoggueurF	
+	1615608444	Play_Mort			\Personnage\Play_Mort	
 	1625096966	Play_Music_Appart			\Ville_Obstacles\Play_Music_Appart	
 	1692441862	Play_Climatiseur			\Ville_Obstacles\Play_Climatiseur	
 	1699343283	Play_Music_Menu			\Music\Play_Music_Menu	
@@ -48,6 +49,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2860278991	Play_Respiration_Mouvement			\Personnage\Play_Respiration_Mouvement	
 	2894920242	Play_Klaxons			\Ville_Obstacles\Play_Klaxons	
 	2968327968	Play_Pigeon			\Ville_Ambiance\Play_Pigeon	
+	2980414578	Stop_Mort			\Personnage\Stop_Mort	
 	2983975038	Play_Bus_Door_Open			\Ville_Obstacles\Play_Bus_Door_Open	
 	3189001139	Stop_Parc_Eau_Lac			\Parc_Ambiance\Stop_Parc_Eau_Lac	
 	3194051996	Stop_Music_Main_Title			\Music\Stop_Music_Main_Title	
@@ -809,6 +811,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1012103387	Beton_Run_Pied_Gauche11	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Beton_Run_Pied_Gauche11_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Beton\Droite_Gauche_Beton_Court\Beton_Court_Pied_Gauche\Beton_Run_Pied_Gauche11		1776
 	1013005889	Respiration_Marche_Inspire 01	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Marche_Inspire 01_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Marche_Ex or in\Marche_Inspire\Respiration_Marche_Inspire 01		6113
 	1014155343	Parc_Obstacles_Humain_Joggueur_RespiFemme01	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme01_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Respiration_JoggueurF\Parc_Obstacles_Humain_Joggueur_RespiFemme01		10540
+	1015646784	Esthesia_Mort	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Esthesia_Mort_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Mort\Esthesia_Mort		71032
 	1019879237	Beton_Run_Pied_Gauche21	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Beton_Run_Pied_Gauche21_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Beton\Droite_Gauche_Beton_Court\Beton_Court_Pied_Gauche\Beton_Run_Pied_Gauche21		1553
 	1023285854	Parc_Obstacles_Humain_Joggueur_RespiFemme05	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme05_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Respiration_JoggueurF\Parc_Obstacles_Humain_Joggueur_RespiFemme05		10941
 	1027620574	Respiration_Marche_Inspire 07	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Marche_Inspire 07_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Marche_Ex or in\Marche_Inspire\Respiration_Marche_Inspire 07		6122

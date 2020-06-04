@@ -61,6 +61,31 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Mort" ID="{6FD74D50-112B-4149-B95B-EB6A47F3F447}">
+					<ChildrenList>
+						<Action Name="" ID="{25E83C93-633C-42DE-B086-C590BAE96F00}" ShortID="728130853">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Mort" ID="{2EDED378-4743-4AA4-A434-4E45A5DD9B6B}" WorkUnitID="{1B141676-4414-425B-8493-2A57AC5365FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Mort" ID="{D3B757F8-17EE-4783-AC61-5AF16F43697F}">
+					<ChildrenList>
+						<Action Name="" ID="{53794653-5922-4306-BFF3-7BBE6C6693DB}" ShortID="388038934">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Mort" ID="{2EDED378-4743-4AA4-A434-4E45A5DD9B6B}" WorkUnitID="{1B141676-4414-425B-8493-2A57AC5365FE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AMBIANCE { PARK, CITY, NONE };
+public enum AMBIANCE { PARK, CITY, SHELTER, NONE };
 
 public class TriggerAmbiance : MonoBehaviour
 {

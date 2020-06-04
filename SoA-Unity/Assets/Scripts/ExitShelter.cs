@@ -99,6 +99,10 @@ public class ExitShelter : MonoBehaviour
         // Reset sound
         AkSoundEngine.SetState("Dans_Lieu_Repos", "Non");
 
+        // Ambiance sound
+        GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventStop.Post(gameObject);
+        GetComponent<PostWwiseAmbiance>().ParkAmbianceEventPlay.Post(gameObject);
+
         while (shade.color.a > 0)
         {
             shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, Mathf.Max(shade.color.a - Time.deltaTime / (shelterManager.TransitionDuration * 0.5f),0));

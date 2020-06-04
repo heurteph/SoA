@@ -26,6 +26,16 @@ public class PostWwiseAmbiance : MonoBehaviour
     public AK.Wwise.Event CityAmbianceEventStop { get { return cityAmbianceEventStop; } }
 
     [SerializeField]
+    [Tooltip("The play event of the shelter ambiance")]
+    private AK.Wwise.Event shelterAmbianceEventPlay;
+    public AK.Wwise.Event ShelterAmbianceEventPlay { get { return shelterAmbianceEventPlay; } }
+
+    [SerializeField]
+    [Tooltip("The stop event of the city ambiance")]
+    private AK.Wwise.Event shelterAmbianceEventStop;
+    public AK.Wwise.Event ShelterAmbianceEventStop { get { return shelterAmbianceEventStop; } }
+
+    [SerializeField]
     [Tooltip("The ambiance the game starts with")]
     private AMBIANCE ambiance = AMBIANCE.NONE;
 
@@ -58,6 +68,10 @@ public class PostWwiseAmbiance : MonoBehaviour
             case AMBIANCE.CITY:
                 ParkAmbianceEventStop.Post(gameObject);
                 CityAmbianceEventPlay.Post(gameObject);
+                break;
+            case AMBIANCE.SHELTER:
+                ShelterAmbianceEventPlay.Post(gameObject);
+                ParkAmbianceEventPlay.Post(gameObject);
                 break;
         }
     }

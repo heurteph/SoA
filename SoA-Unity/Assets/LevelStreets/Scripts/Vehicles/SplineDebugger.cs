@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pixelplacement;
 
-[ExecuteInEditMode]
 public class SplineDebugger : MonoBehaviour
 {
     [SerializeField]
@@ -37,10 +36,18 @@ public class SplineDebugger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    private void OnValidate()
+    {
         user1.transform.position = spline1.GetPosition(percentage1, true);
         user1.transform.rotation = Quaternion.LookRotation(spline1.GetDirection(percentage1, true));
-        
+
         user2.transform.position = spline2.GetPosition(percentage2, true);
         user2.transform.rotation = Quaternion.LookRotation(spline2.GetDirection(percentage2, true));
+        
+        Debug.Log("On spline " + spline1.name + " : " + percentage1);
+        Debug.Log("On spline " + spline2.name + " : " + percentage2);
     }
 }

@@ -8,7 +8,7 @@ using System.Linq;
 struct Flow
 {
     public Spline spline;
-    public float timeLaps; // in seconds
+    public float timeSpan; // in seconds
     public float count;
     public float averageFastSpeed;
     public float averageNormalSpeed;
@@ -35,10 +35,19 @@ public class FlowsManager : MonoBehaviour
     private GameObject streetUsersManager;
 
     private Schedule[] schedules;
-        
+
+    private List<float> spawnTimesWatcher;
+    private int vehicleCount; //s
+
     // Start is called before the first frame update
     void Start()
     {
+        Random.InitState((int)System.DateTime.UtcNow.Ticks);
+
+        vehicleCount = streetUsersManager.GetComponent<StreetUsersManager>().StreetUsers.Length;
+
+        spawnTimesWatcher = new List<float>();
+
         if(streetUsersManager == null)
         {
             throw new System.ArgumentNullException("The FlowsManager is not linked to the StreetUsersManager");
@@ -51,6 +60,10 @@ public class FlowsManager : MonoBehaviour
         schedules = new Schedule[flows.Length];
         for (int i = 0; i < flows.Length; i++)
         {
+            if(flows[i].timeSpan == 0)
+            {
+                throw new System.ArgumentOutOfRangeException("Time span of the flow cannot be zero");
+            }
             schedules[i] = new Schedule();
             schedules[i].spawnTimes = new List<float>();
             Reschedule(ref schedules[i], flows[i]);
@@ -93,13 +106,40 @@ public class FlowsManager : MonoBehaviour
     }
     private void Reschedule(ref Schedule schedule, Flow flow)
     {
+        // general spawn times
+        foreach (float spawnTime in schedule.spawnTimes)
+        {
+            spawnTimesWatcher.Remove(spawnTime);
+        }
+
         schedule.startTime = Time.time;
-        schedule.endTime = Time.time + flow.timeLaps;
+        schedule.endTime = Time.time + flow.timeSpan;
         schedule.spawnTimes.Clear();
         for (int j = 0; j < flow.count; j++)
         {
-            float time = Random.Range(0, Time.time + flow.timeLaps);
+            // choose a time that is not too close to a reserved one
+            bool accepted = false;
+            float time = 0;
+            while (!accepted)
+            {
+                time = Random.Range(Time.time, Time.time + flow.timeSpan); // TO DO : Check if correct
+                accepted = true;
+                Debug.Log("2");
+                
+                foreach (float reservedTime in spawnTimesWatcher)
+                {
+                    if (time >= reservedTime - flow.timeSpan / (vehicleCount + 2) && time <= reservedTime + flow.timeSpan / (vehicleCount + 2))
+                    {
+                        //accepted = false;
+                        //break;
+                    }
+                }
+            }
+            Debug.Log("Time reserved : " + time);
             schedule.spawnTimes.Add(time);
+
+            // general spawn times
+            spawnTimesWatcher.Add(time);
         }
     }
 }

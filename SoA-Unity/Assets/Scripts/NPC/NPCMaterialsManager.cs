@@ -23,26 +23,22 @@ public class NPCMaterialsManager : MonoBehaviour
         for(int i = 1; i <= 14; i++)
         {
             materialName = "Materials/NPC/material_hair_eyebrows_" + i.ToString().PadLeft(2, '0');
-            Debug.Log("Material " + materialName + " loaded");
             hairEyebrowsMats.Add(Resources.Load<Material>(materialName));
         }
         for(int i = 1; i <= 6; i++)
         {
             materialName = "Materials/NPC/material_hat_" + i.ToString().PadLeft(2, '0');
             hatMats.Add(Resources.Load(materialName, typeof(Material)) as Material);
-            Debug.Log("Material " + materialName + " loaded");
         }
         for (int i = 1; i <= 10; i++)
         {
             materialName = "Materials/NPC/material_NPC_F_" + i.ToString().PadLeft(2, '0');
             femaleNPCMats.Add(Resources.Load(materialName, typeof(Material)) as Material);
-            Debug.Log("Material " + materialName + " loaded");
         }
         for (int i = 1; i <= 10; i++)
         {
             materialName = "Materials/NPC/material_NPC_M_" + i.ToString().PadLeft(2, '0');
             maleNPCMats.Add(Resources.Load(materialName, typeof(Material)) as Material);
-            Debug.Log("Material " + materialName + " loaded");
         }
     }
 

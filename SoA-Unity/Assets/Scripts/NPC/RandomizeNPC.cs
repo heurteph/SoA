@@ -88,12 +88,12 @@ public class RandomizeNPC : MonoBehaviour
             if (eyes[index].transform.GetChild(0).GetComponent<MeshRenderer>())
             {
                 eyes[index].transform.GetChild(0).GetComponent<MeshRenderer>().material = hairEyebrowsEyesMaterial; // eyebrows
-                eyes[index].transform.GetChild(1).GetComponent<MeshRenderer>().material = hairEyebrowsEyesMaterial; // eyes
+                //eyes[index].transform.GetChild(1).GetComponent<MeshRenderer>().material = hairEyebrowsEyesMaterial; // eyes
             }
             else if (eyes[index].transform.GetChild(0).GetComponent<SkinnedMeshRenderer>())
             {
                 eyes[index].transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = hairEyebrowsEyesMaterial; // eyebrows
-                eyes[index].transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = hairEyebrowsEyesMaterial; // eyes
+                //eyes[index].transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = hairEyebrowsEyesMaterial; // eyes
             }
         }
 
@@ -137,7 +137,8 @@ public class RandomizeNPC : MonoBehaviour
 
         if (hairs.Count > 0)
         {
-            index = Random.Range(0, hairs.Count + 1);
+            bool isFemaleOrKid = transform.Find("body").GetChild(0).name.Contains("npcMkid") || transform.Find("body").GetChild(0).name.Contains("npcF");
+            index = Random.Range(0, hairs.Count + (isFemaleOrKid ? 0 : 1));
             if (index < hairs.Count) // can be bald
             {
                 hairs[index].SetActive(true);

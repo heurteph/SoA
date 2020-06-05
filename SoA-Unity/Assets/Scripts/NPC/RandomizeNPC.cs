@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class RandomizeNPC : MonoBehaviour
 {
-    private List<GameObject> props;
-    private List<GameObject> beards;
-    private List<GameObject> hairs;
-    private List<GameObject> eyes;
-
-    private int index;
+    [SerializeField]
+    [Tooltip("Reference to the NPC material manager")]
+    private GameObject NPCMaterialsManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        props = new List<GameObject>();
-        beards = new List<GameObject>();
-        hairs = new List<GameObject>();
-        eyes = new List<GameObject>();
+        List<GameObject> props = new List<GameObject>();
+        List<GameObject> beards = new List<GameObject>();
+        List<GameObject> hairs = new List<GameObject>();
+        List<GameObject> eyes = new List<GameObject>();
 
         foreach (Transform category in transform)
         {
@@ -55,7 +52,14 @@ public class RandomizeNPC : MonoBehaviour
             }
         }
 
-        RandomizeAppearance();
+        RandomizeFeatures(eyes, beards, props, hairs);
+
+        if (NPCMaterialsManager == null)
+        {
+            throw new System.NullReferenceException("No reference to the NPC material manager");
+        }
+
+        RandomizeMaterials();
     }
 
     // Update is called once per frame
@@ -64,29 +68,124 @@ public class RandomizeNPC : MonoBehaviour
         
     }
 
-    private void RandomizeAppearance()
+    private void RandomizeMaterials()
     {
+
+    }
+
+    private void RandomizeFeatures(List<GameObject> eyes, List<GameObject> beards, List<GameObject> props, List<GameObject> hairs)
+    {
+        int index;
+        Material hairEyebrowsEyesMaterial = null;
+
         if (eyes.Count > 0)
         {
-            eyes[Random.Range(0, eyes.Count)].SetActive(true);
+            index = Random.Range(0, eyes.Count);
+            eyes[index].SetActive(true);
+
+            // material
+            hairEyebrowsEyesMaterial = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetHairEyebrowsMaterial();
+            if (eyes[index].transform.GetChild(0).GetComponent<MeshRenderer>())
+            {
+                eyes[index].transform.GetChild(0).GetComponent<MeshRenderer>().material = hairEyebrowsEyesMaterial; // eyebrows
+                eyes[index].transform.GetChild(1).GetComponent<MeshRenderer>().material = hairEyebrowsEyesMaterial; // eyes
+            }
+            else if (eyes[index].transform.GetChild(0).GetComponent<SkinnedMeshRenderer>())
+            {
+                eyes[index].transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = hairEyebrowsEyesMaterial; // eyebrows
+                eyes[index].transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = hairEyebrowsEyesMaterial; // eyes
+            }
         }
 
         if (beards.Count > 0)
         {
             index = Random.Range(0, beards.Count + 1);
-            if (index < beards.Count) { beards[index]?.SetActive(true); } // can be beardless
+            if (index < beards.Count) // can be beardless
+            {
+                beards[index]?.SetActive(true);
+
+                // material
+                if (beards[index].GetComponent<MeshRenderer>())
+                {
+                    beards[index].GetComponent<MeshRenderer>().material = hairEyebrowsEyesMaterial;
+                }
+                else if (beards[index].GetComponent<SkinnedMeshRenderer>())
+                {
+                    beards[index].GetComponent<SkinnedMeshRenderer>().material = hairEyebrowsEyesMaterial;
+                }
+            }
         }
 
         if (props.Count > 0)
         {
             index = Random.Range(0, props.Count + 1);
-            if (index < props.Count) { props[index].SetActive(true); } // can wear no hat
+            if (index < props.Count)  // can wear no hat
+            {
+                props[index].SetActive(true);
+
+                // material
+                if (props[index].GetComponent<MeshRenderer>())
+                {
+                    props[index].GetComponent<MeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetHatMaterial();
+                }
+                else if (props[index].GetComponent<SkinnedMeshRenderer>())
+                {
+                    props[index].GetComponent<SkinnedMeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetHatMaterial();
+                }
+            }
         }
 
         if (hairs.Count > 0)
         {
             index = Random.Range(0, hairs.Count + 1);
-            if (index < hairs.Count) { hairs[index].SetActive(true); } // can be bald
+            if (index < hairs.Count) // can be bald
+            {
+                hairs[index].SetActive(true);
+
+                // material
+                if (hairs[index].GetComponent<MeshRenderer>())
+                {
+                    hairs[index].GetComponent<MeshRenderer>().material = hairEyebrowsEyesMaterial;
+                }
+                else if (hairs[index].GetComponent<SkinnedMeshRenderer>())
+                {
+                    hairs[index].GetComponent<SkinnedMeshRenderer>().material = hairEyebrowsEyesMaterial;
+                }
+            }
+        }
+
+        GameObject body = transform.Find("body")?.GetChild(0)?.gameObject;
+
+        if(body == null)
+        {
+            throw new System.NullReferenceException("No body gameobject for the NPC " + transform.name);
+        }
+
+        if (body.name.Contains("npcM"))
+        {
+            if (body.GetComponent<MeshRenderer>())
+            {
+                body.GetComponent<MeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
+            }
+            else if (body.GetComponent<SkinnedMeshRenderer>())
+            {
+                body.GetComponent<SkinnedMeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
+            }
+        }
+        else if (body.name.Contains("npcF"))
+        {
+            if (body.GetComponent<MeshRenderer>())
+            {
+                body.GetComponent<MeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
+            }
+            else if (body.GetComponent<SkinnedMeshRenderer>())
+            {
+                body.GetComponent<SkinnedMeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
+            }
+        }
+        else
+        {
+            throw new System.Exception("No body mesh for the NPC " + transform.name);
         }
     }
 }

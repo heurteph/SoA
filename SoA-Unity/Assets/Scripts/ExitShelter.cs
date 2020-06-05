@@ -41,6 +41,8 @@ public class ExitShelter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetComponent<PlayerFirst>().SetShelterSpeed();
+
         if (shelterManager && inputs.Player.enabled)
         {
             inputs.Player.Interact.performed -= ShelterToWorld;
@@ -79,12 +81,13 @@ public class ExitShelter : MonoBehaviour
             yield return null;
         }
 
-        // Reset character
+        // Reset character position and speed
 
         if(transform.GetComponent<PlayerFirst>().isActiveAndEnabled)
         {
             Transform warp = shelter.transform.Find("Warp Position");
             GetComponent<PlayerFirst>().ResetTransform(warp.position, warp.rotation.eulerAngles.y);
+            GetComponent<PlayerFirst>().ResetSpeed();
         }
 
         // Reset camera

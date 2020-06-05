@@ -1060,16 +1060,16 @@ public class CameraFollow : MonoBehaviour
         float y_stabilization = 0;
         if (cameraState == STATE.NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromNormalToHorizon; }
 
-        else if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToHurry - angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry); }
-        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToNormal - angleFromNormalToHorizon * (timeHurryToNormal - zoomTimer) / timeHurryToNormal); }
+        else if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -(angleFromHurryToHorizon - angleFromNormalToHorizon); }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToHurry - (angleFromHurryToHorizon - angleFromNormalToHorizon) * (timeNormalToHurry - zoomTimer) / timeNormalToHurry); }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-(angleFromHurryToHorizon - angleFromNormalToHorizon) * zoomTimer / timeHurryToNormal - angleFromNormalToHorizon * (timeHurryToNormal - zoomTimer) / timeHurryToNormal); }
 
-        else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToProtected - angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected); }
-        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal - angleFromNormalToHorizon * (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal); }
+        else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -(angleFromProtectedToHorizon - angleFromNormalToHorizon); }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToProtected - (angleFromProtectedToHorizon - angleFromNormalToHorizon) * (timeNormalToProtected - zoomTimer) / timeNormalToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-(angleFromProtectedToHorizon - angleFromNormalToHorizon) * zoomTimer / timeProtectedToNormal - angleFromNormalToHorizon * (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal); }
 
-        else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
-        else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
+        else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-(angleFromHurryToHorizon - angleFromNormalToHorizon) * zoomTimer / timeHurryToProtected - (angleFromProtectedToHorizon - angleFromNormalToHorizon) * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-(angleFromProtectedToHorizon - angleFromNormalToHorizon) * zoomTimer / timeProtectedToHurry - (angleFromHurryToHorizon - angleFromNormalToHorizon) * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
 
         // Must be separated in two because unity's order for euler is ZYX and we want X-Y-X
         //heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);

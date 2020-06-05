@@ -69,12 +69,13 @@ public class EnterShelter : MonoBehaviour
             yield return null;
         }
 
-        // Reset Character
+        // Reset Character Position and Speed
 
         if (transform.GetComponent<PlayerFirst>().isActiveAndEnabled)
         {
             Transform warp = shelter.transform.Find("Warp Position");
             transform.GetComponent<PlayerFirst>().ResetTransform(warp.position, warp.rotation.eulerAngles.y);
+            transform.GetComponent<PlayerFirst>().SetShelterSpeed();
         }
 
         // Reset Camera

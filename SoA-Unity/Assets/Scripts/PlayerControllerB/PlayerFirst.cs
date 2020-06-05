@@ -144,6 +144,15 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     [SerializeField]
     private GameObject wwiseGameObjectBreath;
 
+    [Header("Shelter")]
+    [Space]
+
+    [SerializeField]
+    [Tooltip("The speed of the character when inside the shelter")]
+    [Range(0, 10)]
+    private float shelterSpeed = 6;
+    public float ShelterSpeed { get { return shelterSpeed; } }
+
     void Awake()
     {
         steeringAngle = player.transform.rotation.eulerAngles.y;
@@ -401,6 +410,14 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         isHurry = false;
     }
    
-    
+    public void SetShelterSpeed()
+    {
+        this.speed = shelterSpeed;
+    }
+
+    public void ResetSpeed()
+    {
+        this.speed = normalSpeed;
+    }
 
 } // FINISH

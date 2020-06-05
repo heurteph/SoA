@@ -20,26 +20,54 @@ public class Render : MonoBehaviour
     float time_actual = 0.0f;
     float time_refresh = 1.0f;
 
+    public float coef = 0.001f;
+
+    public float offsetX = 0.0f;
+    public float offsetY = 0.0f;
+
+    Matrix4x4 projection_base;
+
     // Start is called before the first frame update
     //a l'init ici
     void Awake()
     {
         cam = GetComponent<Camera>();
+        projection_base = new Matrix4x4();
+        for(int i= 0; i < 4; i++)
+        {
+            projection_base.SetRow(i, cam.projectionMatrix.GetRow(i));
+        }
 
-        /*RT = new RenderTexture(cam.pixelWidth, cam.pixelHeight, 24, RenderTextureFormat.ARGB32, 4);
+        Debug.Log("Camera "+cam.projectionMatrix);
+        Debug.Log("Camera w and h " + cam.pixelWidth + " et " + cam.pixelHeight);
+        //Cam format
+        //RT = new RenderTexture(cam.pixelWidth, cam.pixelHeight, 24, RenderTextureFormat.ARGB32, 4);
+        //FULL HD
+        //RT = new RenderTexture(1920, 1080, 24, RenderTextureFormat.ARGB32, 4);
+        //HD
+        //RT = new RenderTexture(1080, 720, 24, RenderTextureFormat.ARGB32, 4);
+        RT = new RenderTexture(1024, 1024, 24, RenderTextureFormat.ARGB32, 4);
+        //RT = new RenderTexture(540, 360, 24, RenderTextureFormat.ARGB32, 11);
+        //RT = new RenderTexture(270, 180, 24, RenderTextureFormat.ARGB32, 4);
         RT.volumeDepth = 3;
 
+        //RT.antiAliasing = 1;
         RT.useMipMap = true;
         RT.autoGenerateMips = true;
         RT.enableRandomWrite = true;
         RT.Create();
 
-        cam.targetTexture = RT;
+        //cam.targetTexture = RT;
+
+        if (RT.useMipMap)
+        {
+            Debug.Log("MipMap activate !"+RT.width+ " "+RT.height);
+        }
 
         //Debug.Log("Camera " + cam.pixelWidth + " " + cam.pixelHeight);
 
 
-        Debug.Log("RT " + RT);*/
+        Debug.Log("RT " + RT);
         changeShader("NoVision");
         //Debug.Log("Resolution "+Screen.currentResolution);
         mat.SetFloat("height", Screen.currentResolution.height);
@@ -52,10 +80,11 @@ public class Render : MonoBehaviour
         mat = new Material(Shader.Find("Shaders/" + shader_name));
     }
 
-    /*private void OnPreRender()
+    private void OnPreRender()
     {
-        cam.targetTexture = RT;
-    }*/
+        //cam.targetTexture = RT;
+    }
+
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
@@ -100,7 +129,8 @@ public class Render : MonoBehaviour
 
                 //RenderTexture RT_0 = new RenderTexture(source);
                 //RenderTexture RT_0 = new RenderTexture(source.width, source.height, source.depth, source.format, RenderTextureReadWrite.Default);
-                RenderTexture RT_0 = new RenderTexture(source.width, source.height, source.depth, source.format, 4);
+
+                /*RenderTexture RT_0 = new RenderTexture(source.width, source.height, source.depth, source.format, 4);
                 //RT_0.dimension = UnityEngine.Rendering.TextureDimension.Tex2DArray;
                 //RT_0.enableRandomWrite = true;
                 RT_0.volumeDepth = 3;
@@ -111,18 +141,32 @@ public class Render : MonoBehaviour
                 RT_0.Create();
 
                 //Graphics.CopyTexture(source, RT_0);
-                Graphics.Blit(source, RT_0);
+                Graphics.Blit(source, RT_0);*/
 
                 //RT_0.GenerateMips();
 
+                RenderTexture RT_0 = new RenderTexture(32, 32, source.depth, source.format, 0);
+                //RT_0.dimension = UnityEngine.Rendering.TextureDimension.Tex2DArray;
+                //RT_0.enableRandomWrite = true;
+                RT_0.volumeDepth = 3;
+
+                RT_0.enableRandomWrite = true;
+                RT_0.Create();
+
+                //Graphics.CopyTexture(source, RT_0);
+                Graphics.Blit(source, RT_0);
+
+                RT = RT_0;
 
 
-                Debug.Log("Refresh, width " + RT_0.width + " et height " + RT_0.height);
-                
+                //Debug.Log("Refresh, width " + RT_0.width + " et height " + RT_0.height);
+                Debug.Log("Refresh, width " + RT.width + " et height " + RT.height);
 
 
                 int w = source.width;//Screen.currentResolution.width;
                 int h = source.height;//Screen.currentResolution.height;
+
+                Debug.Log("W est de "+w+" et h est de "+h);
 
                 //ca c'est pour redim de la texture
                 float ratio = 16.0f / 9.0f;
@@ -130,8 +174,10 @@ public class Render : MonoBehaviour
                 float n_h = n_w / ratio;
 
                 //a mettre de base
-                n_w = w;
-                n_h = h;
+                /*n_w = w;
+                n_h = h;*/
+                n_w = RT.width;
+                n_h = RT.height;
 
 
                 /*Texture2D tex = new Texture2D(source.width, source.height, TextureFormat.ARGB32, true);
@@ -154,12 +200,14 @@ public class Render : MonoBehaviour
 
 
                 //pour tab
-                int nb_element = 1;//w * h;
+                int nb_element = 2;//w * h;
 
-                float mipLevel = 2;
+                float mipLevel = 1;
 
                 uint[] values = new uint[nb_element];
                 values[0] = 0;
+
+                values[1] = 0;
 
                 //taille d'un element pareil a cuda ou ogl
                 ComputeBuffer cb = new ComputeBuffer(nb_element, sizeof(uint));
@@ -169,6 +217,12 @@ public class Render : MonoBehaviour
                 n_w /= mipLevel;
                 n_h /= mipLevel;
 
+                //pour RT
+                shader.SetFloat("width", n_w);
+                shader.SetFloat("height", n_h);
+
+                Debug.Log("Render " + n_w + " et " + n_h);
+
                 //qd pas trouvé erreur compilation
                 int indexKernel = shader.FindKernel("CSMain");
 
@@ -177,7 +231,9 @@ public class Render : MonoBehaviour
                 //exemple metter une texture dans shader
                 //de base
                 //shader.SetTexture(indexKernel, "Result", source);
-                shader.SetTexture(indexKernel, "Result", RT_0,(int)(mipLevel-1));
+                //shader.SetTexture(indexKernel, "Result", RT_0,(int)(mipLevel-1));
+                shader.SetTexture(indexKernel, "Result", RT, (int)(mipLevel - 1));
+                
                 //avec redim
                 //shader.SetTexture(indexKernel, "Result", tex);
 
@@ -193,12 +249,13 @@ public class Render : MonoBehaviour
                 y = 32;//avec dépassement ici donc plusieurs tour par thread qd nécessaire
                 z = 1;*/
 
+                float reducer = 32.0f;
 
-                float tmp = n_w / 32;
+                float tmp = n_w / reducer;
                 //pour tronquer à l'entier le plus haut chiffre quand reste non null
-                x = (int)( ((int)(tmp)) < tmp ? tmp+1 : tmp ); //60;
-                tmp = n_h / 32;
-                y = (int)(((int)(tmp)) < tmp ? tmp+1 : tmp); //34;
+                x = (int)( ((int)(tmp)) != tmp ? tmp+1 : tmp ); //60;
+                tmp = n_h / reducer;
+                y = (int)(((int)(tmp)) != tmp ? tmp+1 : tmp); //34;
                 z = 1;
 
                 Debug.Log("x est de " + x + " y est de " + y);
@@ -218,6 +275,7 @@ public class Render : MonoBehaviour
                 }
 
                 Debug.Log("Values est de " + total);
+                Debug.Log("Cmpt est de " + values[1]);
                 time_actual = Time.realtimeSinceStartup;
                 
                 //before create
@@ -228,7 +286,7 @@ public class Render : MonoBehaviour
 
 
 
-
+                
 
             //Graphics.Blit(source, destination);
 
@@ -316,9 +374,86 @@ public class Render : MonoBehaviour
             //it++;
         }
     }
+    private void OnPostRender()
+    {
+        //Camera.main.targetTexture = null;
+        //Graphics.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), RT);
+    }
 
     public void Update()
     {
+        Matrix4x4 shear = Matrix4x4.identity;
+        //shear.SetRow(1,new Vector4(0,1,2,0));
+        //shear.SetRow(0, new Vector4(2, 0, 0, 0));
+        //shear.SetRow(0, new Vector4(0, 2, 0, 0));
+        shear.SetRow(2, new Vector4(offsetX, offsetY, 1, 0));
+        //shear.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, -1.0f));
+        cam.projectionMatrix = projection_base * shear;
+
+        //default 0.01 et 1000
+        //n near plan
+        //f far plan
+        //default -1 1
+        //t top et b bottom
+        //r right et l left
+
+        //Debug.Log("Affichage " + cam.nearClipPlane + " " + cam.farClipPlane);
+
+        float angle_horizontal = cam.fieldOfView;
+
+        float near, far, left, right, bottom, top;
+        //near = 0.01f;
+        //far = 1000.0f;
+        near = cam.nearClipPlane;
+        far = cam.farClipPlane;
+        //left = bottom = -1.0f;
+        //right = top = 1.0f;
+        right = -Mathf.Cos(angle_horizontal / 2.0f) * near;
+        left = Mathf.Cos(angle_horizontal / 2.0f) * near;
+        /*right = near / Mathf.Cos(-angle_horizontal / 2.0f);
+        right = Mathf.Cos(-angle_horizontal) * right;
+        left = near / Mathf.Cos(angle_horizontal / 2.0f);
+        right = Mathf.Cos(angle_horizontal) * left;*/
+
+        float angle_vertical = angle_horizontal / cam.aspect; //angle_horizontal / (cam.rect.width / cam.rect.height);
+        bottom = Mathf.Sin(-angle_vertical) * near;
+        top = Mathf.Sin(angle_vertical) * near;
+        /*bottom = near / Mathf.Cos(-angle_vertical / 2.0f);
+        bottom = Mathf.Sin(-angle_vertical) * bottom;
+        top = near / Mathf.Cos(angle_vertical / 2.0f);
+        top = Mathf.Sin(angle_vertical) * top;*/
+
+        /*Debug.Log("Near "+near+" Far "+far+" aspect "+cam.aspect+" angle Vertical "+angle_vertical+" angle Horizontal "+angle_horizontal);
+        Debug.Log("Left " + left + " Right " + right);
+        Debug.Log("Bottom " + bottom + " Top " + top);*/
+
+
+        //right += (offsetX >= 0.0f ? offsetX : 0.0f);
+        //left -= (offsetX < 0.0f ? offsetX : 0.0f);
+        
+        /*right += offsetX;
+        left -= offsetX;
+
+        bottom -= offsetY;
+        top += offsetY;*/
+
+        //bottom -= (offsetY < 0.0f ? offsetY : 0.0f);
+        //top += (offsetY >= 0.0f ? offsetY : 0.0f);
+
+        Matrix4x4 mat = new Matrix4x4();
+        //2n/r-l 0 r+l/r-l 0
+        mat.SetRow(0,new Vector4((2*near)/(right-left),0,(right+left)/(right- left),0));
+        //0 2n/t-b t+b/t-b 0
+        mat.SetRow(1, new Vector4(0,(2*near)/(top-bottom),(top+bottom)/(top - bottom),0));
+        //0 0 -f+n/f-n -2fn/f-n
+        mat.SetRow(2, new Vector4(0,0,-(far+near)/(far-near),-(2*far*near)/(far-near)));
+        //0 0 -1 0
+        mat.SetRow(3, new Vector4(0,0,-1.0f,0));
+
+
+        //Debug.Log("Mat " + mat);
+        cam.projectionMatrix = projection_base;// * shear;
+        //Debug.Log("Camera " + cam.projectionMatrix);
         //mat.SetFloat("time", Mathf.Sin(Time.realtimeSinceStartup*40.0f));
     }
 }

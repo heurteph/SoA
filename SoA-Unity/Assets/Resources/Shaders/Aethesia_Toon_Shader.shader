@@ -99,13 +99,16 @@
 
 				//return value between 0 and 1, no shadow 0 and 1 shadowed
 				float shadow = SHADOW_ATTENUATION(i);
-
+				//float shadow = 1.0f;
 				//pour smooth edge
 				//float lightIntensity = smoothstep(0, 0.01, NdotL);
 				
-				float lightIntensity = smoothstep(0, 0.01, NdotL * shadow);
+				//float lightIntensity = smoothstep(0, 0.01f, NdotL * shadow);
+				float lightIntensity = smoothstep(0, 0.5f, NdotL * shadow);
+
 
 				float specularIntensity = pow(NdotH * lightIntensity, _Glossiness * _Glossiness);
+				//float specularIntensitySmooth = smoothstep(0.005, 0.01, specularIntensity);
 				float specularIntensitySmooth = smoothstep(0.005, 0.01, specularIntensity);
 				float4 specular = specularIntensitySmooth * _SpecularColor;
 
@@ -145,6 +148,7 @@
 				//avec une texture degradée et on cherche avec uv coord
 				//float2 uv = float2(1 - (NdotL * 0.5 + 0.5), 0.5);
 				
+				//rim = 0.0f;
 
 				//add ambient color
 				//return _Color * sample * (_AmbientColor + lightIntensity);

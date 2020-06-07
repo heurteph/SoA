@@ -6,6 +6,9 @@
 				<Event Name="Play_Moteur_Elagueur" ID="{CEE89A22-D45F-475F-8916-53A8F5E2D20F}">
 					<ChildrenList>
 						<Action Name="" ID="{E29EA003-F5FE-496F-98B7-A6347524B670}" ShortID="236296067">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Moteur_Elagueur" ID="{2BD23EAC-A38C-4C97-A095-5C8562E2A9DA}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
@@ -146,6 +149,7 @@
 						<Action Name="" ID="{7CDEBD7A-C439-438B-95DA-EA2505100538}" ShortID="534782956">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">

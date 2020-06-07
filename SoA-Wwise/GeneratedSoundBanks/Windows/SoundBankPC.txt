@@ -7,6 +7,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	235882589	Play_Battement_Coeur			\Personnage\Play_Battement_Coeur	
 	383440519	Stop_Battement_Coeur			\Personnage\Stop_Battement_Coeur	
 	394956184	Stop_Portes_Close			\Commercial_Obstacles\Stop_Portes_Close	
+	452547817	Stop_All			\Default Work Unit\Stop_All	
 	482787459	Play_Texture_Pas_Jogger			\Parc_Obstacles\Play_Texture_Pas_Jogger	
 	540531537	Play_Portes_Grande			\Commercial_Obstacles\Play_Portes_Grande	
 	623032412	Stop_Egout			\Ville_Obstacles\Stop_Egout	

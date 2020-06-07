@@ -68,6 +68,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "GodMode",
+                    "type": "Button",
+                    "id": "973ba557-eae4-43ca-9e9e-c992c77d144d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -376,6 +384,28 @@
                     "processors": "",
                     "groups": "Mouse-Keyboard",
                     "action": "Target",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a078053-f1a6-4f51-b814-0e558b184536",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "GodMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee428ff2-86a0-4f63-be7a-8bd03b885352",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse-Keyboard",
+                    "action": "GodMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

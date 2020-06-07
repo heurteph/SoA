@@ -81,6 +81,14 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""God Mode"",
+                    ""type"": ""Button"",
+                    ""id"": ""973ba557-eae4-43ca-9e9e-c992c77d144d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -391,6 +399,28 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""Target"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a078053-f1a6-4f51-b814-0e558b184536"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""God Mode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee428ff2-86a0-4f63-be7a-8bd03b885352"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse-Keyboard"",
+                    ""action"": ""God Mode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -418,6 +448,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
         m_Player_ProjectiveLook = m_Player.FindAction("ProjectiveLook", throwIfNotFound: true);
         m_Player_Target = m_Player.FindAction("Target", throwIfNotFound: true);
+        m_Player_GodMode = m_Player.FindAction("God Mode", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -475,6 +506,7 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Quit;
     private readonly InputAction m_Player_ProjectiveLook;
     private readonly InputAction m_Player_Target;
+    private readonly InputAction m_Player_GodMode;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -487,6 +519,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @Quit => m_Wrapper.m_Player_Quit;
         public InputAction @ProjectiveLook => m_Wrapper.m_Player_ProjectiveLook;
         public InputAction @Target => m_Wrapper.m_Player_Target;
+        public InputAction @GodMode => m_Wrapper.m_Player_GodMode;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -520,6 +553,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Target.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
                 @Target.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
                 @Target.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
+                @GodMode.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGodMode;
+                @GodMode.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGodMode;
+                @GodMode.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGodMode;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -548,6 +584,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @Target.started += instance.OnTarget;
                 @Target.performed += instance.OnTarget;
                 @Target.canceled += instance.OnTarget;
+                @GodMode.started += instance.OnGodMode;
+                @GodMode.performed += instance.OnGodMode;
+                @GodMode.canceled += instance.OnGodMode;
             }
         }
     }
@@ -580,5 +619,6 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnQuit(InputAction.CallbackContext context);
         void OnProjectiveLook(InputAction.CallbackContext context);
         void OnTarget(InputAction.CallbackContext context);
+        void OnGodMode(InputAction.CallbackContext context);
     }
 }

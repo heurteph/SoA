@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class EnergyBehaviour : MonoBehaviour
 {
@@ -33,11 +34,19 @@ public class EnergyBehaviour : MonoBehaviour
     [Tooltip("Refilling speed in energy point/second")]
     private int refillRate = 10;
 
+    private bool godMode;
+
     private void Awake()
     {
         isReloading = false;
 
+        godMode = false;
+        debuggerBehaviour.transform.Find("GodMode").GetComponent<Text>().enabled = false;
+
         inputs = InputsManager.Instance.Inputs;
+
+        // God mode
+        inputs.Player.GodMode.performed += _ctx => GodMode();
 
         script = GetComponent<PlayerFollow>() ? GetComponent<PlayerFollow>() : (MonoBehaviour)GetComponent<PlayerFirst>();
         EnergyChangedEvent += debuggerBehaviour.DisplayEnergy;
@@ -61,6 +70,11 @@ public class EnergyBehaviour : MonoBehaviour
 
     public void DecreaseEnergy(float e)
     {
+        if(godMode)
+        {
+            return;
+        }
+
         energy -= e;
 
         EnergyChangedEvent(energy);
@@ -94,6 +108,12 @@ public class EnergyBehaviour : MonoBehaviour
     public bool IsFull()
     {
         return energy == 1000;
+    }
+
+    private void GodMode()
+    {
+        godMode = !godMode;
+        debuggerBehaviour.transform.Find("GodMode").GetComponent<Text>().enabled = godMode;
     }
 
 }   // FINISH

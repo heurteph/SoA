@@ -15,6 +15,13 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{658B1DA1-7E7B-4A7E-8BCF-79A39F8AEC96}" ShortID="749771461">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Tourterelle" ID="{28F51438-5D6E-4DAD-9382-22E7883D4642}" WorkUnitID="{42260FA2-A153-4E82-AFED-FE420DEE6A3F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{CC9A7A31-3183-4C50-BC89-8A3A596D16D9}" ShortID="141352156">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="12"/>
@@ -60,6 +67,16 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Pigeon" ID="{7F1C7036-725A-4DF7-A5E5-3244E290AFCB}" WorkUnitID="{42260FA2-A153-4E82-AFED-FE420DEE6A3F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{FB85F143-0407-469A-BA05-3BAAAADC37D3}" ShortID="932381560">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Tourterelle" ID="{28F51438-5D6E-4DAD-9382-22E7883D4642}" WorkUnitID="{42260FA2-A153-4E82-AFED-FE420DEE6A3F}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

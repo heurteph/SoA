@@ -15,6 +15,20 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{3DD75785-56DE-4266-B52E-ECDCEB02CBF4}" ShortID="530814122">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Oiseaux1" ID="{F5E77440-D485-43CD-8CA1-5F9EE4872930}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D814B1EE-0C64-4303-A0C4-5E1DFF16BF93}" ShortID="804944209">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Oiseaux3" ID="{E6EBF856-29C2-4753-92EF-92D1EB6F4680}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="Play_Parc_Insectes" ID="{AFB98759-290A-4930-B5A8-274E5184FCE6}">
@@ -51,6 +65,20 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Parc_Oiseaux1" ID="{F5E77440-D485-43CD-8CA1-5F9EE4872930}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{44F3A52A-3E2E-4C36-9D61-CBC9CA74D20E}" ShortID="541996828">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Oiseaux2" ID="{9885EDB3-662D-4C23-8544-8407A936FAC0}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{A515213D-F662-4BF4-BA1F-8CDA74021BD4}" ShortID="521297463">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Oiseaux3" ID="{E6EBF856-29C2-4753-92EF-92D1EB6F4680}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -120,6 +148,20 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Parc_Oiseaux3" ID="{E6EBF856-29C2-4753-92EF-92D1EB6F4680}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{C37FD02B-0399-46DA-9667-0F82BF1D425F}" ShortID="89929763">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Oiseaux1" ID="{F5E77440-D485-43CD-8CA1-5F9EE4872930}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{4E7D5389-A64F-477E-9047-0220118B79DD}" ShortID="1021659573">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Oiseaux2" ID="{9885EDB3-662D-4C23-8544-8407A936FAC0}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

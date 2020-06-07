@@ -34,7 +34,7 @@
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{575D96FD-A817-4759-974E-31F4460824F4}" ShortID="178694370">
 											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="80"/>
+												<Property Name="RadiusMax" Type="Real64" Value="60"/>
 											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
@@ -48,9 +48,10 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
-																	<XPos>80</XPos>
+																	<XPos>60</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -174,7 +175,7 @@
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{A56F9741-0F5D-49F6-8DC7-DC29176E40C0}" ShortID="148688240">
 											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="80"/>
+												<Property Name="RadiusMax" Type="Real64" Value="70"/>
 											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
@@ -188,9 +189,10 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
-																	<XPos>80</XPos>
+																	<XPos>70</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -258,13 +260,18 @@
 						<BlendContainer Name="Travaux" ID="{0E3BA0F0-4374-49AB-89B0-1FE054C88C0D}" ShortID="956627518">
 							<PropertyList>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{3568300D-240E-4D4F-8BF1-0E9DE0F99A80}" ShortID="175520499">
 											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="90"/>
+												<Property Name="RadiusMax" Type="Real64" Value="70"/>
 											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
@@ -278,9 +285,10 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
-																	<XPos>90</XPos>
+																	<XPos>70</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -404,7 +412,7 @@
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{D38E240E-FDDE-43C5-8EEB-9B6E79688DDC}" ShortID="39421516">
 											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="90"/>
+												<Property Name="RadiusMax" Type="Real64" Value="70"/>
 											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
@@ -418,9 +426,10 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
-																	<XPos>90</XPos>
+																	<XPos>70</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -558,6 +567,7 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
 																	<XPos>50</XPos>
@@ -800,13 +810,18 @@
 						<SwitchContainer Name="Quel_Moteur" ID="{7445910D-FA20-4B55-9B58-F094D1CF6133}" ShortID="674230531">
 							<PropertyList>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{76C96D1A-856E-4291-8E60-908D8A40E1AB}" ShortID="793021111">
 											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="50"/>
+												<Property Name="RadiusMax" Type="Real64" Value="40"/>
 											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
@@ -822,7 +837,7 @@
 																	<Flags>5</Flags>
 																</Point>
 																<Point>
-																	<XPos>50</XPos>
+																	<XPos>40</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -957,6 +972,13 @@
 											</ChildrenList>
 										</BlendContainer>
 										<BlendContainer Name="Demarre" ID="{C33722D1-6F76-48E6-9C32-F83FB5866F4A}" ShortID="171835370">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1254,6 +1276,13 @@
 											</ChildrenList>
 										</BlendContainer>
 										<BlendContainer Name="Demarre" ID="{C9E8D389-3632-49F7-B6CA-152BAD421581}" ShortID="367267902">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1545,6 +1574,13 @@
 											</ChildrenList>
 										</BlendContainer>
 										<BlendContainer Name="Demarre" ID="{0C7F4E2C-D5F7-49CE-A713-0901787101FD}" ShortID="956430461">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -3247,6 +3283,13 @@
 											</ChildrenList>
 										</BlendContainer>
 										<BlendContainer Name="Demarre" ID="{405EC3D8-4AC1-4289-BF45-22E5DDDE45C2}" ShortID="1030175624">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -3647,11 +3690,19 @@
 						<SwitchContainer Name="Klaxons" ID="{78735680-415E-4B64-8977-22F4BC8A2F88}" ShortID="343374645">
 							<PropertyList>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{18E4D8E2-DD75-4B07-BBCC-8299510D0E79}" ShortID="103695686">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="50"/>
+											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -3664,9 +3715,10 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
-																	<XPos>100</XPos>
+																	<XPos>50</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -3712,7 +3764,6 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Klaxons_E" ID="{2258DD63-5905-444F-ADA8-A6D2FF2744FC}" ShortID="500394307">
 									<PropertyList>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 									</PropertyList>
 									<ReferenceList>
@@ -3890,7 +3941,6 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Klaxons_B" ID="{763BABA8-512E-4919-B271-B73562D7AF2F}" ShortID="297341767">
 									<PropertyList>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 									</PropertyList>
 									<ReferenceList>
@@ -4430,7 +4480,6 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Klaxons_C" ID="{8F6963A6-EF0D-4E52-9B3E-4A01CCAD033B}" ShortID="980524002">
 									<PropertyList>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 									</PropertyList>
 									<ReferenceList>
@@ -4891,9 +4940,6 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Klaxons_D" ID="{2EBB627C-82DB-42E6-92F0-F25AA1AAC6E1}" ShortID="351623712">
-									<PropertyList>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
 											<Custom>
@@ -5129,7 +5175,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Klaxons_A" ID="{91835783-12EF-406C-B279-9AD88E71E78C}" ShortID="160046166">
 									<PropertyList>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -5454,13 +5500,18 @@
 						<BlendContainer Name="Climatiseur" ID="{1C78A2BF-07FA-4EDC-8DCC-0DCB9D472C73}" ShortID="1002661730">
 							<PropertyList>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{65C96AF1-4D02-4B42-BB93-C35125BD8164}" ShortID="72074330">
 											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="50"/>
+												<Property Name="RadiusMax" Type="Real64" Value="40"/>
 											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
@@ -5474,9 +5525,10 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
-																	<XPos>50</XPos>
+																	<XPos>40</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -5649,6 +5701,7 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
 																	<XPos>50</XPos>
@@ -5829,6 +5882,7 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
 																	<XPos>30</XPos>
@@ -6141,6 +6195,7 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
 																	<XPos>30</XPos>

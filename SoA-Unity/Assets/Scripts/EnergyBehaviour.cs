@@ -102,6 +102,9 @@ public class EnergyBehaviour : MonoBehaviour
     {
         script.enabled = false;
         OutOfEnergyEvent?.Invoke();
+
+        // Reload the scene
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

@@ -13,6 +13,10 @@ public class EnergyBehaviour : MonoBehaviour
     private float energy;
     public float Energy { get { return energy; } set { energy = value; } }
 
+    [SerializeField]
+    [Tooltip("Reference to the game manager")]
+    public GameObject gameManager;
+
     private MonoBehaviour script;
 
     [SerializeField]
@@ -38,6 +42,11 @@ public class EnergyBehaviour : MonoBehaviour
 
     private void Awake()
     {
+        if(gameManager == null)
+        {
+            throw new System.NullReferenceException("No game manager attached to energy script");
+        }
+
         isReloading = false;
 
         godMode = false;
@@ -49,6 +58,7 @@ public class EnergyBehaviour : MonoBehaviour
         inputs.Player.GodMode.performed += _ctx => GodMode();
 
         script = GetComponent<PlayerFollow>() ? GetComponent<PlayerFollow>() : (MonoBehaviour)GetComponent<PlayerFirst>();
+        OutOfEnergyEvent += gameManager.GetComponent<GameManager>().RestartGame;
         EnergyChangedEvent += debuggerBehaviour.DisplayEnergy;
         EnergyChangedEvent += GetComponent<PlayerFirst>().Hurry;
     }
@@ -104,8 +114,7 @@ public class EnergyBehaviour : MonoBehaviour
         OutOfEnergyEvent?.Invoke();
 
         // Reload the scene
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public bool IsFull()

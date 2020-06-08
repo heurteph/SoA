@@ -984,6 +984,13 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<SwitchContainer Name="Texture Pas" ID="{53D24EE7-14EE-4979-B2D4-085D6ABC7C03}" ShortID="627161832">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-17</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
 											<Custom>
@@ -9082,6 +9089,11 @@
 								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0"/>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -9102,6 +9114,7 @@
 																	<XPos>0</XPos>
 																	<YPos>0</YPos>
 																	<Flags>5</Flags>
+																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
 																	<XPos>40</XPos>

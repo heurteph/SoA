@@ -34,7 +34,7 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
-						<CurrentStateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
+						<CurrentStateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Court" ID="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}"/>

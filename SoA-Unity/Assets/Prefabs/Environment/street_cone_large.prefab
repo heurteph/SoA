@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 898011616471393472}
   - component: {fileID: 8155287138930040566}
   - component: {fileID: 2455006170901340687}
+  - component: {fileID: 4425707853565555604}
   m_Layer: 0
   m_Name: street_cone_large
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &4425707853565555604
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4192069595951355603}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.66715896
+  m_Height: 29.119621
+  m_Direction: 1
+  m_Center: {x: 0.000000053027183, y: 12.689997, z: -0.000000053027183}

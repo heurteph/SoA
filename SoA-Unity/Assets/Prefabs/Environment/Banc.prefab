@@ -910,8 +910,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7699387311446231595}
+  - component: {fileID: 8244802223744735708}
   m_Layer: 0
-  m_Name: Banc 1
+  m_Name: Banc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -952,6 +953,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -85.399, z: 0}
+--- !u!65 &8244802223744735708
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6666152286667012152}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.469815, y: 2.5877347, z: 2.8253849}
+  m_Center: {x: 0.3021111, y: 1.2881615, z: 0.15341714}
 --- !u!1 &6832898356644517185
 GameObject:
   m_ObjectHideFlags: 0

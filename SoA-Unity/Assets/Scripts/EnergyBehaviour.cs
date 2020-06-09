@@ -128,4 +128,9 @@ public class EnergyBehaviour : MonoBehaviour
         debuggerBehaviour.transform.Find("GodMode").GetComponent<Text>().enabled = godMode;
     }
 
+    public void Invincibility(bool invincibility)
+    {
+        godMode = invincibility;
+    }
+
 }   // FINISH

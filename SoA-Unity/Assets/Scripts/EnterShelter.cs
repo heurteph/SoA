@@ -87,6 +87,8 @@ public class EnterShelter : MonoBehaviour
 
         AkSoundEngine.SetState("Dans_Lieu_Repos", "Oui");
 
+        // TO DO : Stop event for all outside ambiances
+
         GetComponent<PostWwiseAmbiance>().ParkAmbianceEventStop.Post(gameObject);
         GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventPlay.Post(gameObject);
 

@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demo3.unity
     guid: bcbeb22bf736b26418078cc8a8391bf4
+  - enabled: 1
+    path: Assets/Scenes/CreditsScene.unity
+    guid: d285cd02efea21340aa08788542d4004
   - enabled: 0
     path: Assets/Scenes/Demo2.unity
     guid: f82870b3e51f5164cb25443b8620e55b

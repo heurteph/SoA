@@ -94,10 +94,10 @@ public class AutomaticDoors : MonoBehaviour
     }
     private IEnumerator OpenDoors()
     {
-        doorsOpenPlay.Post(gameObject);
-        jinglePlay.Post(gameObject);
-        StopCoroutine("CloseDoors");
         doorsClosedStop.Post(gameObject);
+        doorsOpenPlay.Post(gameObject);
+        jinglePlay?.Post(gameObject);
+        StopCoroutine("CloseDoors");
 
         // TO DO : Play ambiance sound
 
@@ -137,7 +137,7 @@ public class AutomaticDoors : MonoBehaviour
             yield return null;
         }
 
-        jingleStop.Post(gameObject);
+        jingleStop?.Post(gameObject);
         state = STATE.CLOSED;
     }
 }

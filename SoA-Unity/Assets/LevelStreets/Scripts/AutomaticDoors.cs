@@ -27,6 +27,33 @@ public class AutomaticDoors : MonoBehaviour
     [Range(1, 5)]
     private float minimalDuration = 3.5f;
 
+    [Header("Sounds")]
+    [Space]
+
+    [SerializeField]
+    [Tooltip("Event to be played when doors are opened")]
+    private AK.Wwise.Event doorsOpenPlay;
+
+    [SerializeField]
+    [Tooltip("Event to stop the sound")]
+    private AK.Wwise.Event doorsOpenStop;
+
+    [SerializeField]
+    [Tooltip("Sound to be played when doors are closed")]
+    private AK.Wwise.Event doorsClosedPlay;
+
+    [SerializeField]
+    [Tooltip("Event to stop the sound")]
+    private AK.Wwise.Event doorsClosedStop;
+
+    [SerializeField]
+    [Tooltip("Event to play supermarket annoucement")]
+    private AK.Wwise.Event jinglePlay;
+
+    [SerializeField]
+    [Tooltip("Event to stop supermarket annoucement")]
+    private AK.Wwise.Event jingleStop;
+
     private float timer;
     private Vector3 leftDoorClosedPos, rightDoorClosedPos;
     private Vector3 leftDoorOpenPos, rightDoorOpenPos;
@@ -38,6 +65,10 @@ public class AutomaticDoors : MonoBehaviour
         if(leftDoor == null || rightDoor == null)
         {
             throw new System.NullReferenceException("No automatic doors for the building " + transform.name);
+        }
+        if(doorsClosedPlay == null || doorsOpenPlay == null || doorsClosedStop == null || doorsOpenStop == null)
+        {
+            throw new System.NullReferenceException("No doors sounds for the building " + transform.name);
         }
         leftDoorClosedPos = leftDoor.transform.position;
         rightDoorClosedPos = rightDoor.transform.position;
@@ -63,7 +94,10 @@ public class AutomaticDoors : MonoBehaviour
     }
     private IEnumerator OpenDoors()
     {
+        doorsOpenPlay.Post(gameObject);
+        jinglePlay.Post(gameObject);
         StopCoroutine("CloseDoors");
+        doorsClosedStop.Post(gameObject);
 
         // TO DO : Play ambiance sound
 
@@ -93,6 +127,8 @@ public class AutomaticDoors : MonoBehaviour
         yield return new WaitForSeconds(minimalDuration);
         
         state = STATE.INBETWEEN;
+
+        doorsClosedPlay.Post(gameObject);
         
         while (leftDoor.transform.position != leftDoorClosedPos)
         {
@@ -100,6 +136,8 @@ public class AutomaticDoors : MonoBehaviour
             rightDoor.transform.position = Vector3.MoveTowards(rightDoor.transform.position, rightDoorClosedPos, Time.deltaTime * speed);
             yield return null;
         }
+
+        jingleStop.Post(gameObject);
         state = STATE.CLOSED;
     }
 }

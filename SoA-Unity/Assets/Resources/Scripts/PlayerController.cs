@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static readonly float MAX_VIE = 100.0f;
+    public static readonly float MIN_VIE = 0.0f;
+    [SerializeField]
+    public float vie = 100.0f;
+
     [SerializeField]
     float speed = 10.0f;
     [SerializeField]
@@ -36,6 +41,22 @@ public class PlayerController : MonoBehaviour
         
         yaw += Input.GetAxis("Mouse X") * rot_speed * Time.deltaTime;
         pitch -= Input.GetAxis("Mouse Y") * rot_speed * Time.deltaTime;
+
+
+        //manip vie
+        if (Input.GetKey(KeyCode.KeypadPlus))
+        {
+            //envoi input de modif sur shader directement ?
+            //cmpt a modifier => pour décalage etc... ?
+            this.vie++;
+            this.vie = (this.vie > 100.0f ? 100.0f : this.vie);
+        }
+        if (Input.GetKey(KeyCode.KeypadMinus))
+        {
+            //envoi input de modif sur shader directement ?
+            this.vie--;
+            this.vie = (this.vie < 0.0f ? 0.0f : this.vie);
+        }
 
         //x => pitch y => yaw z => roll
 

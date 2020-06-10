@@ -8,10 +8,13 @@
 		_AmbientColor("Ambient",Color) = (0.4,0.4,0.4,1)
 		[HDR]
 		_SpecularColor("Spec Color",Color) = (0.9,0.9,0.9,1)
+
+		_AmbientLevel("Ambient Level",Range(0.0,1.0)) = 0.4
 		//ca c'est pour coef de Blinn Phong
 		//coef quadratic
 		_Glossiness("Glossiness",Float) = 32
 		_ShadowPercentColor("Shadow Pourcent Color",Range(0.0,0.5)) = 0.01
+		_ShadowStrenght("Shadow Strenght",Range(0.0,1.0)) = 0.5
 		[HDR]
 		_RimColor("Rim Color",Color) = (1,1,1,1)
 		_RimAmount("Rim Amount",Range(0,1)) = 0.716
@@ -63,8 +66,10 @@
 			float4 _MainTex_ST;
 			float4 _Color;
 			float4 _AmbientColor;
+			float _AmbientLevel;
 			float _Glossiness;
 			float4 _SpecularColor;
+			float _ShadowStrenght;
 			float4 _RimColor;
 			float _RimAmount;
 			float _RimThreshold;
@@ -125,7 +130,8 @@
 					specular = float4(0.0f, 0.0f, 0.0f, 0.0f);
 				}
 				else {
-					specular = float4(1.0f, 1.0f, 1.0f, 1.0f);
+					specular = float4(0.2f, 0.2f, 0.2f, 1.0f);
+					//specular = float4(0.7f, 0.7f, 0.7f, 1.0f);
 				}
 
 				//rim => defined as surfaces that are facing away from the camera
@@ -173,12 +179,17 @@
 				//return _Color * sample * (_AmbientColor + light + specular + rimDot);
 				if (lightIntensity < 0.5) {
 					light = float4(_ShadowPercentColor, _ShadowPercentColor, _ShadowPercentColor, 1.0f) * _LightColor0;
-					_AmbientColor = float4(0.5, 0.5f, 0.5f, 1.0f);
+					float tmp = max(_AmbientLevel - _ShadowStrenght, 0.0f);
+					_AmbientColor = float4(tmp, tmp, tmp, 1.0f);
+				}
+				else {
+					_AmbientColor = float4(_AmbientLevel, _AmbientLevel, _AmbientLevel,1.0f);
 				}
 				/*else {
 					light = float4(0.0f, 0.0f, 0.0f, 0.0f);
 				}*/
-				_Color *= (_AmbientColor + light + specular);// +rim);
+				//_Color *= (_AmbientColor + light + specular);// +rim);
+				_Color *= (_AmbientColor + light + specular);
 				//sample = (smoothstep(flat.r,  1.0f - (1.0f - flat.r), sample.r), smoothstep(flat.g, 1.0f - (1.0f - flat.g), sample.g), smoothstep(flat.b, 1.0f - (1.0f - flat.b), sample.b), 1.0f);
 				//lissage
 				/*float r, g, b;

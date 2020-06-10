@@ -74,12 +74,12 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TranslucentGain: 0.592
+    - _TranslucentGain: 0.763
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
     - _AmbientColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.57071024, g: 0.7075472, b: 0.60244054, a: 0.39607844}
+    - _Color: {r: 0.5621346, g: 0.6603774, b: 0.39560342, a: 0.34901962}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}

@@ -54,6 +54,11 @@ public class AutomaticDoors : MonoBehaviour
     [Tooltip("Event to stop supermarket annoucement")]
     private AK.Wwise.Event jingleStop;
 
+    [SerializeField]
+    [Tooltip("Interval between two announcements")]
+    [Range(5,10)]
+    private float jingleInterval = 5;
+
     private float timer;
     private Vector3 leftDoorClosedPos, rightDoorClosedPos;
     private Vector3 leftDoorOpenPos, rightDoorOpenPos;
@@ -76,12 +81,17 @@ public class AutomaticDoors : MonoBehaviour
         rightDoorOpenPos = rightDoor.transform.position - rightDoor.transform.right * openness;
         state = STATE.CLOSED;
         timer = 0;
+
+        if (jinglePlay != null)
+        {
+            StartCoroutine("PlayJingle");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -96,7 +106,7 @@ public class AutomaticDoors : MonoBehaviour
     {
         doorsClosedStop.Post(gameObject);
         doorsOpenPlay.Post(gameObject);
-        jinglePlay?.Post(gameObject);
+        //jinglePlay?.Post(gameObject);
         StopCoroutine("CloseDoors");
 
         // TO DO : Play ambiance sound
@@ -137,7 +147,16 @@ public class AutomaticDoors : MonoBehaviour
             yield return null;
         }
 
-        jingleStop?.Post(gameObject);
+        //jingleStop?.Post(gameObject);
         state = STATE.CLOSED;
+    }
+
+    private IEnumerator PlayJingle()
+    {
+        for(; ;)
+        {
+            jinglePlay.Post(gameObject);
+            yield return new WaitForSeconds(jingleInterval);
+        }
     }
 }

@@ -274,7 +274,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2607132125" Name="Play_Jingle" ObjectPath="\Events\Commercial_Obstacles\Play_Jingle" DurationType="OneShot" DurationMin="1.461355" DurationMax="1.461355">
+				<Event Id="2607132125" Name="Play_Jingle" ObjectPath="\Events\Commercial_Obstacles\Play_Jingle" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="1.461355" DurationMax="1.461355">
 					<IncludedMemoryFiles>
 						<File Id="482977190" Language="SFX">
 							<ShortName>Commerce_Obstacle_Appel_Sonnerie_Test02.wav</ShortName>
@@ -411,7 +411,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3366277958" Name="Play_Messages_Radio" ObjectPath="\Events\Commercial_Obstacles\Play_Messages_Radio" DurationType="Infinite">
+				<Event Id="3366277958" Name="Play_Messages_Radio" ObjectPath="\Events\Commercial_Obstacles\Play_Messages_Radio" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="89828430" Language="SFX">
 							<ShortName>Commerce_Obstacle_Appel_HP_Message_02.wav</ShortName>
@@ -1498,9 +1498,17 @@
 							<ShortName>M5_Stop.wav</ShortName>
 							<Path>SFX\M5_Stop_3F75BDB9.wem</Path>
 						</File>
+						<File Id="89973454" Language="SFX">
+							<ShortName>M1_Idle.wav</ShortName>
+							<Path>SFX\M1_Idle_D6FE0C56.wem</Path>
+						</File>
 						<File Id="135250868" Language="SFX">
 							<ShortName>M6_Stop.wav</ShortName>
 							<Path>SFX\M6_Stop_3F75BDB9.wem</Path>
+						</File>
+						<File Id="141483284" Language="SFX">
+							<ShortName>M9_Avance.wav</ShortName>
+							<Path>SFX\M9_Avance_739F38C5.wem</Path>
 						</File>
 						<File Id="151701882" Language="SFX">
 							<ShortName>M6_Idle-002.wav</ShortName>
@@ -1518,9 +1526,17 @@
 							<ShortName>M3_Idle.wav</ShortName>
 							<Path>SFX\M3_Idle_37DF71EC.wem</Path>
 						</File>
+						<File Id="403360833" Language="SFX">
+							<ShortName>M2_Idle-002.wav</ShortName>
+							<Path>SFX\M2_Idle-002_CB94023D.wem</Path>
+						</File>
 						<File Id="447576262" Language="SFX">
 							<ShortName>M8_Idle-002.wav</ShortName>
 							<Path>SFX\M8_Idle-002_18792908.wem</Path>
+						</File>
+						<File Id="470425386" Language="SFX">
+							<ShortName>M6_Avance-003.wav</ShortName>
+							<Path>SFX\M6_Avance-003_6AEF08B6.wem</Path>
 						</File>
 						<File Id="482622786" Language="SFX">
 							<ShortName>M7_Idle-002.wav</ShortName>
@@ -1554,9 +1570,17 @@
 							<ShortName>M9_Stop.wav</ShortName>
 							<Path>SFX\M9_Stop_F4EFF7E1.wem</Path>
 						</File>
+						<File Id="615755781" Language="SFX">
+							<ShortName>M7_Avance.wav</ShortName>
+							<Path>SFX\M7_Avance_0BCE5232.wem</Path>
+						</File>
 						<File Id="672179160" Language="SFX">
 							<ShortName>M2_Stop.wav</ShortName>
 							<Path>SFX\M2_Stop_3F75BDB9.wem</Path>
+						</File>
+						<File Id="737993180" Language="SFX">
+							<ShortName>M3_Idle.wav</ShortName>
+							<Path>SFX\M3_Idle_F2B49938.wem</Path>
 						</File>
 						<File Id="752329446" Language="SFX">
 							<ShortName>M9_Avance.wav</ShortName>
@@ -1570,9 +1594,21 @@
 							<ShortName>M3_Démarre.wav</ShortName>
 							<Path>SFX\M3_Démarre_3F75BDB9.wem</Path>
 						</File>
+						<File Id="889386419" Language="SFX">
+							<ShortName>M5_Avance.wav</ShortName>
+							<Path>SFX\M5_Avance_F21B381A.wem</Path>
+						</File>
+						<File Id="932237990" Language="SFX">
+							<ShortName>M4_Avance-004.wav</ShortName>
+							<Path>SFX\M4_Avance-004_7A5D9902.wem</Path>
+						</File>
 						<File Id="946590415" Language="SFX">
 							<ShortName>M9_Démarre.wav</ShortName>
 							<Path>SFX\M9_Démarre_B0DFC3F2.wem</Path>
+						</File>
+						<File Id="974711196" Language="SFX">
+							<ShortName>M8_Avance-001.wav</ShortName>
+							<Path>SFX\M8_Avance-001_7A7504C5.wem</Path>
 						</File>
 						<File Id="994162649" Language="SFX">
 							<ShortName>M7_Stop-001.wav</ShortName>
@@ -1585,9 +1621,6 @@
 					</IncludedMemoryFiles>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{FCFCE899-E509-4001-A272-B16E990DB770}">
-							<Media>
-								<File Id="89973454"/>
-							</Media>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1604,12 +1637,14 @@
 										<File Id="574415820"/>
 									</Media>
 								</SwitchContainer>
+								<SwitchContainer SwitchValue="{4E5B3B6B-5235-4A50-A89F-DBE9F377803C}">
+									<Media>
+										<File Id="89973454"/>
+									</Media>
+								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{6F29EDEB-2EAE-498A-BEF7-A0318A987B0D}">
-							<Media>
-								<File Id="932237990"/>
-							</Media>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1626,12 +1661,14 @@
 										<File Id="520596885"/>
 									</Media>
 								</SwitchContainer>
+								<SwitchContainer SwitchValue="{4E5B3B6B-5235-4A50-A89F-DBE9F377803C}">
+									<Media>
+										<File Id="932237990"/>
+									</Media>
+								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{D13F1666-0A64-4026-9C02-E0B8E505EFA4}">
-							<Media>
-								<File Id="737993180"/>
-							</Media>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1648,12 +1685,14 @@
 										<File Id="868106906"/>
 									</Media>
 								</SwitchContainer>
+								<SwitchContainer SwitchValue="{4E5B3B6B-5235-4A50-A89F-DBE9F377803C}">
+									<Media>
+										<File Id="737993180"/>
+									</Media>
+								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{9E1CEE2D-D169-4824-8F10-62506E9760A2}">
-							<Media>
-								<File Id="889386419"/>
-							</Media>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1665,12 +1704,14 @@
 										<File Id="75097178"/>
 									</Media>
 								</SwitchContainer>
+								<SwitchContainer SwitchValue="{4E5B3B6B-5235-4A50-A89F-DBE9F377803C}">
+									<Media>
+										<File Id="889386419"/>
+									</Media>
+								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{7F0D8038-1B7E-4153-91CA-C0534557D6B7}">
-							<Media>
-								<File Id="470425386"/>
-							</Media>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1682,12 +1723,14 @@
 										<File Id="135250868"/>
 									</Media>
 								</SwitchContainer>
+								<SwitchContainer SwitchValue="{4E5B3B6B-5235-4A50-A89F-DBE9F377803C}">
+									<Media>
+										<File Id="470425386"/>
+									</Media>
+								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{0167492A-AABC-4E2D-A2BF-A91488D1D4F8}">
-							<Media>
-								<File Id="615755781"/>
-							</Media>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1704,24 +1747,28 @@
 										<File Id="844890846"/>
 									</Media>
 								</SwitchContainer>
+								<SwitchContainer SwitchValue="{4E5B3B6B-5235-4A50-A89F-DBE9F377803C}">
+									<Media>
+										<File Id="615755781"/>
+									</Media>
+								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{4E476E70-45DD-4B66-B879-A10E60F4DC07}">
-							<Media>
-								<File Id="974711196"/>
-							</Media>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
 										<File Id="447576262"/>
 									</Media>
 								</SwitchContainer>
+								<SwitchContainer SwitchValue="{4E5B3B6B-5235-4A50-A89F-DBE9F377803C}">
+									<Media>
+										<File Id="974711196"/>
+									</Media>
+								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{270BE1CE-08E1-408F-9C4F-5F390CAFFD6B}">
-							<Media>
-								<File Id="141483284"/>
-							</Media>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1738,12 +1785,14 @@
 										<File Id="946590415"/>
 									</Media>
 								</SwitchContainer>
+								<SwitchContainer SwitchValue="{4E5B3B6B-5235-4A50-A89F-DBE9F377803C}">
+									<Media>
+										<File Id="141483284"/>
+									</Media>
+								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{D9DFBE8B-AC74-4DF0-B1F1-F96C7CF1EF8D}">
-							<Media>
-								<File Id="403360833"/>
-							</Media>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1758,6 +1807,11 @@
 								<SwitchContainer SwitchValue="{EBDA39D6-6A19-45D7-900F-698420931972}">
 									<Media>
 										<File Id="501584764"/>
+									</Media>
+								</SwitchContainer>
+								<SwitchContainer SwitchValue="{4E5B3B6B-5235-4A50-A89F-DBE9F377803C}">
+									<Media>
+										<File Id="403360833"/>
 									</Media>
 								</SwitchContainer>
 							</Children>

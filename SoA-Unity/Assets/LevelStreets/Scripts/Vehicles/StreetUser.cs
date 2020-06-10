@@ -384,7 +384,7 @@ public class StreetUser : MonoBehaviour
         float maxDelay = 3; // seconds
         while (movingState == STATE.FREEZE)
         {
-            AkSoundEngine.PostEvent("Play_Klaxons", gameObject);
+            //AkSoundEngine.PostEvent("Play_Klaxons", gameObject);
             maxDelay = Mathf.Max(maxDelay * 7f/8f, 0);
             delay = Mathf.Max(Random.Range(0, maxDelay), 0.2f); // driver gets annoyed
             yield return new WaitForSeconds(delay);
@@ -398,7 +398,7 @@ public class StreetUser : MonoBehaviour
         // Define which car horn type to use
         AkSoundEngine.SetSwitch("Klaxons", new string[5] { "A", "B", "C", "D", "E" }[Random.Range(0, 5)], gameObject);
 
-        AKRESULT result = AkSoundEngine.SetRTPCValue("Quel_Moteur", 4f, gameObject);
+        AKRESULT result = AkSoundEngine.SetSwitch("Quel_Moteur", "M4", gameObject);
 
         if (result == AKRESULT.AK_Fail)
         {
@@ -418,6 +418,8 @@ public class StreetUser : MonoBehaviour
     {
         AKRESULT result = AkSoundEngine.SetRTPCValue("VitesseVehicule", speed, gameObject);
         Debug.Log("SPEED IS AT : " + speed);
+
+        //AKRESULT result = AkSoundEngine.SetSwitch("EtatVoiture","C_IDLE", gameObject);
 
         if (result == AKRESULT.AK_Fail)
         {

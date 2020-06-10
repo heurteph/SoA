@@ -18,16 +18,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Demo.unity
     guid: d7881289cffc20743b2e8e7a1681d12e
   - enabled: 0
-    path: Assets/Scenes/CameraTestScene.unity
+    path: Assets/Scenes/Old/CameraTestScene.unity
     guid: 9033527e7b713264388a9d58c80eaf1c
   - enabled: 0
-    path: Assets/Scenes/StreetTest.unity
+    path: Assets/Scenes/Old/StreetTest.unity
     guid: b78235bd101e64044a884494e0630158
   - enabled: 0
-    path: Assets/Scenes/ParkTest.unity
+    path: Assets/Scenes/Old/ParkTest.unity
     guid: ddc08389d1adbbf40bc9881ffe34fdb0
   - enabled: 0
-    path: Assets/Scenes/TutorialTest.unity
+    path: Assets/Scenes/Old/TutorialTest.unity
     guid: aa821834c8184bd44a9fcf9598e40fb7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 41c6e6f5692454d488907f5476dbe48a,

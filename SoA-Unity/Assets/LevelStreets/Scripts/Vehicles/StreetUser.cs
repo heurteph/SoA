@@ -398,7 +398,7 @@ public class StreetUser : MonoBehaviour
         // Define which car horn type to use
         AkSoundEngine.SetSwitch("Klaxons", new string[5] { "A", "B", "C", "D", "E" }[Random.Range(0, 5)], gameObject);
 
-        AKRESULT result = AkSoundEngine.SetSwitch("Quel_Moteur", "M4", gameObject);
+        AKRESULT result = AkSoundEngine.SetRTPCValue("Quel_Moteur", Random.Range(0,9), gameObject);
 
         if (result == AKRESULT.AK_Fail)
         {

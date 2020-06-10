@@ -174,9 +174,6 @@
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{A56F9741-0F5D-49F6-8DC7-DC29176E40C0}" ShortID="148688240">
-											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="70"/>
-											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -192,7 +189,7 @@
 																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
-																	<XPos>70</XPos>
+																	<XPos>100</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -270,9 +267,6 @@
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{3568300D-240E-4D4F-8BF1-0E9DE0F99A80}" ShortID="175520499">
-											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="70"/>
-											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -288,7 +282,7 @@
 																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
-																	<XPos>70</XPos>
+																	<XPos>100</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -411,9 +405,6 @@
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{D38E240E-FDDE-43C5-8EEB-9B6E79688DDC}" ShortID="39421516">
-											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="70"/>
-											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -429,7 +420,7 @@
 																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
-																	<XPos>70</XPos>
+																	<XPos>100</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -3700,9 +3691,6 @@
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{18E4D8E2-DD75-4B07-BBCC-8299510D0E79}" ShortID="103695686">
-											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="50"/>
-											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -3718,7 +3706,7 @@
 																	<SegmentShape>Log1</SegmentShape>
 																</Point>
 																<Point>
-																	<XPos>50</XPos>
+																	<XPos>100</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>

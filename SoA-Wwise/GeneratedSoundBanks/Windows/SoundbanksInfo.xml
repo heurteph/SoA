@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\</ProjectRoot>
-		<SourceFilesRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>F:\Path of esthesia\Projet\SoA\SoA-Wwise\</ProjectRoot>
+		<SourceFilesRoot>F:\Path of esthesia\Projet\SoA\SoA-Wwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>F:\Path of esthesia\Projet\SoA\SoA-Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>F:\Path of esthesia\Projet\SoA\SoA-Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -218,7 +218,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1753498456" Name="Play_Ecole" ObjectPath="\Events\Ville_Obstacles\Play_Ecole" MaxAttenuation="70.000000" DurationType="Infinite">
+				<Event Id="1753498456" Name="Play_Ecole" ObjectPath="\Events\Ville_Obstacles\Play_Ecole" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="673273183" Language="SFX">
 							<ShortName>School.wav</ShortName>
@@ -282,7 +282,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2894920242" Name="Play_Klaxons" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.115583" DurationMax="0.393208">
+				<Event Id="2894920242" Name="Play_Klaxons" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.115583" DurationMax="0.393208">
 					<IncludedMemoryFiles>
 						<File Id="8263096" Language="SFX">
 							<ShortName>Klaxon 04.wav</ShortName>
@@ -403,7 +403,7 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="3516174833" Name="Play_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Play_Marteau_Piqueur" MaxAttenuation="70.000000" DurationType="Infinite">
+				<Event Id="3516174833" Name="Play_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Play_Marteau_Piqueur" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="224898616" Language="SFX">
 							<ShortName>Marteau-piqueur.wav</ShortName>
@@ -1432,7 +1432,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="11904902" Name="Play_Portes_Close" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Close" DurationType="OneShot" DurationMin="1.599425" DurationMax="2.286062">
+				<Event Id="11904902" Name="Play_Portes_Close" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Close" MaxAttenuation="30.000000" DurationType="OneShot" DurationMin="1.599425" DurationMax="2.286062">
 					<IncludedMemoryFiles>
 						<File Id="399885347" Language="SFX">
 							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Close_05.wav</ShortName>
@@ -1456,7 +1456,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="540531537" Name="Play_Portes_Grande" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Grande" DurationType="OneShot" DurationMin="3.133413" DurationMax="4.482804">
+				<Event Id="540531537" Name="Play_Portes_Grande" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Grande" MaxAttenuation="30.000000" DurationType="OneShot" DurationMin="3.133413" DurationMax="4.482804">
 					<IncludedMemoryFiles>
 						<File Id="560835008" Language="SFX">
 							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Close_Seul.wav</ShortName>
@@ -1464,7 +1464,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2755465042" Name="Play_Portes_Open" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Open" DurationType="OneShot" DurationMin="1.563316" DurationMax="2.510979">
+				<Event Id="2755465042" Name="Play_Portes_Open" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Open" MaxAttenuation="30.000000" DurationType="OneShot" DurationMin="1.563316" DurationMax="2.510979">
 					<IncludedMemoryFiles>
 						<File Id="100197332" Language="SFX">
 							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Open_05.wav</ShortName>
@@ -5660,7 +5660,7 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="3782749553" Name="Play_Travaux" ObjectPath="\Events\Ville_Obstacles\Play_Travaux" MaxAttenuation="70.000000" DurationType="Infinite">
+				<Event Id="3782749553" Name="Play_Travaux" ObjectPath="\Events\Ville_Obstacles\Play_Travaux" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="816991328" Language="SFX">
 							<ShortName>Chantier.wav</ShortName>

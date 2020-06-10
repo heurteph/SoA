@@ -36,7 +36,7 @@
 											<Modifier Name="" ID="{687B09F2-AC76-4F29-802A-03F4DE97D309}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="5"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
@@ -575,7 +575,7 @@
 											<Modifier Name="" ID="{8A9FFACA-5963-46A4-8FCE-327CE507787A}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="4"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
@@ -1120,7 +1120,7 @@
 											<Modifier Name="" ID="{DD0130CB-83A4-46E2-8DB2-5BAFB1AF4B9A}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="7"/>
+													<Property Name="Max" Type="Real64" Value="9"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>

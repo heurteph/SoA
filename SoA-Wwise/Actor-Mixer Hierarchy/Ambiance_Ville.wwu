@@ -311,8 +311,8 @@
 									<ChildrenList>
 										<Path2D Name="Pigeon_Path" ID="{F42BE61B-0130-4DBF-A586-16B8ECB84E17}">
 											<PropertyList>
-												<Property Name="RandomX" Type="Real64" Value="50"/>
-												<Property Name="RandomY" Type="Real64" Value="50"/>
+												<Property Name="RandomX" Type="Real64" Value="68"/>
+												<Property Name="RandomY" Type="Real64" Value="68"/>
 											</PropertyList>
 											<PointList>
 												<Point>

@@ -13,6 +13,7 @@
 						<ObjectRef Name="Commercial_Obstacles" ID="{56B5A11B-E0A2-4A1F-B982-5B1D1A9AEC2C}" WorkUnitID="{56B5A11B-E0A2-4A1F-B982-5B1D1A9AEC2C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Music" ID="{5CA3354F-DAF8-4AA3-87C4-683190286603}" WorkUnitID="{5CA3354F-DAF8-4AA3-87C4-683190286603}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Parc_Obstacles" ID="{42D3CBB5-B6AE-4C43-861A-1CE16A08E9C5}" WorkUnitID="{42D3CBB5-B6AE-4C43-861A-1CE16A08E9C5}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_All" ID="{F07A89BD-59A8-4CA0-9023-368FE46D8F5F}" WorkUnitID="{5EE6A51B-0CDE-422B-96AB-0E8CE8879B3E}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

@@ -1460,6 +1460,12 @@
 												</ItemList>
 											</Grouping>
 											<Grouping>
+												<SwitchRef Name="D_Accelere" ID="{4E5B3B6B-5235-4A50-A89F-DBE9F377803C}"/>
+												<ItemList>
+													<ItemRef Name="Vitesse2" ID="{9E031955-5133-44F0-93F3-C110A52C356C}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
 												<SwitchRef Name="B_Demarre" ID="{EBDA39D6-6A19-45D7-900F-698420931972}"/>
 												<ItemList>
 													<ItemRef Name="Demarre" ID="{C9E8D389-3632-49F7-B6CA-152BAD421581}"/>

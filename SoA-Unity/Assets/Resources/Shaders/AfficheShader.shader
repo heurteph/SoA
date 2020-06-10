@@ -107,7 +107,7 @@
 				o.viewDir = WorldSpaceViewDir(v.vertex);
 
 				o.light_pos = _LightPosition;//UnityObjectToClipPos(_LightPosition);
-				o.origin_pos = v.vertex;
+				o.origin_pos = v.vertex;//ca normalement pas bon pour atténuation doit etre mul
 
 				//transfrom the input vertex's space to the shadow map's space, and stores it in the SHADOW_COORD we declared
 				TRANSFER_SHADOW(o);

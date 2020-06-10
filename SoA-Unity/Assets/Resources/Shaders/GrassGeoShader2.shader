@@ -435,22 +435,26 @@
 			//second Pass to render Shadow to Shadow map => only main Directional Light
 			Pass
 			{
-				Tags
-				{
-					//to render to ShadowMaps buffer
-					"LightMode" = "ShadowCaster"
-				}
+				Tags {"LightMode" = "ShadowCaster"}
+
 				CGPROGRAM
-				//preprocessor directivs as openmp
 				#pragma vertex vert
 				#pragma fragment frag
-				#pragma hull hull
-				#pragma domain domain
-				#pragma target 4.6
-				//compile all necessary variants required for shadow casting
 				#pragma multi_compile_shadowcaster
+				#include "UnityCG.cginc"
 
-				float4 frag(geometryOutput i) : SV_Target
+				struct v2f {
+					V2F_SHADOW_CASTER;
+				};
+
+				v2f vert(appdata_base v)
+				{
+					v2f o;
+					TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
+					return o;
+				}
+
+				float4 frag(v2f i) : SV_Target
 				{
 					SHADOW_CASTER_FRAGMENT(i)
 				}

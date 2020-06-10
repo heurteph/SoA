@@ -12,6 +12,7 @@
 		_ShadowPercentColor("Shadow Pourcent Color",Range(0.0,0.5)) = 0.01
 		_ShadowStrenght("Shadow Strenght",Range(0.0,1.0)) = 0.5
 		
+		_AmbientLevel("Ambient Level",Range(0.0,1.0)) = 0.4
 		//ca c'est pour coef de Blinn Phong
 		//coef quadratic
 		_Glossiness("Glossiness",Float) = 32
@@ -67,6 +68,7 @@
 			float4 _MainTex_ST;
 			float4 _Color;
 			float4 _AmbientColor;
+			float _AmbientLevel;
 			float _Glossiness;
 			float4 _SpecularColor;
 			float _ShadowPercentColor;
@@ -180,11 +182,12 @@
 				//return _Color * sample * (_AmbientColor + light + specular + rimDot);
 				if (lightIntensity < 0.5) {
 					light = float4(_ShadowPercentColor, _ShadowPercentColor, _ShadowPercentColor, 1.0f) * _LightColor0;
-					_AmbientColor = float4(1.0f-_ShadowStrenght, 1.0f-_ShadowStrenght, 1.0f - _ShadowStrenght, 1.0f);
+					float tmp = max((_AmbientLevel - _ShadowStrenght), 0.0f);
+					_AmbientColor = float4(tmp, tmp, tmp, 1.0f);
 				}
-				/*else {
-					light = float4(0.0f, 0.0f, 0.0f, 0.0f);
-				}*/
+				else {
+					_AmbientColor = float4(_AmbientLevel, _AmbientLevel, _AmbientLevel, _AmbientLevel);
+				}
 
 				//light = lightIntensity * _LightColor0;
 

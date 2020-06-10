@@ -274,7 +274,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2607132125" Name="Play_Jingle" ObjectPath="\Events\Commercial_Obstacles\Play_Jingle" DurationType="OneShot" DurationMin="1.461355" DurationMax="1.461355">
+				<Event Id="2607132125" Name="Play_Jingle" ObjectPath="\Events\Commercial_Obstacles\Play_Jingle" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="1.461355" DurationMax="1.461355">
 					<IncludedMemoryFiles>
 						<File Id="482977190" Language="SFX">
 							<ShortName>Commerce_Obstacle_Appel_Sonnerie_Test02.wav</ShortName>
@@ -411,7 +411,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3366277958" Name="Play_Messages_Radio" ObjectPath="\Events\Commercial_Obstacles\Play_Messages_Radio" DurationType="Infinite">
+				<Event Id="3366277958" Name="Play_Messages_Radio" ObjectPath="\Events\Commercial_Obstacles\Play_Messages_Radio" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="89828430" Language="SFX">
 							<ShortName>Commerce_Obstacle_Appel_HP_Message_02.wav</ShortName>

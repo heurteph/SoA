@@ -58,18 +58,7 @@
 				</Event>
 				<Event Name="Play_Messages_Radio" ID="{5F787544-DF91-44DD-9A8E-14A151B25BF0}">
 					<ChildrenList>
-						<Action Name="" ID="{56964CD5-9591-4790-AA9F-EDC63889FE92}" ShortID="1029710897">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Jingle" ID="{2EBE7945-E41F-4630-8327-F02F8944FD98}" WorkUnitID="{4480BAB3-A2C3-4EF4-9FD8-F856D83D0BA9}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
 						<Action Name="" ID="{616E7943-D98A-4F86-9558-8E0A64208E48}" ShortID="710674660">
-							<PropertyList>
-								<Property Name="Delay" Type="Real64" Value="1.5"/>
-								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Messages_Radio" ID="{331E6EDC-7E04-4C43-815E-B41FD607BCEE}" WorkUnitID="{4480BAB3-A2C3-4EF4-9FD8-F856D83D0BA9}"/>

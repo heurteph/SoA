@@ -1,4 +1,4 @@
-﻿Shader "Shaders/Aethesia_Shader"
+﻿Shader "Shaders/Duck"
 {
 	Properties
 	{
@@ -13,8 +13,11 @@
 		_ShadowStrenght("Shadow Strenght",Range(0.0,1.0)) = 0.5
 		
 		_AmbientLevel("Ambient Level",Range(0.0,1.0)) = 0.4
-		//ca c'est pour coef de Blinn Phong
-		//coef quadratic
+
+		_Amplitude("Amplitude",Range(0,10)) = 0.25
+		_OffSetFactor("Factor OffSet",Range(0.0,0.5)) = 0.01
+		_WindStrength("Wind Strength",Float) = 1
+		
 		_Glossiness("Glossiness",Float) = 32
 		[HDR]
 		_RimColor("Rim Color",Color) = (1,1,1,1)
@@ -34,6 +37,7 @@
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
+			#pragma geometry geo
 			//directiv => to compile
 			#pragma multi_compile_fwdbase
 
@@ -77,11 +81,15 @@
 			float _RimAmount;
 			float _RimSmooth;
 			float _RimThreshold;
+			float _OffSetFactor;
+			float _WindStrength;
+			float _Amplitude;
+			float _Id;
 
 			v2f vert(appdata v)
 			{
 				v2f o;
-				o.pos = UnityObjectToClipPos(v.vertex);
+				o.pos = mul(unity_ObjectToWorld, v.vertex);//o.pos = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				o.worldNormal = UnityObjectToWorldNormal(v.normal);
 				//world space dir (not normalized) from given object vertex pos toward camera)
@@ -90,6 +98,25 @@
 				//transfrom the input vertex's space to the shadow map's space, and stores it in the SHADOW_COORD we declared
 				TRANSFER_SHADOW(o);
 				return o;
+			}
+
+			[maxvertexcount(3)]
+			void geo(triangle v2f IN[3], inout TriangleStream<v2f> triStream) {
+				float4 pos;
+
+				float2 offSet = float2(cos(_Id + _Time.y)*_OffSetFactor, sin(_Id + _Time.y)*_OffSetFactor);
+
+				for (int i = 0; i < 3; i++) {
+					pos = IN[i].pos;
+					pos.x += offSet.x;
+					pos.z += offSet.y;
+					pos.y += cos(_WindStrength*(_Time.y + _Id))*_Amplitude + _Amplitude;
+					IN[i].worldNormal = UnityObjectToWorldNormal(IN[i].worldNormal);
+					//IN[i].vertex = UnityObjectToClipPos(pos);
+					IN[i].pos = mul(UNITY_MATRIX_VP, pos);
+					TRANSFER_SHADOW(IN[i]);
+					triStream.Append(IN[i]);
+				}
 			}
 
 

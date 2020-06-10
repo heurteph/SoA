@@ -19,10 +19,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Commerce_Obstacles_Master" ID="{214CD4C8-AFAC-42BC-9D0B-8258C53725A3}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
-						</Reference>
-						<Reference Name="UserAuxSend0">
-							<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+							<ObjectRef Name="Commerce_Envi_Master" ID="{A246CC1F-79A7-48F5-B361-C6B15ABD9CE8}" WorkUnitID="{D4E16142-DC71-48F2-9773-C38FF7F21E94}"/>
 						</Reference>
 						<Reference Name="UserAuxSend1">
 							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>

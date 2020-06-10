@@ -254,6 +254,7 @@
 						</ActorMixer>
 						<ActorMixer Name="Parc_Obstacle_Humain_Joggueur" ID="{8AFA099F-9842-4FF8-B7D5-EF0B7CBAD30E}" ShortID="648431753">
 							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
@@ -8158,6 +8159,7 @@
 						</ActorMixer>
 						<ActorMixer Name="Parc_Humain_Mange" ID="{FF32F39C-412F-46A7-8B36-697D7DE4EC12}" ShortID="206710309">
 							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
@@ -8165,7 +8167,7 @@
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{98F33906-74E6-4FD1-B508-A9A2CF3CF8D3}" ShortID="830151805">
 											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="10"/>
+												<Property Name="RadiusMax" Type="Real64" Value="20"/>
 											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
@@ -8181,7 +8183,7 @@
 																	<Flags>5</Flags>
 																</Point>
 																<Point>
-																	<XPos>10</XPos>
+																	<XPos>20</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -8451,6 +8453,7 @@
 							<ChildrenList>
 								<RandomSequenceContainer Name="Moteur_Elagueur" ID="{2BD23EAC-A38C-4C97-A095-5C8562E2A9DA}" ShortID="380246769">
 									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
@@ -8540,6 +8543,7 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Branches_Tombent" ID="{5C72AD16-B2B2-4898-A26B-8658E188F7B8}" ShortID="640906756">
 									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
@@ -8758,6 +8762,7 @@
 					<ChildrenList>
 						<RandomSequenceContainer Name="Parc_Chien" ID="{74A1B23E-4465-48B6-927F-3CCA3E205FAB}" ShortID="51045386">
 							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
@@ -9082,6 +9087,7 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="ArrosageAuto" ID="{BFE061EF-A052-4517-89AA-215F4DFF751B}" ShortID="692597423">
 							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
@@ -9419,6 +9425,7 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Canard" ID="{C10245FF-4241-4B8E-8FD5-8B6F24C09F60}" ShortID="844179801">
 							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
@@ -9821,6 +9828,9 @@
 					</StateInfo>
 				</ActorMixer>
 				<ActorMixer Name="Parc_Obstacle_VoitureElec" ID="{3BA6CD9F-5AD4-4DF5-8DB4-2BF4FA162E90}" ShortID="853439529">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
 							<Custom>

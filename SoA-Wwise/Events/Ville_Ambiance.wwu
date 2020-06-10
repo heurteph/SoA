@@ -119,6 +119,31 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_Pigeon_Fixe" ID="{7B6DA35E-2DAD-483A-8655-5188CEF607DD}">
+					<ChildrenList>
+						<Action Name="" ID="{6D57913C-E4FC-4982-9F49-66AD12F73B9F}" ShortID="959552705">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pigeon_Fixe" ID="{A0198711-06FB-476F-8473-3C9DA774000C}" WorkUnitID="{42260FA2-A153-4E82-AFED-FE420DEE6A3F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Pigeon_Fixe" ID="{02B3C32B-F791-4940-8CFA-7829AD7FD394}">
+					<ChildrenList>
+						<Action Name="" ID="{1E370B86-7FF6-49CC-8F5E-033AD785FBAC}" ShortID="871627718">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pigeon_Fixe" ID="{A0198711-06FB-476F-8473-3C9DA774000C}" WorkUnitID="{42260FA2-A153-4E82-AFED-FE420DEE6A3F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

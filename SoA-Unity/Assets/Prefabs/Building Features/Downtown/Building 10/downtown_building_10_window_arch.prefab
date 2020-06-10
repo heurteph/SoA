@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2855492178053570668}
   m_Layer: 0
-  m_Name: building_window_arch (7)
+  m_Name: downtown_building_10_window_arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

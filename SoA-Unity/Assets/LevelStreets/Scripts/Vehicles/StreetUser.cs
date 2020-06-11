@@ -384,7 +384,7 @@ public class StreetUser : MonoBehaviour
         float maxDelay = 3; // seconds
         while (movingState == STATE.FREEZE)
         {
-            //AkSoundEngine.PostEvent("Play_Klaxons", gameObject);
+            AkSoundEngine.PostEvent("Play_Klaxons", gameObject);
             maxDelay = Mathf.Max(maxDelay * 7f/8f, 0);
             delay = Mathf.Max(Random.Range(0, maxDelay), 0.2f); // driver gets annoyed
             yield return new WaitForSeconds(delay);

@@ -84,7 +84,7 @@ public class AutomaticDoors : MonoBehaviour
 
         if (jinglePlay != null)
         {
-            //StartCoroutine("PlayJingle");
+            StartCoroutine("PlayJingle");
         }
     }
 

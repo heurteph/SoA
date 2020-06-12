@@ -81,7 +81,18 @@
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="5">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{074668FE-7924-4B20-A714-0D9E61B29942}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 							</PropertyList>
@@ -94,7 +105,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Commerce_Obstacle_Appel_HP_Message_01" ID="{E389A57E-C92E-4DA7-AD42-F38088CF7B14}" ShortID="536300519">
+								<Sound Name="Commerce_Obstacle_Message_Complet_1" ID="{8044717B-45D5-4BE0-857F-3AF8F4279B70}" ShortID="673407256">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -104,23 +115,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Commerce_Obstacle_Appel_HP_Message_01" ID="{9D8C2C1D-F520-40A4-945B-69662DFAABD2}">
-											<PropertyList>
-												<Property Name="LoopBegin" Type="Real64" Value="0.134449247144341"/>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-											</PropertyList>
+										<AudioFileSource Name="Commerce_Obstacle_Message_Complet_1" ID="{19E532A0-384B-400F-9A32-C1C26E603F86}">
 											<Language>SFX</Language>
-											<AudioFile>Commerce_Obstacle_Appel_HP_Message_01.wav</AudioFile>
+											<AudioFile>Commerce_Obstacle_Message_Complet_1.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="556642986"/>
+												<MediaID ID="1066670797"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Commerce_Obstacle_Appel_HP_Message_01" ID="{9D8C2C1D-F520-40A4-945B-69662DFAABD2}" Platform="Linked"/>
+										<ActiveSource Name="Commerce_Obstacle_Message_Complet_1" ID="{19E532A0-384B-400F-9A32-C1C26E603F86}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Commerce_Obstacle_Appel_HP_Message_02" ID="{43EDA8D3-0496-4108-A2B8-FCB597F3FD4E}" ShortID="510399343">
+								<Sound Name="Commerce_Obstacle_Message_Complet_2" ID="{5FD4B75F-C5D9-4127-AA5D-47143C40A0D8}" ShortID="848487900">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -130,19 +137,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Commerce_Obstacle_Appel_HP_Message_02" ID="{0FC06CDE-F793-46A0-9963-DA78D9D52338}">
+										<AudioFileSource Name="Commerce_Obstacle_Message_Complet_2" ID="{B9062732-33BD-47CF-BFB2-AE4CA477C702}">
 											<Language>SFX</Language>
-											<AudioFile>Commerce_Obstacle_Appel_HP_Message_02.wav</AudioFile>
+											<AudioFile>Commerce_Obstacle_Message_Complet_2.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="89828430"/>
+												<MediaID ID="527209315"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Commerce_Obstacle_Appel_HP_Message_02" ID="{0FC06CDE-F793-46A0-9963-DA78D9D52338}" Platform="Linked"/>
+										<ActiveSource Name="Commerce_Obstacle_Message_Complet_2" ID="{B9062732-33BD-47CF-BFB2-AE4CA477C702}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Commerce_Obstacle_Appel_HP_Message_03" ID="{CA553BE8-C1AC-421C-951B-03C6F32DB674}" ShortID="218620975">
+								<Sound Name="Commerce_Obstacle_Message_Complet_3" ID="{2D5C69A1-C629-49C6-BA86-D9C9C34BD435}" ShortID="225534041">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -152,19 +159,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Commerce_Obstacle_Appel_HP_Message_03" ID="{AF6F74A3-AD3F-41B0-9B2A-5EDDF885A198}">
+										<AudioFileSource Name="Commerce_Obstacle_Message_Complet_3" ID="{65993A71-1666-42E4-A091-2F30AF7A0840}">
 											<Language>SFX</Language>
-											<AudioFile>Commerce_Obstacle_Appel_HP_Message_03.wav</AudioFile>
+											<AudioFile>Commerce_Obstacle_Message_Complet_3.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="319715405"/>
+												<MediaID ID="206231957"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Commerce_Obstacle_Appel_HP_Message_03" ID="{AF6F74A3-AD3F-41B0-9B2A-5EDDF885A198}" Platform="Linked"/>
+										<ActiveSource Name="Commerce_Obstacle_Message_Complet_3" ID="{65993A71-1666-42E4-A091-2F30AF7A0840}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Commerce_Obstacle_Appel_HP_Message_04" ID="{571A8B8D-5F67-448F-820B-131DB0969C21}" ShortID="258200902">
+								<Sound Name="Commerce_Obstacle_Message_Complet_4" ID="{05A5769A-7545-466A-84B4-379CBCD00A1B}" ShortID="228324809">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -174,19 +181,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Commerce_Obstacle_Appel_HP_Message_04" ID="{B95A146F-5975-450C-B1A8-4D67179FE105}">
+										<AudioFileSource Name="Commerce_Obstacle_Message_Complet_4" ID="{F8CED2A6-FA06-4F5A-9392-A216ADBCE491}">
 											<Language>SFX</Language>
-											<AudioFile>Commerce_Obstacle_Appel_HP_Message_04.wav</AudioFile>
+											<AudioFile>Commerce_Obstacle_Message_Complet_4.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="756003203"/>
+												<MediaID ID="46142111"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Commerce_Obstacle_Appel_HP_Message_04" ID="{B95A146F-5975-450C-B1A8-4D67179FE105}" Platform="Linked"/>
+										<ActiveSource Name="Commerce_Obstacle_Message_Complet_4" ID="{F8CED2A6-FA06-4F5A-9392-A216ADBCE491}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Commerce_Obstacle_Appel_HP_Message_05" ID="{975376F4-1246-443E-B2C9-854FBBC26C8E}" ShortID="462120563">
+								<Sound Name="Commerce_Obstacle_Message_Complet_5" ID="{4ECE1CF4-A766-4B7F-A563-A05A8684417D}" ShortID="238625182">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -196,59 +203,20 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Commerce_Obstacle_Appel_HP_Message_05" ID="{F7403CA2-8BF8-4A5B-B217-F427F6186894}">
+										<AudioFileSource Name="Commerce_Obstacle_Message_Complet_5" ID="{436BEF7E-7F78-4EA9-A1A3-472FDF3247BF}">
 											<Language>SFX</Language>
-											<AudioFile>Commerce_Obstacle_Appel_HP_Message_05.wav</AudioFile>
+											<AudioFile>Commerce_Obstacle_Message_Complet_5.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="104034662"/>
+												<MediaID ID="133179338"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Commerce_Obstacle_Appel_HP_Message_05" ID="{F7403CA2-8BF8-4A5B-B217-F427F6186894}" Platform="Linked"/>
+										<ActiveSource Name="Commerce_Obstacle_Message_Complet_5" ID="{436BEF7E-7F78-4EA9-A1A3-472FDF3247BF}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<BlendContainer Name="Jingle" ID="{2EBE7945-E41F-4630-8327-F02F8944FD98}" ShortID="749141573">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="Commerce_Obstacle_Appel_Sonnerie_Test02" ID="{D1EFE6DE-DA8C-4C00-B3F4-9D0977BA1CA8}" ShortID="757504091">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Commerce_Obstacle_Appel_Sonnerie_Test02" ID="{49B4847E-2E0F-42E9-92D9-2B1A1AEFEA2F}">
-											<PropertyList>
-												<Property Name="FadeOutDuration" Type="Real64" Value="0.647622280817403"/>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.133519528675016"/>
-											</PropertyList>
-											<Language>SFX</Language>
-											<AudioFile>Commerce_Obstacle_Appel_Sonnerie_Test02.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="482977190"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Commerce_Obstacle_Appel_Sonnerie_Test02" ID="{49B4847E-2E0F-42E9-92D9-2B1A1AEFEA2F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-						</BlendContainer>
 					</ChildrenList>
 					<StateInfo>
 						<StatePropertyList>
@@ -296,7 +264,7 @@
 							<Custom>
 								<Attenuation Name="Attenuation (Custom)" ID="{F0F0752C-1626-4BF4-801B-EC8071B91B13}" ShortID="369135245">
 									<PropertyList>
-										<Property Name="RadiusMax" Type="Real64" Value="30"/>
+										<Property Name="RadiusMax" Type="Real64" Value="40"/>
 									</PropertyList>
 									<CurveUsageInfoList>
 										<VolumeDryUsage>
@@ -312,7 +280,7 @@
 															<Flags>5</Flags>
 														</Point>
 														<Point>
-															<XPos>30</XPos>
+															<XPos>40</XPos>
 															<YPos>-200</YPos>
 															<Flags>37</Flags>
 														</Point>

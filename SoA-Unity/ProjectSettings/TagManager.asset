@@ -13,6 +13,10 @@ TagManager:
   - Shop
   - NPCMaterialsManager
   - NPC
+  - AmbianceManager
+  - Home
+  - Shed
+  - Bar
   layers:
   - Default
   - TransparentFX

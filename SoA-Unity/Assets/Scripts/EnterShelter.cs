@@ -22,6 +22,10 @@ public class EnterShelter : MonoBehaviour
     [SerializeField]
     private Camera mainCamera;
 
+    private GameObject ambianceManager;
+
+    private string shelterTag;
+
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
@@ -32,6 +36,13 @@ public class EnterShelter : MonoBehaviour
     void Start()
     {
         GetComponent<ExitShelter>().enabled = false;
+
+        ambianceManager = GameObject.FindGameObjectWithTag("AmbianceManager");
+
+        if (ambianceManager == null)
+        {
+            throw new System.NullReferenceException("Missing game object tagged with \"AmbianceManager\"");
+        }
     }
 
     // Update is called once per frame
@@ -48,6 +59,7 @@ public class EnterShelter : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.forward, out hit, shelterManager.MaxDistanceToDoor, mask))
             {
                 shelter = shelterManager.GoInside(hit.collider.transform.parent.gameObject);
+                shelterTag = hit.transform.parent.transform.tag;
                 inputs.Player.Interact.performed += WorldToShelter;
                 inputs.Player.Interact.Enable();
             }
@@ -87,10 +99,22 @@ public class EnterShelter : MonoBehaviour
 
         AkSoundEngine.SetState("Dans_Lieu_Repos", "Oui");
 
-        // TO DO : Stop event for all outside ambiances
+        // Ambiance sound
+        if (shelterTag == "Home")
+        {
+            ambianceManager.GetComponent<AmbianceManager>().PlayHomeAmbiance();
+        }
+        else if (shelterTag == "Shed")
+        {
+            ambianceManager.GetComponent<AmbianceManager>().PlayShedAmbiance();
+        }
+        else if (shelterTag == "Bar")
+        {
+            ambianceManager.GetComponent<AmbianceManager>().PlayBarAmbiance();
+        }
 
-        GetComponent<PostWwiseAmbiance>().ParkAmbianceEventStop.Post(gameObject);
-        GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventPlay.Post(gameObject);
+        //GetComponent<PostWwiseAmbiance>().ParkAmbianceEventStop.Post(gameObject);
+        //GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventPlay.Post(gameObject);
 
         while (shade.color.a > 0)
         {

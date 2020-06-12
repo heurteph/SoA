@@ -26,10 +26,21 @@ public class ExitShelter : MonoBehaviour
     [SerializeField]
     private GameObject cameraHolder;
 
+    private GameObject ambianceManager;
+
+    private string shelterTag;
+
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
         inputs.Player.Interact.Disable();
+
+        ambianceManager = GameObject.FindGameObjectWithTag("AmbianceManager");
+
+        if(ambianceManager == null)
+        {
+            throw new System.NullReferenceException("Missing game object tagged with \"AmbianceManager\"");
+        }
     }
 
     // Start is called before the first frame update
@@ -55,6 +66,7 @@ public class ExitShelter : MonoBehaviour
             {
                 shelterCamera = hit.transform.parent.transform.Find("Shelter Camera").GetComponent<Camera>();
                 shelter = shelterManager.GoOutside(hit.collider.transform.parent.gameObject);
+                shelterTag = hit.transform.parent.transform.tag;
                 inputs.Player.Interact.performed += ShelterToWorld;
 
                 if (inputs.Player.enabled)
@@ -103,8 +115,17 @@ public class ExitShelter : MonoBehaviour
         AkSoundEngine.SetState("Dans_Lieu_Repos", "Non");
 
         // Ambiance sound
-        GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventStop.Post(gameObject);
-        GetComponent<PostWwiseAmbiance>().ParkAmbianceEventPlay.Post(gameObject);
+        if (shelterTag == "Home" || shelterTag == "Bar")
+        {
+            ambianceManager.GetComponent<AmbianceManager>().PlayCityAmbiance();
+        }
+        else if (shelterTag == "Shed")
+        {
+            ambianceManager.GetComponent<AmbianceManager>().PlayParkAmbiance();
+        }
+        
+        //GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventStop.Post(gameObject);
+        //GetComponent<PostWwiseAmbiance>().ParkAmbianceEventPlay.Post(gameObject);
 
         while (shade.color.a > 0)
         {

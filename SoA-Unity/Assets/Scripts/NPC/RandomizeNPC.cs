@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class RandomizeNPC : MonoBehaviour
 {
-    [SerializeField]
-    [Tooltip("Reference to the NPC material manager")]
-    private GameObject NPCMaterialsManager;
+    //[SerializeField]
+    //[Tooltip("Reference to the NPC material manager")]
+    private GameObject NpcMaterialsManager;
 
     // Start is called before the first frame update
     void Start()
@@ -52,12 +52,13 @@ public class RandomizeNPC : MonoBehaviour
             }
         }
 
-        RandomizeFeatures(eyes, beards, props, hairs);
-
-        if (NPCMaterialsManager == null)
+        NpcMaterialsManager = GameObject.FindGameObjectWithTag("NPCMaterialsManager");
+        if (NpcMaterialsManager == null)
         {
-            throw new System.NullReferenceException("No reference to the NPC material manager");
+            throw new System.NullReferenceException("No object tagged with NPCMaterialsManager");
         }
+
+        RandomizeFeatures(eyes, beards, props, hairs);
 
         RandomizeMaterials();
     }
@@ -83,8 +84,10 @@ public class RandomizeNPC : MonoBehaviour
             index = Random.Range(0, eyes.Count);
             eyes[index].SetActive(true);
 
+            NpcMaterialsManager.GetComponent<NPCMaterialsManager>();
             // material
-            hairEyebrowsEyesMaterial = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetHairEyebrowsMaterial();
+            hairEyebrowsEyesMaterial = NpcMaterialsManager.GetComponent<NPCMaterialsManager>().GetHairEyebrowsMaterial();
+
             if (eyes[index].transform.GetChild(0).GetComponent<MeshRenderer>())
             {
                 eyes[index].transform.GetChild(0).GetComponent<MeshRenderer>().material = hairEyebrowsEyesMaterial; // eyebrows
@@ -126,11 +129,11 @@ public class RandomizeNPC : MonoBehaviour
                 // material
                 if (props[index].GetComponent<MeshRenderer>())
                 {
-                    props[index].GetComponent<MeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetHatMaterial();
+                    props[index].GetComponent<MeshRenderer>().material = NpcMaterialsManager.GetComponent<NPCMaterialsManager>().GetHatMaterial();
                 }
                 else if (props[index].GetComponent<SkinnedMeshRenderer>())
                 {
-                    props[index].GetComponent<SkinnedMeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetHatMaterial();
+                    props[index].GetComponent<SkinnedMeshRenderer>().material = NpcMaterialsManager.GetComponent<NPCMaterialsManager>().GetHatMaterial();
                 }
             }
         }
@@ -166,22 +169,22 @@ public class RandomizeNPC : MonoBehaviour
         {
             if (body.GetComponent<MeshRenderer>())
             {
-                body.GetComponent<MeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
+                body.GetComponent<MeshRenderer>().material = NpcMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
             }
             else if (body.GetComponent<SkinnedMeshRenderer>())
             {
-                body.GetComponent<SkinnedMeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
+                body.GetComponent<SkinnedMeshRenderer>().material = NpcMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
             }
         }
         else if (body.name.Contains("npcF"))
         {
             if (body.GetComponent<MeshRenderer>())
             {
-                body.GetComponent<MeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
+                body.GetComponent<MeshRenderer>().material = NpcMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
             }
             else if (body.GetComponent<SkinnedMeshRenderer>())
             {
-                body.GetComponent<SkinnedMeshRenderer>().material = NPCMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
+                body.GetComponent<SkinnedMeshRenderer>().material = NpcMaterialsManager.GetComponent<NPCMaterialsManager>().GetMaleNPCMaterial();
             }
         }
         else

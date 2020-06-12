@@ -11,6 +11,8 @@ TagManager:
   - Walkable
   - Vehicle
   - Shop
+  - NPCMaterialsManager
+  - NPC
   layers:
   - Default
   - TransparentFX

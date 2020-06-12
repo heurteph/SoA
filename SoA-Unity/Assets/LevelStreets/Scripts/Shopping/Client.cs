@@ -11,6 +11,7 @@ public class Client : MonoBehaviour
     private float percentage;
 
     private float speed;
+    private float walkingSpeed;
     private float minShoppingDuration;
     private float maxShoppingDuration;
 
@@ -75,9 +76,11 @@ public class Client : MonoBehaviour
 
     public void SetConstants(float speed, float minShoppingDuration, float maxShoppingDuration)
     {
-        this.speed = speed;
+        this.walkingSpeed = speed;
         this.minShoppingDuration = minShoppingDuration;
         this.maxShoppingDuration = maxShoppingDuration;
+
+        this.speed = this.walkingSpeed;
     }
 
     public void Initialize(Spline startSpline, float startPercentage, CLIENTSTATE startState)
@@ -107,16 +110,15 @@ public class Client : MonoBehaviour
             // Get the next shop to go to
             spline = other.GetComponent<Shop>().GetExitPath();
         }
-    }
 
-    private void OnTriggerStay(Collider other)
-    {
         if (other.transform.CompareTag("Player"))
         {
             if (clientState != CLIENTSTATE.FREEZE)
             {
+                Debug.Log("Player me bloque, je m'arrête");
                 clientState = CLIENTSTATE.FREEZE;
-                speed = 0; // TO DO : Find a progressive way
+                GetComponent<Animator>().SetBool("IsWalking", false);
+                speed = 0;
             }
         }
     }
@@ -125,7 +127,10 @@ public class Client : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
+            Debug.Log("Player est parti, je remarche");
+            GetComponent<Animator>().SetBool("IsWalking", true);
             clientState = CLIENTSTATE.WALKING;
+            speed = walkingSpeed;
         }
     }
 }

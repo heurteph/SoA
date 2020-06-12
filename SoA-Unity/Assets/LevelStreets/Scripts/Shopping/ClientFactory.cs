@@ -23,7 +23,7 @@ public class ClientFactory : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Number of clients to spawn")]
-    [Range(1,50)]
+    [Range(0,50)]
     private float clientsNumber = 20;
 
     [SerializeField]

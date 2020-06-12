@@ -53,7 +53,7 @@ public class ExitShelter : MonoBehaviour
 
             if (Physics.Raycast(transform.position, transform.forward, out hit, shelterManager.MaxDistanceToDoor, mask))
             {
-                shelterCamera = hit.transform.parent.transform.Find("Shed Camera").GetComponent<Camera>();
+                shelterCamera = hit.transform.parent.transform.Find("Shelter Camera").GetComponent<Camera>();
                 shelter = shelterManager.GoOutside(hit.collider.transform.parent.gameObject);
                 inputs.Player.Interact.performed += ShelterToWorld;
 

@@ -81,7 +81,7 @@ public class EnterShelter : MonoBehaviour
         // Reset Camera
 
         mainCamera.enabled = false;
-        shelter.transform.Find("Shed Camera").GetComponent<Camera>().enabled = true;
+        shelter.transform.Find("Shelter Camera").GetComponent<Camera>().enabled = true;
 
         // Reset sound
 

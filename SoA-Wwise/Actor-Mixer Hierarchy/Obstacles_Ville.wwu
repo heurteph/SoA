@@ -21,7 +21,6 @@
 					<ChildrenList>
 						<BlendContainer Name="Restorant" ID="{1BD63102-4ACC-4C35-9283-8BAA7686FB60}" ShortID="754822281">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="BlendBehavior" Type="int16" Value="1"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
@@ -169,7 +168,6 @@
 						</BlendContainer>
 						<BlendContainer Name="Ecole" ID="{BCC3DACB-A013-448B-9DAB-74CE018EE1D7}" ShortID="834630784">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
@@ -258,7 +256,6 @@
 						</BlendContainer>
 						<BlendContainer Name="Travaux" ID="{0E3BA0F0-4374-49AB-89B0-1FE054C88C0D}" ShortID="956627518">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
@@ -402,7 +399,6 @@
 						</BlendContainer>
 						<BlendContainer Name="Marteau_Piqueur" ID="{1FD4B5DB-8C0D-4537-9506-E3ED4BDAFA05}" ShortID="621494025">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
@@ -541,7 +537,6 @@
 						</BlendContainer>
 						<BlendContainer Name="Music_Appart" ID="{50EFE673-86A8-412F-801C-F6551728C5F7}" ShortID="518814341">
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>

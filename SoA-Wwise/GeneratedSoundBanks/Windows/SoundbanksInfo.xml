@@ -479,7 +479,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2851404393" Name="Play_Music_Credit" ObjectPath="\Events\Music\Play_Music_Credit" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2851404393" Name="Play_Music_Credit" ObjectPath="\Events\Music\Play_Music_Credit" DurationType="OneShot" DurationMin="60.000000" DurationMax="60.000000">
+					<IncludedMemoryFiles>
+						<File Id="945892940" Language="SFX">
+							<ShortName>Crédits V2 R128.wav</ShortName>
+							<Path>SFX\Crédits V2 R128_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3783189458" Name="Play_Music_Main_Title" ObjectPath="\Events\Music\Play_Music_Main_Title" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="717185924" Language="SFX">

@@ -19,7 +19,6 @@
 						<RandomSequenceContainer Name="Pigeon" ID="{7F1C7036-725A-4DF7-A5E5-3244E290AFCB}" ShortID="49600072">
 							<PropertyList>
 								<Property Name="3DPosition" Type="int16" Value="2"/>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
@@ -330,7 +329,6 @@
 						<RandomSequenceContainer Name="Tourterelle" ID="{28F51438-5D6E-4DAD-9382-22E7883D4642}" ShortID="403728856">
 							<PropertyList>
 								<Property Name="3DPosition" Type="int16" Value="2"/>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
@@ -572,7 +570,6 @@
 						<RandomSequenceContainer Name="Pigeon_Fixe" ID="{A0198711-06FB-476F-8473-3C9DA774000C}" ShortID="873806528">
 							<Comment>Faire un event Pigeon Fixe</Comment>
 							<PropertyList>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>

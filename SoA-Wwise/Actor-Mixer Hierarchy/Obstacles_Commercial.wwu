@@ -14,9 +14,6 @@
 					</ReferenceList>
 				</ActorMixer>
 				<ActorMixer Name="Radio" ID="{EFC1051D-E233-4058-A2CE-42A6AD083397}" ShortID="188454862">
-					<PropertyList>
-						<Property Name="3DSpatialization" Type="int16" Value="2"/>
-					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
 							<Custom>
@@ -262,9 +259,6 @@
 					</ReferenceList>
 				</ActorMixer>
 				<ActorMixer Name="Portes" ID="{84474B96-8FA6-4B7A-A05D-66300DB1DF61}" ShortID="18066525">
-					<PropertyList>
-						<Property Name="3DSpatialization" Type="int16" Value="2"/>
-					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
 							<Custom>

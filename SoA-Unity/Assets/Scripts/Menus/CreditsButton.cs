@@ -38,33 +38,32 @@ public class CreditsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        //transform.GetChild(0).GetComponent<Text>().color = hoveringColor;
-        //transform.GetChild(0).GetComponent<Animation>().Play("MenuItemPop");
-        transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorIn");
-        emission.rateOverTime = rateOverTime;
+        if (menuManager.GetComponent<MenuManager>().MenuState != MENU_STATE.CREDITS)
+        {
+            transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorIn");
+            emission.rateOverTime = rateOverTime;
+        }
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
-        //transform.GetChild(0).GetComponent<Text>().color = defaultColor;
-        transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorOut");
-        emission.rateOverTime = 0;
+        if (menuManager.GetComponent<MenuManager>().MenuState != MENU_STATE.CREDITS)
+        {
+            transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorOut");
+            emission.rateOverTime = 0;
+        }
     }
 
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
-        /*
-        if (creditsPanel.GetComponent<CanvasGroup>().alpha == 0)
+        if (menuManager.GetComponent<MenuManager>().MenuState == MENU_STATE.CONTROLS)
         {
-            creditsPanel.GetComponent<Animation>().Play("CreditsFadeIn");
-        }*/
-
-        StartCoroutine("BurstSpots");
-
+            transform.parent.GetChild(1).GetChild(0).GetComponent<Animation>().Play("MenuItemUngreyed");
+        }
         if (menuManager.GetComponent<MenuManager>().MenuState != MENU_STATE.CREDITS)
         {
-            transform.GetChild(0).GetComponent<Animation>().Play("MenuItemFlash");
             menuManager.GetComponent<MenuManager>().DisplayCredits();
+            transform.GetChild(0).GetComponent<Animation>().Play("MenuItemFlash");
             StartCoroutine("BurstSpots");
         }
     }

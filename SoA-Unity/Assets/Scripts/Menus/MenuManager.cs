@@ -45,6 +45,11 @@ public class MenuManager : MonoBehaviour
         
     }
 
+    public void DisplayControls()
+    {
+        menuState = MENU_STATE.CONTROLS;
+    }
+
     public void DisplayCredits()
     {
         menuState = MENU_STATE.CREDITS;

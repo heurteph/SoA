@@ -55,7 +55,7 @@ public class EnergyBehaviour : MonoBehaviour
         inputs = InputsManager.Instance.Inputs;
 
         // God mode
-        inputs.Player.GodMode.performed += _ctx => GodMode();
+        //inputs.Player.GodMode.performed += _ctx => GodMode();
 
         script = GetComponent<PlayerFollow>() ? GetComponent<PlayerFollow>() : (MonoBehaviour)GetComponent<PlayerFirst>();
         OutOfEnergyEvent += gameManager.GetComponent<GameManager>().RestartGame;

@@ -17,6 +17,7 @@ TagManager:
   - Home
   - Shed
   - Bar
+  - MenuCredits
   layers:
   - Default
   - TransparentFX
@@ -39,7 +40,7 @@ TagManager:
   - GrassGround
   - SoilGround
   - PassThrough
-  - 
+  - Postprocess
   - 
   - 
   - 

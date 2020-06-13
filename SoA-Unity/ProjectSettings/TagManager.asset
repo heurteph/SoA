@@ -18,6 +18,7 @@ TagManager:
   - Shed
   - Bar
   - MenuCredits
+  - MenuManager
   layers:
   - Default
   - TransparentFX

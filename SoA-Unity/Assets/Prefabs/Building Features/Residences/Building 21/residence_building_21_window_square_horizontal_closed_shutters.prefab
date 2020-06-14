@@ -149,7 +149,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f3b623a5f48731a4db4a27b36bfd86b2, type: 2}
+  - {fileID: 2100000, guid: 3c32e578bcf20e04a9fc43408dc99b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 8273962082488359209}
   - component: {fileID: 4243065826947880186}
   m_Layer: 0
-  m_Name: building_window_square_horizontal_closed_shutters (9)
+  m_Name: residence_building_21_window_square_horizontal_closed_shutters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,7 +530,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ec4ff6a1c053e6549838bd5adcfb44b5, type: 2}
+      objectReference: {fileID: 2100000, guid: ce8dd4ab25e0646418ce5a472ac2be3f, type: 2}
     - target: {fileID: -927199367670048503, guid: 8187e2818b8645649b30d2cecc553242,
         type: 3}
       propertyPath: m_Name
@@ -540,12 +540,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ec4ff6a1c053e6549838bd5adcfb44b5, type: 2}
+      objectReference: {fileID: 2100000, guid: ce8dd4ab25e0646418ce5a472ac2be3f, type: 2}
     - target: {fileID: 7087200961041043365, guid: 8187e2818b8645649b30d2cecc553242,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ec4ff6a1c053e6549838bd5adcfb44b5, type: 2}
+      objectReference: {fileID: 2100000, guid: ce8dd4ab25e0646418ce5a472ac2be3f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8187e2818b8645649b30d2cecc553242, type: 3}
 --- !u!4 &2497342571086499338 stripped
@@ -635,7 +635,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ec4ff6a1c053e6549838bd5adcfb44b5, type: 2}
+      objectReference: {fileID: 2100000, guid: ce8dd4ab25e0646418ce5a472ac2be3f, type: 2}
     - target: {fileID: -927199367670048503, guid: 8187e2818b8645649b30d2cecc553242,
         type: 3}
       propertyPath: m_Name
@@ -645,12 +645,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ec4ff6a1c053e6549838bd5adcfb44b5, type: 2}
+      objectReference: {fileID: 2100000, guid: ce8dd4ab25e0646418ce5a472ac2be3f, type: 2}
     - target: {fileID: 7087200961041043365, guid: 8187e2818b8645649b30d2cecc553242,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ec4ff6a1c053e6549838bd5adcfb44b5, type: 2}
+      objectReference: {fileID: 2100000, guid: ce8dd4ab25e0646418ce5a472ac2be3f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8187e2818b8645649b30d2cecc553242, type: 3}
 --- !u!4 &2497342571119383479 stripped

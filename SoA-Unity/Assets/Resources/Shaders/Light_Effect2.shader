@@ -6,6 +6,7 @@
 		_maskBlend("Mask blending", Float) = 0.5
 		_maskSize("Mask Size", Float) = 1
 		_color("Color",Color) = (0.0,0.0,0.0,1.0)
+		_Transparency("Transparency",Range(0.0,1.0)) = 1.0
 		_Position("Position",Vector) = (0.0,0.0,0.0,0.0)
 		_ecart("Ecart", Float) = 0.4
 		_height("Hauteur",Float) = 10.0
@@ -55,6 +56,7 @@
 		uniform float4 _color;
 		uniform float _PourcentHeight;
 		uniform float height_scale;
+		uniform float _Transparency;
 
 
 		//pour composante Main_Text
@@ -229,7 +231,7 @@
 				discard;
 			}
 			
-			col.a = alpha;
+			col.a = (alpha * _Transparency);
 
 			return col;		
 		}

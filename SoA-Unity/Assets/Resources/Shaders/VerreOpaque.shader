@@ -127,6 +127,7 @@
 				CGPROGRAM
 				#pragma vertex vert
 				#pragma fragment frag
+				#pragma multi_compile_fwdbase
 				#pragma target 4.6
 
 				#include "Lighting.cginc"
@@ -177,5 +178,35 @@
 
 				ENDCG
 			}
+			
+			/*Pass
+			{
+				Tags {"Queue" = "Transparent" "LightMode" = "ShadowCaster"}
+
+				CGPROGRAM
+				#pragma vertex vert
+				#pragma fragment frag
+				#pragma multi_compile_shadowcaster
+				#include "UnityCG.cginc"
+
+				struct v2f {
+					float4 color;
+					V2F_SHADOW_CASTER;
+				};
+
+				v2f vert(appdata_base v)
+				{
+					v2f o;
+					TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
+					return o;
+				}
+
+				float4 frag(v2f i) : SV_Target
+				{
+					SHADOW_CASTER_FRAGMENT(i);
+				}
+				ENDCG
+			}*/
+			UsePass "Legacy Shaders/VertexLit/SHADOWCASTER"
 		}
 }

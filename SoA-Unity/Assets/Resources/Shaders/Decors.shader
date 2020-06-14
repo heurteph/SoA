@@ -4,21 +4,14 @@
 	{
 		_Color("Color", Color) = (0.5, 0.65, 1, 1)
 		_MainTex("Main Texture", 2D) = "white" {}
-		[HDR]
-		_AmbientColor("Ambient",Color) = (0.4,0.4,0.4,1)
-		[HDR]
-		_SpecularColor("Spec Color",Color) = (0.9,0.9,0.9,1)
 
 		_AmbientLevel("Ambient Level",Range(0.0,1.0)) = 0.4
-		//ca c'est pour coef de Blinn Phong
-		//coef quadratic
-		_Glossiness("Glossiness",Float) = 32
-		_ShadowPercentColor("Shadow Pourcent Color",Range(0.0,0.5)) = 0.01
-		_ShadowStrenght("Shadow Strenght",Range(0.0,1.0)) = 0.5
-		[HDR]
-		_RimColor("Rim Color",Color) = (1,1,1,1)
-		_RimAmount("Rim Amount",Range(0,1)) = 0.716
-		_RimThreshold("Rim Threshold", Range(0,1)) = 0.1
+			//ca c'est pour coef de Blinn Phong
+			//coef quadratic
+			_Glossiness("Glossiness",Float) = 32
+			_ShadowPercentColor("Shadow Pourcent Color",Range(0.0,0.5)) = 0.01
+			_ShadowStrenght("Shadow Strenght",Range(0.0,1.0)) = 0.5
+			_ColorShadow("Color of Shadow",Color) = (1.0,1.0,1.0)
 	}
 		SubShader
 	{
@@ -74,6 +67,7 @@
 			float _RimAmount;
 			float _RimThreshold;
 			float _ShadowPercentColor;
+			float3 _ColorShadow;
 
 			v2f vert(appdata v)
 			{
@@ -103,27 +97,14 @@
 				float NdotL = dot(_WorldSpaceLightPos0, normal);
 				float NdotH = dot(normal, halfVector);
 
-				//on segment en deux l'intensité lumineuse en fonction du resultat du dot
-				//float lightIntensity = NdotL > 0 ? 1 : 0;
-
-				//return value between 0 and 1, no shadow 0 and 1 shadowed
 				float shadow = SHADOW_ATTENUATION(i);
-				//pour du flat shading => untitled goose game
-				//shadow = 0.0f;
-				//pour smooth edge
-				//float lightIntensity = smoothstep(0, 0.01, NdotL);
-
-				//artefact avec shadow
 				
 				float lightIntensity = smoothstep(0, 0.01, NdotL * shadow);
 
 				//_Glossiness => a 32 : de base 0.5f
 
 				float specularIntensity = pow(NdotH * lightIntensity, _Glossiness * _Glossiness);
-				//float specularIntensitySmooth = smoothstep(0.005, 0.01, specularIntensity);
-				//float specularIntensitySmooth = smoothstep(0.01, 1.0, specularIntensity);
-				//float4 specular = specularIntensitySmooth * _SpecularColor;
-				//sans smooth d'intensity
+
 				float4 specular = specularIntensity * _SpecularColor;
 
 				if (specularIntensity < 0.5) {
@@ -153,53 +134,21 @@
 				//present in Lighting.cginc
 				float4 light = lightIntensity * _LightColor0;
 				
-				//smoothstep => smooth transition between 0 and 1
-				//pivot
-				//clamping interpolation => tronqué/arrondi pour le clamp (avec segment)
-				//avec interpolation linéaire avec cette valeur
-				//en gros on le garde d'un intervalle choisi en le remontant ou le baissant puis on interpole
-				//exemple => entre 0 et 1 => 0
-				//clamp si inf 0.25 = 0.25, is sup 0.75 = 0.75 return value
-				//interpolation entre 0 et 1 => borne_max - value / (borne_max - borne_min)
-				//après évaluation polynomial du resultat
-				//donc fonction non linéaire => car clampe dans un intervalle inf a celui du depart
-				
-				//dont en 0 90 a droite ou a gauche en +
-				//ou en bas 90 < degree < 270
-				//more segment => on deplace l'ensemble d'intersection entre 0 et 1
-				//complément du dot entre 0 et 1 au milieu
-				//avec une texture degradée et on cherche avec uv coord
-				//float2 uv = float2(1 - (NdotL * 0.5 + 0.5), 0.5);
-				
-				//rim = 0.0f;
-
-				//add ambient color
-				//return _Color * sample * (_AmbientColor + lightIntensity);
-				//light de la scène
-				//return _Color * sample * (_AmbientColor + light + specular + rimDot);
 				if (lightIntensity < 0.5) {
 					light = float4(_ShadowPercentColor, _ShadowPercentColor, _ShadowPercentColor, 1.0f) * _LightColor0;
+					light.rgb *= float3(0.62f, 0.81f, 1.0f);//_ColorShadow.rgb;
 					float tmp = max(_AmbientLevel - _ShadowStrenght, 0.0f);
 					_AmbientColor = float4(tmp, tmp, tmp, 1.0f);
+					//_AmbientColor.rgb *= _ColorShadow.rgb;
 				}
 				else {
 					_AmbientColor = float4(_AmbientLevel, _AmbientLevel, _AmbientLevel,1.0f);
 				}
-				/*else {
-					light = float4(0.0f, 0.0f, 0.0f, 0.0f);
-				}*/
-				//_Color *= (_AmbientColor + light + specular);// +rim);
+
+				_AmbientColor *= UNITY_LIGHTMODEL_AMBIENT;
+
 				_Color *= (_AmbientColor + light + specular);
-				//sample = (smoothstep(flat.r,  1.0f - (1.0f - flat.r), sample.r), smoothstep(flat.g, 1.0f - (1.0f - flat.g), sample.g), smoothstep(flat.b, 1.0f - (1.0f - flat.b), sample.b), 1.0f);
-				//lissage
-				/*float r, g, b;
-				r = sample.r * sample.r * (3 - 2 * sample.r);
-				r = clamp(r, flat.r,1.0f);
-				g = sample.g * sample.g * (3 - 2 * sample.g);
-				g = clamp(g, flat.g, 1.0f);
-				b = sample.b * sample.b * (3 - 2 * sample.b);
-				b = clamp(b, flat.b, 1.0f);
-				sample = float4(r, g, b, sample.a);*/
+
 				return _Color;
 			}
 			ENDCG

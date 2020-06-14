@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 404880431020098888}
   - component: {fileID: 6242804852842183089}
   m_Layer: 0
-  m_Name: building_chimney (3)
+  m_Name: downtown_building_33__chimney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 09212392912d6f040b9ab01fc37f65ce, type: 2}
+  - {fileID: 2100000, guid: f7bf1aa466909ce498fb523bf4d078df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

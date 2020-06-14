@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: da8aba93b5a9f7349917e0fc3190a2ee
+    path: Assets/Scenes/GameElise.unity
+    guid: b0708178ce84de34d916744aa7d2c048
   - enabled: 1
     path: Assets/Scenes/CreditsScene.unity
     guid: d285cd02efea21340aa08788542d4004
@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Demo.unity
     guid: d7881289cffc20743b2e8e7a1681d12e
+  - enabled: 0
+    path: Assets/Scenes/Game.unity
+    guid: da8aba93b5a9f7349917e0fc3190a2ee
   - enabled: 0
     path: Assets/Scenes/Old/CameraTestScene.unity
     guid: 9033527e7b713264388a9d58c80eaf1c

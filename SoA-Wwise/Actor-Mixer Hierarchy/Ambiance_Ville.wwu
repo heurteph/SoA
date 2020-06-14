@@ -900,7 +900,7 @@
 								<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
 								<CustomState Name="" ID="{FE2872C1-EC27-4463-9A29-C556D3489B47}" ShortID="1072271">
 									<PropertyList>
-										<Property Name="OutputBusVolume" Type="Real64" Value="-28"/>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-108"/>
 									</PropertyList>
 								</CustomState>
 							</CustomState>

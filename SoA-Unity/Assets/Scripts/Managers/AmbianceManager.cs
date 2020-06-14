@@ -28,11 +28,13 @@ public class AmbianceManager : MonoBehaviour
     {
         AkSoundEngine.PostEvent("Play_Music_Safe_Zone_Home", player);
         AkSoundEngine.PostEvent("Stop_Pigeon", player);
+        AkSoundEngine.PostEvent("Stop_Parc_Oiseaux1", player);
     }
 
     public void PlayShedAmbiance()
     {
         AkSoundEngine.PostEvent("Play_Music_Safe_Zone_Parc", player);
+        AkSoundEngine.PostEvent("Stop_Pigeon", player);
         AkSoundEngine.PostEvent("Stop_Parc_Oiseaux1", player);
     }
 
@@ -40,6 +42,7 @@ public class AmbianceManager : MonoBehaviour
     {
         AkSoundEngine.PostEvent("Play_Music_Safe_Zone_Ville", player);
         AkSoundEngine.PostEvent("Stop_Pigeon", player);
+        AkSoundEngine.PostEvent("Stop_Parc_Oiseaux1", player);
     }
 
     public void PlayCityAmbiance()
@@ -47,13 +50,16 @@ public class AmbianceManager : MonoBehaviour
         AkSoundEngine.PostEvent("Play_Pigeon", player);
         AkSoundEngine.PostEvent("Stop_Parc_Oiseaux1", player);
         AkSoundEngine.PostEvent("Stop_Music_Safe_Zone_Ville", player);
+        AkSoundEngine.PostEvent("Stop_Music_Safe_Zone_Parc", player);
         AkSoundEngine.PostEvent("Stop_Music_Safe_Zone_Home", player);
     }
 
     public void PlayParkAmbiance()
     {
         AkSoundEngine.PostEvent("Play_Parc_Oiseaux1", player);
-        AkSoundEngine.PostEvent("Stop_Music_Safe_Zone_Parc", player);
         AkSoundEngine.PostEvent("Stop_Pigeon", player);
+        AkSoundEngine.PostEvent("Stop_Music_Safe_Zone_Ville", player);
+        AkSoundEngine.PostEvent("Stop_Music_Safe_Zone_Parc", player);
+        AkSoundEngine.PostEvent("Stop_Music_Safe_Zone_Home", player);
     }
 }

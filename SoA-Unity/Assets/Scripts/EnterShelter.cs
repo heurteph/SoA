@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class EnterShelter : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class EnterShelter : MonoBehaviour
 
     private string shelterTag;
 
+    private GameObject saveManager;
+
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
@@ -38,11 +41,32 @@ public class EnterShelter : MonoBehaviour
         GetComponent<ExitShelter>().enabled = false;
 
         ambianceManager = GameObject.FindGameObjectWithTag("AmbianceManager");
+        saveManager = GameObject.FindGameObjectWithTag("SaveManager");
 
         if (ambianceManager == null)
         {
-            throw new System.NullReferenceException("Missing game object tagged with \"AmbianceManager\"");
+            throw new System.NullReferenceException("Missing game object tagged with tag \"AmbianceManager\"");
         }
+        if (saveManager == null)
+        {
+            throw new System.NullReferenceException("Missing game object tagged with tag \"SaveManager\"");
+        }
+
+        // Load shelter from save
+        shelter = null;
+        switch(saveManager.GetComponent<SaveManager>().SaveShelterIndex)
+        {
+            case SHELTER.HOME:
+                shelter = shelterManager.GetComponent<ShelterManager>().ShelterInsides.Where(s => s.tag == "Home").First();
+                break;
+            case SHELTER.SHED:
+                shelter = shelterManager.GetComponent<ShelterManager>().ShelterInsides.Where(s => s.tag == "Shed").First();
+                break;
+            case SHELTER.BAR:
+                shelter = shelterManager.GetComponent<ShelterManager>().ShelterInsides.Where(s => s.tag == "Bar").First();
+                break;
+        }
+        StartCoroutine("Respawn");
     }
 
     // Update is called once per frame
@@ -59,11 +83,73 @@ public class EnterShelter : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.forward, out hit, shelterManager.MaxDistanceToDoor, mask))
             {
                 shelter = shelterManager.GoInside(hit.collider.transform.parent.gameObject);
-                shelterTag = hit.transform.parent.transform.tag;
                 inputs.Player.Interact.performed += WorldToShelter;
                 inputs.Player.Interact.Enable();
             }
         }
+    }
+
+    IEnumerator Respawn()
+    {
+        // suspend interaction both with player and world
+        inputs.Player.Disable();
+        GetComponent<EnergyBehaviour>().Invincibility(true);
+
+        shelterTag = shelter.tag;
+
+        // Reset Character Position and Speed
+
+        if (transform.GetComponent<PlayerFirst>().isActiveAndEnabled)
+        {
+            Transform warp = shelter.transform.Find("Warp Position");
+            transform.GetComponent<PlayerFirst>().ResetTransform(warp.position, warp.rotation.eulerAngles.y);
+            transform.GetComponent<PlayerFirst>().SetShelterSpeed();
+        }
+
+        // Reset Camera
+
+        mainCamera.enabled = false;
+        shelter.transform.Find("Shelter Camera").GetComponent<Camera>().enabled = true;
+
+        // Reset sound
+
+        AkSoundEngine.SetState("Dans_Lieu_Repos", "Oui");
+
+        // Ambiance sound
+        if (shelterTag == "Home")
+        {
+            ambianceManager.GetComponent<AmbianceManager>().PlayHomeAmbiance();
+        }
+        else if (shelterTag == "Shed")
+        {
+            ambianceManager.GetComponent<AmbianceManager>().PlayShedAmbiance();
+        }
+        else if (shelterTag == "Bar")
+        {
+            ambianceManager.GetComponent<AmbianceManager>().PlayBarAmbiance();
+        }
+
+        //GetComponent<PostWwiseAmbiance>().ParkAmbianceEventStop.Post(gameObject);
+        //GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventPlay.Post(gameObject);
+
+        while (shade.color.a > 0)
+        {
+            shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, Mathf.Max(shade.color.a - Time.deltaTime / (shelterManager.TransitionDuration * 0.5f), 0));
+            yield return null;
+        }
+        shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, 0);
+        energyBehaviour.IsReloading = true;
+
+        inputs.Player.Interact.performed -= WorldToShelter;
+        inputs.Player.Enable();
+
+        GetComponent<ExitShelter>().enabled = true;
+        GetComponent<EnterShelter>().enabled = false;
+
+        GetComponent<EnergyBehaviour>().Invincibility(false);
+
+        // do the save
+        saveManager.GetComponent<SaveManager>().Save(shelter);
     }
 
     void WorldToShelter(InputAction.CallbackContext ctx)
@@ -73,8 +159,12 @@ public class EnterShelter : MonoBehaviour
 
     IEnumerator Enter()
     {
+        // suspend interactions with both the player and the world
         inputs.Player.Disable();
-   
+        GetComponent<EnergyBehaviour>().Invincibility(true);
+
+        shelterTag = shelter.tag;
+
         while (!Mathf.Approximately(shade.color.a, 1))
         {
             shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, Mathf.Min(shade.color.a + Time.deltaTime / (shelterManager.TransitionDuration * 0.5f), 1));
@@ -129,6 +219,11 @@ public class EnterShelter : MonoBehaviour
 
         GetComponent<ExitShelter>().enabled = true;
         GetComponent<EnterShelter>().enabled = false;
+
+        GetComponent<EnergyBehaviour>().Invincibility(false);
+
+        // do the save
+        saveManager.GetComponent<SaveManager>().Save(shelter);
     }
 
     void OnDisable()

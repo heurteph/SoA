@@ -9,10 +9,12 @@ public class ShelterManager : MonoBehaviour
     [SerializeField]
     [Tooltip("List of the shelters' entrances")]
     private GameObject[] shelterOutsides;
+    public GameObject[] ShelterOutsides { get { return shelterOutsides; } }
 
     [SerializeField]
     [Tooltip("List of the shelters' insides")]
     private GameObject[] shelterInsides;
+    public GameObject[] ShelterInsides { get { return shelterInsides; } }
 
     [Space]
     [Header("Shelter Settings")]

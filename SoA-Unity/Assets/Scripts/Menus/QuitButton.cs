@@ -11,7 +11,7 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private ParticleSystem sunSpots;
     ParticleSystem.EmissionModule emission;
     ParticleSystem.VelocityOverLifetimeModule velocity;
-    float rateOverTime = 5;
+    float rateOverTime = 50;
 
     // Start is called before the first frame update
     void Start()

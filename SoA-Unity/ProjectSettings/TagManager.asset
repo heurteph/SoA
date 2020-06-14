@@ -19,6 +19,7 @@ TagManager:
   - Bar
   - MenuCredits
   - MenuManager
+  - SaveManager
   layers:
   - Default
   - TransparentFX

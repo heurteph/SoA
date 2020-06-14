@@ -308,7 +308,7 @@ public class CameraFollow : MonoBehaviour
         zoomTimer = 0;
         isAvailable = true;
         isPausingAlign = false;
-        noCollision = ~ LayerMask.GetMask("NoObstacle");
+        noCollision = ~ (LayerMask.GetMask("NoObstacle") | LayerMask.GetMask("Shelter Entrance") | LayerMask.GetMask("Shelter Exit"));
 
         if (cameraSway != null)
         {

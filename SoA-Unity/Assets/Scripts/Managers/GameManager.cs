@@ -7,6 +7,8 @@ using AK.Wwise;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameObject singleton;
+
     private Inputs inputs;
 
     [SerializeField]
@@ -18,13 +20,19 @@ public class GameManager : MonoBehaviour
     [Range(1, 5)]
     private float transitionDuration = 3;
 
-    private 
-
-    /*
-    [SerializeField]
-    [Tooltip("The Wwise event to reset all sounds")]
-    private AK.Wwise.Event stopAllEvent;
-    */
+    private void Awake()
+    {
+        if (singleton == null)
+        {
+            singleton = gameObject;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (singleton != gameObject)
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +54,8 @@ public class GameManager : MonoBehaviour
         }*/
         Analytics.enabled = false;
 
-        DontDestroyOnLoad(gameObject);
+
+        //DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame

@@ -20,6 +20,7 @@ TagManager:
   - MenuCredits
   - MenuManager
   - SaveManager
+  - Fade
   layers:
   - Default
   - TransparentFX

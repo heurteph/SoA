@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 using AK.Wwise;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,9 +17,16 @@ public class GameManager : MonoBehaviour
     private Animator creditsTransition;
 
     [SerializeField]
-    [Tooltip("Duration of the transitions in seconds")]
+    [Tooltip("Duration of the transitions to credits in seconds")]
     [Range(1, 5)]
     private float transitionDuration = 3;
+
+    [SerializeField]
+    [Tooltip("Duration of the transitions to restart in seconds")]
+    [Range(5, 10)]
+    private float restartTransitionDuration = 5;
+
+    private Image fade;
 
     private void Awake()
     {
@@ -38,6 +46,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         inputs = InputsManager.Instance.Inputs;
+
+        fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
+
+        if(fade == null)
+        {
+            throw new System.NullReferenceException("No fade found in the UI");
+        }
 
         if(creditsTransition == null)
         {
@@ -66,13 +81,46 @@ public class GameManager : MonoBehaviour
 
     /* Defeat functions */
 
-    public void RestartGame()
+    public void GameOver()
     {
+
+        StartCoroutine("RestartGame");
+    }
+
+    private IEnumerator RestartGame()
+    {
+        //Disable player inputs
+        inputs.Player.Disable();
+
+        //Play defeat sound
+        AkSoundEngine.PostEvent("Play_Mort", gameObject);
+
+        // Fade out
+
+        while (!Mathf.Approximately(fade.color.a, 1))
+        {
+            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Min(fade.color.a + Time.deltaTime / (restartTransitionDuration * 0.5f), 1));
+            yield return null;
+        }
+
+        // Display logo
+        yield return new WaitForSeconds(3); // duration of the game over jingle : 5,043
+
         // Stop all sounds
         AkSoundEngine.StopAll();
 
         // Reload the scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        inputs.Player.Enable();
+
+        // Fade in
+        while (fade.color.a > 0)
+        {
+            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Max(fade.color.a - Time.deltaTime / (restartTransitionDuration * 0.5f), 0));
+            yield return null;
+        }
+        fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, 0);
     }
 
     /* Victory functions */

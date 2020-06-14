@@ -100,25 +100,28 @@ public class GameManager : MonoBehaviour
         inputs.Player.Disable();
 
         //Play defeat sound
-        AkSoundEngine.PostEvent("Play_Mort", gameObject);
+        AkSoundEngine.PostEvent("Play_Mort", gameObject, (uint)AkCallbackType.AK_EndOfEvent, CallbackFunction, null);
 
         // Fade out
-
         while (!Mathf.Approximately(fade.color.a, 1))
         {
             fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Min(fade.color.a + Time.deltaTime / restartFadeDuration, 1));
             yield return null;
         }
 
+        // Display logo while waiting for scene to reload
+        //yield return new WaitForSeconds(5.043f - restartFadeDuration); // duration of the game over jingle : 5,043 s
+    }
+
+    void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
+    {
         // Stop all sounds
         AkSoundEngine.StopAll();
 
         // Reload the scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-        // Display logo while waiting for scene to reload
-        //yield return new WaitForSeconds(5.043f - restartFadeDuration); // duration of the game over jingle : 5,043 s
     }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "GameElise" || scene.name == "Game")

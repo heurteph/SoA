@@ -62,7 +62,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3232482810	Play_Bus_Door_Close			\Ville_Obstacles\Play_Bus_Door_Close	
 	3267333498	Stop_Ecole			\Ville_Obstacles\Stop_Ecole	
 	3326642619	Play_Music_Safe_Zone_Ville			\Music\Play_Music_Safe_Zone_Ville	
-	3366277958	Play_Messages_Radio			\Commercial_Obstacles\Play_Messages_Radio	
+	3366277958	Play_Messages_Radio			\Commercial_Ambiance\Play_Messages_Radio	
 	3373826511	Stop_Portes_Grande			\Commercial_Obstacles\Stop_Portes_Grande	
 	3389613819	Play_ArrosageAuto			\Parc_Obstacles\Play_ArrosageAuto	
 	3425086499	Stop_Music_Credit			\Music\Stop_Music_Credit	
@@ -80,7 +80,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3725651506	Play_Parc_Oiseaux1			\Parc_Ambiance\Play_Parc_Oiseaux1	
 	3782749553	Play_Travaux			\Ville_Obstacles\Play_Travaux	
 	3783189458	Play_Music_Main_Title			\Music\Play_Music_Main_Title	
-	4004627752	Stop_Messages_Radio			\Commercial_Obstacles\Stop_Messages_Radio	
+	4004627752	Stop_Messages_Radio			\Commercial_Ambiance\Stop_Messages_Radio	
 	4079445273	Play_Music_Safe_Zone_Parc			\Music\Play_Music_Safe_Zone_Parc	
 	4114146970	Play_Pleure_B_b_			\Parc_Obstacles\Play_Pleure_B_b_	
 	4134052420	Play_Parc_Chien			\Parc_Obstacles\Play_Parc_Chien	
@@ -141,6 +141,7 @@ State	ID	Name	State Group			Notes
 
 Custom State	ID	Name	State Group	Owner		Notes
 	1072271	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Ambiance_Ville\Nature_Ville		
+	17150049	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Pas		
 	20623495	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_VoitureElec		
 	24581629	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Installations		
 	75218250	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Installations		
@@ -157,6 +158,8 @@ Custom State	ID	Name	State Group	Owner		Notes
 	365450063	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Music\Credit		
 	388201041	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Music\Safe_Zone		
 	388657980	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain		
+	414260493	Non	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Respiration		
+	418599299	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Pas		
 	485765438	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Nature		
 	493976544	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Ambiance_Parc\Nature_Parc\Parc_Eau_Lac		
 	494918475	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Nature		
@@ -164,6 +167,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	502318422	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Véhicules		
 	504445497	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Pas\Texture Pas		
 	533184396	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Installations\Horloge\Horloge		
+	556096452	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Respiration		
 	581795300	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\4_Commercial\Obstacles_Commercial\Radio		
 	637056278	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Installations\Electrique_Buzz\Electrique_Buzz		
 	660901397	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas		
@@ -174,6 +178,8 @@ Custom State	ID	Name	State Group	Owner		Notes
 	736014847	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Installations\Climatiseur\Climatiseur		
 	741454186	Non	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas		
 	796436245	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Ambiance_Ville\Nature_Ville		
+	805727106	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Pas		
+	877616443	Non	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Pas		
 	883883622	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_VoitureElec		
 	893835973	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Pas\Texture Pas		
 	908679948	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\4_Commercial\Obstacles_Commercial\Radio		
@@ -182,9 +188,11 @@ Custom State	ID	Name	State Group	Owner		Notes
 	953521499	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Music\Safe_Zone		
 	959651477	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas		
 	1000141261	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
+	1009720299	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Respiration		
 	1036616796	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain		
 	1038162749	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Humain_Ville		
 	1038561085	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Music\Credit		
+	1070113347	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Respiration		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	428373397	VitesseVoitureElec			\Obstacles\VitesseVoitureElec	

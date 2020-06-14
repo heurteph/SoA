@@ -269,19 +269,22 @@ namespace AK
 
     namespace BUSSES
     {
-        static const AkUniqueID COMMERCE_ENVI_MASTER = 3729418630U;
-        static const AkUniqueID COMMERCE_OBSTACLES_MASTER = 3416674296U;
+        static const AkUniqueID ENVI_COMMERCE = 772085263U;
+        static const AkUniqueID ENVI_PARC = 4151145406U;
+        static const AkUniqueID ENVI_VILLE = 3541955170U;
+        static const AkUniqueID ENVIRONNEMENT_MASTER = 766198208U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MIX_REVERB = 3296604463U;
-        static const AkUniqueID MIXMUSIC = 2111362598U;
         static const AkUniqueID MIXPROTECTION = 2740603104U;
+        static const AkUniqueID MUSIC_MASTER = 3595451983U;
         static const AkUniqueID NIVEAUECOUTEPERSO = 2734641465U;
-        static const AkUniqueID NPCMASTER = 2033911932U;
-        static const AkUniqueID PARC_ENVI_MASTER = 351745915U;
-        static const AkUniqueID PARC_OBSTACLES_MASTER = 1797562303U;
-        static const AkUniqueID PERSOMASTER = 386419066U;
-        static const AkUniqueID VILLE_ENVI_MASTER = 3757400157U;
-        static const AkUniqueID VILLE_OBSTACLES_MASTER = 2278553081U;
+        static const AkUniqueID OBSTACLES_COMMERCE = 3564875249U;
+        static const AkUniqueID OBSTACLES_MASTER = 1006333898U;
+        static const AkUniqueID OBSTACLES_PARC = 3370572728U;
+        static const AkUniqueID OBSTACLES_VILLE = 731600268U;
+        static const AkUniqueID PERSO_ESTHESIA = 1643398137U;
+        static const AkUniqueID PERSO_NPC = 1407902352U;
+        static const AkUniqueID PERSONNAGES_MASTER = 1655596517U;
     } // namespace BUSSES
 
     namespace AUX_BUSSES

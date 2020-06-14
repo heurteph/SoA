@@ -1046,7 +1046,7 @@
 											<ObjectRef Name="Asphalt" ID="{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="PersoMaster" ID="{70882171-F188-490F-BB20-D05554DA0579}" WorkUnitID="{2E8B03C5-B7AB-4730-AC19-BD49D2D89A85}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 										</Reference>
 										<Reference Name="SwitchGroupOrStateGroup">
 											<ObjectRef Name="Pas_Matiere" ID="{B5A97861-3A79-49DC-9CA4-30BD84E287BE}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>

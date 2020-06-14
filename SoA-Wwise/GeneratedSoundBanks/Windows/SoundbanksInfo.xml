@@ -403,7 +403,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3366277958" Name="Play_Messages_Radio" ObjectPath="\Events\Commercial_Obstacles\Play_Messages_Radio" MaxAttenuation="40.000000" DurationType="Infinite">
+				<Event Id="3366277958" Name="Play_Messages_Radio" ObjectPath="\Events\Commercial_Ambiance\Play_Messages_Radio" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="46142111" Language="SFX">
 							<ShortName>Commerce_Obstacle_Message_Complet_4.wav</ShortName>
@@ -5786,7 +5786,7 @@
 				<Event Id="725970268" Name="Stop_Horloge" ObjectPath="\Events\Ville_Obstacles\Stop_Horloge" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="882878844" Name="Stop_Klaxons" ObjectPath="\Events\Ville_Obstacles\Stop_Klaxons" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2738893335" Name="Stop_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Stop_Marteau_Piqueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="4004627752" Name="Stop_Messages_Radio" ObjectPath="\Events\Commercial_Obstacles\Stop_Messages_Radio" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4004627752" Name="Stop_Messages_Radio" ObjectPath="\Events\Commercial_Ambiance\Stop_Messages_Radio" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2980414578" Name="Stop_Mort" ObjectPath="\Events\Personnage\Stop_Mort" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3531521436" Name="Stop_Music_Appart" ObjectPath="\Events\Ville_Obstacles\Stop_Music_Appart" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

@@ -6,7 +6,7 @@
 				<SoundcasterSession Name="SoundCaster" ID="{0B387E94-8EAD-4096-8099-BAABE001D6C3}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="Play_Messages_Radio" ID="{5F787544-DF91-44DD-9A8E-14A151B25BF0}" WorkUnitID="{56B5A11B-E0A2-4A1F-B982-5B1D1A9AEC2C}"/>
+							<ObjectRef Name="Play_Messages_Radio" ID="{5F787544-DF91-44DD-9A8E-14A151B25BF0}" WorkUnitID="{5972D42D-C2B4-42B3-974C-CC34517058C6}"/>
 							<Position X="0" Y="0"/>
 						</Module>
 					</ModuleList>

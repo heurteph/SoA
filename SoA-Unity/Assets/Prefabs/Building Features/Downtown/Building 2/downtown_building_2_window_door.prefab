@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3925249037798914044}
   m_Layer: 0
-  m_Name: building_window_door
+  m_Name: downtown_building_2_window_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +91,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 263a41bb00f65ae46b9b0ec02b0bd2c5, type: 2}
+  - {fileID: 2100000, guid: 379ae5d9970bfee43b619e7303e7db11, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -170,7 +170,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ce3bdb8e8872ae44fb1cad7ea57d83af, type: 2}
+  - {fileID: 2100000, guid: ec66d02f51d3e2043a729a8356234f99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -249,7 +249,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 263a41bb00f65ae46b9b0ec02b0bd2c5, type: 2}
+  - {fileID: 2100000, guid: 379ae5d9970bfee43b619e7303e7db11, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

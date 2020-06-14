@@ -10,6 +10,27 @@ public struct StructTexture
 
 public class Render : MonoBehaviour
 {
+    [SerializeField]
+    public PlayerController pc;
+
+    [SerializeField]
+    private float coef_blur = 300.0f;
+    [SerializeField]
+    private float coef_intensity = 16.0f;
+
+    [SerializeField]
+    private float radius = 0.6f;
+    [SerializeField]
+    private Vector3 offSetColor;
+    [SerializeField]
+    private bool state_blur;
+    [SerializeField]
+    private bool state_chromatique;
+    [SerializeField]
+    private bool state_vignette_pleine;
+    [SerializeField]
+    private float lerp_effet;
+
     public bool shader_actif = false;
     private Material mat;
     public string shader_name = "NoVision";
@@ -31,6 +52,12 @@ public class Render : MonoBehaviour
     //a l'init ici
     void Awake()
     {
+        state_blur = false;
+        state_chromatique = false;
+        //courbe blur a gérer en fonction de l'état de vie
+
+        lerp_effet = 1.0f;
+
         cam = GetComponent<Camera>();
         projection_base = new Matrix4x4();
         for(int i= 0; i < 4; i++)
@@ -307,9 +334,22 @@ public class Render : MonoBehaviour
             //mat.SetBuffer("tab",tableau);
 
             //changeShader("Contour");
-            changeShader("VertexShader");
-            mat.SetFloat("width", Screen.currentResolution.width);
-            mat.SetFloat("height", Screen.currentResolution.height);
+            changeShader("PostProcessV1");
+            //mat.SetFloat("width", Screen.currentResolution.width);
+            //mat.SetFloat("height", Screen.currentResolution.height);
+            //mat.SetFloat("width", source.width);
+            //mat.SetFloat("height", source.height);
+            mat.SetFloat("width", coef_blur);
+            mat.SetFloat("height", coef_blur);
+            mat.SetFloat("life", pc.vie);
+            mat.SetFloat("_CoefBlur", coef_intensity);
+            mat.SetFloat("_Radius", radius);
+            mat.SetVector("_OffsetColor",new Vector4(offSetColor.x, offSetColor.y, offSetColor.z,1.0f));
+            mat.SetInt("_StateBlur",(state_blur ? 1 : 0));
+            mat.SetInt("_StateChromatique", (state_chromatique ? 1 : 0));
+            mat.SetInt("_VignettePleine", (state_vignette_pleine ? 1 : 0));
+            mat.SetFloat("_LerpEffect", lerp_effet);
+
 
             Graphics.Blit(source, destination,mat);
 
@@ -389,6 +429,11 @@ public class Render : MonoBehaviour
         shear.SetRow(2, new Vector4(offsetX, offsetY, 1, 0));
         //shear.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, -1.0f));
         cam.projectionMatrix = projection_base * shear;
+
+
+        //vie
+        
+
 
         //default 0.01 et 1000
         //n near plan

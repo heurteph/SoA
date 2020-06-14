@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 3940746376079828155}
   - component: {fileID: 5127340787913749741}
   m_Layer: 0
-  m_Name: pCube2
+  m_Name: vitre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,7 +106,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ce3bdb8e8872ae44fb1cad7ea57d83af, type: 2}
+  - {fileID: 2100000, guid: ec66d02f51d3e2043a729a8356234f99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 5225789645998906747}
   - component: {fileID: 3963680428150130330}
   m_Layer: 0
-  m_Name: pCylinder1
+  m_Name: serrue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 8921188544533088278}
   - component: {fileID: 3507222906252639991}
   m_Layer: 0
-  m_Name: pSphere1
+  m_Name: poigne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 53530881381239732}
   - component: {fileID: 8089427677532503824}
   m_Layer: 0
-  m_Name: pCube1
+  m_Name: vadre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

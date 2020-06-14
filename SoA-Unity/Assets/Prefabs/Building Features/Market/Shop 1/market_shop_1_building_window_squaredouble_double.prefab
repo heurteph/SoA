@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4050070705237255767}
   m_Layer: 0
-  m_Name: building_window_squaredouble_double (2)
+  m_Name: market_shop_1_building_window_squaredouble_double
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,12 +103,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ce3bdb8e8872ae44fb1cad7ea57d83af, type: 2}
+      objectReference: {fileID: 2100000, guid: ec66d02f51d3e2043a729a8356234f99, type: 2}
     - target: {fileID: 7509098268278443338, guid: 8e5f7b65a41931f41a979557dd782f34,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 97e30b11a5b139e4f9dea7e41226ec9f, type: 2}
+      objectReference: {fileID: 2100000, guid: 968730627ee26af4c932adfc14a93203, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e5f7b65a41931f41a979557dd782f34, type: 3}
 --- !u!4 &2205021755028910850 stripped
@@ -188,12 +188,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ce3bdb8e8872ae44fb1cad7ea57d83af, type: 2}
+      objectReference: {fileID: 2100000, guid: ec66d02f51d3e2043a729a8356234f99, type: 2}
     - target: {fileID: 7509098268278443338, guid: 8e5f7b65a41931f41a979557dd782f34,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 97e30b11a5b139e4f9dea7e41226ec9f, type: 2}
+      objectReference: {fileID: 2100000, guid: 968730627ee26af4c932adfc14a93203, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e5f7b65a41931f41a979557dd782f34, type: 3}
 --- !u!4 &2205021754079862557 stripped

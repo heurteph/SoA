@@ -9,6 +9,12 @@
 		[Header(Shading)]
 		_TopColor("Top Color", Color) = (1,1,1,1)
 		_BottomColor("Bottom Color", Color) = (1,1,1,1)
+		_AmbientLevel("Ambient Level",Range(0.0,1.0)) = 0.4
+		//ca c'est pour coef de Blinn Phong
+		//coef quadratic
+		_Glossiness("Glossiness",Float) = 32
+		_ShadowPercentColor("Shadow Pourcent Color",Range(0.0,0.5)) = 0.01
+		_ShadowStrenght("Shadow Strenght",Range(0.0,1.0)) = 0.5
 		_TranslucentGain("Translucent Gain", Range(0,1)) = 0.5
 		_CoefTaille("Taille",Range(1,10)) = 1.0
 		//autour de l'axe x sur elle melle
@@ -51,6 +57,12 @@
 		float _WindStrength;
 		float _BladeForward;
 		float _BladeCurve;
+
+		float _AmbientLevel;
+		float _Glossiness;
+		float _ShadowPercentColor;
+		float _ShadowStrenght;
+
 
 		float _TessellationUniform;
 		float distance;
@@ -97,7 +109,6 @@
 			o.normal = UnityObjectToWorldNormal(normal);
 			//only in shadow pass
 			#if UNITY_PASS_SHADOWCASTER
-				//apply the linear bias prevents artifacts 
 						o.pos = UnityApplyLinearShadowBias(o.pos);
 			#endif
 			return o;
@@ -106,8 +117,6 @@
 		vertexOutput tessVert(vertexInput v)
 		{
 			vertexOutput o;
-			// Note that the vertex is NOT transformed to clip
-			// space here; this is done in the grass geometry shader.
 			o.vertex = v.vertex;
 			o.normal = v.normal;
 			o.tangent = v.tangent;
@@ -272,29 +281,6 @@
 
 				float forward = rand(pos.yyz) * _BladeForward;
 
-				//v1
-				/*triStream.Append(VertexOutput(pos + mul(tangentToLocal,float3(0.5f*_CoefTaille, 0.0f, 0.0f)),float2(0,0)));
-				triStream.Append(VertexOutput(pos + mul(tangentToLocal,float3(-0.5f*_CoefTaille, 0.0f, 0.0f)), float2(1, 0)));
-				//change the Y dir by conv of Tangent with Z dir
-				triStream.Append(VertexOutput(pos + mul(tangentToLocal,float3(0.0f, 0.0f, 1.0f*_CoefTaille)), float2(0.5, 1)));*/
-
-				//v2 avec rot rand
-				/*triStream.Append(VertexOutput(pos + mul(transformationMat, float3(width, 0.0f, 0.0f)), float2(0, 0)));
-				triStream.Append(VertexOutput(pos + mul(transformationMat, float3(-width, 0.0f, 0.0f)), float2(1, 0)));
-				//change the Y dir by conv of Tangent with Z dir
-				triStream.Append(VertexOutput(pos + mul(transformationMat, float3(0.0f, 0.0f, height)), float2(0.5, 1)));*/
-
-				//v3 avec ajustement rot de la base
-				/*triStream.Append(VertexOutput(pos + mul(transformationMatFacing, float3(width, 0.0f, 0.0f)), float2(0, 0)));
-				triStream.Append(VertexOutput(pos + mul(transformationMatFacing, float3(-width, 0.0f, 0.0f)), float2(1, 0)));
-				//change the Y dir by conv of Tangent with Z dir
-				triStream.Append(VertexOutput(pos + mul(transformationMat, float3(0.0f, 0.0f, height)), float2(0.5, 1)));*/
-
-				//v4 avec fonction pour générer deux vertices avec la transformation
-				/*triStream.Append(GenerateGrassVertex(pos, width, 0, float2(0, 0), transformationMat));
-				triStream.Append(GenerateGrassVertex(pos, -width, 0, float2(1, 0), transformationMat));
-				triStream.Append(GenerateGrassVertex(pos, 0, height, float2(0.5, 1), transformationMat));*/
-
 				//3 premiers niveaux de l'herbe => avec deux vertices
 				for (int i = 0; i < BLADE_SEGMENTS; i++) {
 					//en fonction de i avec une division de la hauteur totale
@@ -327,40 +313,6 @@
 				triStream.Append(VertexOutput(pos + mul(transformationMat, float3(0.0f, 0.0f, height)), float2(0.5, 1), float3(0,0,0)));
 			}
 		}
-
-		//LOI de LAMBERT
-		//I = N . L
-
-		//DANS TESSELATION SHADER
-		/*struct vertexInput {
-			float4 vertex : POSITION;
-			float3 normal : NORMAL;
-			float4 tangent : TANGENT;
-			half2 uv : TEXCOORD0;
-		};
-
-		//DANS TESSELATION SHADER
-		//hull and domain qui s'en occupe
-		struct vertexOutput {
-			float4 vertex : SV_POSITION;
-			float3 normal : NORMAL;
-			float4 tangent : TANGENT;
-			half2 uv : TEXCOORD0;
-		};*/
-
-		//pour la sortie
-		/*float4 vert(float4 vertex : POSITION) : SV_POSITION{
-			return vertex;//UnityObjectToClipPos(vertex);
-		}*/
-
-		//DANS TESSELATION SHADER avec juste return vertex => et passage dans un Tess Shader
-		/*vertexOutput vert(vertexInput v) {
-			vertexOutput o;
-			o.vertex = v.vertex;
-			o.normal = v.normal;
-			o.tangent = v.tangent;
-			return o;
-		}*/
 
 
 		ENDCG
@@ -395,32 +347,48 @@
 
 				#include "Lighting.cginc"
 
-
-				//quand une struct avec un param
-				//float4 frag(float4 vertex : SV_POSITION) : SV_TARGET{
-				//base
-				//float4 frag(geometryOutput i) : SV_TARGET{
-				//VFACE pour s'arrurer du bon cote du rendu de l'herbe (pas à l'envers)
-				//fixed facing return a positiv number if viewing the front of the surface, and negative viewing the back
-				//we use it above to invert the normal when necessary
 				float4 frag(geometryOutput i,fixed facing : VFACE) : SV_Target{
-					//return float4(1,1,1,1);
-				
-					//interpolation lerp entre deux couleur avec la hauteur dans notre cas
-					//interpolation poid
-					//return lerp(_BottomColor,_TopColor,i.uv.y);
-					//macro to retrieve float to determinate in 0...1 rage if shadowed (0) or fully illuminated (1)
-					//return SHADOW_ATTENUATION(i);
-					//return float4(normal * 0.5 + 0.5, 1);
 					float4 col;
 					if (_DynamicRender) {
 						float shadow = SHADOW_ATTENUATION(i);
+						/*col = _BottomColor;
+
+						float3 normal = i.normal;
+						float NdotL = dot(_WorldSpaceLightPos0, normal);
+
+
+						float lightIntensity = smoothstep(0, 0.01, NdotL * shadow);
+
+						float4 light = lightIntensity * _LightColor0;
+
+
+						if (lightIntensity < 0.5) {
+							light = float4(_ShadowPercentColor, _ShadowPercentColor, _ShadowPercentColor, 1.0f) * _LightColor0;
+							float tmp = max(_AmbientLevel - _ShadowStrenght, 0.0f);
+							_BottomColor = float4(tmp, tmp, tmp, 1.0f);
+						}
+						else {
+							_BottomColor = float4(_AmbientLevel, _AmbientLevel, _AmbientLevel, 1.0f);
+						}
+
+						_BottomColor *= UNITY_LIGHTMODEL_AMBIENT;
+
+						col *= (_BottomColor + light);*/
+
 						//calcul lumiere simple
 						float NdotL = saturate(saturate(dot(i.normal, _WorldSpaceLightPos0)) + _TranslucentGain) * shadow;
 
-						float3 ambient = ShadeSH9(float4(i.normal, 1));
+						float3 ambient = UNITY_LIGHTMODEL_AMBIENT;//ShadeSH9(float4(i.normal, 1));
 						float4 lightIntensity = NdotL * _LightColor0 + float4(ambient, 1);
-						col = lerp(_BottomColor, _TopColor * lightIntensity, i.uv.y);
+
+						if (shadow < 0.5f) {
+							col = _BottomColor;
+						}
+						else {
+							col = _TopColor;// * lightIntensity;
+						}
+						
+						//col = lerp(_BottomColor, _TopColor * lightIntensity, i.uv.y);
 						//specular => via Phong Gouraud ou Blinn-Phong
 					}
 					else {
@@ -435,22 +403,26 @@
 			//second Pass to render Shadow to Shadow map => only main Directional Light
 			Pass
 			{
-				Tags
-				{
-					//to render to ShadowMaps buffer
-					"LightMode" = "ShadowCaster"
-				}
+				Tags {"LightMode" = "ShadowCaster"}
+
 				CGPROGRAM
-				//preprocessor directivs as openmp
 				#pragma vertex vert
 				#pragma fragment frag
-				#pragma hull hull
-				#pragma domain domain
-				#pragma target 4.6
-				//compile all necessary variants required for shadow casting
 				#pragma multi_compile_shadowcaster
+				#include "UnityCG.cginc"
 
-				float4 frag(geometryOutput i) : SV_Target
+				struct v2f {
+					V2F_SHADOW_CASTER;
+				};
+
+				v2f vert(appdata_base v)
+				{
+					v2f o;
+					TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
+					return o;
+				}
+
+				float4 frag(v2f i) : SV_Target
 				{
 					SHADOW_CASTER_FRAGMENT(i)
 				}

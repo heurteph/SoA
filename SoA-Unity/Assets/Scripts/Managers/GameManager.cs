@@ -22,9 +22,9 @@ public class GameManager : MonoBehaviour
     private float transitionDuration = 3;
 
     [SerializeField]
-    [Tooltip("Duration of the transitions to restart in seconds")]
-    [Range(5, 10)]
-    private float restartTransitionDuration = 5;
+    [Tooltip("Duration of the fade to restart in seconds")]
+    [Range(2, 10)]
+    private float restartFadeDuration = 5;
 
     private Image fade;
 
@@ -40,19 +40,26 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         inputs = InputsManager.Instance.Inputs;
 
         fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
 
-        if(fade == null)
+        if (fade == null)
         {
             throw new System.NullReferenceException("No fade found in the UI");
         }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
 
         if(creditsTransition == null)
         {
@@ -84,10 +91,10 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
 
-        StartCoroutine("RestartGame");
+        StartCoroutine("TerminateGame");
     }
 
-    private IEnumerator RestartGame()
+    private IEnumerator TerminateGame()
     {
         //Disable player inputs
         inputs.Player.Disable();
@@ -99,12 +106,9 @@ public class GameManager : MonoBehaviour
 
         while (!Mathf.Approximately(fade.color.a, 1))
         {
-            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Min(fade.color.a + Time.deltaTime / (restartTransitionDuration * 0.5f), 1));
+            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Min(fade.color.a + Time.deltaTime / restartFadeDuration, 1));
             yield return null;
         }
-
-        // Display logo
-        yield return new WaitForSeconds(3); // duration of the game over jingle : 5,043
 
         // Stop all sounds
         AkSoundEngine.StopAll();
@@ -112,12 +116,27 @@ public class GameManager : MonoBehaviour
         // Reload the scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
+        // Display logo while waiting for scene to reload
+        //yield return new WaitForSeconds(5.043f - restartFadeDuration); // duration of the game over jingle : 5,043 s
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "GameElise" || scene.name == "Game")
+        {
+            StartCoroutine("RestartGame");
+        }
+    }
+
+    private IEnumerator RestartGame()
+    {
         inputs.Player.Enable();
 
         // Fade in
+        fade.color = new Color(0, 0, 0, 1);
         while (fade.color.a > 0)
         {
-            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Max(fade.color.a - Time.deltaTime / (restartTransitionDuration * 0.5f), 0));
+            Debug.Log("DeltaTime : " + Time.deltaTime);
+            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Max(fade.color.a - Time.deltaTime / restartFadeDuration, 0));
             yield return null;
         }
         fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, 0);

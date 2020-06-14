@@ -21,6 +21,7 @@ TagManager:
   - MenuManager
   - SaveManager
   - Fade
+  - GameManager
   layers:
   - Default
   - TransparentFX

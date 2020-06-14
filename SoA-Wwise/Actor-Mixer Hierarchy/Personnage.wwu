@@ -20,15 +20,17 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+							<ObjectRef Name="Perso_Esthesia" ID="{CA6457CE-9DEB-47C1-AB51-CC082789EA28}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="Reverb_Lieu_Repos" ID="{750C87B6-70DB-41F7-89DF-6704CEDFEACC}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend1">
+							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<SwitchContainer Name="Respiration_Mouvement" ID="{0D197C24-9DC2-45FC-A3E9-1AC4FCEF1A0A}" ShortID="648705171">
-							<PropertyList>
-								<Property Name="OverrideOutput" Type="bool" Value="True"/>
-								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -37,7 +39,7 @@
 									<ObjectRef Name="Idle" ID="{735E6AAB-BB90-4C0D-8F0B-E13EA2E2848F}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="PersoMaster" ID="{70882171-F188-490F-BB20-D05554DA0579}" WorkUnitID="{2E8B03C5-B7AB-4730-AC19-BD49D2D89A85}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 								</Reference>
 								<Reference Name="SwitchGroupOrStateGroup">
 									<ObjectRef Name="Court_Marche" ID="{5A845B8A-97CC-41CA-93E6-53692BECD86F}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>
@@ -3214,6 +3216,55 @@
 							</GroupingInfo>
 						</SwitchContainer>
 					</ChildrenList>
+					<StateInfo>
+						<StatePropertyList>
+							<Property Name="OutputBusVolume"/>
+							<Property Name="UserAuxSendVolume0"/>
+							<Property Name="UserAuxSendVolume1"/>
+						</StatePropertyList>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Dans_Lieu_Repos" ID="{E6E0EDD7-41FB-44C6-8B07-8835E10EC1AF}"/>
+							</StateGroupInfo>
+							<StateGroupInfo>
+								<StateGroupRef Name="Protection_Oui_Non" ID="{46C8E2FC-DB1E-4729-A3D2-B09D21025B1D}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
+								<CustomState Name="" ID="{05A3D2C3-DF36-4C29-8820-5C707973AF3B}" ShortID="414260493">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume0" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
+								<CustomState Name="" ID="{4C8B87A0-5C9A-46A1-AB6F-81B376F0BAFA}" ShortID="1070113347">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume1" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
+								<CustomState Name="" ID="{553BA841-A623-4930-8247-54469CB061B6}" ShortID="1009720299">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Oui" ID="{3B1D87B5-D050-4FB0-A173-6AB9E776B5AA}"/>
+								<CustomState Name="" ID="{909DCBF1-ADC4-4B82-85EC-F66F8E904E0A}" ShortID="556096452">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-5"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 				</ActorMixer>
 				<ActorMixer Name="Pas" ID="{B07C6B8B-1408-4136-8A38-E72FA14E781C}" ShortID="324199313">
 					<ReferenceList>
@@ -3221,14 +3272,18 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+							<ObjectRef Name="Perso_Esthesia" ID="{CA6457CE-9DEB-47C1-AB51-CC082789EA28}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="Reverb_Lieu_Repos" ID="{750C87B6-70DB-41F7-89DF-6704CEDFEACC}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend1">
+							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<SwitchContainer Name="Texture Pas" ID="{B6E4D10B-DA50-4351-9683-784BD72B2CE6}" ShortID="135134845">
 							<PropertyList>
-								<Property Name="OverrideOutput" Type="bool" Value="True"/>
-								<Property Name="OverrideUserAuxSends" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-15</Value>
@@ -3243,7 +3298,7 @@
 									<ObjectRef Name="Asphalt" ID="{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="PersoMaster" ID="{70882171-F188-490F-BB20-D05554DA0579}" WorkUnitID="{2E8B03C5-B7AB-4730-AC19-BD49D2D89A85}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 								</Reference>
 								<Reference Name="SwitchGroupOrStateGroup">
 									<ObjectRef Name="Pas_Matiere" ID="{B5A97861-3A79-49DC-9CA4-30BD84E287BE}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>
@@ -10373,6 +10428,55 @@
 							</GroupingInfo>
 						</SwitchContainer>
 					</ChildrenList>
+					<StateInfo>
+						<StatePropertyList>
+							<Property Name="OutputBusVolume"/>
+							<Property Name="UserAuxSendVolume0"/>
+							<Property Name="UserAuxSendVolume1"/>
+						</StatePropertyList>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Protection_Oui_Non" ID="{46C8E2FC-DB1E-4729-A3D2-B09D21025B1D}"/>
+							</StateGroupInfo>
+							<StateGroupInfo>
+								<StateGroupRef Name="Dans_Lieu_Repos" ID="{E6E0EDD7-41FB-44C6-8B07-8835E10EC1AF}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
+								<CustomState Name="" ID="{CD1C1CEE-4AE2-4893-8D03-94D80F95EA5B}" ShortID="877616443">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume0" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
+								<CustomState Name="" ID="{60C768A2-9014-4711-9637-575903E1003A}" ShortID="17150049">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume1" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
+								<CustomState Name="" ID="{0C24AE5E-9A05-4B4A-A501-8CEAC4FE2FBE}" ShortID="418599299">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Oui" ID="{3B1D87B5-D050-4FB0-A173-6AB9E776B5AA}"/>
+								<CustomState Name="" ID="{33543735-EA9C-4954-9254-46F57D53E88D}" ShortID="805727106">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-5"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 				</ActorMixer>
 				<ActorMixer Name="Cris" ID="{89C4A0BD-6DC4-4580-9C71-19B9B6066813}" ShortID="794751834">
 					<ReferenceList>
@@ -10380,7 +10484,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="PersoMaster" ID="{70882171-F188-490F-BB20-D05554DA0579}" WorkUnitID="{2E8B03C5-B7AB-4730-AC19-BD49D2D89A85}"/>
+							<ObjectRef Name="Perso_Esthesia" ID="{CA6457CE-9DEB-47C1-AB51-CC082789EA28}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -10617,7 +10721,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="PersoMaster" ID="{70882171-F188-490F-BB20-D05554DA0579}" WorkUnitID="{2E8B03C5-B7AB-4730-AC19-BD49D2D89A85}"/>
+							<ObjectRef Name="Perso_Esthesia" ID="{CA6457CE-9DEB-47C1-AB51-CC082789EA28}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 						<Reference Name="UserAuxSend0">
 							<ObjectRef Name="Reverb_Lieu_Repos" ID="{750C87B6-70DB-41F7-89DF-6704CEDFEACC}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
@@ -10681,7 +10785,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="PersoMaster" ID="{70882171-F188-490F-BB20-D05554DA0579}" WorkUnitID="{2E8B03C5-B7AB-4730-AC19-BD49D2D89A85}"/>
+							<ObjectRef Name="Perso_Esthesia" ID="{CA6457CE-9DEB-47C1-AB51-CC082789EA28}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>

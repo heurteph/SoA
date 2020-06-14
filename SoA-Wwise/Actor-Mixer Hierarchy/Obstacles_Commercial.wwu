@@ -3,16 +3,6 @@
 	<AudioObjects>
 		<WorkUnit Name="Obstacles_Commercial" ID="{4480BAB3-A2C3-4EF4-9FD8-F856D83D0BA9}" OwnerID="{23AB8791-B98A-46BD-8F95-CD1C4D38BE77}" PersistMode="Nested">
 			<ChildrenList>
-				<ActorMixer Name="Caisse" ID="{88A91393-4AB4-4CD7-9372-B6FA2DA49D33}" ShortID="546215700">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-						</Reference>
-					</ReferenceList>
-				</ActorMixer>
 				<ActorMixer Name="Radio" ID="{EFC1051D-E233-4058-A2CE-42A6AD083397}" ShortID="188454862">
 					<ReferenceList>
 						<Reference Name="Attenuation">
@@ -69,7 +59,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Commerce_Envi_Master" ID="{A246CC1F-79A7-48F5-B361-C6B15ABD9CE8}" WorkUnitID="{D4E16142-DC71-48F2-9773-C38FF7F21E94}"/>
+							<ObjectRef Name="Envi_Commerce" ID="{7BDD60B2-BB5E-48BE-B7F0-F70158B733D4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 						<Reference Name="UserAuxSend1">
 							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
@@ -248,16 +238,6 @@
 						</CustomStateList>
 					</StateInfo>
 				</ActorMixer>
-				<ActorMixer Name="Foule_Commercial" ID="{0EB4CC49-634D-4F42-8AF8-7832FE1188D1}" ShortID="124878454">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-						</Reference>
-					</ReferenceList>
-				</ActorMixer>
 				<ActorMixer Name="Portes" ID="{84474B96-8FA6-4B7A-A05D-66300DB1DF61}" ShortID="18066525">
 					<ReferenceList>
 						<Reference Name="Attenuation">
@@ -314,7 +294,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Commerce_Obstacles_Master" ID="{214CD4C8-AFAC-42BC-9D0B-8258C53725A3}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+							<ObjectRef Name="Obstacles_Commerce" ID="{40C37BCA-526E-4995-B59E-1F10C406ED4D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 						<Reference Name="UserAuxSend0">
 							<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>

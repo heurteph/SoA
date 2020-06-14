@@ -9,7 +9,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Ville_Envi_Master" ID="{F1860E38-0929-4B83-9B6E-CEC81BBB8A53}" WorkUnitID="{D4E16142-DC71-48F2-9773-C38FF7F21E94}"/>
+							<ObjectRef Name="Envi_Ville" ID="{CDCCBE95-2E90-425F-98D2-099B6FFF9C27}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 						<Reference Name="UserAuxSend0">
 							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
@@ -645,7 +645,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Ville_Envi_Master" ID="{F1860E38-0929-4B83-9B6E-CEC81BBB8A53}" WorkUnitID="{D4E16142-DC71-48F2-9773-C38FF7F21E94}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 								</Reference>
 								<Reference Name="UserAuxSend0">
 									<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
@@ -906,16 +906,6 @@
 							</CustomState>
 						</CustomStateList>
 					</StateInfo>
-				</ActorMixer>
-				<ActorMixer Name="Humain_Ville" ID="{98327D64-8873-4716-AD4F-21275EE290D2}" ShortID="11919096">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-						</Reference>
-					</ReferenceList>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

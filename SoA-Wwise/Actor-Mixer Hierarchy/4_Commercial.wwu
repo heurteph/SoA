@@ -7,7 +7,6 @@
 				<Property Name="OverrideColor" Type="bool" Value="True"/>
 			</PropertyList>
 			<ChildrenList>
-				<WorkUnit Name="Ambiance_Commercial" ID="{01B15F0F-2940-44B2-A966-694C1710A61A}" PersistMode="Reference"/>
 				<WorkUnit Name="Obstacles_Commercial" ID="{4480BAB3-A2C3-4EF4-9FD8-F856D83D0BA9}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>

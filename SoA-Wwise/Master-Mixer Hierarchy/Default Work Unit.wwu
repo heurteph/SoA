@@ -13,15 +13,43 @@
 							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="Environnement_Master" ID="{315C115F-0EDE-4532-BB77-1F0F824A8AC9}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Bus Name="Envi_Commerce" ID="{7BDD60B2-BB5E-48BE-B7F0-F70158B733D4}"/>
+								<Bus Name="Envi_Parc" ID="{953DF851-45C9-4D1B-B858-2DC92027426C}"/>
+								<Bus Name="Envi_Ville" ID="{CDCCBE95-2E90-425F-98D2-099B6FFF9C27}"/>
+							</ChildrenList>
+						</Bus>
+						<Bus Name="Obstacles_Master" ID="{F4944B32-31AD-4309-87CE-66C08AADA7C4}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="9"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Bus Name="Obstacles_Commerce" ID="{40C37BCA-526E-4995-B59E-1F10C406ED4D}"/>
+								<Bus Name="Obstacles_Ville" ID="{E7B92E6B-A951-4A8D-A9B1-FF3735971447}"/>
+								<Bus Name="Obstacles_Parc" ID="{8B635E17-B35D-4FA2-BC8B-9F39E845CD0F}"/>
+							</ChildrenList>
+						</Bus>
+						<Bus Name="Personnages_Master" ID="{4D1FF801-B81D-4578-B308-F5FD37827AEA}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Bus Name="Perso_NPC" ID="{CBEAE37B-673C-419D-9CEB-17A00BCC4FAE}"/>
+								<Bus Name="Perso_Esthesia" ID="{CA6457CE-9DEB-47C1-AB51-CC082789EA28}"/>
+							</ChildrenList>
+						</Bus>
+						<Bus Name="Music_Master" ID="{F0370675-159A-4FB6-B835-D4789C2E46B6}"/>
+					</ChildrenList>
 				</Bus>
 				<Bus Name="NiveauEcoutePerso" ID="{A4D9FDFA-2BDE-4429-BF04-2EA53793E583}">
-					<PropertyList>
-						<Property Name="BusVolume" Type="Real64">
-							<ValueList>
-								<Value>-96</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
 					<ReferenceList>
 						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
 							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
@@ -78,13 +106,6 @@
 							</PropertyList>
 						</AuxBus>
 					</ChildrenList>
-				</Bus>
-				<Bus Name="MixMusic" ID="{6E7E03F7-57B0-47CD-8A3B-E2F9E7A42E98}">
-					<ReferenceList>
-						<Reference Name="AudioDevice">
-							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
-						</Reference>
-					</ReferenceList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

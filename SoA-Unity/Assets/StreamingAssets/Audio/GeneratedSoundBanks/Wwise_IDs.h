@@ -14,22 +14,32 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_ARROSAGEAUTO = 3389613819U;
+        static const AkUniqueID PLAY_BATTEMENT_COEUR = 235882589U;
+        static const AkUniqueID PLAY_BRANCHES_TOMBENT = 2412280354U;
         static const AkUniqueID PLAY_BUS_DOOR_CLOSE = 3232482810U;
         static const AkUniqueID PLAY_BUS_DOOR_OPEN = 2983975038U;
         static const AkUniqueID PLAY_CANARD = 932140571U;
         static const AkUniqueID PLAY_CLIMATISEUR = 1692441862U;
         static const AkUniqueID PLAY_CRIS_TOUS = 2464503011U;
         static const AkUniqueID PLAY_ECOLE = 1753498456U;
+        static const AkUniqueID PLAY_EGOUT = 869276618U;
         static const AkUniqueID PLAY_ELECTRIQUE_BUZZ = 2500875145U;
-        static const AkUniqueID PLAY_HUMAIN_JOUE1 = 3185656221U;
-        static const AkUniqueID PLAY_HUMAIN_JOUE2 = 3185656222U;
+        static const AkUniqueID PLAY_HORLOGE = 1086738306U;
         static const AkUniqueID PLAY_HUMAIN_MANGE1 = 3446893022U;
         static const AkUniqueID PLAY_HUMAIN_MANGE2 = 3446893021U;
-        static const AkUniqueID PLAY_HUMAIN_MANGEENFANT = 545734209U;
-        static const AkUniqueID PLAY_HUMAIN_MANGEENFANT2 = 1978073185U;
+        static const AkUniqueID PLAY_KLAXONS = 2894920242U;
         static const AkUniqueID PLAY_MARTEAU_PIQUEUR = 3516174833U;
+        static const AkUniqueID PLAY_MESSAGES_RADIO = 3366277958U;
+        static const AkUniqueID PLAY_MORT = 1615608444U;
         static const AkUniqueID PLAY_MOTEUR_ELAGUEUR = 2314452061U;
         static const AkUniqueID PLAY_MOTEUR_VOITUREELEC = 1403256204U;
+        static const AkUniqueID PLAY_MUSIC_APPART = 1625096966U;
+        static const AkUniqueID PLAY_MUSIC_CREDIT = 2851404393U;
+        static const AkUniqueID PLAY_MUSIC_MAIN_TITLE = 3783189458U;
+        static const AkUniqueID PLAY_MUSIC_MENU = 1699343283U;
+        static const AkUniqueID PLAY_MUSIC_SAFE_ZONE_HOME = 283912148U;
+        static const AkUniqueID PLAY_MUSIC_SAFE_ZONE_PARC = 4079445273U;
+        static const AkUniqueID PLAY_MUSIC_SAFE_ZONE_VILLE = 3326642619U;
         static const AkUniqueID PLAY_PARC_CHIEN = 4134052420U;
         static const AkUniqueID PLAY_PARC_EAU_LAC = 865874921U;
         static const AkUniqueID PLAY_PARC_INSECTES = 2727595513U;
@@ -37,31 +47,58 @@ namespace AK
         static const AkUniqueID PLAY_PARC_OISEAUX2 = 3725651505U;
         static const AkUniqueID PLAY_PARC_OISEAUX3 = 3725651504U;
         static const AkUniqueID PLAY_PARC_VENT = 4135899644U;
-        static const AkUniqueID PLAY_PARC_VENT_01 = 3266099682U;
+        static const AkUniqueID PLAY_PIGEON = 2968327968U;
+        static const AkUniqueID PLAY_PIGEON_FIXE = 1479939285U;
         static const AkUniqueID PLAY_PLEURE_B_B_ = 4114146970U;
+        static const AkUniqueID PLAY_PORTES_CLOSE = 11904902U;
+        static const AkUniqueID PLAY_PORTES_GRANDE = 540531537U;
+        static const AkUniqueID PLAY_PORTES_OPEN = 2755465042U;
         static const AkUniqueID PLAY_QUEL_MOTEUR = 3518090694U;
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURF = 1582928683U;
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURH = 1582928677U;
         static const AkUniqueID PLAY_RESPIRATION_MOUVEMENT = 2860278991U;
         static const AkUniqueID PLAY_RESTORANT = 3628354934U;
+        static const AkUniqueID PLAY_SONNETTE_MAGASINS = 2056330270U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
         static const AkUniqueID PLAY_TEXTURE_PAS_JOGGER = 482787459U;
         static const AkUniqueID PLAY_TRAVAUX = 3782749553U;
+        static const AkUniqueID STOP_ALL = 452547817U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;
+        static const AkUniqueID STOP_BATTEMENT_COEUR = 383440519U;
+        static const AkUniqueID STOP_BRANCHES_TOMBENT = 3668248268U;
         static const AkUniqueID STOP_CANARD = 777875661U;
         static const AkUniqueID STOP_CLIMATISEUR = 1059727820U;
         static const AkUniqueID STOP_ECOLE = 3267333498U;
+        static const AkUniqueID STOP_EGOUT = 623032412U;
         static const AkUniqueID STOP_ELECTRIQUE_BUZZ = 4256011363U;
+        static const AkUniqueID STOP_HORLOGE = 725970268U;
+        static const AkUniqueID STOP_KLAXONS = 882878844U;
         static const AkUniqueID STOP_MARTEAU_PIQUEUR = 2738893335U;
+        static const AkUniqueID STOP_MESSAGES_RADIO = 4004627752U;
+        static const AkUniqueID STOP_MORT = 2980414578U;
         static const AkUniqueID STOP_MOTEUR_ELAGUEUR = 1194390427U;
+        static const AkUniqueID STOP_MUSIC_APPART = 3531521436U;
+        static const AkUniqueID STOP_MUSIC_CREDIT = 3425086499U;
+        static const AkUniqueID STOP_MUSIC_MAIN_TITLE = 3194051996U;
+        static const AkUniqueID STOP_MUSIC_MENU = 106912753U;
+        static const AkUniqueID STOP_MUSIC_SAFE_ZONE_HOME = 2216282302U;
+        static const AkUniqueID STOP_MUSIC_SAFE_ZONE_PARC = 3084927191U;
+        static const AkUniqueID STOP_MUSIC_SAFE_ZONE_VILLE = 566110305U;
         static const AkUniqueID STOP_PARC_CHIEN = 2301453854U;
         static const AkUniqueID STOP_PARC_EAU_LAC = 3189001139U;
         static const AkUniqueID STOP_PARC_OISEAUX1 = 152275144U;
         static const AkUniqueID STOP_PARC_OISEAUX2 = 152275147U;
         static const AkUniqueID STOP_PARC_OISEAUX3 = 152275146U;
         static const AkUniqueID STOP_PARC_VENT = 2647100474U;
+        static const AkUniqueID STOP_PIGEON = 2048920818U;
+        static const AkUniqueID STOP_PIGEON_FIXE = 2447347043U;
+        static const AkUniqueID STOP_PLEURE_B_B_ = 1235857404U;
+        static const AkUniqueID STOP_PORTES_CLOSE = 394956184U;
+        static const AkUniqueID STOP_PORTES_GRANDE = 3373826511U;
+        static const AkUniqueID STOP_PORTES_OPEN = 2216609116U;
         static const AkUniqueID STOP_QUEL_MOTEUR = 3507864100U;
         static const AkUniqueID STOP_RESTORANT = 970688548U;
+        static const AkUniqueID STOP_SONNETTE_MAGASINS = 3549513284U;
         static const AkUniqueID STOP_TRAVAUX = 2077251707U;
     } // namespace EVENTS
 
@@ -131,6 +168,20 @@ namespace AK
             } // namespace SWITCH
         } // namespace ETATVOITURE
 
+        namespace KLAXONS
+        {
+            static const AkUniqueID GROUP = 310721727U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID A = 84696446U;
+                static const AkUniqueID B = 84696445U;
+                static const AkUniqueID C = 84696444U;
+                static const AkUniqueID D = 84696443U;
+                static const AkUniqueID E = 84696442U;
+            } // namespace SWITCH
+        } // namespace KLAXONS
+
         namespace PAS_MATIERE
         {
             static const AkUniqueID GROUP = 3869192313U;
@@ -162,6 +213,32 @@ namespace AK
             } // namespace SWITCH
         } // namespace QUEL_MOTEUR
 
+        namespace QUELLE_VOIX
+        {
+            static const AkUniqueID GROUP = 907988530U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID VOIX_01 = 3348087211U;
+                static const AkUniqueID VOIX_02 = 3348087208U;
+                static const AkUniqueID VOIX_03 = 3348087209U;
+                static const AkUniqueID VOIX_04 = 3348087214U;
+                static const AkUniqueID VOIX_05 = 3348087215U;
+            } // namespace SWITCH
+        } // namespace QUELLE_VOIX
+
+        namespace QUI_PARLE
+        {
+            static const AkUniqueID GROUP = 3375628365U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID ENFANT = 2779435313U;
+                static const AkUniqueID FEMME = 1494689069U;
+                static const AkUniqueID HOMME = 4152857849U;
+            } // namespace SWITCH
+        } // namespace QUI_PARLE
+
         namespace RESPIRATION_EX_OR_IN
         {
             static const AkUniqueID GROUP = 3885082437U;
@@ -187,17 +264,19 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID SOUNDBANKOBSTACLES = 2603708050U;
         static const AkUniqueID SOUNDBANKPC = 3163481603U;
-        static const AkUniqueID SOUNDBANKPERSOAMBIANCE = 820650383U;
     } // namespace BANKS
 
     namespace BUSSES
     {
+        static const AkUniqueID COMMERCE_ENVI_MASTER = 3729418630U;
+        static const AkUniqueID COMMERCE_OBSTACLES_MASTER = 3416674296U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MIX_REVERB = 3296604463U;
+        static const AkUniqueID MIXMUSIC = 2111362598U;
         static const AkUniqueID MIXPROTECTION = 2740603104U;
         static const AkUniqueID NIVEAUECOUTEPERSO = 2734641465U;
+        static const AkUniqueID NPCMASTER = 2033911932U;
         static const AkUniqueID PARC_ENVI_MASTER = 351745915U;
         static const AkUniqueID PARC_OBSTACLES_MASTER = 1797562303U;
         static const AkUniqueID PERSOMASTER = 386419066U;

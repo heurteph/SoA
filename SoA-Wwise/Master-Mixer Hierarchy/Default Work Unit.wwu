@@ -16,8 +16,8 @@
 				</Bus>
 				<Bus Name="NiveauEcoutePerso" ID="{A4D9FDFA-2BDE-4429-BF04-2EA53793E583}">
 					<ReferenceList>
-						<Reference Name="AudioDevice">
-							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
+						<Reference Name="AudioDevice" PluginName="No Output" CompanyID="0" PluginID="181" PluginType="7">
+							<ObjectRef Name="No_Output" ID="{A7C7F4ED-A93D-4488-A5A9-C38606B4F374}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
 						</Reference>
 						<Reference Name="Effect0">
 							<Custom>
@@ -65,12 +65,7 @@
 							<PropertyList>
 								<Property Name="OutputBusLowpass" Type="int16">
 									<ValueList>
-										<Value>62</Value>
-									</ValueList>
-								</Property>
-								<Property Name="OutputBusVolume" Type="Real64">
-									<ValueList>
-										<Value>-6</Value>
+										<Value>48</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

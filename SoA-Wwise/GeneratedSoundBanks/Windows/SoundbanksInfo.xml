@@ -1484,7 +1484,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="11904902" Name="Play_Portes_Close" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Close" MaxAttenuation="30.000000" DurationType="OneShot" DurationMin="1.599425" DurationMax="2.286062">
+				<Event Id="11904902" Name="Play_Portes_Close" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Close" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="1.599425" DurationMax="2.286062">
 					<IncludedMemoryFiles>
 						<File Id="399885347" Language="SFX">
 							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Close_05.wav</ShortName>
@@ -1508,7 +1508,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="540531537" Name="Play_Portes_Grande" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Grande" MaxAttenuation="30.000000" DurationType="OneShot" DurationMin="3.133413" DurationMax="4.482804">
+				<Event Id="540531537" Name="Play_Portes_Grande" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Grande" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="3.133413" DurationMax="4.482804">
 					<IncludedMemoryFiles>
 						<File Id="560835008" Language="SFX">
 							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Close_Seul.wav</ShortName>
@@ -1516,7 +1516,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2755465042" Name="Play_Portes_Open" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Open" MaxAttenuation="30.000000" DurationType="OneShot" DurationMin="1.563316" DurationMax="2.510979">
+				<Event Id="2755465042" Name="Play_Portes_Open" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Open" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="1.563316" DurationMax="2.510979">
 					<IncludedMemoryFiles>
 						<File Id="100197332" Language="SFX">
 							<ShortName>Commerce_Obstacle_Portes_Coulissantes_Open_05.wav</ShortName>

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TransitionScript : MonoBehaviour
 {
-    private GameObject singleton;
+    private static GameObject singleton;
 
     private GameObject gameManager;
 

@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
     private Image fade;
     private Image gameOverLogo;
 
-    private Camera mainCamera;
-    private Camera transitionCamera;
+    //private Camera mainCamera;
+    //private Camera transitionCamera;
 
     private void Awake()
     {
@@ -50,8 +50,8 @@ public class GameManager : MonoBehaviour
         fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
         gameOverLogo = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Image>();
 
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        transitionCamera = GameObject.FindGameObjectWithTag("TransitionCamera").GetComponent<Camera>();
+        //mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        //transitionCamera = GameObject.FindGameObjectWithTag("TransitionCamera").GetComponent<Camera>();
 
         if (fade == null)
         {
@@ -119,8 +119,8 @@ public class GameManager : MonoBehaviour
         gameOverLogo.GetComponent<Image>().color = new Color(gameOverLogo.GetComponent<Image>().color.r, gameOverLogo.GetComponent<Image>().color.g, gameOverLogo.GetComponent<Image>().color.b, 1);
 
         // Switch camera
-        transitionCamera.enabled = true;
-        mainCamera.enabled = false;
+        //transitionCamera.enabled = true;
+        //mainCamera.enabled = false;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -135,10 +135,6 @@ public class GameManager : MonoBehaviour
             //gameOverLogo.GetComponent<Image>().color = new Color(gameOverLogo.GetComponent<Image>().color.r, gameOverLogo.GetComponent<Image>().color.g, gameOverLogo.GetComponent<Image>().color.b, 1);
             gameOverLogo.GetComponent<Animation>().Play("LogoFadeOut");
             fade.GetComponent<Animation>().Play("BlackScreenFadeOut");
-
-            mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-            mainCamera.enabled = true;
-            transitionCamera.enabled = false;
 
             inputs.Player.Enable();
         }

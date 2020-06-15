@@ -6,6 +6,8 @@ using System;
 
 public class DebuggerBehaviour : MonoBehaviour
 {
+    private static GameObject instance;
+
     [Header("Indirect Brightness Display")]
 
     [SerializeField]
@@ -61,6 +63,20 @@ public class DebuggerBehaviour : MonoBehaviour
 
     [SerializeField]
     private Slider energyBar;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = gameObject;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (gameObject != instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

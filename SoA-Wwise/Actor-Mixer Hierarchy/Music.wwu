@@ -60,6 +60,13 @@
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Safe_Zone" ID="{832AFDEA-FFDB-4571-A806-8CC04696B216}" ShortID="28951002">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-3</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>

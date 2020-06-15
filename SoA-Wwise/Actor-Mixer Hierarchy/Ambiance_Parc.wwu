@@ -1114,7 +1114,7 @@
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4">
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{DD0130CB-83A4-46E2-8DB2-5BAFB1AF4B9A}">
@@ -1129,7 +1129,7 @@
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-21</Value>
+										<Value>-96</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1203,6 +1203,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33" ID="{2CC5C7A6-3859-4F96-B167-B006CBC6AEE9}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.228834981322786"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.18743391562294"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33.wav</AudioFile>
 											<MediaIDList>
@@ -1225,6 +1230,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34" ID="{EE695AE9-7229-4875-BAAD-3F482F084524}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.209463579433092"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.129867419248517"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34.wav</AudioFile>
 											<MediaIDList>
@@ -1247,6 +1257,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35" ID="{30B96339-7F6F-4778-A68F-835C5CF1646B}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.192596860580092"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.179937911997363"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35.wav</AudioFile>
 											<MediaIDList>
@@ -1269,6 +1284,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36" ID="{C54B58D0-A7D0-46D6-9477-639F6A13916F}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.184936634805537"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.162639310041749"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36.wav</AudioFile>
 											<MediaIDList>
@@ -1291,6 +1311,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37" ID="{33096B34-10FF-42F2-A194-CF0533840516}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.227813529993408"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.204172503295979"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37.wav</AudioFile>
 											<MediaIDList>
@@ -1313,6 +1338,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38" ID="{7CBD2D46-4A04-46A8-97BA-0DA79ADADD50}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.231814120522962"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.208114274335311"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38.wav</AudioFile>
 											<MediaIDList>
@@ -1335,6 +1365,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39" ID="{81C92E0E-1461-429B-893F-53AF18CD0631}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.189953828828829"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.209809629751703"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39.wav</AudioFile>
 											<MediaIDList>
@@ -1357,6 +1392,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40" ID="{EEB878F8-C167-4AD8-AB5D-B01B4CC17A25}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.238479702263239"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.18811752911448"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40.wav</AudioFile>
 											<MediaIDList>
@@ -1379,6 +1419,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41" ID="{A4F73427-A701-40C2-9C05-28A42EFD229F}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.226649225444957"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.259798601955614"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41.wav</AudioFile>
 											<MediaIDList>
@@ -1401,6 +1446,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42" ID="{BE44E108-FF8C-48A8-9AC8-16726DAA7A79}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.245007003955175"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.209903661283234"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42.wav</AudioFile>
 											<MediaIDList>
@@ -1423,6 +1473,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43" ID="{50F55CF8-E3B8-4239-9BA0-E4B59F96AAE0}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.23300593276203"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.183492172050099"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43.wav</AudioFile>
 											<MediaIDList>
@@ -1445,6 +1500,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44" ID="{F3B6B192-3F63-4DD8-929A-A20D176202F3}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.202206589211162"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.142539071083278"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44.wav</AudioFile>
 											<MediaIDList>
@@ -1467,6 +1527,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45" ID="{3524DD6C-D4E3-414A-A5F8-4C2CB5D52898}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.244290609206768"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.234261082729071"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45.wav</AudioFile>
 											<MediaIDList>
@@ -1489,6 +1554,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46" ID="{51820AA2-3850-4513-8483-4CAA43A61107}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.222729606130521"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.15919232036915"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46.wav</AudioFile>
 											<MediaIDList>
@@ -1511,6 +1581,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47" ID="{901B8701-9D16-4192-B82E-6072DE7769AC}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.204851131619424"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.156298753021314"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47.wav</AudioFile>
 											<MediaIDList>
@@ -1533,6 +1608,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48" ID="{755367CE-63F6-4A59-BCCC-47F8DA88253C}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.196710983849703"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.139535472972973"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48.wav</AudioFile>
 											<MediaIDList>
@@ -1555,6 +1635,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49" ID="{B54E18E9-3B2B-4723-96D1-1E81A1ABA301}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.234520764667106"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.263835860250494"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49.wav</AudioFile>
 											<MediaIDList>
@@ -1577,6 +1662,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50" ID="{E50FF4FA-F898-48A2-9C7E-BE18FE95DF44}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.18205767963085"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.165441304108987"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50.wav</AudioFile>
 											<MediaIDList>
@@ -1599,6 +1689,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51" ID="{BA88227A-81E0-4BB3-94A3-65DFC5EC059B}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.198956822676335"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.151618820039552"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51.wav</AudioFile>
 											<MediaIDList>
@@ -1621,6 +1716,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52" ID="{B9003ECA-EFF9-43D8-83D8-8F97A4A513E0}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.212278098220171"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.151326961107449"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52.wav</AudioFile>
 											<MediaIDList>
@@ -1643,6 +1743,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53" ID="{45981E57-EF7C-4DB0-8FE0-BADCAF7AAF7E}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.170522824653922"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.108087302241266"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53.wav</AudioFile>
 											<MediaIDList>
@@ -1665,6 +1770,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54" ID="{3FBC3BD7-BE2F-44E7-8A67-05F3160C1597}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.206146341463415"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.146948912326961"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54.wav</AudioFile>
 											<MediaIDList>
@@ -1687,6 +1797,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55" ID="{94BBDACE-6472-43A4-826E-2C6320999FF9}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.224579762689519"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.147766974291365"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55.wav</AudioFile>
 											<MediaIDList>
@@ -1709,6 +1824,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56" ID="{87EDFA73-9BCA-4E69-9B6D-2C6D93B123E2}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.212809149088112"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.156418081190947"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56.wav</AudioFile>
 											<MediaIDList>
@@ -1731,6 +1851,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57" ID="{EECE7853-922F-4E10-BB66-457902410D57}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.220633610744891"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.143925867941112"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57.wav</AudioFile>
 											<MediaIDList>
@@ -1753,6 +1878,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58" ID="{05333B9B-E914-4951-A386-D22FFF3858B7}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.229537244561635"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.150292243462975"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58.wav</AudioFile>
 											<MediaIDList>
@@ -1775,6 +1905,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59" ID="{6BFFB423-8B7E-4973-A9FB-CA2F91AF139A}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.236731006921556"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.132482490112063"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59.wav</AudioFile>
 											<MediaIDList>
@@ -1797,6 +1932,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60" ID="{02477301-76AB-45D5-8AFE-290F8A65FB95}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.215459377059987"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.126881633157548"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60.wav</AudioFile>
 											<MediaIDList>

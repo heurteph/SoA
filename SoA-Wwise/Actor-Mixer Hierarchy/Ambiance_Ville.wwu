@@ -23,13 +23,13 @@
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="3">
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{C7D698E6-6957-41D5-8AAD-BE5054522E68}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="3"/>
+													<Property Name="Max" Type="Real64" Value="4"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
@@ -39,7 +39,7 @@
 								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-11</Value>
+										<Value>-16</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -333,7 +333,7 @@
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="2">
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="4">
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{CD0C07AF-9930-4184-A2B6-F6064D6431C2}">
@@ -349,7 +349,7 @@
 								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-5</Value>
+										<Value>-17</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

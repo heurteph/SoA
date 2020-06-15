@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     //private Camera mainCamera;
     //private Camera transitionCamera;
 
+    bool firstRun;
+
     private void Awake()
     {
         if (singleton == null)
@@ -49,6 +51,8 @@ public class GameManager : MonoBehaviour
 
         fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
         gameOverLogo = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Image>();
+
+        firstRun = true;
 
         //mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         //transitionCamera = GameObject.FindGameObjectWithTag("TransitionCamera").GetComponent<Camera>();
@@ -129,15 +133,19 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "GameElise" || scene.name == "Game")
         {
-            Debug.Log("Scene loaded");
+            if (!firstRun)
+            {
+                Debug.Log("Scene loaded");
 
-            // Fade out
-            //gameOverLogo.GetComponent<Image>().color = new Color(gameOverLogo.GetComponent<Image>().color.r, gameOverLogo.GetComponent<Image>().color.g, gameOverLogo.GetComponent<Image>().color.b, 1);
-            gameOverLogo.GetComponent<Animation>().Play("LogoFadeOut");
-            fade.GetComponent<Animation>().Play("BlackScreenFadeOut");
+                // Fade out
+                //gameOverLogo.GetComponent<Image>().color = new Color(gameOverLogo.GetComponent<Image>().color.r, gameOverLogo.GetComponent<Image>().color.g, gameOverLogo.GetComponent<Image>().color.b, 1);
+                gameOverLogo.GetComponent<Animation>().Play("LogoFadeOut");
+                fade.GetComponent<Animation>().Play("BlackScreenFadeOut");
 
-            inputs.Player.Enable();
+                inputs.Player.Enable();
+            }
         }
+        firstRun = false;
     }
 
     /* Victory functions */

@@ -13,8 +13,6 @@ public class EnergyBehaviour : MonoBehaviour
     private float energy;
     public float Energy { get { return energy; } set { energy = value; } }
 
-    [SerializeField]
-    [Tooltip("Reference to the game manager")]
     public GameObject gameManager;
 
     private MonoBehaviour script;
@@ -42,6 +40,8 @@ public class EnergyBehaviour : MonoBehaviour
 
     private void Awake()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
         if(gameManager == null)
         {
             throw new System.NullReferenceException("No game manager attached to energy script");
@@ -85,14 +85,17 @@ public class EnergyBehaviour : MonoBehaviour
             return;
         }
 
-        energy -= e;
-
-        EnergyChangedEvent(energy);
-
-        if (energy <= 0)
+        if (energy != 0)
         {
-            energy = 0;
-            OutOfEnergy();
+            energy -= e;
+
+            EnergyChangedEvent(energy);
+
+            if (energy <= 0)
+            {
+                energy = 0;
+                OutOfEnergy();
+            }
         }
     }
 
@@ -110,11 +113,8 @@ public class EnergyBehaviour : MonoBehaviour
 
     void OutOfEnergy() // pour l'instant
     {
-        script.enabled = false;
         OutOfEnergyEvent?.Invoke();
-
-        // Reload the scene
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        script.enabled = false;
     }
 
     public bool IsFull()

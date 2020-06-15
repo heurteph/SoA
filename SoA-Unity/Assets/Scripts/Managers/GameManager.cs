@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
     private float restartFadeDuration = 5;
 
     private Image fade;
+    private Image gameOverLogo;
+
+    private Camera mainCamera;
+    private Camera transitionCamera;
 
     private void Awake()
     {
@@ -44,6 +48,10 @@ public class GameManager : MonoBehaviour
         inputs = InputsManager.Instance.Inputs;
 
         fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
+        gameOverLogo = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Image>();
+
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        transitionCamera = GameObject.FindGameObjectWithTag("TransitionCamera").GetComponent<Camera>();
 
         if (fade == null)
         {
@@ -55,7 +63,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
 
     // Start is called before the first frame update
     void Start()
@@ -90,12 +97,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-
-        StartCoroutine("TerminateGame");
-    }
-
-    private IEnumerator TerminateGame()
-    {
         //Disable player inputs
         inputs.Player.Disable();
 
@@ -103,14 +104,10 @@ public class GameManager : MonoBehaviour
         AkSoundEngine.PostEvent("Play_Mort", gameObject, (uint)AkCallbackType.AK_EndOfEvent, CallbackFunction, null);
 
         // Fade out
-        while (!Mathf.Approximately(fade.color.a, 1))
-        {
-            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Min(fade.color.a + Time.deltaTime / restartFadeDuration, 1));
-            yield return null;
-        }
+        fade.GetComponent<Animation>().Play("BlackScreenFadeIn");
 
         // Display logo while waiting for scene to reload
-        //yield return new WaitForSeconds(5.043f - restartFadeDuration); // duration of the game over jingle : 5,043 s
+        gameOverLogo.GetComponent<Animation>().Play("LogoFadeIn");
     }
 
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
@@ -118,7 +115,13 @@ public class GameManager : MonoBehaviour
         // Stop all sounds
         AkSoundEngine.StopAll();
 
-        // Reload the scene
+        Debug.Log("Loading scene");
+        gameOverLogo.GetComponent<Image>().color = new Color(gameOverLogo.GetComponent<Image>().color.r, gameOverLogo.GetComponent<Image>().color.g, gameOverLogo.GetComponent<Image>().color.b, 1);
+
+        // Switch camera
+        transitionCamera.enabled = true;
+        mainCamera.enabled = false;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -126,23 +129,19 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "GameElise" || scene.name == "Game")
         {
-            StartCoroutine("RestartGame");
-        }
-    }
+            Debug.Log("Scene loaded");
 
-    private IEnumerator RestartGame()
-    {
-        inputs.Player.Enable();
+            // Fade out
+            //gameOverLogo.GetComponent<Image>().color = new Color(gameOverLogo.GetComponent<Image>().color.r, gameOverLogo.GetComponent<Image>().color.g, gameOverLogo.GetComponent<Image>().color.b, 1);
+            gameOverLogo.GetComponent<Animation>().Play("LogoFadeOut");
+            fade.GetComponent<Animation>().Play("BlackScreenFadeOut");
 
-        // Fade in
-        fade.color = new Color(0, 0, 0, 1);
-        while (fade.color.a > 0)
-        {
-            Debug.Log("DeltaTime : " + Time.deltaTime);
-            fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, Mathf.Max(fade.color.a - Time.deltaTime / restartFadeDuration, 0));
-            yield return null;
+            mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            mainCamera.enabled = true;
+            transitionCamera.enabled = false;
+
+            inputs.Player.Enable();
         }
-        fade.color = new Color(fade.color.r, fade.color.g, fade.color.b, 0);
     }
 
     /* Victory functions */

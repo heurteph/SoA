@@ -22,6 +22,8 @@ TagManager:
   - SaveManager
   - Fade
   - GameManager
+  - GameOver
+  - TransitionCamera
   layers:
   - Default
   - TransparentFX

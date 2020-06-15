@@ -12,7 +12,6 @@ public class EnterShelter : MonoBehaviour
     [SerializeField]
     private EnergyBehaviour energyBehaviour;
 
-    [SerializeField]
     private Image shade;
 
     private GameObject shelter;
@@ -42,6 +41,7 @@ public class EnterShelter : MonoBehaviour
 
         ambianceManager = GameObject.FindGameObjectWithTag("AmbianceManager");
         saveManager = GameObject.FindGameObjectWithTag("SaveManager");
+        shade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
 
         if (ambianceManager == null)
         {

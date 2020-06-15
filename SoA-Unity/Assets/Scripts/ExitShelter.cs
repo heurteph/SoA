@@ -11,7 +11,6 @@ public class ExitShelter : MonoBehaviour
     [SerializeField]
     private EnergyBehaviour energyBehaviour;
 
-    [SerializeField]
     private Image shade;
 
     private GameObject shelter;
@@ -36,8 +35,9 @@ public class ExitShelter : MonoBehaviour
         inputs.Player.Interact.Disable();
 
         ambianceManager = GameObject.FindGameObjectWithTag("AmbianceManager");
+        shade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
 
-        if(ambianceManager == null)
+        if (ambianceManager == null)
         {
             throw new System.NullReferenceException("Missing game object tagged with \"AmbianceManager\"");
         }

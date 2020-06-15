@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 3402424713454659890}
   - component: {fileID: 3753335525031462507}
   - component: {fileID: 3874952170499446724}
+  - component: {fileID: 7557840907980806893}
   m_Layer: 0
   m_Name: polySurface1
   m_TagString: Untagged
@@ -296,6 +297,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7557840907980806893
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268974118867153461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2245374, y: 9.064733, z: 1.5821124}
+  m_Center: {x: -0.00000005960463, y: 0.0000076293945, z: 0}
 --- !u!1 &6800822737614651571
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +352,7 @@ GameObject:
   - component: {fileID: 7039560377225862613}
   - component: {fileID: 8781817871009537872}
   - component: {fileID: 3943413406739507822}
+  - component: {fileID: 9110038417078890339}
   m_Layer: 0
   m_Name: polySurface1 (1)
   m_TagString: Untagged
@@ -406,6 +421,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &9110038417078890339
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631177577880434302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2245376, y: 9.0647335, z: 1.5821124}
+  m_Center: {x: -0.0000056624413, y: 0.00000047683716, z: 0}
 --- !u!1 &7664734391096814922
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +527,19 @@ Transform:
   m_Father: {fileID: 3810540558205427843}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1449121382570211614
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6253258271479063740}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2245376, y: 9.0647335, z: 1.5821124}
+  m_Center: {x: 0.000000059604666, y: 0.00000047683716, z: 0}
 --- !u!1001 &9203857488388724456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -569,7 +610,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: b180f1a73ce8888458b4fbe09d300be3,
         type: 3}
       propertyPath: m_Name
-      value: parc_wall (4)
+      value: building_door_ornement
       objectReference: {fileID: 0}
     - target: {fileID: 1401006494575068746, guid: b180f1a73ce8888458b4fbe09d300be3,
         type: 3}
@@ -608,6 +649,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 09212392912d6f040b9ab01fc37f65ce, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b180f1a73ce8888458b4fbe09d300be3, type: 3}
+--- !u!1 &6253258271479063740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6236743471014415788, guid: b180f1a73ce8888458b4fbe09d300be3,
+    type: 3}
+  m_PrefabInstance: {fileID: 9203857488388724456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4233418085150965234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: b180f1a73ce8888458b4fbe09d300be3,

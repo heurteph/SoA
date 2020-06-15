@@ -36,7 +36,7 @@ public class ShelterManager : MonoBehaviour
     {
         if(shelterOutsides.Length != shelterInsides.Length)
         {
-            throw new System.SystemException("Shelter's entrances and exits list do not match");
+            throw new System.SystemException("Shelter's entrances and exits list do not match together");
         }
     }
 

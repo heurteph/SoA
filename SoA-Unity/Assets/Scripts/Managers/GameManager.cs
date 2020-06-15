@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
 
     private Image fade;
     private Image gameOverLogo;
+    private Text gameOverMessage;
+
+    private bool isGameOver;
+    public bool IsGameOver { get { return isGameOver; } }
 
     //private Camera mainCamera;
     //private Camera transitionCamera;
@@ -49,8 +53,12 @@ public class GameManager : MonoBehaviour
 
         inputs = InputsManager.Instance.Inputs;
 
+        // TO DO : Display a warning message
+        inputs.Player.Quit.performed += _ctx => Application.Quit();
+
         fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
         gameOverLogo = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Image>();
+        gameOverMessage = GameObject.FindGameObjectWithTag("GameOverMessage").GetComponent<Text>();
 
         firstRun = true;
 
@@ -101,6 +109,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        isGameOver = true;
+
         //Disable player inputs
         inputs.Player.Disable();
 
@@ -110,7 +120,10 @@ public class GameManager : MonoBehaviour
         // Fade out
         fade.GetComponent<Animation>().Play("BlackScreenFadeIn");
 
-        // Display logo while waiting for scene to reload
+        // Display message
+        gameOverMessage.GetComponent<Animation>().Play("GameOverMessageFadeInOut");
+
+        // Display logo
         gameOverLogo.GetComponent<Animation>().Play("LogoFadeIn");
     }
 
@@ -133,12 +146,13 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "GameElise" || scene.name == "Game")
         {
+            isGameOver = false;
+
             if (!firstRun)
             {
                 Debug.Log("Scene loaded");
 
                 // Fade out
-                //gameOverLogo.GetComponent<Image>().color = new Color(gameOverLogo.GetComponent<Image>().color.r, gameOverLogo.GetComponent<Image>().color.g, gameOverLogo.GetComponent<Image>().color.b, 1);
                 gameOverLogo.GetComponent<Animation>().Play("LogoFadeOut");
                 fade.GetComponent<Animation>().Play("BlackScreenFadeOut");
 

@@ -159,9 +159,6 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
         inputs = InputsManager.Instance.Inputs;
 
-        // TO MOVE TO GAME MANAGER
-        inputs.Player.Quit.performed += _ctx => Application.Quit();
-
         isTurningBack = false;
         isHurry = false;
         isProtectingEyes = false;

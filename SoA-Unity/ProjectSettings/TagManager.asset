@@ -25,6 +25,7 @@ TagManager:
   - GameOver
   - TransitionCamera
   - Door Canvas
+  - GameOverMessage
   layers:
   - Default
   - TransparentFX

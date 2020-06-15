@@ -18,7 +18,7 @@ public class PostWwiseEventQuack : MonoBehaviour
 
     IEnumerator QuackQuack()
     {
-        float minDelay = 20, maxDelay = 30;
+        float minDelay = 10, maxDelay = 20;
         for (; ; )
         {
             yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));

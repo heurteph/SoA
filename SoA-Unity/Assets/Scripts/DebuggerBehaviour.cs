@@ -6,7 +6,7 @@ using System;
 
 public class DebuggerBehaviour : MonoBehaviour
 {
-    private static GameObject instance;
+    //private static GameObject instance;
 
     [Header("Indirect Brightness Display")]
 
@@ -66,6 +66,7 @@ public class DebuggerBehaviour : MonoBehaviour
 
     void Awake()
     {
+        /*
         if (instance == null)
         {
             instance = gameObject;
@@ -76,6 +77,7 @@ public class DebuggerBehaviour : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        */
     }
 
     // Start is called before the first frame update

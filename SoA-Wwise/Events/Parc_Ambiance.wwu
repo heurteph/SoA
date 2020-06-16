@@ -31,17 +31,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Parc_Insectes" ID="{AFB98759-290A-4930-B5A8-274E5184FCE6}">
-					<ChildrenList>
-						<Action Name="" ID="{D8694744-B638-4093-A71E-2CA50EAC8DC4}" ShortID="343449958">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Parc_Insectes" ID="{98E7C882-CEF8-4E9D-BE3F-CF5CF0599BCF}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Parc_Vent" ID="{8878F673-1F21-4A4C-BB93-2860EDB44A08}">
 					<ChildrenList>
 						<Action Name="" ID="{29D2FC58-6A81-40F8-A8B5-2622B897111E}" ShortID="304481046">
@@ -223,6 +212,31 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Parc_Vent" ID="{AF53DAD7-15E5-4DA3-A016-9FE6C2618527}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Parc_Jardinier" ID="{9933264F-4439-4076-8E14-4B6AC5BDEBBA}">
+					<ChildrenList>
+						<Action Name="" ID="{6C69D2A6-CACA-4A00-A993-9851524E972C}" ShortID="903551635">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Jardinier" ID="{98E7C882-CEF8-4E9D-BE3F-CF5CF0599BCF}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Parc_Jardinier" ID="{056C1AB3-1055-4CA2-A40E-C91CFF458856}">
+					<ChildrenList>
+						<Action Name="" ID="{F3180CE7-E11F-441A-A4EC-1F8C7F6BCD1F}" ShortID="793055400">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Parc_Jardinier" ID="{98E7C882-CEF8-4E9D-BE3F-CF5CF0599BCF}" WorkUnitID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

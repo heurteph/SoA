@@ -14,6 +14,8 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
     private Inputs inputs;
 
+    private GameObject gameManager;
+
     [Space]
     [Header("Player Settings")]
     [Space]
@@ -159,6 +161,13 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
         inputs = InputsManager.Instance.Inputs;
 
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        if(gameManager == null)
+        {
+            throw new System.NullReferenceException("No GameManager found in the scene");
+        }
+
         isTurningBack = false;
         isHurry = false;
         isProtectingEyes = false;
@@ -197,6 +206,12 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     // Update is called once per frame
     void Update()
     {
+        if(gameManager.GetComponent<GameManager>().IsGameOver)
+        {
+            Debug.Log("Lancer l'anim de game over");
+            anim.SetBool("isGameOver", true);
+        }
+
         if (inputs.Player.enabled) // Compulsory, as Disabling or Enabling an Action also Enable the ActionGroup !!!
         {
             StickToGround();

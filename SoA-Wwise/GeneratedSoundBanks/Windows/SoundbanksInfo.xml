@@ -228,9 +228,9 @@
 				</Event>
 				<Event Id="869276618" Name="Play_Egout" ObjectPath="\Events\Ville_Obstacles\Play_Egout" MaxAttenuation="30.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="884061807" Language="SFX">
-							<ShortName>Ville_Obstacle_Evacuation_Eau.wav</ShortName>
-							<Path>SFX\Ville_Obstacle_Evacuation_Eau_9EDFC787.wem</Path>
+						<File Id="563896891" Language="SFX">
+							<ShortName>Ville_Obstacles_Evacuation_Eau_04.wav</ShortName>
+							<Path>SFX\Ville_Obstacles_Evacuation_Eau_04_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

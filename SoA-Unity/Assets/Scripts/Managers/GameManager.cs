@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "GameElise" || scene.name == "Game")
+        if (scene.name == "GameElise" || scene.name == "Game" || scene.name == "CutZonesScene")
         {
             if (!firstRun)
             {

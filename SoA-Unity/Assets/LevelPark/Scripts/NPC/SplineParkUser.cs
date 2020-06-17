@@ -59,7 +59,7 @@ public class SplineParkUser : MonoBehaviour
         percentage = startPercentage;
         spline.CalculateLength();
 
-        groundOffset = transform.position.y - groundLevel.transform.position.y;
+        if(groundLevel != null) groundOffset = transform.position.y - groundLevel.transform.position.y;
         movingState = STATE.NORMAL;
 
         Vector3 position = Vector3.zero;
@@ -73,7 +73,8 @@ public class SplineParkUser : MonoBehaviour
             position = spline.GetPosition(1 - percentage);
             transform.rotation = Quaternion.LookRotation(Quaternion.Euler(0, 180, 0) * spline.GetDirection(Mathf.Min(1 - percentage, 0.99f), true)); // initial rotation
         }
-        transform.position = StickToTheGround(position);
+        if (raycaster != null && groundLevel != null) transform.position = StickToTheGround(position);
+        else transform.position = position;
 
         if (onStart) { StartCoroutine("Move"); }
     }
@@ -109,7 +110,8 @@ public class SplineParkUser : MonoBehaviour
                     position = spline.GetPosition(1 - percentage);
                     transform.rotation = Quaternion.LookRotation(Quaternion.Euler(0, 180, 0) * spline.GetDirection(1 - percentage, true));
                 }
-                transform.position = StickToTheGround(position);
+                if(raycaster != null && groundLevel != null) transform.position = StickToTheGround(position);
+                else transform.position = position;
 
                 if (percentage == 1)
                 {

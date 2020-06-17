@@ -66,8 +66,10 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
+    - _MinIntensity: 0.398
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _On: 0
     - _Parallax: 0.02
     - _RimAmount: 0.716
     - _RimThreshold: 0.1

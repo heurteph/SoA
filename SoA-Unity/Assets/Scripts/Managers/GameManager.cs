@@ -140,14 +140,14 @@ public class GameManager : MonoBehaviour
         //mainCamera.enabled = false;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        isGameOver = false;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "GameElise" || scene.name == "Game")
         {
-            isGameOver = false;
-
             if (!firstRun)
             {
                 Debug.Log("Scene loaded");

@@ -208,7 +208,6 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     {
         if(gameManager.GetComponent<GameManager>().IsGameOver)
         {
-            Debug.Log("Lancer l'anim de game over");
             anim.SetBool("isGameOver", true);
         }
 

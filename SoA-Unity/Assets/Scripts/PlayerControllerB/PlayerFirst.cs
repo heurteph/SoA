@@ -215,6 +215,10 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         if(gameManager.GetComponent<GameManager>().IsGameOver)
         {
             anim.SetBool("isGameOver", true);
+
+            // deactivate protections if used
+            anim.SetBool("isProtectingEyes", false);
+            anim.SetBool("isProtectingEars", false);
         }
 
         if (inputs.Player.enabled) // Compulsory, as Disabling or Enabling an Action also Enable the ActionGroup !!!

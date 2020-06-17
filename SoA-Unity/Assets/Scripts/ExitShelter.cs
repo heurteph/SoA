@@ -137,6 +137,8 @@ public class ExitShelter : MonoBehaviour
         inputs.Player.Interact.performed -= ShelterToWorld;
         inputs.Player.Enable();
 
+        GetComponent<PlayerFirst>().IsInsideShelter = false;
+
         GetComponent<EnterShelter>().enabled = true;
         GetComponent<ExitShelter>().enabled = false;
     }

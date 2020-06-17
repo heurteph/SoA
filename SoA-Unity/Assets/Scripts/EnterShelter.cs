@@ -93,7 +93,10 @@ public class EnterShelter : MonoBehaviour
     {
         // suspend interaction both with player and world
         inputs.Player.Disable();
+
         GetComponent<EnergyBehaviour>().Invincibility(true);
+
+        GetComponent<PlayerFirst>().IsInsideShelter = true;
 
         shelterTag = shelter.tag;
 
@@ -143,10 +146,10 @@ public class EnterShelter : MonoBehaviour
         inputs.Player.Interact.performed -= WorldToShelter;
         inputs.Player.Enable();
 
+        GetComponent<EnergyBehaviour>().Invincibility(false);
+
         GetComponent<ExitShelter>().enabled = true;
         GetComponent<EnterShelter>().enabled = false;
-
-        GetComponent<EnergyBehaviour>().Invincibility(false);
 
         // do the save
         saveManager.GetComponent<SaveManager>().Save(shelter);

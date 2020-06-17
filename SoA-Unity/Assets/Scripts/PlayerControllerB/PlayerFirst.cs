@@ -122,6 +122,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     private float eyesUncomfortableSources;
     public float EyesUncomfortableSources { get { return eyesUncomfortableSources; } set { eyesUncomfortableSources = value; } }
 
+    private bool isInsideShelter;
+    public bool IsInsideShelter {  get { return isInsideShelter; } set { isInsideShelter = value; } }
+
     [SerializeField]
     private Animator anim;
     public Animator Anim { get { return anim; } }
@@ -174,6 +177,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         isProtectingEars = false;
         isRunning = false;
         turningBackPressed = false;
+
+        // Make sure we spawn at home
+        isInsideShelter = true;
 
         isUncomfortableEyes = false;
         isUncomfortableEars = false;

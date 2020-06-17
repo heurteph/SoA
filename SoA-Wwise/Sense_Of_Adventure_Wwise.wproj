@@ -9200,7 +9200,7 @@
 										<XPos>0</XPos>
 										<YPos>0</YPos>
 										<Flags>5</Flags>
-										<SegmentShape>SCurve</SegmentShape>
+										<SegmentShape>Exp1</SegmentShape>
 									</Point>
 									<Point>
 										<XPos>100</XPos>
@@ -9266,7 +9266,7 @@
 										<XPos>0</XPos>
 										<YPos>0</YPos>
 										<Flags>5</Flags>
-										<SegmentShape>SCurve</SegmentShape>
+										<SegmentShape>Exp1</SegmentShape>
 									</Point>
 									<Point>
 										<XPos>100</XPos>

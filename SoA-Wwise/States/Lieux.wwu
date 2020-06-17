@@ -10,6 +10,13 @@
 						<State Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
 					</ChildrenList>
 				</StateGroup>
+				<StateGroup Name="Dans_Tunnel" ID="{55EA1CF5-2247-466A-B986-4FD3086549E0}">
+					<ChildrenList>
+						<State Name="None" ID="{402B69BB-8B4B-4290-B665-6A37352B38AC}"/>
+						<State Name="Oui" ID="{726521A7-0407-41D7-89AC-04C1D191C10D}"/>
+						<State Name="Non" ID="{09CD2543-B398-4A17-9D7A-A8CE1268FD23}"/>
+					</ChildrenList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>

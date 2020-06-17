@@ -28,6 +28,9 @@
 						<Reference Name="UserAuxSend1">
 							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
+						<Reference Name="UserAuxSend2">
+							<ObjectRef Name="Reverb_Tunnel" ID="{57CD835A-A554-449D-97EB-70476E2A5092}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<SwitchContainer Name="Respiration_Mouvement" ID="{0D197C24-9DC2-45FC-A3E9-1AC4FCEF1A0A}" ShortID="648705171">
@@ -3221,6 +3224,7 @@
 							<Property Name="OutputBusVolume"/>
 							<Property Name="UserAuxSendVolume0"/>
 							<Property Name="UserAuxSendVolume1"/>
+							<Property Name="UserAuxSendVolume2"/>
 						</StatePropertyList>
 						<StateGroupList>
 							<StateGroupInfo>
@@ -3229,8 +3233,15 @@
 							<StateGroupInfo>
 								<StateGroupRef Name="Protection_Oui_Non" ID="{46C8E2FC-DB1E-4729-A3D2-B09D21025B1D}"/>
 							</StateGroupInfo>
+							<StateGroupInfo>
+								<StateGroupRef Name="Dans_Tunnel" ID="{55EA1CF5-2247-466A-B986-4FD3086549E0}"/>
+							</StateGroupInfo>
 						</StateGroupList>
 						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Oui" ID="{726521A7-0407-41D7-89AC-04C1D191C10D}"/>
+								<CustomState Name="" ID="{06539922-4B57-4FB8-AB13-5BFC383A3D5D}" ShortID="1058273427"/>
+							</CustomState>
 							<CustomState>
 								<StateRef Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
 								<CustomState Name="" ID="{05A3D2C3-DF36-4C29-8820-5C707973AF3B}" ShortID="414260493">
@@ -3246,6 +3257,10 @@
 										<Property Name="UserAuxSendVolume1" Type="Real64" Value="-108"/>
 									</PropertyList>
 								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Non" ID="{09CD2543-B398-4A17-9D7A-A8CE1268FD23}"/>
+								<CustomState Name="" ID="{323DDE7D-74BC-4EBB-98CB-317EB9184407}" ShortID="401587321"/>
 							</CustomState>
 							<CustomState>
 								<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
@@ -3279,6 +3294,9 @@
 						</Reference>
 						<Reference Name="UserAuxSend1">
 							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend2">
+							<ObjectRef Name="Reverb_Tunnel" ID="{57CD835A-A554-449D-97EB-70476E2A5092}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -10433,6 +10451,7 @@
 							<Property Name="OutputBusVolume"/>
 							<Property Name="UserAuxSendVolume0"/>
 							<Property Name="UserAuxSendVolume1"/>
+							<Property Name="UserAuxSendVolume2"/>
 						</StatePropertyList>
 						<StateGroupList>
 							<StateGroupInfo>
@@ -10441,8 +10460,19 @@
 							<StateGroupInfo>
 								<StateGroupRef Name="Dans_Lieu_Repos" ID="{E6E0EDD7-41FB-44C6-8B07-8835E10EC1AF}"/>
 							</StateGroupInfo>
+							<StateGroupInfo>
+								<StateGroupRef Name="Dans_Tunnel" ID="{55EA1CF5-2247-466A-B986-4FD3086549E0}"/>
+							</StateGroupInfo>
 						</StateGroupList>
 						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Oui" ID="{726521A7-0407-41D7-89AC-04C1D191C10D}"/>
+								<CustomState Name="" ID="{7EB0DD71-ECFA-48A9-823F-B67BB5387EE1}" ShortID="1067939706">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-6"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
 							<CustomState>
 								<StateRef Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
 								<CustomState Name="" ID="{CD1C1CEE-4AE2-4893-8D03-94D80F95EA5B}" ShortID="877616443">
@@ -10456,6 +10486,14 @@
 								<CustomState Name="" ID="{60C768A2-9014-4711-9637-575903E1003A}" ShortID="17150049">
 									<PropertyList>
 										<Property Name="UserAuxSendVolume1" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Non" ID="{09CD2543-B398-4A17-9D7A-A8CE1268FD23}"/>
+								<CustomState Name="" ID="{88DA37BC-8FC3-4F74-97CD-2ECAEE0EA94E}" ShortID="850464514">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume2" Type="Real64" Value="-108"/>
 									</PropertyList>
 								</CustomState>
 							</CustomState>
@@ -10485,6 +10523,9 @@
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Perso_Esthesia" ID="{CA6457CE-9DEB-47C1-AB51-CC082789EA28}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="Reverb_Tunnel" ID="{57CD835A-A554-449D-97EB-70476E2A5092}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -10707,6 +10748,35 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>
+					<StateInfo>
+						<StatePropertyList>
+							<Property Name="OutputBusVolume"/>
+							<Property Name="UserAuxSendVolume0"/>
+						</StatePropertyList>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Dans_Tunnel" ID="{55EA1CF5-2247-466A-B986-4FD3086549E0}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Oui" ID="{726521A7-0407-41D7-89AC-04C1D191C10D}"/>
+								<CustomState Name="" ID="{9C1EDD32-5FBC-4E3C-BD7F-5FF20CB1747C}" ShortID="819923209">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-6"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Non" ID="{09CD2543-B398-4A17-9D7A-A8CE1268FD23}"/>
+								<CustomState Name="" ID="{DBC6BC24-0829-4B96-84B0-1B372F17F504}" ShortID="852467039">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume0" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 				</ActorMixer>
 				<BlendContainer Name="Battement_Coeur" ID="{794DEC73-A1E7-4222-8C7C-98D1B3BE84F0}" ShortID="796069532">
 					<PropertyList>
@@ -10728,6 +10798,9 @@
 						</Reference>
 						<Reference Name="UserAuxSend1">
 							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend2">
+							<ObjectRef Name="Reverb_Tunnel" ID="{57CD835A-A554-449D-97EB-70476E2A5092}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -10756,14 +10829,27 @@
 					</ChildrenList>
 					<StateInfo>
 						<StatePropertyList>
+							<Property Name="OutputBusVolume"/>
 							<Property Name="UserAuxSendVolume0"/>
+							<Property Name="UserAuxSendVolume1"/>
 						</StatePropertyList>
 						<StateGroupList>
 							<StateGroupInfo>
 								<StateGroupRef Name="Dans_Lieu_Repos" ID="{E6E0EDD7-41FB-44C6-8B07-8835E10EC1AF}"/>
 							</StateGroupInfo>
+							<StateGroupInfo>
+								<StateGroupRef Name="Dans_Tunnel" ID="{55EA1CF5-2247-466A-B986-4FD3086549E0}"/>
+							</StateGroupInfo>
 						</StateGroupList>
 						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Oui" ID="{726521A7-0407-41D7-89AC-04C1D191C10D}"/>
+								<CustomState Name="" ID="{5B55CA94-8F7F-44B8-BF94-EEB989A9E8A3}" ShortID="538219639">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-6"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
 							<CustomState>
 								<StateRef Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
 								<CustomState Name="" ID="{03F6CD2F-51E6-4791-BE1E-E584CA7AFFBB}" ShortID="231960717">
@@ -10773,8 +10859,20 @@
 								</CustomState>
 							</CustomState>
 							<CustomState>
+								<StateRef Name="Non" ID="{09CD2543-B398-4A17-9D7A-A8CE1268FD23}"/>
+								<CustomState Name="" ID="{6006D176-A299-4E83-B278-2B4755EAF7BD}" ShortID="71206480">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume1" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
 								<StateRef Name="Oui" ID="{3B1D87B5-D050-4FB0-A173-6AB9E776B5AA}"/>
-								<CustomState Name="" ID="{BE6DE533-F692-4069-8A39-A4659F2796D1}" ShortID="931224915"/>
+								<CustomState Name="" ID="{BE6DE533-F692-4069-8A39-A4659F2796D1}" ShortID="931224915">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
 							</CustomState>
 						</CustomStateList>
 					</StateInfo>

@@ -17,6 +17,7 @@
 			<Path>Init.bnk</Path>
 			<IncludedAuxBusses>
 				<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+				<AuxBus Id="2261546958" Name="Reverb_Tunnel" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Tunnel"/>
 				<AuxBus Id="3204322453" Name="Reverb_Lieu_Repos" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Lieu_Repos"/>
 				<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
 			</IncludedAuxBusses>

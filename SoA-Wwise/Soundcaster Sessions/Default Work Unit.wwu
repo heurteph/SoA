@@ -21,7 +21,7 @@
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
 							<GameParameterRef Name="Quel_Moteur" ID="{4334FE7B-10DD-42E4-98D0-492C5EE9992A}"/>
-							<Value>1</Value>
+							<Value>3</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="Ralenti_Accelere" ID="{31E46C5C-8DDC-4581-B657-7283D6F89339}"/>
@@ -33,7 +33,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}"/>
-							<Value>33.9358108108108</Value>
+							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="VolumeEcoutePerso" ID="{A457383D-5090-4E4B-92FD-35E3CDE1D1A7}"/>
@@ -42,6 +42,7 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
+						<CurrentStateRef Name="Oui" ID="{726521A7-0407-41D7-89AC-04C1D191C10D}"/>
 						<CurrentStateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">

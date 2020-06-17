@@ -114,7 +114,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="932140571" Name="Play_Canard" ObjectPath="\Events\Parc_Obstacles\Play_Canard" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.129396" DurationMax="0.174583">
+				<Event Id="932140571" Name="Play_Canard" ObjectPath="\Events\Parc_Obstacles\Play_Canard" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="137701444" Language="SFX">
 							<ShortName>Canard 05.wav</ShortName>

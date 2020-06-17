@@ -6294,6 +6294,11 @@
 								<Sound Name="Ville_Obstacles_Evacuation_Eau_04" ID="{B10D382A-41F2-4E14-A9EC-93FE4761F987}" ShortID="658153860">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-11</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">

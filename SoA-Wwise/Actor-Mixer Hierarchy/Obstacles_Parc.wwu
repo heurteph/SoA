@@ -9430,25 +9430,38 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Canard" ID="{C10245FF-4241-4B8E-8FD5-8B6F24C09F60}" ShortID="844179801">
 							<PropertyList>
-								<Property Name="OverridePositioning" Type="bool" Value="True"/>
-								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
-								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
-								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
-								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64">
+								<Property Name="InitialDelay" Type="Real64">
 									<ModifierList>
 										<ModifierInfo>
-											<Modifier Name="" ID="{F15FCB68-E568-4F8F-833B-C14317EED272}">
+											<Modifier Name="" ID="{D0B4311D-D8BF-4D9F-AF8D-06E23DDBA37B}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="3"/>
+													<Property Name="Max" Type="Real64" Value="4"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="30">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{F15FCB68-E568-4F8F-833B-C14317EED272}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="40"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-7</Value>
+										<Value>-8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

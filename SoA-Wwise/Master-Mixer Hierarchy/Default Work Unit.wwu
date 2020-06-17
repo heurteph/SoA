@@ -87,6 +87,13 @@
 								</Reference>
 							</ReferenceList>
 						</AuxBus>
+						<AuxBus Name="Reverb_Tunnel" ID="{57CD835A-A554-449D-97EB-70476E2A5092}">
+							<ReferenceList>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="My_Closet" ID="{384A82A1-3C92-4AC5-AFC2-474F2080642C}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+							</ReferenceList>
+						</AuxBus>
 					</ChildrenList>
 				</Bus>
 				<Bus Name="MixPROTECTION" ID="{34536272-9AA9-46D1-8DC5-A23EB5AF7505}">

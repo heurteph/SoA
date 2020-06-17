@@ -112,6 +112,10 @@ public class EnterShelter : MonoBehaviour
         // Reset Camera
 
         mainCamera.enabled = false;
+
+        // TO DO : Do not follow inside
+
+
         shelter.transform.Find("Shelter Camera").GetComponent<Camera>().enabled = true;
 
         // Reset sound
@@ -186,6 +190,7 @@ public class EnterShelter : MonoBehaviour
         // Reset Camera
 
         mainCamera.enabled = false;
+        GetComponent<PlayerFirst>().IsInsideShelter = true;
         shelter.transform.Find("Shelter Camera").GetComponent<Camera>().enabled = true;
 
         // Reset sound

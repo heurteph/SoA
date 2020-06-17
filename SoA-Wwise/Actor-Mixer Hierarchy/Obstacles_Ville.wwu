@@ -808,6 +808,9 @@
 						<Reference Name="UserAuxSend1">
 							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
+						<Reference Name="UserAuxSend2">
+							<ObjectRef Name="Reverb_Tunnel" ID="{57CD835A-A554-449D-97EB-70476E2A5092}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<SwitchContainer Name="Quel_Moteur" ID="{7445910D-FA20-4B55-9B58-F094D1CF6133}" ShortID="674230531">
@@ -5510,13 +5513,25 @@
 						<StatePropertyList>
 							<Property Name="OutputBusVolume"/>
 							<Property Name="UserAuxSendVolume1"/>
+							<Property Name="UserAuxSendVolume2"/>
 						</StatePropertyList>
 						<StateGroupList>
 							<StateGroupInfo>
 								<StateGroupRef Name="Protection_Oui_Non" ID="{46C8E2FC-DB1E-4729-A3D2-B09D21025B1D}"/>
 							</StateGroupInfo>
+							<StateGroupInfo>
+								<StateGroupRef Name="Dans_Tunnel" ID="{55EA1CF5-2247-466A-B986-4FD3086549E0}"/>
+							</StateGroupInfo>
 						</StateGroupList>
 						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Oui" ID="{726521A7-0407-41D7-89AC-04C1D191C10D}"/>
+								<CustomState Name="" ID="{1F668BC8-CE9C-4831-9A39-565BE09EB056}" ShortID="761032029">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-6"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
 							<CustomState>
 								<StateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
 								<CustomState Name="" ID="{D1AEBA62-E0E3-47E0-B21D-5FBC32C437BC}" ShortID="502318422">
@@ -5526,10 +5541,18 @@
 								</CustomState>
 							</CustomState>
 							<CustomState>
+								<StateRef Name="Non" ID="{09CD2543-B398-4A17-9D7A-A8CE1268FD23}"/>
+								<CustomState Name="" ID="{2E327432-1C30-4F40-AE0C-4B1DE9D44971}" ShortID="135893182">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume2" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
 								<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
 								<CustomState Name="" ID="{37D000A9-1C5E-4CCC-BF36-494923A70C2A}" ShortID="99628228">
 									<PropertyList>
-										<Property Name="OutputBusVolume" Type="Real64" Value="-20"/>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-108"/>
 									</PropertyList>
 								</CustomState>
 							</CustomState>
@@ -6294,6 +6317,11 @@
 								<Sound Name="Ville_Obstacles_Evacuation_Eau_04" ID="{B10D382A-41F2-4E14-A9EC-93FE4761F987}" ShortID="658153860">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-11</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">

@@ -6,14 +6,22 @@
 				<SoundcasterSession Name="SoundCaster" ID="{0B387E94-8EAD-4096-8099-BAABE001D6C3}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="Play_Messages_Radio" ID="{5F787544-DF91-44DD-9A8E-14A151B25BF0}" WorkUnitID="{5972D42D-C2B4-42B3-974C-CC34517058C6}"/>
+							<ObjectRef Name="Play_Parc_Oiseaux1" ID="{8E0DC551-5AC3-4E65-97E0-6FBFA6636F5D}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
 							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Parc_Oiseaux2" ID="{67E33752-FEA7-41C4-9D7B-DFAC17D87F2D}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Parc_Oiseaux3" ID="{2FE37D3F-37F6-4301-B0A8-235E75135CA8}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
+							<Position X="2" Y="0"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
 							<GameParameterRef Name="Quel_Moteur" ID="{4334FE7B-10DD-42E4-98D0-492C5EE9992A}"/>
-							<Value>1</Value>
+							<Value>3</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="Ralenti_Accelere" ID="{31E46C5C-8DDC-4581-B657-7283D6F89339}"/>
@@ -25,7 +33,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="VitesseVehicule" ID="{A6EA2B3C-7D8A-4E28-9D3E-D50ECD5F059C}"/>
-							<Value>33.9358108108108</Value>
+							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="VolumeEcoutePerso" ID="{A457383D-5090-4E4B-92FD-35E3CDE1D1A7}"/>
@@ -34,6 +42,7 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
+						<CurrentStateRef Name="Oui" ID="{726521A7-0407-41D7-89AC-04C1D191C10D}"/>
 						<CurrentStateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">

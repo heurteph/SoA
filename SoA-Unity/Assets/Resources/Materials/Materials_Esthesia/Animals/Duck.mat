@@ -57,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AmbientLevel: 0.5
-    - _Amplitude: 0.25
+    - _Amplitude: 0.17
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

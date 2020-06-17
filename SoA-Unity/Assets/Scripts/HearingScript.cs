@@ -142,13 +142,11 @@ public class HearingScript : MonoBehaviour
 
     IEnumerator WwiseHear()
     {
-        float loudness;
-        int type = 1;
-        AKRESULT result;
-
         for (; ; )
         {
-            loudness = 0f;
+            float loudness = 0f;
+            int type = 1;
+            AKRESULT result;
 
             result = AkSoundEngine.GetRTPCValue("VolumeEcoutePerso", null, 0, out loudness, ref type);
 

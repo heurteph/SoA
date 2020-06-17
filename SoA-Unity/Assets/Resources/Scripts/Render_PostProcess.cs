@@ -24,6 +24,8 @@ public class Render_PostProcess : MonoBehaviour
     private bool state_vignette_pleine;
     [SerializeField]
     private float lerp_effet;
+    [SerializeField]
+    private Vector3 offsetChroma;
 
     public bool shader_actif = false;
     private Material mat;
@@ -79,7 +81,7 @@ public class Render_PostProcess : MonoBehaviour
         {
             mat.SetFloat("type", 0);
 
-            changeShader("PostProcessV1");
+            changeShader("PostProcessV2");
             mat.SetFloat("width", coef_blur);
             mat.SetFloat("height", coef_blur);
             mat.SetFloat("life", player.GetComponent<EnergyBehaviour>().Energy / 10); // 0-1000 -> 0-100
@@ -90,6 +92,7 @@ public class Render_PostProcess : MonoBehaviour
             mat.SetInt("_StateChromatique", (state_chromatique ? 1 : 0));
             mat.SetInt("_VignettePleine", (state_vignette_pleine ? 1 : 0));
             mat.SetFloat("_LerpEffect", lerp_effet);
+            mat.SetVector("_OffsetColor", new Vector4(offsetChroma.x, offsetChroma.y, offsetChroma.z, 1.0f));
 
 
             Graphics.Blit(source, destination,mat);

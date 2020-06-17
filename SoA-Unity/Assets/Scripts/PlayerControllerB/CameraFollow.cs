@@ -389,21 +389,24 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        //UpdatePosition();
-
-        UpdateRotation();
-
-        if (!isTargeting)
+        if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
         {
-            //LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
-            //ProjectiveLookAround(inputs.Player.ProjectiveLook.ReadValue<float>());
-            //ExtendedLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
-            SmoothLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
-            //SmoothProjectiveLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
-        }
-        if (cameraSway != null)
-        {
-            //Sway(); // Let's try this here
+            //UpdatePosition();
+
+            UpdateRotation();
+
+            if (!isTargeting)
+            {
+                //LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+                //ProjectiveLookAround(inputs.Player.ProjectiveLook.ReadValue<float>());
+                //ExtendedLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+                SmoothLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+                //SmoothProjectiveLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+            }
+            if (cameraSway != null)
+            {
+                //Sway(); // Let's try this here
+            }
         }
     }
 
@@ -598,6 +601,11 @@ public class CameraFollow : MonoBehaviour
 
             for (; ; )
             {
+                while(player.GetComponent<PlayerFirst>().IsInsideShelter)
+                { 
+                    yield return null;
+                }
+
                 while(isTargeting) // Let's try it here, CHECK IF WORKING
                 {
                     yield return null;
@@ -774,7 +782,7 @@ public class CameraFollow : MonoBehaviour
                 if (Physics.Linecast(startPosition, player.transform.position, out hit, noCollision)) // CHECK if childs should be on layer Play as well
                 {
                     if (hit.transform.CompareTag("Player")){ visibility = true; }
-                    else { visibility = false; Debug.Log("OCCLUSION WITH " + hit.transform.name);}
+                    else { visibility = false; Debug.Log("OCCLUSION WITH " + hit.transform.name + " INSIDE " + hit.transform.parent.name + " INSIDE " + hit.transform.parent.parent.name);}
                 }
 
                 // Backward tracking if too close to the obstacle, use arc-length for the distances

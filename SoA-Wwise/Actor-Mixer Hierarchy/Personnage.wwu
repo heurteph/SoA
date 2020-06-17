@@ -10534,7 +10534,7 @@
 								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-7</Value>
+										<Value>-13</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

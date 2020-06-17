@@ -6,8 +6,16 @@
 				<SoundcasterSession Name="SoundCaster" ID="{0B387E94-8EAD-4096-8099-BAABE001D6C3}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="Play_Messages_Radio" ID="{5F787544-DF91-44DD-9A8E-14A151B25BF0}" WorkUnitID="{5972D42D-C2B4-42B3-974C-CC34517058C6}"/>
+							<ObjectRef Name="Play_Parc_Oiseaux1" ID="{8E0DC551-5AC3-4E65-97E0-6FBFA6636F5D}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
 							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Parc_Oiseaux2" ID="{67E33752-FEA7-41C4-9D7B-DFAC17D87F2D}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Parc_Oiseaux3" ID="{2FE37D3F-37F6-4301-B0A8-235E75135CA8}" WorkUnitID="{5A4A86E1-4D16-40AE-B859-75B7F157855B}"/>
+							<Position X="2" Y="0"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">

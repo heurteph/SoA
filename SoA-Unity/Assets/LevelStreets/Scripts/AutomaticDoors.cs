@@ -46,10 +46,11 @@ public class AutomaticDoors : MonoBehaviour
     [Tooltip("Event to stop the sound")]
     private AK.Wwise.Event doorsClosedStop;
 
+    /*
     [SerializeField]
     [Tooltip("Event to play supermarket annoucement")]
     private AK.Wwise.Event jinglePlay;
-
+    
     [SerializeField]
     [Tooltip("Event to stop supermarket annoucement")]
     private AK.Wwise.Event jingleStop;
@@ -58,6 +59,7 @@ public class AutomaticDoors : MonoBehaviour
     [Tooltip("Interval between two announcements")]
     [Range(5,10)]
     private float jingleInterval = 5;
+    */
 
     private float timer;
     private Vector3 leftDoorClosedPos, rightDoorClosedPos;
@@ -69,11 +71,11 @@ public class AutomaticDoors : MonoBehaviour
     {
         if(leftDoor == null || rightDoor == null)
         {
-            throw new System.NullReferenceException("No automatic doors for the building " + transform.name);
+            throw new System.NullReferenceException("No automatic doors for the building " + transform.parent.transform.name);
         }
         if(doorsClosedPlay == null || doorsOpenPlay == null || doorsClosedStop == null || doorsOpenStop == null)
         {
-            throw new System.NullReferenceException("No doors sounds for the building " + transform.name);
+            throw new System.NullReferenceException("No doors sounds for the building " + transform.parent.transform.name);
         }
         leftDoorClosedPos = leftDoor.transform.position;
         rightDoorClosedPos = rightDoor.transform.position;
@@ -82,10 +84,11 @@ public class AutomaticDoors : MonoBehaviour
         state = STATE.CLOSED;
         timer = 0;
 
+        /*
         if (jinglePlay != null)
         {
             StartCoroutine("PlayJingle");
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -151,6 +154,7 @@ public class AutomaticDoors : MonoBehaviour
         state = STATE.CLOSED;
     }
 
+    /*
     private IEnumerator PlayJingle()
     {
         for(; ;)
@@ -158,5 +162,5 @@ public class AutomaticDoors : MonoBehaviour
             jinglePlay.Post(gameObject);
             yield return new WaitForSeconds(jingleInterval);
         }
-    }
+    }*/
 }

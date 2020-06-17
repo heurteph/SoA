@@ -73,7 +73,7 @@ Material:
     - _DynamicRender: 0
     - _FrequenceEcume: 50.2
     - _GlossMapScale: 1
-    - _Glossiness: 32
+    - _Glossiness: 256
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0

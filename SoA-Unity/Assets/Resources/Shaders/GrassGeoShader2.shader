@@ -25,7 +25,7 @@
 		_BladeHeightRand("Height Rand", float) = 0.3
 		//var présente dans fichier tess shader
 		//attention au nom et pas oublier de lettres......
-		_TessellationUniform("Tessellation", Range(1,64)) = 1
+		_TessellationUniform("Tessellation", Range(1,100)) = 1
 		_WindDistoMap("Wind Disto Map", 2D) = "white"{}
 		_WindFq("Wind Frequence",Vector) = (0.05,0.05,0,0)
 		_WindStrength("Wind Strength",Float) = 1
@@ -33,6 +33,8 @@
 		_BladeCurve("Blade Curve Amount",Range(1,4)) = 2
 		distance("Distance",float) = 1
 		_DynamicRender("Dynamic mode",int) = 1
+		_Radius("Radius Display",float) = 200
+		_Minimum("Minimum Display",float) = 1.0
 	}
 
 		//factorisation des données pour les différentes couches de traitemenet "Pass"
@@ -67,13 +69,16 @@
 		float _TessellationUniform;
 		float distance;
 		int _DynamicRender;
-
+		float4 _PlayerPosition;
+		float _Radius;
+		float _Minimum;
 
 		struct vertexInput
 		{
 			float4 vertex : POSITION;
 			float3 normal : NORMAL;
 			float4 tangent : TANGENT;
+			float3 world_pos : TEXCOORD1;
 		};
 
 		struct vertexOutput
@@ -125,16 +130,26 @@
 
 		vertexInput vert(vertexInput v)
 		{
+			v.world_pos = mul(unity_ObjectToWorld,v.vertex);
 			return v;
 		}
 
 		TessellationFactors patchConstantFunction(InputPatch<vertexInput, 3> patch)
 		{
 			TessellationFactors f;
-			f.edge[0] = _TessellationUniform;
-			f.edge[1] = _TessellationUniform;
-			f.edge[2] = _TessellationUniform;
-			f.inside = _TessellationUniform;
+
+			//ici calcul centre triangle
+			float3 u = patch[1].world_pos - patch[0].world_pos;
+			float3 v = patch[2].world_pos - patch[0].world_pos;
+			float3 centre = patch[0].world_pos +  (u + v)/4.0f;
+
+			float distance = length(_PlayerPosition.xyz - centre.xyz);
+			distance = max(_Minimum, (1.0f - (distance / _Radius))* _TessellationUniform);
+
+			f.edge[0] = distance;//patch[0].distance;//_TessellationUniform;
+			f.edge[1] = distance;//patch[0].distance;//_TessellationUniform;
+			f.edge[2] = distance;//patch[0].distance;//_TessellationUniform;
+			f.inside = distance;//patch[0].distance;//_TessellationUniform;
 			return f;
 		}
 

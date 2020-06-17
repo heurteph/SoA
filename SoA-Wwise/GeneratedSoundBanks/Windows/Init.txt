@@ -30,19 +30,22 @@ State	ID	Name	State Group			Notes
 	748895195	None	Dans_Lieu_Repos			
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
-	351745915	Parc_Envi_Master			\Environnement\Parc_Envi_Master	
-	386419066	PersoMaster			\Personnage\PersoMaster	
-	1797562303	Parc_Obstacles_Master			\Obstacles\Parc_Obstacles_Master	
-	2033911932	NPCMaster			\Personnage\NPCMaster	
-	2111362598	MixMusic			\Default Work Unit\MixMusic	
-	2278553081	Ville_Obstacles_Master			\Obstacles\Ville_Obstacles_Master	
+	731600268	Obstacles_Ville			\Default Work Unit\Master Audio Bus\Obstacles_Master\Obstacles_Ville	
+	766198208	Environnement_Master			\Default Work Unit\Master Audio Bus\Environnement_Master	
+	772085263	Envi_Commerce			\Default Work Unit\Master Audio Bus\Environnement_Master\Envi_Commerce	
+	1006333898	Obstacles_Master			\Default Work Unit\Master Audio Bus\Obstacles_Master	
+	1407902352	Perso_NPC			\Default Work Unit\Master Audio Bus\Personnages_Master\Perso_NPC	
+	1643398137	Perso_Esthesia			\Default Work Unit\Master Audio Bus\Personnages_Master\Perso_Esthesia	
+	1655596517	Personnages_Master			\Default Work Unit\Master Audio Bus\Personnages_Master	
 	2734641465	NiveauEcoutePerso			\Default Work Unit\NiveauEcoutePerso	
 	2740603104	MixPROTECTION			\Default Work Unit\MixPROTECTION	
 	3296604463	Mix REVERB			\Default Work Unit\Mix REVERB	
-	3416674296	Commerce_Obstacles_Master			\Obstacles\Commerce_Obstacles_Master	
-	3729418630	Commerce_Envi_Master			\Environnement\Commerce_Envi_Master	
-	3757400157	Ville_Envi_Master			\Environnement\Ville_Envi_Master	
+	3370572728	Obstacles_Parc			\Default Work Unit\Master Audio Bus\Obstacles_Master\Obstacles_Parc	
+	3541955170	Envi_Ville			\Default Work Unit\Master Audio Bus\Environnement_Master\Envi_Ville	
+	3564875249	Obstacles_Commerce			\Default Work Unit\Master Audio Bus\Obstacles_Master\Obstacles_Commerce	
+	3595451983	Music_Master			\Default Work Unit\Master Audio Bus\Music_Master	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	4151145406	Envi_Parc			\Default Work Unit\Master Audio Bus\Environnement_Master\Envi_Parc	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	2093609463	MixEcoutePerso			\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso	

@@ -114,7 +114,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="932140571" Name="Play_Canard" ObjectPath="\Events\Parc_Obstacles\Play_Canard" MaxAttenuation="40.000000" DurationType="Infinite">
+				<Event Id="932140571" Name="Play_Canard" ObjectPath="\Events\Parc_Obstacles\Play_Canard" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="0.129396" DurationMax="0.174583">
 					<IncludedMemoryFiles>
 						<File Id="137701444" Language="SFX">
 							<ShortName>Canard 05.wav</ShortName>
@@ -222,15 +222,15 @@
 					<IncludedMemoryFiles>
 						<File Id="673273183" Language="SFX">
 							<ShortName>School.wav</ShortName>
-							<Path>SFX\School_9EDFC787.wem</Path>
+							<Path>SFX\School_57F582E5.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="869276618" Name="Play_Egout" ObjectPath="\Events\Ville_Obstacles\Play_Egout" MaxAttenuation="30.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
-						<File Id="884061807" Language="SFX">
-							<ShortName>Ville_Obstacle_Evacuation_Eau.wav</ShortName>
-							<Path>SFX\Ville_Obstacle_Evacuation_Eau_9EDFC787.wem</Path>
+						<File Id="563896891" Language="SFX">
+							<ShortName>Ville_Obstacles_Evacuation_Eau_04.wav</ShortName>
+							<Path>SFX\Ville_Obstacles_Evacuation_Eau_04_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -403,7 +403,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3366277958" Name="Play_Messages_Radio" ObjectPath="\Events\Commercial_Obstacles\Play_Messages_Radio" MaxAttenuation="40.000000" DurationType="Infinite">
+				<Event Id="3366277958" Name="Play_Messages_Radio" ObjectPath="\Events\Commercial_Ambiance\Play_Messages_Radio" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="46142111" Language="SFX">
 							<ShortName>Commerce_Obstacle_Message_Complet_4.wav</ShortName>
@@ -443,7 +443,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1403256204" Name="Play_Moteur_VoitureElec" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_VoitureElec" MaxAttenuation="20.000000" DurationType="Infinite">
+				<Event Id="1403256204" Name="Play_Moteur_VoitureElec" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_VoitureElec" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="840495312" Language="SFX">
 							<ShortName>Parc_Obstacles_VoitureElec_Moteurs Lent.wav</ShortName>
@@ -583,7 +583,74 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2727595513" Name="Play_Parc_Insectes" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Insectes" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1074315535" Name="Play_Parc_Jardinier" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Jardinier" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="12202272" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_07.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_07_3F75BDB9.wem</Path>
+						</File>
+						<File Id="42592523" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_08.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_08_3F75BDB9.wem</Path>
+						</File>
+						<File Id="93999626" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_09.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_09_3F75BDB9.wem</Path>
+						</File>
+						<File Id="292884272" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_15.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_15_3F75BDB9.wem</Path>
+						</File>
+						<File Id="341075357" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_04.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_04_3F75BDB9.wem</Path>
+						</File>
+						<File Id="355803660" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_06.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_06_3F75BDB9.wem</Path>
+						</File>
+						<File Id="384013979" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_03.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_03_3F75BDB9.wem</Path>
+						</File>
+						<File Id="477281463" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_13.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_13_3F75BDB9.wem</Path>
+						</File>
+						<File Id="478707704" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_01.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_01_3F75BDB9.wem</Path>
+						</File>
+						<File Id="540899539" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_16.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_16_3F75BDB9.wem</Path>
+						</File>
+						<File Id="698803938" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_12.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_12_3F75BDB9.wem</Path>
+						</File>
+						<File Id="709836332" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_02.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_02_3F75BDB9.wem</Path>
+						</File>
+						<File Id="721306381" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_05.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_05_3F75BDB9.wem</Path>
+						</File>
+						<File Id="766700660" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_10.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_10_3F75BDB9.wem</Path>
+						</File>
+						<File Id="853074864" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_14.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_14_3F75BDB9.wem</Path>
+						</File>
+						<File Id="947543685" Language="SFX">
+							<ShortName>Parc_Ambiance_Jardinier_11.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Jardinier_11_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3725651506" Name="Play_Parc_Oiseaux1" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Oiseaux1" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="6807920" Language="SFX">
@@ -594,17 +661,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula75.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula75_3F75BDB9.wem</Path>
 						</File>
-						<File Id="46527227" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41_3F75BDB9.wem</Path>
-						</File>
 						<File Id="73671752" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula69.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula69_3F75BDB9.wem</Path>
-						</File>
-						<File Id="74171240" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55_3F75BDB9.wem</Path>
 						</File>
 						<File Id="89772251" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula12.wav</ShortName>
@@ -618,25 +677,29 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula62.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula62_3F75BDB9.wem</Path>
 						</File>
-						<File Id="136869288" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45_3F75BDB9.wem</Path>
+						<File Id="124469513" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-002.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-002_3F75BDB9.wem</Path>
 						</File>
-						<File Id="160326175" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36_3F75BDB9.wem</Path>
+						<File Id="164081265" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006_3F75BDB9.wem</Path>
 						</File>
-						<File Id="185204255" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49_3F75BDB9.wem</Path>
-						</File>
-						<File Id="196091841" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59_3F75BDB9.wem</Path>
+						<File Id="225892139" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-002.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-002_3F75BDB9.wem</Path>
 						</File>
 						<File Id="230104036" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula63.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula63_3F75BDB9.wem</Path>
+						</File>
+						<File Id="242509436" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-004.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="298788375" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-003.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-003_3F75BDB9.wem</Path>
 						</File>
 						<File Id="309108208" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula77.wav</ShortName>
@@ -654,6 +717,14 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula72.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula72_3F75BDB9.wem</Path>
 						</File>
+						<File Id="332970262" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-006.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-006_3F75BDB9.wem</Path>
+						</File>
+						<File Id="345150551" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-004.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-004_3F75BDB9.wem</Path>
+						</File>
 						<File Id="354188255" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula13.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula13_3F75BDB9.wem</Path>
@@ -662,41 +733,13 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula05.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula05_3F75BDB9.wem</Path>
 						</File>
-						<File Id="373622773" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54_3F75BDB9.wem</Path>
-						</File>
-						<File Id="400387226" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44_3F75BDB9.wem</Path>
-						</File>
 						<File Id="404032392" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula10.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula10_3F75BDB9.wem</Path>
 						</File>
-						<File Id="416204730" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34_3F75BDB9.wem</Path>
-						</File>
-						<File Id="434467179" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51_3F75BDB9.wem</Path>
-						</File>
-						<File Id="437649202" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60_3F75BDB9.wem</Path>
-						</File>
-						<File Id="445527584" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47_3F75BDB9.wem</Path>
-						</File>
-						<File Id="455205638" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35_3F75BDB9.wem</Path>
-						</File>
-						<File Id="474621248" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46_3F75BDB9.wem</Path>
+						<File Id="440969987" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-001.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-001_3F75BDB9.wem</Path>
 						</File>
 						<File Id="497953852" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula14.wav</ShortName>
@@ -710,10 +753,6 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula64.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula64_3F75BDB9.wem</Path>
 						</File>
-						<File Id="517054188" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33_3F75BDB9.wem</Path>
-						</File>
 						<File Id="531645549" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula-glué04.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula-glué04_3F75BDB9.wem</Path>
@@ -721,6 +760,10 @@
 						<File Id="542641399" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula11.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula11_3F75BDB9.wem</Path>
+						</File>
+						<File Id="567618586" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-005.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-005_3F75BDB9.wem</Path>
 						</File>
 						<File Id="574030282" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula67.wav</ShortName>
@@ -730,17 +773,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula78.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula78_3F75BDB9.wem</Path>
 						</File>
-						<File Id="576738218" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58_3F75BDB9.wem</Path>
-						</File>
-						<File Id="590345218" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56_3F75BDB9.wem</Path>
-						</File>
-						<File Id="600004635" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57_3F75BDB9.wem</Path>
+						<File Id="576136785" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-001.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-001_3F75BDB9.wem</Path>
 						</File>
 						<File Id="601975509" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula70.wav</ShortName>
@@ -749,18 +784,6 @@
 						<File Id="604102644" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula02.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula02_3F75BDB9.wem</Path>
-						</File>
-						<File Id="661410401" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48_3F75BDB9.wem</Path>
-						</File>
-						<File Id="662284077" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50_3F75BDB9.wem</Path>
-						</File>
-						<File Id="672883393" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42_3F75BDB9.wem</Path>
 						</File>
 						<File Id="695150990" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula15.wav</ShortName>
@@ -774,25 +797,13 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula65.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula65_3F75BDB9.wem</Path>
 						</File>
-						<File Id="712279529" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53_3F75BDB9.wem</Path>
-						</File>
 						<File Id="723033460" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula03.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula03_3F75BDB9.wem</Path>
 						</File>
-						<File Id="736946357" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52_3F75BDB9.wem</Path>
-						</File>
 						<File Id="765861156" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula66.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula66_3F75BDB9.wem</Path>
-						</File>
-						<File Id="783401644" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43_3F75BDB9.wem</Path>
 						</File>
 						<File Id="798063889" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula07.wav</ShortName>
@@ -810,17 +821,13 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula76.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula76_3F75BDB9.wem</Path>
 						</File>
-						<File Id="887674373" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40_3F75BDB9.wem</Path>
+						<File Id="919558197" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-005.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-005_3F75BDB9.wem</Path>
 						</File>
-						<File Id="929091810" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37_3F75BDB9.wem</Path>
-						</File>
-						<File Id="952246663" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38_3F75BDB9.wem</Path>
+						<File Id="942519783" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-003.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-003_3F75BDB9.wem</Path>
 						</File>
 						<File Id="982914376" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula68.wav</ShortName>
@@ -830,9 +837,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC113132 - Apalis de Roberts - Oreophilais robertsi17.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC113132 - Apalis de Roberts - Oreophilais robertsi17_3F75BDB9.wem</Path>
 						</File>
-						<File Id="1043926172" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39_3F75BDB9.wem</Path>
+						<File Id="1055659434" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -846,17 +853,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula75.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula75_3F75BDB9.wem</Path>
 						</File>
-						<File Id="46527227" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41_3F75BDB9.wem</Path>
-						</File>
 						<File Id="73671752" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula69.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula69_3F75BDB9.wem</Path>
-						</File>
-						<File Id="74171240" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55_3F75BDB9.wem</Path>
 						</File>
 						<File Id="89772251" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula12.wav</ShortName>
@@ -870,25 +869,29 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula62.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula62_3F75BDB9.wem</Path>
 						</File>
-						<File Id="136869288" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45_3F75BDB9.wem</Path>
+						<File Id="124469513" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-002.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-002_3F75BDB9.wem</Path>
 						</File>
-						<File Id="160326175" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36_3F75BDB9.wem</Path>
+						<File Id="164081265" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006_3F75BDB9.wem</Path>
 						</File>
-						<File Id="185204255" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49_3F75BDB9.wem</Path>
-						</File>
-						<File Id="196091841" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59_3F75BDB9.wem</Path>
+						<File Id="225892139" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-002.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-002_3F75BDB9.wem</Path>
 						</File>
 						<File Id="230104036" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula63.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula63_3F75BDB9.wem</Path>
+						</File>
+						<File Id="242509436" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-004.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="298788375" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-003.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-003_3F75BDB9.wem</Path>
 						</File>
 						<File Id="309108208" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula77.wav</ShortName>
@@ -906,6 +909,14 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula72.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula72_3F75BDB9.wem</Path>
 						</File>
+						<File Id="332970262" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-006.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-006_3F75BDB9.wem</Path>
+						</File>
+						<File Id="345150551" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-004.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-004_3F75BDB9.wem</Path>
+						</File>
 						<File Id="354188255" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula13.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula13_3F75BDB9.wem</Path>
@@ -914,41 +925,13 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula05.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula05_3F75BDB9.wem</Path>
 						</File>
-						<File Id="373622773" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54_3F75BDB9.wem</Path>
-						</File>
-						<File Id="400387226" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44_3F75BDB9.wem</Path>
-						</File>
 						<File Id="404032392" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula10.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula10_3F75BDB9.wem</Path>
 						</File>
-						<File Id="416204730" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34_3F75BDB9.wem</Path>
-						</File>
-						<File Id="434467179" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51_3F75BDB9.wem</Path>
-						</File>
-						<File Id="437649202" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60_3F75BDB9.wem</Path>
-						</File>
-						<File Id="445527584" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47_3F75BDB9.wem</Path>
-						</File>
-						<File Id="455205638" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35_3F75BDB9.wem</Path>
-						</File>
-						<File Id="474621248" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46_3F75BDB9.wem</Path>
+						<File Id="440969987" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-001.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-001_3F75BDB9.wem</Path>
 						</File>
 						<File Id="497953852" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula14.wav</ShortName>
@@ -962,10 +945,6 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula64.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula64_3F75BDB9.wem</Path>
 						</File>
-						<File Id="517054188" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33_3F75BDB9.wem</Path>
-						</File>
 						<File Id="531645549" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula-glué04.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula-glué04_3F75BDB9.wem</Path>
@@ -973,6 +952,10 @@
 						<File Id="542641399" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula11.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula11_3F75BDB9.wem</Path>
+						</File>
+						<File Id="567618586" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-005.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-005_3F75BDB9.wem</Path>
 						</File>
 						<File Id="574030282" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula67.wav</ShortName>
@@ -982,17 +965,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula78.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula78_3F75BDB9.wem</Path>
 						</File>
-						<File Id="576738218" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58_3F75BDB9.wem</Path>
-						</File>
-						<File Id="590345218" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56_3F75BDB9.wem</Path>
-						</File>
-						<File Id="600004635" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57_3F75BDB9.wem</Path>
+						<File Id="576136785" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-001.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-001_3F75BDB9.wem</Path>
 						</File>
 						<File Id="601975509" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula70.wav</ShortName>
@@ -1001,18 +976,6 @@
 						<File Id="604102644" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula02.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula02_3F75BDB9.wem</Path>
-						</File>
-						<File Id="661410401" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48_3F75BDB9.wem</Path>
-						</File>
-						<File Id="662284077" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50_3F75BDB9.wem</Path>
-						</File>
-						<File Id="672883393" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42_3F75BDB9.wem</Path>
 						</File>
 						<File Id="695150990" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula15.wav</ShortName>
@@ -1026,25 +989,13 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula65.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula65_3F75BDB9.wem</Path>
 						</File>
-						<File Id="712279529" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53_3F75BDB9.wem</Path>
-						</File>
 						<File Id="723033460" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula03.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula03_3F75BDB9.wem</Path>
 						</File>
-						<File Id="736946357" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52_3F75BDB9.wem</Path>
-						</File>
 						<File Id="765861156" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula66.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula66_3F75BDB9.wem</Path>
-						</File>
-						<File Id="783401644" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43_3F75BDB9.wem</Path>
 						</File>
 						<File Id="798063889" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula07.wav</ShortName>
@@ -1062,17 +1013,13 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula76.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula76_3F75BDB9.wem</Path>
 						</File>
-						<File Id="887674373" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40_3F75BDB9.wem</Path>
+						<File Id="919558197" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-005.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-005_3F75BDB9.wem</Path>
 						</File>
-						<File Id="929091810" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37_3F75BDB9.wem</Path>
-						</File>
-						<File Id="952246663" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38_3F75BDB9.wem</Path>
+						<File Id="942519783" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-003.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-003_3F75BDB9.wem</Path>
 						</File>
 						<File Id="982914376" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula68.wav</ShortName>
@@ -1082,9 +1029,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC113132 - Apalis de Roberts - Oreophilais robertsi17.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC113132 - Apalis de Roberts - Oreophilais robertsi17_3F75BDB9.wem</Path>
 						</File>
-						<File Id="1043926172" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39_3F75BDB9.wem</Path>
+						<File Id="1055659434" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -1098,17 +1045,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula75.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula75_3F75BDB9.wem</Path>
 						</File>
-						<File Id="46527227" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41_3F75BDB9.wem</Path>
-						</File>
 						<File Id="73671752" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula69.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula69_3F75BDB9.wem</Path>
-						</File>
-						<File Id="74171240" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55_3F75BDB9.wem</Path>
 						</File>
 						<File Id="89772251" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula12.wav</ShortName>
@@ -1122,25 +1061,29 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula62.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula62_3F75BDB9.wem</Path>
 						</File>
-						<File Id="136869288" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45_3F75BDB9.wem</Path>
+						<File Id="124469513" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-002.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-002_3F75BDB9.wem</Path>
 						</File>
-						<File Id="160326175" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36_3F75BDB9.wem</Path>
+						<File Id="164081265" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006_3F75BDB9.wem</Path>
 						</File>
-						<File Id="185204255" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49_3F75BDB9.wem</Path>
-						</File>
-						<File Id="196091841" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59_3F75BDB9.wem</Path>
+						<File Id="225892139" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-002.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-002_3F75BDB9.wem</Path>
 						</File>
 						<File Id="230104036" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula63.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula63_3F75BDB9.wem</Path>
+						</File>
+						<File Id="242509436" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-004.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="298788375" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-003.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-003_3F75BDB9.wem</Path>
 						</File>
 						<File Id="309108208" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula77.wav</ShortName>
@@ -1158,6 +1101,14 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula72.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula72_3F75BDB9.wem</Path>
 						</File>
+						<File Id="332970262" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-006.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-006_3F75BDB9.wem</Path>
+						</File>
+						<File Id="345150551" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-004.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-004_3F75BDB9.wem</Path>
+						</File>
 						<File Id="354188255" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula13.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula13_3F75BDB9.wem</Path>
@@ -1166,41 +1117,13 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula05.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula05_3F75BDB9.wem</Path>
 						</File>
-						<File Id="373622773" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54_3F75BDB9.wem</Path>
-						</File>
-						<File Id="400387226" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44_3F75BDB9.wem</Path>
-						</File>
 						<File Id="404032392" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula10.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula10_3F75BDB9.wem</Path>
 						</File>
-						<File Id="416204730" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34_3F75BDB9.wem</Path>
-						</File>
-						<File Id="434467179" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51_3F75BDB9.wem</Path>
-						</File>
-						<File Id="437649202" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60_3F75BDB9.wem</Path>
-						</File>
-						<File Id="445527584" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47_3F75BDB9.wem</Path>
-						</File>
-						<File Id="455205638" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35_3F75BDB9.wem</Path>
-						</File>
-						<File Id="474621248" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46_3F75BDB9.wem</Path>
+						<File Id="440969987" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-001.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-001_3F75BDB9.wem</Path>
 						</File>
 						<File Id="497953852" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula14.wav</ShortName>
@@ -1214,10 +1137,6 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula64.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula64_3F75BDB9.wem</Path>
 						</File>
-						<File Id="517054188" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33_3F75BDB9.wem</Path>
-						</File>
 						<File Id="531645549" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula-glué04.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula-glué04_3F75BDB9.wem</Path>
@@ -1225,6 +1144,10 @@
 						<File Id="542641399" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula11.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula11_3F75BDB9.wem</Path>
+						</File>
+						<File Id="567618586" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-005.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-005_3F75BDB9.wem</Path>
 						</File>
 						<File Id="574030282" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula67.wav</ShortName>
@@ -1234,17 +1157,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula78.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula78_3F75BDB9.wem</Path>
 						</File>
-						<File Id="576738218" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58_3F75BDB9.wem</Path>
-						</File>
-						<File Id="590345218" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56_3F75BDB9.wem</Path>
-						</File>
-						<File Id="600004635" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57_3F75BDB9.wem</Path>
+						<File Id="576136785" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-001.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-001_3F75BDB9.wem</Path>
 						</File>
 						<File Id="601975509" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula70.wav</ShortName>
@@ -1253,18 +1168,6 @@
 						<File Id="604102644" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula02.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula02_3F75BDB9.wem</Path>
-						</File>
-						<File Id="661410401" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48_3F75BDB9.wem</Path>
-						</File>
-						<File Id="662284077" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50_3F75BDB9.wem</Path>
-						</File>
-						<File Id="672883393" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42_3F75BDB9.wem</Path>
 						</File>
 						<File Id="695150990" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula15.wav</ShortName>
@@ -1278,25 +1181,13 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula65.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula65_3F75BDB9.wem</Path>
 						</File>
-						<File Id="712279529" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53_3F75BDB9.wem</Path>
-						</File>
 						<File Id="723033460" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula03.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula03_3F75BDB9.wem</Path>
 						</File>
-						<File Id="736946357" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52_3F75BDB9.wem</Path>
-						</File>
 						<File Id="765861156" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula66.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula66_3F75BDB9.wem</Path>
-						</File>
-						<File Id="783401644" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43_3F75BDB9.wem</Path>
 						</File>
 						<File Id="798063889" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC34035 - Merle noir - Turdus merula07.wav</ShortName>
@@ -1314,17 +1205,13 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula76.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula76_3F75BDB9.wem</Path>
 						</File>
-						<File Id="887674373" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40_3F75BDB9.wem</Path>
+						<File Id="919558197" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-005.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-005_3F75BDB9.wem</Path>
 						</File>
-						<File Id="929091810" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37_3F75BDB9.wem</Path>
-						</File>
-						<File Id="952246663" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38_3F75BDB9.wem</Path>
+						<File Id="942519783" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-003.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-003_3F75BDB9.wem</Path>
 						</File>
 						<File Id="982914376" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC520115 - Merle noir - Turdus merula68.wav</ShortName>
@@ -1334,9 +1221,9 @@
 							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC113132 - Apalis de Roberts - Oreophilais robertsi17.wav</ShortName>
 							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC113132 - Apalis de Roberts - Oreophilais robertsi17_3F75BDB9.wem</Path>
 						</File>
-						<File Id="1043926172" Language="SFX">
-							<ShortName>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39_3F75BDB9.wem</Path>
+						<File Id="1055659434" Language="SFX">
+							<ShortName>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007.wav</ShortName>
+							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -1540,7 +1427,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3518090694" Name="Play_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Play_Quel_Moteur" MaxAttenuation="70.000000" DurationType="Infinite">
+				<Event Id="3518090694" Name="Play_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Play_Quel_Moteur" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="41790791" Language="SFX">
 							<ShortName>M1_Idle.wav</ShortName>
@@ -5770,7 +5657,7 @@
 					<IncludedMemoryFiles>
 						<File Id="816991328" Language="SFX">
 							<ShortName>Chantier.wav</ShortName>
-							<Path>SFX\Chantier_9EDFC787.wem</Path>
+							<Path>SFX\Chantier_A4BA7504.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -5786,7 +5673,7 @@
 				<Event Id="725970268" Name="Stop_Horloge" ObjectPath="\Events\Ville_Obstacles\Stop_Horloge" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="882878844" Name="Stop_Klaxons" ObjectPath="\Events\Ville_Obstacles\Stop_Klaxons" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2738893335" Name="Stop_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Stop_Marteau_Piqueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="4004627752" Name="Stop_Messages_Radio" ObjectPath="\Events\Commercial_Obstacles\Stop_Messages_Radio" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4004627752" Name="Stop_Messages_Radio" ObjectPath="\Events\Commercial_Ambiance\Stop_Messages_Radio" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2980414578" Name="Stop_Mort" ObjectPath="\Events\Personnage\Stop_Mort" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3531521436" Name="Stop_Music_Appart" ObjectPath="\Events\Ville_Obstacles\Stop_Music_Appart" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -5798,6 +5685,7 @@
 				<Event Id="566110305" Name="Stop_Music_Safe_Zone_Ville" ObjectPath="\Events\Music\Stop_Music_Safe_Zone_Ville" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2301453854" Name="Stop_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Stop_Parc_Chien" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3189001139" Name="Stop_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Eau_Lac" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="358162889" Name="Stop_Parc_Jardinier" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Jardinier" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="152275144" Name="Stop_Parc_Oiseaux1" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux1" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="152275147" Name="Stop_Parc_Oiseaux2" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux2" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="152275146" Name="Stop_Parc_Oiseaux3" ObjectPath="\Events\Parc_Ambiance\Stop_Parc_Oiseaux3" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

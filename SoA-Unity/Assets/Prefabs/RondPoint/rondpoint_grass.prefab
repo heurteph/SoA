@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6513318528867637385}
   - component: {fileID: 5574522376742989131}
   - component: {fileID: 6097003315247013851}
+  - component: {fileID: 3741010758610589225}
   m_Layer: 0
   m_Name: herbe3_geo
   m_TagString: Untagged
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3741010758610589225
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092951129610513627}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4338580823795145941, guid: 2688903b684417148ab90c49e6ab5072, type: 3}
 --- !u!1 &5563334850147297219
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +138,7 @@ GameObject:
   - component: {fileID: 8542364861787488793}
   - component: {fileID: 6198600279074979997}
   - component: {fileID: 8218922558067226589}
+  - component: {fileID: 531542339416352936}
   m_Layer: 0
   m_Name: herbe2_geo
   m_TagString: Untagged
@@ -191,6 +207,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &531542339416352936
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192774232853254030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -384135477171514108, guid: 2688903b684417148ab90c49e6ab5072, type: 3}
 --- !u!1 &7854826391397137074
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +232,7 @@ GameObject:
   - component: {fileID: 4564489966859854863}
   - component: {fileID: 4045829294200811447}
   - component: {fileID: 8944823240127148343}
+  - component: {fileID: 8881005765756304389}
   m_Layer: 0
   m_Name: herbe1_geo
   m_TagString: Untagged
@@ -270,3 +301,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8881005765756304389
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7854826391397137074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6234280905706323726, guid: 2688903b684417148ab90c49e6ab5072, type: 3}

@@ -142,12 +142,15 @@ public class HearingScript : MonoBehaviour
 
     IEnumerator WwiseHear()
     {
+        float loudness;
+        int type = 1;
+        AKRESULT result;
+
         for (; ; )
         {
-            float loudness = 0f;
+            loudness = 0f;
 
-            int type = 1;
-            AKRESULT result = AkSoundEngine.GetRTPCValue("VolumeEcoutePerso", null, 0, out loudness, ref type);
+            result = AkSoundEngine.GetRTPCValue("VolumeEcoutePerso", null, 0, out loudness, ref type);
 
             if(result == AKRESULT.AK_Fail)
             {
@@ -161,7 +164,10 @@ public class HearingScript : MonoBehaviour
 
             if(loudness >= uncomfortableLoudnessThreshold)
             {
-                player.GetComponent<PlayerFirst>().IsUncomfortableEars = true;
+                if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
+                {
+                    player.GetComponent<PlayerFirst>().IsUncomfortableEars = true;
+                }
             }
             else
             {
@@ -170,17 +176,21 @@ public class HearingScript : MonoBehaviour
 
             if (loudness >= loudnessThreshold)
             {
-                LoudnessThresholdEvent(loudnessDamage);
-
-                // Handle animation
-                if (!player.GetComponent<PlayerFirst>().IsDamagedEyes)
+                if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
                 {
-                    player.GetComponent<PlayerFirst>().IsDamagedEars = true;
-                    // Set animation layer weight
-                    //esthesia.GetComponent<EsthesiaAnimation>().SelectEarsDamageLayer();
-                }
+                    // Handle energy loss
+                    LoudnessThresholdEvent(loudnessDamage);
 
-                //DamagingSourceEvent?.Invoke(ClosestAudioSource()); // more explicit test of existence needed
+                    // Handle animation
+                    if (!player.GetComponent<PlayerFirst>().IsDamagedEyes)
+                    {
+                        player.GetComponent<PlayerFirst>().IsDamagedEars = true;
+                        // Set animation layer weight
+                        //esthesia.GetComponent<EsthesiaAnimation>().SelectEarsDamageLayer();
+                    }
+
+                    //DamagingSourceEvent?.Invoke(ClosestAudioSource()); // more explicit test of existence needed
+                }
             }
             else
             {

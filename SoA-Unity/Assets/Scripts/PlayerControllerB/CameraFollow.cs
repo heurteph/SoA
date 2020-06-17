@@ -7,6 +7,8 @@ public class CameraFollow : MonoBehaviour
 
     private Inputs inputs;
 
+    private GameObject gameManager;
+
     [Space]
     [Header("Camera Settings")]
     [Space]
@@ -87,7 +89,10 @@ public class CameraFollow : MonoBehaviour
         HURRY_TO_PROTECTED,
         NORMAL_TO_PROTECTED,
         PROTECTED_TO_NORMAL,
-        PROTECTED_TO_HURRY
+        PROTECTED_TO_HURRY,
+        HURRY_TO_GAMEOVER,
+        PROTECTED_TO_GAMEOVER,
+        GAMEOVER
     };
     STATE cameraState;
     STATE lastCameraState;
@@ -150,6 +155,29 @@ public class CameraFollow : MonoBehaviour
     [Tooltip("The delay to switch from hurry to protected view, in seconds")]
     [Range(0.1f, 5)]
     private float timeHurryToProtected = 0.4f;
+
+    [Space]
+    [Header("Gameover Mode")]
+
+    [SerializeField]
+    [Tooltip("Z-Offset when game is over (-closer, +farther)")]
+    [Range(-10, 10)]
+    private float Z_OffsetGameover = -10f;
+
+    [SerializeField]
+    [Tooltip("Y-Offset when game is over (-closer, +farther)")]
+    [Range(-10, 10)]
+    private float Y_OffsetGameover = 4f;
+
+    [SerializeField]
+    [Tooltip("The delay to switch from hurry to game over view, in seconds")]
+    [Range(0.1f, 5f)]
+    private float timeHurryToGameover = 1f;
+
+    [SerializeField]
+    [Tooltip("The delay to switch from protected to game over view, in seconds")]
+    [Range(0.1f, 5f)]
+    private float timeProtectedToGameover = 1f;
 
     private float zoomTimer;
 
@@ -274,6 +302,13 @@ public class CameraFollow : MonoBehaviour
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
+
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        if(gameManager == null)
+        {
+            throw new System.NullReferenceException("No Game Manager found in the scene");
+        }
     }
 
     // Start is called before the first frame update
@@ -489,6 +524,20 @@ public class CameraFollow : MonoBehaviour
             //heldCamera.GetComponent<Camera>().fieldOfView = 60 - (60 - 50) * (timeToFocus - recoilTimer) / timeToFocus;
         }
 
+        else if (cameraState == STATE.HURRY_TO_GAMEOVER)
+        {
+            transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        }
+
+        else if (cameraState == STATE.PROTECTED_TO_GAMEOVER)
+        {
+            transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        }
+
+        else if (cameraState == STATE.GAMEOVER)
+        {
+            transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        }
     }
 
     private void UpdatePosition()
@@ -694,7 +743,6 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-
     private float LimitAngleToFirstObstacle(float targetAngle, Vector3 originalPosition)
     {
         float   startAngle    = 0; // degrees
@@ -726,7 +774,7 @@ public class CameraFollow : MonoBehaviour
                 if (Physics.Linecast(startPosition, player.transform.position, out hit, noCollision)) // CHECK if childs should be on layer Play as well
                 {
                     if (hit.transform.CompareTag("Player")){ visibility = true; }
-                    else { visibility = false; Debug.Log("OCCLUSION");}
+                    else { visibility = false; Debug.Log("OCCLUSION WITH " + hit.transform.name);}
                 }
 
                 // Backward tracking if too close to the obstacle, use arc-length for the distances
@@ -1345,7 +1393,14 @@ public class CameraFollow : MonoBehaviour
         {
             if (!isTargeting) // isAvailable ?
             {
-                if (player.GetComponent<PlayerFirst>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
+                if (gameManager.GetComponent<GameManager>().IsGameOver)
+                {
+                    zoomTimer = timeHurryToGameover;
+                    isAvailable = false;
+                    cameraState = STATE.HURRY_TO_GAMEOVER;
+                }
+
+                else if (player.GetComponent<PlayerFirst>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
                 {
                     zoomTimer = timeHurryToProtected;
                     isAvailable = false;
@@ -1398,7 +1453,14 @@ public class CameraFollow : MonoBehaviour
         {
             if (!isTargeting) // isAvailable ?
             {
-                if (!player.GetComponent<PlayerFirst>().IsProtectingEyes && !player.GetComponent<PlayerFirst>().IsProtectingEars)
+                if (gameManager.GetComponent<GameManager>().IsGameOver)
+                {
+                    zoomTimer = timeProtectedToGameover;
+                    isAvailable = false;
+                    cameraState = STATE.PROTECTED_TO_GAMEOVER;
+                }
+
+                else if (!player.GetComponent<PlayerFirst>().IsProtectingEyes && !player.GetComponent<PlayerFirst>().IsProtectingEars)
                 {
                     if (player.GetComponent<PlayerFirst>().IsHurry)
                     {
@@ -1464,6 +1526,40 @@ public class CameraFollow : MonoBehaviour
                 transform.position = endPosition; // should wait one frame more
                 isAvailable = true;
                 cameraState = STATE.HURRY;
+            }
+        }
+
+        else if (cameraState == STATE.HURRY_TO_GAMEOVER)
+        {
+            Vector3 startPosition = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * (Z_OffsetHurry - Z_OffsetGameover) + Vector3.up * (Y_OffsetHurry - Y_OffsetGameover)) * (timeHurryToGameover - zoomTimer) / timeHurryToGameover; // recreate original position
+            Vector3 endPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * (Z_OffsetHurry - Z_OffsetGameover) + Vector3.up * (Y_OffsetHurry - Y_OffsetGameover)) * zoomTimer / timeHurryToGameover; // recreate original position
+            zoomTimer = Mathf.Max(zoomTimer - Time.deltaTime, 0);
+            //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
+            transform.position = Vector3.Lerp(startPosition, endPosition, (timeHurryToGameover - zoomTimer) / timeHurryToGameover);
+
+            // Transition
+            if (zoomTimer <= 0)
+            {
+                transform.position = endPosition; // should wait one frame more
+                isAvailable = true;
+                cameraState = STATE.GAMEOVER; // should be unused
+            }
+        }
+
+        else if (cameraState == STATE.PROTECTED_TO_GAMEOVER)
+        {
+            Vector3 startPosition = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * (Z_OffsetProtected - Z_OffsetGameover) + Vector3.up * (Y_OffsetProtected - Y_OffsetGameover)) * (timeProtectedToGameover - zoomTimer) / timeProtectedToGameover; // recreate original position
+            Vector3 endPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * (Z_OffsetProtected - Z_OffsetGameover) + Vector3.up * (Y_OffsetProtected - Y_OffsetGameover)) * zoomTimer / timeProtectedToGameover; // recreate original position
+            zoomTimer = Mathf.Max(zoomTimer - Time.deltaTime, 0);
+            //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
+            transform.position = Vector3.Lerp(startPosition, endPosition, (timeProtectedToGameover - zoomTimer) / timeProtectedToGameover);
+
+            // Transition
+            if (zoomTimer <= 0)
+            {
+                transform.position = endPosition; // should wait one frame more
+                isAvailable = true;
+                cameraState = STATE.GAMEOVER; // should be unused
             }
         }
     }

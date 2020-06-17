@@ -151,7 +151,6 @@ public class VisionBehaviour : MonoBehaviour
     {
         float sum = 0;
 
-
         for (int i=0; i < t2D.width; i++)
         {
             for (int j=0; j< t2D.height; j++)
@@ -179,7 +178,10 @@ public class VisionBehaviour : MonoBehaviour
 
         if (sum >= uncomfortableBrightnessThreshold * t2D.width * t2D.height)
         {
-            player.GetComponent<PlayerFirst>().EyesUncomfortableSources ++;
+            if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
+            {
+                player.GetComponent<PlayerFirst>().EyesUncomfortableSources++;
+            }
         }
         else
         {
@@ -188,15 +190,18 @@ public class VisionBehaviour : MonoBehaviour
 
         if (sum >= brightnessThreshold * t2D.width * t2D.height)
         {
-            brightnessThresholdEvent(damage);
-
-            // Handle animations
-            if (!player.GetComponent<PlayerFirst>().IsDamagedEars)
+            if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
             {
-                player.GetComponent<PlayerFirst>().EyesDamageSources ++;
-                //player.GetComponent<PlayerFirst>().IsDamagedEyes = true;
-                // Set animation layer weight
-                //esthesia.GetComponent<EsthesiaAnimation>().SelectEyesDamageLayer();
+                brightnessThresholdEvent(damage);
+
+                // Handle animations
+                if (!player.GetComponent<PlayerFirst>().IsDamagedEars)
+                {
+                    player.GetComponent<PlayerFirst>().EyesDamageSources++;
+                    //player.GetComponent<PlayerFirst>().IsDamagedEyes = true;
+                    // Set animation layer weight
+                    //esthesia.GetComponent<EsthesiaAnimation>().SelectEyesDamageLayer();
+                }
             }
         }
 

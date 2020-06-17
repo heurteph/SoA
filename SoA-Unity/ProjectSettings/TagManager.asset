@@ -20,6 +20,13 @@ TagManager:
   - MenuCredits
   - MenuManager
   - SaveManager
+  - Fade
+  - GameManager
+  - GameOver
+  - TransitionCamera
+  - Door Canvas
+  - GameOverMessage
+  - TutorialCanvas
   layers:
   - Default
   - TransparentFX

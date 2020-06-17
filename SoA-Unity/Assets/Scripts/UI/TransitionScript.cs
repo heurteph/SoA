@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class TransitionScript : MonoBehaviour
 {
-    private GameObject singleton;
+    private static GameObject singleton;
 
-    [SerializeField]
-    [Tooltip("Reference to the game manager")]
     private GameObject gameManager;
 
     private bool done;
@@ -17,23 +15,26 @@ public class TransitionScript : MonoBehaviour
         // Must exist between scenes to achieve transitions
         if (singleton == null)
         {
-            singleton = gameObject;
+            singleton = transform.parent.gameObject;
             DontDestroyOnLoad(transform.parent.gameObject); // save all canvas
         }
-        else if (singleton != gameObject)
+        else if (singleton != transform.parent.gameObject)
         {
             Destroy(transform.parent.gameObject); // destroy all canvas
             return;
+        }
+
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        if (gameManager == null)
+        {
+            throw new System.NullReferenceException("Missing reference to the game manager");
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if(gameManager == null)
-        {
-            throw new System.NullReferenceException("Missing reference to the game manager");
-        }
         done = false;
     }
 

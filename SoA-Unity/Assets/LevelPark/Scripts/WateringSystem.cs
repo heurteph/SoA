@@ -12,7 +12,7 @@ public class WateringSystem : MonoBehaviour
     [SerializeField]
     [Tooltip("The delay between two bursts in seconds")]
     [Range(0.01f, 1f)]
-    private float delay = 0.05f;
+    private float delay = 0.4f;
 
     private float deltaAngle;
     private float xAngle;

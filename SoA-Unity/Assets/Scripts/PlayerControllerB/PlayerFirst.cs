@@ -14,6 +14,8 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
     private Inputs inputs;
 
+    private GameObject gameManager;
+
     [Space]
     [Header("Player Settings")]
     [Space]
@@ -120,6 +122,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     private float eyesUncomfortableSources;
     public float EyesUncomfortableSources { get { return eyesUncomfortableSources; } set { eyesUncomfortableSources = value; } }
 
+    private bool isInsideShelter;
+    public bool IsInsideShelter {  get { return isInsideShelter; } set { isInsideShelter = value; } }
+
     [SerializeField]
     private Animator anim;
     public Animator Anim { get { return anim; } }
@@ -159,8 +164,12 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
         inputs = InputsManager.Instance.Inputs;
 
-        // TO MOVE TO GAME MANAGER
-        inputs.Player.Quit.performed += _ctx => Application.Quit();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        if(gameManager == null)
+        {
+            throw new System.NullReferenceException("No GameManager found in the scene");
+        }
 
         isTurningBack = false;
         isHurry = false;
@@ -168,6 +177,9 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         isProtectingEars = false;
         isRunning = false;
         turningBackPressed = false;
+
+        // Make sure we spawn at home
+        isInsideShelter = true;
 
         isUncomfortableEyes = false;
         isUncomfortableEars = false;
@@ -200,6 +212,11 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     // Update is called once per frame
     void Update()
     {
+        if(gameManager.GetComponent<GameManager>().IsGameOver)
+        {
+            anim.SetBool("isGameOver", true);
+        }
+
         if (inputs.Player.enabled) // Compulsory, as Disabling or Enabling an Action also Enable the ActionGroup !!!
         {
             StickToGround();

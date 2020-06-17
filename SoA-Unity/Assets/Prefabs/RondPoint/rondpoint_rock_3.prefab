@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4363728510227013417}
   - component: {fileID: 2357178612048658701}
   - component: {fileID: 8526162566281715626}
+  - component: {fileID: 7470338387707312477}
   m_Layer: 0
   m_Name: rock3_geo
   m_TagString: Untagged
@@ -110,3 +111,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7470338387707312477
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5798210303662411768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8439319653926816742, guid: fdc5255dd9d0556429c019d5f690ddd9, type: 3}

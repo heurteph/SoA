@@ -9,7 +9,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Parc_Obstacles_Master" ID="{4F1B7D31-38C0-455D-B5F1-1706648F7B26}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+							<ObjectRef Name="Obstacles_Parc" ID="{8B635E17-B35D-4FA2-BC8B-9F39E845CD0F}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 						<Reference Name="UserAuxSend0">
 							<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
@@ -985,6 +985,8 @@
 								</RandomSequenceContainer>
 								<SwitchContainer Name="Texture Pas" ID="{53D24EE7-14EE-4979-B2D4-085D6ABC7C03}" ShortID="627161832">
 									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-17</Value>
@@ -995,6 +997,9 @@
 										<Reference Name="Attenuation">
 											<Custom>
 												<Attenuation Name="Attenuation (Custom)" ID="{57683AF4-BFB3-4E2A-9610-15C0980664D6}" ShortID="905445995">
+													<PropertyList>
+														<Property Name="RadiusMax" Type="Real64" Value="50"/>
+													</PropertyList>
 													<CurveUsageInfoList>
 														<VolumeDryUsage>
 															<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -1007,9 +1012,10 @@
 																			<XPos>0</XPos>
 																			<YPos>0</YPos>
 																			<Flags>5</Flags>
+																			<SegmentShape>Log1</SegmentShape>
 																		</Point>
 																		<Point>
-																			<XPos>100</XPos>
+																			<XPos>50</XPos>
 																			<YPos>-200</YPos>
 																			<Flags>37</Flags>
 																		</Point>
@@ -1046,7 +1052,7 @@
 											<ObjectRef Name="Asphalt" ID="{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="PersoMaster" ID="{70882171-F188-490F-BB20-D05554DA0579}" WorkUnitID="{2E8B03C5-B7AB-4730-AC19-BD49D2D89A85}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 										</Reference>
 										<Reference Name="SwitchGroupOrStateGroup">
 											<ObjectRef Name="Pas_Matiere" ID="{B5A97861-3A79-49DC-9CA4-30BD84E287BE}" WorkUnitID="{0A96E12C-3A38-483C-A2FF-3B2C12ADA0B0}"/>
@@ -8746,7 +8752,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Parc_Obstacles_Master" ID="{4F1B7D31-38C0-455D-B5F1-1706648F7B26}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+							<ObjectRef Name="Obstacles_Parc" ID="{8B635E17-B35D-4FA2-BC8B-9F39E845CD0F}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 						<Reference Name="UserAuxSend0">
 							<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
@@ -8776,6 +8782,11 @@
 								</Property>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="5"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -9091,7 +9102,7 @@
 								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-6</Value>
+										<Value>-8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -9435,7 +9446,6 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
-								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-7</Value>
@@ -9821,12 +9831,20 @@
 					</StateInfo>
 				</ActorMixer>
 				<ActorMixer Name="Parc_Obstacle_VoitureElec" ID="{3BA6CD9F-5AD4-4DF5-8DB4-2BF4FA162E90}" ShortID="853439529">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Attenuation">
 							<Custom>
 								<Attenuation Name="Attenuation (Custom)" ID="{44EAD2E2-3905-49B8-95A6-11AEAE602D52}" ShortID="218618253">
 									<PropertyList>
-										<Property Name="RadiusMax" Type="Real64" Value="40"/>
+										<Property Name="RadiusMax" Type="Real64" Value="50"/>
 									</PropertyList>
 									<CurveUsageInfoList>
 										<VolumeDryUsage>
@@ -9840,9 +9858,10 @@
 															<XPos>0</XPos>
 															<YPos>0</YPos>
 															<Flags>5</Flags>
+															<SegmentShape>Log2</SegmentShape>
 														</Point>
 														<Point>
-															<XPos>40</XPos>
+															<XPos>50</XPos>
 															<YPos>-200</YPos>
 															<Flags>37</Flags>
 														</Point>
@@ -9876,7 +9895,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Parc_Obstacles_Master" ID="{4F1B7D31-38C0-455D-B5F1-1706648F7B26}" WorkUnitID="{70D4FE64-567E-498B-B7EA-F267B96BB740}"/>
+							<ObjectRef Name="Obstacles_Parc" ID="{8B635E17-B35D-4FA2-BC8B-9F39E845CD0F}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 						<Reference Name="UserAuxSend0">
 							<ObjectRef Name="MixEcoutePerso" ID="{97430BC9-EEDC-4BAA-90C1-49425009782D}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
@@ -9889,7 +9908,6 @@
 						<Sound Name="Parc_Obstacles_VoitureElec_Moteurs" ID="{210321C2-8EC9-4A28-ACA5-CF651D961258}" ShortID="999411939">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
 										<Value>130</Value>

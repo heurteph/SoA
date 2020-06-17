@@ -304,6 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4553419880173687280}
   - component: {fileID: 5889297090112191626}
+  - component: {fileID: 7287802603417699814}
   m_Layer: 0
   m_Name: character_NPC_F_05@Standing Using Touchscreen Tablet
   m_TagString: Untagged
@@ -348,6 +349,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7287802603417699814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678819346677670883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &734442404523082618
 GameObject:
   m_ObjectHideFlags: 0

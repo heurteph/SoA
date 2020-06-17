@@ -607,6 +607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2836081840179665617}
   - component: {fileID: 5319255465921410987}
+  - component: {fileID: -3525150300095326145}
   m_Layer: 0
   m_Name: character_NPC_F_05@Jog Forward
   m_TagString: Untagged
@@ -651,6 +652,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3525150300095326145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225138186956482754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1241065466669538471
 GameObject:
   m_ObjectHideFlags: 0

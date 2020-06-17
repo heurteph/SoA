@@ -993,6 +993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1488308624997960872}
   - component: {fileID: 8803845741831512530}
+  - component: {fileID: 4660277321707571876}
   m_Layer: 0
   m_Name: character_NPC_F_05@Talking
   m_TagString: Untagged
@@ -1037,6 +1038,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4660277321707571876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521119792206823099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2579496335936013282
 GameObject:
   m_ObjectHideFlags: 0

@@ -312,6 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4278635845884616742}
   - component: {fileID: 6190979854433783132}
+  - component: {fileID: 5886874079289641663}
   m_Layer: 0
   m_Name: character_NPC_M_04@Leaning
   m_TagString: Untagged
@@ -358,6 +359,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5886874079289641663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953528889582441013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1036241990856340140
 GameObject:
   m_ObjectHideFlags: 0

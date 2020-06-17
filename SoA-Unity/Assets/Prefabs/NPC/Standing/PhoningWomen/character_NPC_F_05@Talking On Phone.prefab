@@ -1822,6 +1822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 967909160281493050}
   - component: {fileID: 7198079870859502400}
+  - component: {fileID: -6855158030174409496}
   m_Layer: 0
   m_Name: character_NPC_F_05@Talking On Phone
   m_TagString: Untagged
@@ -1866,6 +1867,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6855158030174409496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266577459748158505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4357333000238052466
 GameObject:
   m_ObjectHideFlags: 0

@@ -965,6 +965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3050104923436729898}
   - component: {fileID: 4962445093224672080}
+  - component: {fileID: -7781008259469775619}
   m_Layer: 0
   m_Name: character_NPC_F_03@Leaning On A Wall
   m_TagString: Untagged
@@ -1009,6 +1010,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7781008259469775619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021975067424666681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2033033677420757084
 GameObject:
   m_ObjectHideFlags: 0

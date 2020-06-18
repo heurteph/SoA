@@ -38,8 +38,6 @@ public class FieldOfView : MonoBehaviour
     [SerializeField]
     private float moveAnimDanger, danceAnimDanger; 
 
-
-
     [Space]
     [Header("Front Crowd Detector Settings")]
     [Space]
@@ -181,11 +179,6 @@ public class FieldOfView : MonoBehaviour
                 {
                     crowdThresholdEvent(crowdFrontDamage);
                 }
-
-
-
-
-
 
                 totalFrontTargets = frontVisibleTargets.Count();
             }

@@ -179,6 +179,11 @@ public class CameraFollow : MonoBehaviour
     [Range(0.1f, 5f)]
     private float timeProtectedToGameover = 1f;
 
+    [SerializeField]
+    [Tooltip("The vertical speed of the camera when it flies into the air")]
+    [Range(0,10)]
+    private float flyAwaySpeed = 2f;
+
     private float zoomTimer;
 
     private float angleFromNormalToHorizon = 0;
@@ -1567,8 +1572,13 @@ public class CameraFollow : MonoBehaviour
             {
                 transform.position = endPosition; // should wait one frame more
                 isAvailable = true;
-                cameraState = STATE.GAMEOVER; // should be unused
+                cameraState = STATE.GAMEOVER;
             }
+        }
+
+        else if (cameraState == STATE.GAMEOVER)
+        {
+            transform.position += Vector3.up * flyAwaySpeed;
         }
     }
 

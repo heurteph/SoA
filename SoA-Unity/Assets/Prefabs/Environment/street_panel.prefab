@@ -121,9 +121,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.42352942, g: 0.5058824, b: 0.94509804, a: 1}
   m_Intensity: 1
-  m_Range: 2.32
+  m_Range: 0.4
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 3920791503918475122}
   - component: {fileID: 7061303946360042280}
   - component: {fileID: 7598468487838684095}
+  - component: {fileID: 4350974434822044495}
   m_Layer: 0
   m_Name: pCube4
   m_TagString: Untagged
@@ -230,7 +231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e5140565055d97448a9eed4d77a8c7e1, type: 2}
+  - {fileID: 2100000, guid: 1214051ce13dbbf4c831080fff248e35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -265,6 +266,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3861478300804232965, guid: d531916b7664df14f8b845cf9a4b27f3, type: 3}
+--- !u!114 &4350974434822044495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4057970458121253802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ccfcf9394e06f4d8cbe983a5348eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  l: {fileID: 5067939256518549098}
 --- !u!1 &4843266667362887709
 GameObject:
   m_ObjectHideFlags: 0

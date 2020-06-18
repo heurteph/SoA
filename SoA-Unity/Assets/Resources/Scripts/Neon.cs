@@ -17,13 +17,10 @@ public class Neon : MonoBehaviour
         //nouvelle instance
         mat = new Material(mat);
         gameObject.GetComponent<MeshRenderer>().material = mat;
-        //mat.SetVector("_Light_Pos",new Vector4(l.transform.position.x, l.transform.position.y, l.transform.position.z, 1.0f));
     }
     void Update()
     {
-        mat.SetInt("_On", 1);//(activate ? 1 : 0));
-        //ca ne sert pas dans Neon, car pour attenuation
-        //mat.SetVector("_Light_Pos", new Vector4(l.transform.position.x, l.transform.position.y, l.transform.position.z, 1.0f));
+        mat.SetInt("_On", (activate ? 1 : 0));
         mat.SetFloat("_Intensity", l.intensity);
         mat.SetColor("_Color",l.color);
     }

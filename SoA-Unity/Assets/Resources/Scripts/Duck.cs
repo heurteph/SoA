@@ -41,8 +41,6 @@ public class Duck : MonoBehaviour
         }
         mat = GetComponent<MeshRenderer>().material;
         mat.SetFloat("_Id", id);
-        //if (pivot != null)
-        //    transform.eulerAngles = new Vector3(0.0f,transform.eulerAngles.y * (speed > 0 ? 1.0f : -1.0f), 0.0f);
     }
 
     void Update()

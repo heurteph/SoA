@@ -83,7 +83,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""God Mode"",
+                    ""name"": ""GodMode"",
                     ""type"": ""Button"",
                     ""id"": ""973ba557-eae4-43ca-9e9e-c992c77d144d"",
                     ""expectedControlType"": """",
@@ -282,7 +282,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""100f4a26-d12d-4da2-9d98-b3d00f243cee"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -348,7 +348,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c9ab370b-8ef3-40f5-a51c-f257aade9e3b"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -407,7 +407,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""God Mode"",
+                    ""action"": ""GodMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -418,7 +418,7 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse-Keyboard"",
-                    ""action"": ""God Mode"",
+                    ""action"": ""GodMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -448,7 +448,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
         m_Player_ProjectiveLook = m_Player.FindAction("ProjectiveLook", throwIfNotFound: true);
         m_Player_Target = m_Player.FindAction("Target", throwIfNotFound: true);
-        m_Player_GodMode = m_Player.FindAction("God Mode", throwIfNotFound: true);
+        m_Player_GodMode = m_Player.FindAction("GodMode", throwIfNotFound: true);
     }
 
     public void Dispose()

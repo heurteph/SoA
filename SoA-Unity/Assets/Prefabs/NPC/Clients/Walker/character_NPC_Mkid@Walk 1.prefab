@@ -1351,6 +1351,7 @@ GameObject:
   - component: {fileID: 7472920079446254616}
   - component: {fileID: 7081913342222916473}
   - component: {fileID: -3427577507351507676}
+  - component: {fileID: -2392161320301809010}
   m_Layer: 0
   m_Name: character_NPC_Mkid@Walk 1
   m_TagString: Untagged
@@ -1427,6 +1428,19 @@ MonoBehaviour:
   raycaster: {fileID: 0}
   groundLevel: {fileID: 0}
   directionState: 0
+--- !u!65 &-2392161320301809010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4567915703176625009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 4.04, z: 1.76}
+  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &4952852820365777078
 GameObject:
   m_ObjectHideFlags: 0

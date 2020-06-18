@@ -55,7 +55,7 @@ public class NPCMaterialsManager : MonoBehaviour
 
     public Material GetFemaleNPCMaterial()
     {
-        return maleNPCMats[Random.Range(0, maleNPCMats.Count)];
+        return femaleNPCMats[Random.Range(0, femaleNPCMats.Count)];
     }
     public Material GetHatMaterial()
     {

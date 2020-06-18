@@ -678,6 +678,7 @@ GameObject:
   - component: {fileID: 5610488669954141074}
   - component: {fileID: 7022021171969470296}
   - component: {fileID: -8335703680910905555}
+  - component: {fileID: 6968370218742739504}
   m_Layer: 0
   m_Name: character_NPC_M_01@Walk 1
   m_TagString: Untagged
@@ -756,6 +757,19 @@ MonoBehaviour:
   raycaster: {fileID: 0}
   groundLevel: {fileID: 0}
   directionState: 0
+--- !u!65 &6968370218742739504
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516921020135126267}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 4.04, z: 1.76}
+  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &1528014839985930398
 GameObject:
   m_ObjectHideFlags: 0

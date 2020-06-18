@@ -912,6 +912,7 @@ GameObject:
   - component: {fileID: 3291671733546136298}
   - component: {fileID: 4838094986520207248}
   - component: {fileID: 678540701210318898}
+  - component: {fileID: -6966003824772154293}
   m_Layer: 0
   m_Name: character_NPC_F_02@Walking With Shopping Bag
   m_TagString: Untagged
@@ -968,6 +969,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &-6966003824772154293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014525034837623033}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 4.04, z: 1.76}
+  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &2050615223857317265
 GameObject:
   m_ObjectHideFlags: 0

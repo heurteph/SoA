@@ -63,10 +63,12 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (menuManager.GetComponent<MenuManager>().MenuState == MENU_STATE.CREDITS)
         {
             menuManager.GetComponent<MenuManager>().HideCredits();
+            transform.parent.GetChild(2).GetChild(0).GetComponent<Animation>().Play("MenuItemUngreyed");
         }
         else if (menuManager.GetComponent<MenuManager>().MenuState == MENU_STATE.CONTROLS)
         {
             menuManager.GetComponent<MenuManager>().HideControls();
+            transform.parent.GetChild(1).GetChild(0).GetComponent<Animation>().Play("MenuItemUngreyed");
         }
 
         Application.Quit();

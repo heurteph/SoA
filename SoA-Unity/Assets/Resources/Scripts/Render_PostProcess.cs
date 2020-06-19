@@ -29,7 +29,7 @@ public class Render_PostProcess : MonoBehaviour
 
     public bool shader_actif = false;
     private Material mat;
-    public string shader_name = "NoVision";
+    public string shader_name = "PostProcessV2";
     private Camera cam;
     private RenderTexture RT;
     int it = 0;
@@ -60,7 +60,7 @@ public class Render_PostProcess : MonoBehaviour
         lerp_effet = 1.0f;
 
         cam = GetComponent<Camera>();
-        changeShader("PostProcessV1");
+        changeShader("PostProcessV2");
     }
 
     public void changeShader(string name)
@@ -72,7 +72,7 @@ public class Render_PostProcess : MonoBehaviour
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        //activé
+        //non activé
         if (!shader_actif)
         {
             Graphics.Blit(source, destination);

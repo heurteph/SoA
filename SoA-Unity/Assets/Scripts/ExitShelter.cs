@@ -114,6 +114,9 @@ public class ExitShelter : MonoBehaviour
         shelterCamera.enabled = false;
 
         // Reset sound
+        mainCamera.gameObject.GetComponent<AkAudioListener>().enabled = true;
+        shelterCamera.gameObject.GetComponent<AkAudioListener>().enabled = false;
+
         AkSoundEngine.SetState("Dans_Lieu_Repos", "Non");
 
         // Ambiance sound

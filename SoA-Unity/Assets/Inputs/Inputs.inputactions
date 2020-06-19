@@ -269,7 +269,7 @@
                 {
                     "name": "",
                     "id": "100f4a26-d12d-4da2-9d98-b3d00f243cee",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -335,7 +335,7 @@
                 {
                     "name": "",
                     "id": "c9ab370b-8ef3-40f5-a51c-f257aade9e3b",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

@@ -121,10 +121,13 @@ public class GameManager : MonoBehaviour
         fade.GetComponent<Animation>().Play("BlackScreenFadeIn");
 
         // Display message
-        gameOverMessage.GetComponent<Animation>().Play("GameOverMessageFadeInOut");
+        // gameOverMessage.GetComponent<Animation>().Play("GameOverMessageFadeInOut");
 
         // Display logo
-        gameOverLogo.GetComponent<Animation>().Play("LogoFadeIn");
+        // gameOverLogo.GetComponent<Animation>().Play("LogoFadeIn");
+
+        // Display new message
+        gameOverMessage.GetComponent<Animation>().Play("GameOverMessageFadeIn");
     }
 
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
@@ -133,7 +136,10 @@ public class GameManager : MonoBehaviour
         AkSoundEngine.StopAll();
 
         Debug.Log("Loading scene");
-        gameOverLogo.GetComponent<Image>().color = new Color(gameOverLogo.GetComponent<Image>().color.r, gameOverLogo.GetComponent<Image>().color.g, gameOverLogo.GetComponent<Image>().color.b, 1);
+        //gameOverLogo.GetComponent<Image>().color = new Color(gameOverLogo.GetComponent<Image>().color.r, gameOverLogo.GetComponent<Image>().color.g, gameOverLogo.GetComponent<Image>().color.b, 1);
+        
+        gameOverMessage.GetComponent<Text>().color = new Color(gameOverMessage.GetComponent<Text>().color.r, gameOverMessage.GetComponent<Text>().color.g, gameOverMessage.GetComponent<Text>().color.b, 1);
+        fade.GetComponent<Image>().color = new Color(fade.GetComponent<Image>().color.r, fade.GetComponent<Image>().color.g, fade.GetComponent<Image>().color.b, 1);
 
         // Switch camera
         //transitionCamera.enabled = true;
@@ -153,7 +159,9 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Scene loaded");
 
                 // Fade out
-                gameOverLogo.GetComponent<Animation>().Play("LogoFadeOut");
+                //gameOverLogo.GetComponent<Animation>().Play("LogoFadeOut");
+
+                gameOverMessage.GetComponent<Animation>().Play("GameOverMessageFadeOut");
                 fade.GetComponent<Animation>().Play("BlackScreenFadeOut");
 
                 inputs.Player.Enable();

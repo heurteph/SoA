@@ -125,18 +125,14 @@ public class OpenCVFaceDetection : MonoBehaviour
             for (int i = 0; i < detectedFaceCount; i++)
             {
                 NormalizedFacePositions.Add(new Vector2((_faces[i].X * DetectionDownScale) / CameraResolution.x, 1f - ((_faces[i].Y * DetectionDownScale) / CameraResolution.y)));
-                Debug.Log("Positions " + NormalizedFacePositions[NormalizedFacePositions.Count - 1]);
                 if (max < _faces[i].Radius)
                 {
                     if (!reset)
                     {
                         //un premier filtre d'input
-                        //censé être le radius min et max ?
-                        float distance = _faces[i].Radius;//(NormalizedFacePositions[NormalizedFacePositions.Count - 1] - oldPosition).magnitude;
-                        //Debug.Log("Distance est de "+distance);
+                        float distance = _faces[i].Radius;
                         if (distance < 100.0f && distance >= 0.5f)
                         {
-                            //Debug.Log("Distance " + distance);
                             max = _faces[i].Radius;
                             positions = NormalizedFacePositions[NormalizedFacePositions.Count - 1];
                             positions.z = max;

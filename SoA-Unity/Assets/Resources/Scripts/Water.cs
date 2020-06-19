@@ -15,8 +15,6 @@ public class Water : MonoBehaviour
 
         mat = GetComponent<MeshRenderer>().material;
         mat.SetTexture("_Skybox",rp.texture);
-        //Material mat = RenderSettings.skybox;
-        //Cubemap skybox = (Cubemap) mat.GetTexture("_Cube");
     }
 
     // Update is called once per frame

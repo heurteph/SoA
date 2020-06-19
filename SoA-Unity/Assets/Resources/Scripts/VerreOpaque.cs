@@ -11,7 +11,6 @@ public class VerreOpaque : MonoBehaviour
     void Start()
     {
         mat = GetComponent<MeshRenderer>().material;
-        //mat.SetVector("_Light_Pos",new Vector4(l.transform.position.x, l.transform.position.y, l.transform.position.z, 1.0f));
     }
     void Update()
     {

@@ -19,8 +19,7 @@ public class AfficheScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Light Position "+l.transform.position);
-        mat.SetVector("_LightPosition",gameObject.transform.parent.position);
+        //mat.SetVector("_LightPosition",gameObject.transform.parent.position);
         mat.SetFloat("_LightIntensity",l.intensity);
         mat.SetColor("_ContourColor",l.color);
     }

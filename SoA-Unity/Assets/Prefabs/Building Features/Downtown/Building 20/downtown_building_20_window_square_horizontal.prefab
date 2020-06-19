@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5940654334819846222}
   - component: {fileID: 198844083637797137}
   - component: {fileID: 6149056420946892107}
+  - component: {fileID: 6651918574667247621}
   m_Layer: 0
   m_Name: pCube4
   m_TagString: Untagged
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6651918574667247621
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935572361935967689}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3861478300804232965, guid: e6a6d514618a8f24c9aab299c73e7e7d, type: 3}
 --- !u!1 &4701614628910911300
 GameObject:
   m_ObjectHideFlags: 0

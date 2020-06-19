@@ -56,20 +56,11 @@ public class CameraHead : MonoBehaviour
         }
         else
         {
-            //v1
-            //int v = (int)(value * Mathf.Pow(10.0f, pow-1));
-            //return (v/ Mathf.Pow(10.0f, pow-1));
-            //v2 avec >= 5 1 sinon 0
-
             float v = (int)(value * Mathf.Pow(10.0f, pow));
             int unit = ((int)(v/10.0f))*10;
             float nb = v - unit;
-            /*if (nb % 2 != 0)
-            {
-                v = (v + 1);
-            }
-            v /= Mathf.Pow(10.0f,pow);*/
-            if(nb >= 5)
+
+            if (nb >= 5)
             {
                 v = (unit + 1) / Mathf.Pow(10.0f, pow);
             }
@@ -80,7 +71,6 @@ public class CameraHead : MonoBehaviour
             return v;
         }
     }
-    //private float _camDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -97,15 +87,11 @@ public class CameraHead : MonoBehaviour
         T = new Matrix4x4();
 
 
-        //gérer les coords avec aspect et fov
-
-        //float y = cam.nearClipPlane * Mathf.Tan(cam.fieldOfView/2.0f);
-        //float x = y * cam.aspect;
         float x = 1.0f;
         float y = x / cam.aspect;
 
         //point en bas a gauche
-        pa = new Vector3(-x, -y, -cam.nearClipPlane);//new Vector3(-1.5f, -0.75f, -18);
+        pa = new Vector3(-x, -y, -cam.nearClipPlane);
         //point a droite
         pb = new Vector3(x, -y, -cam.nearClipPlane);
         //point en haut a gauche
@@ -118,37 +104,14 @@ public class CameraHead : MonoBehaviour
         vu = (pc - pa).normalized;
         //vecteur normal
         vn = Vector3.Cross(vr, vu).normalized;
-        //eye_pos = new Vector3(offSet.x, offSet.y, 0.0f);
+        
         eye_pos = transform.position;
-        /*
-         //vecteurs par rapport au head tracking
-         va = pa - eye_pos;
-         vb = pb - eye_pos;
-         vc = pc - eye_pos;
-
-         //calcul de la distance entre le point et la position eye, comme differente direction opposé
-         d = -Vector3.Dot(vn,va);
-
-         //calcul du left right top bottom
-         l = Vector3.Dot(vr, va) * cam.nearClipPlane / d;
-         r = Vector3.Dot(vr, vb) * cam.nearClipPlane / d;
-         b = Vector3.Dot(vu, va) * cam.nearClipPlane / d;
-         t = Vector3.Dot(vu, vc) * cam.nearClipPlane / d;
-
-         P = new Matrix4x4();
-         P.SetRow(0, new Vector4((2*cam.nearClipPlane)/(r-l),0.0f, (r + l) / (r - l), 0.0f));
-         P.SetRow(1, new Vector4(0.0f, (2 * cam.nearClipPlane) / (t - b),(t+b)/(t-b),0.0f));
-         P.SetRow(2, new Vector4(0.0f,0.0f,-(cam.farClipPlane+cam.nearClipPlane)/(cam.farClipPlane-cam.nearClipPlane),-(2*cam.farClipPlane*cam.nearClipPlane)/(cam.farClipPlane-cam.nearClipPlane)));
-         P.SetRow(3, new Vector4(0.0f,0.0f,-1.0f,0.0f));*/
-
-        //_camDistance = Vector3.Distance(Camera.main.transform.position, transform.position);
     }
 
      // Update is called once per frame
      void Update()
      {
          float x = Input.GetAxis("Horizontal") * 10.0f * Time.deltaTime;
-         //float rot = Input.GetAxis("Horizontal") * rot_speed * Time.deltaTime;
          float z = Input.GetAxis("Vertical") * 10.0f * Time.deltaTime;
          transform.Translate(new Vector3(x, 0, z));
 
@@ -158,9 +121,7 @@ public class CameraHead : MonoBehaviour
          Vector2 old_offset = new Vector2(offSet.x, offSet.y);
          float old_offset_z = offsetZ;
 
-         Debug.Log(OpenCVFaceDetection.positions);
-         //transform.position = Camera.main.ViewportToWorldPoint(new Vector3(OpenCVFaceDetection.positions.x, 1 - OpenCVFaceDetection.positions.y, _camDistance));
-
+         
 
         float radius_median = 85.0f;
         float marge_erreur_radius = 5.0f;
@@ -170,11 +131,6 @@ public class CameraHead : MonoBehaviour
             offSet.x = (OpenCVFaceDetection.positions.x * 2.0f) - 1.0f;
             offSet.y = (OpenCVFaceDetection.positions.y * 2.0f) - 1.0f;
 
-            //Debug.Log("Radius est de " + OpenCVFaceDetection.positions.z);
-            //Debug.Log("Les Offsets sont de " + offSet.x + " et " + offSet.y);
-            //Debug.Log("Les Offsets Old sont de " + old_offset.x + " et " + old_offset.y);
-            //Debug.Log("Offsets dot " + Mathf.Acos(offSet.x * old_offset.x + offSet.y * old_offset.y));
-            //Debug.Log("Marge erreur " + Mathf.Abs(offSet.x - old_offset.x) + " et " + Mathf.Abs(offSet.y - old_offset.y)+" Radius "+OpenCVFaceDetection.positions.z);
             offSet.x = -offSet.x;
             if (Mathf.Abs(offSet.x - old_offset.x) > marge_erreur || Mathf.Abs(offSet.y - old_offset.y) > marge_erreur)
             {
@@ -229,11 +185,5 @@ public class CameraHead : MonoBehaviour
         {
             cam.projectionMatrix = cam_base;
         }
-
-        
-        //cam.worldToCameraMatrix = P * M * T;
-        
-        //version 3D Kooima
-        //cam.projectionMatrix = P * M * T;
     }
 }

@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 6511317128986515122}
   - component: {fileID: 6498553531064140213}
   - component: {fileID: 5144002663221092071}
+  - component: {fileID: 8068316064795480295}
   m_Layer: 0
   m_Name: pCube3
   m_TagString: Untagged
@@ -158,6 +159,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8068316064795480295
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4963713895052611122}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0.9999999, z: 3.0930755}
+  m_Center: {x: 0, y: -0.000000074505806, z: 1.0465378}
 --- !u!1 &5300046856287053526
 GameObject:
   m_ObjectHideFlags: 0

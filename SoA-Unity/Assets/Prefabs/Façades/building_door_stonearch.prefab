@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 5537957846516507095}
   - component: {fileID: 3184634733677799638}
   - component: {fileID: 6106479860973795405}
+  - component: {fileID: 1377716813627805738}
   m_Layer: 0
   m_Name: arche
   m_TagString: Untagged
@@ -365,3 +366,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2297425034801156755, guid: 23f3b5c1654d29d43bfe5697998cdc91, type: 3}
+--- !u!65 &1377716813627805738
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9133600130485023842}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.0024433, y: 0.65, z: 4.0332184}
+  m_Center: {x: -0.98461294, y: 0, z: -0.00000011920929}

@@ -26,8 +26,6 @@ vertexInput vert(vertexInput v)
 vertexOutput tessVert(vertexInput v)
 {
 	vertexOutput o;
-	// Note that the vertex is NOT transformed to clip
-	// space here; this is done in the grass geometry shader.
 	o.vertex = v.vertex;
 	o.normal = v.normal;
 	o.tangent = v.tangent;

@@ -2286,6 +2286,7 @@ GameObject:
   - component: {fileID: 8424960245158065948}
   - component: {fileID: 1900936260394654310}
   - component: {fileID: 4689009842222104747}
+  - component: {fileID: -9041665688540856079}
   m_Layer: 0
   m_Name: character_NPC_M_04@Angry
   m_TagString: Untagged
@@ -2344,6 +2345,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &-9041665688540856079
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4805377551435941135}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 4.04, z: 1.76}
+  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &4864105556625537110
 GameObject:
   m_ObjectHideFlags: 0

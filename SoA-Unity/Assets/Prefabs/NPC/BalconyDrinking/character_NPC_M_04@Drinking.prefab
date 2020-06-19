@@ -2319,6 +2319,7 @@ GameObject:
   - component: {fileID: 8482692983835047925}
   - component: {fileID: 1959795445311675023}
   - component: {fileID: -8515614843295245625}
+  - component: {fileID: -4578268351909557420}
   m_Layer: 0
   m_Name: character_NPC_M_04@Drinking
   m_TagString: Untagged
@@ -2377,6 +2378,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &-4578268351909557420
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4891979620221011430}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 4.04, z: 1.76}
+  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &4928052885425455246
 GameObject:
   m_ObjectHideFlags: 0

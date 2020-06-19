@@ -2600,6 +2600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8999172233423298135}
   - component: {fileID: 4150576928418985167}
+  - component: {fileID: -5108525635634683321}
   m_Layer: 0
   m_Name: character_NPC_M_01@Plant A Plant
   m_TagString: Untagged
@@ -2646,6 +2647,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &-5108525635634683321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5384091492125502532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 4.04, z: 1.76}
+  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &5442817820130087197
 GameObject:
   m_ObjectHideFlags: 0

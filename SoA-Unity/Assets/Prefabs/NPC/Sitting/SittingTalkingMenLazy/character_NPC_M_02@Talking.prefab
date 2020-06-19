@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 3693484521311256681}
   - component: {fileID: 6758750047086439699}
   - component: {fileID: -4890836863667630737}
+  - component: {fileID: -4324422773132762678}
   m_Layer: 0
   m_Name: character_NPC_M_02@Talking
   m_TagString: Untagged
@@ -195,6 +196,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &-4324422773132762678
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367814412959986298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 4.04, z: 1.76}
+  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &370152261477107231
 GameObject:
   m_ObjectHideFlags: 0

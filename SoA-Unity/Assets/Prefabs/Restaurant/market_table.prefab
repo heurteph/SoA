@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4371407620571101448}
   - component: {fileID: 4751678789222417214}
   - component: {fileID: 1354971908698259399}
+  - component: {fileID: 8206523575420340054}
   m_Layer: 0
   m_Name: market_table
   m_TagString: Untagged
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8206523575420340054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788417770999352091}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.1, y: 47.68, z: 3.21}
+  m_Center: {x: 0, y: 33.38, z: 0}

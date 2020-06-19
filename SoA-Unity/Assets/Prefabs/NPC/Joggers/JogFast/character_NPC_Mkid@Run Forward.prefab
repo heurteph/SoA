@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 5904768326964669709}
   - component: {fileID: 3867989669822893862}
   - component: {fileID: 5258850722007682438}
+  - component: {fileID: 7813969862069487186}
   m_Layer: 0
   m_Name: character_NPC_Mkid@Run Forward
   m_TagString: Untagged
@@ -212,6 +213,19 @@ MonoBehaviour:
   raycaster: {fileID: 0}
   groundLevel: {fileID: 0}
   directionState: 0
+--- !u!65 &7813969862069487186
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657712030663750244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 4.04, z: 1.76}
+  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &754999982406308605
 GameObject:
   m_ObjectHideFlags: 0

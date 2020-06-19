@@ -3420,6 +3420,7 @@ GameObject:
   - component: {fileID: 4788255846274328552}
   - component: {fileID: 3240707800217340562}
   - component: {fileID: -1506507100691063815}
+  - component: {fileID: 3077334304764721863}
   m_Layer: 0
   m_Name: character_NPC_F_01@Talking On Phone
   m_TagString: Untagged
@@ -3476,6 +3477,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3077334304764721863
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8369962491568494075}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 4.04, z: 1.76}
+  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &8437762034625046690
 GameObject:
   m_ObjectHideFlags: 0

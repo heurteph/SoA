@@ -58,6 +58,7 @@ public class CreditsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (menuManager.GetComponent<MenuManager>().MenuState == MENU_STATE.CONTROLS)
         {
+            menuManager.GetComponent<MenuManager>().HideControls();
             transform.parent.GetChild(1).GetChild(0).GetComponent<Animation>().Play("MenuItemUngreyed");
         }
         if (menuManager.GetComponent<MenuManager>().MenuState != MENU_STATE.CREDITS)

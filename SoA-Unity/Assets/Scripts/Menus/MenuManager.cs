@@ -8,6 +8,7 @@ public enum MENU_STATE { NONE, CREDITS, CONTROLS }
 public class MenuManager : MonoBehaviour
 {
     private GameObject creditsPanel;
+    private GameObject controlImage;
     private GameObject corePanel;
     private GameObject extendedPanel;
 
@@ -37,6 +38,17 @@ public class MenuManager : MonoBehaviour
         {
             child.GetComponent<Text>().color = new Color(1, 1, 1, 0);
         }
+
+
+        controlImage = GameObject.FindGameObjectWithTag("Controls");
+        if (controlImage == null)
+        {
+            throw new System.NullReferenceException("Missing control image in the menu");
+        }
+        controlImage.GetComponent<CanvasGroup>().alpha = 0;
+        
+
+
     }
 
     // Update is called once per frame
@@ -45,10 +57,37 @@ public class MenuManager : MonoBehaviour
         
     }
 
+    
     public void DisplayControls()
     {
         menuState = MENU_STATE.CONTROLS;
+        StartCoroutine("FadeInControls");
     }
+    
+    public void HideControls()
+    {
+        menuState = MENU_STATE.NONE;
+        StartCoroutine("FadeOutControls");
+    }
+
+    IEnumerator FadeInControls()
+    {
+        
+            controlImage.GetComponent<Animation>().Play("CreditsFadeIn");
+            yield return new WaitForSeconds(0.01f);
+        
+    }
+
+    IEnumerator FadeOutControls()
+    {
+            controlImage.GetComponent<Animation>().Play("CreditsFadeOut");
+            yield return new WaitForSeconds(0.01f);
+        
+    }
+    
+
+
+
 
     public void DisplayCredits()
     {
@@ -89,4 +128,8 @@ public class MenuManager : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
     }
-}
+
+
+
+
+} //FINISH

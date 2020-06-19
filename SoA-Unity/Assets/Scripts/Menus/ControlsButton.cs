@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -60,7 +61,6 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             menuManager.GetComponent<MenuManager>().HideCredits();
             transform.parent.GetChild(2).GetChild(0).GetComponent<Animation>().Play("MenuItemUngreyed");
         }
-
         if (menuManager.GetComponent<MenuManager>().MenuState != MENU_STATE.CONTROLS)
         {
             menuManager.GetComponent<MenuManager>().DisplayControls();

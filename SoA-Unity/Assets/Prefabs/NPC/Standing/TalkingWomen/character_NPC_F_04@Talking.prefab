@@ -3535,6 +3535,7 @@ GameObject:
   - component: {fileID: 5545172848682476872}
   - component: {fileID: 2485541220353869874}
   - component: {fileID: 6866002790374755368}
+  - component: {fileID: 5359185827243966249}
   m_Layer: 0
   m_Name: character_NPC_F_04@Talking
   m_TagString: Untagged
@@ -3591,6 +3592,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5359185827243966249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8840337968859895643}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 4.04, z: 1.76}
+  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &8908075930675063298
 GameObject:
   m_ObjectHideFlags: 0

@@ -2666,6 +2666,7 @@ GameObject:
   - component: {fileID: 8858098488752382981}
   - component: {fileID: 1469381176108386687}
   - component: {fileID: -1823888281526824680}
+  - component: {fileID: 2380107126102184181}
   m_Layer: 0
   m_Name: character_NPC_M_03@Standing Using Touchscreen Tablet
   m_TagString: Untagged
@@ -2724,6 +2725,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2380107126102184181
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5527342243504215574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.06, y: 4.04, z: 1.76}
+  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &5586142679030737743
 GameObject:
   m_ObjectHideFlags: 0

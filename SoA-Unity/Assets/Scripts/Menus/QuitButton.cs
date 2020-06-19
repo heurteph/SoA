@@ -64,6 +64,10 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             menuManager.GetComponent<MenuManager>().HideCredits();
         }
+        else if (menuManager.GetComponent<MenuManager>().MenuState == MENU_STATE.CONTROLS)
+        {
+            menuManager.GetComponent<MenuManager>().HideControls();
+        }
 
         Application.Quit();
     }

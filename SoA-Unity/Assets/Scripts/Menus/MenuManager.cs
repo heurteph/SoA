@@ -52,17 +52,13 @@ public class MenuManager : MonoBehaviour
 
         AkSoundEngine.PostEvent("Play_Music_Main_Title", gameObject);
         //AkSoundEngine.PostEvent("Play_Music_Menu", gameObject);
-        }
-
 
         controlImage = GameObject.FindGameObjectWithTag("Controls");
-        if (controlImage == null)
+        if (controlImage == null)
         {
             throw new System.NullReferenceException("Missing control image in the menu");
         }
         controlImage.GetComponent<CanvasGroup>().alpha = 0;
-        
-
 
     }
 
@@ -154,11 +150,4 @@ public class MenuManager : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }*/
     }
-}
-        }
-    }
-
-
-
-
 } //FINISH

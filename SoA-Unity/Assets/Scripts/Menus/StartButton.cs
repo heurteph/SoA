@@ -66,6 +66,8 @@ public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             menuManager.GetComponent<MenuManager>().HideCredits();
         }
+
+        menuManager.GetComponent<MenuManager>().Fade.GetComponent<Animation>().Play("TitleFadeOut");
     }
 
     IEnumerator BurstSpots()

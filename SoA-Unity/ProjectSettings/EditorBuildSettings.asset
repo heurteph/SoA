@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/TrailerScene.unity
-    guid: 7ff222b5ecec233459b28ccb45cee2d8
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: dc2ad1b09d98bf7479fc3bb29a58837b
   - enabled: 1
     path: Assets/Scenes/GameElise.unity
     guid: b0708178ce84de34d916744aa7d2c048
@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Old/TutorialTest.unity
     guid: aa821834c8184bd44a9fcf9598e40fb7
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 41c6e6f5692454d488907f5476dbe48a,
       type: 2}

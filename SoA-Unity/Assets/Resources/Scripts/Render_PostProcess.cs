@@ -8,12 +8,12 @@ public class Render_PostProcess : MonoBehaviour
     private GameObject player;
 
     [SerializeField]
-    private float coef_blur = 300.0f;
+    public float coef_blur = 1000.0f;
     [SerializeField]
     private float coef_intensity = 16.0f;
 
     [SerializeField]
-    private float radius = 0.6f;
+    public float radius = 0.6f;
     [SerializeField]
     private Vector3 offSetColor;
     [SerializeField]

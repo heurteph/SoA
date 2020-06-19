@@ -344,6 +344,12 @@ public class CameraFollow : MonoBehaviour
         angleFromProtectedToHorizon += cameraAngularOffset.x; // TO DO : Check this out
         Debug.Log("angleFromProtectedToHorizon : " + angleFromProtectedToHorizon);
 
+        //FX
+        heldCamera.transform.GetChild(0).GetComponent<Render_PostProcess>().shader_actif = true;
+        heldCamera.transform.GetChild(0).GetComponent<Render_PostProcess>().coef_blur = 1000;
+        heldCamera.transform.GetChild(0).GetComponent<Render_PostProcess>().radius = 5;
+
+
         cameraState = STATE.NORMAL;
         zoomTimer = 0;
         isAvailable = true;
@@ -394,6 +400,8 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        UpdateFX();
+
         if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
         {
             //UpdatePosition();
@@ -415,7 +423,10 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-
+    private void UpdateFX()
+    {
+        heldCamera.transform.GetChild(0).GetComponent<Render_PostProcess>().coef_blur = (player.GetComponent<EnergyBehaviour>().Energy / 1000) * 700 + 300;
+    }
 
     private void UpdateRotation ()
     {

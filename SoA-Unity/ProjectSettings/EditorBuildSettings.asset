@@ -24,13 +24,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Old/Demo.unity
     guid: d7881289cffc20743b2e8e7a1681d12e
   - enabled: 0
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/Old/Game.unity
     guid: da8aba93b5a9f7349917e0fc3190a2ee
   - enabled: 0
     path: Assets/Scenes/Old/CameraTestScene.unity
     guid: 9033527e7b713264388a9d58c80eaf1c
   - enabled: 0
-    path: Assets/Scenes/Old/StreetTest.unity
+    path: Assets/Scenes/Others/StreetTest.unity
     guid: b78235bd101e64044a884494e0630158
   - enabled: 0
     path: Assets/Scenes/Old/ParkTest.unity

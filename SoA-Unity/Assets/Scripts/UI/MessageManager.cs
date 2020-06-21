@@ -33,7 +33,7 @@ public class MessageManager : MonoBehaviour
     {
         // TO DO : Ensure no message are overlapping when triggered close to each other
 
-        tutorialCanvas.transform.GetChild(0).GetComponent<Text>().text = message;
-        tutorialCanvas.transform.GetChild(0).GetComponent<Animation>().Play("InfoMsgFadeInOut");
+        tutorialCanvas.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text = message;
+        tutorialCanvas.transform.GetChild(0).GetComponent<Animation>().Play("CanvasGroupFadeInOut");
     }
 }

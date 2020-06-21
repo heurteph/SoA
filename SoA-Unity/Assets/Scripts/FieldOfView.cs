@@ -146,7 +146,7 @@ public class FieldOfView : MonoBehaviour
 
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
-            Debug.Log("J'ai " + targetsInViewRadius.Length + " cibles dans mon rayon");
+            //Debug.Log("J'ai " + targetsInViewRadius.Length + " cibles dans mon rayon");
             Transform target = targetsInViewRadius[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
             if (Vector3.Angle(transform.forward, dirToTarget) < frontViewAngle / 2)

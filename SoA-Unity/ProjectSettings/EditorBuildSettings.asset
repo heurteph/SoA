@@ -15,13 +15,13 @@ EditorBuildSettings:
     path: Assets/Scenes/CreditsScene.unity
     guid: d285cd02efea21340aa08788542d4004
   - enabled: 0
-    path: Assets/Scenes/Demo3.unity
+    path: Assets/Scenes/Old/Demo3.unity
     guid: bcbeb22bf736b26418078cc8a8391bf4
   - enabled: 0
-    path: Assets/Scenes/Demo2.unity
+    path: Assets/Scenes/Old/Demo2.unity
     guid: f82870b3e51f5164cb25443b8620e55b
   - enabled: 0
-    path: Assets/Scenes/Demo.unity
+    path: Assets/Scenes/Old/Demo.unity
     guid: d7881289cffc20743b2e8e7a1681d12e
   - enabled: 0
     path: Assets/Scenes/Game.unity

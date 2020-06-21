@@ -1258,7 +1258,7 @@ GameObject:
   - component: {fileID: 32362187199820525}
   - component: {fileID: 7996417104241205143}
   - component: {fileID: -6224889159464649891}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: character_NPC_M_03@Plant A Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1315,8 +1315,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.06, y: 4.04, z: 1.76}
-  m_Center: {x: 0, y: 3.03, z: 0}
+  m_Size: {x: 1.4864241, y: 3.4614258, z: 1.6464385}
+  m_Center: {x: 0.016975548, y: 1.825407, z: -0.40041614}
 --- !u!1 &3970283384117607847
 GameObject:
   m_ObjectHideFlags: 0

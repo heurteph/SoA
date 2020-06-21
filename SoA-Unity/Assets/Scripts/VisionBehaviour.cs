@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class VisionBehaviour : MonoBehaviour
 {
+    static int instanceCount = 0;
+
     [Space]
     [Header("Character Camera")]
 
@@ -114,7 +116,10 @@ public class VisionBehaviour : MonoBehaviour
 
         InjectCameraToFBX(); // create the camera inside the script
 
-        StartCoroutine("UpdateVision");
+        if (visionCamera.targetTexture != null)
+        {
+            StartCoroutine("UpdateVision");
+        }
     }
 
     // Update is called once per frame
@@ -234,7 +239,7 @@ public class VisionBehaviour : MonoBehaviour
         visionCamera = head.AddComponent<Camera>();
         visionCamera.nearClipPlane = 0.1f;
         visionCamera.targetTexture = targetTexture;
-        
+        //visionCamera.targetDisplay = ++instanceCount;
         head.transform.SetParent(headMesh);
     }
 

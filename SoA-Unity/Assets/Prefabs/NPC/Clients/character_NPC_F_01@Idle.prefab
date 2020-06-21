@@ -869,7 +869,7 @@ GameObject:
   - component: {fileID: 5881424613798483180}
   - component: {fileID: 5881424613798483181}
   - component: {fileID: 2503695247561575904}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: character_NPC_F_01@Idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

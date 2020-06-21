@@ -798,7 +798,7 @@ public class CameraFollow : MonoBehaviour
                 if (Physics.Linecast(startPosition, player.transform.position, out hit, noCollision)) // CHECK if childs should be on layer Play as well
                 {
                     if (hit.transform.CompareTag("Player")){ visibility = true; }
-                    else { visibility = false; Debug.Log("OCCLUSION WITH " + hit.transform.name + " INSIDE " + hit.transform.parent.name + " INSIDE " + hit.transform.parent.parent.name);}
+                    else { visibility = false; /*Debug.Log("OCCLUSION WITH " + hit.transform.name + " INSIDE " + hit.transform.parent.name + " INSIDE " + hit.transform.parent.parent.name);*/}
                 }
 
                 // Backward tracking if too close to the obstacle, use arc-length for the distances

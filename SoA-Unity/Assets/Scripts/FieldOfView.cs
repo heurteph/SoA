@@ -120,7 +120,7 @@ public class FieldOfView : MonoBehaviour
         DrawFieldOfSideView();
 
         //Front View
-        //	DrawTotalFieldOfFrontView();
+        //DrawTotalFieldOfFrontView();
         DrawFieldOfFrontView();
     }
 
@@ -160,7 +160,8 @@ public class FieldOfView : MonoBehaviour
                     frontCrowdInfo += Mathf.Pow((1 - dstToTarget / frontViewRadius), frontPow);
 
 
-                    //Get NPC's Animation 
+                    //Get NPC's Animation
+                    /*
                     Animator anim = target.GetComponent<Animator>();
                     if (anim.GetBool("isMoving") == true)
                     {
@@ -171,7 +172,7 @@ public class FieldOfView : MonoBehaviour
                     } else
                     {
                         crowdFrontDanger += idleAnimDanger * Mathf.Pow((1 - dstToTarget / frontViewRadius), frontPow);
-                    }
+                    }*/
                 }
 
                 // Apply Damage

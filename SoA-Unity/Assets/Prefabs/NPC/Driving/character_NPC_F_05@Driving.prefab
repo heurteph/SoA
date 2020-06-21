@@ -73,7 +73,8 @@ GameObject:
   - component: {fileID: 3810640573384157109}
   - component: {fileID: 6514490571138288335}
   - component: {fileID: -1430989735117460955}
-  m_Layer: 0
+  - component: {fileID: 1613748798432448698}
+  m_Layer: 11
   m_Name: character_NPC_F_05@Driving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,6 +130,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30514e4ab69eedb4b99079a339cc179d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1613748798432448698
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196263587928741286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4864241, y: 3.2456036, z: 2.3610535}
+  m_Center: {x: 0.016975522, y: 1.7174959, z: 0.8184662}
 --- !u!1 &254915063243401471
 GameObject:
   m_ObjectHideFlags: 0

@@ -288,7 +288,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8461670545034926606}
-  - component: {fileID: 7042908906003708250}
   m_Layer: 0
   m_Name: street_panel
   m_TagString: Untagged
@@ -317,19 +316,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7042908906003708250
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4843266667362887709}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.17, y: 4.52, z: 1.76}
-  m_Center: {x: 0, y: 3.03, z: 0}
 --- !u!1 &5645709266452332793
 GameObject:
   m_ObjectHideFlags: 0

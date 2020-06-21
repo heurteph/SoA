@@ -31,6 +31,9 @@ public class VisionBehaviour : MonoBehaviour
     //[SerializeField]
     //private GameObject characterMesh;
 
+    [SerializeField]
+    private LayerMask ignoreMask;
+
     [Space]
     [Header("Brightness Detector")]
 
@@ -239,6 +242,7 @@ public class VisionBehaviour : MonoBehaviour
         visionCamera = head.AddComponent<Camera>();
         visionCamera.nearClipPlane = 0.1f;
         visionCamera.targetTexture = targetTexture;
+        visionCamera.cullingMask = ~ignoreMask;
         //visionCamera.targetDisplay = ++instanceCount;
         head.transform.SetParent(headMesh);
     }

@@ -56,8 +56,6 @@ public class Façade: MonoBehaviour
 
         LightsOut(); // TO DO : Some lights might be highlighted from the start
 
-        Debug.Log("Quitting façade start");
-
         StartCoroutine("Flash");
     }
 

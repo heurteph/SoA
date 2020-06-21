@@ -19,14 +19,19 @@
 				</Property>
 				<Property Name="ExternalSourcesOutputPath" Type="string">
 					<ValueList>
-						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
+						<Value Platform="Windows">GeneratedSoundBanks\Windows</Value>
+					</ValueList>
+				</Property>
+				<Property Name="GlobalVoiceInstancesLimit" Type="int16">
+					<ValueList>
+						<Value Platform="Windows">512</Value>
 					</ValueList>
 				</Property>
 				<Property Name="LicenseKey" Type="string" Value="PHByb2plY3QgaWQ9IjUzNTgiIG1hc2s9Ik1QTVQxMzk0IiBlbmM9IjAiPjxsaWNlbnNlIGlkPSIxIiBuYW1lPSJXd2lzZSIgdHlwZT0iMyIgcGxhdGZvcm1zPSIyLDMsNCwxMCwxMywxNCIgZXhwaXJlcz0iMjAyMC0wNy0zMSIgIC8+PGxpY2Vuc2UgaWQ9IjIyIiBuYW1lPSJMZXZlbCBBIExpY2Vuc2UiIHR5cGU9IjMiIHBsYXRmb3Jtcz0iMiwzLDQsMTAsMTMsMTQiIGV4cGlyZXM9IjIwMjAtMDctMzEiICAvPjxsaWNlbnNlIGlkPSIyMSIgbmFtZT0iTWFpbnRlbmFuY2UiIHR5cGU9IjMiIHBsYXRmb3Jtcz0iMiwzLDQsMTAsMTMsMTQiIGV4cGlyZXM9IjIwMjAtMDctMzEiICAvPjxsaWNlbnNlIGlkPSIyNSIgbmFtZT0iQWxsIFd3aXNlIFBsdWctSW5zIiB0eXBlPSIzIiAgZXhwaXJlcz0iMjAyMC0wNy0zMSIgIC8+PC9wcm9qZWN0Pg==|vpV1nDDGo3ypZmGDkNvSRsBQLDE/pcScUGADfpRovFmWUUK+fqxm/Sg6UfLnzAQzWkK0AzYlYgTSLQfBlgy4nNqx7ld/DxrJ5aqpxp2q5fWObfujtFO7pvL/s3HsXklCt91Dvqekay8IRNiddV5qrZfXemSIfVkHQ4sxCg7w57S/zapI/++vsV1U+91MCJsF8H1DrlS4I8q/nrIZcCjKjIuBkJ1pw5OOqXfaez3/j4xqESqYfT90KpG0Mi+n0my5CWkDU3Fvi7P/nMNH4SDalrSE31XbXBf3VYGlFfpriSoY01IkNObDnt9O66XNZlyQ4lnr7qxwVkbvpZdaod/c5w=="/>
 				<Property Name="SoundBankGenerateEstimatedDuration" Type="bool" Value="True"/>
 				<Property Name="SoundBankGenerateHeaderFile" Type="bool" Value="True"/>
 				<Property Name="SoundBankGenerateMaxAttenuationInfo" Type="bool" Value="True"/>
-				<Property Name="SoundBankHeaderFilePath" Type="string" Value="../SoA-Unity/Assets/StreamingAssets/Audio/GeneratedSoundBanks"/>
+				<Property Name="SoundBankHeaderFilePath" Type="string" Value="..\SoA-Unity\Assets\StreamingAssets\Audio\GeneratedSoundBanks"/>
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>
 						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
@@ -52,8 +57,17 @@
 						<Value Platform="Windows"></Value>
 					</ValueList>
 				</Property>
+				<Property Name="VolumeThreshold" Type="Real64">
+					<ValueList>
+						<Value Platform="Windows">-80</Value>
+					</ValueList>
+				</Property>
 				<Property Name="WwiseVersionWhenCreated" Type="string" Value="Branch=wwise_v2019.2|Build=7216|VersionName=v2019.2.0|Config=Release"/>
 			</PropertyList>
+			<MiscSettings>
+				<MiscSettingEntry Name="Cache"><![CDATA[.cache]]></MiscSettingEntry>
+				<MiscSettingEntry Name="Originals"><![CDATA[Originals]]></MiscSettingEntry>
+			</MiscSettings>
 			<SharedValues>
 				<SharedPropertyList ClassName="AudioSource" PluginType="0" CompanyID="1" PluginID="0">
 					<PropertyList>
@@ -9186,6 +9200,7 @@
 										<XPos>0</XPos>
 										<YPos>0</YPos>
 										<Flags>5</Flags>
+										<SegmentShape>Exp1</SegmentShape>
 									</Point>
 									<Point>
 										<XPos>100</XPos>
@@ -9207,6 +9222,7 @@
 										<XPos>0</XPos>
 										<YPos>0</YPos>
 										<Flags>5</Flags>
+										<SegmentShape>Exp1</SegmentShape>
 									</Point>
 									<Point>
 										<XPos>100</XPos>
@@ -9218,7 +9234,7 @@
 						</PlatformCurve>
 					</ObsOccCurve>
 					<ObsOccCurve CurveXType="Obstruction" CurveYType="HPF">
-						<PlatformCurve Platform="Linked" EnableCurve="false">
+						<PlatformCurve Platform="Linked" EnableCurve="true">
 							<Curve Name="" ID="{53122907-6967-4199-A286-3F0359216470}">
 								<PropertyList>
 									<Property Name="Flags" Type="int32" Value="1"/>
@@ -9228,6 +9244,7 @@
 										<XPos>0</XPos>
 										<YPos>0</YPos>
 										<Flags>5</Flags>
+										<SegmentShape>Exp1</SegmentShape>
 									</Point>
 									<Point>
 										<XPos>100</XPos>
@@ -9249,6 +9266,7 @@
 										<XPos>0</XPos>
 										<YPos>0</YPos>
 										<Flags>5</Flags>
+										<SegmentShape>Exp1</SegmentShape>
 									</Point>
 									<Point>
 										<XPos>100</XPos>
@@ -9270,6 +9288,7 @@
 										<XPos>0</XPos>
 										<YPos>0</YPos>
 										<Flags>5</Flags>
+										<SegmentShape>Exp1</SegmentShape>
 									</Point>
 									<Point>
 										<XPos>100</XPos>
@@ -9281,7 +9300,7 @@
 						</PlatformCurve>
 					</ObsOccCurve>
 					<ObsOccCurve CurveXType="Occlusion" CurveYType="HPF">
-						<PlatformCurve Platform="Linked" EnableCurve="false">
+						<PlatformCurve Platform="Linked" EnableCurve="true">
 							<Curve Name="" ID="{37226B74-126C-4435-A792-FF990B126423}">
 								<PropertyList>
 									<Property Name="Flags" Type="int32" Value="1"/>
@@ -9291,6 +9310,7 @@
 										<XPos>0</XPos>
 										<YPos>0</YPos>
 										<Flags>5</Flags>
+										<SegmentShape>Exp1</SegmentShape>
 									</Point>
 									<Point>
 										<XPos>100</XPos>

@@ -4,18 +4,33 @@
 		<WorkUnit Name="Ambiance_Parc" ID="{22C479D9-C11C-40A9-93A1-EBB328A91A1A}" OwnerID="{3A9D6820-BB86-49BB-B15D-6AB6123F8ABC}" PersistMode="Nested">
 			<ChildrenList>
 				<ActorMixer Name="Nature_Parc" ID="{172D7EC3-9C25-4978-88C4-BDD127534240}" ShortID="486767461">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Parc_Envi_Master" ID="{3B6FD36D-F638-4BE9-9286-B8F46DD470C0}" WorkUnitID="{D4E16142-DC71-48F2-9773-C38FF7F21E94}"/>
+							<ObjectRef Name="Envi_Parc" ID="{953DF851-45C9-4D1B-B858-2DC92027426C}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<RandomSequenceContainer Name="Parc_Oiseaux1" ID="{F5E77440-D485-43CD-8CA1-5F9EE4872930}" ShortID="656758646">
 							<PropertyList>
 								<Property Name="3DPosition" Type="int16" Value="2"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>0.5</Value>
+									</ValueList>
+								</Property>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
@@ -26,7 +41,7 @@
 											<Modifier Name="" ID="{687B09F2-AC76-4F29-802A-03F4DE97D309}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="5"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
@@ -34,6 +49,11 @@
 								</Property>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -432,6 +452,11 @@
 							<PropertyList>
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -466,7 +491,30 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<RandomSequenceContainer Name="Parc_Insectes" ID="{98E7C882-CEF8-4E9D-BE3F-CF5CF0599BCF}" ShortID="257909148">
+						<RandomSequenceContainer Name="Parc_Jardinier" ID="{98E7C882-CEF8-4E9D-BE3F-CF5CF0599BCF}" ShortID="257909148">
+							<PropertyList>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{4F0158B1-5221-4D41-9788-F902B5509260}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="0.7"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -475,6 +523,360 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 								</Reference>
 							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Parc_Ambiance_Jardinier_01" ID="{C9882F8A-FED7-449A-BF17-D3970123DDB7}" ShortID="234475585">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_01" ID="{6E2D183E-0EFA-45C8-928C-D6F7E8CE1BCA}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="478707704"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_01" ID="{6E2D183E-0EFA-45C8-928C-D6F7E8CE1BCA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_02" ID="{BAD143FE-168C-443F-804B-004E588601BD}" ShortID="793137533">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_02" ID="{CF1B8161-5614-4CE5-A375-D858D5A79AB5}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="709836332"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_02" ID="{CF1B8161-5614-4CE5-A375-D858D5A79AB5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_03" ID="{09279E10-CC87-431C-926D-9F23F6BD43A6}" ShortID="680697753">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_03" ID="{CE9B5899-5A6E-4DEA-88EA-08AAF7DDB34A}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="384013979"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_03" ID="{CE9B5899-5A6E-4DEA-88EA-08AAF7DDB34A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_04" ID="{07A51A4B-39C7-4F36-9BB7-0B81491646EE}" ShortID="62002227">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_04" ID="{DBCD68C6-24E9-4FAF-B990-94F5C21A896C}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="341075357"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_04" ID="{DBCD68C6-24E9-4FAF-B990-94F5C21A896C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_05" ID="{6D64BC2F-2200-4122-8C04-329C890C1C69}" ShortID="1829482">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_05" ID="{F2A46FBD-0EC6-46CE-A301-E9DF57DF9689}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="721306381"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_05" ID="{F2A46FBD-0EC6-46CE-A301-E9DF57DF9689}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_06" ID="{D50ED83B-2FCE-426A-BDCD-1EEBE93AD47F}" ShortID="220518557">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_06" ID="{875964E4-C953-4971-BFD8-A49D60B7E01B}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_06.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="355803660"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_06" ID="{875964E4-C953-4971-BFD8-A49D60B7E01B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_07" ID="{D59CAF19-2111-4CEF-91FB-51E8449D5C56}" ShortID="384122627">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_07" ID="{1C18F12E-FBFB-42A1-ADE1-9CBC28C87556}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_07.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="12202272"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_07" ID="{1C18F12E-FBFB-42A1-ADE1-9CBC28C87556}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_08" ID="{737F18AF-E4A2-4077-BA9D-70EF485F51F4}" ShortID="407490303">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_08" ID="{4AD6BB36-CA62-43FC-BAAC-A448F7255765}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_08.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="42592523"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_08" ID="{4AD6BB36-CA62-43FC-BAAC-A448F7255765}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_09" ID="{6EE5E5F8-B2AC-4D93-B088-476E232BC872}" ShortID="592365904">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_09" ID="{BDEE00A5-59C7-4D54-875A-533628FC9165}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_09.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="93999626"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_09" ID="{BDEE00A5-59C7-4D54-875A-533628FC9165}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_10" ID="{37BD21D9-5324-44DB-B418-20F12A3D7952}" ShortID="336823301">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_10" ID="{5F07FAF3-893E-478C-9F81-43619AB84A18}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_10.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="766700660"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_10" ID="{5F07FAF3-893E-478C-9F81-43619AB84A18}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_11" ID="{A8EB5D18-B0B4-4EF1-92BC-3440ED6C3E48}" ShortID="973697698">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_11" ID="{A9E4C1BB-552F-43CE-86D3-CC6BE022928D}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_11.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="947543685"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_11" ID="{A9E4C1BB-552F-43CE-86D3-CC6BE022928D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_12" ID="{053CA0DB-D9C1-4228-B63A-708A52220D33}" ShortID="491244385">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_12" ID="{63752F14-F7ED-44B2-B7B8-A84BD8B1A744}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_12.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="698803938"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_12" ID="{63752F14-F7ED-44B2-B7B8-A84BD8B1A744}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_13" ID="{1B5AFF0C-8CBE-4E48-A611-1E551B28C3C7}" ShortID="27829704">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_13" ID="{60D051F4-833F-4C2D-9095-23B4CD941C5F}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_13.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="477281463"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_13" ID="{60D051F4-833F-4C2D-9095-23B4CD941C5F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_14" ID="{82433CDF-CD0E-4B68-BBDC-62F21C1744A9}" ShortID="342994479">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_14" ID="{D3324BA3-6C9B-4F94-B6AC-3163BBA814E5}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_14.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="853074864"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_14" ID="{D3324BA3-6C9B-4F94-B6AC-3163BBA814E5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_15" ID="{A9D47DE3-AC02-4F25-B776-F790FA51CAF8}" ShortID="264249167">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_15" ID="{69113C33-647B-48C7-8734-52A8E6B7769E}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_15.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="292884272"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_15" ID="{69113C33-647B-48C7-8734-52A8E6B7769E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Parc_Ambiance_Jardinier_16" ID="{0AF22E1F-C5A8-460E-B14B-5387C7F486CB}" ShortID="697187574">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Parc_Ambiance_Jardinier_16" ID="{119A8A8F-B0A1-40B1-908D-97AD957055A2}">
+											<Language>SFX</Language>
+											<AudioFile>Parc_Ambiance_Jardinier_16.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="540899539"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Parc_Ambiance_Jardinier_16" ID="{119A8A8F-B0A1-40B1-908D-97AD957055A2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Parc_Eau_Lac" ID="{233E3AF5-A09D-4877-B3A1-148FDD443D47}" ShortID="352872547">
 							<ReferenceList>
@@ -483,6 +885,9 @@
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="EQ_Protection" ID="{5A2173EA-4A77-452E-8281-C22E896215E4}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -509,6 +914,35 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<StateInfo>
+								<StatePropertyList>
+									<Property Name="OutputBusVolume"/>
+									<Property Name="UserAuxSendVolume0"/>
+								</StatePropertyList>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="Protection_Oui_Non" ID="{46C8E2FC-DB1E-4729-A3D2-B09D21025B1D}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
+										<CustomState Name="" ID="{A563D8DB-F372-4A5A-A32A-F644B520D0F7}" ShortID="300412107">
+											<PropertyList>
+												<Property Name="UserAuxSendVolume0" Type="Real64" Value="-108"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
+										<CustomState Name="" ID="{D9511C1D-473A-4853-9BD2-6E24C69F2E0C}" ShortID="493976544">
+											<PropertyList>
+												<Property Name="OutputBusVolume" Type="Real64" Value="-108"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Parc_Oiseaux2" ID="{9885EDB3-662D-4C23-8544-8407A936FAC0}" ShortID="343757259">
 							<PropertyList>
@@ -523,13 +957,18 @@
 											<Modifier Name="" ID="{8A9FFACA-5963-46A4-8FCE-327CE507787A}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="4"/>
+													<Property Name="Max" Type="Real64" Value="8"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -1052,7 +1491,11 @@
 						<RandomSequenceContainer Name="Parc_Oiseaux3" ID="{E6EBF856-29C2-4753-92EF-92D1EB6F4680}" ShortID="1036086954">
 							<PropertyList>
 								<Property Name="3DPosition" Type="int16" Value="2"/>
-								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="InitialDelay" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
 								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
@@ -1070,14 +1513,16 @@
 									</ModifierList>
 								</Property>
 								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{6754B70A-647C-44E4-839B-54CA199F3987}" ShortID="312005802">
-											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="80"/>
-											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -1092,7 +1537,7 @@
 																	<Flags>5</Flags>
 																</Point>
 																<Point>
-																	<XPos>80</XPos>
+																	<XPos>100</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -1130,7 +1575,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva18" ID="{32E10E5E-FAF6-4308-9EF8-F335065783DC}" ShortID="773312391">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-001" ID="{7C64DDEF-A276-44B7-8F78-95605ED9FBB5}" ShortID="177664360">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1140,19 +1585,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva18" ID="{173AAB98-C44E-4A5A-A4A3-AB2C49FEE2B6}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-001" ID="{1B17B499-2B59-475F-9EF8-13B3814956F9}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva18.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-001.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="226805572"/>
+												<MediaID ID="576136785"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva18" ID="{173AAB98-C44E-4A5A-A4A3-AB2C49FEE2B6}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-001" ID="{1B17B499-2B59-475F-9EF8-13B3814956F9}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva19" ID="{CDCA721C-9218-4DA2-BDFA-AC68FA9088AD}" ShortID="634043777">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-002" ID="{F8CA35AE-4935-455A-AE12-A25A0307BC9B}" ShortID="235348754">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1162,19 +1607,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva19" ID="{43FF5387-28E1-4494-B525-A65F403B456F}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-002" ID="{CCE50806-95A0-4C70-B650-CD13DF6B452B}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva19.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-002.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="629932354"/>
+												<MediaID ID="124469513"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva19" ID="{43FF5387-28E1-4494-B525-A65F403B456F}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-002" ID="{CCE50806-95A0-4C70-B650-CD13DF6B452B}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva20" ID="{AF0544F3-833C-443B-AFA0-CB97C59259BF}" ShortID="309738456">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-003" ID="{C1449012-B9B1-4207-955D-C6A6DB089256}" ShortID="177677066">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1184,19 +1629,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva20" ID="{5C2ED738-8964-4FD6-B5C1-E31B5C7EF5F6}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-003" ID="{9EA2000C-C9DA-4972-85B9-39EF3439A094}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva20.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-003.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="342802182"/>
+												<MediaID ID="942519783"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva20" ID="{5C2ED738-8964-4FD6-B5C1-E31B5C7EF5F6}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-003" ID="{9EA2000C-C9DA-4972-85B9-39EF3439A094}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva21" ID="{9F6B5EAB-DE3C-4EA3-8A09-BA8CC8628E5F}" ShortID="553225525">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-004" ID="{D5BF719B-69B6-4D3D-9021-ADF2A629D20D}" ShortID="255196872">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1206,19 +1651,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva21" ID="{0E677121-0992-48A2-B9F7-ACD3332A18B5}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-004" ID="{F19779F4-DE61-4471-A6F3-804A88211ECD}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva21.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-004.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="789117852"/>
+												<MediaID ID="345150551"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva21" ID="{0E677121-0992-48A2-B9F7-ACD3332A18B5}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-004" ID="{F19779F4-DE61-4471-A6F3-804A88211ECD}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva22" ID="{86B84360-98C6-41A5-BDFF-4FFF4BA545E3}" ShortID="56096323">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-005" ID="{F7AFF84A-07D2-40C3-ACE8-1654F1775665}" ShortID="932281469">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1228,19 +1673,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva22" ID="{64717BD6-BBAE-4C19-AAC0-83EDF193B156}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-005" ID="{EADEEDCD-9697-4BB1-9084-03EDBECE2632}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva22.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-005.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="135194486"/>
+												<MediaID ID="919558197"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva22" ID="{64717BD6-BBAE-4C19-AAC0-83EDF193B156}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-005" ID="{EADEEDCD-9697-4BB1-9084-03EDBECE2632}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva23" ID="{EF488626-650F-41E1-A7A2-DFB132FADD41}" ShortID="887012088">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-006" ID="{5DBFC0F5-E080-420A-AEBC-3226CC29E4F9}" ShortID="1026189706">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1250,19 +1695,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva23" ID="{3A264EAB-83A8-4240-BB7A-A073B959660B}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-006" ID="{A4C8CFFE-B471-4737-9FA0-DBE34C5298F5}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva23.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-006.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="763576408"/>
+												<MediaID ID="332970262"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva23" ID="{3A264EAB-83A8-4240-BB7A-A073B959660B}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC562593 - Verdier d’Europe - Chloris chloris-006" ID="{A4C8CFFE-B471-4737-9FA0-DBE34C5298F5}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva24" ID="{BAF752BC-CD16-4817-98A1-99C26D8723E4}" ShortID="952059922">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-001" ID="{7D2683C7-5FC1-4F7C-9F5E-609766B17716}" ShortID="731084418">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1272,19 +1717,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva24" ID="{D097B099-78B3-49D0-B7F3-697B01207065}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-001" ID="{AF250C0A-101C-4C8B-849C-A9B592223794}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva24.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-001.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="196199171"/>
+												<MediaID ID="440969987"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva24" ID="{D097B099-78B3-49D0-B7F3-697B01207065}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-001" ID="{AF250C0A-101C-4C8B-849C-A9B592223794}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva25" ID="{48F68B31-DAD8-4803-8C40-411BA173CF22}" ShortID="686990183">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-002" ID="{297D76B9-96CF-4F9D-A9F2-031058956D45}" ShortID="312543944">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1294,19 +1739,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva25" ID="{43D728BD-842A-4076-AA4A-470DDC91624B}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-002" ID="{05512741-481B-4182-A2A2-7AE95AC6FF0D}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva25.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-002.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="689090821"/>
+												<MediaID ID="225892139"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva25" ID="{43D728BD-842A-4076-AA4A-470DDC91624B}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-002" ID="{05512741-481B-4182-A2A2-7AE95AC6FF0D}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva26" ID="{37691272-C643-4087-9CE0-5E61FEF7C508}" ShortID="782888501">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-003" ID="{B540E0CC-D977-45E1-B1FD-D6A0167E9E87}" ShortID="1027296701">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1316,19 +1761,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva26" ID="{82116D47-B330-4294-B383-503CEE42E92D}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-003" ID="{07BF589A-F351-49BC-88C0-F463BF6A7D0F}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva26.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-003.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="5258784"/>
+												<MediaID ID="298788375"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva26" ID="{82116D47-B330-4294-B383-503CEE42E92D}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-003" ID="{07BF589A-F351-49BC-88C0-F463BF6A7D0F}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva27" ID="{B5B582F6-FFEC-49C9-8D43-A50405C2C91C}" ShortID="702804996">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-004" ID="{368DE4F6-1428-46B0-B1EE-1795821B1B21}" ShortID="781225938">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1338,19 +1783,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva27" ID="{7A47B196-B5C2-4F5C-88C2-C82593985955}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-004" ID="{22B55694-265B-48B3-BE7A-416A33E0812F}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva27.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-004.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="773241233"/>
+												<MediaID ID="242509436"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva27" ID="{7A47B196-B5C2-4F5C-88C2-C82593985955}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-004" ID="{22B55694-265B-48B3-BE7A-416A33E0812F}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva28" ID="{D002B5F2-9BAB-415A-8AD7-F6A4A81CDADD}" ShortID="814772060">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-005" ID="{8D0E31AC-5D31-43EB-8E0F-B6F63F3DB43F}" ShortID="1054004299">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1360,19 +1805,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva28" ID="{73960E90-8142-401D-B21F-C5A017955D86}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-005" ID="{E0DB7B1D-5459-4FB1-9785-B26BDB39E097}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva28.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-005.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="199348966"/>
+												<MediaID ID="567618586"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva28" ID="{73960E90-8142-401D-B21F-C5A017955D86}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-005" ID="{E0DB7B1D-5459-4FB1-9785-B26BDB39E097}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva29" ID="{D8BC88AA-E4EB-4E05-AE25-9FF9A093A2D6}" ShortID="931112518">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006" ID="{E2F7E3A8-493B-4C14-8D15-B7566267CA30}" ShortID="998372367">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1382,19 +1827,19 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva29" ID="{72991B85-8049-4457-A494-EA6B93DD9D1D}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006" ID="{460D48FB-766C-4E48-9DBB-633C958254A5}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva29.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="399643746"/>
+												<MediaID ID="164081265"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva29" ID="{72991B85-8049-4457-A494-EA6B93DD9D1D}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006" ID="{460D48FB-766C-4E48-9DBB-633C958254A5}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva30" ID="{E06D702E-9C37-498A-A11C-21B9A92EA571}" ShortID="730561021">
+								<Sound Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007" ID="{D5AD7CB1-F027-4C03-AC92-543AE5A7A50F}" ShortID="701327522">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -1404,676 +1849,16 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva30" ID="{903EE392-BD94-40C1-944B-6D0A92812B01}">
+										<AudioFileSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007" ID="{5752B903-4210-4493-9774-6BFC6E9FBD56}">
 											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva30.wav</AudioFile>
+											<AudioFile>Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="133007546"/>
+												<MediaID ID="1055659434"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva30" ID="{903EE392-BD94-40C1-944B-6D0A92812B01}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva31" ID="{5E997B03-5C87-4199-8CB6-B1838A5C8E02}" ShortID="112641677">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva31" ID="{0334C2A3-7D4A-4ECC-B4DE-57C90503128B}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva31.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="663455560"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva31" ID="{0334C2A3-7D4A-4ECC-B4DE-57C90503128B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva32" ID="{FB674027-CA4C-466A-9675-85D0C09CF621}" ShortID="177143727">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva32" ID="{6D70F2A8-848E-4543-8166-3A9696B9A8DA}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva32.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="851641900"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502282 - Merlebleu de l’Est - Sialia sialis fulva32" ID="{6D70F2A8-848E-4543-8166-3A9696B9A8DA}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33" ID="{51115CF3-F1EF-4A40-BDF4-9994FE35616D}" ShortID="277074383">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33" ID="{2CC5C7A6-3859-4F96-B167-B006CBC6AEE9}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="517054188"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva33" ID="{2CC5C7A6-3859-4F96-B167-B006CBC6AEE9}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34" ID="{D8F17CB0-71A8-429B-85C6-9E53D7B7FF4E}" ShortID="301292217">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34" ID="{EE695AE9-7229-4875-BAAD-3F482F084524}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="416204730"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva34" ID="{EE695AE9-7229-4875-BAAD-3F482F084524}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35" ID="{431870E4-0513-41C5-910F-6F14703FC8C3}" ShortID="731078954">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35" ID="{30B96339-7F6F-4778-A68F-835C5CF1646B}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="455205638"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva35" ID="{30B96339-7F6F-4778-A68F-835C5CF1646B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36" ID="{EEF5F46B-FF5A-418B-A3BB-7F5D88B6BC31}" ShortID="758440632">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36" ID="{C54B58D0-A7D0-46D6-9477-639F6A13916F}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="160326175"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva36" ID="{C54B58D0-A7D0-46D6-9477-639F6A13916F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37" ID="{706CB933-724F-4ED2-B9C4-2CE1ED9E87EA}" ShortID="880415565">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37" ID="{33096B34-10FF-42F2-A194-CF0533840516}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="929091810"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva37" ID="{33096B34-10FF-42F2-A194-CF0533840516}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38" ID="{519C774C-2153-4E8D-887B-93484B61613E}" ShortID="868848474">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38" ID="{7CBD2D46-4A04-46A8-97BA-0DA79ADADD50}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="952246663"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva38" ID="{7CBD2D46-4A04-46A8-97BA-0DA79ADADD50}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39" ID="{165525B3-C5D2-48FA-B68A-BBA84EEC4A89}" ShortID="844158458">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39" ID="{81C92E0E-1461-429B-893F-53AF18CD0631}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="1043926172"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva39" ID="{81C92E0E-1461-429B-893F-53AF18CD0631}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40" ID="{A8237D39-7DD5-4E1D-92A2-1DF422EEC912}" ShortID="901855909">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40" ID="{EEB878F8-C167-4AD8-AB5D-B01B4CC17A25}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="887674373"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva40" ID="{EEB878F8-C167-4AD8-AB5D-B01B4CC17A25}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41" ID="{565F7965-E6DD-4A78-A49B-52AD00691E92}" ShortID="374469485">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41" ID="{A4F73427-A701-40C2-9C05-28A42EFD229F}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="46527227"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva41" ID="{A4F73427-A701-40C2-9C05-28A42EFD229F}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42" ID="{D72B88FA-87D9-4647-ABBA-879082FD2B17}" ShortID="456029670">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42" ID="{BE44E108-FF8C-48A8-9AC8-16726DAA7A79}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="672883393"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva42" ID="{BE44E108-FF8C-48A8-9AC8-16726DAA7A79}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43" ID="{F50D51E9-E400-4670-9F21-EBB8038553A2}" ShortID="555279122">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43" ID="{50F55CF8-E3B8-4239-9BA0-E4B59F96AAE0}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="783401644"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva43" ID="{50F55CF8-E3B8-4239-9BA0-E4B59F96AAE0}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44" ID="{924CBAA4-7F80-4C00-A608-33611A436E38}" ShortID="700658125">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44" ID="{F3B6B192-3F63-4DD8-929A-A20D176202F3}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="400387226"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva44" ID="{F3B6B192-3F63-4DD8-929A-A20D176202F3}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45" ID="{4A7CAC69-B92B-4A17-A6F1-B844E0B56294}" ShortID="349445823">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45" ID="{3524DD6C-D4E3-414A-A5F8-4C2CB5D52898}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="136869288"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva45" ID="{3524DD6C-D4E3-414A-A5F8-4C2CB5D52898}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46" ID="{42C7FA33-9309-4A13-BCFA-2828FA9981F0}" ShortID="448563771">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46" ID="{51820AA2-3850-4513-8483-4CAA43A61107}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="474621248"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva46" ID="{51820AA2-3850-4513-8483-4CAA43A61107}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47" ID="{4D4206C4-0748-4F35-A7E5-25EF3882B340}" ShortID="949830594">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47" ID="{901B8701-9D16-4192-B82E-6072DE7769AC}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="445527584"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva47" ID="{901B8701-9D16-4192-B82E-6072DE7769AC}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48" ID="{8584482F-CE6F-41CB-9337-1CDE56594212}" ShortID="860691716">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48" ID="{755367CE-63F6-4A59-BCCC-47F8DA88253C}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="661410401"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva48" ID="{755367CE-63F6-4A59-BCCC-47F8DA88253C}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49" ID="{D7881A45-1041-4BAB-AB55-5F9EE26977FA}" ShortID="950879620">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49" ID="{B54E18E9-3B2B-4723-96D1-1E81A1ABA301}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="185204255"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva49" ID="{B54E18E9-3B2B-4723-96D1-1E81A1ABA301}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50" ID="{94BFA7DA-E9A8-4E17-A1C5-16AABFB33FE8}" ShortID="193183629">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50" ID="{E50FF4FA-F898-48A2-9C7E-BE18FE95DF44}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="662284077"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva50" ID="{E50FF4FA-F898-48A2-9C7E-BE18FE95DF44}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51" ID="{A66B1946-F1A0-4168-9759-1E35903B6360}" ShortID="170829614">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51" ID="{BA88227A-81E0-4BB3-94A3-65DFC5EC059B}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="434467179"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva51" ID="{BA88227A-81E0-4BB3-94A3-65DFC5EC059B}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52" ID="{D289B491-6E30-4CEC-8D8D-D298F63CA4D8}" ShortID="7526758">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52" ID="{B9003ECA-EFF9-43D8-83D8-8F97A4A513E0}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="736946357"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva52" ID="{B9003ECA-EFF9-43D8-83D8-8F97A4A513E0}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53" ID="{BA408FDB-3F7C-4076-A6A5-12E0C0757899}" ShortID="729252731">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53" ID="{45981E57-EF7C-4DB0-8FE0-BADCAF7AAF7E}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="712279529"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva53" ID="{45981E57-EF7C-4DB0-8FE0-BADCAF7AAF7E}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54" ID="{BF77A978-FAA4-49E0-AB8C-BC9230184D59}" ShortID="154407776">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54" ID="{3FBC3BD7-BE2F-44E7-8A67-05F3160C1597}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="373622773"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva54" ID="{3FBC3BD7-BE2F-44E7-8A67-05F3160C1597}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55" ID="{724D0559-D8C5-496A-9E6B-63FD8DA42E96}" ShortID="272529215">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55" ID="{94BBDACE-6472-43A4-826E-2C6320999FF9}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="74171240"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva55" ID="{94BBDACE-6472-43A4-826E-2C6320999FF9}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56" ID="{AAD23303-B6DD-41C2-87E5-14F7AF60C4AE}" ShortID="143123032">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56" ID="{87EDFA73-9BCA-4E69-9B6D-2C6D93B123E2}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="590345218"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva56" ID="{87EDFA73-9BCA-4E69-9B6D-2C6D93B123E2}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57" ID="{EF802778-5D4F-4CA6-97EE-19A28FED5BD3}" ShortID="703145954">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57" ID="{EECE7853-922F-4E10-BB66-457902410D57}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="600004635"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva57" ID="{EECE7853-922F-4E10-BB66-457902410D57}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58" ID="{91740798-5A94-4E02-9F61-42F3DC8CCCA1}" ShortID="987270988">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58" ID="{05333B9B-E914-4951-A386-D22FFF3858B7}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="576738218"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva58" ID="{05333B9B-E914-4951-A386-D22FFF3858B7}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59" ID="{518F820E-F080-4767-8CAD-5CD1DF6BB1B7}" ShortID="609275458">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59" ID="{6BFFB423-8B7E-4973-A9FB-CA2F91AF139A}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="196091841"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva59" ID="{6BFFB423-8B7E-4973-A9FB-CA2F91AF139A}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60" ID="{E669088F-BC20-41C7-ACB1-CC29057D546A}" ShortID="224529174">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60" ID="{02477301-76AB-45D5-8AFE-290F8A65FB95}">
-											<Language>SFX</Language>
-											<AudioFile>Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="437649202"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="Parc_Ambiance_Nature_Oiseaux_XC502283 - Merlebleu de l’Est - Sialia sialis fulva60" ID="{02477301-76AB-45D5-8AFE-290F8A65FB95}" Platform="Linked"/>
+										<ActiveSource Name="Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007" ID="{5752B903-4210-4493-9774-6BFC6E9FBD56}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -2099,6 +1884,35 @@
 							</PositioningInfo>
 						</RandomSequenceContainer>
 					</ChildrenList>
+					<StateInfo>
+						<StatePropertyList>
+							<Property Name="OutputBusVolume"/>
+							<Property Name="UserAuxSendVolume0"/>
+						</StatePropertyList>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Protection_Oui_Non" ID="{46C8E2FC-DB1E-4729-A3D2-B09D21025B1D}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
+								<CustomState Name="" ID="{B425E812-2253-4C68-B652-EA2EBFC7299E}" ShortID="662404909">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume0" Type="Real64" Value="-108"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Active" ID="{C1B20394-89CE-4EC1-951E-92C36AF5F893}"/>
+								<CustomState Name="" ID="{EAB580C1-36D2-4369-98B2-483E077B26CB}" ShortID="932523941">
+									<PropertyList>
+										<Property Name="OutputBusVolume" Type="Real64" Value="-20"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

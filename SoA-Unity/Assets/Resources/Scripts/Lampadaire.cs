@@ -14,10 +14,10 @@ public class Lampadaire : MonoBehaviour
     {
         l = light.GetComponent<Light>();
         mat = GetComponent<MeshRenderer>().material;
-        //mat.SetColor("_color", l.color);
     }
     public void Update()
     {
+        mat.SetFloat("height_scale", transform.localScale.y);
         mat.SetColor("_color", l.color);
     }
 

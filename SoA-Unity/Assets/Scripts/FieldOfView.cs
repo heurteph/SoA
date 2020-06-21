@@ -38,8 +38,6 @@ public class FieldOfView : MonoBehaviour
     [SerializeField]
     private float moveAnimDanger, danceAnimDanger; 
 
-
-
     [Space]
     [Header("Front Crowd Detector Settings")]
     [Space]
@@ -104,7 +102,8 @@ public class FieldOfView : MonoBehaviour
         StartCoroutine("FindBackTargetsWithDelay", .2f);
 
 
-        obstacleMask = ~targetMask;
+        //obstacleMask = ~targetMask;
+        obstacleMask = 0;
 
         crowdThresholdEvent += energyBehaviour.DecreaseEnergy;
     }
@@ -122,7 +121,7 @@ public class FieldOfView : MonoBehaviour
         DrawFieldOfSideView();
 
         //Front View
-        //	DrawTotalFieldOfFrontView();
+        //DrawTotalFieldOfFrontView();
         DrawFieldOfFrontView();
     }
 
@@ -147,6 +146,7 @@ public class FieldOfView : MonoBehaviour
 
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
+            //Debug.Log("J'ai " + targetsInViewRadius.Length + " cibles dans mon rayon");
             Transform target = targetsInViewRadius[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
             if (Vector3.Angle(transform.forward, dirToTarget) < frontViewAngle / 2)
@@ -162,7 +162,8 @@ public class FieldOfView : MonoBehaviour
                     frontCrowdInfo += Mathf.Pow((1 - dstToTarget / frontViewRadius), frontPow);
 
 
-                    //Get NPC's Animation 
+                    //Get NPC's Animation
+                    /*
                     Animator anim = target.GetComponent<Animator>();
                     if (anim.GetBool("isMoving") == true)
                     {
@@ -173,21 +174,21 @@ public class FieldOfView : MonoBehaviour
                     } else
                     {
                         crowdFrontDanger += idleAnimDanger * Mathf.Pow((1 - dstToTarget / frontViewRadius), frontPow);
-                    }
+                    }*/
                 }
 
                 // Apply Damage
+                /*
                 if (crowdFrontDanger > frontDangerThreshold)
                 {
                     crowdThresholdEvent(crowdFrontDamage);
-                }
-
-
-
-
-
+                }*/
 
                 totalFrontTargets = frontVisibleTargets.Count();
+                if (totalFrontTargets > frontDangerThreshold) // max 5 persons before it's considered a crowd
+                {
+                    crowdThresholdEvent(crowdFrontDamage);
+                }
             }
         }
     }

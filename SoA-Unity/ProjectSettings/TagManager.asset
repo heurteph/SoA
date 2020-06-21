@@ -9,6 +9,25 @@ TagManager:
   - Shelter
   - Head
   - Walkable
+  - Vehicle
+  - Shop
+  - NPCMaterialsManager
+  - NPC
+  - AmbianceManager
+  - Home
+  - Shed
+  - Bar
+  - MenuCredits
+  - MenuManager
+  - SaveManager
+  - Fade
+  - GameManager
+  - GameOver
+  - TransitionCamera
+  - Door Canvas
+  - GameOverMessage
+  - TutorialCanvas
+  - Controls
   layers:
   - Default
   - TransparentFX
@@ -23,16 +42,16 @@ TagManager:
   - Obstacles
   - Targets
   - Camera
-  - Ground
+  - AsphaltGround
   - Shelter Entrance
   - Shelter Exit
   - Player
   - NoObstacle
-  - 
-  - 
-  - 
-  - 
-  - 
+  - GrassGround
+  - SoilGround
+  - PassThrough
+  - Postprocess
+  - Esthesia
   - 
   - 
   - 

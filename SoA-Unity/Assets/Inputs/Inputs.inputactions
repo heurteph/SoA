@@ -54,17 +54,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "ProjectiveLook",
+                    "name": "GodMode",
                     "type": "Button",
-                    "id": "eb15cf46-387f-47e3-a16a-0472e37e3b15",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Target",
-                    "type": "Button",
-                    "id": "f26c2082-7f40-4672-8042-aa1dc6f12b09",
+                    "id": "973ba557-eae4-43ca-9e9e-c992c77d144d",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -261,7 +253,7 @@
                 {
                     "name": "",
                     "id": "100f4a26-d12d-4da2-9d98-b3d00f243cee",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -327,7 +319,7 @@
                 {
                     "name": "",
                     "id": "c9ab370b-8ef3-40f5-a51c-f257aade9e3b",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -348,34 +340,23 @@
                 },
                 {
                     "name": "",
-                    "id": "f6ebf42b-51c1-44ba-b1b4-a722cd1a4cbc",
-                    "path": "<Keyboard>/n",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse-Keyboard",
-                    "action": "ProjectiveLook",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dab154ec-d39b-4b06-9489-357896bdae16",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "1a078053-f1a6-4f51-b814-0e558b184536",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "ProjectiveLook",
+                    "action": "GodMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "c72369ce-db23-4e88-93c3-c3813ff919f7",
-                    "path": "<Keyboard>/tab",
+                    "id": "ee428ff2-86a0-4f63-be7a-8bd03b885352",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": "Mouse-Keyboard",
-                    "action": "Target",
+                    "action": "GodMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

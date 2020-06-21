@@ -8,7 +8,10 @@ public class Protect : MonoBehaviour
     private HearingScript hearingScript;
 
     [SerializeField]
-    private VisionBehaviour visionScript;
+    private VisionBehaviour indirectBrightness;
+
+    [SerializeField]
+    private VisionBehaviour directBrightness;
 
     private Inputs inputs;
 
@@ -37,23 +40,29 @@ public class Protect : MonoBehaviour
         inputs.Player.ProtectEyes.performed += _ctx =>
         {
             player.IsProtectingEyes = true;    
-            visionScript.CoverEyes();
+            indirectBrightness.CoverEyes();
+            directBrightness.CoverEyes();
+            AkSoundEngine.SetState("Protection_Oui_Non", "Active"); // Wwise
         };
         inputs.Player.ProtectEyes.canceled += _ctx =>
         {
             player.IsProtectingEyes = false;
-            visionScript.UncoverEyes();
+            indirectBrightness.UncoverEyes();
+            directBrightness.UncoverEyes();
+            AkSoundEngine.SetState("Protection_Oui_Non", "Pas_Active"); // Wwise
         };
 
         inputs.Player.ProtectEars.performed += _ctx =>
         {
             player.IsProtectingEars = true;
             hearingScript.PlugEars();
+            AkSoundEngine.SetState("Protection_Oui_Non", "Active"); // Wwise
         };
         inputs.Player.ProtectEars.canceled += _ctx =>
         {
             player.IsProtectingEars = false;
             hearingScript.UnplugEars();
+            AkSoundEngine.SetState("Protection_Oui_Non", "Pas_Active"); // Wwise
         };
     }
 

@@ -7,6 +7,8 @@ public class CameraFollow : MonoBehaviour
 
     private Inputs inputs;
 
+    private GameObject gameManager;
+
     [Space]
     [Header("Camera Settings")]
     [Space]
@@ -87,9 +89,13 @@ public class CameraFollow : MonoBehaviour
         HURRY_TO_PROTECTED,
         NORMAL_TO_PROTECTED,
         PROTECTED_TO_NORMAL,
-        PROTECTED_TO_HURRY
+        PROTECTED_TO_HURRY,
+        HURRY_TO_GAMEOVER,
+        PROTECTED_TO_GAMEOVER,
+        GAMEOVER
     };
     STATE cameraState;
+    STATE lastCameraState;
 
     [Space]
     [Header("Normal Mode")]
@@ -150,8 +156,37 @@ public class CameraFollow : MonoBehaviour
     [Range(0.1f, 5)]
     private float timeHurryToProtected = 0.4f;
 
+    [Space]
+    [Header("Gameover Mode")]
+
+    [SerializeField]
+    [Tooltip("Z-Offset when game is over (-closer, +farther)")]
+    [Range(-10, 10)]
+    private float Z_OffsetGameover = -10f;
+
+    [SerializeField]
+    [Tooltip("Y-Offset when game is over (-closer, +farther)")]
+    [Range(-10, 10)]
+    private float Y_OffsetGameover = 4f;
+
+    [SerializeField]
+    [Tooltip("The delay to switch from hurry to game over view, in seconds")]
+    [Range(0.1f, 5f)]
+    private float timeHurryToGameover = 1f;
+
+    [SerializeField]
+    [Tooltip("The delay to switch from protected to game over view, in seconds")]
+    [Range(0.1f, 5f)]
+    private float timeProtectedToGameover = 1f;
+
+    [SerializeField]
+    [Tooltip("The vertical speed of the camera when it flies into the air")]
+    [Range(0,10)]
+    private float flyAwaySpeed = 2f;
+
     private float zoomTimer;
 
+    private float angleFromNormalToHorizon = 0;
     private float angleFromHurryToHorizon = 0;
     private float angleFromProtectedToHorizon = 0;
 
@@ -163,33 +198,57 @@ public class CameraFollow : MonoBehaviour
     private GameObject cameraSway;
 
     [SerializeField]
-    [Tooltip("The minimal sway radius")]
+    [Tooltip("The minimal sway radius when in Normal Mode")]
     [Range(0.001f, 1f)]
-    private float swayRadiusMin = 0.01f;
+    private float swayNormalRadiusMin = 0.01f;
 
     [SerializeField]
-    [Tooltip("The maximal sway radius")]
+    [Tooltip("The maximal sway radius when in Normal Mode")]
     [Range(0.001f, 1f)]
-    private float swayRadiusMax = 0.05f;
+    private float swayNormalRadiusMax = 0.05f;
 
     private float latitude = 0, longitude = 0, swayRadius = 0;
 
     [SerializeField]
-    [Tooltip("The minimum sway duration")]
+    [Tooltip("The minimum sway duration when in Normal Mode")]
     [Range(2f, 10f)]
-    private float swayDurationMin = 4f;
+    private float swayNormalDurationMin = 4f;
 
     [SerializeField]
-    [Tooltip("The maximum sway duration")]
+    [Tooltip("The maximum sway duration when in Normal Mode")]
     [Range(2f, 10f)]
-    private float swayDurationMax = 6f;
+    private float swayNormalDurationMax = 6f;
+
+    [SerializeField]
+    [Tooltip("The minimal sway radius when in Hurry Mode")]
+    [Range(0.001f, 2f)]
+    private float swayHurryRadiusMin = 0.8f;
+
+    [SerializeField]
+    [Tooltip("The maximal sway radius when in Hurry Mode")]
+    [Range(0.001f, 2f)]
+    private float swayHurryRadiusMax = 1f;
+
+    [SerializeField]
+    [Range(0.001f, 1f)]
+    [Tooltip("The minimum sway duration when in Hurry Mode")]
+    private float swayHurryDurationMin = 0.01f;
+
+    [SerializeField]
+    [Range(0.001f, 1f)]
+    [Tooltip("The maximum sway duration when in Hurry Mode")]
+    private float swayHurryDurationMax = 0.02f;
+
     private float swayDuration = 0;
     private float swayTimer = 0;
 
-    [SerializeField]
-    [Range(1f, 5f)]
-    [Tooltip("The sway factor used when in hurry mode")]
-    private float swayHurryFactor = 2.5f;
+    private float swayDurationMin, swayDurationMax;
+    private float swayRadiusMin, swayRadiusMax;
+    private float backToNormalRadiusSpeed;
+    private float backToNormalRadiusAcceleration;
+
+    private Vector3 originalSwayPosition = Vector3.zero;
+    private Vector3 targetSwayPosition = Vector3.zero;
 
     // Targeting
 
@@ -204,7 +263,6 @@ public class CameraFollow : MonoBehaviour
 
     [Space]
     [Header("Targeting")]
-
 
     [SerializeField]
     private GameObject defaultForward;
@@ -249,6 +307,13 @@ public class CameraFollow : MonoBehaviour
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
+
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        if(gameManager == null)
+        {
+            throw new System.NullReferenceException("No Game Manager found in the scene");
+        }
     }
 
     // Start is called before the first frame update
@@ -256,27 +321,42 @@ public class CameraFollow : MonoBehaviour
     {
         storedCameraOffset = cameraOffset;
         originalYRotation  = transform.rotation.eulerAngles.y;
-        transform.position = player.transform.position + player.transform.rotation * Quaternion.Euler(0,90,0) * cameraOffset;
-        UpdateRotation(); //transform.LookAt(player.transform);
+        // TO DO : Start from a higher point like an angel coming down
+        transform.position = player.transform.position + player.transform.rotation /* * Quaternion.Euler(0,90,0) */ * cameraOffset;
+        UpdateRotation();
         lastPlayerPosition = player.transform.position;
+
+        // compute the angle between the camera in normal view and horizon view for the look-around stabilization
+        //angleFromNormalToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up).normalized, (player.transform.position - transform.position).normalized);
+        //angleFromNormalToHorizon -= cameraAngularOffset.x;
+        angleFromNormalToHorizon = cameraAngularOffset.x;
+        Debug.Log("angleFromNormalToHorizon : " + angleFromNormalToHorizon);
 
         // compute the angle between the camera in normal view and hurry view for the look-around stabilization
         Vector3 hurryPosition = transform.position - Z_OffsetHurry * Vector3.ProjectOnPlane((player.transform.position - transform.position).normalized, Vector3.up) + Y_OffsetHurry * Vector3.up;
-        angleFromHurryToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up).normalized, (player.transform.position - hurryPosition).normalized);
+        angleFromHurryToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - hurryPosition), Vector3.up).normalized, (player.transform.position - hurryPosition).normalized);
+        angleFromHurryToHorizon += cameraAngularOffset.x; // TO DO : Check this out
         Debug.Log("angleFromHurryToHorizon : " + angleFromHurryToHorizon);
 
         // compute the angle between the camera in normal view and protected view for the look-around stabilization
         Vector3 protectedPosition = transform.position - Z_OffsetProtected * Vector3.ProjectOnPlane((player.transform.position - transform.position).normalized, Vector3.up) + Y_OffsetProtected * Vector3.up;
-        angleFromProtectedToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up).normalized, (player.transform.position - protectedPosition).normalized);
+        angleFromProtectedToHorizon = Vector3.Angle(Vector3.ProjectOnPlane((player.transform.position - protectedPosition), Vector3.up).normalized, (player.transform.position - protectedPosition).normalized);
+        angleFromProtectedToHorizon += cameraAngularOffset.x; // TO DO : Check this out
         Debug.Log("angleFromProtectedToHorizon : " + angleFromProtectedToHorizon);
+
+        //FX
+        heldCamera.transform.GetChild(0).GetComponent<Render_PostProcess>().shader_actif = true;
+        heldCamera.transform.GetChild(0).GetComponent<Render_PostProcess>().coef_blur = 1000;
+        heldCamera.transform.GetChild(0).GetComponent<Render_PostProcess>().radius = 5;
+
 
         cameraState = STATE.NORMAL;
         zoomTimer = 0;
         isAvailable = true;
         isPausingAlign = false;
-        noCollision = ~ LayerMask.GetMask("NoObstacle");
+        noCollision = ~ (LayerMask.GetMask("NoObstacle") | LayerMask.GetMask("Shelter Entrance") | LayerMask.GetMask("Shelter Exit"));
 
-        if (cameraSway)
+        if (cameraSway != null)
         {
             InitializeSway();
             StartCoroutine("Sway");
@@ -320,38 +400,55 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        //UpdatePosition();
+        UpdateFX();
 
-        UpdateRotation();
-
-        if (!isTargeting)
+        if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
         {
-            //LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
-            //ProjectiveLookAround(inputs.Player.ProjectiveLook.ReadValue<float>());
-            //ExtendedLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
-            //SmoothLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
-            SmoothProjectiveLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+            //UpdatePosition();
+
+            UpdateRotation();
+
+            if (!isTargeting)
+            {
+                //LookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+                //ProjectiveLookAround(inputs.Player.ProjectiveLook.ReadValue<float>());
+                //ExtendedLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+                SmoothLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+                //SmoothProjectiveLookAround(inputs.Player.LookAround.ReadValue<Vector2>());
+            }
+            if (cameraSway != null)
+            {
+                //Sway(); // Let's try this here
+            }
         }
     }
 
-
+    private void UpdateFX()
+    {
+        heldCamera.transform.GetChild(0).GetComponent<Render_PostProcess>().coef_blur = (player.GetComponent<EnergyBehaviour>().Energy / 1000) * 700 + 300;
+    }
 
     private void UpdateRotation ()
     {
         if (cameraState == STATE.NORMAL)
         {
             transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane((player.transform.position - transform.position), Vector3.up)); // kind of a lookAt but without the rotation around the x-axis
+
+            transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z); // TO DO : ONLY IN NORMAL !!!!!
         }
         else if (cameraState == STATE.NORMAL_TO_HURRY) // focus on the character
         {
             Vector3 startPosition  = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + Vector3.up * Y_OffsetHurry) * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; // recreate original position
             Vector3 endPosition    = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + Vector3.up * Y_OffsetHurry) * zoomTimer / timeNormalToHurry; // recreate original position
             Vector3 start   = Vector3.ProjectOnPlane((player.transform.position - startPosition), Vector3.up).normalized;
+            // TO DO : Check this out
+            start = Quaternion.AngleAxis(-cameraAngularOffset.x, Vector3.Cross(start, Vector3.up)).normalized * start;
             Vector3 end     = (player.transform.position - endPosition).normalized;
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToFocus - recoilTimer) / timeToFocus);
             Vector3 current = Vector3.Slerp(start, end, (timeNormalToHurry - zoomTimer) / timeNormalToHurry);
             //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToFocus : " + timeToFocus + ", recoilTimer : " + recoilTimer);
             transform.rotation = Quaternion.LookRotation(current);
+    
 
             //heldCamera.GetComponent<Camera>().fieldOfView = 60 - (60 - 50) * (timeToFocus - recoilTimer) / timeToFocus;
         }
@@ -370,6 +467,8 @@ public class CameraFollow : MonoBehaviour
             Vector3 endPosition   = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetHurry + Vector3.up * Y_OffsetHurry) * zoomTimer / timeHurryToNormal; // recreate original position
             Vector3 start   = (player.transform.position - startPosition).normalized;
             Vector3 end     = Vector3.ProjectOnPlane((player.transform.position - endPosition), Vector3.up).normalized;
+            // TO DO : Check this out
+            end = Quaternion.AngleAxis(-cameraAngularOffset.x, Vector3.Cross(end, Vector3.up)).normalized * end;
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
             Vector3 current = Vector3.Slerp(start, end, (timeHurryToNormal - zoomTimer) / timeHurryToNormal);
             //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
@@ -382,6 +481,8 @@ public class CameraFollow : MonoBehaviour
             Vector3 startPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetProtected + Vector3.up * Y_OffsetProtected) * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; // recreate original position
             Vector3 endPosition = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetProtected + Vector3.up * Y_OffsetProtected) * zoomTimer / timeNormalToProtected; // recreate original position
             Vector3 start = Vector3.ProjectOnPlane((player.transform.position - startPosition), Vector3.up).normalized;
+            // TO DO : Check this out
+            start = Quaternion.AngleAxis(-cameraAngularOffset.x, Vector3.Cross(start, Vector3.up)).normalized * start;
             Vector3 end = (player.transform.position - endPosition).normalized;
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToFocus - recoilTimer) / timeToFocus);
             Vector3 current = Vector3.Slerp(start, end, (timeNormalToProtected - zoomTimer) / timeNormalToProtected);
@@ -396,6 +497,8 @@ public class CameraFollow : MonoBehaviour
             Vector3 endPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * Z_OffsetProtected + Vector3.up * Y_OffsetProtected) * zoomTimer / timeProtectedToNormal; // recreate original position
             Vector3 start = (player.transform.position - startPosition).normalized;
             Vector3 end = Vector3.ProjectOnPlane((player.transform.position - endPosition), Vector3.up).normalized;
+            // TO DO : Check this out
+            end = Quaternion.AngleAxis(-cameraAngularOffset.x, Vector3.Cross(end, Vector3.up)).normalized * end;
             //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
             Vector3 current = Vector3.Slerp(start, end, (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal);
             //Debug.Log("Start : " + start + ", End : " + end + ", Angle : " + current + ", timeToNormal : " + timeToNormal + ", recoilTimer : " + recoilTimer);
@@ -440,7 +543,20 @@ public class CameraFollow : MonoBehaviour
             //heldCamera.GetComponent<Camera>().fieldOfView = 60 - (60 - 50) * (timeToFocus - recoilTimer) / timeToFocus;
         }
 
-        transform.rotation *= Quaternion.Euler(cameraAngularOffset.x, cameraAngularOffset.y, cameraAngularOffset.z);
+        else if (cameraState == STATE.HURRY_TO_GAMEOVER)
+        {
+            transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        }
+
+        else if (cameraState == STATE.PROTECTED_TO_GAMEOVER)
+        {
+            transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        }
+
+        else if (cameraState == STATE.GAMEOVER)
+        {
+            transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
+        }
     }
 
     private void UpdatePosition()
@@ -501,6 +617,11 @@ public class CameraFollow : MonoBehaviour
 
             for (; ; )
             {
+                while(player.GetComponent<PlayerFirst>().IsInsideShelter)
+                { 
+                    yield return null;
+                }
+
                 while(isTargeting) // Let's try it here, CHECK IF WORKING
                 {
                     yield return null;
@@ -508,11 +629,11 @@ public class CameraFollow : MonoBehaviour
 
                 while (isPausingAlign)
                 {
-                    Debug.Log("Align en pause");
+                    //Debug.Log("Align en pause");
                     yield return null;
                     if(CheckPlayerMovement())
                     {
-                        Debug.Log("Sorti de pause");
+                        //Debug.Log("Sorti de pause");
                         isPausingAlign = false;
                     }
                 }
@@ -646,7 +767,6 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-
     private float LimitAngleToFirstObstacle(float targetAngle, Vector3 originalPosition)
     {
         float   startAngle    = 0; // degrees
@@ -678,7 +798,7 @@ public class CameraFollow : MonoBehaviour
                 if (Physics.Linecast(startPosition, player.transform.position, out hit, noCollision)) // CHECK if childs should be on layer Play as well
                 {
                     if (hit.transform.CompareTag("Player")){ visibility = true; }
-                    else { visibility = false; Debug.Log("OCCLUSION");}
+                    else { visibility = false; /*Debug.Log("OCCLUSION WITH " + hit.transform.name + " INSIDE " + hit.transform.parent.name + " INSIDE " + hit.transform.parent.parent.name);*/}
                 }
 
                 // Backward tracking if too close to the obstacle, use arc-length for the distances
@@ -865,42 +985,36 @@ public class CameraFollow : MonoBehaviour
         if (!Mathf.Approximately(v.x, 0))
         {
             accumulator.x = Mathf.Clamp(accumulator.x + v.x * Time.deltaTime / horizontalDuration, -1, 1);
-            //smoothx = Mathf.Sign(accumulator.x) * ( 1 - Mathf.Pow(accumulator.x - Mathf.Sign(accumulator.x), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
-            //smoothx = Mathf.Sign(accumulator.x) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.x));
             smoothx = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
         }
         else
         {
             accumulator.x = (1 - Mathf.Sign(accumulator.x)) / 2f * Mathf.Min(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0) + (1 + Mathf.Sign(accumulator.x)) / 2f * Mathf.Max(accumulator.x - Mathf.Sign(accumulator.x) * Time.deltaTime / horizontalDuration, 0);
-            //smoothx = Mathf.Sign(accumulator.x) * Mathf.Pow(accumulator.x, 2); // f(x) = -x^2 for x between 0 and 1, f(x) = x^2 for x between -1 and 0
-            //smoothx = Mathf.Sign(accumulator.x) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.x));
             smoothx = Mathf.Sign(accumulator.x) * Mathf.Sin(Mathf.Abs(accumulator.x) * Mathf.PI * 0.5f);
         }
 
         if (!Mathf.Approximately(v.y, 0))
         {
             accumulator.y = Mathf.Clamp(accumulator.y + v.y * Time.deltaTime / verticalDuration, -1, 1);
-            //smoothy = Mathf.Sign(accumulator.y) * (1 - Mathf.Pow(accumulator.y - Mathf.Sign(accumulator.y), 2)); // f(x) = 1 - (x-1)^2 for x between 0 and 1, f(x) = 1 - (x+1)^2 for x between -1 and 0
-            //smoothy = Mathf.Sign(accumulator.y) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.y));
             smoothy = Mathf.Sign(accumulator.y) * Mathf.Sin(Mathf.Abs(accumulator.y) * Mathf.PI * 0.5f);
         }
         else
         {
             accumulator.y = (1 - Mathf.Sign(accumulator.y)) / 2f * Mathf.Min(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0) + (1 + Mathf.Sign(accumulator.y)) / 2f * Mathf.Max(accumulator.y - Mathf.Sign(accumulator.y) * Time.deltaTime / verticalDuration, 0);
-            //smoothy = Mathf.Sign(accumulator.y) * Mathf.Pow(accumulator.y, 2);
-            //smoothy = Mathf.Sign(accumulator.y) * Mathf.SmoothStep(0.0f, 1.0f, Mathf.Abs(accumulator.y));
             smoothy = Mathf.Sign(accumulator.y) * Mathf.Sin(Mathf.Abs(accumulator.y) * Mathf.PI * 0.5f);
         }
 
         // Stabilization of the look around
         float y_stabilization = 0;
-        if      (cameraState == STATE.HURRY)           { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
-        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
+        if      (cameraState == STATE.NORMAL)          { y_stabilization = Mathf.Abs(smoothx) * -angleFromNormalToHorizon; }
+
+        else if (cameraState == STATE.HURRY)           { y_stabilization = Mathf.Abs(smoothx) * -angleFromHurryToHorizon; }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToHurry - angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry); }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToNormal - angleFromNormalToHorizon * (timeHurryToNormal - zoomTimer) / timeHurryToNormal); ; }
 
         else if (cameraState == STATE.PROTECTED)           { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
-        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToProtected - angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal - angleFromNormalToHorizon * (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal); }
 
         else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
         else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothx) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
@@ -1016,19 +1130,22 @@ public class CameraFollow : MonoBehaviour
 
         // Stabilization of the look around
         float y_stabilization = 0;
-        if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
-        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
+        if (cameraState == STATE.NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromNormalToHorizon; }
 
-        else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
-        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
+        else if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -(angleFromHurryToHorizon - angleFromNormalToHorizon); }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToHurry - (angleFromHurryToHorizon - angleFromNormalToHorizon) * (timeNormalToHurry - zoomTimer) / timeNormalToHurry); }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-(angleFromHurryToHorizon - angleFromNormalToHorizon) * zoomTimer / timeHurryToNormal - angleFromNormalToHorizon * (timeHurryToNormal - zoomTimer) / timeHurryToNormal); }
 
-        else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
-        else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
+        else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -(angleFromProtectedToHorizon - angleFromNormalToHorizon); }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToProtected - (angleFromProtectedToHorizon - angleFromNormalToHorizon) * (timeNormalToProtected - zoomTimer) / timeNormalToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-(angleFromProtectedToHorizon - angleFromNormalToHorizon) * zoomTimer / timeProtectedToNormal - angleFromNormalToHorizon * (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal); }
+
+        else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-(angleFromHurryToHorizon - angleFromNormalToHorizon) * zoomTimer / timeHurryToProtected - (angleFromProtectedToHorizon - angleFromNormalToHorizon) * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-(angleFromProtectedToHorizon - angleFromNormalToHorizon) * zoomTimer / timeProtectedToHurry - (angleFromHurryToHorizon - angleFromNormalToHorizon) * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
 
         // Must be separated in two because unity's order for euler is ZYX and we want X-Y-X
         //heldCamera.transform.localRotation = Quaternion.Euler(-smoothy * maxLookAroundAngle, smoothx * maxLookAroundAngle, 0);
+        
         heldCamera.transform.localRotation = Quaternion.Euler(y_stabilization, 0, 0);
         heldCamera.transform.localRotation *= Quaternion.Euler(0, smoothAccumulator.x * maxHorizontalAngle, 0);
         heldCamera.transform.localRotation *= Quaternion.Euler(-smoothAccumulator.y * maxVerticalAngle, 0, 0);
@@ -1151,13 +1268,15 @@ public class CameraFollow : MonoBehaviour
 
         // Stabilization of the look around
         float y_stabilization = 0;
+        if (cameraState == STATE.NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromNormalToHorizon; }
+
         if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
-        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToHurry - angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry); }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToNormal - angleFromNormalToHorizon * (timeHurryToNormal - zoomTimer) / timeHurryToNormal); }
 
         else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
-        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToProtected - angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal - angleFromNormalToHorizon * (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal); }
 
         else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
         else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(smoothAccumulator.x) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
@@ -1180,13 +1299,11 @@ public class CameraFollow : MonoBehaviour
         {
             projectiveAccumulator = Mathf.Clamp (projectiveAccumulator + Time.deltaTime / projectiveDuration, 0, 1);
             sinerpForward = Mathf.Sin(projectiveAccumulator * Mathf.PI * 0.5f);
-            Debug.Log("sinerp : " + sinerpForward);
         }
         else
         {
             projectiveAccumulator = Mathf.Clamp(projectiveAccumulator - Time.deltaTime / projectiveDuration, 0, 1);
             sinerpForward = Mathf.Sin(projectiveAccumulator * Mathf.PI * 0.5f);
-            Debug.Log("sinerp : " + sinerpForward);
         }
         //heldCamera.transform.position = (1-v)*transform.position + v* (player.transform.position) + (player.transform.forward * forwardDistance) * sinerpForward;
         heldCamera.transform.position = transform.position + (player.transform.position + player.transform.forward * projectiveDistance - transform.position) * sinerpForward;
@@ -1234,13 +1351,15 @@ public class CameraFollow : MonoBehaviour
 
         // Stabilization of the look around
         float y_stabilization = 0;
-        if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromHurryToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry; }
-        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromHurryToHorizon * zoomTimer / timeHurryToNormal; }
+        if (cameraState == STATE.NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromNormalToHorizon; }
+
+        else if (cameraState == STATE.HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromHurryToHorizon; }
+        else if (cameraState == STATE.NORMAL_TO_HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToHurry - angleFromHurryToHorizon * (timeNormalToHurry - zoomTimer) / timeNormalToHurry); }
+        else if (cameraState == STATE.HURRY_TO_NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToNormal - angleFromNormalToHorizon * (timeHurryToNormal - zoomTimer) / timeHurryToNormal); }
 
         else if (cameraState == STATE.PROTECTED) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromProtectedToHorizon; }
-        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected; }
-        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * -angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal; }
+        else if (cameraState == STATE.NORMAL_TO_PROTECTED) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromNormalToHorizon * zoomTimer / timeNormalToProtected - angleFromProtectedToHorizon * (timeNormalToProtected - zoomTimer) / timeNormalToProtected); }
+        else if (cameraState == STATE.PROTECTED_TO_NORMAL) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToNormal - angleFromNormalToHorizon * (timeProtectedToNormal - zoomTimer) / timeProtectedToNormal); }
 
         else if (cameraState == STATE.HURRY_TO_PROTECTED) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromHurryToHorizon * zoomTimer / timeHurryToProtected - angleFromProtectedToHorizon * (timeHurryToProtected - zoomTimer) / timeHurryToProtected); }
         else if (cameraState == STATE.PROTECTED_TO_HURRY) { y_stabilization = Mathf.Abs(rotationSmooth) * (-angleFromProtectedToHorizon * zoomTimer / timeProtectedToHurry - angleFromHurryToHorizon * (timeProtectedToHurry - zoomTimer) / timeProtectedToHurry); }
@@ -1262,6 +1381,7 @@ public class CameraFollow : MonoBehaviour
             {
                 if (player.GetComponent<PlayerFirst>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
                 {
+                    Debug.Log("CAMERA DETECTED THAT PLAYER IS PROTECTING");
                     zoomTimer = timeNormalToProtected;
                     isAvailable = false;
                     cameraState = STATE.NORMAL_TO_PROTECTED;
@@ -1269,7 +1389,6 @@ public class CameraFollow : MonoBehaviour
 
                 else if (player.GetComponent<PlayerFirst>().IsHurry)
                 {
-                    Debug.Log("Camera detected that player is hurry");
                     zoomTimer = timeNormalToHurry;
                     isAvailable = false;
                     cameraState = STATE.NORMAL_TO_HURRY;
@@ -1298,7 +1417,14 @@ public class CameraFollow : MonoBehaviour
         {
             if (!isTargeting) // isAvailable ?
             {
-                if (player.GetComponent<PlayerFirst>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
+                if (gameManager.GetComponent<GameManager>().IsGameOver)
+                {
+                    zoomTimer = timeHurryToGameover;
+                    isAvailable = false;
+                    cameraState = STATE.HURRY_TO_GAMEOVER;
+                }
+
+                else if (player.GetComponent<PlayerFirst>().IsProtectingEyes || player.GetComponent<PlayerFirst>().IsProtectingEars)
                 {
                     zoomTimer = timeHurryToProtected;
                     isAvailable = false;
@@ -1351,7 +1477,14 @@ public class CameraFollow : MonoBehaviour
         {
             if (!isTargeting) // isAvailable ?
             {
-                if (!player.GetComponent<PlayerFirst>().IsProtectingEyes && !player.GetComponent<PlayerFirst>().IsProtectingEars)
+                if (gameManager.GetComponent<GameManager>().IsGameOver)
+                {
+                    zoomTimer = timeProtectedToGameover;
+                    isAvailable = false;
+                    cameraState = STATE.PROTECTED_TO_GAMEOVER;
+                }
+
+                else if (!player.GetComponent<PlayerFirst>().IsProtectingEyes && !player.GetComponent<PlayerFirst>().IsProtectingEars)
                 {
                     if (player.GetComponent<PlayerFirst>().IsHurry)
                     {
@@ -1419,44 +1552,132 @@ public class CameraFollow : MonoBehaviour
                 cameraState = STATE.HURRY;
             }
         }
+
+        else if (cameraState == STATE.HURRY_TO_GAMEOVER)
+        {
+            Vector3 startPosition = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * (Z_OffsetHurry - Z_OffsetGameover) + Vector3.up * (Y_OffsetHurry - Y_OffsetGameover)) * (timeHurryToGameover - zoomTimer) / timeHurryToGameover; // recreate original position
+            Vector3 endPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * (Z_OffsetHurry - Z_OffsetGameover) + Vector3.up * (Y_OffsetHurry - Y_OffsetGameover)) * zoomTimer / timeHurryToGameover; // recreate original position
+            zoomTimer = Mathf.Max(zoomTimer - Time.deltaTime, 0);
+            //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
+            transform.position = Vector3.Lerp(startPosition, endPosition, (timeHurryToGameover - zoomTimer) / timeHurryToGameover);
+
+            // Transition
+            if (zoomTimer <= 0)
+            {
+                transform.position = endPosition; // should wait one frame more
+                isAvailable = true;
+                cameraState = STATE.GAMEOVER; // should be unused
+            }
+        }
+
+        else if (cameraState == STATE.PROTECTED_TO_GAMEOVER)
+        {
+            Vector3 startPosition = transform.position + (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * (Z_OffsetProtected - Z_OffsetGameover) + Vector3.up * (Y_OffsetProtected - Y_OffsetGameover)) * (timeProtectedToGameover - zoomTimer) / timeProtectedToGameover; // recreate original position
+            Vector3 endPosition = transform.position - (-Vector3.ProjectOnPlane(player.transform.position - transform.position, Vector3.up).normalized * (Z_OffsetProtected - Z_OffsetGameover) + Vector3.up * (Y_OffsetProtected - Y_OffsetGameover)) * zoomTimer / timeProtectedToGameover; // recreate original position
+            zoomTimer = Mathf.Max(zoomTimer - Time.deltaTime, 0);
+            //float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (timeToNormal - recoilTimer) / timeToNormal);
+            transform.position = Vector3.Lerp(startPosition, endPosition, (timeProtectedToGameover - zoomTimer) / timeProtectedToGameover);
+
+            // Transition
+            if (zoomTimer <= 0)
+            {
+                transform.position = endPosition; // should wait one frame more
+                isAvailable = true;
+                cameraState = STATE.GAMEOVER;
+            }
+        }
+
+        else if (cameraState == STATE.GAMEOVER)
+        {
+            transform.position += Vector3.up * flyAwaySpeed;
+        }
     }
+
+    /* Floating */
 
     void InitializeSway()
     {
         latitude      = Random.Range(0, 180);
         longitude     = Random.Range(0, 360);
+        swayRadiusMin = swayNormalRadiusMin;
+        swayRadiusMax = swayNormalRadiusMax;
+        swayDurationMin = swayNormalDurationMin;
+        swayDurationMax = swayNormalDurationMax;
         swayRadius    = Random.Range(swayRadiusMin, swayRadiusMax);
         swayDuration  = Random.Range(swayDurationMin, swayDurationMax);
         swayTimer     = swayDuration;
+
+        originalSwayPosition = heldCamera.transform.localPosition;
+
+        targetSwayPosition = heldCamera.transform.localPosition + heldCamera.transform.localRotation * new Vector3
+        (
+            swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Cos(longitude * Mathf.Deg2Rad),
+            swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Sin(longitude * Mathf.Deg2Rad),
+            swayRadius * Mathf.Cos(latitude * Mathf.Deg2Rad)
+        );
     }
     IEnumerator Sway()
     {
         for (; ;)
         {
-            Vector3 target = transform.position + new Vector3(
-                swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Cos(longitude * Mathf.Deg2Rad),
-                swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Sin(longitude * Mathf.Deg2Rad),
-                swayRadius * Mathf.Cos(latitude * Mathf.Deg2Rad)
-            );
-            
-            swayTimer -= Time.deltaTime;
-            float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (swayDuration - swayTimer) / swayDuration);
-            cameraSway.transform.position = Vector3.Lerp(cameraSway.transform.position, target, smoothstep);
-
-            if (Mathf.Approximately((cameraSway.transform.position - target).magnitude, 0))
+            if ((cameraState == STATE.HURRY || cameraState == STATE.NORMAL_TO_HURRY) && lastCameraState != STATE.HURRY && lastCameraState != STATE.NORMAL_TO_HURRY)
             {
-                latitude     = Random.Range(0, 90) + 90 * (1 - Mathf.Sign(latitude - 90) / 2f);
-                longitude    = Random.Range(longitude - 90, longitude + 90) % 360;
+                // immediately speed up
+                float newSwayDuration = Random.Range(swayHurryDurationMin, swayHurryDurationMax);
+
+                swayTimer *= (newSwayDuration / swayDuration); // rescale timer
+                swayDuration = newSwayDuration;
+
+                // for next iteration
+                swayDurationMin = swayHurryDurationMin;
+                swayDurationMax = swayHurryDurationMax;
+                swayRadiusMin = swayHurryRadiusMin;
+                swayRadiusMax = swayHurryRadiusMax;
+                backToNormalRadiusSpeed = 2f;
+                backToNormalRadiusAcceleration = 2.5f;
+            }
+            else if (cameraState == STATE.NORMAL && lastCameraState != STATE.NORMAL)
+            {
+                // for next iteration
+                swayDurationMin = swayNormalDurationMin;
+                swayDurationMax = swayNormalDurationMax;
+                swayRadiusMin = swayNormalRadiusMin;
+                swayRadiusMax = swayNormalRadiusMax;
+            }
+
+            swayTimer = Mathf.Max(swayTimer - Time.deltaTime, 0.0f);
+            float smoothstep = Mathf.SmoothStep(0.0f, 1.0f, (swayDuration - swayTimer) / swayDuration);
+            cameraSway.transform.localPosition = Vector3.Lerp(originalSwayPosition, targetSwayPosition, smoothstep);
+
+            if (smoothstep == 1)
+            {
+                latitude  = Random.Range(0, 90) + 90 * (1 - Mathf.Sign(latitude - 90) / 2f);
+                longitude = Random.Range(longitude - 90, longitude + 90) % 360;
+
+                // Revenir progressivement à swayNormalRadiusMin, swayNormalRadiusMax
+                // WARNING : Here we suppose that radius is greater in hurry than in normal, and conversely for the duration
+                // Transition for the radius, but not for the duration
+                backToNormalRadiusSpeed = Mathf.Max(backToNormalRadiusSpeed + Time.deltaTime * backToNormalRadiusAcceleration, 0.1f);
+                swayRadiusMin   = Mathf.Max(swayRadiusMin   - Time.deltaTime * backToNormalRadiusSpeed, swayNormalRadiusMin);
+                swayRadiusMax   = Mathf.Max(swayRadiusMax   - Time.deltaTime * backToNormalRadiusSpeed, swayNormalRadiusMax);
+                //swayDurationMin = Mathf.Min(swayDurationMin + Time.deltaTime * backToNormalRadiusSpeed, swayNormalDurationMin);
+                //swayDurationMax = Mathf.Min(swayDurationMax + Time.deltaTime * backToNormalRadiusSpeed, swayNormalDurationMax);
+
                 swayRadius   = Random.Range(swayRadiusMin, swayRadiusMax);
                 swayDuration = Random.Range(swayDurationMin, swayDurationMax);
                 swayTimer    = swayDuration;
 
-                if(cameraState == STATE.HURRY || cameraState == STATE.NORMAL_TO_HURRY)
-                {
-                    swayRadius *= 2;
-                    swayDuration /= 2;
-                }
+                originalSwayPosition = cameraSway.transform.localPosition;
+                targetSwayPosition = heldCamera.transform.localPosition + heldCamera.transform.localRotation * new Vector3
+                (
+                    swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Cos(longitude * Mathf.Deg2Rad),
+                    swayRadius * Mathf.Sin(latitude * Mathf.Deg2Rad) * Mathf.Sin(longitude * Mathf.Deg2Rad),
+                    swayRadius * Mathf.Cos(latitude * Mathf.Deg2Rad)
+                );
             }
+
+            lastCameraState = cameraState;
+
             yield return null;
         }
     }
@@ -1544,10 +1765,12 @@ public class CameraFollow : MonoBehaviour
         player.GetComponent<PlayerFirst>().IsDamaged = true;*/
     }
 
+    // CHECK IF OK TO REMOVE THIS :
+    /*
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(3);
-        player.GetComponent<PlayerFirst>().IsDamaged = false;
-    }
+        player.GetComponent<PlayerFirst>().IsDamagedEyes = false;
+    }*/
 
 } //FINISH

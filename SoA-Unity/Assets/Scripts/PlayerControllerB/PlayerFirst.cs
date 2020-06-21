@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using AK.Wwise;
 
 public interface IAnimable
 {
@@ -13,6 +13,8 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 {
 
     private Inputs inputs;
+
+    private GameObject gameManager;
 
     [Space]
     [Header("Player Settings")]
@@ -41,11 +43,38 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     [SerializeField]
     [Tooltip("Duration of the half-turn")]
     [Range(0.1f,10)]
-    float turnBackTime = 0.35f; // seconds
+    private float turnBackTime = 0.35f; // seconds
+
+    [SerializeField]
+    [Tooltip("Sensitivity of the Y-Axis to trigger the half-turn")]
+    [Range(-1,0)]
+    private float turnBackThreshold = -0.5f;
+
+    [SerializeField]
+    [Tooltip("Minimum Y-Axis value")]
+    [Range(0, 1)]
+    private float walkingForwardThreshold = 0.6f;
+
+    [SerializeField]
+    [Tooltip("Minimum X-Axis value")]
+    [Range(0, 1)]
+    private float turningAngleThreshold = 0.6f;
+
+    [SerializeField]
+    [Tooltip("Total angle of the joystick (in degrees) that trigger the turn back")]
+    [Range(0, 180)]
+    float turnBackAngle = 30; // degs
+
+    [SerializeField]
+    [Tooltip("Total angle of the joystick (in degrees) that trigger full forward movement")]
+    [Range(0, 180)]
+    float fullForwardAngle = 60; // degs
 
     private float steeringAngle;
     public float SteeringAngle { get { return steeringAngle; } set { steeringAngle = value; } }
     private bool isTurningBack;
+
+    private bool turningBackPressed;
 
     [Space]
     [Header("Hurry State")]
@@ -62,22 +91,46 @@ public class PlayerFirst : MonoBehaviour, IAnimable
 
     private float backToNormalSpeedTimer = 0; // s
 
+
     private bool isHurry;
     public bool IsHurry { get { return isHurry; } }
 
     private bool isProtectingEyes;
     public bool IsProtectingEyes { get { return isProtectingEyes; } set { isProtectingEyes = value; } }
 
-
     private bool isProtectingEars;
     public bool IsProtectingEars { get { return isProtectingEars; } set { isProtectingEars = value; } }
 
-    private bool isDamaged;
-    public bool IsDamaged { get { return isDamaged; } set { isDamaged = value; } }
+    private bool isDamagedEyes;
+    public bool IsDamagedEyes { get { return isDamagedEyes; } set { isDamagedEyes = value; } }
+
+    private bool isDamagedEars;
+    public bool IsDamagedEars { get { return isDamagedEars; } set { isDamagedEars = value; } }
+
+    private float eyesDamageSources;
+    public float EyesDamageSources { get { return eyesDamageSources; } set { eyesDamageSources = value; } }
+
+    private bool isRunning;
+    public bool IsRunning { get { return isRunning; } set { isRunning = value; } }
+
+    private bool isUncomfortableEyes;
+    public bool IsUncomfortableEyes { get { return isUncomfortableEyes; } set { isUncomfortableEyes = value; } }
+
+    private bool isUncomfortableEars;
+    public bool IsUncomfortableEars { get { return isUncomfortableEars; } set { isUncomfortableEars = value; } }
+
+    private float eyesUncomfortableSources;
+    public float EyesUncomfortableSources { get { return eyesUncomfortableSources; } set { eyesUncomfortableSources = value; } }
+
+    private bool isInsideShelter;
+    public bool IsInsideShelter {  get { return isInsideShelter; } set { isInsideShelter = value; } }
 
     [SerializeField]
     private Animator anim;
     public Animator Anim { get { return anim; } }
+
+    [SerializeField]
+    private GameObject esthesia;
 
     private Vector3 movement;
 
@@ -90,21 +143,64 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     [SerializeField]
     private Transform raycastPosition;
 
+    [SerializeField]
+    private GameObject wwiseGameObjectFootstep;
+
+    [SerializeField]
+    private GameObject wwiseGameObjectBreath;
+
+    [Header("Shelter")]
+    [Space]
+
+    [SerializeField]
+    [Tooltip("The speed of the character when inside the shelter")]
+    [Range(0, 10)]
+    private float shelterSpeed = 6;
+    public float ShelterSpeed { get { return shelterSpeed; } }
+
     void Awake()
     {
         steeringAngle = player.transform.rotation.eulerAngles.y;
 
         inputs = InputsManager.Instance.Inputs;
 
-        // TO MOVE TO GAME MANAGER
-        inputs.Player.Quit.performed += _ctx => Application.Quit();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        if(gameManager == null)
+        {
+            throw new System.NullReferenceException("No GameManager found in the scene");
+        }
 
         isTurningBack = false;
         isHurry = false;
         isProtectingEyes = false;
         isProtectingEars = false;
+        isRunning = false;
+        turningBackPressed = false;
+
+        // Make sure we spawn at home
+        isInsideShelter = true;
+
+        isUncomfortableEyes = false;
+        isUncomfortableEars = false;
+        
+        eyesDamageSources = 0;
 
         movement = Vector3.zero;
+
+        if(wwiseGameObjectFootstep == null)
+        {
+            throw new System.Exception("Missing reference to a Wwise GameObject");
+        }
+
+        if (esthesia.GetComponent<Animator>() == null)
+        {
+            throw new System.NullReferenceException("No Animator attached to Esthesia game object");
+        }
+        if (esthesia.GetComponent<EsthesiaAnimation>() == null)
+        {
+            throw new System.NullReferenceException("No Esthesia animation script attached to Esthesia game object");
+        }
     }
 
     // Start is called before the first frame update
@@ -116,6 +212,15 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     // Update is called once per frame
     void Update()
     {
+        if(gameManager.GetComponent<GameManager>().IsGameOver)
+        {
+            anim.SetBool("isGameOver", true);
+
+            // deactivate protections if used
+            anim.SetBool("isProtectingEyes", false);
+            anim.SetBool("isProtectingEars", false);
+        }
+
         if (inputs.Player.enabled) // Compulsory, as Disabling or Enabling an Action also Enable the ActionGroup !!!
         {
             StickToGround();
@@ -125,31 +230,57 @@ public class PlayerFirst : MonoBehaviour, IAnimable
             characterController.Move(movement);
             movement = Vector3.zero;
 
-            if (isDamaged)
+            /* Manage the two kinds of vision */
+
+            if (eyesDamageSources > 0) { isDamagedEyes = true; }
+            else { isDamagedEyes = false; }
+            eyesDamageSources = 0;
+
+            if (eyesUncomfortableSources > 0) { isUncomfortableEyes = true; }
+            else { isUncomfortableEyes = false; }
+            eyesUncomfortableSources = 0;
+
+            if (isDamagedEyes || isDamagedEars) // TO DO : Remove ???
             {
                 //inputs.Player.Walk.Disable();
                 //inputs.Player.ProtectEyes.Enable();
                 //inputs.Player.ProtectEars.Enable();
+                AKRESULT result;
+                result = AkSoundEngine.SetSwitch("Court_Marche", "Court", wwiseGameObjectFootstep); // Running step sounds
+                result = AkSoundEngine.SetSwitch("Court_Marche", "Court", wwiseGameObjectBreath); // Running step sounds
             }
 
             if (isProtectingEyes || isProtectingEars)
             {
                 //inputs.Player.Walk.Enable();
-                isDamaged = false; // To check
+                isDamagedEyes = false; // To check
+                isDamagedEars = false; // To check
+                AKRESULT result;
+                result = AkSoundEngine.SetSwitch("Court_Marche", "Court", wwiseGameObjectFootstep); // Running step sounds
+                result = AkSoundEngine.SetSwitch("Court_Marche", "Court", wwiseGameObjectBreath); // Running step sounds
             }
 
-            if (!isDamaged)
+            if (!isDamagedEyes && !isDamagedEars) // TO DO : Remove ???
             {
                 inputs.Player.Walk.Enable();
             }
 
             anim.SetBool("isProtectingEyes", isProtectingEyes);
             anim.SetBool("isProtectingEars", isProtectingEars);
-            anim.SetBool("isDamaged", isDamaged);
+            anim.SetBool("isDamagedEyes", isDamagedEyes);
+            anim.SetBool("isDamagedEars", isDamagedEars);
+            anim.SetBool("isUncomfortableEyes", isUncomfortableEyes);
+            anim.SetBool("isUncomfortableEars", isUncomfortableEars);
         }
-        else
+        else // World-shelter transition
         {
             anim.SetBool("isWalking", false); // stop animation when warping
+            // handle animation layer
+            esthesia.GetComponent<EsthesiaAnimation>().SelectIdleLayer();
+
+            AKRESULT result;
+            result = AkSoundEngine.SetSwitch("Court_Marche", "Idle", wwiseGameObjectFootstep); // Idle step sounds
+            result = AkSoundEngine.SetSwitch("Court_Marche", "Idle", wwiseGameObjectBreath); // Idle step sounds
         }
     }
 
@@ -167,21 +298,55 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     {
         if (!isTurningBack)
         {
-            Vector3 translation = player.transform.forward * v.y;
-            movement += translation * speed * Time.deltaTime;
-            steeringAngle += v.x * rotationSpeed * Time.deltaTime;
-            characterController.transform.rotation = Quaternion.Euler(0, steeringAngle, 0);
+            if (IsInTurnBackSector(v) && !turningBackPressed)  { turningBackPressed = true; StartCoroutine("TurnBack"); return; }
+            if (turningBackPressed && v.y > turnBackThreshold) { turningBackPressed = false; }
             
-            if (v.y < 0) { StartCoroutine("TurnBack"); }
-
-            if (v.magnitude < Mathf.Epsilon)
+            if (v.y > 0)
             {
+                movement += player.transform.forward * Mathf.Clamp(v.y, walkingForwardThreshold, 1f) * speed * Time.deltaTime;
+            }
+            if (!IsInFullForwardSector(v) && !IsInTurnBackSector(v))
+            {
+                steeringAngle += Mathf.Sign(v.x) * Mathf.Clamp(Mathf.Abs(v.x), turningAngleThreshold, 1f) * rotationSpeed * Time.deltaTime; // TO DO : Minimum rotation speed threshold, just like the walkingForwardThreshold
+                characterController.transform.rotation = Quaternion.Euler(0, steeringAngle, 0);
+                if(v.y <= 0)
+                {
+                    movement += player.transform.forward * walkingForwardThreshold * speed * Time.deltaTime;
+                }
+            }
+
+            if (v.magnitude == 0)
+            {
+                isRunning = false;
                 anim.SetBool("isWalking", false);
+                // handle animation layer
+                esthesia.GetComponent<EsthesiaAnimation>().SelectIdleLayer();
+
+                AKRESULT result;
+                result = AkSoundEngine.SetSwitch("Court_Marche", "Idle", wwiseGameObjectFootstep); // Idle step sounds
+                result = AkSoundEngine.SetSwitch("Court_Marche", "Idle", wwiseGameObjectBreath); // Idle step sounds
             } else
             {
+                isRunning = true;
                 anim.SetBool("isWalking", true);
+                // handle animation layer
+                esthesia.GetComponent<EsthesiaAnimation>().SelectWalkLayer();
+
+                AKRESULT result;
+                result = AkSoundEngine.SetSwitch("Court_Marche", "Marche", wwiseGameObjectFootstep); // Walking step sounds
+                result = AkSoundEngine.SetSwitch("Court_Marche", "Marche", wwiseGameObjectBreath); // Walking step sounds
             }
         }
+    }
+
+    private bool IsInTurnBackSector(Vector2 point)
+    {
+        return point.y <= turnBackThreshold && Mathf.Abs(Mathf.Atan2(point.x, -point.y)) <= turnBackAngle / 2f * Mathf.Deg2Rad;
+    }
+
+    private bool IsInFullForwardSector(Vector2 point)
+    {
+        return Mathf.Abs(Mathf.Atan2(point.x, point.y)) <= fullForwardAngle / 2f * Mathf.Deg2Rad;
     }
 
     public void ResetTransform(Vector3 position, float angle)
@@ -198,12 +363,11 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     {
         if (raycastPosition && groundLevelPosition)
         {
-            RaycastHit hit;
-            LayerMask ground = LayerMask.GetMask("Ground");
+            LayerMask ground = LayerMask.GetMask("AsphaltGround") | LayerMask.GetMask("GrassGround") | LayerMask.GetMask("ConcreteGround") | LayerMask.GetMask("SoilGround");
 
-            if (Physics.Raycast(raycastPosition.position, -Vector3.up, out hit, Mathf.Infinity, ground))
+            if (Physics.Raycast(raycastPosition.position, -Vector3.up, out RaycastHit hit, Mathf.Infinity, ground))
             {
-                movement = (hit.point - groundLevelPosition.position);
+                movement = new Vector3(0, (hit.point - groundLevelPosition.position).y, 0);
             }
             else
             {
@@ -215,6 +379,17 @@ public class PlayerFirst : MonoBehaviour, IAnimable
     IEnumerator TurnBack()
     {
         isTurningBack = true;
+
+        // TO DO : verifiy these two
+        isRunning = true;
+        anim.SetBool("isWalking", true);
+
+        // handle animation layer
+        esthesia.GetComponent<EsthesiaAnimation>().SelectWalkLayer();
+
+        AKRESULT result;
+        result = AkSoundEngine.SetSwitch("Court_Marche", "Marche", wwiseGameObjectFootstep);
+        result = AkSoundEngine.SetSwitch("Court_Marche", "Marche", wwiseGameObjectBreath);
 
         Vector3 beginForward =  transform.forward;
         Vector3 endForward   = -transform.forward;
@@ -256,6 +431,14 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         isHurry = false;
     }
    
-    
+    public void SetShelterSpeed()
+    {
+        this.speed = shelterSpeed;
+    }
+
+    public void ResetSpeed()
+    {
+        this.speed = normalSpeed;
+    }
 
 } // FINISH

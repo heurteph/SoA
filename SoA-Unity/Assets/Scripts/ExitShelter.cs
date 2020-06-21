@@ -11,7 +11,6 @@ public class ExitShelter : MonoBehaviour
     [SerializeField]
     private EnergyBehaviour energyBehaviour;
 
-    [SerializeField]
     private Image shade;
 
     private GameObject shelter;
@@ -26,10 +25,22 @@ public class ExitShelter : MonoBehaviour
     [SerializeField]
     private GameObject cameraHolder;
 
+    private GameObject ambianceManager;
+
+    private string shelterTag;
+
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
         inputs.Player.Interact.Disable();
+
+        ambianceManager = GameObject.FindGameObjectWithTag("AmbianceManager");
+        shade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
+
+        if (ambianceManager == null)
+        {
+            throw new System.NullReferenceException("Missing game object tagged with \"AmbianceManager\"");
+        }
     }
 
     // Start is called before the first frame update
@@ -41,6 +52,8 @@ public class ExitShelter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetComponent<PlayerFirst>().SetShelterSpeed();
+
         if (shelterManager && inputs.Player.enabled)
         {
             inputs.Player.Interact.performed -= ShelterToWorld;
@@ -51,8 +64,9 @@ public class ExitShelter : MonoBehaviour
 
             if (Physics.Raycast(transform.position, transform.forward, out hit, shelterManager.MaxDistanceToDoor, mask))
             {
-                shelterCamera = hit.transform.parent.transform.Find("Shed Camera").GetComponent<Camera>();
+                shelterCamera = hit.transform.parent.transform.Find("Shelter Camera").GetComponent<Camera>();
                 shelter = shelterManager.GoOutside(hit.collider.transform.parent.gameObject);
+                shelterTag = hit.transform.parent.transform.tag;
                 inputs.Player.Interact.performed += ShelterToWorld;
 
                 if (inputs.Player.enabled)
@@ -79,22 +93,44 @@ public class ExitShelter : MonoBehaviour
             yield return null;
         }
 
-        // Reset character
+        // Reset character position and speed
 
         if(transform.GetComponent<PlayerFirst>().isActiveAndEnabled)
         {
             Transform warp = shelter.transform.Find("Warp Position");
             GetComponent<PlayerFirst>().ResetTransform(warp.position, warp.rotation.eulerAngles.y);
+            GetComponent<PlayerFirst>().ResetSpeed();
         }
 
         // Reset camera
 
+        GetComponent<PlayerFirst>().IsInsideShelter = false;
         mainCamera.enabled = true;
+
         if (cameraHolder.GetComponent<CameraFollow>().isActiveAndEnabled)
         {
             cameraHolder.GetComponent<CameraFollow>().ResetCameraToFrontView();
         }
         shelterCamera.enabled = false;
+
+        // Reset sound
+        mainCamera.gameObject.GetComponent<AkAudioListener>().enabled = true;
+        shelterCamera.gameObject.GetComponent<AkAudioListener>().enabled = false;
+
+        AkSoundEngine.SetState("Dans_Lieu_Repos", "Non");
+
+        // Ambiance sound
+        if (shelterTag == "Home" || shelterTag == "Bar")
+        {
+            ambianceManager.GetComponent<AmbianceManager>().PlayCityAmbiance();
+        }
+        else if (shelterTag == "Shed")
+        {
+            ambianceManager.GetComponent<AmbianceManager>().PlayParkAmbiance();
+        }
+        
+        //GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventStop.Post(gameObject);
+        //GetComponent<PostWwiseAmbiance>().ParkAmbianceEventPlay.Post(gameObject);
 
         while (shade.color.a > 0)
         {

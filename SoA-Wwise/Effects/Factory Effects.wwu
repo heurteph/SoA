@@ -619,11 +619,14 @@
 							<ChildrenList>
 								<Effect Name="Low_Pass_20KHz" ID="{830124FB-B9D5-4AE8-846E-E94A74652666}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
 									<PropertyList>
-										<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
+										<Property Name="FilterTypeBand2" Type="int32" Value="5"/>
 										<Property Name="FilterTypeBand3" Type="int32" Value="0"/>
-										<Property Name="FrequencyBand3" Type="Real32" Value="20000"/>
-										<Property Name="OnOffBand1" Type="bool" Value="False"/>
-										<Property Name="OnOffBand2" Type="bool" Value="False"/>
+										<Property Name="FrequencyBand1" Type="Real32" Value="476"/>
+										<Property Name="FrequencyBand2" Type="Real32" Value="1789"/>
+										<Property Name="FrequencyBand3" Type="Real32" Value="677"/>
+										<Property Name="GainBand1" Type="Real32" Value="5.5"/>
+										<Property Name="GainBand2" Type="Real32" Value="-11.5"/>
+										<Property Name="ProcessLFE" Type="bool" Value="False"/>
 									</PropertyList>
 								</Effect>
 							</ChildrenList>
@@ -1510,7 +1513,7 @@
 										<Property Name="DecayTime" Type="Real32" Value="1"/>
 										<Property Name="Density" Type="Real32" Value="50"/>
 										<Property Name="ERLevel" Type="Real32" Value="-18"/>
-										<Property Name="ERPattern" Type="int32" Value="29"/>
+										<Property Name="ERPattern" Type="int32" Value="2"/>
 										<Property Name="Filter1Freq" Type="Real32" Value="210"/>
 										<Property Name="Filter1Gain" Type="Real32" Value="1.5"/>
 										<Property Name="Filter2Freq" Type="Real32" Value="6830"/>

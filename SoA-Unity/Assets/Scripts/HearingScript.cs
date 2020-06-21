@@ -23,11 +23,18 @@ public class HearingScript : MonoBehaviour
 
     [SerializeField]
     [Range(0, 1)]
-    private float normalLoudnessThreshold = 0.5f; //0.015f
+    [Tooltip("Loudness level limit before character starts feeling damage in protected mode")]
+    private float normalLoudnessThreshold = 0.7f;
 
     [SerializeField]
     [Range(0, 1)]
-    private float protectedLoudnessThreshold = 0.7f; //0.02f
+    [Tooltip("Loudness level limit before character starts feeling damage in protected mode")]
+    private float protectedLoudnessThreshold = 0.8f;
+
+    [SerializeField]
+    [Range(0, 1)]
+    [Tooltip("Brightness level limit before character starts feeling discomfort")]
+    private float uncomfortableLoudnessThreshold = 0.6f;
 
     private float loudnessThreshold;
     public float LoudnessThreshold { get { return loudnessThreshold; } set { loudnessThreshold = value; } }
@@ -38,6 +45,12 @@ public class HearingScript : MonoBehaviour
 
     [Space]
     [Header("References")]
+
+    [SerializeField]
+    private GameObject player;
+
+    [SerializeField]
+    private GameObject esthesia;
 
     [SerializeField]
     private EnergyBehaviour energyBehaviour;
@@ -70,6 +83,15 @@ public class HearingScript : MonoBehaviour
         if (audioManager == null)
         {
             throw new System.NullReferenceException("The audio manager could not be loaded");
+        }
+
+        if (esthesia.GetComponent<Animator>() == null)
+        {
+            throw new System.NullReferenceException("No Animator attached to Esthesia game object");
+        }
+        if (esthesia.GetComponent<EsthesiaAnimation>() == null)
+        {
+            throw new System.NullReferenceException("No Esthesia animation script attached to Esthesia game object");
         }
 
         LoudnessThresholdEvent += energyBehaviour.DecreaseEnergy;
@@ -123,9 +145,10 @@ public class HearingScript : MonoBehaviour
         for (; ; )
         {
             float loudness = 0f;
-
             int type = 1;
-            AKRESULT result = AkSoundEngine.GetRTPCValue("VolumeEcoutePerso", null, 0, out loudness, ref type);
+            AKRESULT result;
+
+            result = AkSoundEngine.GetRTPCValue("VolumeEcoutePerso", null, 0, out loudness, ref type);
 
             if(result == AKRESULT.AK_Fail)
             {
@@ -137,11 +160,39 @@ public class HearingScript : MonoBehaviour
 
             LoudnessUpdateEvent(loudness);
 
+            if(loudness >= uncomfortableLoudnessThreshold)
+            {
+                if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
+                {
+                    player.GetComponent<PlayerFirst>().IsUncomfortableEars = true;
+                }
+            }
+            else
+            {
+                player.GetComponent<PlayerFirst>().IsUncomfortableEars = false;
+            }
+
             if (loudness >= loudnessThreshold)
             {
-                LoudnessThresholdEvent(loudnessDamage);
+                if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
+                {
+                    // Handle energy loss
+                    LoudnessThresholdEvent(loudnessDamage);
 
-                DamagingSourceEvent?.Invoke(ClosestAudioSource()); // more explicit test of existence needed
+                    // Handle animation
+                    if (!player.GetComponent<PlayerFirst>().IsDamagedEyes)
+                    {
+                        player.GetComponent<PlayerFirst>().IsDamagedEars = true;
+                        // Set animation layer weight
+                        //esthesia.GetComponent<EsthesiaAnimation>().SelectEarsDamageLayer();
+                    }
+
+                    //DamagingSourceEvent?.Invoke(ClosestAudioSource()); // more explicit test of existence needed
+                }
+            }
+            else
+            {
+                player.GetComponent<PlayerFirst>().IsDamagedEars = false;
             }
             yield return new WaitForSeconds(1f / refreshFrequency);
         }
@@ -157,6 +208,7 @@ public class HearingScript : MonoBehaviour
         loudnessThreshold = normalLoudnessThreshold;
     }
 
+    /*
     public GameObject ClosestAudioSource()
     {
         float minDistance = Mathf.Infinity;
@@ -179,5 +231,6 @@ public class HearingScript : MonoBehaviour
         Debug.Log(closestAudioSource.transform.name + closestAudioSource.transform.position + " is the closest AudioSource");
         return closestAudioSource;
     }
+    */
 
 } // FINISH

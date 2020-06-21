@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class VisionBehaviour : MonoBehaviour
 {
+    static int instanceCount = 0;
+
     [Space]
     [Header("Character Camera")]
 
@@ -29,6 +31,9 @@ public class VisionBehaviour : MonoBehaviour
     //[SerializeField]
     //private GameObject characterMesh;
 
+    [SerializeField]
+    private LayerMask ignoreMask;
+
     [Space]
     [Header("Brightness Detector")]
 
@@ -48,16 +53,21 @@ public class VisionBehaviour : MonoBehaviour
 
     [SerializeField]
     [Range(0,1)]
-    [Tooltip("Brightness level limit before character starts feeling discomfort in normal mode")]
-    private float normalBrightnessThreshold = 0.5f;
+    [Tooltip("Brightness level limit before character starts feeling damage in normal mode")]
+    private float normalBrightnessThreshold = 0.7f;
 
     [SerializeField]
     [Range(0, 1)]
-    [Tooltip("Brightness level limit before character starts feeling discomfort in protected mode")]
-    private float protectedBrightnessThreshold = 0.6f;
+    [Tooltip("Brightness level limit before character starts feeling damage in protected mode")]
+    private float protectedBrightnessThreshold = 0.8f;
 
     private float brightnessThreshold;
     public float BrightnessThreshold { get { return brightnessThreshold; } }
+
+    [SerializeField]
+    [Range(0, 1)]
+    [Tooltip("Brightness level limit before character start feeling disconfort")]
+    private float uncomfortableBrightnessThreshold = 0.6f;
 
     [SerializeField]
     [Range(0, 100)]
@@ -68,6 +78,12 @@ public class VisionBehaviour : MonoBehaviour
     [Header("References")]
 
     [SerializeField]
+    private GameObject player;
+
+    [SerializeField]
+    private GameObject esthesia;
+
+    [SerializeField]
     private EnergyBehaviour energyBehaviour;
 
     [SerializeField]
@@ -75,6 +91,8 @@ public class VisionBehaviour : MonoBehaviour
 
     private delegate void BrightnessThresholdHandler(float b);
     private event BrightnessThresholdHandler brightnessThresholdEvent;
+
+    private event BrightnessThresholdHandler uncomfortableThresholdEvent;
 
     public delegate void GrayscaleChangedHandler(GameObject sender, Texture2D t, float p);
     public event GrayscaleChangedHandler grayScaleChangedEvent;
@@ -87,13 +105,24 @@ public class VisionBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(esthesia.GetComponent<Animator>() == null)
+        {
+            throw new System.NullReferenceException("No Animator attached to Esthesia game object");
+        }
+        if (esthesia.GetComponent<EsthesiaAnimation>() == null)
+        {
+            throw new System.NullReferenceException("No Esthesia animation script attached to Esthesia game object");
+        }
         brightnessThreshold = normalBrightnessThreshold;
         brightnessThresholdEvent += energyBehaviour.DecreaseEnergy;
         grayScaleChangedEvent += debuggerBehaviour.DisplayBrightness;
 
         InjectCameraToFBX(); // create the camera inside the script
 
-        StartCoroutine("UpdateVision");
+        if (visionCamera.targetTexture != null)
+        {
+            StartCoroutine("UpdateVision");
+        }
     }
 
     // Update is called once per frame
@@ -130,7 +159,6 @@ public class VisionBehaviour : MonoBehaviour
     {
         float sum = 0;
 
-
         for (int i=0; i < t2D.width; i++)
         {
             for (int j=0; j< t2D.height; j++)
@@ -156,9 +184,33 @@ public class VisionBehaviour : MonoBehaviour
             }
         }
 
+        if (sum >= uncomfortableBrightnessThreshold * t2D.width * t2D.height)
+        {
+            if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
+            {
+                player.GetComponent<PlayerFirst>().EyesUncomfortableSources++;
+            }
+        }
+        else
+        {
+            player.GetComponent<PlayerFirst>().IsUncomfortableEyes = false;
+        }
+
         if (sum >= brightnessThreshold * t2D.width * t2D.height)
         {
-            brightnessThresholdEvent(damage);
+            if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
+            {
+                brightnessThresholdEvent(damage);
+
+                // Handle animations
+                if (!player.GetComponent<PlayerFirst>().IsDamagedEars)
+                {
+                    player.GetComponent<PlayerFirst>().EyesDamageSources++;
+                    //player.GetComponent<PlayerFirst>().IsDamagedEyes = true;
+                    // Set animation layer weight
+                    //esthesia.GetComponent<EsthesiaAnimation>().SelectEyesDamageLayer();
+                }
+            }
         }
 
         t2D.Apply();
@@ -183,13 +235,15 @@ public class VisionBehaviour : MonoBehaviour
             throw new System.Exception("Camera Character Error : No head element found");
         }
         head = new GameObject();
+        head.name = "Camera";
         head.transform.position = headMesh.transform.position + transform.rotation * cameraOffset;
         head.transform.rotation = transform.rotation * Quaternion.Euler(cameraAngle);
 
         visionCamera = head.AddComponent<Camera>();
         visionCamera.nearClipPlane = 0.1f;
         visionCamera.targetTexture = targetTexture;
-        
+        visionCamera.cullingMask = ~ignoreMask;
+        //visionCamera.targetDisplay = ++instanceCount;
         head.transform.SetParent(headMesh);
     }
 

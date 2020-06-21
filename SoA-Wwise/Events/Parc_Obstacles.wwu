@@ -6,20 +6,12 @@
 				<Event Name="Play_Moteur_Elagueur" ID="{CEE89A22-D45F-475F-8916-53A8F5E2D20F}">
 					<ChildrenList>
 						<Action Name="" ID="{E29EA003-F5FE-496F-98B7-A6347524B670}" ShortID="236296067">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Moteur_Elagueur" ID="{2BD23EAC-A38C-4C97-A095-5C8562E2A9DA}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_Humain_Joue2" ID="{83D63AF6-08E1-4A67-8B2B-CCDAE9B6BB4F}">
-					<ChildrenList>
-						<Action Name="" ID="{1A4C2562-4CA4-47D5-8C8D-C700D2DC195D}" ShortID="702124673">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Humain_Joue2" ID="{787B91F8-7883-4960-98AC-01E303D9CBEB}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -47,45 +39,12 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Humain_Joue1" ID="{1B829C5C-AFD3-4751-9444-D87507F6F77B}">
-					<ChildrenList>
-						<Action Name="" ID="{E3BCAD4E-97FE-4735-AFC5-2FEDD32AA351}" ShortID="76157694">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Humain_Joue1" ID="{C342AEC4-C0F9-4529-9383-7FA20EAA9130}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Humain_Mange2" ID="{BE7ECF45-C9CA-4452-8429-E1A50849A3BE}">
 					<ChildrenList>
 						<Action Name="" ID="{C6E5BB37-CCCF-43C7-B682-7C3541C35605}" ShortID="163403653">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Humain_Mange2" ID="{B891E2C8-E33F-443A-9FCB-45613DB4215A}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_Humain_MangeEnfant" ID="{8E8FC116-7607-4D35-901B-526244A9FF47}">
-					<ChildrenList>
-						<Action Name="" ID="{17FDB5B1-6653-46F9-898E-F817EBAC2377}" ShortID="738479973">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Humain_MangeEnfant" ID="{902EAF68-CFBE-4339-A182-3795D482ACAE}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_Humain_MangeEnfant2" ID="{0C7D5F7C-1619-498C-854A-0D4406D58B1F}">
-					<ChildrenList>
-						<Action Name="" ID="{649E0D9A-67F4-4F1D-ADD4-DB6340ED0D7B}" ShortID="418584918">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Humain_MangeEnfant2" ID="{FC565204-72FC-407E-85A6-F5BA870968D7}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -124,17 +83,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Vetement_Elagueur" ID="{3DC7BBBC-A021-4206-8C4A-CAF879A2E5E6}">
-					<ChildrenList>
-						<Action Name="" ID="{D0007F66-116D-45F7-9C0F-72D16F1E18E3}" ShortID="530594762">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Vetement_Elagueur" ID="{DDCDC36B-62A1-4DA7-A635-5F07E253C93B}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Play_Respiration_JoggueurH" ID="{087B26FB-02F9-4C28-B3CA-70D29CCC3E97}">
 					<ChildrenList>
 						<Action Name="" ID="{A478D740-E0D8-4609-8B36-86B26795FFC7}" ShortID="193652086">
@@ -152,28 +100,6 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Respiration_JoggueurF" ID="{1ED09B09-F770-40AF-B4C3-F78B2A23C9DF}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_Pas_Joggueur2" ID="{78A06B79-7A7D-447E-B08E-F138C19C86DA}">
-					<ChildrenList>
-						<Action Name="" ID="{C72B0DA9-BD4B-47EB-8B2F-1A494D7DE54A}" ShortID="1032019598">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Pas_Joggueur2" ID="{91F508E1-3E12-4E08-B9B8-892E96C155A0}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_Pas_Joggueur" ID="{77A4C387-E1CD-4D10-A571-74C78B799202}">
-					<ChildrenList>
-						<Action Name="" ID="{EDB54E97-90C4-48B4-9C43-DC6029121CF3}" ShortID="231993814">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Pas_Joggueur" ID="{F2ACD7FF-7924-4948-8355-3674D1B98690}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -202,6 +128,96 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Parc_Chien" ID="{74A1B23E-4465-48B6-927F-3CCA3E205FAB}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Texture_Pas_Jogger" ID="{DD11A694-5AA2-4056-A0FE-8D3243A39214}">
+					<ChildrenList>
+						<Action Name="" ID="{194B0FA3-601C-4C4E-9664-2F10815A3C95}" ShortID="53608031">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Texture Pas" ID="{53D24EE7-14EE-4979-B2D4-085D6ABC7C03}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Moteur_Elagueur" ID="{D6E50C16-75EE-4179-9D9E-0E9A465929D0}">
+					<ChildrenList>
+						<Action Name="" ID="{7CDEBD7A-C439-438B-95DA-EA2505100538}" ShortID="534782956">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Moteur_Elagueur" ID="{2BD23EAC-A38C-4C97-A095-5C8562E2A9DA}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Canard" ID="{E24F9715-7E12-4C59-9514-0548DCD9A3BD}">
+					<ChildrenList>
+						<Action Name="" ID="{A7AF5801-E0E4-45EF-9D43-A44571C8F029}" ShortID="411080456">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Canard" ID="{C10245FF-4241-4B8E-8FD5-8B6F24C09F60}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Canard" ID="{DECA478A-5787-4762-A943-94366A18CA83}">
+					<ChildrenList>
+						<Action Name="" ID="{5BFCCA2B-80A9-4BD0-A407-32F39170C0A9}" ShortID="734977136">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Canard" ID="{C10245FF-4241-4B8E-8FD5-8B6F24C09F60}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Branches_Tombent" ID="{08890912-35A0-40B1-8C06-1E7DC4607C78}">
+					<ChildrenList>
+						<Action Name="" ID="{C5F075BA-A5B1-4CE5-950B-85179318D5C1}" ShortID="4327074">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Branches_Tombent" ID="{5C72AD16-B2B2-4898-A26B-8658E188F7B8}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Branches_Tombent" ID="{99DD6F52-A4EB-4D79-A187-F81EAB5C95D5}">
+					<ChildrenList>
+						<Action Name="" ID="{694EB5CE-4469-45DE-89E7-F40D2FA14598}" ShortID="1031650752">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Branches_Tombent" ID="{5C72AD16-B2B2-4898-A26B-8658E188F7B8}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Pleure_B_b_" ID="{4C143AEB-CA08-487E-8774-9B711194A589}">
+					<ChildrenList>
+						<Action Name="" ID="{7F22BF9D-5E6C-49E8-9B03-AF3A2CA0BD86}" ShortID="462190294">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Pleure_Bébé" ID="{45A9980F-A313-4543-9B6F-EDCC1EE2E086}" WorkUnitID="{9BB63C8E-6DBD-4790-BC7B-80A1C2494B5B}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

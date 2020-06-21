@@ -5,11 +5,6 @@ struct Pixels {
 	float4 color;
 };
 
-// Create a RenderTexture with enableRandomWrite flag and set it
-// with cs.SetTexture
-//RWStructureBuffer<Pixels> Result;
-//RWTexture2DArray<float4> Result;
-//RWTexture2D<float4> Result;
 Texture2D<float4> Result;
 RWBuffer<uint> res;
 
@@ -22,17 +17,8 @@ groupshared int cmpt = 0;
 [numthreads(32,32,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)	//choix sémantique pour repérer Thread => plusieurs dispo
 {
-    // TODO: insert actual code here!
-	//int nb = id.x + id.y * 32;
-    //Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
-	//int tmp = cmpt;
-	//InterlockedAdd(cmpt, 1);
-	
-
 	int x, y;
-	//x = tmp % width;
-	//y = tmp / width;
-
+	
 	x = id.x;
 	y = id.y;
 
@@ -40,35 +26,17 @@ void CSMain (uint3 id : SV_DispatchThreadID)	//choix sémantique pour repérer T
 	int2 v = int2(x, y);
 	uint3 vec = uint3(x, y, 0);
 	
-	//int myOutput = 0;
-	//total+=
 	float max = width * height;
-	//float nb = cmpt;
-
+	
 	int nb = x + y * width;
 
-	/*if ((Result[v].r + Result[v].g + Result[v].b) == 0) {
-		tmp = 1.0f;
-	}*/
-
-	/*if (tmp == 0.0f) {
-		value = 100.0f;
-	}*/
-	//float value = tmp * 100.0f;
-	//InterlockedAdd(total, (total + value), myOutput);
-	//InterlockedAdd(total, value);//, myOutput);
-	
-	//int var_tmp = 0;
-	
-	//res[0] = total;//(id.x + id.y*width);
-	if (nb < max) {
-		//res[0] = total;
+		if (nb < max) {
 		float tmp = (Result[v].r + Result[v].g + Result[v].b) / 3.0f;
-		//float tmp = (Result.Load(vec).r + Result.Load(vec).g + Result.Load(vec).b) / 3.0f;
 		
 		//dépend de la précision quand veut 100 pour le centieme par exemple
 		float value = tmp * 100.0f;
 		InterlockedAdd(res[0], value);
+		InterlockedAdd(res[1], 1);
 	}
 	//traitement par zone plus somme a la fin avec dernier thread de zone
 	//pour add pour diminuer nombre de locked

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class ControlsManager : MonoBehaviour
 {
@@ -65,6 +66,7 @@ public class ControlsManager : MonoBehaviour
                                       "<Keyboard>/AnyKey",
                                       "<Keyboard>/Alt",
                                       "<Keyboard>/LeftAlt",
+                                      "<Pointer>/Press",
                                       inputs.Player.Interact.bindings[0].path,
                                       inputs.Player.ProtectEyes.bindings[0].path,
                                       inputs.Player.ProtectEars.bindings[0].path,
@@ -102,7 +104,17 @@ public class ControlsManager : MonoBehaviour
 
         // TO DO : Interactive door message with the rebinded key name
 
-        rebindOperation?.Dispose(); // in case of two successive clicks without key press
+        // TO DO : Deactivate button when waiting for rebinding
+
+        if (rebindOperation != null && !rebindOperation.completed)
+        {
+            Debug.Log("Force cancel");
+            rebindOperation.Cancel(); // in case of two successive clicks without key press
+        }
+
+        //button.GetComponent<Button>().interactable = false;
+        button.GetComponent<EventTrigger>().enabled = false;
+        button.transform.GetChild(0).GetComponent<Text>().text = "Press a key";
 
         action.Disable();
         rebindOperation = action.PerformInteractiveRebinding()
@@ -111,10 +123,16 @@ public class ControlsManager : MonoBehaviour
                 rebindOperation.Dispose();
                 button.transform.GetChild(0).GetComponent<Text>().text = action.bindings[index].ToDisplayString();
                 reservedPaths.Add(action.bindings[index].overridePath);
+                //button.GetComponent<Button>().interactable = true;
+                button.GetComponent<EventTrigger>().enabled = true;
             })
             .OnCancel(context => {
+                action.Enable();
                 rebindOperation.Dispose();
+                button.transform.GetChild(0).GetComponent<Text>().text = action.bindings[index].ToDisplayString();
                 reservedPaths.Add(action.bindings[index].overridePath);
+                //button.GetComponent<Button>().interactable = true;
+                button.GetComponent<EventTrigger>().enabled = true;
             })
             .WithControlsHavingToMatchPath("<Keyboard>")
             .WithControlsHavingToMatchPath("<Mouse>")

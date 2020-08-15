@@ -58,6 +58,10 @@ public class ControlsManager : MonoBehaviour
         inputs = InputsManager.Instance.Inputs;
 
         // TO DO : Add a button to switch between gamepad and keyboard/mouse
+
+        // TO DO : Interactive door message with the rebinded key name
+
+
         SwitchControls();
 
         UpdateButtons();
@@ -66,6 +70,7 @@ public class ControlsManager : MonoBehaviour
                                       "<Keyboard>/AnyKey",
                                       "<Keyboard>/Alt",
                                       "<Keyboard>/LeftAlt",
+                                      "<Keyboard>/PrintScreen",
                                       "<Pointer>/Press",
                                       inputs.Player.Interact.bindings[0].path,
                                       inputs.Player.ProtectEyes.bindings[0].path,
@@ -100,12 +105,6 @@ public class ControlsManager : MonoBehaviour
 
     private void RebindAction(InputAction action, GameObject button, int index)
     {
-        // TO DO : Test if key is not used by another action !
-
-        // TO DO : Interactive door message with the rebinded key name
-
-        // TO DO : Deactivate button when waiting for rebinding
-
         if (rebindOperation != null && !rebindOperation.completed)
         {
             Debug.Log("Force cancel");
@@ -195,7 +194,7 @@ public class ControlsManager : MonoBehaviour
 
     public void SaveBindings()
     {
-
+        // TO DO : Save user preferences on the disk
     }
 
     private void OnEnable()

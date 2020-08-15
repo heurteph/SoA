@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler
 {
     GameObject menuManager;
 
@@ -37,22 +37,54 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         transform.GetChild(1).position = transform.GetComponent<RectTransform>().TransformPoint(new Vector3(center.x, center.y, -250));
     }
 
+    /* Mouse */
+
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+    {
+        GetComponent<Button>().Select();
+    }
+
+    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    {
+        ExitButtonAnimation();
+    }
+
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    {
+        ValidateButtonAnimation();
+    }
+
+    /* Keyboard */
+
+    void ISelectHandler.OnSelect(BaseEventData eventData)
+    {
+        EnterButtonAnimation();
+    }
+
+    void IDeselectHandler.OnDeselect(BaseEventData eventData)
+    {
+        ExitButtonAnimation();
+    }
+
+    
+
+    /* Generic */
+
+    private void EnterButtonAnimation()
     {
         //transform.GetChild(0).GetComponent<Animation>().Play("MenuItemPop");
         transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorIn");
         emission.rateOverTime = rateOverTime;
     }
 
-    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    private void ExitButtonAnimation()
     {
         transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorOut");
         emission.rateOverTime = 0;
     }
 
-    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    private void ValidateButtonAnimation()
     {
-
         /*
         if (creditsPanel.GetComponent<CanvasGroup>().alpha != 0)
         {
@@ -76,7 +108,7 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         Application.Quit();
     }
 
-    IEnumerator BurstSpots()
+    private IEnumerator BurstSpots()
     {
         emission.rateOverTime = 30;
         yield return null;

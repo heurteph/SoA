@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler, ISubmitHandler
 {
     GameObject menuManager; 
     
@@ -38,7 +38,47 @@ public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         transform.GetChild(1).position = transform.GetComponent<RectTransform>().TransformPoint(new Vector3(center.x, center.y, -250));
     }
 
+    /* Mouse Selection */
+
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+    {
+        //transform.GetChild(0).GetComponent<Text>().color = hoveringColor;
+        //transform.GetChild(0).GetComponent<Animation>().Play("MenuItemPop");
+        //transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorIn");
+        //emission.rateOverTime = rateOverTime;
+        GetComponent<Button>().Select();
+    }
+
+    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    {
+        ExitButtonAnimation();
+    }
+
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    {
+        ValidateButtonAnimation();
+    }
+
+    /* Keyboard selection */
+
+    void ISelectHandler.OnSelect(BaseEventData eventData)
+    {
+        EnterButtonAnimation();
+    }
+
+    void IDeselectHandler.OnDeselect(BaseEventData eventData)
+    {
+        ExitButtonAnimation();
+    }
+
+    public void OnSubmit(BaseEventData eventData)
+    {
+        ValidateButtonAnimation();
+    }
+
+    /* Generic */
+
+    private void EnterButtonAnimation()
     {
         //transform.GetChild(0).GetComponent<Text>().color = hoveringColor;
         //transform.GetChild(0).GetComponent<Animation>().Play("MenuItemPop");
@@ -46,14 +86,14 @@ public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         emission.rateOverTime = rateOverTime;
     }
 
-    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    private void ExitButtonAnimation()
     {
         //transform.GetChild(0).GetComponent<Text>().color = defaultColor;
         transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorOut");
         emission.rateOverTime = 0;
     }
 
-    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    private void ValidateButtonAnimation()
     {
         /*
         if (creditsPanel.GetComponent<CanvasGroup>().alpha != 0)

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.EventSystems;
+using System;
 
 public class ControlsManager : MonoBehaviour
 {
@@ -52,15 +53,20 @@ public class ControlsManager : MonoBehaviour
 
     private List<string> reservedPaths;
 
+    // Navigation
+
+    private Navigation navigationOff = new Navigation();
+    private Navigation navigationAuto = new Navigation();
+
     // Start is called before the first frame update
     void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
 
+        navigationOff.mode = Navigation.Mode.None;
+        navigationAuto.mode = Navigation.Mode.Automatic;
+
         // TO DO : Add a button to switch between gamepad and keyboard/mouse
-
-        // TO DO : Interactive door message with the rebinded key name
-
 
         SwitchControls();
 
@@ -107,32 +113,32 @@ public class ControlsManager : MonoBehaviour
     {
         if (rebindOperation != null && !rebindOperation.completed)
         {
-            Debug.Log("Force cancel");
             rebindOperation.Cancel(); // in case of two successive clicks without key press
         }
 
-        //button.GetComponent<Button>().interactable = false;
+        // Disable click and submit on the button
         button.GetComponent<EventTrigger>().enabled = false;
+
+        // Disable navigation on the button
+        button.GetComponent<Button>().navigation = navigationOff;
+
         button.transform.GetChild(0).GetComponent<Text>().text = "Press a key";
 
         action.Disable();
+
+        Action<InputActionRebindingExtensions.RebindingOperation> callback = context =>
+        {
+            action.Enable();
+            rebindOperation.Dispose();
+            button.transform.GetChild(0).GetComponent<Text>().text = action.bindings[index].ToDisplayString();
+            reservedPaths.Add(action.bindings[index].overridePath);
+            button.GetComponent<EventTrigger>().enabled = true;
+            button.GetComponent<Button>().navigation = navigationAuto;
+        };
+
         rebindOperation = action.PerformInteractiveRebinding()
-            .OnComplete(context => {
-                action.Enable();
-                rebindOperation.Dispose();
-                button.transform.GetChild(0).GetComponent<Text>().text = action.bindings[index].ToDisplayString();
-                reservedPaths.Add(action.bindings[index].overridePath);
-                //button.GetComponent<Button>().interactable = true;
-                button.GetComponent<EventTrigger>().enabled = true;
-            })
-            .OnCancel(context => {
-                action.Enable();
-                rebindOperation.Dispose();
-                button.transform.GetChild(0).GetComponent<Text>().text = action.bindings[index].ToDisplayString();
-                reservedPaths.Add(action.bindings[index].overridePath);
-                //button.GetComponent<Button>().interactable = true;
-                button.GetComponent<EventTrigger>().enabled = true;
-            })
+            .OnComplete(callback)
+            .OnCancel(callback)
             .WithControlsHavingToMatchPath("<Keyboard>")
             .WithControlsHavingToMatchPath("<Mouse>")
             .WithCancelingThrough("<Keyboard>/escape")
@@ -160,6 +166,11 @@ public class ControlsManager : MonoBehaviour
 
         // Use gamepad controls scheme
         //inputs.bindingMask = InputBinding.MaskByGroup(inputs.GamepadScheme.bindingGroup);
+    }
+
+    public void FinishInteractiveRebinding()
+    {
+
     }
 
     public void ResetBindings()

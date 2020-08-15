@@ -9,35 +9,38 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: dc2ad1b09d98bf7479fc3bb29a58837b
   - enabled: 1
-    path: Assets/Scenes/GameElise.unity
-    guid: b0708178ce84de34d916744aa7d2c048
+    path: Assets/Scenes/Game.unity
+    guid: 77d66d8acb2b53c42b2a3e53799dc9a1
   - enabled: 1
     path: Assets/Scenes/CreditsScene.unity
     guid: d285cd02efea21340aa08788542d4004
   - enabled: 0
-    path: Assets/Scenes/Old/Demo3.unity
-    guid: bcbeb22bf736b26418078cc8a8391bf4
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Old/Demo2.unity
-    guid: f82870b3e51f5164cb25443b8620e55b
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Old/Demo.unity
-    guid: d7881289cffc20743b2e8e7a1681d12e
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Old/Game.unity
-    guid: da8aba93b5a9f7349917e0fc3190a2ee
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Old/CameraTestScene.unity
-    guid: 9033527e7b713264388a9d58c80eaf1c
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/Others/GameElise.unity
+    guid: b0708178ce84de34d916744aa7d2c048
   - enabled: 0
     path: Assets/Scenes/Others/StreetTest.unity
     guid: b78235bd101e64044a884494e0630158
   - enabled: 0
-    path: Assets/Scenes/Old/ParkTest.unity
-    guid: ddc08389d1adbbf40bc9881ffe34fdb0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Old/TutorialTest.unity
-    guid: aa821834c8184bd44a9fcf9598e40fb7
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

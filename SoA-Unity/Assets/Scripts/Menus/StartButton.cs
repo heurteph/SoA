@@ -71,7 +71,7 @@ public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         ExitButtonAnimation();
     }
 
-    public void OnSubmit(BaseEventData eventData)
+    void ISubmitHandler.OnSubmit(BaseEventData eventData)
     {
         ValidateButtonAnimation();
     }

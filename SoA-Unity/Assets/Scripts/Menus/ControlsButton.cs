@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Linq;
 
-public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler
+public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler, ISubmitHandler
 {
     GameObject menuManager; 
     
@@ -65,6 +65,11 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     void IDeselectHandler.OnDeselect(BaseEventData eventData)
     {
         ExitButtonAnimation();
+    }
+
+    void ISubmitHandler.OnSubmit(BaseEventData eventData)
+    {
+        ValidateButtonAnimation();
     }
 
     /* Generic */

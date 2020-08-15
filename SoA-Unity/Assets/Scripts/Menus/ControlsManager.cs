@@ -11,6 +11,16 @@ public class ControlsManager : MonoBehaviour
 {
     Inputs inputs;
 
+    private GameObject menuManager;
+
+    [SerializeField]
+    [Tooltip("The button to select the mouse-keyboard controls")]
+    private GameObject mouseKeyboardButton;
+
+    [SerializeField]
+    [Tooltip("The button to select the gamepad controls")]
+    private GameObject gamepadButton;
+
     [SerializeField]
     [Tooltip("The button to rebind the move up action to another key")]
     private GameObject moveUpButton;
@@ -53,24 +63,38 @@ public class ControlsManager : MonoBehaviour
 
     private List<string> reservedPaths;
 
+    // US-Layout
+    private Dictionary<string, string> defaultPaths = new Dictionary<string, string> {
+        { "forward", "<Keyboard>/w" },
+        { "turnback", "<Keyboard>/a" },
+        { "turnleft", "<Keyboard>/s" },
+        { "turnright", "<Keyboard>/d" },
+        { "interact", "<Keyboard>/e" },
+        { "protecteyes", "<Keyboard>/q" },
+        { "protectears", "<Keyboard>/x" },
+    };
+
     // Navigation
 
     private Navigation navigationOff = new Navigation();
     private Navigation navigationAuto = new Navigation();
+
+    private Color reactivatedColor = new Color(1, 1, 1);
+    private Color deactivatedColor = new Color(0.1f, 0.1f, 0.1f);
 
     // Start is called before the first frame update
     void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
 
+        menuManager = GameObject.FindGameObjectWithTag("MenuManager");
+
         navigationOff.mode = Navigation.Mode.None;
         navigationAuto.mode = Navigation.Mode.Automatic;
 
-        // TO DO : Add a button to switch between gamepad and keyboard/mouse
+        UseMouseKeyboardControls();
 
-        SwitchControls();
-
-        UpdateButtons();
+        InitBindings();
 
         reservedPaths = new List<string> {
                                       "<Keyboard>/AnyKey",
@@ -84,8 +108,8 @@ public class ControlsManager : MonoBehaviour
                                       inputs.Player.Walk.bindings[1].path,
                                       inputs.Player.Walk.bindings[2].path,
                                       inputs.Player.Walk.bindings[3].path,
-                                      inputs.Player.Walk.bindings[4].path };
-        Debug.Log("Size : " + reservedPaths.Count);
+                                      inputs.Player.Walk.bindings[4].path
+        };
     }
 
     // Update is called once per frame
@@ -122,7 +146,7 @@ public class ControlsManager : MonoBehaviour
         // Disable navigation on the button
         button.GetComponent<Button>().navigation = navigationOff;
 
-        button.transform.GetChild(0).GetComponent<Text>().text = "Press a key";
+        button.transform.GetChild(0).GetComponent<Text>().text = "...";
 
         action.Disable();
 
@@ -152,44 +176,92 @@ public class ControlsManager : MonoBehaviour
         reservedPaths.Remove(action.bindings[index].overridePath);
         foreach (var path in reservedPaths)
         {
-            Debug.Log(path);
+            //Debug.Log(path);
             rebindOperation.WithControlsExcluding(path);
         }
 
         rebindOperation.Start();
     }
 
-    void SwitchControls()
+    public void UseGamepadControls()
     {
-        // Use mouse-keyboard controls scheme
-        inputs.bindingMask = InputBinding.MaskByGroup(inputs.MouseKeyboardScheme.bindingGroup);
+        inputs.bindingMask = InputBinding.MaskByGroup(inputs.GamepadScheme.bindingGroup);
 
-        // Use gamepad controls scheme
-        //inputs.bindingMask = InputBinding.MaskByGroup(inputs.GamepadScheme.bindingGroup);
+        DeactivateButton(gamepadButton);
+        ReactivateButton(mouseKeyboardButton);
+
+        // TO DO : Add show mockup, hide key selection
+        menuManager.GetComponent<MenuManager>().SwitchToGamepadControls();
     }
 
-    public void FinishInteractiveRebinding()
+    public void UseMouseKeyboardControls()
     {
+        inputs.bindingMask = InputBinding.MaskByGroup(inputs.MouseKeyboardScheme.bindingGroup);
 
+        DeactivateButton(mouseKeyboardButton);
+        ReactivateButton(gamepadButton);
+
+        // TO DO : Add show key selection, hide mockup
+        menuManager.GetComponent<MenuManager>().SwitchToMouseKeyboardControls();
+    }
+
+    private void ReactivateButton(GameObject button)
+    {
+        button.transform.GetChild(0).GetComponent<Text>().color = reactivatedColor;
+        button.GetComponent<Button>().interactable = true;
+    }
+
+    private void DeactivateButton(GameObject button)
+    {
+        button.transform.GetChild(0).GetComponent<Text>().color = deactivatedColor;
+        button.GetComponent<Button>().interactable = false;
+    }
+
+    private void InitBindings()
+    {
+        if (PlayerPrefs.HasKey("forward"))
+        {
+            inputs.Player.Walk.ApplyBindingOverride(1, PlayerPrefs.GetString("forward"));
+            inputs.Player.Walk.ApplyBindingOverride(2, PlayerPrefs.GetString("turnleft"));
+            inputs.Player.Walk.ApplyBindingOverride(3, PlayerPrefs.GetString("turnback"));
+            inputs.Player.Walk.ApplyBindingOverride(4, PlayerPrefs.GetString("turnright"));
+            inputs.Player.Interact.ApplyBindingOverride(PlayerPrefs.GetString("interact"));
+            inputs.Player.ProtectEyes.ApplyBindingOverride(PlayerPrefs.GetString("protecteyes"));
+            inputs.Player.ProtectEars.ApplyBindingOverride(PlayerPrefs.GetString("protectears"));
+        }
+        else
+        {
+            ResetBindings();
+        }
+
+        UpdateLabels();
     }
 
     public void ResetBindings()
     {
-        // TO DO : Place default keys in a dictionary
+        inputs.Player.Walk.ApplyBindingOverride(1, defaultPaths["forward"]);
+        inputs.Player.Walk.ApplyBindingOverride(2, defaultPaths["turnleft"]);
+        inputs.Player.Walk.ApplyBindingOverride(3, defaultPaths["turnback"]);
+        inputs.Player.Walk.ApplyBindingOverride(4, defaultPaths["turnright"]);
+        inputs.Player.Interact.ApplyBindingOverride(defaultPaths["interact"]);
+        inputs.Player.ProtectEyes.ApplyBindingOverride(defaultPaths["protecteyes"]);
+        inputs.Player.ProtectEars.ApplyBindingOverride(defaultPaths["protectears"]);
 
-        // US-Layout
-        inputs.Player.Walk.ApplyBindingOverride(1, "<Keyboard>/W");
-        inputs.Player.Walk.ApplyBindingOverride(2, "<Keyboard>/A");
-        inputs.Player.Walk.ApplyBindingOverride(3, "<Keyboard>/S");
-        inputs.Player.Walk.ApplyBindingOverride(4, "<Keyboard>/D");
-        inputs.Player.Interact.ApplyBindingOverride("<Keyboard>/E");
-        inputs.Player.ProtectEyes.ApplyBindingOverride("<Keyboard>/Q");
-        inputs.Player.ProtectEars.ApplyBindingOverride("<Keyboard>/X");
-
-        UpdateButtons();
+        UpdateLabels();
     }
 
-    private void UpdateButtons()
+    public void SaveBindings()
+    {
+        PlayerPrefs.SetString("forward", inputs.Player.Walk.bindings[1].overridePath);
+        PlayerPrefs.SetString("turnleft", inputs.Player.Walk.bindings[2].overridePath);
+        PlayerPrefs.SetString("turnback", inputs.Player.Walk.bindings[3].overridePath);
+        PlayerPrefs.SetString("turnright", inputs.Player.Walk.bindings[4].overridePath);
+        PlayerPrefs.SetString("interact", inputs.Player.Interact.bindings[0].overridePath);
+        PlayerPrefs.SetString("protecteyes", inputs.Player.ProtectEyes.bindings[0].overridePath);
+        PlayerPrefs.SetString("protectears", inputs.Player.ProtectEars.bindings[0].overridePath);
+    }
+
+    private void UpdateLabels()
     {
         moveUpButton.transform.GetChild(0).GetComponent<Text>().text     = inputs.Player.Walk.bindings[1].ToDisplayString();
         moveLeftButton.transform.GetChild(0).GetComponent<Text>().text   = inputs.Player.Walk.bindings[2].ToDisplayString();
@@ -201,11 +273,6 @@ public class ControlsManager : MonoBehaviour
 
         restoreBindingsButton.transform.GetChild(0).GetComponent<Text>().text = "Reset Keys";
         saveBindingsButton.transform.GetChild(0).GetComponent<Text>().text = "Save Keys";
-    }
-
-    public void SaveBindings()
-    {
-        // TO DO : Save user preferences on the disk
     }
 
     private void OnEnable()

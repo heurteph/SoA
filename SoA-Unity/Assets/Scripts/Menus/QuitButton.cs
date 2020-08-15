@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler
+public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler, ISubmitHandler
 {
     GameObject menuManager;
 
@@ -66,7 +66,10 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         ExitButtonAnimation();
     }
 
-    
+    void ISubmitHandler.OnSubmit(BaseEventData eventData)
+    {
+        ValidateButtonAnimation();
+    }
 
     /* Generic */
 

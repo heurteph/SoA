@@ -28,6 +28,8 @@ TagManager:
   - GameOverMessage
   - TutorialCanvas
   - Controls
+  - MouseKeyboard
+  - Gamepad
   layers:
   - Default
   - TransparentFX

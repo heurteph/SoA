@@ -79,11 +79,18 @@ public class MenuManager : MonoBehaviour
             throw new System.NullReferenceException("Missing gamepad panel in the menu");
         }
 
-        // TO DO : Save prefered control in PlayerPref
-
-        controlState = CONTROL_STATE.MOUSEKEYBOARD;
-        mouseKeyboardPanel.GetComponent<CanvasGroup>().alpha = 1;
-        gamepadPanel.GetComponent<CanvasGroup>().alpha = 0;
+        if (PlayerPrefs.HasKey("controls") && PlayerPrefs.GetString("controls").Equals("gamepad"))
+        {
+            controlState = CONTROL_STATE.GAMEPAD;
+            mouseKeyboardPanel.GetComponent<CanvasGroup>().alpha = 0;
+            gamepadPanel.GetComponent<CanvasGroup>().alpha = 1;
+        }
+        else
+        {
+            controlState = CONTROL_STATE.MOUSEKEYBOARD;
+            mouseKeyboardPanel.GetComponent<CanvasGroup>().alpha = 1;
+            gamepadPanel.GetComponent<CanvasGroup>().alpha = 0;
+        }
     }
 
     // Update is called once per frame

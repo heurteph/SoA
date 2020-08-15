@@ -92,7 +92,14 @@ public class ControlsManager : MonoBehaviour
         navigationOff.mode = Navigation.Mode.None;
         navigationAuto.mode = Navigation.Mode.Automatic;
 
-        UseMouseKeyboardControls();
+        if (PlayerPrefs.HasKey("controls") && PlayerPrefs.GetString("controls").Equals("gamepad"))
+        {
+            UseGamepadControls();
+        }
+        else
+        {
+            UseMouseKeyboardControls();
+        }
 
         InitBindings();
 
@@ -189,9 +196,9 @@ public class ControlsManager : MonoBehaviour
 
         DeactivateButton(gamepadButton);
         ReactivateButton(mouseKeyboardButton);
-
-        // TO DO : Add show mockup, hide key selection
         menuManager.GetComponent<MenuManager>().SwitchToGamepadControls();
+
+        PlayerPrefs.SetString("controls", "gamepad");
     }
 
     public void UseMouseKeyboardControls()
@@ -200,9 +207,9 @@ public class ControlsManager : MonoBehaviour
 
         DeactivateButton(mouseKeyboardButton);
         ReactivateButton(gamepadButton);
-
-        // TO DO : Add show key selection, hide mockup
         menuManager.GetComponent<MenuManager>().SwitchToMouseKeyboardControls();
+
+        PlayerPrefs.SetString("controls", "mousekeyboard");
     }
 
     private void ReactivateButton(GameObject button)

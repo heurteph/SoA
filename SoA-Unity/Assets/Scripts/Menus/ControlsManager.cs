@@ -66,8 +66,8 @@ public class ControlsManager : MonoBehaviour
     // US-Layout
     private Dictionary<string, string> defaultPaths = new Dictionary<string, string> {
         { "forward", "<Keyboard>/w" },
-        { "turnback", "<Keyboard>/a" },
-        { "turnleft", "<Keyboard>/s" },
+        { "turnleft", "<Keyboard>/a" },
+        { "turnback", "<Keyboard>/s" },
         { "turnright", "<Keyboard>/d" },
         { "interact", "<Keyboard>/e" },
         { "protecteyes", "<Keyboard>/q" },
@@ -161,7 +161,7 @@ public class ControlsManager : MonoBehaviour
         {
             action.Enable();
             rebindOperation.Dispose();
-            button.transform.GetChild(0).GetComponent<Text>().text = action.bindings[index].ToDisplayString();
+            button.transform.GetChild(0).GetComponent<Text>().text = action.GetBindingDisplayString(index);
             reservedPaths.Add(action.bindings[index].overridePath);
             button.GetComponent<EventTrigger>().enabled = true;
             button.GetComponent<Button>().navigation = navigationAuto;
@@ -270,10 +270,10 @@ public class ControlsManager : MonoBehaviour
 
     private void UpdateLabels()
     {
-        moveUpButton.transform.GetChild(0).GetComponent<Text>().text     = inputs.Player.Walk.bindings[1].ToDisplayString();
-        moveLeftButton.transform.GetChild(0).GetComponent<Text>().text   = inputs.Player.Walk.bindings[2].ToDisplayString();
-        moveDownButton.transform.GetChild(0).GetComponent<Text>().text   = inputs.Player.Walk.bindings[3].ToDisplayString();
-        moveRightButton.transform.GetChild(0).GetComponent<Text>().text  = inputs.Player.Walk.bindings[4].ToDisplayString();
+        moveUpButton.transform.GetChild(0).GetComponent<Text>().text     = inputs.Player.Walk.GetBindingDisplayString(1);
+        moveLeftButton.transform.GetChild(0).GetComponent<Text>().text   = inputs.Player.Walk.GetBindingDisplayString(2);
+        moveDownButton.transform.GetChild(0).GetComponent<Text>().text   = inputs.Player.Walk.GetBindingDisplayString(3);
+        moveRightButton.transform.GetChild(0).GetComponent<Text>().text  = inputs.Player.Walk.GetBindingDisplayString(4);
         interactButton.transform.GetChild(0).GetComponent<Text>().text   = inputs.Player.Interact.GetBindingDisplayString();
         eyeProtectButton.transform.GetChild(0).GetComponent<Text>().text = inputs.Player.ProtectEyes.GetBindingDisplayString();
         earProtectButton.transform.GetChild(0).GetComponent<Text>().text = inputs.Player.ProtectEars.GetBindingDisplayString();

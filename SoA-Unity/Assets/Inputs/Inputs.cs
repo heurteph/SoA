@@ -143,17 +143,6 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""c5b7a26d-67b8-48a1-beac-7890e0ce881c"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=0.1,y=0.1)"",
-                    ""groups"": ""Mouse-Keyboard"",
-                    ""action"": ""LookAround"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""2D Vector"",
                     ""id"": ""d4e36451-b170-42ff-bc23-04df577bb159"",
                     ""path"": ""2DVector(mode=2)"",

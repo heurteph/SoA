@@ -33,7 +33,7 @@ public class EnergyBehaviour : MonoBehaviour
     public bool IsReloading { get { return isReloading; } set { isReloading = value; } }
     
     [SerializeField]
-    [Tooltip("Refilling speed in energy point/second")]
+    [Tooltip("Refilling speed in hp/second")]
     private int refillRate = 10;
 
     private bool godMode;
@@ -54,8 +54,8 @@ public class EnergyBehaviour : MonoBehaviour
 
         inputs = InputsManager.Instance.Inputs;
 
-        // God mode
-        //inputs.Player.GodMode.performed += _ctx => GodMode();
+        // God mode : comment it out for final release
+        inputs.Player.GodMode.performed += _ctx => GodMode();
 
         script = GetComponent<PlayerFollow>() ? GetComponent<PlayerFollow>() : (MonoBehaviour)GetComponent<PlayerFirst>();
         OutOfEnergyEvent += gameManager.GetComponent<GameManager>().GameOver;

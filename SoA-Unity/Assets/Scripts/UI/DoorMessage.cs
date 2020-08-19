@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DoorMessage : MonoBehaviour
 {
+    Inputs inputs;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        inputs = InputsManager.Instance.Inputs;
+        transform.GetChild(0).GetComponent<Text>().text = "Press " + inputs.Player.Interact.GetBindingDisplayString() + " To Enter";
     }
 
     // Update is called once per frame

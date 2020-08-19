@@ -8,10 +8,14 @@ using UnityEngine.SceneManagement;
 
 public enum MENU_STATE { NONE, CREDITS, CONTROLS }
 
+public enum CONTROL_STATE { NONE, MOUSEKEYBOARD, GAMEPAD }
+
 public class MenuManager : MonoBehaviour
 {
     private GameObject creditsPanel;
-    private GameObject controlImage;
+    private GameObject controlsPanel;
+    private GameObject gamepadPanel;
+    private GameObject mouseKeyboardPanel;
     private GameObject corePanel;
     //private GameObject extendedPanel;
 
@@ -21,8 +25,11 @@ public class MenuManager : MonoBehaviour
     private MENU_STATE menuState;
     public MENU_STATE MenuState { get { return menuState; } }
 
+    private CONTROL_STATE controlState;
+    public CONTROL_STATE ControlState { get { return controlState; } set { controlState = value; } }
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         menuState = MENU_STATE.NONE;
 
@@ -53,13 +60,37 @@ public class MenuManager : MonoBehaviour
         AkSoundEngine.PostEvent("Play_Music_Main_Title", gameObject);
         //AkSoundEngine.PostEvent("Play_Music_Menu", gameObject);
 
-        controlImage = GameObject.FindGameObjectWithTag("Controls");
-        if (controlImage == null)
-        {
-            throw new System.NullReferenceException("Missing control image in the menu");
+        controlsPanel = GameObject.FindGameObjectWithTag("Controls");
+        if (controlsPanel == null)
+        {
+            throw new System.NullReferenceException("Missing control panel in the menu");
         }
-        controlImage.GetComponent<CanvasGroup>().alpha = 0;
+        controlsPanel.GetComponent<CanvasGroup>().alpha = 0;
 
+        mouseKeyboardPanel = GameObject.FindGameObjectWithTag("MouseKeyboard");
+        if (mouseKeyboardPanel == null)
+        {
+            throw new System.NullReferenceException("Missing mouse keyboard panel in the menu");
+        }
+
+        gamepadPanel = GameObject.FindGameObjectWithTag("Gamepad");
+        if (gamepadPanel == null)
+        {
+            throw new System.NullReferenceException("Missing gamepad panel in the menu");
+        }
+
+        if (PlayerPrefs.HasKey("controls") && PlayerPrefs.GetString("controls").Equals("gamepad"))
+        {
+            controlState = CONTROL_STATE.GAMEPAD;
+            mouseKeyboardPanel.GetComponent<CanvasGroup>().alpha = 0;
+            gamepadPanel.GetComponent<CanvasGroup>().alpha = 1;
+        }
+        else
+        {
+            controlState = CONTROL_STATE.MOUSEKEYBOARD;
+            mouseKeyboardPanel.GetComponent<CanvasGroup>().alpha = 1;
+            gamepadPanel.GetComponent<CanvasGroup>().alpha = 0;
+        }
     }
 
     // Update is called once per frame
@@ -83,22 +114,41 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator FadeInControls()
     {
-        
-            controlImage.GetComponent<Animation>().Play("CreditsFadeIn");
-            yield return new WaitForSeconds(0.01f);
-        
+        controlsPanel.GetComponent<Animation>().Play("CreditsFadeIn");
+        yield return new WaitForSeconds(0.01f);
     }
 
     IEnumerator FadeOutControls()
     {
-            controlImage.GetComponent<Animation>().Play("CreditsFadeOut");
-            yield return new WaitForSeconds(0.01f);
-        
+        controlsPanel.GetComponent<Animation>().Play("CreditsFadeOut");
+        yield return new WaitForSeconds(0.01f);
     }
-    
 
+    public void SwitchToMouseKeyboardControls()
+    {
+        controlState = CONTROL_STATE.MOUSEKEYBOARD;
+        StartCoroutine("CrossFadeMouseKeyboardControls");
+    }
 
+    public void SwitchToGamepadControls()
+    {
+        controlState = CONTROL_STATE.GAMEPAD;
+        StartCoroutine("CrossFadeGamepadControls");
+    }
 
+    IEnumerator CrossFadeMouseKeyboardControls()
+    {
+        gamepadPanel.GetComponent<Animation>().Play("CreditsFadeOut");
+        mouseKeyboardPanel.GetComponent<Animation>().Play("CreditsFadeIn");
+        yield return new WaitForSeconds(0.01f);
+    }
+
+    IEnumerator CrossFadeGamepadControls()
+    {
+        mouseKeyboardPanel.GetComponent<Animation>().Play("CreditsFadeOut");
+        gamepadPanel.GetComponent<Animation>().Play("CreditsFadeIn");
+        yield return new WaitForSeconds(0.01f);
+    }
 
     public void DisplayCredits()
     {
@@ -116,7 +166,7 @@ public class MenuManager : MonoBehaviour
     {
         // Let's get to work !
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        SceneManager.LoadScene("GameElise");
+        SceneManager.LoadScene("Game");
         AkSoundEngine.PostEvent("Stop_Music_Main_Title", gameObject);
         //AkSoundEngine.PostEvent("Stop_Music_Menu", gameObject);
     }

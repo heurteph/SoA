@@ -77,17 +77,6 @@ public class @Inputs : IInputActionCollection, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""a02fa8a4-a2f6-4741-a4e6-86205b67b218"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Walk"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""2D Vector"",
                     ""id"": ""0afdaaab-4410-482a-a8bc-4855977bb57b"",
                     ""path"": ""2DVector(mode=2)"",
@@ -110,9 +99,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""63c18fac-e3c9-49f6-acdd-e8ce26d922ce"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""name"": ""left"",
+                    ""id"": ""540f6638-3cbc-4905-8210-da22910a2aa7"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse-Keyboard"",
@@ -121,9 +110,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""540f6638-3cbc-4905-8210-da22910a2aa7"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""name"": ""down"",
+                    ""id"": ""63c18fac-e3c9-49f6-acdd-e8ce26d922ce"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse-Keyboard"",
@@ -144,12 +133,12 @@ public class @Inputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2a7923c4-e220-4be5-b1fb-5e2c2ad9e378"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""id"": ""a02fa8a4-a2f6-4741-a4e6-86205b67b218"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": ""ScaleVector2"",
+                    ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""LookAround"",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -168,6 +157,17 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""name"": ""up"",
                     ""id"": ""7265964b-3e5b-46b8-80ee-366fde0a3f10"",
                     ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse-Keyboard"",
+                    ""action"": ""LookAround"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""07a8359f-9483-45df-89ce-12e4da88f14f"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse-Keyboard"",
@@ -198,70 +198,26 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""07a8359f-9483-45df-89ce-12e4da88f14f"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""name"": """",
+                    ""id"": ""2a7923c4-e220-4be5-b1fb-5e2c2ad9e378"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse-Keyboard"",
+                    ""processors"": ""ScaleVector2"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""LookAround"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""OKLM"",
-                    ""id"": ""c25cd6c7-55a7-4de6-b05c-c31c163799d8"",
-                    ""path"": ""2DVector(mode=2)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LookAround"",
-                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""76764e00-4039-4fb7-8522-7d0fafbe088a"",
-                    ""path"": ""<Keyboard>/o"",
+                    ""name"": """",
+                    ""id"": ""b178e623-8909-40de-bb7a-8fcc285284e8"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse-Keyboard"",
-                    ""action"": ""LookAround"",
+                    ""action"": ""ProtectEyes"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""fcf5d1c1-bb33-4272-aaa1-bbd5654f7730"",
-                    ""path"": ""<Keyboard>/l"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse-Keyboard"",
-                    ""action"": ""LookAround"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""0821311c-e943-4340-b5fe-418849183394"",
-                    ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse-Keyboard"",
-                    ""action"": ""LookAround"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""372c8055-f2da-4299-9be5-98d1aa645148"",
-                    ""path"": ""<Keyboard>/semicolon"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse-Keyboard"",
-                    ""action"": ""LookAround"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -271,28 +227,6 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""ProtectEyes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b178e623-8909-40de-bb7a-8fcc285284e8"",
-                    ""path"": ""<Keyboard>/p"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse-Keyboard"",
-                    ""action"": ""ProtectEyes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""fec07214-dc13-4b72-b5b8-471cb76eb55a"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Quit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -309,19 +243,19 @@ public class @Inputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a17d6c09-64c9-443c-8456-7d25e0237842"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""id"": ""fec07214-dc13-4b72-b5b8-471cb76eb55a"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""ProtectEars"",
+                    ""action"": ""Quit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""55fee37f-7d14-432a-bce5-be44e86b75de"",
-                    ""path"": ""<Keyboard>/i"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse-Keyboard"",
@@ -331,12 +265,12 @@ public class @Inputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c9ab370b-8ef3-40f5-a51c-f257aade9e3b"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""id"": ""a17d6c09-64c9-443c-8456-7d25e0237842"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Interact"",
+                    ""action"": ""ProtectEars"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -353,12 +287,12 @@ public class @Inputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1a078053-f1a6-4f51-b814-0e558b184536"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""id"": ""c9ab370b-8ef3-40f5-a51c-f257aade9e3b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""GodMode"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -369,6 +303,17 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse-Keyboard"",
+                    ""action"": ""GodMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a078053-f1a6-4f51-b814-0e558b184536"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""GodMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Linq;
 
-public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler, ISubmitHandler
 {
     GameObject menuManager; 
     
@@ -38,7 +38,43 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         transform.GetChild(1).position = transform.GetComponent<RectTransform>().TransformPoint(new Vector3(center.x, center.y, -250));
     }
 
+    /* Mouse */
+
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
+    {
+        GetComponent<Button>().Select();
+    }
+
+    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    {
+        ExitButtonAnimation();
+    }
+
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    {
+        ValidateButtonAnimation();
+    }
+
+    /* Keyboard */
+
+    void ISelectHandler.OnSelect(BaseEventData eventData)
+    {
+        EnterButtonAnimation();
+    }
+
+    void IDeselectHandler.OnDeselect(BaseEventData eventData)
+    {
+        ExitButtonAnimation();
+    }
+
+    void ISubmitHandler.OnSubmit(BaseEventData eventData)
+    {
+        ValidateButtonAnimation();
+    }
+
+    /* Generic */
+
+    private void EnterButtonAnimation()
     {
         if (menuManager.GetComponent<MenuManager>().MenuState != MENU_STATE.CONTROLS)
         {
@@ -47,7 +83,7 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
     }
 
-    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    private void ExitButtonAnimation()
     {
         if (menuManager.GetComponent<MenuManager>().MenuState != MENU_STATE.CONTROLS)
         {
@@ -56,7 +92,7 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
     }
 
-    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    private void ValidateButtonAnimation()
     {
         if (menuManager.GetComponent<MenuManager>().MenuState == MENU_STATE.CREDITS)
         {

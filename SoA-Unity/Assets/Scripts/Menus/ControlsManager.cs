@@ -232,9 +232,9 @@ public class ControlsManager : MonoBehaviour
             inputs.Player.Walk.ApplyBindingOverride(2, PlayerPrefs.GetString("turnleft"));
             inputs.Player.Walk.ApplyBindingOverride(3, PlayerPrefs.GetString("turnback"));
             inputs.Player.Walk.ApplyBindingOverride(4, PlayerPrefs.GetString("turnright"));
-            inputs.Player.Interact.ApplyBindingOverride(PlayerPrefs.GetString("interact"));
-            inputs.Player.ProtectEyes.ApplyBindingOverride(PlayerPrefs.GetString("protecteyes"));
-            inputs.Player.ProtectEars.ApplyBindingOverride(PlayerPrefs.GetString("protectears"));
+            inputs.Player.Interact.ApplyBindingOverride(0, PlayerPrefs.GetString("interact"));
+            inputs.Player.ProtectEyes.ApplyBindingOverride(0, PlayerPrefs.GetString("protecteyes"));
+            inputs.Player.ProtectEars.ApplyBindingOverride(0, PlayerPrefs.GetString("protectears"));
         }
         else
         {
@@ -250,9 +250,9 @@ public class ControlsManager : MonoBehaviour
         inputs.Player.Walk.ApplyBindingOverride(2, defaultPaths["turnleft"]);
         inputs.Player.Walk.ApplyBindingOverride(3, defaultPaths["turnback"]);
         inputs.Player.Walk.ApplyBindingOverride(4, defaultPaths["turnright"]);
-        inputs.Player.Interact.ApplyBindingOverride(defaultPaths["interact"]);
-        inputs.Player.ProtectEyes.ApplyBindingOverride(defaultPaths["protecteyes"]);
-        inputs.Player.ProtectEars.ApplyBindingOverride(defaultPaths["protectears"]);
+        inputs.Player.Interact.ApplyBindingOverride(0, defaultPaths["interact"]);
+        inputs.Player.ProtectEyes.ApplyBindingOverride(0, defaultPaths["protecteyes"]);
+        inputs.Player.ProtectEars.ApplyBindingOverride(0, defaultPaths["protectears"]);
 
         UpdateLabels();
     }
@@ -274,9 +274,9 @@ public class ControlsManager : MonoBehaviour
         moveLeftButton.transform.GetChild(0).GetComponent<Text>().text   = inputs.Player.Walk.GetBindingDisplayString(2);
         moveDownButton.transform.GetChild(0).GetComponent<Text>().text   = inputs.Player.Walk.GetBindingDisplayString(3);
         moveRightButton.transform.GetChild(0).GetComponent<Text>().text  = inputs.Player.Walk.GetBindingDisplayString(4);
-        interactButton.transform.GetChild(0).GetComponent<Text>().text   = inputs.Player.Interact.GetBindingDisplayString();
-        eyeProtectButton.transform.GetChild(0).GetComponent<Text>().text = inputs.Player.ProtectEyes.GetBindingDisplayString();
-        earProtectButton.transform.GetChild(0).GetComponent<Text>().text = inputs.Player.ProtectEars.GetBindingDisplayString();
+        interactButton.transform.GetChild(0).GetComponent<Text>().text   = inputs.Player.Interact.GetBindingDisplayString(0);
+        eyeProtectButton.transform.GetChild(0).GetComponent<Text>().text = inputs.Player.ProtectEyes.GetBindingDisplayString(0);
+        earProtectButton.transform.GetChild(0).GetComponent<Text>().text = inputs.Player.ProtectEars.GetBindingDisplayString(0);
 
         restoreBindingsButton.transform.GetChild(0).GetComponent<Text>().text = "Reset Keys";
         saveBindingsButton.transform.GetChild(0).GetComponent<Text>().text = "Save Keys";

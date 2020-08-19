@@ -70,8 +70,8 @@ public class ControlsManager : MonoBehaviour
         { "turnback", "<Keyboard>/s" },
         { "turnright", "<Keyboard>/d" },
         { "interact", "<Keyboard>/e" },
-        { "protecteyes", "<Keyboard>/q" },
-        { "protectears", "<Keyboard>/x" },
+        { "protecteyes", "<Mouse>/leftButton" },
+        { "protectears", "<Mouse>/rightButton" }
     };
 
     // Navigation

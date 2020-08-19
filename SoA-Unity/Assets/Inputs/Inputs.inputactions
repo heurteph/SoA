@@ -185,61 +185,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "OKLM",
-                    "id": "c25cd6c7-55a7-4de6-b05c-c31c163799d8",
-                    "path": "2DVector(mode=2)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LookAround",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "76764e00-4039-4fb7-8522-7d0fafbe088a",
-                    "path": "<Keyboard>/o",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse-Keyboard",
-                    "action": "LookAround",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "0821311c-e943-4340-b5fe-418849183394",
-                    "path": "<Keyboard>/k",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse-Keyboard",
-                    "action": "LookAround",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "fcf5d1c1-bb33-4272-aaa1-bbd5654f7730",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse-Keyboard",
-                    "action": "LookAround",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "372c8055-f2da-4299-9be5-98d1aa645148",
-                    "path": "<Keyboard>/semicolon",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse-Keyboard",
-                    "action": "LookAround",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "2a7923c4-e220-4be5-b1fb-5e2c2ad9e378",
                     "path": "<Gamepad>/rightStick",

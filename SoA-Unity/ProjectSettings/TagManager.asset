@@ -28,6 +28,8 @@ TagManager:
   - GameOverMessage
   - TutorialCanvas
   - Controls
+  - Static
+  - Dynamic
   layers:
   - Default
   - TransparentFX

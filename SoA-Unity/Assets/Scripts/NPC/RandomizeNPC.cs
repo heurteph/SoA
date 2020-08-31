@@ -8,6 +8,8 @@ public class RandomizeNPC : MonoBehaviour
     //[Tooltip("Reference to the NPC material manager")]
     private GameObject NpcMaterialsManager;
 
+    private static readonly int NB_BUFFER_SHADER = 16;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +63,7 @@ public class RandomizeNPC : MonoBehaviour
         RandomizeFeatures(eyes, beards, props, hairs);
 
         RandomizeMaterials();
+
     }
 
     // Update is called once per frame
@@ -191,5 +194,35 @@ public class RandomizeNPC : MonoBehaviour
         {
             throw new System.Exception("No body mesh for the NPC " + transform.name);
         }
+
+        MeshRenderer mesh = body.GetComponent<MeshRenderer>();
+        if (mesh == null)
+        {
+            SkinnedMeshRenderer skinmesh = body.GetComponent<SkinnedMeshRenderer>();
+            List<Vector4> vec = new List<Vector4>();
+            for (int i = 0; i < NB_BUFFER_SHADER; i++)
+            {
+                vec.Add(new Vector4());
+            }
+            skinmesh.materials[0].SetFloat("vector_lenght", 0);
+            skinmesh.materials[0].SetVectorArray("vector_pos", vec);
+            skinmesh.materials[0].SetVectorArray("vector_dir", vec);
+            skinmesh.materials[0].SetVectorArray("vector_col", vec);
+            skinmesh.materials[0].SetVectorArray("vector_opt", vec);
+        }
+        else
+        {
+            List<Vector4> vec = new List<Vector4>();
+            for (int i = 0; i < NB_BUFFER_SHADER; i++)
+            {
+                vec.Add(new Vector4());
+            }
+            mesh.material.SetFloat("vector_lenght", 0);
+            mesh.material.SetVectorArray("vector_pos", vec);
+            mesh.material.SetVectorArray("vector_dir", vec);
+            mesh.material.SetVectorArray("vector_col", vec);
+            mesh.material.SetVectorArray("vector_opt", vec);
+        }
+
     }
 }

@@ -37,12 +37,20 @@ public class ImagesManager : MonoBehaviour
         
     }
 
-    public void SetBackground(string id)
+    public void ChangeImage(string type, string id)
     {
-        StartCoroutine(Fade(id));
+        switch(type)
+        {
+            case "background":
+                StartCoroutine(FadeBackground(id));
+                break;
+
+            case "character":
+                break;
+        }
     }
 
-    private IEnumerator Fade(string id)
+    private IEnumerator FadeBackground(string id)
     {
         Image image = background.GetComponent<Image>();
 
@@ -85,6 +93,7 @@ public class ImagesManager : MonoBehaviour
         }
 
         ImageShownEvent();
+        Debug.Log("Image affichée");
     }
 
     /*

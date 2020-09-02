@@ -64,30 +64,33 @@ namespace story
         [Space]
 
         [SerializeField]
-        [Tooltip("The message box")]
-        private TextMeshProUGUI messageBox;
-
-        [SerializeField]
-        [Tooltip("The header of the message box")]
-        private Text nameTag;
+        [Tooltip("The message manager")]
+        private GameObject messagesManager;
 
         [SerializeField]
         [Tooltip("The images manager")]
         private GameObject imagesManager;
 
-        public delegate void ReadyHandler(string text);
+        [SerializeField]
+        [Tooltip("The sound manager")]
+        private GameObject soundManager;
+
+        public delegate void ReadyHandler(string type, string id);
         public event ReadyHandler NewMessageEvent;
         public event ReadyHandler NewImageEvent;
+        public event ReadyHandler NewSoundEvent;
 
         // Start is called before the first frame update
         void Start()
         {
             // Callback functions
-            NewMessageEvent += messageBox.GetComponent<TextRevealEffect>().WriteMessage;
-            NewImageEvent += imagesManager.GetComponent<ImagesManager>().SetBackground;
+            NewMessageEvent += messagesManager.GetComponent<MessagesManager>().WriteMessage;
+            NewImageEvent += imagesManager.GetComponent<ImagesManager>().ChangeImage;
+            NewSoundEvent += soundManager.GetComponent<SoundManager>().PlaySound;
 
-            messageBox.GetComponent<TextRevealEffect>().MessageShownEvent += ExecuteNextAction;
+            messagesManager.GetComponent<MessagesManager>().MessageShownEvent += ExecuteNextAction;
             imagesManager.GetComponent<ImagesManager>().ImageShownEvent += ExecuteNextAction;
+            soundManager.GetComponent<SoundManager>().SoundPlayedEvent += ExecuteNextAction;
 
             // TO DO : Runtime loading of the json file for multilanguage support (EN/FR)
             //jsonData = Resources.Load<TextAsset>("Cutscenes/cutscenes");
@@ -97,8 +100,8 @@ namespace story
             itScenes.MoveNext(); // Initialization ?
             itActions = itScenes.Current.actions.GetEnumerator();
 
+            // Start with the first action
             ExecuteNextAction();
-            //StartCoroutine("PlayAllCutscene");
         }
 
         // Update is called once per frame
@@ -122,11 +125,10 @@ namespace story
                     // Close cutscene and start game
                     return null;
                 }
-                Debug.Log("Scène suivante");
+                //Debug.Log("Scène suivante");
                 itActions = itScenes.Current.actions.GetEnumerator();
                 itActions.MoveNext(); // Initialization
             }
-            Debug.Log("Action suivante");
             return itActions.Current;
         }
 
@@ -138,44 +140,24 @@ namespace story
             {
                 case "message":
 
-                    nameTag.text = action.metadata;
-                    NewMessageEvent(action.data);
+                    NewMessageEvent(action.metadata, action.data);
                     break;
 
                 case "image":
 
-                    NewImageEvent(action.data);
-                    //ExecuteNextAction(); // skip for now
+                    NewImageEvent(action.metadata, action.data);
                     break;
 
                 case "sound":
 
-                    // TO DO : Play a sound
-                    ExecuteNextAction(); // skip for now
+                    NewSoundEvent(action.metadata, action.data);
                     break;
 
                 default:
 
-                    // TO DO : Skip action
+                    ExecuteNextAction(); // Skip unknown actions
                     break;
             }
         }
-
-        /*
-        IEnumerator PlayAllCutscene()
-        {
-            foreach (var scene in story.scenes)
-            {
-                foreach (var action in scene.actions)
-                {
-                    Debug.Log("event : " + action.type + ", " + action.metadata + ", " + action.data);
-
-                    ExecuteAction(action);
-
-                    yield return new WaitForSeconds(0.5f);
-                }
-            }
-        }
-        */
     }
 }

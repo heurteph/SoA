@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using story;
 
-public class TextRevealEffect : MonoBehaviour
+public class MessagesManager : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("The cutscene manager")]
@@ -18,6 +18,16 @@ public class TextRevealEffect : MonoBehaviour
 
     public delegate IEnumerator DisplayMessage(string text);
     DisplayMessage del;
+
+    [Space]
+
+    [SerializeField]
+    [Tooltip("The message box")]
+    private TextMeshProUGUI messageBox;
+
+    [SerializeField]
+    [Tooltip("The header of the message box")]
+    private Text nameBox;
 
     [Space]
     [Header("Message Animation Options")]
@@ -42,7 +52,7 @@ public class TextRevealEffect : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        textMesh = GetComponent<TextMeshProUGUI>();
+        textMesh = messageBox.GetComponent<TextMeshProUGUI>();
         if (textMesh == null)
         {
             throw new System.NullReferenceException("No TextMeshProUGUI attached to " + transform.name);
@@ -53,11 +63,13 @@ public class TextRevealEffect : MonoBehaviour
         del = new DisplayMessage(RevealFade);
     }
 
-    public void WriteMessage(string text /*, callback */)
+    public void WriteMessage(string name, string message /*, callback */)
     {
         // Possible runtime change of the display method
         // DisplayMessage del = new DisplayMessage(callback);
-        StartCoroutine(del(text));
+
+        nameBox.text = name;
+        StartCoroutine(del(message));
     }
 
     IEnumerator RevealLetterByLetter(string text)
@@ -101,6 +113,7 @@ public class TextRevealEffect : MonoBehaviour
     IEnumerator RevealFade(string text)
     {
         textMesh.text = text;
+        textMesh.alpha = 0;
         textMesh.ForceMeshUpdate();
 
         TMP_TextInfo textInfo = textMesh.textInfo;
@@ -186,8 +199,8 @@ public class TextRevealEffect : MonoBehaviour
         }
 
         yield return new WaitForSeconds(messageDuration);
-        textMesh.alpha = 0;
 
         MessageShownEvent();
+        Debug.Log("Message affiché");
     }
 }

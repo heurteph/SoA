@@ -6,36 +6,6 @@ using TMPro;
 
 namespace story
 {
-    [System.Serializable]
-    public class Story
-    {
-        public List<Scene> scenes;
-
-        [System.Serializable]
-        public class Scene
-        {
-            public List<Action> actions;
-
-            [System.Serializable]
-            public class Action
-            {
-                public string type;
-                public string metadata;
-                public string data;
-            };
-        };
-
-        public Story(string text)
-        {
-            Deserialize(text);
-        }
-        public void Deserialize(string text)
-        {
-            JsonUtility.FromJsonOverwrite(text, this);
-        }
-    }
-
-
     public class CutsceneManager : MonoBehaviour
     {
         [SerializeField]

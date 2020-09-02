@@ -9,10 +9,7 @@ public class ImagesManager : MonoBehaviour
     private GameObject background;
 
     [SerializeField]
-    private GameObject character;
-
-    private GameObject background1;
-    private GameObject background2;
+    private GameObject foreground;
 
     public delegate void ImageHandler();
     public event ImageHandler ImageShownEvent;
@@ -39,20 +36,23 @@ public class ImagesManager : MonoBehaviour
 
     public void ChangeImage(string type, string id)
     {
+        StartCoroutine(FadeImage(type, id));
+    }
+
+    private IEnumerator FadeImage(string type, string id)
+    {
+        Image image = null;
+
         switch(type)
         {
             case "background":
-                StartCoroutine(FadeBackground(id));
+                image = background.GetComponent<Image>();
                 break;
 
-            case "character":
+            case "foreground":
+                image = foreground.GetComponent<Image>();
                 break;
         }
-    }
-
-    private IEnumerator FadeBackground(string id)
-    {
-        Image image = background.GetComponent<Image>();
 
         Color color;
         color = image.color;
@@ -78,6 +78,9 @@ public class ImagesManager : MonoBehaviour
         }
 
         image.color = new Color(0, 1, 0.5f, 0);
+
+        //TO DO : Load the actual sprite
+
         //Sprite sprite = Resources.Load<Sprite>(string.Concat("Images/", id));
         //image.sprite = sprite;
 

@@ -1,0 +1,256 @@
+{
+  "scenes": [
+    {
+      "actions": [
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Non, pas la peine d'essayer aujourd'hui, c'est pas le bon jour."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Allo, Silhouelle ... non j'ai essayé, je ne pourrai pas venir ... oui, je sais ... on se dit à une autre fois ... oui, salut."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "J'ai encore la tête pleine de toute cette agitation au-dehors."
+        },
+        {
+          "type": "image",
+		  "metadata": "",
+          "data": "bedroom_bed"
+        },
+        {
+          "type": "sound",
+		  "metadata": "",
+          "data": "bedroom_phone"
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Puisque je ne peux pas sortir comme tout le monde autant dormir un peu, j'en ai besoin."
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "..."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data" : "Tout dans cet endroit sonne si merveilleusement bien."
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Tu remarques que tout le monde est à la même fréquence."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Ah, oui ! C'est vraiment l'endroit de mes rêves."
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Eh bien, pour nous, c'est un important sanctuaire. Nous veillons sur lui comme gardiens."
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Zénium, Améioz, ... oui, il faut savoir que le Z revient souvent ici. Car tout y est fait de matière vibrante : le paysage, les habitants, ... et même nos noms !"
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Les habitants aussi sont en cristal ! Quelle chance vous avez d'habiter ici."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Mais que font tous les autres, là, le dos tourné ?"
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Comme tu as pu le ressentir, ce lieu est un foyer de vibrations élémentaires. Nous veillons à ce que rien ne le fasse dévier de son équilibre."
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Les anges que tu vois se concentrent sur de cristaux dissonants pour les réaccorder à la mesure de l'univers."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Ils ont leurs mains posées dessus."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Oui, c'est ainsi qu'ils communiquent leurs vibrations. La mission qui les retient ici consiste à perpétuer cet équilibre."
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Mais ça, c'est quand on débute. Moi par exemple, je m'occupe de missions lointaines, je vais dans les zones les plus déséquilibrées de l'Univers. J'étais dernièrement sur Terre, après avoir appris le déséquilibre qui la frappait."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Ah ça, je crois qu'on ne t'a pas menti."
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Arrivé sur place, j'ai vite découvert les causes de ce déséquilibre. En fait, j'en ai répertorié trois qui doivent t'être familières."
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Il y avait d'abord des terriens, aux activités effrénées, qui transmettent sans le savoir leurs ondes nerveuses."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Ah, oui, au fond de moi je suis sûre que c'est le cas pour un grand nombre d'entre nous là-bas."
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "J'ai aussi pu constater les dissonances produites par toutes sortes d'engins mécaniques stridents."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Ah, oui, eux non plus n'arrangent rien!"
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Et encore, à d'autres moments, des lumières artificielles qui oscillent à un rythme terrible."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Ah, celles-là, je ne peux pas m'approcher d'elles. Tu ne peux pas savoir à quel point je suis réconfortée d'entendre quelqu'un d'autre me dire tout ça ! C'est mon expérience au quotidien."
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Je sais, et j'ai quelque chose à voir avec ça. Sur Terre, j'avais commencé à rétablir l'équilibre des premiers terriens à ma portée. Mais quand je suis arrivé à épuisement de mes pouvoirs, je n'avais pu transmettre mes vibrations qu'à quelques humains. Et c'est là que j'ai pris conscience de mon erreur : par mon action, j'ai condamné ceux-là même que je voulais sauver. Puisque qu'ils allaient vivre en déphasage complet avec le reste de l'environnement. Et comme tu le devines, tu faisais partie de ceux-là."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Quoi ? Tu veux dire que c'est toi la cause de tous mes problèmes ?"
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "... d'une bonne partie ... car avant, tu ne ressentais pas ce déséquilibre du fait de l'habitude. J'en suis profondément désolé. Je me suis rendu compte trop tard que j'avais surestimé mes pouvoirs, ... et ce n'est pas la première fois que ça m'arrive. Il faut savoir que tous les anges obéissent à un ange supérieur, qui connait toutes nos actions et les juge. Il a tout de suite vu ma faute, et m'a rappelé de force au sanctuaire."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "D'accord, mais ... redis-moi ce que les vibrations ont à voir avec mon hypersensibilité ?"
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Ce sont les vibrations qui ne concordent pas avec les tiennes qui produisent des chocs. Et c'est ça que tu ressens."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "D'accord, peut-être que je comprends un tout petit peu... Donc, maintenant que tu m'as amené ici, tu vas me rendre mon ancien état, et je vais revivre normalement ?"
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Hein, quoi ? Mais notre pouvoir ne permet que de créer un plus grand équilibre, pas l'inverse ! Non, vraiment, on ne sait pas faire ça dans ce sens-là. Mais par contre, je tiens sincèrement à t'aider, et je peux le faire d'une autre manière."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Eh bien alors, fais-le."
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Je te proposes de t'accompagner, invisible, où que tu décides d'aller. Tu pourras toujours compter sur mon appui. Grâce à ma grande facilité à percevoir les dissonances dans l'environnement, je pourrai toujours t'orienter sur le bon chemin et t'éviter les chocs."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Hum."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Non. J'ai une autre idée."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Que dirais-tu que je reste ici indéfiniment ? Ça ne me dérangerait pas."
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Ah non ! Ne t'appuies pas là-dessus !"
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Ca veut dire ... que j'ai de nouveau le pouvoir de me déplacer quand je veux en ville ?"
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Re, c'est encore moi. Tu es toujours sortie ?"
+        },
+        {
+          "type": "message",
+          "metadata": "Silhouelle",
+          "data": "Oui, je suis au supermarché."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "D'accord, reste où tu es, ne bouge pas et attends-moi, j'arrive."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Ca me ferait plaisir, mais  tu sais que ça ne sert à rien d'insister si tu ne peux vraiment pas venir."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "Mais j'ai trouvé le moyen de venir quand même."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "C'est maintenant que je vais voir s'il a ..."
+        },
+        {
+          "type": "message",
+          "metadata": "Esthesia",
+          "data": "... si tu as dit vrai."
+        }
+      ]
+    }
+  ]
+}

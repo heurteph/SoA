@@ -71,15 +71,23 @@ namespace story
         [Tooltip("The header of the message box")]
         private Text nameTag;
 
+        [SerializeField]
+        [Tooltip("The images manager")]
+        private GameObject imagesManager;
+
         public delegate void ReadyHandler(string text);
         public event ReadyHandler NewMessageEvent;
+        public event ReadyHandler NewImageEvent;
 
         // Start is called before the first frame update
         void Start()
         {
             // Callback functions
             NewMessageEvent += messageBox.GetComponent<TextRevealEffect>().WriteMessage;
+            NewImageEvent += imagesManager.GetComponent<ImagesManager>().SetBackground;
+
             messageBox.GetComponent<TextRevealEffect>().MessageShownEvent += ExecuteNextAction;
+            imagesManager.GetComponent<ImagesManager>().ImageShownEvent += ExecuteNextAction;
 
             // TO DO : Runtime loading of the json file for multilanguage support (EN/FR)
             //jsonData = Resources.Load<TextAsset>("Cutscenes/cutscenes");
@@ -131,19 +139,18 @@ namespace story
                 case "message":
 
                     nameTag.text = action.metadata;
-                    //messageBox.text = action.data;
                     NewMessageEvent(action.data);
+                    break;
+
+                case "image":
+
+                    NewImageEvent(action.data);
+                    //ExecuteNextAction(); // skip for now
                     break;
 
                 case "sound":
 
                     // TO DO : Play a sound
-                    ExecuteNextAction(); // skip for now
-                    break;
-
-                case "image":
-
-                    // TO DO : Display an image
                     ExecuteNextAction(); // skip for now
                     break;
 

@@ -11,8 +11,8 @@ public class TextRevealEffect : MonoBehaviour
     [Tooltip("The cutscene manager")]
     private GameObject cutsceneManager;
 
-    public delegate void DisplayHandler();
-    public event DisplayHandler MessageShownEvent;
+    public delegate void MessageHandler();
+    public event MessageHandler MessageShownEvent;
 
     //private string text;
 
@@ -118,8 +118,6 @@ public class TextRevealEffect : MonoBehaviour
             //float RolloverCharacterSpread = 5; // how many character appearing at once
             byte fadeSteps = (byte)Mathf.Max(1, 255 / rolloverCharacterSpread);
 
-            //Debug.Log("begin : " + startingCharacterIndex + " & end : " + currentCharacterIndex);
-
             for (int i = startingCharacterIndex; i < currentCharacterIndex + 1; i++)
             {
                 // Skip characters that are not visible
@@ -136,8 +134,6 @@ public class TextRevealEffect : MonoBehaviour
 
                 // Get the current character's alpha value.
                 byte alpha = (byte)Mathf.Clamp(newVertexColors[vertexIndex + 0].a + fadeSteps, 0, 255);
-
-                Debug.Log("alpha de " + text[i].ToString() + " : " + alpha);
 
                 // Set new alpha values.
                 newVertexColors[vertexIndex + 0].a = alpha;

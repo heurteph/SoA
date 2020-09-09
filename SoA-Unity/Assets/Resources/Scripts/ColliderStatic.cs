@@ -11,7 +11,7 @@ public class ColliderStatic : MonoBehaviour
     bool collider = true;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         lights = new HashSet<GameObject>();
         mesh = GetComponent<MeshRenderer>();
@@ -61,11 +61,13 @@ public class ColliderStatic : MonoBehaviour
         {
             return;
         }
-        if (other.gameObject.GetComponent<Light>() != null && !lights.Contains(other.gameObject))
+
+        Light l = other.gameObject.GetComponent<Light>();
+
+        if (l != null && lights.Count < NB_BUFFER_SHADER && !lights.Contains(other.gameObject))
         {
             Debug.Log("Static Enter " + other.name + " " + gameObject.name);
 
-            Light l = other.gameObject.GetComponent<Light>();
             lights.Add(l.gameObject);
             Vector4 pos_;
             Vector4 dir_;

@@ -10,7 +10,7 @@ public class ColliderLight : MonoBehaviour
     Vector4 opt_;
     Vector4 col_;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         l = gameObject.GetComponent<Light>();
         col_ = l.color;
@@ -56,7 +56,7 @@ public class ColliderLight : MonoBehaviour
     {
 
         //if(other.gameObject.GetComponent<Light>() == null && other.gameObject.GetComponent<ColliderStatic>() == null)
-        if (other.gameObject.GetComponent<RandomizeNPC>() != null || other.gameObject.name.Equals("Player") || other.gameObject.GetComponent<Dynamic>())
+        if (other.gameObject.GetComponent<RandomizeNPC>() != null || other.gameObject.name.Equals("Player"))// || other.gameObject.GetComponent<Dynamic>() != null)
         {
             Debug.Log("Collider Light Enter " + other.name + " " + gameObject.name);
             //MeshRenderer mesh = other.gameObject.GetComponent<MeshRenderer>();
@@ -70,6 +70,8 @@ public class ColliderLight : MonoBehaviour
                 if (other.gameObject.name.Equals("Player"))
                 {
                     mesh_skin = other.transform.Find("Avatar_Esthesia_mergedAnims/CharaEsthesia_geo/charaBody_Esthesia_geo").GetComponent<SkinnedMeshRenderer>();
+                    if(mesh_skin == null)
+                        other.transform.Find("Avatar_Esthesia_mergedAnims/CharaEsthesia_geo/charaHair_Esthesia_geo").GetComponent<SkinnedMeshRenderer>();
                 }
                 if(mesh_skin == null)
                 {

@@ -56,7 +56,7 @@ public class ColliderLight : MonoBehaviour
     {
 
         //if(other.gameObject.GetComponent<Light>() == null && other.gameObject.GetComponent<ColliderStatic>() == null)
-        if (other.gameObject.GetComponent<RandomizeNPC>() != null || other.gameObject.name.Equals("Player"))// || other.gameObject.GetComponent<Dynamic>() != null)
+        if (other.gameObject.GetComponent<RandomizeNPC>() != null || other.gameObject.name.Equals("Player") || other.gameObject.GetComponent<Dynamic>() != null)
         {
             Debug.Log("Collider Light Enter " + other.name + " " + gameObject.name);
             //MeshRenderer mesh = other.gameObject.GetComponent<MeshRenderer>();
@@ -166,7 +166,7 @@ public class ColliderLight : MonoBehaviour
     void OnTriggerExit(UnityEngine.Collider other)
     {
         //if (other.gameObject.GetComponent<Light>() == null && other.gameObject.GetComponent<ColliderStatic>() == null)
-        if(other.gameObject.GetComponent<RandomizeNPC>() != null || other.gameObject.name.Equals("Player") || other.gameObject.GetComponent<Dynamic>())
+        if(other.gameObject.GetComponent<RandomizeNPC>() != null || other.gameObject.name.Equals("Player") || other.gameObject.GetComponent<Dynamic>() != null)
         {
             Debug.Log("Collider Light Exit " + other.name + " " + gameObject.name);
             SkinnedMeshRenderer mesh_skin = other.gameObject.GetComponent<SkinnedMeshRenderer>();
@@ -177,6 +177,8 @@ public class ColliderLight : MonoBehaviour
                 if (other.gameObject.name.Equals("Player"))
                 {
                     mesh_skin = other.transform.Find("Avatar_Esthesia_mergedAnims/CharaEsthesia_geo/charaBody_Esthesia_geo").GetComponent<SkinnedMeshRenderer>();
+                    if (mesh_skin == null)
+                        other.transform.Find("Avatar_Esthesia_mergedAnims/CharaEsthesia_geo/charaHair_Esthesia_geo").GetComponent<SkinnedMeshRenderer>();
                 }
                 else
                     mesh_skin = other.transform.Find("body")?.GetChild(0)?.gameObject.GetComponent<SkinnedMeshRenderer>();

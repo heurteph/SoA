@@ -28,11 +28,33 @@
 				uniform float _Radius;
 				uniform float4 _OffsetColor;
 
+				uniform float _Radius_Head_Min;
+				uniform float _Radius_Head_Max;
+				uniform float4 _Position_Head;
+				uniform float4 _Color_Sense;
+
+
 				uniform bool _StateBlur;
 				uniform bool _StateChromatique;
 				uniform bool _VignettePleine;
 
 				uniform float _LerpEffect;
+
+
+				struct appdata
+				{
+					float4 vertex : POSITION;
+					float4 uv : TEXCOORD0;
+					float3 normal : NORMAL;
+				};
+
+				struct v2f
+				{
+					float4 pos : SV_POSITION;
+					float2 uv : TEXCOORD0;
+					float2 head_pos : TEXTCOORD1;
+				};
+
 
 				fixed _maskBlend;
 				fixed _maskSize;
@@ -65,17 +87,50 @@
 
 				static float kernelBlurDynamic[] = { 1.0f, 2.0f, 1.0f, 2.0f, 4.0f, 2.0f, 1.0f, 2.0f, 1.0f };
 
-				v2f_img vert(float4 pos : POSITION,	float2 uv : TEXCOORD0)
+				//v2f_img vert(float4 pos : POSITION,	float2 uv : TEXCOORD0)
+				v2f vert(appdata v)
 				{
-					v2f_img o;
-					o.pos = UnityObjectToClipPos(pos);
-					o.uv = uv;
+					v2f o;
+					o.pos = UnityObjectToClipPos(v.vertex);
+					o.uv = v.uv;
+					
+
+					/*float2 pos = float2(0.0, 0.0);
+					if (_Position_Head.x < 1.0) {
+						pos.x = _Position_Head.x;
+					}
+					else {
+						pos.x = _Position_Head.x / _ScreenParams.x;
+					}
+
+					if (_Position_Head.y < 1.0) {
+						pos.y = _Position_Head.y;
+					}
+					else {
+						pos.y = _Position_Head.y / _ScreenParams.y;
+					}
+
+					o.head_pos = pos;*/
+
+					
+					float4 pos = float4(_Position_Head.x, _Position_Head.y, _Position_Head.z, 1.0f);
+					//pos = mul(UNITY_MATRIX_VP, pos);//WorldSpaceViewDir(_Position_Head));
+					pos.x /= pos.w;
+					pos.y /= pos.w;
+
+					o.head_pos.xy = _Position_Head.xy;//((pos.xy  * 0.5f) + 0.5f);// *_ScreenParams.xy;
+
+					//o.head_pos.x /= _ScreenParams.x;//(2.0 * width);
+					//o.head_pos.x += 0.5f;
+					//o.head_pos.y /= _ScreenParams.y;//(2.0 * height);
+					//o.head_pos.y += 0.5f;
 					return o;
 				}
 
 
 
-				fixed4 frag(v2f_img im) : COLOR{
+				//fixed4 frag(v2f_img im) : COLOR{
+				fixed4 frag(v2f im) : COLOR{
 					fixed4 mask = tex2D(_MaskTex, im.uv * _maskSize);
 					fixed4 base = tex2D(_MainTex, im.uv);
 					int i;
@@ -123,7 +178,18 @@
 							col = lerp(col, float4(0.0f, 0.0f, 0.0f, 1.0f), dist);
 					}
 
-					return lerp(base, col, _LerpEffect);
+					col = lerp(base, col, _LerpEffect);
+
+					//if(abs(im.uv.x - im.head_pos.x) <= 10.0 )
+					float x = im.uv.x * _ScreenParams.x;
+					float y = im.uv.y * _ScreenParams.y;
+					float len = length(im.head_pos - float2(x, y));
+					if (len >= _Radius_Head_Min && len <= _Radius_Head_Max) {
+						float4 tmp = float4(_Color_Sense.r, _Color_Sense.g, _Color_Sense.b, _Position_Head.w*0.6f);
+						col = lerp(tmp, col,abs(cos(_Time.z+(len - _Radius_Head_Min) / (_Radius_Head_Max - _Radius_Head_Min))));
+					}
+
+					return col;//lerp(base, col, _LerpEffect);
 				}
 			ENDCG
 		}

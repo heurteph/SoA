@@ -30,6 +30,8 @@ TagManager:
   - Controls
   - MouseKeyboard
   - Gamepad
+  - Static
+  - Dynamic
   layers:
   - Default
   - TransparentFX

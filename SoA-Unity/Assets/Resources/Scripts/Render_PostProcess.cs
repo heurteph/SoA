@@ -27,6 +27,21 @@ public class Render_PostProcess : MonoBehaviour
     [SerializeField]
     private Vector3 offsetChroma;
 
+    //partie pour back up visuel pour son
+    [SerializeField]
+    private GameObject head;
+    [SerializeField]
+    private Vector2 position;
+    [SerializeField]
+    private float radius_head_min;
+    [SerializeField]
+    private float radius_head_max;
+    [SerializeField]
+    private bool head_activate;
+    [SerializeField]
+    private Vector4 color_sense;
+
+
     public bool shader_actif = false;
     private Material mat;
     public string shader_name = "PostProcessV2";
@@ -59,6 +74,8 @@ public class Render_PostProcess : MonoBehaviour
 
         lerp_effet = 1.0f;
 
+        color_sense = new Vector4(1.0f,1.0f,1.0f,1.0f);
+
         cam = GetComponent<Camera>();
         changeShader("PostProcessV2");
     }
@@ -82,8 +99,10 @@ public class Render_PostProcess : MonoBehaviour
             mat.SetFloat("type", 0);
 
             changeShader("PostProcessV2");
-            mat.SetFloat("width", coef_blur);
-            mat.SetFloat("height", coef_blur);
+            /*mat.SetFloat("width", coef_blur);
+            mat.SetFloat("height", coef_blur);*/
+            mat.SetFloat("width", source.width);
+            mat.SetFloat("height", source.height);
             mat.SetFloat("life", player.GetComponent<EnergyBehaviour>().Energy / 10); // 0-1000 -> 0-100
             mat.SetFloat("_CoefBlur", coef_intensity);
             mat.SetFloat("_Radius", radius);
@@ -93,7 +112,15 @@ public class Render_PostProcess : MonoBehaviour
             mat.SetInt("_VignettePleine", (state_vignette_pleine ? 1 : 0));
             mat.SetFloat("_LerpEffect", lerp_effet);
             mat.SetVector("_OffsetColor", new Vector4(offsetChroma.x, offsetChroma.y, offsetChroma.z, 1.0f));
+            //mat.SetVector("_Position_Head",new Vector4(head.transform.position.x, head.transform.position.y, head.transform.position.z,(head_activate ? 1.0f : 0.0f)));
+            Vector3 position = Camera.current.WorldToScreenPoint(head.transform.position);
+            mat.SetVector("_Position_Head", new Vector4(position.x, position.y, position.z, (head_activate ? 1.0f : 0.0f)));
+            //mat.SetVector("_Position_Head", new Vector4(position.x, position.y, 0.0f, (head_activate ? 1.0f : 0.0f)));
+            mat.SetFloat("_Radius_Head_Min",radius_head_min);
+            mat.SetFloat("_Radius_Head_Max", radius_head_max);
+            mat.SetVector("_Color_Sense", color_sense);
 
+            Debug.Log("Marker head est de " + head.transform.position);
 
             Graphics.Blit(source, destination,mat);
         }

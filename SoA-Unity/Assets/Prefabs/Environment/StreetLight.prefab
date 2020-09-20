@@ -57,8 +57,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4669984486087135800}
   - component: {fileID: 6988227667754178038}
+  - component: {fileID: 8992671464928653599}
+  - component: {fileID: 6593846533916791552}
+  - component: {fileID: 6997532288778823329}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: Light_Lampadaire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +93,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9107015, b: 0.75, a: 1}
-  m_Intensity: 1
+  m_Intensity: 10
   m_Range: 0.45
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -139,6 +142,48 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &8992671464928653599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2882042671722475383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae34d00f9f86c446a8a449ad2407c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &6593846533916791552
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2882042671722475383}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 10
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6997532288778823329
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2882042671722475383}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3335054469117129757
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +288,8 @@ GameObject:
   - component: {fileID: 5419662094823708579}
   - component: {fileID: 1494745064545560069}
   - component: {fileID: 7224656873762722465}
+  - component: {fileID: 6762187636221933180}
+  - component: {fileID: 4778806371385837955}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -311,3 +358,28 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6762187636221933180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196151954808301049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cf7e8ec1ef8b446a37c00297e29a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &4778806371385837955
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196151954808301049}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3598937, y: 26.525753, z: 0.3598937}
+  m_Center: {x: -0.0000019073486, y: 13.152876, z: 0}

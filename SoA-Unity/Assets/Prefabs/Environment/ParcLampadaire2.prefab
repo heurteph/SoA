@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2944824821635524870}
   - component: {fileID: 6294474499139433191}
   - component: {fileID: 5215690088096971238}
+  - component: {fileID: 3682147596736259747}
   m_Layer: 0
   m_Name: pCylinder1
   m_TagString: Untagged
@@ -93,6 +94,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 62.930122, z: 1.0000001}
   m_Center: {x: 0, y: 30.965061, z: 6.7590145e-10}
+--- !u!114 &3682147596736259747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2506972587412652267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cf7e8ec1ef8b446a37c00297e29a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4262456725786882373
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,8 +209,11 @@ GameObject:
   m_Component:
   - component: {fileID: 796717016480200206}
   - component: {fileID: 3939640610450577446}
+  - component: {fileID: 6771272499062202596}
+  - component: {fileID: 6629315890940421155}
+  - component: {fileID: 4467481944365406736}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: Light_Lampadaire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,8 +245,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9098039, b: 0.7490196, a: 1}
-  m_Intensity: 1
-  m_Range: 0.34
+  m_Intensity: 8
+  m_Range: 0.45
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -278,6 +294,48 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!136 &6771272499062202596
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6635332927729744602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 10
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6629315890940421155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6635332927729744602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae34d00f9f86c446a8a449ad2407c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &4467481944365406736
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6635332927729744602}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7555712499336845231
 GameObject:
   m_ObjectHideFlags: 0

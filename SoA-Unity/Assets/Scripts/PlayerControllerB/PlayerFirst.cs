@@ -406,6 +406,8 @@ public class PlayerFirst : MonoBehaviour, IAnimable
         }
         steeringAngle -= 180; // synchronize with update
         isTurningBack = false;
+
+        // BUG : Esthesia keep on walking when playing with the game pad
     }
 
     public void Hurry(float energy)

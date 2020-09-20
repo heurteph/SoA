@@ -220,17 +220,18 @@ public class PlayerFirst : MonoBehaviour, IAnimable
             anim.SetBool("isProtectingEyes", false);
             anim.SetBool("isProtectingEars", false);
         }
-
+        
         if (inputs.Player.enabled) // Compulsory, as Disabling or Enabling an Action also Enable the ActionGroup !!!
         {
             StickToGround();
 
             Walk(inputs.Player.Walk.ReadValue<Vector2>());
 
+            Debug.Log("Movement : " + movement);
             characterController.Move(movement);
             movement = Vector3.zero;
 
-            /* Manage the two kinds of vision */
+            // Manage the two kinds of vision
 
             if (eyesDamageSources > 0) { isDamagedEyes = true; }
             else { isDamagedEyes = false; }

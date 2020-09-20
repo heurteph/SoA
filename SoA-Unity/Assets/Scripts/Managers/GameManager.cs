@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name != "CreditsScene")
         {
-            Debug.Log("Crédits loading");
+            Debug.Log("Credits loading");
             StartCoroutine("WaitForCreditsLoad");
         }
         else
@@ -199,17 +199,14 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator WaitForCreditsLoad()
     {
-        Debug.Log("Dans la coroutine");
         while (SceneManager.GetActiveScene().name != "CreditsScene")
         {
             yield return null;
-            Debug.Log("j'attends que les crédits se chargent");
         }
 
         if (SceneManager.GetActiveScene().name == "CreditsScene")
         {
             creditsTransition.SetBool("CreditsLoaded", true);
-            Debug.Log("c'est parti pour le fade in du crédits");
         }
     }
 }

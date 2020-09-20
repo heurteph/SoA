@@ -20,7 +20,17 @@
         {
           "type": "image",
 		  "metadata": "background",
-          "data": "bedroom_bed"
+          "data": "test_background"
+        },
+		{
+          "type": "image",
+		  "metadata": "left",
+          "data": "test_left"
+        },
+		{
+          "type": "image",
+		  "metadata": "right",
+          "data": "test_right"
         },
         {
           "type": "sound",

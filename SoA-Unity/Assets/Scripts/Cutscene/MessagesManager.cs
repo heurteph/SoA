@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using story;
+using System.Text.RegularExpressions;
 
 public class MessagesManager : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class MessagesManager : MonoBehaviour
     [Tooltip("The header of the message box")]
     private Text nameBox;
 
+    [SerializeField]
+    [Tooltip("The vibrations of the message")]
+    private ParticleSystem vibrations;
+    private ParticleSystem.EmissionModule emissionModule;
+
     [Space]
     [Header("Message Animation Options")]
 
@@ -43,9 +49,24 @@ public class MessagesManager : MonoBehaviour
     private float rolloverCharacterSpread = 5;
 
     [SerializeField]
-    [Tooltip("How long a message remains in seconds")]
-    [Range(0.5f, 5)]
-    private float messageDuration = 1.5f;
+    [Tooltip("How long it takes for a message to start appearing")]
+    [Range(0f, 5)]
+    private float preMessageDuration = 0.5f;
+
+    [SerializeField]
+    [Tooltip("How long a message remains in seconds once it's been displayed")]
+    [Range(0f, 5)]
+    private float postMessageDuration = 1.25f;
+
+    [SerializeField]
+    [Tooltip("How long a pause last (dot, comma)")]
+    [Range(0f, 2f)]
+    private float shortPauseDuration = 0.25f;
+
+    [SerializeField]
+    [Tooltip("How long a pause last (dot, comma)")]
+    [Range(0f, 2f)]
+    private float longPauseDuration = 0.35f;
 
     private TextMeshProUGUI textMesh;
 
@@ -53,61 +74,23 @@ public class MessagesManager : MonoBehaviour
     void Awake()
     {
         textMesh = messageBox.GetComponent<TextMeshProUGUI>();
-        if (textMesh == null)
-        {
-            throw new System.NullReferenceException("No TextMeshProUGUI attached to " + transform.name);
-        }
+        Debug.Assert(textMesh != null, "No TextMeshProUGUI attached to " + transform.name);
 
         textMesh.text = string.Empty;
-        
-        del = new DisplayMessage(RevealFade);
+
+        emissionModule = vibrations.emission;
+        EndVibrating();
+
+        del = new DisplayMessage(RevealLetterByLetter);
     }
 
+
+    // Possible runtime change of the display method
+    // DisplayMessage del = new DisplayMessage(callback);
     public void WriteMessage(string name, string message /*, callback */)
     {
-        // Possible runtime change of the display method
-        // DisplayMessage del = new DisplayMessage(callback);
-
         nameBox.text = name;
         StartCoroutine(del(message));
-    }
-
-    IEnumerator RevealLetterByLetter(string text)
-    {
-        textMesh.text = text;
-        textMesh.maxVisibleCharacters = 0;
-
-        float delay;
-        textMesh.ForceMeshUpdate(); // update textInfo to get actual characterCount
-        for (int i = 0; i <= textMesh.textInfo.characterCount; i++)
-        {
-            textMesh.maxVisibleCharacters = i;
-            delay = 0.1f / (2 * messageSpeed);
-            yield return new WaitForSeconds(delay);
-        }
-
-        yield return new WaitForSeconds(messageDuration);
-
-        MessageShownEvent();
-    }
-
-    IEnumerator RevealWordByWord(string text)
-    {
-        textMesh.text = text;
-        textMesh.maxVisibleWords = 0;
-
-        float delay;
-        textMesh.ForceMeshUpdate(); // update textInfo to get actual wordCount
-        for (int i = 0; i <= textMesh.textInfo.wordCount + 1; i++)
-        {
-            textMesh.maxVisibleWords = i;
-            delay = 0.1f / (2 * messageSpeed);
-            yield return new WaitForSeconds(delay);
-        }
-
-        yield return new WaitForSeconds(messageDuration);
-
-        MessageShownEvent();
     }
 
     IEnumerator RevealFade(string text)
@@ -122,6 +105,8 @@ public class MessagesManager : MonoBehaviour
         int currentCharacterIndex = 0;
         int startingCharacterIndex = currentCharacterIndex;
         bool isRangeMax = false;
+
+        yield return new WaitForSeconds(preMessageDuration);
 
         while (!isRangeMax)
         {
@@ -198,9 +183,90 @@ public class MessagesManager : MonoBehaviour
             yield return new WaitForSeconds(0.01f / messageSpeed);
         }
 
-        yield return new WaitForSeconds(messageDuration);
+        yield return new WaitForSeconds(postMessageDuration);
 
         MessageShownEvent();
-        Debug.Log("Message affiché");
+    }
+
+    IEnumerator RevealLetterByLetter(string text)
+    {
+        textMesh.text = text;
+        textMesh.maxVisibleCharacters = 0;
+
+        float delay;
+        textMesh.ForceMeshUpdate(); // update textInfo to get actual characterCount
+
+        yield return new WaitForSeconds(preMessageDuration);
+
+        for (int i = 0; i < textMesh.textInfo.characterCount; i++)
+        {
+            textMesh.maxVisibleCharacters = i + 1;
+
+            if (IsShortPause(textMesh.text[i]))
+            {
+                EndVibrating();
+                delay = shortPauseDuration;
+            }
+            else if (IsLongPause(textMesh.text[i]))
+            {
+                EndVibrating();
+                delay = longPauseDuration;
+            }
+            else
+            {
+                StartVibrating();
+                delay = 0.1f / (2 * messageSpeed);
+            }
+
+            yield return new WaitForSeconds(delay);
+        }
+
+        EndVibrating();
+
+        yield return new WaitForSeconds(postMessageDuration);
+
+        MessageShownEvent();
+    }
+
+    IEnumerator RevealWordByWord(string text)
+    {
+        textMesh.text = text;
+        textMesh.maxVisibleWords = 0;
+
+        float delay;
+        textMesh.ForceMeshUpdate(); // update textInfo to get actual wordCount
+
+        yield return new WaitForSeconds(preMessageDuration);
+
+        for (int i = 0; i < textMesh.textInfo.wordCount + 1; i++)
+        {
+            textMesh.maxVisibleWords = i + 1;
+            delay = 0.1f / (2 * messageSpeed);
+            yield return new WaitForSeconds(delay);
+        }
+
+        yield return new WaitForSeconds(postMessageDuration);
+
+        MessageShownEvent();
+    }
+
+    public void StartVibrating()
+    {
+        emissionModule.rateOverTime = 8f;
+    }
+
+    public void EndVibrating()
+    {
+        emissionModule.rateOverTime = 0f;
+    }
+
+    public static bool IsShortPause(char c)
+    {
+        return c == ',' || c == ':';
+    }
+
+    public static bool IsLongPause(char c)
+    {
+        return c == '.' || c == '!';
     }
 }

@@ -9,7 +9,10 @@ public class ImagesManager : MonoBehaviour
     private GameObject background;
 
     [SerializeField]
-    private GameObject foreground;
+    private GameObject right;
+
+    [SerializeField]
+    private GameObject left;
 
     public delegate void ImageHandler();
     public event ImageHandler ImageShownEvent;
@@ -34,23 +37,27 @@ public class ImagesManager : MonoBehaviour
         
     }
 
-    public void ChangeImage(string type, string id)
+    public void ChangeImage(string position, string id)
     {
-        StartCoroutine(FadeImage(type, id));
+        StartCoroutine(FadeImage(position, id));
     }
 
-    private IEnumerator FadeImage(string type, string id)
+    private IEnumerator FadeImage(string position, string id)
     {
         Image image = null;
 
-        switch(type)
+        switch(position)
         {
             case "background":
                 image = background.GetComponent<Image>();
                 break;
 
-            case "foreground":
-                image = foreground.GetComponent<Image>();
+            case "left":
+                image = left.GetComponent<Image>();
+                break;
+
+            case "right":
+                image = right.GetComponent<Image>();
                 break;
         }
 
@@ -77,12 +84,18 @@ public class ImagesManager : MonoBehaviour
             yield return new WaitForSeconds(timeStep);
         }
 
-        image.color = new Color(0, 1, 0.5f, 0);
+        // For test
+        // image.color = new Color(0, 1, 0.5f, 0);
 
         //TO DO : Load the actual sprite
 
-        //Sprite sprite = Resources.Load<Sprite>(string.Concat("Images/", id));
-        //image.sprite = sprite;
+        Sprite sprite = Resources.Load<Sprite>(string.Concat("Cutscene\\Images\\", id));
+        if(sprite == null)
+        {
+            throw new InvalidResourceException(id, "Cutscene\\Images\\");
+        }
+        image.sprite = sprite;
+        image.preserveAspect = true;
 
         yield return new WaitForSeconds(halfwayPauseDuration);
 
@@ -96,7 +109,6 @@ public class ImagesManager : MonoBehaviour
         }
 
         ImageShownEvent();
-        Debug.Log("Image affichée");
     }
 
     /*

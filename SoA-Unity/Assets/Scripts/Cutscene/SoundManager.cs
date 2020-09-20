@@ -10,7 +10,8 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // TO DO : Play cutscene music
+        //AkSoundEngine.PostEvent("Play_Music_Cutscene", gameObject);
     }
 
     // Update is called once per frame
@@ -23,13 +24,14 @@ public class SoundManager : MonoBehaviour
     {
         // TO DO : Set the data in the JSON file to match the Wwise name convention
         // AkSoundEngine.PostEvent(id, gameObject, (uint)AkCallbackType.AK_EndOfEvent, CallbackFunction, null);
-        
+
+        // Test only with global sound !
         SoundPlayedEvent();
-        Debug.Log("Son joué");
     }
 
     void CallbackFunction(object in_cookie, AkCallbackType in_type, object in_info)
     {
+        Debug.Log("Son joué");
         SoundPlayedEvent();
     }
 }

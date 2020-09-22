@@ -46,6 +46,14 @@ public class AutomaticDoors : MonoBehaviour
     [Tooltip("Event to stop the sound")]
     private AK.Wwise.Event doorsClosedStop;
 
+    [Header("VFX")]
+    [Space]
+
+    [SerializeField]
+    [Tooltip("VFX to play when loud sound is emitted")]
+    private GameObject loudVFX;
+    private ParticleSystem.EmissionModule emissionModule;
+
     /*
     [SerializeField]
     [Tooltip("Event to play supermarket annoucement")]
@@ -67,6 +75,10 @@ public class AutomaticDoors : MonoBehaviour
     private enum STATE { OPEN, CLOSED, INBETWEEN};
     private STATE state;
     // Start is called before the first frame update
+
+    private bool isOpeningDoor = false;
+    private bool isClosingDoor = false;
+
     void Start()
     {
         if(leftDoor == null || rightDoor == null)
@@ -84,6 +96,11 @@ public class AutomaticDoors : MonoBehaviour
         state = STATE.CLOSED;
         timer = 0;
 
+        loudVFX.GetComponent<ParticleSystem>().Stop();
+        emissionModule = loudVFX.GetComponent<ParticleSystem>().emission;
+        ParticleSystem.MainModule mainModule = loudVFX.GetComponent<ParticleSystem>().main;
+        mainModule.startLifetime = 0.25f; // One quarter of the default value
+
         /*
         if (jinglePlay != null)
         {
@@ -99,9 +116,10 @@ public class AutomaticDoors : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (state != STATE.OPEN)
+        if (state != STATE.OPEN && isOpeningDoor == false) // only one instance at a time
         {
             state = STATE.INBETWEEN;
+            isOpeningDoor = true;
             StartCoroutine("OpenDoors");
         }
     }
@@ -122,11 +140,18 @@ public class AutomaticDoors : MonoBehaviour
         }
         Debug.Log("Doors opened !");
         state = STATE.OPEN;
+
+        isOpeningDoor = false;
+        isClosingDoor = false;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        StartCoroutine("CloseDoors");
+        if (isClosingDoor == false)
+        {
+            isClosingDoor = true;
+            StartCoroutine("CloseDoors");
+        }
     }
 
     private IEnumerator CloseDoors()
@@ -142,9 +167,15 @@ public class AutomaticDoors : MonoBehaviour
         state = STATE.INBETWEEN;
 
         doorsClosedPlay.Post(gameObject);
-        
+        StartCoroutine(PlayVFX());
+
         while (leftDoor.transform.position != leftDoorClosedPos)
         {
+            if (isOpeningDoor || state == STATE.OPEN) // if going the other way or reopen
+            {
+                doorsClosedStop.Post(gameObject);
+            }
+
             leftDoor.transform.position = Vector3.MoveTowards(leftDoor.transform.position, leftDoorClosedPos, Time.deltaTime * speed);
             rightDoor.transform.position = Vector3.MoveTowards(rightDoor.transform.position, rightDoorClosedPos, Time.deltaTime * speed);
             yield return null;
@@ -152,6 +183,9 @@ public class AutomaticDoors : MonoBehaviour
 
         //jingleStop?.Post(gameObject);
         state = STATE.CLOSED;
+
+        isClosingDoor = false;
+        isOpeningDoor = false;
     }
 
     /*
@@ -163,4 +197,17 @@ public class AutomaticDoors : MonoBehaviour
             yield return new WaitForSeconds(jingleInterval);
         }
     }*/
+
+    private IEnumerator PlayVFX()
+    {
+        yield return new WaitForSeconds(1.1f);
+        if (!isOpeningDoor && state != STATE.OPEN) // if not going the other way and not reopen
+        {
+            loudVFX.GetComponent<ParticleSystem>().Play();
+            //emissionModule.enabled = true;
+            yield return new WaitForSeconds(0.05f);
+            //emissionModule.enabled = false;
+            loudVFX.GetComponent<ParticleSystem>().Stop();
+        }
+    }
 }

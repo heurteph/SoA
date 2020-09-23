@@ -52,7 +52,6 @@ public class AutomaticDoors : MonoBehaviour
     [SerializeField]
     [Tooltip("VFX to play when loud sound is emitted")]
     private GameObject loudVFX;
-    private ParticleSystem.EmissionModule emissionModule;
 
     /*
     [SerializeField]
@@ -97,7 +96,6 @@ public class AutomaticDoors : MonoBehaviour
         timer = 0;
 
         loudVFX.GetComponent<ParticleSystem>().Stop();
-        emissionModule = loudVFX.GetComponent<ParticleSystem>().emission;
         ParticleSystem.MainModule mainModule = loudVFX.GetComponent<ParticleSystem>().main;
         mainModule.startLifetime = 0.25f; // One quarter of the default value
 
@@ -204,9 +202,7 @@ public class AutomaticDoors : MonoBehaviour
         if (!isOpeningDoor && state != STATE.OPEN) // if not going the other way and not reopen
         {
             loudVFX.GetComponent<ParticleSystem>().Play();
-            //emissionModule.enabled = true;
             yield return new WaitForSeconds(0.05f);
-            //emissionModule.enabled = false;
             loudVFX.GetComponent<ParticleSystem>().Stop();
         }
     }

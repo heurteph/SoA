@@ -109,6 +109,13 @@ public class StreetUser : MonoBehaviour
     private Transform groundLevel;
     private float groundOffset;
 
+    [Header("VFX")]
+    [Space]
+
+    [SerializeField]
+    [Tooltip("VFX to play when loud sound is emitted")]
+    private GameObject loudVFX;
+
     public enum STATE { NORMAL, FREEZE, STAYBEHIND, STOPPING, STOP, PARKED, OFF }
     private STATE movingState;
     public STATE MovingState { get { return movingState; } set { movingState = value; } }
@@ -126,6 +133,9 @@ public class StreetUser : MonoBehaviour
         InitializeSound();
         
         movingState = STATE.OFF;
+
+        Debug.Assert(loudVFX != null);
+        loudVFX.GetComponent<ParticleSystem>().Stop();
     }
     private void Start()
     {
@@ -138,6 +148,12 @@ public class StreetUser : MonoBehaviour
 
         if (movingState != STATE.FREEZE && movingState != STATE.OFF)
         {
+            /* VFX sound */
+            if (speed > 10 && loudVFX.GetComponent<ParticleSystem>().isStopped)
+                loudVFX.GetComponent<ParticleSystem>().Play();
+            else if (speed <= 10 && loudVFX.GetComponent<ParticleSystem>().isPlaying)
+                loudVFX.GetComponent<ParticleSystem>().Stop();
+
             if (movingState == STATE.NORMAL)
             {
                 /* FIND THE SPEED LIMIT OF THE ZONE */
@@ -385,6 +401,10 @@ public class StreetUser : MonoBehaviour
         while (movingState == STATE.FREEZE)
         {
             AkSoundEngine.PostEvent("Play_Klaxons", gameObject);
+            loudVFX.GetComponent<ParticleSystem>().Play();
+            yield return new WaitForSeconds(0.5f); // How long last a car horn ? make a guess
+            loudVFX.GetComponent<ParticleSystem>().Stop();
+
             maxDelay = Mathf.Max(maxDelay * 7f/8f, 0);
             delay = Mathf.Max(Random.Range(0, maxDelay), 0.2f); // driver gets annoyed
             yield return new WaitForSeconds(delay);
@@ -447,6 +467,10 @@ public class StreetUser : MonoBehaviour
             {
                 movingState = STATE.FREEZE;
                 speed = 0; // TO DO : Find a progressive way
+                if (loudVFX.GetComponent<ParticleSystem>().isPlaying)
+                {
+                    loudVFX.GetComponent<ParticleSystem>().Stop();
+                }
                 StartCoroutine("CarHornCountdown");
             }
         }

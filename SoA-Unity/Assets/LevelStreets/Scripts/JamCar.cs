@@ -11,15 +11,25 @@ public class JamCar : MonoBehaviour
     [Tooltip("Reference to the zone manager")]
     private GameObject zoneManager;
 
+    [Header("VFX")]
+    [Space]
+
+    [SerializeField]
+    [Tooltip("VFX to play when loud sound is emitted")]
+    private GameObject loudVFX;
+
     // Start is called before the first frame update
     void Start()
     {
-        if(zoneManager == null)
+        Debug.Assert(loudVFX != null);
+        loudVFX.GetComponent<ParticleSystem>().Stop();
+
+        if (zoneManager == null)
         {
             throw new System.NullReferenceException("No reference to the zone manager on " + transform.name);
         }
         // Define which car horn type to use
-        AkSoundEngine.SetSwitch("Klaxons", new string[5] { "A", "B", "C", "D", "E" }[Random.Range(0, 5)], gameObject);
+        AkSoundEngine.SetSwitch("Klaxons", new string[5]{ "A", "B", "C", "D", "E" }[Random.Range(0, 5)], gameObject);
         StartCoroutine("CarHornCountdown");
     }
 
@@ -40,6 +50,9 @@ public class JamCar : MonoBehaviour
             {
                 AkSoundEngine.PostEvent("Play_Klaxons", gameObject);
             }
+            loudVFX.GetComponent<ParticleSystem>().Play();
+            yield return new WaitForSeconds(0.5f); // How long last a car horn ? make a guess
+            loudVFX.GetComponent<ParticleSystem>().Stop();
         }
     }
 }

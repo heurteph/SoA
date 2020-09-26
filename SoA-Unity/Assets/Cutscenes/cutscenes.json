@@ -71,6 +71,16 @@
 		  "metadata": "background",
           "data": "Placeholders\\cutscene07"
         },
+		{
+          "type": "image",
+		  "metadata": "background",
+          "data": "Placeholders\\cutscene08-background"
+        },
+		{
+          "type": "image",
+		  "metadata": "right",
+          "data": "Placeholders\\cutscene08-esthesia-happy_talking"
+        },
         {
           "type": "message",
           "metadata": "Esthesia",
@@ -78,8 +88,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "background",
-          "data": "Placeholders\\cutscene08-background"
+		  "metadata": "right",
+          "data": "Placeholders\\cutscene08-esthesia-surprised_listening"
         },
 		{
           "type": "image",
@@ -94,7 +104,7 @@
 		{
           "type": "image",
 		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
+          "data": "Placeholders\\cutscene08-esthesia-happy_talking"
         },
 		{
           "type": "image",
@@ -121,6 +131,11 @@
           "metadata": "Zeous",
           "data": "Eh bien, pour nous, c'est un important sanctuaire. Nous veillons sur lui comme gardiens."
         },
+		{
+          "type": "image",
+		  "metadata": "left",
+          "data": "Placeholders\\cutscene08-angel-happy_talking"
+        },
         {
           "type": "message",
           "metadata": "Zeous",
@@ -129,7 +144,7 @@
 		{
           "type": "image",
 		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
+          "data": "Placeholders\\cutscene08-esthesia-happy_talking"
         },
 		{
           "type": "image",
@@ -181,11 +196,6 @@
           "metadata": "Esthesia",
           "data": "Ils ont leurs mains posées dessus."
         },
-        {
-          "type": "message",
-          "metadata": "Esthesia",
-          "data": "Oui, c'est ainsi qu'ils communiquent leurs vibrations. La mission qui les retient ici consiste à perpétuer cet équilibre."
-        },
 		{
           "type": "image",
 		  "metadata": "left",
@@ -195,6 +205,16 @@
           "type": "image",
 		  "metadata": "right",
           "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+        },
+        {
+          "type": "message",
+          "metadata": "Zeous",
+          "data": "Oui, c'est ainsi qu'ils communiquent leurs vibrations. La mission qui les retient ici consiste à perpétuer cet équilibre."
+        },
+		{
+          "type": "image",
+		  "metadata": "left",
+          "data": "Placeholders\\cutscene08-angel-happy_talking"
         },
         {
           "type": "message",
@@ -239,7 +259,7 @@
 		{
           "type": "image",
 		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
+          "data": "Placeholders\\cutscene08-esthesia-surprised_talking"
         },
 		{
           "type": "image",
@@ -269,7 +289,7 @@
 		{
           "type": "image",
 		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
+          "data": "Placeholders\\cutscene08-esthesia-surprised_talking"
         },
 		{
           "type": "image",
@@ -299,7 +319,7 @@
 		{
           "type": "image",
 		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
+          "data": "Placeholders\\cutscene08-esthesia-surprised_talking"
         },
 		{
           "type": "image",
@@ -329,7 +349,7 @@
 		{
           "type": "image",
 		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
+          "data": "Placeholders\\cutscene08-esthesia-surprised_talking"
         },
 		{
           "type": "image",
@@ -434,7 +454,7 @@
 		{
           "type": "image",
 		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
+          "data": "Placeholders\\cutscene08-angel-happy_talking"
         },
 		{
           "type": "image",
@@ -466,10 +486,15 @@
           "metadata": "Esthesia",
           "data": "Non. J'ai une autre idée."
         },
+		{
+          "type": "image",
+		  "metadata": "right",
+          "data": "Placeholders\\cutscene08-esthesia-happy_talking"
+        },
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "Que dirais-tu que je reste ici indéfiniment ? Ça ne me dérangerait pas."
+          "data": "Que dirais-tu que je reste ici indéfiniment ? Je ne dérangerai personne."
         },
 		{
           "type": "image",
@@ -495,7 +520,7 @@
           "type": "image",
 		  "metadata": "right",
           "data": "default"
-        },
+        }
       ]
     },
     {

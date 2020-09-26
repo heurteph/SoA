@@ -23,7 +23,7 @@ public class ImagesManager : MonoBehaviour
     [SerializeField]
     [Tooltip("The duration for one image to appear")]
     [Range(0.1f,1f)]
-    private float fadeDuration = 0.5f;
+    private float fadeDuration = 1f;
 
     // Start is called before the first frame update
     void Awake()
@@ -46,7 +46,7 @@ public class ImagesManager : MonoBehaviour
     {
         Image image = null;
 
-        switch(position)
+        switch (position)
         {
             case "background":
                 image = background.GetComponent<Image>();
@@ -54,10 +54,14 @@ public class ImagesManager : MonoBehaviour
 
             case "left":
                 image = left.GetComponent<Image>();
+
+                ImageShownEvent();
                 break;
 
             case "right":
                 image = right.GetComponent<Image>();
+
+                ImageShownEvent();
                 break;
         }
 
@@ -108,7 +112,8 @@ public class ImagesManager : MonoBehaviour
             yield return new WaitForSeconds(timeStep);
         }
 
-        ImageShownEvent();
+        if(position == "background")
+            ImageShownEvent();
     }
 
     /*

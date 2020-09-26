@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour
 {
-    [SerializeField]
-    [Tooltip("Main Camera")]
     private GameObject mainCamera;
 
     //private float zAngle;
@@ -17,7 +15,9 @@ public class Billboard : MonoBehaviour
         //Debug.Assert(GetComponent<ParticleSystemRenderer>() != null);
         //GetComponent<ParticleSystemRenderer>().material.renderQueue = 4001;
         //zAngle = transform.rotation.eulerAngles.z;
-        shapeModule = GetComponent<ParticleSystem>().shape;
+        //shapeModule = GetComponent<ParticleSystem>().shape;
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        Debug.Assert(mainCamera != null);
     }
 
     // Update is called once per frame

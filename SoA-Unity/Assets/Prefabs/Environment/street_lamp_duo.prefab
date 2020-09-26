@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 954733155143198515}
   - component: {fileID: 3521634831670721741}
   - component: {fileID: 1093829791786517128}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Spot Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 582528555873175275}
   - component: {fileID: 3630924398084040052}
   - component: {fileID: 2087966047220463098}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

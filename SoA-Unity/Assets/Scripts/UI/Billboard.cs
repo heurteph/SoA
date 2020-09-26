@@ -14,6 +14,8 @@ public class Billboard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Debug.Assert(GetComponent<ParticleSystemRenderer>() != null);
+        //GetComponent<ParticleSystemRenderer>().material.renderQueue = 4001;
         //zAngle = transform.rotation.eulerAngles.z;
         shapeModule = GetComponent<ParticleSystem>().shape;
     }
@@ -22,8 +24,8 @@ public class Billboard : MonoBehaviour
     void Update()
     {
         //transform.LookAt(Vector3.zero);
-        //transform.LookAt(mainCamera.transform.position);
-        transform.rotation = Quaternion.LookRotation(mainCamera.transform.position - transform.position);
+        transform.LookAt(mainCamera.transform.position);
+        //transform.rotation = Quaternion.LookRotation(mainCamera.transform.position - transform.position);
         //shapeModule.rotation = Quaternion.LookRotation(mainCamera.transform.position - shapeModule.position).eulerAngles;
         //transform.LookAt(Camera.main.transform.position);
     }

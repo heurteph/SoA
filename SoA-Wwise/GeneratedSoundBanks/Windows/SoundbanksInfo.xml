@@ -5662,6 +5662,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2682091360" Name="Play_Ville_Generale" ObjectPath="\Events\Ville_Ambiance\Play_Ville_Generale" DurationType="OneShot" DurationMin="56.017605" DurationMax="56.017605">
+					<IncludedMemoryFiles>
+						<File Id="160227125" Language="SFX">
+							<ShortName>Ville_Ambiance_AmbianceGlobale_01.wav</ShortName>
+							<Path>SFX\Ville_Ambiance_AmbianceGlobale_01_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="452547817" Name="Stop_All" ObjectPath="\Events\Default Work Unit\Stop_All" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1056565793" Name="Stop_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Stop_ArrosageAuto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="383440519" Name="Stop_Battement_Coeur" ObjectPath="\Events\Personnage\Stop_Battement_Coeur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -5701,6 +5709,7 @@
 				<Event Id="970688548" Name="Stop_Restorant" ObjectPath="\Events\Ville_Obstacles\Stop_Restorant" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3549513284" Name="Stop_Sonnette_Magasins" ObjectPath="\Events\Ville_Obstacles\Stop_Sonnette_Magasins" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2077251707" Name="Stop_Travaux" ObjectPath="\Events\Ville_Obstacles\Stop_Travaux" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1529489746" Name="Stop_Ville_Generale" ObjectPath="\Events\Ville_Ambiance\Stop_Ville_Generale" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="428373397" Name="VitesseVoitureElec" ObjectPath="\Game Parameters\Obstacles\VitesseVoitureElec"/>

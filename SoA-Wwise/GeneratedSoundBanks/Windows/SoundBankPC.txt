@@ -30,6 +30,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1235857404	Stop_Pleure_B_b_			\Parc_Obstacles\Stop_Pleure_B_b_	
 	1403256204	Play_Moteur_VoitureElec			\Parc_Obstacles\Play_Moteur_VoitureElec	
 	1479939285	Play_Pigeon_Fixe			\Ville_Ambiance\Play_Pigeon_Fixe	
+	1529489746	Stop_Ville_Generale			\Ville_Ambiance\Stop_Ville_Generale	
 	1582928677	Play_Respiration_JoggueurH			\Parc_Obstacles\Play_Respiration_JoggueurH	
 	1582928683	Play_Respiration_JoggueurF			\Parc_Obstacles\Play_Respiration_JoggueurF	
 	1615608444	Play_Mort			\Personnage\Play_Mort	
@@ -49,6 +50,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2464503011	Play_Cris_Tous			\Personnage\Play_Cris_Tous	
 	2500875145	Play_Electrique_Buzz			\Ville_Obstacles\Play_Electrique_Buzz	
 	2647100474	Stop_Parc_Vent			\Parc_Ambiance\Stop_Parc_Vent	
+	2682091360	Play_Ville_Generale			\Ville_Ambiance\Play_Ville_Generale	
 	2738893335	Stop_Marteau_Piqueur			\Ville_Obstacles\Stop_Marteau_Piqueur	
 	2755465042	Play_Portes_Open			\Commercial_Obstacles\Play_Portes_Open	
 	2851404393	Play_Music_Credit			\Music\Play_Music_Credit	
@@ -156,6 +158,8 @@ Custom State	ID	Name	State Group	Owner		Notes
 	106812017	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Installations\Horloge\Horloge		
 	122069286	Non	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
 	135893182	Non	Dans_Tunnel	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Véhicules		
+	138619542	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Ambiance_Ville\Humain_Ville		
+	228207854	Non	Dans_Tunnel	\Actor-Mixer Hierarchy\3_Ville\Ambiance_Ville\Humain_Ville		
 	231960717	Non	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Battement_Coeur		
 	265548802	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement		
 	278231684	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Humain_Ville		
@@ -175,6 +179,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	504445497	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Pas\Texture Pas		
 	533184396	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Installations\Horloge\Horloge		
 	538219639	Oui	Dans_Tunnel	\Actor-Mixer Hierarchy\Personnage\Battement_Coeur		
+	543767495	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Ambiance_Ville\Humain_Ville		
 	556096452	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Respiration		
 	581795300	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\4_Commercial\Obstacles_Commercial\Radio		
 	637056278	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Installations\Electrique_Buzz\Electrique_Buzz		
@@ -195,6 +200,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	883883622	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_VoitureElec		
 	893835973	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\Personnage\Pas\Texture Pas		
 	908679948	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\4_Commercial\Obstacles_Commercial\Radio		
+	924967130	Oui	Dans_Tunnel	\Actor-Mixer Hierarchy\3_Ville\Ambiance_Ville\Humain_Ville		
 	931224915	Oui	Dans_Lieu_Repos	\Actor-Mixer Hierarchy\Personnage\Battement_Coeur		
 	932523941	Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\1_Parc\Ambiance_Parc\Nature_Parc		
 	937555460	Pas_Active	Protection_Oui_Non	\Actor-Mixer Hierarchy\4_Commercial\Obstacles_Commercial\Portes		
@@ -319,6 +325,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	159366355	Respiration_Court_Expire 20	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Expire 20_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Expire\Respiration_Court_Expire 20		4751
 	159794191	Commerce_Obstacle_Portes_Coulissantes_Open_04	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Commerce_Obstacle_Portes_Coulissantes_Open_04_3F75BDB9.wem		\Actor-Mixer Hierarchy\4_Commercial\Obstacles_Commercial\Portes\Portes_Open\Commerce_Obstacle_Portes_Coulissantes_Open_04		34113
 	159895497	Respiration_Court_Inspire 14	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Inspire 14_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Inspire\Respiration_Court_Inspire 14		3770
+	160227125	Ville_Ambiance_AmbianceGlobale_01	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Ville_Ambiance_AmbianceGlobale_01_3F75BDB9.wem		\Actor-Mixer Hierarchy\3_Ville\Ambiance_Ville\Humain_Ville\Ville_Generale\Ville_Ambiance_AmbianceGlobale_01		873721
 	161278889	Respiration_Court_Inspire 21	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Inspire 21_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Inspire\Respiration_Court_Inspire 21		3674
 	164081265	Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Ambiance_Parc\Nature_Parc\Parc_Oiseaux3\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-006		81070
 	164735666	Terre_Gravier_Run_Pied_Gauche05	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Terre_Gravier_Run_Pied_Gauche05_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Terre\Droite_Gauche_Terre_Court\Terre_Court_Pied_Gauche\Terre_Gravier_Run_Pied_Gauche05		4545

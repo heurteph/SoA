@@ -5,6 +5,7 @@ using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 using AK.Wwise;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,6 +39,10 @@ public class GameManager : MonoBehaviour
 
     bool firstRun;
 
+    public delegate void GamePausedHandler();
+    public event GamePausedHandler GamePausedEvent;
+    public event GamePausedHandler GameResumedEvent;
+
     private void Awake()
     {
         if (singleton == null)
@@ -53,8 +58,7 @@ public class GameManager : MonoBehaviour
 
         inputs = InputsManager.Instance.Inputs;
 
-        // TO DO : Display a warning message
-        inputs.Player.Quit.performed += _ctx => Application.Quit();
+        inputs.Player.Quit.performed += PauseGame;
 
         fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
         gameOverLogo = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Image>();
@@ -95,7 +99,6 @@ public class GameManager : MonoBehaviour
         }*/
         Analytics.enabled = false;
 
-
         //DontDestroyOnLoad(gameObject);
     }
 
@@ -103,6 +106,50 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    /* Pause functions */
+
+    private void PauseGame(InputAction.CallbackContext ctx)
+    {
+        Time.timeScale = 0;
+        AkSoundEngine.Suspend();
+
+        // Switch pause key callback
+        inputs.Player.Quit.performed -= PauseGame;
+        inputs.Player.Quit.performed += ResumeGame;
+
+        // To avoid triggering the click action
+        inputs.Player.Disable();
+        inputs.Player.Quit.Enable();
+
+        // Display menu
+        GamePausedEvent();
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        AkSoundEngine.WakeupFromSuspend();
+
+        // Switch pause key callback
+        inputs.Player.Quit.performed -= ResumeGame;
+        inputs.Player.Quit.performed += PauseGame;
+
+        inputs.Player.Enable();
+
+        // Hide menu
+        GameResumedEvent();
+    }
+    public void ResumeGame(InputAction.CallbackContext ctx)
+    {
+        ResumeGame();
+    }
+
+    public void QuitGame()
+    {
+        // TO DO : Warning message
+        Application.Quit();
     }
 
     /* Defeat functions */

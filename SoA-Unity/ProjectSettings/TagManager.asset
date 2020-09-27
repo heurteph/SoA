@@ -32,6 +32,7 @@ TagManager:
   - Gamepad
   - Static
   - Dynamic
+  - StressVFX
   layers:
   - Default
   - TransparentFX

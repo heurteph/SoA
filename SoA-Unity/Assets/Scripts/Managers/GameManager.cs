@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeDifficulty(float value)
     {
-        Debug.Log("Difficulty changed from slider !");
+        //Debug.Log("Difficulty changed from slider !");
 
         Debug.Assert(value >= 1 && value <= 3, "Unknoow difficulty level : " + value);
         difficulty = (DIFFICULTY)((int)value - 1);

@@ -60,9 +60,6 @@ public class PlayerFollow : MonoBehaviour, IAnimable
         //    angle = player.transform.rotation.eulerAngles.y;
         inputs = InputsManager.Instance.Inputs;
 
-        // TO MOVE TO GAME MANAGER
-        inputs.Player.Quit.performed += _ctx => Application.Quit();
-
         isHurry = false;
         isProtectingEyes = false;
         IsProtectingEars = false;

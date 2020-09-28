@@ -72,7 +72,7 @@ public class VisionBehaviour : MonoBehaviour
     [SerializeField]
     [Range(0, 100)]
     [Tooltip("Damages applied to the character when threshold is reached")]
-    private float damage = 10f;
+    private float brightnessDamage = 10f;
 
     [Space]
     [Header("References")]
@@ -200,7 +200,7 @@ public class VisionBehaviour : MonoBehaviour
         {
             if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
             {
-                brightnessThresholdEvent(damage);
+                brightnessThresholdEvent(brightnessDamage);
 
                 // Handle animations
                 if (!player.GetComponent<PlayerFirst>().IsDamagedEars)
@@ -247,5 +247,11 @@ public class VisionBehaviour : MonoBehaviour
         head.transform.SetParent(headMesh);
     }
 
+    /* For user options */
+
+    public void SetBrightnessDamage(float brightnessDamage)
+    {
+        this.brightnessDamage = brightnessDamage;
+    }
 
 } // FINISH

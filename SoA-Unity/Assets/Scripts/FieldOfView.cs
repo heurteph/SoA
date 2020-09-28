@@ -429,5 +429,12 @@ public class FieldOfView : MonoBehaviour
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
+    /* For user options */
+
+    public void SetCrowdDamage(float crowdDamage)
+    {
+        this.crowdFrontDamage = crowdDamage;
+    }
+
 
 } // FINISH

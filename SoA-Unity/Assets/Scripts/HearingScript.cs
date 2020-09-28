@@ -208,6 +208,13 @@ public class HearingScript : MonoBehaviour
         loudnessThreshold = normalLoudnessThreshold;
     }
 
+    /* For user options */
+
+    public void SetLoudnessDamage(float loudnessDamage)
+    {
+        this.loudnessDamage = loudnessDamage;
+    }
+
     /*
     public GameObject ClosestAudioSource()
     {

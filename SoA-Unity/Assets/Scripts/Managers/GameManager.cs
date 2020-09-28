@@ -7,11 +7,15 @@ using AK.Wwise;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
+public enum DIFFICULTY { EASY, MEDIUM, HARD, ONESHOT };
+
 public class GameManager : MonoBehaviour
 {
     private static GameObject singleton;
 
     private Inputs inputs;
+
+    [Header("Transitions")]
 
     [SerializeField]
     [Tooltip("The animator to transition to credits")]
@@ -31,6 +35,15 @@ public class GameManager : MonoBehaviour
     private Image gameOverLogo;
     private Text gameOverMessage;
 
+    [Space]
+    [Header("Senses")]
+    [SerializeField]
+    private GameObject brightness;
+    [SerializeField]
+    private GameObject loudness;
+    [SerializeField]
+    private GameObject crowd;
+
     private bool isGameOver;
     public bool IsGameOver { get { return isGameOver; } }
 
@@ -39,9 +52,25 @@ public class GameManager : MonoBehaviour
 
     bool firstRun;
 
+    [Space]
+    [Header("Options")]
+
+    [SerializeField]
+    [Tooltip("Default difficulty level")]
+    DIFFICULTY difficulty = DIFFICULTY.MEDIUM;
+    Dictionary<DIFFICULTY, float> brightnessDamages = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 10f }, { DIFFICULTY.EASY, 5f }, { DIFFICULTY.HARD, 20f }, { DIFFICULTY.ONESHOT, 1000f } };
+    Dictionary<DIFFICULTY, float> loudnessDamages = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 50f }, { DIFFICULTY.EASY, 10f }, { DIFFICULTY.HARD, 100f }, { DIFFICULTY.ONESHOT, 1000f } };
+    Dictionary<DIFFICULTY, float> crowdDamages   = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 20f }, { DIFFICULTY.EASY, 10f }, { DIFFICULTY.HARD, 40f }, { DIFFICULTY.ONESHOT, 1000f } };
+    
     public delegate void GamePausedHandler();
     public event GamePausedHandler GamePausedEvent;
     public event GamePausedHandler GameResumedEvent;
+
+    public delegate void DifficultyChangedHandler();
+    public event DifficultyChangedHandler EasyDifficultyEvent;
+    public event DifficultyChangedHandler MediumDifficultyEvent;
+    public event DifficultyChangedHandler HardDifficultyEvent;
+    public event DifficultyChangedHandler OneshotDifficultyEvent;
 
     private void Awake()
     {
@@ -64,6 +93,13 @@ public class GameManager : MonoBehaviour
         gameOverLogo = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Image>();
         gameOverMessage = GameObject.FindGameObjectWithTag("GameOverMessage").GetComponent<Text>();
 
+        Debug.Assert(brightness != null, "Missing vision reference");
+        Debug.Assert(loudness != null, "Missing hearing reference");
+        Debug.Assert(crowd != null, "Missing crowd reference");
+        Debug.Assert(brightness.GetComponent<VisionBehaviour>() != null, "Incorrect vision reference");
+        Debug.Assert(loudness.GetComponent<HearingScript>() != null, "Incorrect hearing reference");
+        Debug.Assert(crowd.GetComponent<FieldOfView>() != null, "Incorrect crowd reference");
+
         firstRun = true;
 
         //mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -71,7 +107,7 @@ public class GameManager : MonoBehaviour
 
         if (fade == null)
         {
-            throw new System.NullReferenceException("No fade found in the UI");
+            throw new System.ArgumentException("No fade found in the UI");
         }
     }
 
@@ -86,11 +122,13 @@ public class GameManager : MonoBehaviour
 
         if(creditsTransition == null)
         {
-            throw new System.NullReferenceException("No animator for the transitions to the credits");
+            throw new System.ArgumentException("No animator for the transitions to the credits");
         }
 
         creditsTransition.SetBool("HasWon", false);
         creditsTransition.SetBool("CreditsLoaded", false);
+
+        ChangeDifficulty(difficulty);
 
         /*
         if (stopAllEvent == null)
@@ -146,9 +184,48 @@ public class GameManager : MonoBehaviour
         ResumeGame();
     }
 
+    public void ChangeDifficulty(float value)
+    {
+        Debug.Log("Difficulty changed from slider !");
+
+        Debug.Assert(value >= 1 && value <= 3, "Unknoow difficulty level : " + value);
+        difficulty = (DIFFICULTY)((int)value - 1);
+        ChangeDifficulty(difficulty);
+    }
+
+    public void ChangeDifficulty(DIFFICULTY difficulty)
+    {
+        brightness.GetComponent<VisionBehaviour>().SetBrightnessDamage(brightnessDamages[difficulty]);
+        loudness.GetComponent<HearingScript>().SetLoudnessDamage(loudnessDamages[difficulty]);
+        crowd.GetComponent<FieldOfView>().SetCrowdDamage(crowdDamages[difficulty]);
+
+        switch (difficulty)
+        {
+            case DIFFICULTY.EASY:
+                EasyDifficultyEvent();
+                break;
+            case DIFFICULTY.MEDIUM:
+                MediumDifficultyEvent();
+                break;
+            case DIFFICULTY.HARD:
+                HardDifficultyEvent();
+                break;
+            case DIFFICULTY.ONESHOT:
+                OneshotDifficultyEvent();
+                break;
+            default:
+                throw new System.IndexOutOfRangeException("Unknown difficulty level : " + difficulty);
+        }
+    }
+
+    public DIFFICULTY GetDifficulty()
+    {
+        return difficulty;
+    }
+
     public void QuitGame()
     {
-        // TO DO : Warning message
+        // TO DO : Add warning message
         Application.Quit();
     }
 

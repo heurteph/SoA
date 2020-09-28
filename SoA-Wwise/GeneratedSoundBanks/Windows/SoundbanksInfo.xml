@@ -171,7 +171,23 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3735763388" Name="Play_Clic_Selection" ObjectPath="\Events\Menu\Play_Clic_Selection" DurationType="OneShot" DurationMin="1.137884" DurationMax="1.436961">
+				<Event Id="1218834549" Name="Play_Clavier_Assignation" ObjectPath="\Events\Menu\Play_Clavier_Assignation" DurationType="OneShot" DurationMin="0.220199" DurationMax="0.220199">
+					<IncludedMemoryFiles>
+						<File Id="993506209" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation4.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation4_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4009602722" Name="Play_Clavier_Suppression" ObjectPath="\Events\Menu\Play_Clavier_Suppression" DurationType="OneShot" DurationMin="0.329678" DurationMax="0.329678">
+					<IncludedMemoryFiles>
+						<File Id="636452874" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation2.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation2_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3735763388" Name="Play_Clic_Selection" ObjectPath="\Events\Menu\Play_Clic_Selection" DurationType="OneShot" DurationMin="0.986019" DurationMax="1.075261">
 					<IncludedMemoryFiles>
 						<File Id="832267210" Language="SFX">
 							<ShortName>Menu_Clic_Selection2.wav</ShortName>
@@ -2606,7 +2622,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2105670071" Name="Play_Survol" ObjectPath="\Events\Menu\Play_Survol" DurationType="OneShot" DurationMin="0.933388" DurationMax="1.324593">
+				<Event Id="2105670071" Name="Play_Survol" ObjectPath="\Events\Menu\Play_Survol" DurationType="OneShot" DurationMin="1.019632" DurationMax="1.111917">
 					<IncludedMemoryFiles>
 						<File Id="303074413" Language="SFX">
 							<ShortName>Menu_Survol2.wav</ShortName>
@@ -5711,6 +5727,8 @@
 				<Event Id="383440519" Name="Stop_Battement_Coeur" ObjectPath="\Events\Personnage\Stop_Battement_Coeur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3668248268" Name="Stop_Branches_Tombent" ObjectPath="\Events\Parc_Obstacles\Stop_Branches_Tombent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="777875661" Name="Stop_Canard" ObjectPath="\Events\Parc_Obstacles\Stop_Canard" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3625929623" Name="Stop_Clavier_Assignation" ObjectPath="\Events\Menu\Stop_Clavier_Assignation" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="290161972" Name="Stop_Clavier_Suppression" ObjectPath="\Events\Menu\Stop_Clavier_Suppression" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4123225286" Name="Stop_Clic_Selection" ObjectPath="\Events\Menu\Stop_Clic_Selection" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3267333498" Name="Stop_Ecole" ObjectPath="\Events\Ville_Obstacles\Stop_Ecole" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

@@ -47,7 +47,8 @@
 							</ChildrenList>
 						</Bus>
 						<Bus Name="Music_Master" ID="{F0370675-159A-4FB6-B835-D4789C2E46B6}"/>
-						<Bus Name="Cinematique" ID="{AFB968BF-4BC2-45F3-9C92-CF5682C62590}"/>
+						<Bus Name="Cinematique_Master" ID="{AFB968BF-4BC2-45F3-9C92-CF5682C62590}"/>
+						<Bus Name="Menu_Master" ID="{028B06FE-0828-4B3B-B5E6-C42B8E064663}"/>
 					</ChildrenList>
 				</Bus>
 				<Bus Name="NiveauEcoutePerso" ID="{A4D9FDFA-2BDE-4429-BF04-2EA53793E583}">

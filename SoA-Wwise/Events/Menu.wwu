@@ -90,6 +90,56 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_Clavier_Assignation" ID="{6170A23C-F405-4F58-A4AB-8A33A0708FD4}">
+					<ChildrenList>
+						<Action Name="" ID="{BF07C2D6-94B9-4936-8C63-514398AF70D0}" ShortID="630952735">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clavier_Assignation" ID="{8548B17F-6E19-4912-A07A-57914453BF82}" WorkUnitID="{6BF7D0B7-08E9-40ED-8BCD-DF5CAE27D6D6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Clavier_Suppression" ID="{C4056799-25D7-4E46-8D3D-C984C9E97FE4}">
+					<ChildrenList>
+						<Action Name="" ID="{4506ABCA-7B1B-427F-AD54-EBBCFA2FEAD1}" ShortID="604865915">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clavier_Suppression" ID="{9119734B-DB8A-4FEE-945C-E6E236F3FA70}" WorkUnitID="{6BF7D0B7-08E9-40ED-8BCD-DF5CAE27D6D6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Clavier_Assignation" ID="{00C9CAD5-856B-4EFF-9BA9-78BF3D89D85F}">
+					<ChildrenList>
+						<Action Name="" ID="{6C8FA6D1-3B8F-480F-B5AE-E5B5787F1472}" ShortID="400057317">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clavier_Assignation" ID="{8548B17F-6E19-4912-A07A-57914453BF82}" WorkUnitID="{6BF7D0B7-08E9-40ED-8BCD-DF5CAE27D6D6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Clavier_Suppression" ID="{29065C60-8D80-45CC-B61E-7ACF1BD7F429}">
+					<ChildrenList>
+						<Action Name="" ID="{BBD4AD9E-6920-4576-A434-01D2615D156A}" ShortID="1026257448">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clavier_Suppression" ID="{9119734B-DB8A-4FEE-945C-E6E236F3FA70}" WorkUnitID="{6BF7D0B7-08E9-40ED-8BCD-DF5CAE27D6D6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

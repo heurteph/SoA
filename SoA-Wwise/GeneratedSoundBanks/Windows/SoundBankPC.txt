@@ -6,6 +6,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	152275147	Stop_Parc_Oiseaux2			\Parc_Ambiance\Stop_Parc_Oiseaux2	
 	235882589	Play_Battement_Coeur			\Personnage\Play_Battement_Coeur	
 	283912148	Play_Music_Safe_Zone_Home			\Music\Play_Music_Safe_Zone_Home	
+	290161972	Stop_Clavier_Suppression			\Menu\Stop_Clavier_Suppression	
 	358162889	Stop_Parc_Jardinier			\Parc_Ambiance\Stop_Parc_Jardinier	
 	383440519	Stop_Battement_Coeur			\Personnage\Stop_Battement_Coeur	
 	394956184	Stop_Portes_Close			\Commercial_Obstacles\Stop_Portes_Close	
@@ -28,6 +29,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1074315535	Play_Parc_Jardinier			\Parc_Ambiance\Play_Parc_Jardinier	
 	1086738306	Play_Horloge			\Ville_Obstacles\Play_Horloge	
 	1194390427	Stop_Moteur_Elagueur			\Parc_Obstacles\Stop_Moteur_Elagueur	
+	1218834549	Play_Clavier_Assignation			\Menu\Play_Clavier_Assignation	
 	1235857404	Stop_Pleure_B_b_			\Parc_Obstacles\Stop_Pleure_B_b_	
 	1403256204	Play_Moteur_VoitureElec			\Parc_Obstacles\Play_Moteur_VoitureElec	
 	1410339968	Play_Texte_Anim_Particule			\Menu\Play_Texte_Anim_Particule	
@@ -78,6 +80,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3518090694	Play_Quel_Moteur			\Ville_Obstacles\Play_Quel_Moteur	
 	3531521436	Stop_Music_Appart			\Ville_Obstacles\Stop_Music_Appart	
 	3549513284	Stop_Sonnette_Magasins			\Ville_Obstacles\Stop_Sonnette_Magasins	
+	3625929623	Stop_Clavier_Assignation			\Menu\Stop_Clavier_Assignation	
 	3628354934	Play_Restorant			\Ville_Obstacles\Play_Restorant	
 	3668248268	Stop_Branches_Tombent			\Parc_Obstacles\Stop_Branches_Tombent	
 	3725651504	Play_Parc_Oiseaux3			\Parc_Ambiance\Play_Parc_Oiseaux3	
@@ -87,6 +90,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3782749553	Play_Travaux			\Ville_Obstacles\Play_Travaux	
 	3783189458	Play_Music_Main_Title			\Music\Play_Music_Main_Title	
 	4004627752	Stop_Messages_Radio			\Commercial_Ambiance\Stop_Messages_Radio	
+	4009602722	Play_Clavier_Suppression			\Menu\Play_Clavier_Suppression	
 	4063390670	Stop_Ecriture_Animation			\Cinematique\Stop_Ecriture_Animation	
 	4079445273	Play_Music_Safe_Zone_Parc			\Music\Play_Music_Safe_Zone_Parc	
 	4114146970	Play_Pleure_B_b_			\Parc_Obstacles\Play_Pleure_B_b_	
@@ -651,6 +655,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	633394615	Asphalt_Walk_Pied_Gauche03	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Asphalt_Walk_Pied_Gauche03_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Asphalt\Droite_Gauche_Asphalt_Marche\Asphalt_Marche_Pied_Gauche\Asphalt_Walk_Pied_Gauche03		7144
 	633484259	Beton_Run_Pied_Gauche16	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Beton_Run_Pied_Gauche16_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Beton\Droite_Gauche_Beton_Court\Beton_Court_Pied_Gauche\Beton_Run_Pied_Gauche16		1242
 	633524349	Respiration_Court_Expire 25	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Expire 25_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Expire\Respiration_Court_Expire 25		4922
+	636452874	Menu_Clavier_Assignation2	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Menu_Clavier_Assignation2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Menu\MenuGlobal\Clavier_Suppression\Menu_Clavier_Assignation2		4983
 	638781053	Herbe_Run_Pied_Gauche16	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Herbe_Run_Pied_Gauche16_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Herbe\Droite_Gauche_Herbe_Court\Herbe_Court_Pied_Gauche\Herbe_Run_Pied_Gauche16		5049
 	640670987	Parc_Obstacle_Bébé Pleure_08	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacle_Bébé Pleure_08_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Bébé\Pleure_Bébé\Parc_Obstacle_Bébé Pleure_08		63544
 	644078537	Parc_Obstacle_Bébé Pleure_04	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacle_Bébé Pleure_04_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Bébé\Pleure_Bébé\Parc_Obstacle_Bébé Pleure_04		58423
@@ -858,6 +863,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	983752399	Parc_Obstacles_Humain_Joggueur_RespiHomme02	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacles_Humain_Joggueur_RespiHomme02_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Respiration_JoggueurH\Parc_Obstacles_Humain_Joggueur_RespiHomme02		6971
 	985545429	Beton_Run_Pied_Gauche15	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Beton_Run_Pied_Gauche15_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Beton\Droite_Gauche_Beton_Court\Beton_Court_Pied_Gauche\Beton_Run_Pied_Gauche15		1551
 	993487532	Beton_Walk_Pied_Gauche08	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Beton_Walk_Pied_Gauche08_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Beton\Droite_Gauche_Beton_Marche\Beton_Marche_Pied_Gauche\Beton_Walk_Pied_Gauche08		1819
+	993506209	Menu_Clavier_Assignation4	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Menu_Clavier_Assignation4_3F75BDB9.wem		\Actor-Mixer Hierarchy\Menu\MenuGlobal\Clavier_Assignation\Menu_Clavier_Assignation4		6510
 	993889241	Asphalt_Run_Pied_Gauche09	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Asphalt_Run_Pied_Gauche09_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Asphalt\Droite_Gauche_Asphalt_Court\Asphalt_Court_Pied_Gauche\Asphalt_Run_Pied_Gauche09		4077
 	994162649	M7_Stop-001	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\M7_Stop-001_3F75BDB9.wem		\Actor-Mixer Hierarchy\3_Ville\Obstacles_Ville\Véhicules\Quel_Moteur\M7_Camion\Stop\M7_Stop-001		16342
 	996782938	Parc_Obstacles_Humain_Joggueur_RespiFemme18	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme18_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Respiration_JoggueurF\Parc_Obstacles_Humain_Joggueur_RespiFemme18		10902

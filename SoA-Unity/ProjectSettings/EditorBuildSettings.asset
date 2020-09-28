@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: dc2ad1b09d98bf7479fc3bb29a58837b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Intro.unity
     guid: df803aa0167711f44bd5e0e15151ee2b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameElise.unity
     guid: b0708178ce84de34d916744aa7d2c048
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 77d66d8acb2b53c42b2a3e53799dc9a1
   - enabled: 1

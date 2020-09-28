@@ -28,6 +28,9 @@ public class EnterShelter : MonoBehaviour
 
     private GameObject saveManager;
 
+    [SerializeField]
+    private GameObject compass;
+
     private void Awake()
     {
         inputs = InputsManager.Instance.Inputs;
@@ -115,7 +118,6 @@ public class EnterShelter : MonoBehaviour
 
         // TO DO : Do not follow inside
 
-
         shelter.transform.Find("Shelter Camera").GetComponent<Camera>().enabled = true;
 
         // Reset sound
@@ -138,6 +140,10 @@ public class EnterShelter : MonoBehaviour
         {
             ambianceManager.GetComponent<AmbianceManager>().PlayBarAmbiance();
         }
+
+        //UI
+        compass.GetComponent<Image>().enabled = false;
+        compass.GetComponent<CompassBehavior>().enabled = false;
 
         //GetComponent<PostWwiseAmbiance>().ParkAmbianceEventStop.Post(gameObject);
         //GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventPlay.Post(gameObject);
@@ -213,6 +219,10 @@ public class EnterShelter : MonoBehaviour
         {
             ambianceManager.GetComponent<AmbianceManager>().PlayBarAmbiance();
         }
+
+        //UI
+        compass.GetComponent<Image>().enabled = false;
+        compass.GetComponent<CompassBehavior>().enabled = false;
 
         //GetComponent<PostWwiseAmbiance>().ParkAmbianceEventStop.Post(gameObject);
         //GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventPlay.Post(gameObject);

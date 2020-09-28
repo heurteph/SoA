@@ -27,6 +27,9 @@ public class ExitShelter : MonoBehaviour
 
     private GameObject ambianceManager;
 
+    [SerializeField]
+    private GameObject compass;
+
     private string shelterTag;
 
     private void Awake()
@@ -113,6 +116,9 @@ public class ExitShelter : MonoBehaviour
         }
         shelterCamera.enabled = false;
 
+        // Wait for one frame to have a correct camera angle
+        yield return new WaitForEndOfFrame();
+
         // Reset sound
         mainCamera.gameObject.GetComponent<AkAudioListener>().enabled = true;
         shelterCamera.gameObject.GetComponent<AkAudioListener>().enabled = false;
@@ -128,7 +134,11 @@ public class ExitShelter : MonoBehaviour
         {
             ambianceManager.GetComponent<AmbianceManager>().PlayParkAmbiance();
         }
-        
+
+        // UI
+        compass.GetComponent<Image>().enabled = true;
+        compass.GetComponent<CompassBehavior>().enabled = true;
+
         //GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventStop.Post(gameObject);
         //GetComponent<PostWwiseAmbiance>().ParkAmbianceEventPlay.Post(gameObject);
 

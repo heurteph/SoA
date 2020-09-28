@@ -166,7 +166,7 @@ public class MenuManager : MonoBehaviour
     {
         // Let's get to work !
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // TO DO : Make sure to add the intro when we have one
         AkSoundEngine.PostEvent("Stop_Music_Main_Title", gameObject);
         //AkSoundEngine.PostEvent("Stop_Music_Menu", gameObject);
     }

@@ -54,7 +54,7 @@ public class EnergyBehaviour : MonoBehaviour
 
         inputs = InputsManager.Instance.Inputs;
 
-        // God mode : comment it out for final release
+        // TO DO : Comment it out for final release
         inputs.Player.GodMode.performed += _ctx => GodMode();
 
         script = GetComponent<PlayerFollow>() ? GetComponent<PlayerFollow>() : (MonoBehaviour)GetComponent<PlayerFirst>();

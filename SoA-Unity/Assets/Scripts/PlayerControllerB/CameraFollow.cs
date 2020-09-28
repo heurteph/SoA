@@ -721,7 +721,7 @@ public class CameraFollow : MonoBehaviour
                         {
                             if( ! hit.transform.CompareTag("Player"))
                             {
-                                Debug.Log("COLLISION WITH : " + hit.transform.name);
+                                //Debug.Log("COLLISION WITH : " + hit.transform.name);
                                 factor = Mathf.Min(factor + 10 * Time.deltaTime, 3);
                             }
                             else

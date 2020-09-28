@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{73B52B68-F45B-45FC-8D8C-F9BDA30A9842}" SchemaVersion="97">
+	<Events>
+		<WorkUnit Name="Cinematique" ID="{73B52B68-F45B-45FC-8D8C-F9BDA30A9842}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Stop_Ecriture_Animation" ID="{15192F70-5AB1-4B1A-B632-4591953D1EDD}">
+					<ChildrenList>
+						<Action Name="" ID="{94873161-882B-4B77-85F5-7F36AFFC3FB7}" ShortID="853968010">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ecriture_Animation" ID="{F1913293-FA36-4716-A6FA-6B090B7CC8E7}" WorkUnitID="{8EAB1BF3-ECF9-4471-AA03-3BB091F70979}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Ecriture_Animation" ID="{DE9ECA54-1CFB-468A-895E-6510B613322D}">
+					<ChildrenList>
+						<Action Name="" ID="{437C635B-5A3D-41D7-B3FD-94B024D33683}" ShortID="588245350">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ecriture_Animation" ID="{F1913293-FA36-4716-A6FA-6B090B7CC8E7}" WorkUnitID="{8EAB1BF3-ECF9-4471-AA03-3BB091F70979}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

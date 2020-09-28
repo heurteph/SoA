@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{7F10554C-0464-4066-B435-F392D93B7294}" SchemaVersion="97">
+	<Events>
+		<WorkUnit Name="Menu" ID="{7F10554C-0464-4066-B435-F392D93B7294}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Survol" ID="{1AC2FB10-33A0-4D9F-A96A-B159A7AFAF40}">
+					<ChildrenList>
+						<Action Name="" ID="{F79F3676-78DC-4C15-925B-90630BCE9313}" ShortID="47801781">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Survol" ID="{E54E1584-5D86-4790-83F8-F8CE93D37599}" WorkUnitID="{6BF7D0B7-08E9-40ED-8BCD-DF5CAE27D6D6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Clic_Selection" ID="{231E6910-2D92-4F18-9005-83C0F89E57E7}">
+					<ChildrenList>
+						<Action Name="" ID="{BA95CBEC-1733-4998-B155-6D32721B034B}" ShortID="386538328">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clic_Selection" ID="{446B25CB-ABDD-449B-90B7-17CF491806C5}" WorkUnitID="{6BF7D0B7-08E9-40ED-8BCD-DF5CAE27D6D6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Survol" ID="{88112E3D-11FB-4219-809B-A3804587FC77}">
+					<ChildrenList>
+						<Action Name="" ID="{ABCFA95A-BC44-4F19-8424-BEA8B7391C23}" ShortID="982382583">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Survol" ID="{E54E1584-5D86-4790-83F8-F8CE93D37599}" WorkUnitID="{6BF7D0B7-08E9-40ED-8BCD-DF5CAE27D6D6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Clic_Selection" ID="{663CA54B-14BD-4944-89C0-96FD30DA4E03}">
+					<ChildrenList>
+						<Action Name="" ID="{093B5178-678F-4800-B2EA-CDBC4F6854EE}" ShortID="76347187">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clic_Selection" ID="{446B25CB-ABDD-449B-90B7-17CF491806C5}" WorkUnitID="{6BF7D0B7-08E9-40ED-8BCD-DF5CAE27D6D6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{7B2974C2-FF36-4DBB-8FF4-02D85011CEE8}" ShortID="241200484">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Texte_Anim_Particule" ID="{1F6EBC0D-49E8-40D8-9C47-B6564B6FAF73}" WorkUnitID="{6BF7D0B7-08E9-40ED-8BCD-DF5CAE27D6D6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Texte_Anim_Particule" ID="{62F65EC4-3A59-4515-87D9-F20CA4EDCBFD}">
+					<ChildrenList>
+						<Action Name="" ID="{F2492713-55DF-4335-8317-22112E59D0E1}" ShortID="683879277">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Texte_Anim_Particule" ID="{1F6EBC0D-49E8-40D8-9C47-B6564B6FAF73}" WorkUnitID="{6BF7D0B7-08E9-40ED-8BCD-DF5CAE27D6D6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Texte_Anim_Particule" ID="{E0B3990C-2ACA-4D9C-AE69-6BF2D9E83FF7}">
+					<ChildrenList>
+						<Action Name="" ID="{0A001064-7C69-4106-A315-2EFF259BC5EF}" ShortID="97094955">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Texte_Anim_Particule" ID="{1F6EBC0D-49E8-40D8-9C47-B6564B6FAF73}" WorkUnitID="{6BF7D0B7-08E9-40ED-8BCD-DF5CAE27D6D6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

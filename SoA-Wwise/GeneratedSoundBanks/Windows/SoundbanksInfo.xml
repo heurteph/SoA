@@ -171,6 +171,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3735763388" Name="Play_Clic_Selection" ObjectPath="\Events\Menu\Play_Clic_Selection" DurationType="OneShot" DurationMin="1.137884" DurationMax="1.436961">
+					<IncludedMemoryFiles>
+						<File Id="832267210" Language="SFX">
+							<ShortName>Menu_Clic_Selection2.wav</ShortName>
+							<Path>SFX\Menu_Clic_Selection2_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1692441862" Name="Play_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Play_Climatiseur" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="709197503" Language="SFX">
@@ -224,6 +232,26 @@
 						<File Id="673273183" Language="SFX">
 							<ShortName>School.wav</ShortName>
 							<Path>SFX\School_57F582E5.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4276677556" Name="Play_Ecriture_Animation" ObjectPath="\Events\Cinematique\Play_Ecriture_Animation" DurationType="OneShot" DurationMin="0.244286" DurationMax="0.506195">
+					<IncludedMemoryFiles>
+						<File Id="278579835" Language="SFX">
+							<ShortName>Cinematic_Ecriture_Anim_-004.wav</ShortName>
+							<Path>SFX\Cinematic_Ecriture_Anim_-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="845014992" Language="SFX">
+							<ShortName>Cinematic_Ecriture_Anim_-003.wav</ShortName>
+							<Path>SFX\Cinematic_Ecriture_Anim_-003_3F75BDB9.wem</Path>
+						</File>
+						<File Id="929848145" Language="SFX">
+							<ShortName>Cinematic_Ecriture_Anim_-001.wav</ShortName>
+							<Path>SFX\Cinematic_Ecriture_Anim_-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="1031672062" Language="SFX">
+							<ShortName>Cinematic_Ecriture_Anim_-002.wav</ShortName>
+							<Path>SFX\Cinematic_Ecriture_Anim_-002_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -2575,6 +2603,22 @@
 						<File Id="876074190" Language="SFX">
 							<ShortName>Commerce_Obstacle_Sonnette_Entrée_01.wav</ShortName>
 							<Path>SFX\Commerce_Obstacle_Sonnette_Entrée_01_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2105670071" Name="Play_Survol" ObjectPath="\Events\Menu\Play_Survol" DurationType="OneShot" DurationMin="0.933388" DurationMax="1.324593">
+					<IncludedMemoryFiles>
+						<File Id="303074413" Language="SFX">
+							<ShortName>Menu_Survol2.wav</ShortName>
+							<Path>SFX\Menu_Survol2_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1410339968" Name="Play_Texte_Anim_Particule" ObjectPath="\Events\Menu\Play_Texte_Anim_Particule" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="197090803" Language="SFX">
+							<ShortName>Menu_Etincelle_Texte_Loop.wav</ShortName>
+							<Path>SFX\Menu_Etincelle_Texte_Loop_67ECCCF7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -5662,21 +5706,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2682091360" Name="Play_Ville_Generale" ObjectPath="\Events\Ville_Ambiance\Play_Ville_Generale" DurationType="OneShot" DurationMin="56.017605" DurationMax="56.017605">
-					<IncludedMemoryFiles>
-						<File Id="160227125" Language="SFX">
-							<ShortName>Ville_Ambiance_AmbianceGlobale_01.wav</ShortName>
-							<Path>SFX\Ville_Ambiance_AmbianceGlobale_01_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
 				<Event Id="452547817" Name="Stop_All" ObjectPath="\Events\Default Work Unit\Stop_All" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1056565793" Name="Stop_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Stop_ArrosageAuto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="383440519" Name="Stop_Battement_Coeur" ObjectPath="\Events\Personnage\Stop_Battement_Coeur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3668248268" Name="Stop_Branches_Tombent" ObjectPath="\Events\Parc_Obstacles\Stop_Branches_Tombent" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="777875661" Name="Stop_Canard" ObjectPath="\Events\Parc_Obstacles\Stop_Canard" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4123225286" Name="Stop_Clic_Selection" ObjectPath="\Events\Menu\Stop_Clic_Selection" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3267333498" Name="Stop_Ecole" ObjectPath="\Events\Ville_Obstacles\Stop_Ecole" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="4063390670" Name="Stop_Ecriture_Animation" ObjectPath="\Events\Cinematique\Stop_Ecriture_Animation" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="623032412" Name="Stop_Egout" ObjectPath="\Events\Ville_Obstacles\Stop_Egout" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4256011363" Name="Stop_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Stop_Electrique_Buzz" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="725970268" Name="Stop_Horloge" ObjectPath="\Events\Ville_Obstacles\Stop_Horloge" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -5708,8 +5746,9 @@
 				<Event Id="3507864100" Name="Stop_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Stop_Quel_Moteur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="970688548" Name="Stop_Restorant" ObjectPath="\Events\Ville_Obstacles\Stop_Restorant" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3549513284" Name="Stop_Sonnette_Magasins" ObjectPath="\Events\Ville_Obstacles\Stop_Sonnette_Magasins" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="507140941" Name="Stop_Survol" ObjectPath="\Events\Menu\Stop_Survol" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2148170426" Name="Stop_Texte_Anim_Particule" ObjectPath="\Events\Menu\Stop_Texte_Anim_Particule" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2077251707" Name="Stop_Travaux" ObjectPath="\Events\Ville_Obstacles\Stop_Travaux" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1529489746" Name="Stop_Ville_Generale" ObjectPath="\Events\Ville_Ambiance\Stop_Ville_Generale" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="428373397" Name="VitesseVoitureElec" ObjectPath="\Game Parameters\Obstacles\VitesseVoitureElec"/>

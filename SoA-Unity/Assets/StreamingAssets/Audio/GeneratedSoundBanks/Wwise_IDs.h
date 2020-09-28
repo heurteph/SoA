@@ -19,9 +19,11 @@ namespace AK
         static const AkUniqueID PLAY_BUS_DOOR_CLOSE = 3232482810U;
         static const AkUniqueID PLAY_BUS_DOOR_OPEN = 2983975038U;
         static const AkUniqueID PLAY_CANARD = 932140571U;
+        static const AkUniqueID PLAY_CLIC_SELECTION = 3735763388U;
         static const AkUniqueID PLAY_CLIMATISEUR = 1692441862U;
         static const AkUniqueID PLAY_CRIS_TOUS = 2464503011U;
         static const AkUniqueID PLAY_ECOLE = 1753498456U;
+        static const AkUniqueID PLAY_ECRITURE_ANIMATION = 4276677556U;
         static const AkUniqueID PLAY_EGOUT = 869276618U;
         static const AkUniqueID PLAY_ELECTRIQUE_BUZZ = 2500875145U;
         static const AkUniqueID PLAY_HORLOGE = 1086738306U;
@@ -42,7 +44,7 @@ namespace AK
         static const AkUniqueID PLAY_MUSIC_SAFE_ZONE_VILLE = 3326642619U;
         static const AkUniqueID PLAY_PARC_CHIEN = 4134052420U;
         static const AkUniqueID PLAY_PARC_EAU_LAC = 865874921U;
-        static const AkUniqueID PLAY_PARC_INSECTES = 2727595513U;
+        static const AkUniqueID PLAY_PARC_JARDINIER = 1074315535U;
         static const AkUniqueID PLAY_PARC_OISEAUX1 = 3725651506U;
         static const AkUniqueID PLAY_PARC_OISEAUX2 = 3725651505U;
         static const AkUniqueID PLAY_PARC_OISEAUX3 = 3725651504U;
@@ -59,6 +61,8 @@ namespace AK
         static const AkUniqueID PLAY_RESPIRATION_MOUVEMENT = 2860278991U;
         static const AkUniqueID PLAY_RESTORANT = 3628354934U;
         static const AkUniqueID PLAY_SONNETTE_MAGASINS = 2056330270U;
+        static const AkUniqueID PLAY_SURVOL = 2105670071U;
+        static const AkUniqueID PLAY_TEXTE_ANIM_PARTICULE = 1410339968U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
         static const AkUniqueID PLAY_TEXTURE_PAS_JOGGER = 482787459U;
         static const AkUniqueID PLAY_TRAVAUX = 3782749553U;
@@ -67,8 +71,10 @@ namespace AK
         static const AkUniqueID STOP_BATTEMENT_COEUR = 383440519U;
         static const AkUniqueID STOP_BRANCHES_TOMBENT = 3668248268U;
         static const AkUniqueID STOP_CANARD = 777875661U;
+        static const AkUniqueID STOP_CLIC_SELECTION = 4123225286U;
         static const AkUniqueID STOP_CLIMATISEUR = 1059727820U;
         static const AkUniqueID STOP_ECOLE = 3267333498U;
+        static const AkUniqueID STOP_ECRITURE_ANIMATION = 4063390670U;
         static const AkUniqueID STOP_EGOUT = 623032412U;
         static const AkUniqueID STOP_ELECTRIQUE_BUZZ = 4256011363U;
         static const AkUniqueID STOP_HORLOGE = 725970268U;
@@ -86,6 +92,7 @@ namespace AK
         static const AkUniqueID STOP_MUSIC_SAFE_ZONE_VILLE = 566110305U;
         static const AkUniqueID STOP_PARC_CHIEN = 2301453854U;
         static const AkUniqueID STOP_PARC_EAU_LAC = 3189001139U;
+        static const AkUniqueID STOP_PARC_JARDINIER = 358162889U;
         static const AkUniqueID STOP_PARC_OISEAUX1 = 152275144U;
         static const AkUniqueID STOP_PARC_OISEAUX2 = 152275147U;
         static const AkUniqueID STOP_PARC_OISEAUX3 = 152275146U;
@@ -99,6 +106,8 @@ namespace AK
         static const AkUniqueID STOP_QUEL_MOTEUR = 3507864100U;
         static const AkUniqueID STOP_RESTORANT = 970688548U;
         static const AkUniqueID STOP_SONNETTE_MAGASINS = 3549513284U;
+        static const AkUniqueID STOP_SURVOL = 507140941U;
+        static const AkUniqueID STOP_TEXTE_ANIM_PARTICULE = 2148170426U;
         static const AkUniqueID STOP_TRAVAUX = 2077251707U;
     } // namespace EVENTS
 
@@ -115,6 +124,18 @@ namespace AK
                 static const AkUniqueID OUI = 645492566U;
             } // namespace STATE
         } // namespace DANS_LIEU_REPOS
+
+        namespace DANS_TUNNEL
+        {
+            static const AkUniqueID GROUP = 3460032738U;
+
+            namespace STATE
+            {
+                static const AkUniqueID NON = 544973834U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID OUI = 645492566U;
+            } // namespace STATE
+        } // namespace DANS_TUNNEL
 
         namespace PROTECTION_OUI_NON
         {
@@ -269,6 +290,7 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID CINEMATIQUE = 3261888876U;
         static const AkUniqueID ENVI_COMMERCE = 772085263U;
         static const AkUniqueID ENVI_PARC = 4151145406U;
         static const AkUniqueID ENVI_VILLE = 3541955170U;
@@ -292,6 +314,7 @@ namespace AK
         static const AkUniqueID EQ_PROTECTION = 3971758071U;
         static const AkUniqueID MIXECOUTEPERSO = 2093609463U;
         static const AkUniqueID REVERB_LIEU_REPOS = 3204322453U;
+        static const AkUniqueID REVERB_TUNNEL = 2261546958U;
     } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES

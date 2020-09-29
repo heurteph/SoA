@@ -5,7 +5,6 @@
 			<ChildrenList>
 				<StateGroup Name="Menu_Oui_Non" ID="{1A573B95-4C40-4AC7-BDA8-3F919156EAFD}">
 					<ChildrenList>
-						<State Name="None" ID="{F92B39F3-1C25-4989-8A49-D85837847C58}"/>
 						<State Name="Menu_oui" ID="{B23889C1-B0A9-49EB-9591-9BED9F1A2842}"/>
 						<State Name="Menu_Non" ID="{075A3419-44F3-4BDC-B0E0-6A45AC6676BA}"/>
 					</ChildrenList>

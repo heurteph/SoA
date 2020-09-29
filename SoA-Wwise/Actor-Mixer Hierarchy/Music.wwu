@@ -377,7 +377,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="Cinematique_Grotte_interieur_version MP3" ID="{22CF8284-FDBC-49E6-90B1-DF401021DD87}" ShortID="801803564">
+								<Sound Name="Cinématique Grotte intérieur v1 R128" ID="{55D4C5DF-D01F-4F94-8227-C82B7DF0FEAE}" ShortID="448125183">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -387,16 +387,16 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="Cinematique_Grotte_interieur_version MP3" ID="{29578616-D11B-453E-A139-E41CCE7179A1}">
+										<AudioFileSource Name="Cinématique Grotte intérieur v1 R128" ID="{27BC73FC-D2D6-47B0-B3A6-15D4B7989259}">
 											<Language>SFX</Language>
-											<AudioFile>Cinematique_Grotte_interieur_version MP3.wav</AudioFile>
+											<AudioFile>Cinématique Grotte intérieur v1 R128.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="913042748"/>
+												<MediaID ID="593211348"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="Cinematique_Grotte_interieur_version MP3" ID="{29578616-D11B-453E-A139-E41CCE7179A1}" Platform="Linked"/>
+										<ActiveSource Name="Cinématique Grotte intérieur v1 R128" ID="{27BC73FC-D2D6-47B0-B3A6-15D4B7989259}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

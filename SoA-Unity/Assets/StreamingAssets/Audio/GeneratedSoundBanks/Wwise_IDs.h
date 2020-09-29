@@ -153,7 +153,6 @@ namespace AK
             {
                 static const AkUniqueID MENU_NON = 2651242748U;
                 static const AkUniqueID MENU_OUI = 2818768592U;
-                static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
         } // namespace MENU_OUI_NON
 
@@ -295,7 +294,6 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
-        static const AkUniqueID NEW_GAME_PARAMETER = 3671138082U;
         static const AkUniqueID QUEL_MOTEUR = 2782977595U;
         static const AkUniqueID RALENTI_ACCELERE = 731750351U;
         static const AkUniqueID VITESSEVEHICULE = 3154243729U;

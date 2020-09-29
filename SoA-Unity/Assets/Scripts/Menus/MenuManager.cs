@@ -57,7 +57,6 @@ public class MenuManager : MonoBehaviour
             child.GetComponent<Text>().color = new Color(1, 1, 1, 0);
         }*/
 
-        AkSoundEngine.PostEvent("Play_Music_Main_Title", gameObject);
         //AkSoundEngine.PostEvent("Play_Music_Menu", gameObject);
 
         controlsPanel = GameObject.FindGameObjectWithTag("Controls");
@@ -91,6 +90,11 @@ public class MenuManager : MonoBehaviour
             mouseKeyboardPanel.GetComponent<CanvasGroup>().alpha = 1;
             gamepadPanel.GetComponent<CanvasGroup>().alpha = 0;
         }
+    }
+
+    private void Start()
+    {
+        AkSoundEngine.PostEvent("Play_Music_Main_Title", gameObject);
     }
 
     // Update is called once per frame

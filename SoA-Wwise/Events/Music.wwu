@@ -26,6 +26,17 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{F805B799-7BD2-4855-B913-BA15078BDDFE}" ShortID="559043243">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Cinematique" ID="{D7DE5FA1-AC53-4A8E-BDB6-90760D287C90}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="Play_Music_Menu" ID="{1209BCC7-16E4-403A-A1A8-21D24501CDD2}">
@@ -182,6 +193,35 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Music_Safe_Zone_Ville" ID="{68596C30-FC61-41E0-B3A9-2253C2559DB9}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Music_Cinematique" ID="{4D31D979-6690-4915-AD5B-84445738BFB2}">
+					<ChildrenList>
+						<Action Name="" ID="{445219AE-1663-4608-9CC4-402F8291AB77}" ShortID="995046909">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Cinematique" ID="{D7DE5FA1-AC53-4A8E-BDB6-90760D287C90}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Music_Cinematique" ID="{DD91C7C2-CB42-46A3-8E4A-D9BAC970CECB}">
+					<ChildrenList>
+						<Action Name="" ID="{D122A353-8379-486B-9B84-CFA850F0DD5E}" ShortID="596841049">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Cinematique" ID="{D7DE5FA1-AC53-4A8E-BDB6-90760D287C90}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

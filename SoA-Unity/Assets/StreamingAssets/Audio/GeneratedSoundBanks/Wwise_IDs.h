@@ -19,6 +19,8 @@ namespace AK
         static const AkUniqueID PLAY_BUS_DOOR_CLOSE = 3232482810U;
         static const AkUniqueID PLAY_BUS_DOOR_OPEN = 2983975038U;
         static const AkUniqueID PLAY_CANARD = 932140571U;
+        static const AkUniqueID PLAY_CLAVIER_ASSIGNATION = 1218834549U;
+        static const AkUniqueID PLAY_CLAVIER_SUPPRESSION = 4009602722U;
         static const AkUniqueID PLAY_CLIC_SELECTION = 3735763388U;
         static const AkUniqueID PLAY_CLIMATISEUR = 1692441862U;
         static const AkUniqueID PLAY_CRIS_TOUS = 2464503011U;
@@ -36,6 +38,7 @@ namespace AK
         static const AkUniqueID PLAY_MOTEUR_ELAGUEUR = 2314452061U;
         static const AkUniqueID PLAY_MOTEUR_VOITUREELEC = 1403256204U;
         static const AkUniqueID PLAY_MUSIC_APPART = 1625096966U;
+        static const AkUniqueID PLAY_MUSIC_CINEMATIQUE = 3134804369U;
         static const AkUniqueID PLAY_MUSIC_CREDIT = 2851404393U;
         static const AkUniqueID PLAY_MUSIC_MAIN_TITLE = 3783189458U;
         static const AkUniqueID PLAY_MUSIC_MENU = 1699343283U;
@@ -65,12 +68,15 @@ namespace AK
         static const AkUniqueID PLAY_TEXTE_ANIM_PARTICULE = 1410339968U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
         static const AkUniqueID PLAY_TEXTURE_PAS_JOGGER = 482787459U;
+        static const AkUniqueID PLAY_TOUCHE_NEXT = 3029881444U;
         static const AkUniqueID PLAY_TRAVAUX = 3782749553U;
         static const AkUniqueID STOP_ALL = 452547817U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;
         static const AkUniqueID STOP_BATTEMENT_COEUR = 383440519U;
         static const AkUniqueID STOP_BRANCHES_TOMBENT = 3668248268U;
         static const AkUniqueID STOP_CANARD = 777875661U;
+        static const AkUniqueID STOP_CLAVIER_ASSIGNATION = 3625929623U;
+        static const AkUniqueID STOP_CLAVIER_SUPPRESSION = 290161972U;
         static const AkUniqueID STOP_CLIC_SELECTION = 4123225286U;
         static const AkUniqueID STOP_CLIMATISEUR = 1059727820U;
         static const AkUniqueID STOP_ECOLE = 3267333498U;
@@ -84,6 +90,7 @@ namespace AK
         static const AkUniqueID STOP_MORT = 2980414578U;
         static const AkUniqueID STOP_MOTEUR_ELAGUEUR = 1194390427U;
         static const AkUniqueID STOP_MUSIC_APPART = 3531521436U;
+        static const AkUniqueID STOP_MUSIC_CINEMATIQUE = 654722903U;
         static const AkUniqueID STOP_MUSIC_CREDIT = 3425086499U;
         static const AkUniqueID STOP_MUSIC_MAIN_TITLE = 3194051996U;
         static const AkUniqueID STOP_MUSIC_MENU = 106912753U;
@@ -108,6 +115,7 @@ namespace AK
         static const AkUniqueID STOP_SONNETTE_MAGASINS = 3549513284U;
         static const AkUniqueID STOP_SURVOL = 507140941U;
         static const AkUniqueID STOP_TEXTE_ANIM_PARTICULE = 2148170426U;
+        static const AkUniqueID STOP_TOUCHE_NEXT = 1246565790U;
         static const AkUniqueID STOP_TRAVAUX = 2077251707U;
     } // namespace EVENTS
 
@@ -136,6 +144,18 @@ namespace AK
                 static const AkUniqueID OUI = 645492566U;
             } // namespace STATE
         } // namespace DANS_TUNNEL
+
+        namespace MENU_OUI_NON
+        {
+            static const AkUniqueID GROUP = 2551007772U;
+
+            namespace STATE
+            {
+                static const AkUniqueID MENU_NON = 2651242748U;
+                static const AkUniqueID MENU_OUI = 2818768592U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace MENU_OUI_NON
 
         namespace PROTECTION_OUI_NON
         {
@@ -275,6 +295,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID NEW_GAME_PARAMETER = 3671138082U;
         static const AkUniqueID QUEL_MOTEUR = 2782977595U;
         static const AkUniqueID RALENTI_ACCELERE = 731750351U;
         static const AkUniqueID VITESSEVEHICULE = 3154243729U;
@@ -290,12 +311,13 @@ namespace AK
 
     namespace BUSSES
     {
-        static const AkUniqueID CINEMATIQUE = 3261888876U;
+        static const AkUniqueID CINEMATIQUE_MASTER = 2082484861U;
         static const AkUniqueID ENVI_COMMERCE = 772085263U;
         static const AkUniqueID ENVI_PARC = 4151145406U;
         static const AkUniqueID ENVI_VILLE = 3541955170U;
         static const AkUniqueID ENVIRONNEMENT_MASTER = 766198208U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MENU_MASTER = 2632566393U;
         static const AkUniqueID MIX_REVERB = 3296604463U;
         static const AkUniqueID MIXPROTECTION = 2740603104U;
         static const AkUniqueID MUSIC_MASTER = 3595451983U;

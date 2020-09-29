@@ -18,11 +18,15 @@ Switch	ID	Name	Switch Group			Notes
 	4192991124	D_Accelere	EtatVoiture			
 
 State Group	ID	Name			Wwise Object Path	Notes
+	2551007772	Menu_Oui_Non			\Default Work Unit\Menu_Oui_Non	
 	2773598748	Protection_Oui_Non			\Protection\Protection_Oui_Non	
 	3460032738	Dans_Tunnel			\Lieux\Dans_Tunnel	
 	3986250553	Dans_Lieu_Repos			\Lieux\Dans_Lieu_Repos	
 
 State	ID	Name	State Group			Notes
+	748895195	None	Menu_Oui_Non			
+	2651242748	Menu_Non	Menu_Oui_Non			
+	2818768592	Menu_oui	Menu_Oui_Non			
 	58138747	Active	Protection_Oui_Non			
 	748895195	None	Protection_Oui_Non			
 	2270773720	Pas_Active	Protection_Oui_Non			
@@ -32,6 +36,10 @@ State	ID	Name	State Group			Notes
 	544973834	Non	Dans_Lieu_Repos			
 	645492566	Oui	Dans_Lieu_Repos			
 	748895195	None	Dans_Lieu_Repos			
+
+Custom State	ID	Name	State Group	Owner		Notes
+	222969573	Menu_Non	Menu_Oui_Non	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus		
+	405637748	Menu_oui	Menu_Oui_Non	\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus		
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	731600268	Obstacles_Ville			\Default Work Unit\Master Audio Bus\Obstacles_Master\Obstacles_Ville	
@@ -61,6 +69,7 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	48620415	Have_U_Ever_Been_Outside	Wwise RoomVerb			
+	332284441	Wwise_Parametric_EQ_(Custom)	Wwise Parametric EQ			
 	486877881	Wwise_Meter_(Custom)	Wwise Meter			
 	2945072214	My_Closet	Wwise RoomVerb			
 

@@ -173,25 +173,77 @@
 				</Event>
 				<Event Id="1218834549" Name="Play_Clavier_Assignation" ObjectPath="\Events\Menu\Play_Clavier_Assignation" DurationType="OneShot" DurationMin="0.220199" DurationMax="0.220199">
 					<IncludedMemoryFiles>
+						<File Id="161822121" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation4_Derive_-003.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation4_Derive_-003_3F75BDB9.wem</Path>
+						</File>
+						<File Id="601115739" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation4_Derive_-001.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation4_Derive_-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="661706839" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation4_Derive_-004.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation4_Derive_-004_3F75BDB9.wem</Path>
+						</File>
 						<File Id="993506209" Language="SFX">
 							<ShortName>Menu_Clavier_Assignation4.wav</ShortName>
 							<Path>SFX\Menu_Clavier_Assignation4_3F75BDB9.wem</Path>
+						</File>
+						<File Id="1050817345" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation4_Derive_-002.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation4_Derive_-002_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="4009602722" Name="Play_Clavier_Suppression" ObjectPath="\Events\Menu\Play_Clavier_Suppression" DurationType="OneShot" DurationMin="0.329678" DurationMax="0.329678">
 					<IncludedMemoryFiles>
+						<File Id="190856146" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation2_Derive_-003.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation2_Derive_-003_3F75BDB9.wem</Path>
+						</File>
+						<File Id="340132036" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation2_Derive_-001.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation2_Derive_-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="483593199" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation2_Derive_-004.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation2_Derive_-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="490416899" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation2_Derive_-002.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation2_Derive_-002_3F75BDB9.wem</Path>
+						</File>
 						<File Id="636452874" Language="SFX">
 							<ShortName>Menu_Clavier_Assignation2.wav</ShortName>
 							<Path>SFX\Menu_Clavier_Assignation2_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3735763388" Name="Play_Clic_Selection" ObjectPath="\Events\Menu\Play_Clic_Selection" DurationType="OneShot" DurationMin="0.986019" DurationMax="1.075261">
+				<Event Id="3735763388" Name="Play_Clic_Selection" ObjectPath="\Events\Menu\Play_Clic_Selection" DurationType="OneShot" DurationMin="0.904183" DurationMax="1.075261">
 					<IncludedMemoryFiles>
+						<File Id="135384533" Language="SFX">
+							<ShortName>Menu_Clic_Selection2_Derive_-005.wav</ShortName>
+							<Path>SFX\Menu_Clic_Selection2_Derive_-005_3F75BDB9.wem</Path>
+						</File>
+						<File Id="209189324" Language="SFX">
+							<ShortName>Menu_Clic_Selection2_Derive_-003.wav</ShortName>
+							<Path>SFX\Menu_Clic_Selection2_Derive_-003_3F75BDB9.wem</Path>
+						</File>
+						<File Id="686495443" Language="SFX">
+							<ShortName>Menu_Clic_Selection2_Derive_-004.wav</ShortName>
+							<Path>SFX\Menu_Clic_Selection2_Derive_-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="811092603" Language="SFX">
+							<ShortName>Menu_Clic_Selection2_Derive_-002.wav</ShortName>
+							<Path>SFX\Menu_Clic_Selection2_Derive_-002_3F75BDB9.wem</Path>
+						</File>
 						<File Id="832267210" Language="SFX">
 							<ShortName>Menu_Clic_Selection2.wav</ShortName>
 							<Path>SFX\Menu_Clic_Selection2_3F75BDB9.wem</Path>
+						</File>
+						<File Id="885411238" Language="SFX">
+							<ShortName>Menu_Clic_Selection2_Derive_-001.wav</ShortName>
+							<Path>SFX\Menu_Clic_Selection2_Derive_-001_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -251,7 +303,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4276677556" Name="Play_Ecriture_Animation" ObjectPath="\Events\Cinematique\Play_Ecriture_Animation" DurationType="OneShot" DurationMin="0.244286" DurationMax="0.506195">
+				<Event Id="4276677556" Name="Play_Ecriture_Animation" ObjectPath="\Events\Cinematique\Play_Ecriture_Animation" DurationType="OneShot" DurationMin="0.227533" DurationMax="0.543468">
 					<IncludedMemoryFiles>
 						<File Id="278579835" Language="SFX">
 							<ShortName>Cinematic_Ecriture_Anim_-004.wav</ShortName>
@@ -524,6 +576,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3134804369" Name="Play_Music_Cinematique" ObjectPath="\Events\Music\Play_Music_Cinematique" DurationType="OneShot" DurationMin="69.120003" DurationMax="69.120003">
+					<IncludedMemoryFiles>
+						<File Id="913042748" Language="SFX">
+							<ShortName>Cinematique_Grotte_interieur_version MP3.wav</ShortName>
+							<Path>SFX\Cinematique_Grotte_interieur_version MP3_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2851404393" Name="Play_Music_Credit" ObjectPath="\Events\Music\Play_Music_Credit" DurationType="OneShot" DurationMin="60.000000" DurationMax="60.000000">
 					<IncludedMemoryFiles>
 						<File Id="945892940" Language="SFX">
@@ -620,11 +680,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="865874921" Name="Play_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Eau_Lac" DurationType="OneShot" DurationMin="30.011896" DurationMax="30.011896">
+				<Event Id="865874921" Name="Play_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Eau_Lac" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="705099394" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_EauLac01.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_EauLac01_3F75BDB9.wem</Path>
+							<Path>SFX\Parc_Ambiance_Nature_EauLac01_AD083A43.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -2622,11 +2682,27 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2105670071" Name="Play_Survol" ObjectPath="\Events\Menu\Play_Survol" DurationType="OneShot" DurationMin="1.019632" DurationMax="1.111917">
+				<Event Id="2105670071" Name="Play_Survol" ObjectPath="\Events\Menu\Play_Survol" DurationType="OneShot" DurationMin="0.935007" DurationMax="0.935007">
 					<IncludedMemoryFiles>
+						<File Id="23844011" Language="SFX">
+							<ShortName>Menu_Survol2_Derive_-001.wav</ShortName>
+							<Path>SFX\Menu_Survol2_Derive_-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="63557380" Language="SFX">
+							<ShortName>Menu_Survol2_Derive_-002.wav</ShortName>
+							<Path>SFX\Menu_Survol2_Derive_-002_3F75BDB9.wem</Path>
+						</File>
 						<File Id="303074413" Language="SFX">
 							<ShortName>Menu_Survol2.wav</ShortName>
 							<Path>SFX\Menu_Survol2_3F75BDB9.wem</Path>
+						</File>
+						<File Id="545862016" Language="SFX">
+							<ShortName>Menu_Survol2_Derive_-004.wav</ShortName>
+							<Path>SFX\Menu_Survol2_Derive_-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="726685968" Language="SFX">
+							<ShortName>Menu_Survol2_Derive_-003.wav</ShortName>
+							<Path>SFX\Menu_Survol2_Derive_-003_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -2634,7 +2710,7 @@
 					<IncludedMemoryFiles>
 						<File Id="197090803" Language="SFX">
 							<ShortName>Menu_Etincelle_Texte_Loop.wav</ShortName>
-							<Path>SFX\Menu_Etincelle_Texte_Loop_67ECCCF7.wem</Path>
+							<Path>SFX\Menu_Etincelle_Texte_Loop_DDE57B96.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -5714,6 +5790,14 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="3029881444" Name="Play_Touche_Next" ObjectPath="\Events\Cinematique\Play_Touche_Next" DurationType="OneShot" DurationMin="0.305833" DurationMax="0.305833">
+					<IncludedMemoryFiles>
+						<File Id="281658015" Language="SFX">
+							<ShortName>Cinematique_Touche_Next2.wav</ShortName>
+							<Path>SFX\Cinematique_Touche_Next2_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3782749553" Name="Play_Travaux" ObjectPath="\Events\Ville_Obstacles\Play_Travaux" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="816991328" Language="SFX">
@@ -5742,6 +5826,7 @@
 				<Event Id="2980414578" Name="Stop_Mort" ObjectPath="\Events\Personnage\Stop_Mort" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3531521436" Name="Stop_Music_Appart" ObjectPath="\Events\Ville_Obstacles\Stop_Music_Appart" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="654722903" Name="Stop_Music_Cinematique" ObjectPath="\Events\Music\Stop_Music_Cinematique" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3425086499" Name="Stop_Music_Credit" ObjectPath="\Events\Music\Stop_Music_Credit" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3194051996" Name="Stop_Music_Main_Title" ObjectPath="\Events\Music\Stop_Music_Main_Title" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="106912753" Name="Stop_Music_Menu" ObjectPath="\Events\Music\Stop_Music_Menu" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -5766,6 +5851,7 @@
 				<Event Id="3549513284" Name="Stop_Sonnette_Magasins" ObjectPath="\Events\Ville_Obstacles\Stop_Sonnette_Magasins" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="507140941" Name="Stop_Survol" ObjectPath="\Events\Menu\Stop_Survol" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2148170426" Name="Stop_Texte_Anim_Particule" ObjectPath="\Events\Menu\Stop_Texte_Anim_Particule" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1246565790" Name="Stop_Touche_Next" ObjectPath="\Events\Cinematique\Stop_Touche_Next" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2077251707" Name="Stop_Travaux" ObjectPath="\Events\Ville_Obstacles\Stop_Travaux" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>

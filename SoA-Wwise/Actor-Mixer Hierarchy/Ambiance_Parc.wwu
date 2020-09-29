@@ -892,6 +892,9 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Parc_Ambiance_Nature_EauLac01" ID="{835E6C4A-9E53-4E81-9681-3263E94D8871}" ShortID="145030422">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -902,6 +905,12 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Parc_Ambiance_Nature_EauLac01" ID="{8F2B649F-E2ED-4864-950A-2ED8C98A37C7}">
+											<PropertyList>
+												<Property Name="CrossfadeDuration" Type="Real64" Value="631.829"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.514376593056471"/>
+												<Property Name="LoopEnd" Type="Real64" Value="29.5766541007471"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Parc_Ambiance_Nature_EauLac01.wav</AudioFile>
 											<MediaIDList>

@@ -39,7 +39,44 @@ public class ImagesManager : MonoBehaviour
 
     public void ChangeImage(string position, string id)
     {
-        StartCoroutine(FadeImage(position, id));
+        StartCoroutine(ReplaceImage(position, id));
+    }
+
+    private IEnumerator ReplaceImage(string position, string id)
+    {
+        Image image = null;
+
+        switch (position)
+        {
+            case "background":
+                image = background.GetComponent<Image>();
+                break;
+
+            case "left":
+                image = left.GetComponent<Image>();
+
+                ImageShownEvent();
+                break;
+
+            case "right":
+                image = right.GetComponent<Image>();
+
+                ImageShownEvent();
+                break;
+        }
+
+        Sprite sprite = Resources.Load<Sprite>(string.Concat("Cutscene\\Images\\", id));
+        if (sprite == null)
+        {
+            throw new InvalidResourceException(id, "Cutscene\\Images\\");
+        }
+        image.sprite = sprite;
+        image.preserveAspect = true;
+
+        if (position == "background")
+            ImageShownEvent();
+
+        yield return new WaitForEndOfFrame();
     }
 
     private IEnumerator FadeImage(string position, string id)

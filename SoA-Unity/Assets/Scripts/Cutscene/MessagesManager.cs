@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using story;
 using System.Text.RegularExpressions;
+using UnityEngine.InputSystem;
 
 public class MessagesManager : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class MessagesManager : MonoBehaviour
     [SerializeField]
     [Tooltip("The header of the message box")]
     private Text nameBox;
+
+    [SerializeField]
+    [Tooltip("The skip button of the message box")]
+    private Image skipButton;
 
     [SerializeField]
     [Tooltip("The vibrations of the message")]
@@ -70,9 +75,21 @@ public class MessagesManager : MonoBehaviour
 
     private TextMeshProUGUI textMesh;
 
+    private bool useVibrations = false;
+
+    private bool skip = false;
+    private bool next = false;
+
+    private Inputs inputs;
+
     // Start is called before the first frame update
     void Awake()
     {
+        inputs = new Inputs();
+
+        inputs.Player.Enable();
+        inputs.Player.SkipDialog.performed += SkipDialog;
+
         textMesh = messageBox.GetComponent<TextMeshProUGUI>();
         Debug.Assert(textMesh != null, "No TextMeshProUGUI attached to " + transform.name);
 
@@ -80,6 +97,16 @@ public class MessagesManager : MonoBehaviour
 
         emissionModule = vibrations.emission;
         EndVibrating();
+
+        Debug.Assert(skipButton != null, "Missing reference to skip button in message manager");
+        if(PlayerPrefs.GetString("controls").Equals("gamepad"))
+        {
+            skipButton.sprite = Resources.Load<Sprite>("Cutscene\\Images\\cutscene 1920\\skip-button");
+        }
+        else
+        {
+            skipButton.sprite = Resources.Load<Sprite>("Cutscene\\Images\\cutscene 1920\\skip-key");
+        }
 
         del = new DisplayMessage(RevealLetterByLetter);
     }
@@ -190,8 +217,13 @@ public class MessagesManager : MonoBehaviour
 
     IEnumerator RevealLetterByLetter(string text)
     {
+        inputs.Player.SkipDialog.performed += SkipDialog;
+
         textMesh.text = text;
         textMesh.maxVisibleCharacters = 0;
+
+        skip = false;
+        next = false;
 
         float delay;
         textMesh.ForceMeshUpdate(); // update textInfo to get actual characterCount
@@ -201,29 +233,50 @@ public class MessagesManager : MonoBehaviour
         for (int i = 0; i < textMesh.textInfo.characterCount; i++)
         {
             textMesh.maxVisibleCharacters = i + 1;
+            
+            if (!skip)
+            {
+                if (IsShortPause(textMesh.text[i]))
+                {
+                    if (useVibrations)
+                        EndVibrating();
+                    delay = shortPauseDuration;
+                }
+                else if (IsLongPause(textMesh.text[i]))
+                {
+                    if (useVibrations)
+                        EndVibrating();
+                    delay = longPauseDuration;
+                }
+                else
+                {
+                    AkSoundEngine.PostEvent("Play_Ecriture_Animation", gameObject);
 
-            if (IsShortPause(textMesh.text[i]))
-            {
-                EndVibrating();
-                delay = shortPauseDuration;
-            }
-            else if (IsLongPause(textMesh.text[i]))
-            {
-                EndVibrating();
-                delay = longPauseDuration;
+                    if (useVibrations)
+                        StartVibrating();
+                    delay = 0.1f / (2 * messageSpeed);
+                }
             }
             else
             {
-                StartVibrating();
-                delay = 0.1f / (2 * messageSpeed);
+                textMesh.maxVisibleCharacters = textMesh.textInfo.characterCount;
+                break;
             }
 
             yield return new WaitForSeconds(delay);
         }
 
-        EndVibrating();
+        if (useVibrations)
+            EndVibrating();
 
-        yield return new WaitForSeconds(postMessageDuration);
+        // Wait until input from user
+
+        inputs.Player.SkipDialog.performed += NextEvent;
+
+        while(!next)
+        {
+            yield return new WaitForEndOfFrame();
+        }
 
         MessageShownEvent();
     }
@@ -268,5 +321,23 @@ public class MessagesManager : MonoBehaviour
     public static bool IsLongPause(char c)
     {
         return c == '.' || c == '!';
+    }
+
+    private void SkipDialog(InputAction.CallbackContext ctx)
+    {
+        inputs.Player.SkipDialog.performed -= SkipDialog;
+        skip = true;
+    }
+
+    private void NextEvent(InputAction.CallbackContext ctx)
+    {
+        inputs.Player.SkipDialog.performed -= NextEvent;
+        next = true;
+    }
+
+    private void OnDestroy()
+    {
+        inputs.Player.SkipDialog.performed -= SkipDialog;
+        inputs.Player.SkipDialog.performed -= NextEvent;
     }
 }

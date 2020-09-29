@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 namespace story
 {
@@ -91,8 +92,10 @@ namespace story
             {
                 if (!itScenes.MoveNext())
                 {
-                    Debug.Log("Fin de la cutscene");
-                    // Close cutscene and start game
+                    // TO DO : Close cutscene and start game
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    SceneManager.LoadScene("GameElise"); 
+
                     return null;
                 }
                 //Debug.Log("Scène suivante");

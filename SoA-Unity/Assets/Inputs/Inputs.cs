@@ -73,6 +73,14 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SkipDialog"",
+                    ""type"": ""Button"",
+                    ""id"": ""145e2b22-bb7d-4eb7-a789-c7b18a406ee9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -317,6 +325,28 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""GodMode"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3e8756c-28d3-4d76-bd79-25a96ea48f74"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse-Keyboard"",
+                    ""action"": ""SkipDialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a99dddd5-ad01-4b29-b3b9-f91ed401defd"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SkipDialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -343,6 +373,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
         m_Player_GodMode = m_Player.FindAction("GodMode", throwIfNotFound: true);
+        m_Player_SkipDialog = m_Player.FindAction("SkipDialog", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -399,6 +430,7 @@ public class @Inputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Quit;
     private readonly InputAction m_Player_GodMode;
+    private readonly InputAction m_Player_SkipDialog;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -410,6 +442,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Quit => m_Wrapper.m_Player_Quit;
         public InputAction @GodMode => m_Wrapper.m_Player_GodMode;
+        public InputAction @SkipDialog => m_Wrapper.m_Player_SkipDialog;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -440,6 +473,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @GodMode.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGodMode;
                 @GodMode.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGodMode;
                 @GodMode.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGodMode;
+                @SkipDialog.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkipDialog;
+                @SkipDialog.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkipDialog;
+                @SkipDialog.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkipDialog;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -465,6 +501,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @GodMode.started += instance.OnGodMode;
                 @GodMode.performed += instance.OnGodMode;
                 @GodMode.canceled += instance.OnGodMode;
+                @SkipDialog.started += instance.OnSkipDialog;
+                @SkipDialog.performed += instance.OnSkipDialog;
+                @SkipDialog.canceled += instance.OnSkipDialog;
             }
         }
     }
@@ -496,5 +535,6 @@ public class @Inputs : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
         void OnGodMode(InputAction.CallbackContext context);
+        void OnSkipDialog(InputAction.CallbackContext context);
     }
 }

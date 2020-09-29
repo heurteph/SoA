@@ -5,7 +5,12 @@
 	    {
           "type": "image",
           "metadata": "background",
-          "data": "Placeholders\\cutscene01"
+          "data": "cutscene 1920\\cutscene01"
+        },
+		{
+          "type": "image",
+          "metadata": "background",
+          "data": "cutscene 1920\\cutscene01-textBox"
         },
         {
           "type": "message",
@@ -15,12 +20,12 @@
 		{
           "type": "image",
           "metadata": "background",
-          "data": "Placeholders\\cutscene02-neutral"
+          "data": "cutscene 1920\\cutscene02-neutral"
         },
 		{
           "type": "image",
           "metadata": "background",
-          "data": "Placeholders\\cutscene02-upset"
+          "data": "cutscene 1920\\cutscene02-upset"
         },
         {
           "type": "message",
@@ -30,12 +35,12 @@
 		{
           "type": "image",
           "metadata": "background",
-          "data": "Placeholders\\cutscene03"
+          "data": "cutscene 1920\\cutscene03"
         },
         {
           "type": "image",
 		  "metadata": "background",
-          "data": "Placeholders\\cutscene04"
+          "data": "cutscene 1920\\cutscene04"
         },
         {
           "type": "message",
@@ -50,7 +55,7 @@
 		{
           "type": "image",
 		  "metadata": "background",
-          "data": "Placeholders\\cutscene05"
+          "data": "cutscene 1920\\cutscene05"
         }
       ]
     },
@@ -59,7 +64,12 @@
 		{
           "type": "image",
 		  "metadata": "background",
-          "data": "Placeholders\\cutscene06"
+          "data": "cutscene 1920\\cutscene06-a"
+        },
+		{
+          "type": "image",
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene06-b"
         },
         {
           "type": "message",
@@ -69,17 +79,12 @@
 		{
           "type": "image",
 		  "metadata": "background",
-          "data": "Placeholders\\cutscene07"
+          "data": "cutscene 1920\\cutscene07"
         },
 		{
           "type": "image",
 		  "metadata": "background",
-          "data": "Placeholders\\cutscene08-background"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-happy_talking"
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -88,13 +93,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-surprised_listening"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
@@ -103,13 +103,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-happy_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -118,23 +113,13 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
           "metadata": "Zeous",
           "data": "Eh bien, pour nous, c'est un important sanctuaire. Nous veillons sur lui comme gardiens."
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-happy_talking"
         },
         {
           "type": "message",
@@ -143,13 +128,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-happy_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -163,13 +143,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
@@ -183,13 +158,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -198,23 +168,13 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
           "metadata": "Zeous",
           "data": "Oui, c'est ainsi qu'ils communiquent leurs vibrations. La mission qui les retient ici consiste à perpétuer cet équilibre."
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-happy_talking"
         },
         {
           "type": "message",
@@ -223,13 +183,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -238,13 +193,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
@@ -258,13 +208,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-surprised_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -273,13 +218,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
@@ -288,13 +228,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-surprised_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -303,13 +238,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
@@ -318,13 +248,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-surprised_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -333,13 +258,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
@@ -348,13 +268,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-surprised_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -363,13 +278,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
@@ -378,13 +288,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -393,13 +298,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
@@ -408,13 +308,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -423,13 +318,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
@@ -438,13 +328,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -453,13 +338,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-happy_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
@@ -468,13 +348,8 @@
         },
 		{
           "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-esthesiaTalking"
         },
         {
           "type": "message",
@@ -486,11 +361,6 @@
           "metadata": "Esthesia",
           "data": "Non. J'ai une autre idée."
         },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-happy_talking"
-        },
         {
           "type": "message",
           "metadata": "Esthesia",
@@ -498,28 +368,13 @@
         },
 		{
           "type": "image",
-		  "metadata": "left",
-          "data": "Placeholders\\cutscene08-angel-neutral_talking"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "Placeholders\\cutscene08-esthesia-neutral_listening"
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene08-angelTalking"
         },
         {
           "type": "message",
           "metadata": "Zeous",
           "data": "Ah non ! Ne t'appuies pas là-dessus !"
-        },
-		{
-          "type": "image",
-		  "metadata": "left",
-          "data": "default"
-        },
-		{
-          "type": "image",
-		  "metadata": "right",
-          "data": "default"
         }
       ]
     },
@@ -528,27 +383,32 @@
 		{
           "type": "image",
 		  "metadata": "background",
-          "data": "Placeholders\\cutscene09"
+          "data": "cutscene 1920\\cutscene09"
         },
 		{
           "type": "image",
 		  "metadata": "background",
-          "data": "Placeholders\\cutscene10"
+          "data": "cutscene 1920\\cutscene10"
+        },
+		{
+          "type": "image",
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene02-neutral"
         },
         {
           "type": "message",
           "metadata": "Esthesia",
           "data": "Ca veut dire ... que j'ai de nouveau le pouvoir de me déplacer quand je veux en ville ?"
         },
-		{
-          "type": "image",
-		  "metadata": "background",
-          "data": "Placeholders\\cutscene11"
-        },
         {
           "type": "message",
           "metadata": "Esthesia",
           "data": "Re, c'est encore moi. Tu es toujours sortie ?"
+        },
+		{
+          "type": "image",
+		  "metadata": "background",
+          "data": "cutscene 1920\\cutscene03"
         },
         {
           "type": "message",
@@ -558,7 +418,7 @@
 		{
           "type": "image",
 		  "metadata": "background",
-          "data": "Placeholders\\cutscene12"
+          "data": "cutscene 1920\\cutscene12"
         },
         {
           "type": "message",

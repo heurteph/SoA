@@ -173,25 +173,77 @@
 				</Event>
 				<Event Id="1218834549" Name="Play_Clavier_Assignation" ObjectPath="\Events\Menu\Play_Clavier_Assignation" DurationType="OneShot" DurationMin="0.220199" DurationMax="0.220199">
 					<IncludedMemoryFiles>
+						<File Id="161822121" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation4_Derive_-003.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation4_Derive_-003_3F75BDB9.wem</Path>
+						</File>
+						<File Id="601115739" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation4_Derive_-001.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation4_Derive_-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="661706839" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation4_Derive_-004.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation4_Derive_-004_3F75BDB9.wem</Path>
+						</File>
 						<File Id="993506209" Language="SFX">
 							<ShortName>Menu_Clavier_Assignation4.wav</ShortName>
 							<Path>SFX\Menu_Clavier_Assignation4_3F75BDB9.wem</Path>
+						</File>
+						<File Id="1050817345" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation4_Derive_-002.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation4_Derive_-002_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="4009602722" Name="Play_Clavier_Suppression" ObjectPath="\Events\Menu\Play_Clavier_Suppression" DurationType="OneShot" DurationMin="0.329678" DurationMax="0.329678">
 					<IncludedMemoryFiles>
+						<File Id="190856146" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation2_Derive_-003.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation2_Derive_-003_3F75BDB9.wem</Path>
+						</File>
+						<File Id="340132036" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation2_Derive_-001.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation2_Derive_-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="483593199" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation2_Derive_-004.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation2_Derive_-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="490416899" Language="SFX">
+							<ShortName>Menu_Clavier_Assignation2_Derive_-002.wav</ShortName>
+							<Path>SFX\Menu_Clavier_Assignation2_Derive_-002_3F75BDB9.wem</Path>
+						</File>
 						<File Id="636452874" Language="SFX">
 							<ShortName>Menu_Clavier_Assignation2.wav</ShortName>
 							<Path>SFX\Menu_Clavier_Assignation2_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3735763388" Name="Play_Clic_Selection" ObjectPath="\Events\Menu\Play_Clic_Selection" DurationType="OneShot" DurationMin="0.986019" DurationMax="1.075261">
+				<Event Id="3735763388" Name="Play_Clic_Selection" ObjectPath="\Events\Menu\Play_Clic_Selection" DurationType="OneShot" DurationMin="0.904183" DurationMax="1.075261">
 					<IncludedMemoryFiles>
+						<File Id="135384533" Language="SFX">
+							<ShortName>Menu_Clic_Selection2_Derive_-005.wav</ShortName>
+							<Path>SFX\Menu_Clic_Selection2_Derive_-005_3F75BDB9.wem</Path>
+						</File>
+						<File Id="209189324" Language="SFX">
+							<ShortName>Menu_Clic_Selection2_Derive_-003.wav</ShortName>
+							<Path>SFX\Menu_Clic_Selection2_Derive_-003_3F75BDB9.wem</Path>
+						</File>
+						<File Id="686495443" Language="SFX">
+							<ShortName>Menu_Clic_Selection2_Derive_-004.wav</ShortName>
+							<Path>SFX\Menu_Clic_Selection2_Derive_-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="811092603" Language="SFX">
+							<ShortName>Menu_Clic_Selection2_Derive_-002.wav</ShortName>
+							<Path>SFX\Menu_Clic_Selection2_Derive_-002_3F75BDB9.wem</Path>
+						</File>
 						<File Id="832267210" Language="SFX">
 							<ShortName>Menu_Clic_Selection2.wav</ShortName>
 							<Path>SFX\Menu_Clic_Selection2_3F75BDB9.wem</Path>
+						</File>
+						<File Id="885411238" Language="SFX">
+							<ShortName>Menu_Clic_Selection2_Derive_-001.wav</ShortName>
+							<Path>SFX\Menu_Clic_Selection2_Derive_-001_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -2630,11 +2682,27 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2105670071" Name="Play_Survol" ObjectPath="\Events\Menu\Play_Survol" DurationType="OneShot" DurationMin="1.019632" DurationMax="1.111917">
+				<Event Id="2105670071" Name="Play_Survol" ObjectPath="\Events\Menu\Play_Survol" DurationType="OneShot" DurationMin="0.935007" DurationMax="0.935007">
 					<IncludedMemoryFiles>
+						<File Id="23844011" Language="SFX">
+							<ShortName>Menu_Survol2_Derive_-001.wav</ShortName>
+							<Path>SFX\Menu_Survol2_Derive_-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="63557380" Language="SFX">
+							<ShortName>Menu_Survol2_Derive_-002.wav</ShortName>
+							<Path>SFX\Menu_Survol2_Derive_-002_3F75BDB9.wem</Path>
+						</File>
 						<File Id="303074413" Language="SFX">
 							<ShortName>Menu_Survol2.wav</ShortName>
 							<Path>SFX\Menu_Survol2_3F75BDB9.wem</Path>
+						</File>
+						<File Id="545862016" Language="SFX">
+							<ShortName>Menu_Survol2_Derive_-004.wav</ShortName>
+							<Path>SFX\Menu_Survol2_Derive_-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="726685968" Language="SFX">
+							<ShortName>Menu_Survol2_Derive_-003.wav</ShortName>
+							<Path>SFX\Menu_Survol2_Derive_-003_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

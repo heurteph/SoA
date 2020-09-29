@@ -85,10 +85,8 @@ public class MessagesManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        inputs = new Inputs();
-
-        inputs.Player.Enable();
-        inputs.Player.SkipDialog.performed += SkipDialog;
+        inputs = cutsceneManager.GetComponent<CutsceneManager>().GetInputs();
+        Debug.Assert(inputs != null, "Inputs not instantiated");
 
         textMesh = messageBox.GetComponent<TextMeshProUGUI>();
         Debug.Assert(textMesh != null, "No TextMeshProUGUI attached to " + transform.name);
@@ -278,6 +276,10 @@ public class MessagesManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+        // Erase message before next event, maybe in some case it could stay
+        textMesh.text = "";
+        nameBox.text = "";
+
         MessageShownEvent();
     }
 
@@ -331,6 +333,8 @@ public class MessagesManager : MonoBehaviour
 
     private void NextEvent(InputAction.CallbackContext ctx)
     {
+        AkSoundEngine.PostEvent("Play_Touche_Next", gameObject);
+
         inputs.Player.SkipDialog.performed -= NextEvent;
         next = true;
     }

@@ -1,10 +1,19 @@
-﻿using System.Collections;
+﻿using story;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ImagesManager : MonoBehaviour
 {
+    [SerializeField]
+    [Tooltip("The cutscene manager")]
+    private GameObject cutsceneManager;
+
+    [Space]
+    [Header("Positions")]
+
     [SerializeField]
     private GameObject background;
 
@@ -22,13 +31,18 @@ public class ImagesManager : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The duration for one image to appear")]
-    [Range(0.1f,1f)]
-    private float fadeDuration = 1f;
+    [Range(0.1f,4f)]
+    private float fadeDuration = 3f;
+
+    private Inputs inputs;
+
+    bool next = false;
 
     // Start is called before the first frame update
     void Awake()
     {
-
+        inputs = cutsceneManager.GetComponent<CutsceneManager>().GetInputs();
+        Debug.Assert(inputs != null, "Inputs not instantiated");
     }
 
     // Update is called once per frame
@@ -42,26 +56,30 @@ public class ImagesManager : MonoBehaviour
         StartCoroutine(ReplaceImage(position, id));
     }
 
+    public void ChangeScene(string position, string id)
+    {
+        StartCoroutine(FadeImage(position, id));
+    }
+
     private IEnumerator ReplaceImage(string position, string id)
     {
+        next = false;
+
         Image image = null;
 
         switch (position)
         {
             case "background":
+            case "background-stop":
                 image = background.GetComponent<Image>();
                 break;
 
             case "left":
                 image = left.GetComponent<Image>();
-
-                ImageShownEvent();
                 break;
 
             case "right":
                 image = right.GetComponent<Image>();
-
-                ImageShownEvent();
                 break;
         }
 
@@ -73,32 +91,38 @@ public class ImagesManager : MonoBehaviour
         image.sprite = sprite;
         image.preserveAspect = true;
 
-        if (position == "background")
-            ImageShownEvent();
+        if (position == "background-stop")
+        {
+            inputs.Player.SkipDialog.performed += NextEvent;
 
-        yield return new WaitForEndOfFrame();
+            while (!next)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
+        ImageShownEvent();
     }
 
     private IEnumerator FadeImage(string position, string id)
     {
+        next = false;
+
         Image image = null;
 
         switch (position)
         {
             case "background":
+            case "background-stop":
                 image = background.GetComponent<Image>();
                 break;
 
             case "left":
                 image = left.GetComponent<Image>();
-
-                ImageShownEvent();
                 break;
 
             case "right":
                 image = right.GetComponent<Image>();
-
-                ImageShownEvent();
                 break;
         }
 
@@ -149,8 +173,26 @@ public class ImagesManager : MonoBehaviour
             yield return new WaitForSeconds(timeStep);
         }
 
-        if(position == "background")
-            ImageShownEvent();
+        if (position == "background-stop")
+        {
+            inputs.Player.SkipDialog.performed += NextEvent;
+
+            while (!next)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
+        ImageShownEvent();
+    }
+
+    private void NextEvent(InputAction.CallbackContext ctx)
+    {
+        AkSoundEngine.PostEvent("Play_Touche_Next", gameObject);
+
+        inputs.Player.SkipDialog.performed -= NextEvent;
+
+        next = true;
     }
 
     /*

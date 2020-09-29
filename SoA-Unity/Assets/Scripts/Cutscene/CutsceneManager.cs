@@ -50,14 +50,25 @@ namespace story
         public event ReadyHandler NewMessageEvent;
         public event ReadyHandler NewImageEvent;
         public event ReadyHandler NewSoundEvent;
+        public event ReadyHandler NewSceneEvent;
+
+        private Inputs inputs;
 
         // Start is called before the first frame update
+
+        private void Awake()
+        {
+            inputs = new Inputs();
+            inputs.Player.Enable();
+        }
+
         void Start()
         {
             // Callback functions
             NewMessageEvent += messagesManager.GetComponent<MessagesManager>().WriteMessage;
             NewImageEvent += imagesManager.GetComponent<ImagesManager>().ChangeImage;
             NewSoundEvent += soundManager.GetComponent<SoundManager>().PlaySound;
+            NewSceneEvent += imagesManager.GetComponent<ImagesManager>().ChangeScene;
 
             messagesManager.GetComponent<MessagesManager>().MessageShownEvent += ExecuteNextAction;
             imagesManager.GetComponent<ImagesManager>().ImageShownEvent += ExecuteNextAction;
@@ -71,6 +82,11 @@ namespace story
             itScenes.MoveNext(); // Initialization ?
             itActions = itScenes.Current.actions.GetEnumerator();
 
+            AkSoundEngine.SetState("Menu_Oui_Non", "Menu_Non");
+
+            // Start music
+            AkSoundEngine.PostEvent("Play_Music_Cinematique", gameObject);
+
             // Start with the first action
             ExecuteNextAction();
         }
@@ -79,6 +95,11 @@ namespace story
         void Update()
         {
 
+        }
+
+        public Inputs GetInputs()
+        {
+            return inputs;
         }
 
         public void ExecuteNextAction()
@@ -94,11 +115,16 @@ namespace story
                 {
                     // TO DO : Close cutscene and start game
                     //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+                    inputs.Player.Disable();
+                    AkSoundEngine.PostEvent("Stop_Music_Cinematique", gameObject);
                     SceneManager.LoadScene("GameElise"); 
 
                     return null;
                 }
                 //Debug.Log("Scène suivante");
+                // A fade is needed
+
                 itActions = itScenes.Current.actions.GetEnumerator();
                 itActions.MoveNext(); // Initialization
             }
@@ -124,6 +150,11 @@ namespace story
                 case "sound":
 
                     NewSoundEvent(action.metadata, action.data);
+                    break;
+
+                case "scene":
+
+                    NewSceneEvent(action.metadata, action.data);
                     break;
 
                 default:

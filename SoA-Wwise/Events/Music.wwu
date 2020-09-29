@@ -187,6 +187,31 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Music_Cinematique" ID="{4D31D979-6690-4915-AD5B-84445738BFB2}">
+					<ChildrenList>
+						<Action Name="" ID="{445219AE-1663-4608-9CC4-402F8291AB77}" ShortID="995046909">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Cinematique" ID="{D7DE5FA1-AC53-4A8E-BDB6-90760D287C90}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Music_Cinematique" ID="{DD91C7C2-CB42-46A3-8E4A-D9BAC970CECB}">
+					<ChildrenList>
+						<Action Name="" ID="{D122A353-8379-486B-9B84-CFA850F0DD5E}" ShortID="596841049">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_Cinematique" ID="{D7DE5FA1-AC53-4A8E-BDB6-90760D287C90}" WorkUnitID="{5DEF3F0A-8D66-4DAA-9620-6917B0822159}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

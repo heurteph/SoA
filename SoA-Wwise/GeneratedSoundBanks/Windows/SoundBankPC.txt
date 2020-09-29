@@ -16,6 +16,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	540531537	Play_Portes_Grande			\Commercial_Obstacles\Play_Portes_Grande	
 	566110305	Stop_Music_Safe_Zone_Ville			\Music\Stop_Music_Safe_Zone_Ville	
 	623032412	Stop_Egout			\Ville_Obstacles\Stop_Egout	
+	654722903	Stop_Music_Cinematique			\Music\Stop_Music_Cinematique	
 	725970268	Stop_Horloge			\Ville_Obstacles\Stop_Horloge	
 	777875661	Stop_Canard			\Parc_Obstacles\Stop_Canard	
 	865874921	Play_Parc_Eau_Lac			\Parc_Ambiance\Play_Parc_Eau_Lac	
@@ -64,6 +65,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2980414578	Stop_Mort			\Personnage\Stop_Mort	
 	2983975038	Play_Bus_Door_Open			\Ville_Obstacles\Play_Bus_Door_Open	
 	3084927191	Stop_Music_Safe_Zone_Parc			\Music\Stop_Music_Safe_Zone_Parc	
+	3134804369	Play_Music_Cinematique			\Music\Play_Music_Cinematique	
 	3189001139	Stop_Parc_Eau_Lac			\Parc_Ambiance\Stop_Parc_Eau_Lac	
 	3194051996	Stop_Music_Main_Title			\Music\Stop_Music_Main_Title	
 	3232482810	Play_Bus_Door_Close			\Ville_Obstacles\Play_Bus_Door_Close	
@@ -349,7 +351,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	188782225	Respiration_Idle_Inspire 06	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Idle_Inspire 06_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Idle_Ex or in\Idle_Inspire\Respiration_Idle_Inspire 06		9867
 	190132686	Parc_Obstacles_EauAuto05	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacles_EauAuto05_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Nature\ArrosageAuto\Eau\Parc_Obstacles_EauAuto05		3748
 	193711933	Beton_Walk_Pied_Droit08	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Beton_Walk_Pied_Droit08_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Beton\Droite_Gauche_Beton_Marche\Beton_Marche_Pied_Droit\Beton_Walk_Pied_Droit08		1858
-	197090803	Menu_Etincelle_Texte_Loop	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Menu_Etincelle_Texte_Loop_67ECCCF7.wem		\Actor-Mixer Hierarchy\Menu\MenuGlobal\Texte_Anim_Particule\Menu_Etincelle_Texte_Loop		87096
+	197090803	Menu_Etincelle_Texte_Loop	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Menu_Etincelle_Texte_Loop_DDE57B96.wem		\Actor-Mixer Hierarchy\Menu\MenuGlobal\Texte_Anim_Particule\Menu_Etincelle_Texte_Loop		87096
 	199712462	Respiration_Marche_Inspire 15	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Marche_Inspire 15_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Marche_Ex or in\Marche_Inspire\Respiration_Marche_Inspire 15		6148
 	201319737	Asphalt_Run_Pied_Droit14	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Asphalt_Run_Pied_Droit14_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Asphalt\Droite_Gauche_Asphalt_Court\Asphalt_Court_Pied_Droit\Asphalt_Run_Pied_Droit14		3805
 	204689402	Beton_Run_Pied_Droit17	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Beton_Run_Pied_Droit17_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Beton\Droite_Gauche_Beton_Court\Beton_Court_Pied_Droit\Beton_Run_Pied_Droit17		1661
@@ -816,6 +818,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	900228957	Asphalt_Walk_Pied_Droit05	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Asphalt_Walk_Pied_Droit05_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Asphalt\Droite_Gauche_Asphalt_Marche\Asphalt_Marche_Pied_Droit\Asphalt_Walk_Pied_Droit05		7199
 	912011306	Parc_Obstacles_Humain_Joggueur_RespiFemme06	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme06_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Respiration_JoggueurF\Parc_Obstacles_Humain_Joggueur_RespiFemme06		11105
 	913027824	Respiration_Court_Expire 26	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Respiration_Court_Expire 26_3F75BDB9.wem		\Actor-Mixer Hierarchy\Personnage\Respiration\Respiration_Mouvement\Court_Ex or in\Court_Expire\Respiration_Court_Expire 26		5201
+	913042748	Cinematique_Grotte_interieur_version MP3	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Cinematique_Grotte_interieur_version MP3_3F75BDB9.wem		\Actor-Mixer Hierarchy\Music\Cinematique\Music_Cinematique\Cinematique_Grotte_interieur_version MP3		994757
 	913342094	Herbe_Run_Pied_Droit17	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Herbe_Run_Pied_Droit17_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Herbe\Droite_Gauche_Herbe_Court\Herbe_Court_Pied_Droit\Herbe_Run_Pied_Droit17		3663
 	914699541	Beton_Run_Pied_Gauche20	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Beton_Run_Pied_Gauche20_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Beton\Droite_Gauche_Beton_Court\Beton_Court_Pied_Gauche\Beton_Run_Pied_Gauche20		1683
 	916011536	Asphalt_Walk_Pied_Droit06	E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\SFX\Asphalt_Walk_Pied_Droit06_3F75BDB9.wem		\Actor-Mixer Hierarchy\1_Parc\Obstacles_Parc\Parc_Obstacle_Humain\Parc_Obstacle_Humain_Joggueur\Texture Pas\Court_Marche_Asphalt\Droite_Gauche_Asphalt_Marche\Asphalt_Marche_Pied_Droit\Asphalt_Walk_Pied_Droit06		6941

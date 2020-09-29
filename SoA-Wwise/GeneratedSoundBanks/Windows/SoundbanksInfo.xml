@@ -524,6 +524,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3134804369" Name="Play_Music_Cinematique" ObjectPath="\Events\Music\Play_Music_Cinematique" DurationType="OneShot" DurationMin="69.120003" DurationMax="69.120003">
+					<IncludedMemoryFiles>
+						<File Id="913042748" Language="SFX">
+							<ShortName>Cinematique_Grotte_interieur_version MP3.wav</ShortName>
+							<Path>SFX\Cinematique_Grotte_interieur_version MP3_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2851404393" Name="Play_Music_Credit" ObjectPath="\Events\Music\Play_Music_Credit" DurationType="OneShot" DurationMin="60.000000" DurationMax="60.000000">
 					<IncludedMemoryFiles>
 						<File Id="945892940" Language="SFX">
@@ -2634,7 +2642,7 @@
 					<IncludedMemoryFiles>
 						<File Id="197090803" Language="SFX">
 							<ShortName>Menu_Etincelle_Texte_Loop.wav</ShortName>
-							<Path>SFX\Menu_Etincelle_Texte_Loop_67ECCCF7.wem</Path>
+							<Path>SFX\Menu_Etincelle_Texte_Loop_DDE57B96.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -5742,6 +5750,7 @@
 				<Event Id="2980414578" Name="Stop_Mort" ObjectPath="\Events\Personnage\Stop_Mort" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1194390427" Name="Stop_Moteur_Elagueur" ObjectPath="\Events\Parc_Obstacles\Stop_Moteur_Elagueur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3531521436" Name="Stop_Music_Appart" ObjectPath="\Events\Ville_Obstacles\Stop_Music_Appart" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="654722903" Name="Stop_Music_Cinematique" ObjectPath="\Events\Music\Stop_Music_Cinematique" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3425086499" Name="Stop_Music_Credit" ObjectPath="\Events\Music\Stop_Music_Credit" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3194051996" Name="Stop_Music_Main_Title" ObjectPath="\Events\Music\Stop_Music_Main_Title" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="106912753" Name="Stop_Music_Menu" ObjectPath="\Events\Music\Stop_Music_Menu" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

@@ -68,7 +68,7 @@ public class InGameMenuManager : MonoBehaviour
         // Link buttons to the game manager
         difficultySlider.GetComponent<Slider>().onValueChanged.AddListener(gameManager.GetComponent<GameManager>().ChangeDifficulty);
         resumeButton.GetComponent<Button>().onClick.AddListener(gameManager.GetComponent<GameManager>().ResumeGame);
-        backButton.GetComponent<Button>().onClick.AddListener(gameManager.GetComponent<GameManager>().GoBackToTitle);
+        backButton.GetComponent<Button>().onClick.AddListener(gameManager.GetComponent<GameManager>().GoToTitle);
 
         // when update from the game manager, change the slider without notifying events, or else we would go into an infinite loop
         gameManager.GetComponent<GameManager>().EasyDifficultyEvent += () => { difficultyLabel.GetComponent<TextMeshProUGUI>().SetText("Easy"); difficultyLabel.GetComponent<TextMeshProUGUI>().color = new Color(0, 0, 1); difficultySlider.GetComponent<Slider>().SetValueWithoutNotify(1); };

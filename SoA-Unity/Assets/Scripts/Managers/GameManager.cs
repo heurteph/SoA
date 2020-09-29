@@ -231,7 +231,17 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void GoBackToTitle()
+    public void GoToTitle()
+    {
+        GoToScene("Title");
+    }
+
+    public void GoToCredits()
+    {
+        GoToScene("CreditsScene");
+    }
+
+    public void GoToScene(string sceneName)
     {
         // FIX ????
         firstRun = true;
@@ -260,7 +270,7 @@ public class GameManager : MonoBehaviour
         AkSoundEngine.StopAll();
 
         // Load title
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene(sceneName);
 
         // DoDestroyOnLoad
         Destroy(GameObject.FindGameObjectWithTag("SaveManager"));
@@ -360,8 +370,10 @@ public class GameManager : MonoBehaviour
 
     public void DisplayCredits()
     {
-        AkSoundEngine.StopAll();
-        SceneManager.LoadScene("CreditsScene");
+        //AkSoundEngine.StopAll();
+        //SceneManager.LoadScene("CreditsScene");
+
+        GoToCredits();
 
         if (SceneManager.GetActiveScene().name != "CreditsScene")
         {

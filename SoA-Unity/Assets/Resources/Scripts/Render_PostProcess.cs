@@ -21,6 +21,8 @@ public class Render_PostProcess : MonoBehaviour
     [SerializeField]
     private bool state_chromatique;
     [SerializeField]
+    private bool state_feedBack;
+    [SerializeField]
     private bool state_vignette_pleine;
     [SerializeField]
     private float lerp_effet;
@@ -109,6 +111,7 @@ public class Render_PostProcess : MonoBehaviour
             mat.SetVector("_OffsetColor",new Vector4(offSetColor.x, offSetColor.y, offSetColor.z,1.0f));
             mat.SetInt("_StateBlur",(state_blur ? 1 : 0));
             mat.SetInt("_StateChromatique", (state_chromatique ? 1 : 0));
+            mat.SetInt("_StateFeedBack", (state_feedBack ? 1 : 0));
             mat.SetInt("_VignettePleine", (state_vignette_pleine ? 1 : 0));
             mat.SetFloat("_LerpEffect", lerp_effet);
             mat.SetVector("_OffsetColor", new Vector4(offsetChroma.x, offsetChroma.y, offsetChroma.z, 1.0f));

@@ -36,6 +36,7 @@
 
 				uniform bool _StateBlur;
 				uniform bool _StateChromatique;
+				uniform bool _StateFeedBack;
 				uniform bool _VignettePleine;
 
 				uniform float _LerpEffect;
@@ -181,12 +182,14 @@
 					col = lerp(base, col, _LerpEffect);
 
 					//if(abs(im.uv.x - im.head_pos.x) <= 10.0 )
-					float x = im.uv.x * _ScreenParams.x;
-					float y = im.uv.y * _ScreenParams.y;
-					float len = length(im.head_pos - float2(x, y));
-					if (len >= _Radius_Head_Min && len <= _Radius_Head_Max) {
-						float4 tmp = float4(_Color_Sense.r, _Color_Sense.g, _Color_Sense.b, _Position_Head.w*0.6f);
-						col = lerp(tmp, col,abs(cos(_Time.z+(len - _Radius_Head_Min) / (_Radius_Head_Max - _Radius_Head_Min))));
+					if (_StateFeedBack) {
+						float x = im.uv.x * _ScreenParams.x;
+						float y = im.uv.y * _ScreenParams.y;
+						float len = length(im.head_pos - float2(x, y));
+						if (len >= _Radius_Head_Min && len <= _Radius_Head_Max) {
+							float4 tmp = float4(_Color_Sense.r, _Color_Sense.g, _Color_Sense.b, _Position_Head.w*0.6f);
+							col = lerp(tmp, col, abs(cos(_Time.z + (len - _Radius_Head_Min) / (_Radius_Head_Max - _Radius_Head_Min))));
+						}
 					}
 
 					return col;//lerp(base, col, _LerpEffect);

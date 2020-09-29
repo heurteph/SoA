@@ -49,7 +49,7 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        GetComponent<Button>().Select();
+        EnterButtonAnimation();
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)

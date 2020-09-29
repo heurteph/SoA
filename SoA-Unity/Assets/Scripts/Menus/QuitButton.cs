@@ -48,7 +48,7 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        GetComponent<Button>().Select();
+        EnterButtonAnimation();
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)

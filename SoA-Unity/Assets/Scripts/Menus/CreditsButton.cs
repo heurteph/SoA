@@ -49,7 +49,7 @@ public class CreditsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        GetComponent<Button>().Select();
+        EnterButtonAnimation();
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)

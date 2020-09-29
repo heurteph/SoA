@@ -53,7 +53,8 @@ public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         //transform.GetChild(0).GetComponent<Animation>().Play("MenuItemPop");
         //transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorIn");
         //emission.rateOverTime = rateOverTime;
-        GetComponent<Button>().Select();
+        //GetComponent<Button>().Select();
+        EnterButtonAnimation();
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)

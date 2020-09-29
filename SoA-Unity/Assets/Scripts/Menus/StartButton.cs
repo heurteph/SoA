@@ -13,6 +13,10 @@ public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     ParticleSystem.VelocityOverLifetimeModule velocity;
     float rateOverTime = 5;
 
+    public delegate void ButtonHandler();
+    public event ButtonHandler EnterButtonEvent;
+    public event ButtonHandler ValidateButtonEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +32,9 @@ public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         emission.rateOverTime = 0;
         velocity = sunSpots.velocityOverLifetime;
         velocity.enabled = true;
+
+        EnterButtonEvent += menuManager.GetComponent<MenuManager>().PlayHoverSound;
+        ValidateButtonEvent += menuManager.GetComponent<MenuManager>().PlayClickSound;
     }
 
     // Update is called once per frame
@@ -84,6 +91,8 @@ public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         //transform.GetChild(0).GetComponent<Animation>().Play("MenuItemPop");
         transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorIn");
         emission.rateOverTime = rateOverTime;
+
+        EnterButtonEvent();
     }
 
     private void ExitButtonAnimation()
@@ -103,6 +112,8 @@ public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         transform.GetChild(0).GetComponent<Animation>().Play("MenuItemFlash");
 
         StartCoroutine("BurstSpots");
+
+        ValidateButtonEvent();
 
         if (menuManager.GetComponent<MenuManager>().MenuState == MENU_STATE.CREDITS)
         {

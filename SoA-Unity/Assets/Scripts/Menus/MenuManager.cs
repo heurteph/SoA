@@ -200,4 +200,27 @@ public class MenuManager : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }*/
     }
+
+    /* Wwise functions */
+
+    public void PlayClickSound()
+    {
+        AkSoundEngine.PostEvent("Play_Clic_Selection", gameObject);
+    }
+
+    public void PlayHoverSound()
+    {
+        AkSoundEngine.PostEvent("Play_Survol", gameObject);
+    }
+
+    public void PlayParticlesSound()
+    {
+        AkSoundEngine.PostEvent("Play_Texte_Anim_Particule", gameObject);
+    }
+
+    public void StopParticlesSound()
+    {
+        AkSoundEngine.PostEvent("Stop_Texte_Anim_Particule", gameObject);
+    }
+
 } //FINISH

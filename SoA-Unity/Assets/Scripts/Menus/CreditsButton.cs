@@ -14,6 +14,10 @@ public class CreditsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     ParticleSystem.VelocityOverLifetimeModule velocity;
     float rateOverTime = 5;
 
+    public delegate void ButtonHandler();
+    public event ButtonHandler EnterButtonEvent;
+    public event ButtonHandler ValidateButtonEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +32,9 @@ public class CreditsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         emission.rateOverTime = 0;
         velocity = sunSpots.velocityOverLifetime;
         velocity.enabled = true;
+
+        EnterButtonEvent += menuManager.GetComponent<MenuManager>().PlayHoverSound;
+        ValidateButtonEvent += menuManager.GetComponent<MenuManager>().PlayClickSound;
     }
 
     // Update is called once per frame
@@ -80,6 +87,8 @@ public class CreditsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorIn");
             emission.rateOverTime = rateOverTime;
+
+            EnterButtonEvent();
         }
     }
 
@@ -104,6 +113,8 @@ public class CreditsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             menuManager.GetComponent<MenuManager>().DisplayCredits();
             transform.GetChild(0).GetComponent<Animation>().Play("MenuItemFlash");
             StartCoroutine("BurstSpots");
+
+            ValidateButtonEvent();
         }
     }
 

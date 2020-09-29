@@ -125,69 +125,13 @@ public class ControlsManager : MonoBehaviour
         
     }
 
-    public void RebindMoveUp() { RebindAction(inputs.Player.Walk, moveUpButton, 1); }
+    /* Controller type */
 
-    public void RebindMoveLeft() { RebindAction(inputs.Player.Walk, moveLeftButton, 2); }
-
-    public void RebindMoveDown() { RebindAction(inputs.Player.Walk, moveDownButton, 3); }
-
-    public void RebindMoveRight() { RebindAction(inputs.Player.Walk, moveRightButton, 4); }
-
-    public void RebindInteract() { RebindAction(inputs.Player.Interact, interactButton, 0); }
-
-    public void RebindEyeProtect() { RebindAction(inputs.Player.ProtectEyes, eyeProtectButton, 0); }
-
-    public void RebindEarsProtect() { RebindAction(inputs.Player.ProtectEars, earProtectButton, 0); }
-
-
-    private void RebindAction(InputAction action, GameObject button, int index)
+    public void SelectGamepadControls()
     {
-        if (rebindOperation != null && !rebindOperation.completed)
-        {
-            rebindOperation.Cancel(); // in case of two successive clicks without key press
-        }
+        PlayNewKeySound();
 
-        // Disable click and submit on the button
-        button.GetComponent<EventTrigger>().enabled = false;
-
-        // Disable navigation on the button
-        button.GetComponent<Button>().navigation = navigationOff;
-
-        button.transform.GetChild(0).GetComponent<Text>().text = "...";
-
-        action.Disable();
-
-        Action<InputActionRebindingExtensions.RebindingOperation> callback = context =>
-        {
-            action.Enable();
-            rebindOperation.Dispose();
-            button.transform.GetChild(0).GetComponent<Text>().text = action.GetBindingDisplayString(index);
-            reservedPaths.Add(action.bindings[index].overridePath);
-            button.GetComponent<EventTrigger>().enabled = true;
-            button.GetComponent<Button>().navigation = navigationAuto;
-        };
-
-        rebindOperation = action.PerformInteractiveRebinding()
-            .OnComplete(callback)
-            .OnCancel(callback)
-            .WithControlsHavingToMatchPath("<Keyboard>")
-            .WithControlsHavingToMatchPath("<Mouse>")
-            .WithCancelingThrough("<Keyboard>/escape")
-            // next two lines compulsory for a composite binding
-            .WithTargetBinding(index)
-            .WithExpectedControlType("Button")
-            //.Start()
-            ;
-
-        // forbid utilization of a key already in use
-        reservedPaths.Remove(action.bindings[index].overridePath);
-        foreach (var path in reservedPaths)
-        {
-            //Debug.Log(path);
-            rebindOperation.WithControlsExcluding(path);
-        }
-
-        rebindOperation.Start();
+        UseGamepadControls();
     }
 
     public void UseGamepadControls()
@@ -199,6 +143,13 @@ public class ControlsManager : MonoBehaviour
         menuManager.GetComponent<MenuManager>().SwitchToGamepadControls();
 
         PlayerPrefs.SetString("controls", "gamepad");
+    }
+
+    public void SelectMouseKeyboardControls()
+    {
+        PlayNewKeySound();
+
+        UseMouseKeyboardControls();
     }
 
     public void UseMouseKeyboardControls()
@@ -224,6 +175,75 @@ public class ControlsManager : MonoBehaviour
         button.GetComponent<Button>().interactable = false;
     }
 
+    /* Key bindings */
+
+    public void RebindMoveUp() { RebindAction(inputs.Player.Walk, moveUpButton, 1); }
+
+    public void RebindMoveLeft() { RebindAction(inputs.Player.Walk, moveLeftButton, 2); }
+
+    public void RebindMoveDown() { RebindAction(inputs.Player.Walk, moveDownButton, 3); }
+
+    public void RebindMoveRight() { RebindAction(inputs.Player.Walk, moveRightButton, 4); }
+
+    public void RebindInteract() { RebindAction(inputs.Player.Interact, interactButton, 0); }
+
+    public void RebindEyeProtect() { RebindAction(inputs.Player.ProtectEyes, eyeProtectButton, 0); }
+
+    public void RebindEarsProtect() { RebindAction(inputs.Player.ProtectEars, earProtectButton, 0); }
+
+    private void RebindAction(InputAction action, GameObject button, int index)
+    {
+        PlayRemoveKeySound();
+
+        if (rebindOperation != null && !rebindOperation.completed)
+        {
+            rebindOperation.Cancel(); // in case of two successive clicks without key press
+        }
+
+        // Disable click and submit on the button
+        button.GetComponent<EventTrigger>().enabled = false;
+
+        // Disable navigation on the button
+        button.GetComponent<Button>().navigation = navigationOff;
+
+        button.transform.GetChild(0).GetComponent<Text>().text = "...";
+
+        action.Disable();
+
+        Action<InputActionRebindingExtensions.RebindingOperation> callback = context =>
+        {
+            action.Enable();
+            rebindOperation.Dispose();
+            button.transform.GetChild(0).GetComponent<Text>().text = action.GetBindingDisplayString(index);
+            reservedPaths.Add(action.bindings[index].overridePath);
+            button.GetComponent<EventTrigger>().enabled = true;
+            button.GetComponent<Button>().navigation = navigationAuto;
+            PlayNewKeySound();
+        };
+
+        rebindOperation = action.PerformInteractiveRebinding()
+            .OnComplete(callback)
+            .OnCancel(callback)
+            .WithControlsHavingToMatchPath("<Keyboard>")
+            .WithControlsHavingToMatchPath("<Mouse>")
+            .WithCancelingThrough("<Keyboard>/escape")
+            // next two lines compulsory for a composite binding
+            .WithTargetBinding(index)
+            .WithExpectedControlType("Button")
+            //.Start()
+            ;
+
+        // forbid utilization of a key already in use
+        reservedPaths.Remove(action.bindings[index].overridePath);
+        foreach (var path in reservedPaths)
+        {
+            //Debug.Log(path);
+            rebindOperation.WithControlsExcluding(path);
+        }
+
+        rebindOperation.Start();
+    }
+
     private void InitBindings()
     {
         if (PlayerPrefs.HasKey("forward"))
@@ -246,6 +266,8 @@ public class ControlsManager : MonoBehaviour
 
     public void ResetBindings()
     {
+        PlayRemoveKeySound();
+
         inputs.Player.Walk.ApplyBindingOverride(1, defaultPaths["forward"]);
         inputs.Player.Walk.ApplyBindingOverride(2, defaultPaths["turnleft"]);
         inputs.Player.Walk.ApplyBindingOverride(3, defaultPaths["turnback"]);
@@ -259,6 +281,8 @@ public class ControlsManager : MonoBehaviour
 
     public void SaveBindings()
     {
+        PlayNewKeySound();
+
         PlayerPrefs.SetString("forward", inputs.Player.Walk.bindings[1].overridePath);
         PlayerPrefs.SetString("turnleft", inputs.Player.Walk.bindings[2].overridePath);
         PlayerPrefs.SetString("turnback", inputs.Player.Walk.bindings[3].overridePath);
@@ -280,6 +304,18 @@ public class ControlsManager : MonoBehaviour
 
         restoreBindingsButton.transform.GetChild(0).GetComponent<Text>().text = "Reset Keys";
         saveBindingsButton.transform.GetChild(0).GetComponent<Text>().text = "Save Keys";
+    }
+
+    /* Wwise functions */
+
+    private void PlayRemoveKeySound()
+    {
+        AkSoundEngine.PostEvent("Play_Clavier_Suppression", gameObject);
+    }
+
+    private void PlayNewKeySound()
+    {
+        AkSoundEngine.PostEvent("Play_Clavier_Assignation", gameObject);
     }
 
     private void OnEnable()

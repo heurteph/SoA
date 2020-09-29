@@ -85,6 +85,7 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         //transform.GetChild(0).GetComponent<Animation>().Play("MenuItemPop");
         transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorIn");
         emission.rateOverTime = rateOverTime;
+        transform.GetChild(1).GetComponent<MenuParticleSystem>().PlayParticleSound();
 
         EnterButtonEvent();
     }
@@ -93,6 +94,7 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorOut");
         emission.rateOverTime = 0;
+        transform.GetChild(1).GetComponent<MenuParticleSystem>().StopParticleSound();
     }
 
     private void ValidateButtonAnimation()
@@ -103,6 +105,7 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             creditsPanel.GetComponent<Animation>().Play("CreditsFadeOut");
         }*/
         transform.GetChild(0).GetComponent<Animation>().Play("MenuItemFlash");
+        transform.GetChild(1).GetComponent<MenuParticleSystem>().StopParticleSound();
 
         StartCoroutine("BurstSpots");
 

@@ -87,6 +87,7 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorIn");
             emission.rateOverTime = rateOverTime;
+            transform.GetChild(1).GetComponent<MenuParticleSystem>().PlayParticleSound();
 
             EnterButtonEvent();
         }
@@ -98,6 +99,7 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             transform.GetChild(0).GetComponent<Animation>().Play("MenuItemColorOut");
             emission.rateOverTime = 0;
+            transform.GetChild(1).GetComponent<MenuParticleSystem>().StopParticleSound();
         }
     }
 
@@ -112,6 +114,7 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             menuManager.GetComponent<MenuManager>().DisplayControls();
             transform.GetChild(0).GetComponent<Animation>().Play("MenuItemFlash");
+            transform.GetChild(1).GetComponent<MenuParticleSystem>().StopParticleSound();
             StartCoroutine("BurstSpots");
 
             ValidateButtonEvent();

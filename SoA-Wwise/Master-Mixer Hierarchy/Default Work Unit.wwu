@@ -12,6 +12,22 @@
 						<Reference Name="AudioDevice">
 							<ObjectRef Name="System" ID="{4F3D1088-EDE1-46D8-8F1D-E7179CF2E03F}" WorkUnitID="{D68321AF-5784-40B3-B4C6-A70A0A73E6A4}"/>
 						</Reference>
+						<Reference Name="Effect0">
+							<Custom>
+								<Effect Name="Wwise_Parametric_EQ_(Custom)" ID="{64024D5E-D127-48F3-8C92-AC0B5525C9CE}" ShortID="332284441" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+									<PropertyList>
+										<Property Name="FilterTypeBand1" Type="int32" Value="0"/>
+										<Property Name="FilterTypeBand3" Type="int32" Value="1"/>
+										<Property Name="FrequencyBand1" Type="Real32" Value="51"/>
+										<Property Name="FrequencyBand2" Type="Real32" Value="548"/>
+										<Property Name="FrequencyBand3" Type="Real32" Value="175"/>
+										<Property Name="GainBand1" Type="Real32" Value="-3"/>
+										<Property Name="GainBand2" Type="Real32" Value="-1.5"/>
+										<Property Name="GainBand3" Type="Real32" Value="-2.5"/>
+									</PropertyList>
+								</Effect>
+							</Custom>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<Bus Name="Environnement_Master" ID="{315C115F-0EDE-4532-BB77-1F0F824A8AC9}">
@@ -50,6 +66,35 @@
 						<Bus Name="Cinematique_Master" ID="{AFB968BF-4BC2-45F3-9C92-CF5682C62590}"/>
 						<Bus Name="Menu_Master" ID="{028B06FE-0828-4B3B-B5E6-C42B8E064663}"/>
 					</ChildrenList>
+					<StateInfo>
+						<StatePropertyList>
+							<Property Name="BypassEffect"/>
+							<Property Name="Volume"/>
+						</StatePropertyList>
+						<StateGroupList>
+							<StateGroupInfo>
+								<StateGroupRef Name="Menu_Oui_Non" ID="{1A573B95-4C40-4AC7-BDA8-3F919156EAFD}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Menu_oui" ID="{B23889C1-B0A9-49EB-9591-9BED9F1A2842}"/>
+								<CustomState Name="" ID="{3C36AFE0-45A9-4641-95B6-919A6030ABAE}" ShortID="405637748">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64" Value="-20"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Menu_Non" ID="{075A3419-44F3-4BDC-B0E0-6A45AC6676BA}"/>
+								<CustomState Name="" ID="{684DBBDC-60B4-4E5A-A2AB-22B49E367CE4}" ShortID="222969573">
+									<PropertyList>
+										<Property Name="BypassEffect" Type="bool" Value="True"/>
+									</PropertyList>
+								</CustomState>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 				</Bus>
 				<Bus Name="NiveauEcoutePerso" ID="{A4D9FDFA-2BDE-4429-BF04-2EA53793E583}">
 					<ReferenceList>

@@ -303,7 +303,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4276677556" Name="Play_Ecriture_Animation" ObjectPath="\Events\Cinematique\Play_Ecriture_Animation" DurationType="OneShot" DurationMin="0.244286" DurationMax="0.506195">
+				<Event Id="4276677556" Name="Play_Ecriture_Animation" ObjectPath="\Events\Cinematique\Play_Ecriture_Animation" DurationType="OneShot" DurationMin="0.227533" DurationMax="0.543468">
 					<IncludedMemoryFiles>
 						<File Id="278579835" Language="SFX">
 							<ShortName>Cinematic_Ecriture_Anim_-004.wav</ShortName>
@@ -680,11 +680,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="865874921" Name="Play_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Eau_Lac" DurationType="OneShot" DurationMin="30.011896" DurationMax="30.011896">
+				<Event Id="865874921" Name="Play_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Eau_Lac" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="705099394" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_EauLac01.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_EauLac01_3F75BDB9.wem</Path>
+							<Path>SFX\Parc_Ambiance_Nature_EauLac01_AD083A43.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -5790,6 +5790,14 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="3029881444" Name="Play_Touche_Next" ObjectPath="\Events\Cinematique\Play_Touche_Next" DurationType="OneShot" DurationMin="0.305833" DurationMax="0.305833">
+					<IncludedMemoryFiles>
+						<File Id="281658015" Language="SFX">
+							<ShortName>Cinematique_Touche_Next2.wav</ShortName>
+							<Path>SFX\Cinematique_Touche_Next2_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3782749553" Name="Play_Travaux" ObjectPath="\Events\Ville_Obstacles\Play_Travaux" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="816991328" Language="SFX">
@@ -5843,6 +5851,7 @@
 				<Event Id="3549513284" Name="Stop_Sonnette_Magasins" ObjectPath="\Events\Ville_Obstacles\Stop_Sonnette_Magasins" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="507140941" Name="Stop_Survol" ObjectPath="\Events\Menu\Stop_Survol" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2148170426" Name="Stop_Texte_Anim_Particule" ObjectPath="\Events\Menu\Stop_Texte_Anim_Particule" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1246565790" Name="Stop_Touche_Next" ObjectPath="\Events\Cinematique\Stop_Touche_Next" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2077251707" Name="Stop_Travaux" ObjectPath="\Events\Ville_Obstacles\Stop_Travaux" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>

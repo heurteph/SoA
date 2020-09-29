@@ -25,8 +25,8 @@
 											<Modifier Name="" ID="{FE982A06-27CB-43BD-B036-45659346ED46}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="177"/>
-													<Property Name="Min" Type="Real64" Value="-177"/>
+													<Property Name="Max" Type="Real64" Value="300"/>
+													<Property Name="Min" Type="Real64" Value="-300"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
@@ -132,6 +132,40 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<BlendContainer Name="Touche_Next" ID="{6EC433E7-AF99-4E6C-B4E7-F351E896A9A8}" ShortID="1013424073">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Cinematique_Touche_Next2" ID="{BA27C332-61A0-4E0A-939B-B5AD3A3C12F5}" ShortID="557697285">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6389C055-F4EB-4EED-AF54-0E8933E2460A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Cinematique_Touche_Next2" ID="{452DBA41-1CBC-4EB4-AECB-05FF58E99EB1}">
+											<Language>SFX</Language>
+											<AudioFile>Cinematique_Touche_Next2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="281658015"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Cinematique_Touche_Next2" ID="{452DBA41-1CBC-4EB4-AECB-05FF58E99EB1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</BlendContainer>
 					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>

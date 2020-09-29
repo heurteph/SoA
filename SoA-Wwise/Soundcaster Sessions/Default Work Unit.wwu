@@ -30,6 +30,7 @@
 						<CurrentStateRef Name="Non" ID="{7A7D650E-DD32-4666-9729-0C34B557B8E2}"/>
 						<CurrentStateRef Name="Non" ID="{09CD2543-B398-4A17-9D7A-A8CE1268FD23}"/>
 						<CurrentStateRef Name="Pas_Active" ID="{5E83877F-A92A-4710-AD08-FE400A73AAFC}"/>
+						<CurrentStateRef Name="Menu_Non" ID="{075A3419-44F3-4BDC-B0E0-6A45AC6676BA}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="Court" ID="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}"/>

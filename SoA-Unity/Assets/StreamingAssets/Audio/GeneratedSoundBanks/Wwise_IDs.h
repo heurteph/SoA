@@ -68,6 +68,7 @@ namespace AK
         static const AkUniqueID PLAY_TEXTE_ANIM_PARTICULE = 1410339968U;
         static const AkUniqueID PLAY_TEXTURE_PAS = 1047604054U;
         static const AkUniqueID PLAY_TEXTURE_PAS_JOGGER = 482787459U;
+        static const AkUniqueID PLAY_TOUCHE_NEXT = 3029881444U;
         static const AkUniqueID PLAY_TRAVAUX = 3782749553U;
         static const AkUniqueID STOP_ALL = 452547817U;
         static const AkUniqueID STOP_ARROSAGEAUTO = 1056565793U;
@@ -114,6 +115,7 @@ namespace AK
         static const AkUniqueID STOP_SONNETTE_MAGASINS = 3549513284U;
         static const AkUniqueID STOP_SURVOL = 507140941U;
         static const AkUniqueID STOP_TEXTE_ANIM_PARTICULE = 2148170426U;
+        static const AkUniqueID STOP_TOUCHE_NEXT = 1246565790U;
         static const AkUniqueID STOP_TRAVAUX = 2077251707U;
     } // namespace EVENTS
 
@@ -142,6 +144,18 @@ namespace AK
                 static const AkUniqueID OUI = 645492566U;
             } // namespace STATE
         } // namespace DANS_TUNNEL
+
+        namespace MENU_OUI_NON
+        {
+            static const AkUniqueID GROUP = 2551007772U;
+
+            namespace STATE
+            {
+                static const AkUniqueID MENU_NON = 2651242748U;
+                static const AkUniqueID MENU_OUI = 2818768592U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace MENU_OUI_NON
 
         namespace PROTECTION_OUI_NON
         {
@@ -281,6 +295,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID NEW_GAME_PARAMETER = 3671138082U;
         static const AkUniqueID QUEL_MOTEUR = 2782977595U;
         static const AkUniqueID RALENTI_ACCELERE = 731750351U;
         static const AkUniqueID VITESSEVEHICULE = 3154243729U;

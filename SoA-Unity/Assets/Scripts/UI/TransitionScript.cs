@@ -53,4 +53,9 @@ public class TransitionScript : MonoBehaviour
             done = true;
         }
     }
+
+    public void DestroySingleton()
+    {
+        singleton = null;   
+    }
 }

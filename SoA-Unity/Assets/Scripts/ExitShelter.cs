@@ -27,7 +27,6 @@ public class ExitShelter : MonoBehaviour
 
     private GameObject ambianceManager;
 
-    [SerializeField]
     private GameObject compass;
 
     private string shelterTag;
@@ -39,6 +38,8 @@ public class ExitShelter : MonoBehaviour
 
         ambianceManager = GameObject.FindGameObjectWithTag("AmbianceManager");
         shade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
+        compass = GameObject.FindGameObjectWithTag("Compass");
+        Debug.Assert(compass != null, "Missing gameobject with compass tag");
 
         if (ambianceManager == null)
         {
@@ -159,5 +160,10 @@ public class ExitShelter : MonoBehaviour
     void OnDisable()
     {
         //inputs.Player.Disable();
+    }
+
+    private void OnDestroy()
+    {
+        inputs.Player.Interact.performed -= ShelterToWorld;
     }
 }

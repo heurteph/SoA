@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CompassBehavior : MonoBehaviour
 {
-    [SerializeField]
     private GameObject compassMagnet;
 
     private GameObject mainCamera;
@@ -18,6 +18,7 @@ public class CompassBehavior : MonoBehaviour
     void Awake()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        compassMagnet = GameObject.FindGameObjectWithTag("CompassMagnet");
 
         Debug.Assert(mainCamera != null, "Missing main camera");
         Debug.Assert(compassMagnet != null, "Missing compass magnet");
@@ -41,5 +42,11 @@ public class CompassBehavior : MonoBehaviour
     {
         degrees = Vector3.SignedAngle(Vector3.ProjectOnPlane(compassMagnet.transform.position - mainCamera.transform.position, Vector3.up), Vector3.ProjectOnPlane(mainCamera.transform.forward, Vector3.up), Vector3.up);
         transform.rotation = Quaternion.AngleAxis(degrees, axis) * orientation;
+    }
+
+    public void ReloadReferences()
+    {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        compassMagnet = GameObject.FindGameObjectWithTag("CompassMagnet");
     }
 }

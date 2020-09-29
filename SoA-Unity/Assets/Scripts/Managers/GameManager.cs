@@ -35,13 +35,8 @@ public class GameManager : MonoBehaviour
     private Image gameOverLogo;
     private Text gameOverMessage;
 
-    [Space]
-    [Header("Senses")]
-    [SerializeField]
     private GameObject brightness;
-    [SerializeField]
     private GameObject loudness;
-    [SerializeField]
     private GameObject crowd;
 
     private bool isGameOver;
@@ -74,6 +69,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        firstRun = true;
+        isGameOver = false;
+
         if (singleton == null)
         {
             singleton = gameObject;
@@ -85,6 +83,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        Debug.Log("A NEW GAME MANAGER IS LOADED ! YEAH !");
+
         inputs = InputsManager.Instance.Inputs;
 
         inputs.Player.Quit.performed += PauseGame;
@@ -93,14 +93,16 @@ public class GameManager : MonoBehaviour
         gameOverLogo = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Image>();
         gameOverMessage = GameObject.FindGameObjectWithTag("GameOverMessage").GetComponent<Text>();
 
+        brightness = GameObject.FindGameObjectWithTag("Brightness");
+        loudness = GameObject.FindGameObjectWithTag("Loudness");
+        crowd = GameObject.FindGameObjectWithTag("Crowd");
+
         Debug.Assert(brightness != null, "Missing vision reference");
         Debug.Assert(loudness != null, "Missing hearing reference");
         Debug.Assert(crowd != null, "Missing crowd reference");
         Debug.Assert(brightness.GetComponent<VisionBehaviour>() != null, "Incorrect vision reference");
         Debug.Assert(loudness.GetComponent<HearingScript>() != null, "Incorrect hearing reference");
         Debug.Assert(crowd.GetComponent<FieldOfView>() != null, "Incorrect crowd reference");
-
-        firstRun = true;
 
         //mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         //transitionCamera = GameObject.FindGameObjectWithTag("TransitionCamera").GetComponent<Camera>();
@@ -223,10 +225,47 @@ public class GameManager : MonoBehaviour
         return difficulty;
     }
 
-    public void QuitGame()
+    public void QuitGame() // Unused
     {
         // TO DO : Add warning message
         Application.Quit();
+    }
+
+    public void GoBackToTitle()
+    {
+        // FIX ????
+        firstRun = true;
+        isGameOver = false;
+
+        singleton = null;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        // Destroy singletons
+        GameObject.FindGameObjectWithTag("SaveManager").GetComponent<SaveManager>().DestroySingleton();
+        GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<InGameMenuManager>().DestroySingleton();
+
+        // Unpause
+        Time.timeScale = 1;
+        AkSoundEngine.WakeupFromSuspend();
+        inputs.Player.Enable();
+
+        // Inputs
+        inputs.Player.Quit.performed -= PauseGame;
+        inputs.Player.Quit.performed -= ResumeGame;
+
+        // Destroy singleton
+        InputsManager.Destroy();
+
+        //Wwise
+        AkSoundEngine.StopAll();
+
+        // Load title
+        SceneManager.LoadScene("Title");
+
+        // DoDestroyOnLoad
+        Destroy(GameObject.FindGameObjectWithTag("SaveManager"));
+        Destroy(GameObject.FindGameObjectWithTag("MainCanvas"));
+        Destroy(GameObject.FindGameObjectWithTag("GameManager"));
     }
 
     /* Defeat functions */
@@ -278,9 +317,19 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "GameElise" || scene.name == "Game" || scene.name == "CutZonesScene")
         {
+            // Reload references
+
+            fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
+            gameOverLogo = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Image>();
+            gameOverMessage = GameObject.FindGameObjectWithTag("GameOverMessage").GetComponent<Text>();
+
+            brightness = GameObject.FindGameObjectWithTag("Brightness");
+            loudness = GameObject.FindGameObjectWithTag("Loudness");
+            crowd = GameObject.FindGameObjectWithTag("Crowd");
+
             if (!firstRun)
             {
-                Debug.Log("Scene loaded");
+                Debug.Log("IT'S NOT A FIRST RUN !");
 
                 // Fade out
                 //gameOverLogo.GetComponent<Animation>().Play("LogoFadeOut");
@@ -290,8 +339,12 @@ public class GameManager : MonoBehaviour
 
                 inputs.Player.Enable();
             }
+            else
+            {
+                Debug.Log("IT'S A FIRST RUN");
+                firstRun = false;
+            }
         }
-        firstRun = false;
     }
 
     /* Victory functions */

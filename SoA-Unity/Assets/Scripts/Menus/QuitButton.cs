@@ -137,4 +137,8 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             yield return null;
         }
     }
+    private void OnDestroy()
+    {
+        transform.GetChild(1).GetComponent<MenuParticleSystem>().StopParticleSound();
+    }
 }

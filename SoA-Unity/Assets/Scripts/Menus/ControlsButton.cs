@@ -133,4 +133,9 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             yield return null;
         }
     }
+
+    private void OnDestroy()
+    {
+        transform.GetChild(1).GetComponent<MenuParticleSystem>().StopParticleSound();
+    }
 }

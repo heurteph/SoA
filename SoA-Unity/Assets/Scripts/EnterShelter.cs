@@ -28,7 +28,6 @@ public class EnterShelter : MonoBehaviour
 
     private GameObject saveManager;
 
-    [SerializeField]
     private GameObject compass;
 
     private void Awake()
@@ -45,6 +44,8 @@ public class EnterShelter : MonoBehaviour
         ambianceManager = GameObject.FindGameObjectWithTag("AmbianceManager");
         saveManager = GameObject.FindGameObjectWithTag("SaveManager");
         shade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
+        compass = GameObject.FindGameObjectWithTag("Compass");
+        Debug.Assert(compass != null, "Missing gameobject with compass tag");
 
         if (ambianceManager == null)
         {
@@ -250,6 +251,11 @@ public class EnterShelter : MonoBehaviour
     void OnDisable()
     {
         //inputs.Player.Disable();
+    }
+
+    private void OnDestroy()
+    {
+        inputs.Player.Interact.performed -= WorldToShelter;
     }
 
 }  //FINISH

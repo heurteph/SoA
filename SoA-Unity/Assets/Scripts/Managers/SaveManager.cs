@@ -53,4 +53,9 @@ public class SaveManager : MonoBehaviour
             saveShelterIndex = SHELTER.SHED;
         }
     }
+
+    public void DestroySingleton()
+    {
+        singleton = null; // Manually destroy static object
+    }
 }

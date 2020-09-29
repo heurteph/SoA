@@ -42,4 +42,9 @@ public class InputsManager
     {
 
     }
+
+    public static void Destroy()
+    {
+        instance = null;
+    }
 }

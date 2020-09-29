@@ -133,4 +133,9 @@ public class CreditsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             yield return null;
         }
     }
+
+    private void OnDestroy()
+    {
+        transform.GetChild(1).GetComponent<MenuParticleSystem>().StopParticleSound();
+    }
 }

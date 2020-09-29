@@ -33,6 +33,12 @@ TagManager:
   - Static
   - Dynamic
   - StressVFX
+  - MainCanvas
+  - Brightness
+  - Loudness
+  - Crowd
+  - CompassMagnet
+  - Compass
   layers:
   - Default
   - TransparentFX

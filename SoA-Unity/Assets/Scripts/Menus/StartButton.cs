@@ -145,4 +145,9 @@ public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             yield return null;
         }
     }
+
+    private void OnDisable()
+    {
+        transform.GetChild(1).GetComponent<MenuParticleSystem>().StopParticleSound();
+    }
 }

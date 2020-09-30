@@ -281,8 +281,13 @@ public class MessagesManager : MonoBehaviour
                 else
                 {
                     // Don't put sound on space characters
-                    if(textMesh.text[i] != ' ')
-                        AkSoundEngine.PostEvent("Play_Ecriture_Animation", gameObject);
+                    if (textMesh.text[i] != ' ')
+                    {
+                        if (textName.text == "Zeous")
+                            AkSoundEngine.PostEvent("Play_Ecriture_Animation_Ange", gameObject);
+                        else
+                            AkSoundEngine.PostEvent("Play_Ecriture_Animation", gameObject);
+                    }
 
                     if (useVibrations)
                         StartVibrating();

@@ -144,7 +144,8 @@ public class EnterShelter : MonoBehaviour
 
         //UI
         compass.GetComponent<Image>().enabled = false;
-        compass.GetComponent<CompassBehavior>().enabled = false;
+        //compass.GetComponent<CompassBehavior>().enabled = false;
+        compass.SetActive(false);
 
         //GetComponent<PostWwiseAmbiance>().ParkAmbianceEventStop.Post(gameObject);
         //GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventPlay.Post(gameObject);
@@ -223,7 +224,8 @@ public class EnterShelter : MonoBehaviour
 
         //UI
         compass.GetComponent<Image>().enabled = false;
-        compass.GetComponent<CompassBehavior>().enabled = false;
+        //compass.GetComponent<CompassBehavior>().enabled = false;
+        compass.SetActive(false);
 
         //GetComponent<PostWwiseAmbiance>().ParkAmbianceEventStop.Post(gameObject);
         //GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventPlay.Post(gameObject);

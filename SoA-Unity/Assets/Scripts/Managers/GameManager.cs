@@ -52,7 +52,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Default difficulty level")]
-    DIFFICULTY difficulty = DIFFICULTY.MEDIUM;
+    private DIFFICULTY difficulty = DIFFICULTY.MEDIUM;
+
     Dictionary<DIFFICULTY, float> brightnessDamages = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 10f }, { DIFFICULTY.EASY, 5f }, { DIFFICULTY.HARD, 20f }, { DIFFICULTY.ONESHOT, 1000f } };
     Dictionary<DIFFICULTY, float> loudnessDamages = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 50f }, { DIFFICULTY.EASY, 10f }, { DIFFICULTY.HARD, 100f }, { DIFFICULTY.ONESHOT, 1000f } };
     Dictionary<DIFFICULTY, float> crowdDamages   = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 20f }, { DIFFICULTY.EASY, 10f }, { DIFFICULTY.HARD, 40f }, { DIFFICULTY.ONESHOT, 1000f } };
@@ -121,8 +122,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AkSoundEngine.SetState("Menu_Oui_Non", "Menu_Non");
 
-        if(creditsTransition == null)
+        if (creditsTransition == null)
         {
             throw new System.ArgumentException("No animator for the transitions to the credits");
         }
@@ -186,12 +188,34 @@ public class GameManager : MonoBehaviour
         ResumeGame();
     }
 
+    /* Interface for slider */
+
     public void ChangeDifficulty(float value)
     {
         //Debug.Log("Difficulty changed from slider !");
 
         Debug.Assert(value >= 1 && value <= 3, "Unknoow difficulty level : " + value);
         difficulty = (DIFFICULTY)((int)value - 1);
+        ChangeDifficulty(difficulty);
+    }
+
+    /* Interface for buttons */
+
+    public void ChangeToEasy()
+    {
+        difficulty = DIFFICULTY.EASY;
+        ChangeDifficulty(difficulty);
+    }
+
+    public void ChangeToMedium()
+    {
+        difficulty = DIFFICULTY.MEDIUM;
+        ChangeDifficulty(difficulty);
+    }
+
+    public void ChangeToHard()
+    {
+        difficulty = DIFFICULTY.HARD;
         ChangeDifficulty(difficulty);
     }
 

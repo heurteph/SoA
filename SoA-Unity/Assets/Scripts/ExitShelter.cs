@@ -138,7 +138,8 @@ public class ExitShelter : MonoBehaviour
 
         // UI
         compass.GetComponent<Image>().enabled = true;
-        compass.GetComponent<CompassBehavior>().enabled = true;
+        //compass.GetComponent<CompassBehavior>().enabled = true;
+        compass.SetActive(true);
 
         //GetComponent<PostWwiseAmbiance>().ShelterAmbianceEventStop.Post(gameObject);
         //GetComponent<PostWwiseAmbiance>().ParkAmbianceEventPlay.Post(gameObject);

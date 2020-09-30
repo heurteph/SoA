@@ -24,7 +24,6 @@ State Group	ID	Name			Wwise Object Path	Notes
 	3986250553	Dans_Lieu_Repos			\Lieux\Dans_Lieu_Repos	
 
 State	ID	Name	State Group			Notes
-	748895195	None	Menu_Oui_Non			
 	2651242748	Menu_Non	Menu_Oui_Non			
 	2818768592	Menu_oui	Menu_Oui_Non			
 	58138747	Active	Protection_Oui_Non			

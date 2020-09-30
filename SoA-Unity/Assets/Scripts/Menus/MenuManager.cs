@@ -94,6 +94,8 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        AkSoundEngine.SetState("Menu_Oui_Non", "Menu_Non");
+
         AkSoundEngine.PostEvent("Play_Music_Main_Title", gameObject);
     }
 

@@ -323,6 +323,26 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3584937418" Name="Play_Ecriture_Animation_Ange" ObjectPath="\Events\Cinematique\Play_Ecriture_Animation_Ange" DurationType="OneShot" DurationMin="0.312619" DurationMax="0.746699">
+					<IncludedMemoryFiles>
+						<File Id="278579835" Language="SFX">
+							<ShortName>Cinematic_Ecriture_Anim_-004.wav</ShortName>
+							<Path>SFX\Cinematic_Ecriture_Anim_-004_3F75BDB9.wem</Path>
+						</File>
+						<File Id="845014992" Language="SFX">
+							<ShortName>Cinematic_Ecriture_Anim_-003.wav</ShortName>
+							<Path>SFX\Cinematic_Ecriture_Anim_-003_3F75BDB9.wem</Path>
+						</File>
+						<File Id="929848145" Language="SFX">
+							<ShortName>Cinematic_Ecriture_Anim_-001.wav</ShortName>
+							<Path>SFX\Cinematic_Ecriture_Anim_-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="1031672062" Language="SFX">
+							<ShortName>Cinematic_Ecriture_Anim_-002.wav</ShortName>
+							<Path>SFX\Cinematic_Ecriture_Anim_-002_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="869276618" Name="Play_Egout" ObjectPath="\Events\Ville_Obstacles\Play_Egout" MaxAttenuation="30.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="563896891" Language="SFX">
@@ -576,11 +596,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3134804369" Name="Play_Music_Cinematique" ObjectPath="\Events\Music\Play_Music_Cinematique" DurationType="OneShot" DurationMin="69.064728" DurationMax="69.064728">
+				<Event Id="3134804369" Name="Play_Music_Cinematique" ObjectPath="\Events\Music\Play_Music_Cinematique" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="593211348" Language="SFX">
 							<ShortName>Cinématique Grotte intérieur v1 R128.wav</ShortName>
-							<Path>SFX\Cinématique Grotte intérieur v1 R128_3F75BDB9.wem</Path>
+							<Path>SFX\Cinématique Grotte intérieur v1 R128_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -684,7 +704,7 @@
 					<IncludedMemoryFiles>
 						<File Id="705099394" Language="SFX">
 							<ShortName>Parc_Ambiance_Nature_EauLac01.wav</ShortName>
-							<Path>SFX\Parc_Ambiance_Nature_EauLac01_AD083A43.wem</Path>
+							<Path>SFX\Parc_Ambiance_Nature_EauLac01_4ABEFC67.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -5817,6 +5837,7 @@
 				<Event Id="1059727820" Name="Stop_Climatiseur" ObjectPath="\Events\Ville_Obstacles\Stop_Climatiseur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3267333498" Name="Stop_Ecole" ObjectPath="\Events\Ville_Obstacles\Stop_Ecole" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4063390670" Name="Stop_Ecriture_Animation" ObjectPath="\Events\Cinematique\Stop_Ecriture_Animation" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="426032660" Name="Stop_Ecriture_Animation_Ange" ObjectPath="\Events\Cinematique\Stop_Ecriture_Animation_Ange" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="623032412" Name="Stop_Egout" ObjectPath="\Events\Ville_Obstacles\Stop_Egout" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="4256011363" Name="Stop_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Stop_Electrique_Buzz" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="725970268" Name="Stop_Horloge" ObjectPath="\Events\Ville_Obstacles\Stop_Horloge" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

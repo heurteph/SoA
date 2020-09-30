@@ -26,6 +26,7 @@ namespace AK
         static const AkUniqueID PLAY_CRIS_TOUS = 2464503011U;
         static const AkUniqueID PLAY_ECOLE = 1753498456U;
         static const AkUniqueID PLAY_ECRITURE_ANIMATION = 4276677556U;
+        static const AkUniqueID PLAY_ECRITURE_ANIMATION_ANGE = 3584937418U;
         static const AkUniqueID PLAY_EGOUT = 869276618U;
         static const AkUniqueID PLAY_ELECTRIQUE_BUZZ = 2500875145U;
         static const AkUniqueID PLAY_HORLOGE = 1086738306U;
@@ -81,6 +82,7 @@ namespace AK
         static const AkUniqueID STOP_CLIMATISEUR = 1059727820U;
         static const AkUniqueID STOP_ECOLE = 3267333498U;
         static const AkUniqueID STOP_ECRITURE_ANIMATION = 4063390670U;
+        static const AkUniqueID STOP_ECRITURE_ANIMATION_ANGE = 426032660U;
         static const AkUniqueID STOP_EGOUT = 623032412U;
         static const AkUniqueID STOP_ELECTRIQUE_BUZZ = 4256011363U;
         static const AkUniqueID STOP_HORLOGE = 725970268U;
@@ -153,6 +155,7 @@ namespace AK
             {
                 static const AkUniqueID MENU_NON = 2651242748U;
                 static const AkUniqueID MENU_OUI = 2818768592U;
+                static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
         } // namespace MENU_OUI_NON
 

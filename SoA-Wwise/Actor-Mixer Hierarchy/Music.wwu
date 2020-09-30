@@ -378,6 +378,9 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Cinématique Grotte intérieur v1 R128" ID="{55D4C5DF-D01F-4F94-8227-C82B7DF0FEAE}" ShortID="448125183">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>

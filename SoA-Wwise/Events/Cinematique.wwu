@@ -11,7 +11,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Ecriture_Animation" ID="{F1913293-FA36-4716-A6FA-6B090B7CC8E7}" WorkUnitID="{8EAB1BF3-ECF9-4471-AA03-3BB091F70979}"/>
+									<ObjectRef Name="Ecriture_Animation_Esthesia" ID="{F1913293-FA36-4716-A6FA-6B090B7CC8E7}" WorkUnitID="{8EAB1BF3-ECF9-4471-AA03-3BB091F70979}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -22,7 +22,7 @@
 						<Action Name="" ID="{437C635B-5A3D-41D7-B3FD-94B024D33683}" ShortID="588245350">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Ecriture_Animation" ID="{F1913293-FA36-4716-A6FA-6B090B7CC8E7}" WorkUnitID="{8EAB1BF3-ECF9-4471-AA03-3BB091F70979}"/>
+									<ObjectRef Name="Ecriture_Animation_Esthesia" ID="{F1913293-FA36-4716-A6FA-6B090B7CC8E7}" WorkUnitID="{8EAB1BF3-ECF9-4471-AA03-3BB091F70979}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -48,6 +48,31 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Touche_Next" ID="{6EC433E7-AF99-4E6C-B4E7-F351E896A9A8}" WorkUnitID="{8EAB1BF3-ECF9-4471-AA03-3BB091F70979}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Ecriture_Animation_Ange" ID="{27292E26-F700-49BD-A25C-D2F202077EA1}">
+					<ChildrenList>
+						<Action Name="" ID="{76A7E7A8-DB3F-459D-BEC5-59BCBC82F7A1}" ShortID="582906478">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ecriture_Animation_Ange" ID="{6BDE5BF0-1237-4AF5-8F7B-A41737FA1CC7}" WorkUnitID="{8EAB1BF3-ECF9-4471-AA03-3BB091F70979}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Ecriture_Animation_Ange" ID="{8FBE96AC-6725-499C-AC7B-E502F7BAC3DB}">
+					<ChildrenList>
+						<Action Name="" ID="{82500BDD-9EB8-49F3-97C9-D3F448474BFC}" ShortID="468911662">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ecriture_Animation_Ange" ID="{6BDE5BF0-1237-4AF5-8F7B-A41737FA1CC7}" WorkUnitID="{8EAB1BF3-ECF9-4471-AA03-3BB091F70979}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

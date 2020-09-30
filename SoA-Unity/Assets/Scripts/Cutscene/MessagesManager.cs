@@ -25,11 +25,22 @@ public class MessagesManager : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The message box")]
-    private TextMeshProUGUI messageBox;
+    private TextMeshProUGUI messageBoxLower;
 
     [SerializeField]
     [Tooltip("The header of the message box")]
-    private Text nameBox;
+    private Text nameBoxLower;
+
+    [Space]
+
+    [SerializeField]
+    [Tooltip("The message box")]
+    private TextMeshProUGUI messageBoxUpper;
+
+    [SerializeField]
+    [Tooltip("The header of the message box")]
+    private Text nameBoxUpper;
+
 
     [SerializeField]
     [Tooltip("The skip button of the message box")]
@@ -74,6 +85,7 @@ public class MessagesManager : MonoBehaviour
     private float longPauseDuration = 0.35f;
 
     private TextMeshProUGUI textMesh;
+    private Text textName;
 
     private bool useVibrations = false;
 
@@ -82,13 +94,15 @@ public class MessagesManager : MonoBehaviour
 
     private Inputs inputs;
 
+    private bool upper = true;
+
     // Start is called before the first frame update
     void Awake()
     {
         inputs = cutsceneManager.GetComponent<CutsceneManager>().GetInputs();
         Debug.Assert(inputs != null, "Inputs not instantiated");
 
-        textMesh = messageBox.GetComponent<TextMeshProUGUI>();
+        textMesh = messageBoxUpper.GetComponent<TextMeshProUGUI>();
         Debug.Assert(textMesh != null, "No TextMeshProUGUI attached to " + transform.name);
 
         textMesh.text = string.Empty;
@@ -114,7 +128,15 @@ public class MessagesManager : MonoBehaviour
     // DisplayMessage del = new DisplayMessage(callback);
     public void WriteMessage(string name, string message /*, callback */)
     {
-        nameBox.text = name;
+        if (upper)
+        {
+            textName = nameBoxUpper;
+        }
+        else
+        {
+            textName = nameBoxLower;
+        }
+        textName.text = name;
         StartCoroutine(del(message));
     }
 
@@ -217,6 +239,16 @@ public class MessagesManager : MonoBehaviour
     {
         inputs.Player.SkipDialog.performed += SkipDialog;
 
+        if(upper)
+        {
+            textMesh = messageBoxUpper.GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            textMesh = messageBoxLower.GetComponent<TextMeshProUGUI>();
+        }
+        upper = false;
+
         textMesh.text = text;
         textMesh.maxVisibleCharacters = 0;
 
@@ -248,7 +280,9 @@ public class MessagesManager : MonoBehaviour
                 }
                 else
                 {
-                    AkSoundEngine.PostEvent("Play_Ecriture_Animation", gameObject);
+                    // Don't put sound on space characters
+                    if(textMesh.text[i] != ' ')
+                        AkSoundEngine.PostEvent("Play_Ecriture_Animation", gameObject);
 
                     if (useVibrations)
                         StartVibrating();
@@ -278,7 +312,7 @@ public class MessagesManager : MonoBehaviour
 
         // Erase message before next event, maybe in some case it could stay
         textMesh.text = "";
-        nameBox.text = "";
+        textName.text = "";
 
         MessageShownEvent();
     }

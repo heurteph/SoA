@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class CreditsManager : MonoBehaviour
 {
+    private GameObject transitions;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Transitions
+        transitions = GameObject.FindGameObjectWithTag("Transitions");
+        transitions.GetComponent<Transitions>().FadeIn();
+
         AkSoundEngine.PostEvent("Play_Music_Menu", gameObject);
     }
 
@@ -20,7 +25,7 @@ public class CreditsManager : MonoBehaviour
 
     public void GoToTitle()
     {
-        SceneManager.LoadScene("Title");
+        StartCoroutine(transitions.GetComponent<Transitions>().FadeOut("Title"));
     }
 
     public void OnDestroy()

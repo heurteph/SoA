@@ -18,10 +18,16 @@ public class TutorialManager : MonoBehaviour
 
     private Inputs inputs;
 
+    private GameObject transitions;
+
     // Start is called before the first frame update
     void Start()
     {
-        inputs = new Inputs();
+        // Transitions
+        transitions = GameObject.FindGameObjectWithTag("Transitions");
+        transitions.GetComponent<Transitions>().FadeIn();
+
+        inputs = InputsManager.Instance.Inputs;
         inputs.Player.Enable();
 
         inputs.Player.SkipDialog.performed += StartGame;
@@ -49,7 +55,8 @@ public class TutorialManager : MonoBehaviour
     {
         Debug.Log("Loading game elise");
 
-        SceneManager.LoadScene("GameElise");
+        StartCoroutine(transitions.GetComponent<Transitions>().FadeOut("GameElise"));
+        //SceneManager.LoadScene("GameElise");
     }
 
     private void OnDestroy()

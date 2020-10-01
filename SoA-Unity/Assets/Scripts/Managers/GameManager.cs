@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     //private Animator nightTransition;
     //private Animator creditsTransition;
 
+    private GameObject transitions;
+
     [SerializeField]
     [Tooltip("Duration of the transitions to credits in seconds")]
     [Range(1, 5)]
@@ -74,6 +76,10 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        // Transitions
+        transitions = GameObject.FindGameObjectWithTag("Transitions");
+        transitions.GetComponent<Transitions>().FadeIn();
+
         firstRun = true;
         isGameOver = false;
 
@@ -308,12 +314,14 @@ public class GameManager : MonoBehaviour
         AkSoundEngine.StopAll();
 
         // Load title
-        SceneManager.LoadScene(sceneName);
+        StartCoroutine(transitions.GetComponent<Transitions>().FadeOut(sceneName));
 
+        //SceneManager.LoadScene(sceneName);
+        
         // DoDestroyOnLoad
-        Destroy(GameObject.FindGameObjectWithTag("SaveManager"));
-        Destroy(GameObject.FindGameObjectWithTag("MainCanvas"));
-        Destroy(GameObject.FindGameObjectWithTag("GameManager"));
+        //Destroy(GameObject.FindGameObjectWithTag("SaveManager"));
+        //Destroy(GameObject.FindGameObjectWithTag("MainCanvas"));
+        //Destroy(GameObject.FindGameObjectWithTag("GameManager"));
     }
 
     /* Defeat functions */
@@ -367,6 +375,8 @@ public class GameManager : MonoBehaviour
         {
             // Reload references
 
+            transitions = GameObject.FindGameObjectWithTag("Transitions"); // not needed
+
             fade = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
             gameOverLogo = GameObject.FindGameObjectWithTag("GameOver").GetComponent<Image>();
             gameOverMessage = GameObject.FindGameObjectWithTag("GameOverMessage").GetComponent<Text>();
@@ -403,7 +413,18 @@ public class GameManager : MonoBehaviour
 
         // TO DO : Esthesia invincibility (and no damage animation)
 
-        sceneTransition.GetComponent<Animator>().SetBool("HasWon", true);
+        //sceneTransition.GetComponent<Animator>().SetBool("HasWon", true);
+
+        if (SceneManager.GetActiveScene().name == "GameElise")
+        {
+            Debug.Log("Transition to GameNight");
+            GoToNight();
+        }
+        else if (SceneManager.GetActiveScene().name == "GameNight")
+        {
+            Debug.Log("Transition to CreditsScene");
+            GoToCredits();
+        }
     }
 
     public void DisplayCredits()
@@ -413,6 +434,7 @@ public class GameManager : MonoBehaviour
 
         GoToCredits();
 
+        /*
         if (SceneManager.GetActiveScene().name != "CreditsScene")
         {
             Debug.Log("Credits loading");
@@ -421,7 +443,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Crédits déjà prêts");
-        }
+        }*/
     }
 
     private IEnumerator WaitForCreditsLoad()
@@ -441,6 +463,7 @@ public class GameManager : MonoBehaviour
     {
         GoToScene("GameNight");
 
+        /*
         if (SceneManager.GetActiveScene().name != "GameNight")
         {
             Debug.Log("Night loading");
@@ -449,7 +472,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Night déjà prêt");
-        }
+        }*/
     }
 
     private IEnumerator WaitForNightLoad()

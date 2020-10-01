@@ -39,6 +39,7 @@ TagManager:
   - Crowd
   - CompassMagnet
   - Compass
+  - Transitions
   layers:
   - Default
   - TransparentFX

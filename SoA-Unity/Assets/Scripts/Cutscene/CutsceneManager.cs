@@ -20,6 +20,8 @@ namespace story
         private List<Story.Scene>.Enumerator itScenes;
         private List<Story.Scene.Action>.Enumerator itActions;
 
+        private GameObject transitions;
+
         [Space]
 
         // TO DO : Use dictionaries or hashmaps instead of list to find them easily
@@ -58,12 +60,16 @@ namespace story
 
         private void Awake()
         {
-            inputs = new Inputs();
+            inputs = InputsManager.Instance.Inputs;
             inputs.Player.Enable();
         }
 
         void Start()
         {
+            // Transitions
+            transitions = GameObject.FindGameObjectWithTag("Transitions");
+            transitions.GetComponent<Transitions>().FadeIn();
+
             // Callback functions
             NewMessageEvent += messagesManager.GetComponent<MessagesManager>().WriteMessage;
             NewImageEvent += imagesManager.GetComponent<ImagesManager>().ChangeImage;
@@ -120,7 +126,8 @@ namespace story
                     inputs.Player.Disable();
                     AkSoundEngine.PostEvent("Stop_Music_Cinematique", gameObject);
 
-                    SceneManager.LoadScene("Tuto"); 
+                    //SceneManager.LoadScene("Tuto");
+                    StartCoroutine(transitions.GetComponent<Transitions>().FadeOut("Tuto"));
 
                     return null;
                 }

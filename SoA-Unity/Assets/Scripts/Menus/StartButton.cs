@@ -130,7 +130,8 @@ public class StartButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             transform.parent.GetChild(1).GetChild(0).GetComponent<Animation>().Play("MenuItemUngreyed");
         }
 
-        menuManager.GetComponent<MenuManager>().Fade.GetComponent<Animation>().Play("TitleFadeOut");
+        menuManager.GetComponent<MenuManager>().StartGame();
+        //menuManager.GetComponent<MenuManager>().Fade.GetComponent<Animation>().Play("TitleFadeOut");
     }
 
     IEnumerator BurstSpots()

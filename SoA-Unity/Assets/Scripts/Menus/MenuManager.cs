@@ -19,6 +19,8 @@ public class MenuManager : MonoBehaviour
     private GameObject corePanel;
     //private GameObject extendedPanel;
 
+    private GameObject transitions;
+
     private GameObject fade;
     public GameObject Fade { get { return fade; } }
 
@@ -28,9 +30,14 @@ public class MenuManager : MonoBehaviour
     private CONTROL_STATE controlState;
     public CONTROL_STATE ControlState { get { return controlState; } set { controlState = value; } }
 
+
     // Start is called before the first frame update
     void Awake()
     {
+        // Transitions
+        transitions = GameObject.FindGameObjectWithTag("Transitions");
+        transitions.GetComponent<Transitions>().FadeIn();
+
         menuState = MENU_STATE.NONE;
 
         creditsPanel = GameObject.FindGameObjectWithTag("MenuCredits");
@@ -172,7 +179,8 @@ public class MenuManager : MonoBehaviour
     {
         // Let's get to work !
         // TO DO : Make sure to add the intro when we have one
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(transitions.GetComponent<Transitions>().FadeOut("Intro"));
         AkSoundEngine.PostEvent("Stop_Music_Main_Title", gameObject);
     }
 

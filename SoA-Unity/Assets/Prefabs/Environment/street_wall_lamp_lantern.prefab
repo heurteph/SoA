@@ -4840,7 +4840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84db3e5451457d4385845740d260775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
 --- !u!1 &3293179741853909025
 GameObject:
   m_ObjectHideFlags: 0
@@ -5012,7 +5011,7 @@ GameObject:
   - component: {fileID: 1006759443240558821}
   - component: {fileID: 4274928530203765225}
   m_Layer: 17
-  m_Name: Point Light
+  m_Name: Point Light Lantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

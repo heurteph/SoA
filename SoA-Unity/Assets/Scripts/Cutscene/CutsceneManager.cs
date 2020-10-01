@@ -116,9 +116,11 @@ namespace story
                     // TO DO : Close cutscene and start game
                     //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+                    messagesManager.GetComponent<MessagesManager>().HideSkipButton();
                     inputs.Player.Disable();
                     AkSoundEngine.PostEvent("Stop_Music_Cinematique", gameObject);
-                    SceneManager.LoadScene("GameElise"); 
+
+                    SceneManager.LoadScene("Tuto"); 
 
                     return null;
                 }

@@ -41,7 +41,6 @@ public class MessagesManager : MonoBehaviour
     [Tooltip("The header of the message box")]
     private Text nameBoxUpper;
 
-
     [SerializeField]
     [Tooltip("The skip button of the message box")]
     private Image skipButton;
@@ -113,12 +112,14 @@ public class MessagesManager : MonoBehaviour
         Debug.Assert(skipButton != null, "Missing reference to skip button in message manager");
         if(PlayerPrefs.GetString("controls").Equals("gamepad"))
         {
-            skipButton.sprite = Resources.Load<Sprite>("Cutscene\\Images\\cutscene 1920\\skip-button");
+            skipButton.sprite = Resources.Load<Sprite>("Cutscene\\Images\\cutscene 1920\\skip-button-white");
         }
         else
         {
-            skipButton.sprite = Resources.Load<Sprite>("Cutscene\\Images\\cutscene 1920\\skip-key");
+            skipButton.sprite = Resources.Load<Sprite>("Cutscene\\Images\\cutscene 1920\\skip-key-white");
         }
+
+        skipButton.GetComponent<Animation>().Play("SkipButtonFadeIn");
 
         del = new DisplayMessage(RevealLetterByLetter);
     }
@@ -376,6 +377,12 @@ public class MessagesManager : MonoBehaviour
 
         inputs.Player.SkipDialog.performed -= NextEvent;
         next = true;
+    }
+
+    public void HideSkipButton()
+    {
+        skipButton.enabled = false;
+        //skipButton.GetComponent<Animation>().Play("SkipButtonFadeOut");
     }
 
     private void OnDestroy()

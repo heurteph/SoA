@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     //Dictionary<DIFFICULTY, float> brightnessDamages = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 10f }, { DIFFICULTY.EASY, 5f }, { DIFFICULTY.HARD, 20f }, { DIFFICULTY.ONESHOT, 1000f } };
     Dictionary<DIFFICULTY, float> brightnessDamages = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 50f }, { DIFFICULTY.EASY, 10f }, { DIFFICULTY.HARD, 100f }, { DIFFICULTY.ONESHOT, 1000f } };
     Dictionary<DIFFICULTY, float> loudnessDamages = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 50f }, { DIFFICULTY.EASY, 10f }, { DIFFICULTY.HARD, 100f }, { DIFFICULTY.ONESHOT, 1000f } };
-    Dictionary<DIFFICULTY, float> crowdDamages   = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 20f }, { DIFFICULTY.EASY, 10f }, { DIFFICULTY.HARD, 40f }, { DIFFICULTY.ONESHOT, 1000f } };
+    Dictionary<DIFFICULTY, float> crowdDamages   = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 10f }, { DIFFICULTY.EASY, 5f }, { DIFFICULTY.HARD, 20f }, { DIFFICULTY.ONESHOT, 1000f } };
     
     public delegate void GamePausedHandler();
     public event GamePausedHandler GamePausedEvent;
@@ -105,7 +105,8 @@ public class GameManager : MonoBehaviour
         Debug.Assert(brightness != null, "Missing vision reference");
         Debug.Assert(loudness != null, "Missing hearing reference");
         Debug.Assert(crowd != null, "Missing crowd reference");
-        Debug.Assert(brightness.GetComponent<VisionBehaviour>() != null, "Incorrect vision reference");
+        if(SceneManager.GetActiveScene().name == "GameNight")
+            Debug.Assert(brightness.GetComponent<VisionBehaviour>() != null, "Incorrect vision reference");
         Debug.Assert(loudness.GetComponent<HearingScript>() != null, "Incorrect hearing reference");
         Debug.Assert(crowd.GetComponent<FieldOfView>() != null, "Incorrect crowd reference");
 

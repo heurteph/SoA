@@ -74,6 +74,10 @@ public class VisionBehaviour : MonoBehaviour
     [Tooltip("Damages applied to the character when threshold is reached")]
     private float brightnessDamage = 10f;
 
+    [SerializeField]
+    [Tooltip("Are we in the nighttime ?")]
+    private bool nighttime = false;
+
     [Space]
     [Header("References")]
 
@@ -184,31 +188,34 @@ public class VisionBehaviour : MonoBehaviour
             }
         }
 
-        if (sum >= uncomfortableBrightnessThreshold * t2D.width * t2D.height)
+        if (nighttime)
         {
-            if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
+            if (sum >= uncomfortableBrightnessThreshold * t2D.width * t2D.height)
             {
-                player.GetComponent<PlayerFirst>().EyesUncomfortableSources++;
-            }
-        }
-        else
-        {
-            player.GetComponent<PlayerFirst>().IsUncomfortableEyes = false;
-        }
-
-        if (sum >= brightnessThreshold * t2D.width * t2D.height)
-        {
-            if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
-            {
-                brightnessThresholdEvent(brightnessDamage);
-
-                // Handle animations
-                if (!player.GetComponent<PlayerFirst>().IsDamagedEars)
+                if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
                 {
-                    player.GetComponent<PlayerFirst>().EyesDamageSources++;
-                    //player.GetComponent<PlayerFirst>().IsDamagedEyes = true;
-                    // Set animation layer weight
-                    //esthesia.GetComponent<EsthesiaAnimation>().SelectEyesDamageLayer();
+                    player.GetComponent<PlayerFirst>().EyesUncomfortableSources++;
+                }
+            }
+            else
+            {
+                player.GetComponent<PlayerFirst>().IsUncomfortableEyes = false;
+            }
+
+            if (sum >= brightnessThreshold * t2D.width * t2D.height)
+            {
+                if (!player.GetComponent<PlayerFirst>().IsInsideShelter)
+                {
+                    brightnessThresholdEvent(brightnessDamage);
+
+                    // Handle animations
+                    if (!player.GetComponent<PlayerFirst>().IsDamagedEars)
+                    {
+                        player.GetComponent<PlayerFirst>().EyesDamageSources++;
+                        //player.GetComponent<PlayerFirst>().IsDamagedEyes = true;
+                        // Set animation layer weight
+                        //esthesia.GetComponent<EsthesiaAnimation>().SelectEyesDamageLayer();
+                    }
                 }
             }
         }

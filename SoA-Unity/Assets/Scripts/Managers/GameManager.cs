@@ -18,8 +18,11 @@ public class GameManager : MonoBehaviour
     [Header("Transitions")]
 
     [SerializeField]
-    [Tooltip("The animator to transition to credits")]
-    private Animator creditsTransition;
+    [Tooltip("The animator to transition")]
+    private GameObject sceneTransition;
+
+    //private Animator nightTransition;
+    //private Animator creditsTransition;
 
     [SerializeField]
     [Tooltip("Duration of the transitions to credits in seconds")]
@@ -54,7 +57,8 @@ public class GameManager : MonoBehaviour
     [Tooltip("Default difficulty level")]
     private DIFFICULTY difficulty = DIFFICULTY.MEDIUM;
 
-    Dictionary<DIFFICULTY, float> brightnessDamages = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 10f }, { DIFFICULTY.EASY, 5f }, { DIFFICULTY.HARD, 20f }, { DIFFICULTY.ONESHOT, 1000f } };
+    //Dictionary<DIFFICULTY, float> brightnessDamages = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 10f }, { DIFFICULTY.EASY, 5f }, { DIFFICULTY.HARD, 20f }, { DIFFICULTY.ONESHOT, 1000f } };
+    Dictionary<DIFFICULTY, float> brightnessDamages = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 50f }, { DIFFICULTY.EASY, 10f }, { DIFFICULTY.HARD, 100f }, { DIFFICULTY.ONESHOT, 1000f } };
     Dictionary<DIFFICULTY, float> loudnessDamages = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 50f }, { DIFFICULTY.EASY, 10f }, { DIFFICULTY.HARD, 100f }, { DIFFICULTY.ONESHOT, 1000f } };
     Dictionary<DIFFICULTY, float> crowdDamages   = new Dictionary<DIFFICULTY, float> { { DIFFICULTY.MEDIUM, 20f }, { DIFFICULTY.EASY, 10f }, { DIFFICULTY.HARD, 40f }, { DIFFICULTY.ONESHOT, 1000f } };
     
@@ -124,13 +128,22 @@ public class GameManager : MonoBehaviour
     {
         AkSoundEngine.SetState("Menu_Oui_Non", "Menu_Non");
 
-        if (creditsTransition == null)
+
+        if (SceneManager.GetActiveScene().name == "GameElise")
         {
-            throw new System.ArgumentException("No animator for the transitions to the credits");
+            sceneTransition.GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animators\\NightTransition");
         }
 
-        creditsTransition.SetBool("HasWon", false);
-        creditsTransition.SetBool("CreditsLoaded", false);
+        if(SceneManager.GetActiveScene().name == "GameNight")
+        {
+            sceneTransition.GetComponent<Animator>().runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animators\\CreditsTransition");
+        }
+
+        sceneTransition.GetComponent<Animator>().SetBool("HasWon", false);
+        sceneTransition.GetComponent<Animator>().SetBool("CreditsLoaded", false);
+
+        //nightTransition.SetBool("HasWon", false);
+        //nightTransition.SetBool("CreditsLoaded", false);
 
         ChangeDifficulty(difficulty);
 
@@ -349,7 +362,7 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "GameElise" || scene.name == "Game" || scene.name == "CutZonesScene")
+        if (scene.name == "GameElise" || scene.name == "Game" || scene.name == "CutZonesScene" || scene.name == "GameNight")
         {
             // Reload references
 
@@ -389,7 +402,7 @@ public class GameManager : MonoBehaviour
 
         // TO DO : Esthesia invincibility (and no damage animation)
 
-        creditsTransition.SetBool("HasWon", true);
+        sceneTransition.GetComponent<Animator>().SetBool("HasWon", true);
     }
 
     public void DisplayCredits()
@@ -419,7 +432,35 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "CreditsScene")
         {
-            creditsTransition.SetBool("CreditsLoaded", true);
+            sceneTransition.GetComponent<Animator>().SetBool("CreditsLoaded", true);
+        }
+    }
+
+    public void GoToNight()
+    {
+        GoToScene("GameNight");
+
+        if (SceneManager.GetActiveScene().name != "GameNight")
+        {
+            Debug.Log("Night loading");
+            StartCoroutine("WaitForNightLoad");
+        }
+        else
+        {
+            Debug.Log("Night déjà prêt");
+        }
+    }
+
+    private IEnumerator WaitForNightLoad()
+    {
+        while (SceneManager.GetActiveScene().name != "GameNight")
+        {
+            yield return null;
+        }
+
+        if (SceneManager.GetActiveScene().name == "GameNight")
+        {
+            sceneTransition.GetComponent<Animator>().SetBool("CreditsLoaded", true);
         }
     }
 }

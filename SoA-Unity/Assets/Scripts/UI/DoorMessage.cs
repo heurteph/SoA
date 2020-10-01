@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DoorMessage : MonoBehaviour
 {
@@ -12,7 +13,14 @@ public class DoorMessage : MonoBehaviour
     void Start()
     {
         inputs = InputsManager.Instance.Inputs;
-        transform.GetChild(0).GetComponent<Text>().text = "Press " + inputs.Player.Interact.GetBindingDisplayString() + " To Enter";
+        if (SceneManager.GetActiveScene().name == "GameElise")
+        {
+            transform.GetChild(0).GetComponent<Text>().text = "Press " + inputs.Player.Interact.GetBindingDisplayString() + " To Enter";
+        }
+        if (SceneManager.GetActiveScene().name == "GameNight")
+        {
+            transform.GetChild(0).GetComponent<Text>().text = "Closed at night";
+        }
     }
 
     // Update is called once per frame

@@ -148,7 +148,7 @@ public class InGameMenuManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "GameElise" || scene.name == "Game" || scene.name == "CutZonesScene")
+        if (scene.name == "GameElise" || scene.name == "Game" || scene.name == "CutZonesScene" || scene.name == "GameNight")
         {
             // Reload references of the compass
             GameObject.FindGameObjectWithTag("Compass").transform.GetChild(0).GetComponent<CompassBehavior>().ReloadReferences();

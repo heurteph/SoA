@@ -8,7 +8,8 @@ public class TransitionScript : MonoBehaviour
 
     private GameObject gameManager;
 
-    private bool done;
+    private bool nightDone;
+    private bool creditsDone;
 
     private void Awake()
     {
@@ -35,7 +36,8 @@ public class TransitionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        done = false;
+        nightDone = false;
+        creditsDone = false;
     }
 
     // Update is called once per frame
@@ -44,13 +46,23 @@ public class TransitionScript : MonoBehaviour
         
     }
 
+    public void TriggerNight()
+    {
+        if (!nightDone)
+        {
+            Debug.Log("Fin de l'anim de fade out avant la night");
+            gameManager.GetComponent<GameManager>().GoToNight();
+            nightDone = true;
+        }
+    }
+
     public void TriggerCredits()
     {
-        if (!done)
+        if (!creditsDone)
         {
             Debug.Log("Fin de l'anim de fade out avant les crédits");
             gameManager.GetComponent<GameManager>().DisplayCredits();
-            done = true;
+            creditsDone = true;
         }
     }
 

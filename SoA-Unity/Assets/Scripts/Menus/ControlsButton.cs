@@ -7,7 +7,9 @@ using System.Linq;
 
 public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler, ISubmitHandler
 {
-    GameObject menuManager; 
+    GameObject menuManager;
+
+    Navigation navigation;
     
     private ParticleSystem sunSpots;
     ParticleSystem.EmissionModule emission;
@@ -109,6 +111,11 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             menuManager.GetComponent<MenuManager>().HideCredits();
             transform.parent.GetChild(2).GetChild(0).GetComponent<Animation>().Play("MenuItemUngreyed");
+
+            // Restore navigation
+
+            //navigation = transform.parent.GetChild(2).GetComponent<Button>().navigation;
+            //navigation.mode = Navigation.Mode.Automatic | Navigation.Mode.Vertical | Navigation.Mode.Horizontal;
         }
         if (menuManager.GetComponent<MenuManager>().MenuState != MENU_STATE.CONTROLS)
         {
@@ -116,6 +123,11 @@ public class ControlsButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             transform.GetChild(0).GetComponent<Animation>().Play("MenuItemFlash");
             transform.GetChild(1).GetComponent<MenuParticleSystem>().StopParticleSound();
             StartCoroutine("BurstSpots");
+
+            // Handle navigation
+
+            //navigation = GetComponent<Button>().navigation;
+            //navigation.mode = Navigation.Mode.None;
 
             ValidateButtonEvent();
         }

@@ -40,6 +40,8 @@ TagManager:
   - CompassMagnet
   - Compass
   - Transitions
+  - FirstSelectedButtonMenu
+  - ControlsKey
   layers:
   - Default
   - TransparentFX

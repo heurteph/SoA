@@ -112,11 +112,11 @@ public class MessagesManager : MonoBehaviour
         Debug.Assert(skipButton != null, "Missing reference to skip button in message manager");
         if(PlayerPrefs.GetString("controls").Equals("gamepad"))
         {
-            skipButton.sprite = Resources.Load<Sprite>("Cutscene\\Images\\cutscene 1920\\skip-button-white");
+            skipButton.sprite = Resources.Load<Sprite>("Cutscene\\Images\\cutscene 1920\\next-button-white");
         }
         else
         {
-            skipButton.sprite = Resources.Load<Sprite>("Cutscene\\Images\\cutscene 1920\\skip-key-white");
+            skipButton.sprite = Resources.Load<Sprite>("Cutscene\\Images\\cutscene 1920\\next-key-white");
         }
 
         skipButton.GetComponent<Animation>().Play("SkipButtonFadeIn");
@@ -284,7 +284,7 @@ public class MessagesManager : MonoBehaviour
                     // Don't put sound on space characters
                     if (textMesh.text[i] != ' ')
                     {
-                        if (textName.text == "Zeous")
+                        if (textName.text == "Ange" || textName.text == "Zeous")
                             AkSoundEngine.PostEvent("Play_Ecriture_Animation_Ange", gameObject);
                         else
                             AkSoundEngine.PostEvent("Play_Ecriture_Animation", gameObject);

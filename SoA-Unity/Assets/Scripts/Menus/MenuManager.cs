@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using AK.Wwise;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.EventSystems;
 
 public enum MENU_STATE { NONE, CREDITS, CONTROLS }
 
@@ -18,6 +18,8 @@ public class MenuManager : MonoBehaviour
     private GameObject mouseKeyboardPanel;
     private GameObject corePanel;
     //private GameObject extendedPanel;
+
+    private GameObject menuFirstButtonSelected;
 
     private GameObject transitions;
 
@@ -85,6 +87,12 @@ public class MenuManager : MonoBehaviour
             throw new System.NullReferenceException("Missing gamepad panel in the menu");
         }
 
+        menuFirstButtonSelected = GameObject.FindGameObjectWithTag("FirstSelectedButtonMenu");
+        if (menuFirstButtonSelected == null)
+        {
+            throw new System.NullReferenceException("Missing first selected button in the menu");
+        }
+
         if (PlayerPrefs.HasKey("controls") && PlayerPrefs.GetString("controls").Equals("gamepad"))
         {
             controlState = CONTROL_STATE.GAMEPAD;
@@ -104,6 +112,14 @@ public class MenuManager : MonoBehaviour
         AkSoundEngine.SetState("Menu_Oui_Non", "Menu_Non");
 
         AkSoundEngine.PostEvent("Play_Music_Main_Title", gameObject);
+
+        // Clear the default selected object and set the first selected item in the menu
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(menuFirstButtonSelected);
+
+        SetGamepadKeyInteractable(false);
+        SetMouseKeyInteractable(false);
+        SetKeysInteractable(false);
     }
 
     // Update is called once per frame
@@ -117,12 +133,30 @@ public class MenuManager : MonoBehaviour
     {
         menuState = MENU_STATE.CONTROLS;
         StartCoroutine("FadeInControls");
+
+        // Set first selected UI item according to the current input
+
+        if (controlState == CONTROL_STATE.GAMEPAD)
+        {
+            SetMouseKeyInteractable(true);
+            EventSystem.current.SetSelectedGameObject(controlsPanel.transform.GetChild(1).gameObject);
+        }
+        else
+        {
+            SetGamepadKeyInteractable(true);
+            SetKeysInteractable(true);
+            EventSystem.current.SetSelectedGameObject(controlsPanel.transform.GetChild(0).gameObject);
+        }
     }
     
     public void HideControls()
     {
         menuState = MENU_STATE.NONE;
         StartCoroutine("FadeOutControls");
+
+        SetKeysInteractable(false);
+        SetGamepadKeyInteractable(false);
+        SetMouseKeyInteractable(false);
     }
 
     IEnumerator FadeInControls()
@@ -141,12 +175,26 @@ public class MenuManager : MonoBehaviour
     {
         controlState = CONTROL_STATE.MOUSEKEYBOARD;
         StartCoroutine("CrossFadeMouseKeyboardControls");
+
+        // Select the other button
+
+        SetMouseKeyInteractable(false);
+        SetGamepadKeyInteractable(true);
+        SetKeysInteractable(true);
+        EventSystem.current.SetSelectedGameObject(controlsPanel.transform.GetChild(0).gameObject);
     }
 
     public void SwitchToGamepadControls()
     {
         controlState = CONTROL_STATE.GAMEPAD;
         StartCoroutine("CrossFadeGamepadControls");
+
+        // Select the other button
+
+        SetMouseKeyInteractable(true);
+        SetGamepadKeyInteractable(false);
+        SetKeysInteractable(false);
+        EventSystem.current.SetSelectedGameObject(controlsPanel.transform.GetChild(1).gameObject);
     }
 
     IEnumerator CrossFadeMouseKeyboardControls()
@@ -212,6 +260,24 @@ public class MenuManager : MonoBehaviour
             child.GetComponent<Animation>().Play("CreditsItemFadeOut");
             yield return new WaitForSeconds(0.01f);
         }*/
+    }
+
+    public void SetKeysInteractable(bool interactable)
+    {
+        foreach (GameObject key in GameObject.FindGameObjectsWithTag("ControlsKey"))
+        {
+            key.GetComponent<Button>().interactable = interactable;
+        }
+    }
+
+    public void SetGamepadKeyInteractable(bool interactable)
+    {
+        controlsPanel.transform.GetChild(0).gameObject.GetComponent<Button>().interactable = interactable;
+    }
+
+    public void SetMouseKeyInteractable(bool interactable)
+    {
+        controlsPanel.transform.GetChild(1).gameObject.GetComponent<Button>().interactable = interactable;
     }
 
     /* Wwise functions */

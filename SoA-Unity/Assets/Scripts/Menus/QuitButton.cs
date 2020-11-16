@@ -8,6 +8,8 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     GameObject menuManager;
 
+    Navigation navigation;
+
     private ParticleSystem sunSpots;
     ParticleSystem.EmissionModule emission;
     ParticleSystem.VelocityOverLifetimeModule velocity;
@@ -109,17 +111,33 @@ public class QuitButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         StartCoroutine("BurstSpots");
 
+        // Handle navigation
+
+        navigation = GetComponent<Button>().navigation;
+        navigation.mode = Navigation.Mode.None;
+
         ValidateButtonEvent();
 
         if (menuManager.GetComponent<MenuManager>().MenuState == MENU_STATE.CREDITS)
         {
             menuManager.GetComponent<MenuManager>().HideCredits();
             transform.parent.GetChild(2).GetChild(0).GetComponent<Animation>().Play("MenuItemUngreyed");
+
+            // Restore navigation
+
+            //navigation = transform.parent.GetChild(1).GetComponent<Button>().navigation;
+            //navigation.mode = Navigation.Mode.Automatic | Navigation.Mode.Vertical | Navigation.Mode.Horizontal;
+
         }
         else if (menuManager.GetComponent<MenuManager>().MenuState == MENU_STATE.CONTROLS)
         {
             menuManager.GetComponent<MenuManager>().HideControls();
             transform.parent.GetChild(1).GetChild(0).GetComponent<Animation>().Play("MenuItemUngreyed");
+
+            // Restore navigation
+
+            //navigation = transform.parent.GetChild(1).GetComponent<Button>().navigation;
+            //navigation.mode = Navigation.Mode.Automatic | Navigation.Mode.Vertical | Navigation.Mode.Horizontal;
         }
 
         Application.Quit();

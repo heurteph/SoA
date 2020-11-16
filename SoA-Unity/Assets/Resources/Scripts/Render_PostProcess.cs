@@ -27,7 +27,7 @@ public class Render_PostProcess : MonoBehaviour
     [SerializeField]
     private float lerp_effet;
     [SerializeField]
-    private Vector3 offsetChroma;
+    public Vector3 offsetChroma;
 
     //partie pour back up visuel pour son
     [SerializeField]
@@ -88,6 +88,10 @@ public class Render_PostProcess : MonoBehaviour
         mat = new Material(Shader.Find("Shaders/" + shader_name));
     }
 
+    public void SetBlur(float blur)
+    {
+        //mat.SetFloat("_CoefBlur", blur);
+    }
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {

@@ -21,6 +21,10 @@ public class CameraFollow : MonoBehaviour
     private float originalYRotation;
     private Vector3 lastPlayerPosition;
 
+    [SerializeField]
+    [Range(0,20)]
+    private float maxChromaticAberration = 10;
+
     [Space]
 
     [SerializeField]
@@ -424,9 +428,12 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
+    /* Chroma Offset Effect */
     private void UpdateFX()
     {
-        heldCamera.transform.GetChild(0).GetComponent<Render_PostProcess>().coef_blur = (player.GetComponent<EnergyBehaviour>().Energy / 1000) * 700 + 300;
+        float factor = maxChromaticAberration * (1 - player.GetComponent<EnergyBehaviour>().Energy / 1000);
+        heldCamera.transform.GetChild(0).GetComponent<Render_PostProcess>().offsetChroma = new Vector3(factor, 0, 0);
+        //heldCamera.transform.GetChild(0).GetComponent<Render_PostProcess>().coef_blur = (player.GetComponent<EnergyBehaviour>().Energy / 1000) * 700 + 300;
     }
 
     private void UpdateRotation ()

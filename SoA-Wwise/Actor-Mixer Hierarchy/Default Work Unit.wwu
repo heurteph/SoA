@@ -53,6 +53,11 @@
 										<Value>330</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -156,6 +161,13 @@
 							</ChildrenList>
 						</BlendContainer>
 						<BlendContainer Name="Shelter_House_Door" ID="{2691807E-CC28-4E6C-80CF-8ED719D981E4}" ShortID="878793262">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>
@@ -258,6 +270,13 @@
 							</ChildrenList>
 						</BlendContainer>
 						<BlendContainer Name="Shelter_Bar_Door" ID="{2B46A9E2-451F-41AE-BD62-E4118B8EA5F2}" ShortID="742240509">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9D631623-F9EF-4B2C-849B-180559E402BF}"/>

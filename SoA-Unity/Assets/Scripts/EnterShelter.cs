@@ -183,6 +183,23 @@ public class EnterShelter : MonoBehaviour
 
         shelterTag = shelter.tag;
 
+        // Play sound
+        switch (shelterTag)
+        {
+            case "Home":
+                AkSoundEngine.PostEvent("Play_Shelter_House_Door_Open", gameObject);
+                break;
+            case "Shed":
+                AkSoundEngine.PostEvent("Play_Shelter_Parc_Door_Open", gameObject);
+                break;
+            case "Bar":
+                AkSoundEngine.PostEvent("Play_Shelter_Bar_Door_Open", gameObject);
+                break;
+            default:
+                Debug.LogError("Shelter not recognized: " + shelterTag);
+                break;
+        }
+
         while (!Mathf.Approximately(shade.color.a, 1))
         {
             shade.color = new Color(shade.color.r, shade.color.g, shade.color.b, Mathf.Min(shade.color.a + Time.deltaTime / (shelterManager.TransitionDuration * 0.5f), 1));

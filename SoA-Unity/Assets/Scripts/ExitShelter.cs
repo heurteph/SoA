@@ -97,9 +97,26 @@ public class ExitShelter : MonoBehaviour
             yield return null;
         }
 
+        // Play sound
+        switch (shelterTag)
+        {
+            case "Home":
+                AkSoundEngine.PostEvent("Play_Shelter_House_Door_Close", gameObject);
+                break;
+            case "Shed":
+                AkSoundEngine.PostEvent("Play_Shelter_Parc_Door_Close", gameObject);
+                break;
+            case "Bar":
+                AkSoundEngine.PostEvent("Play_Shelter_Bar_Door_Close", gameObject);
+                break;
+            default:
+                Debug.LogError("Shelter not recognized: " + shelterTag);
+                break;
+        }
+
         // Reset character position and speed
 
-        if(transform.GetComponent<PlayerFirst>().isActiveAndEnabled)
+        if (transform.GetComponent<PlayerFirst>().isActiveAndEnabled)
         {
             Transform warp = shelter.transform.Find("Warp Position");
             GetComponent<PlayerFirst>().ResetTransform(warp.position, warp.rotation.eulerAngles.y);

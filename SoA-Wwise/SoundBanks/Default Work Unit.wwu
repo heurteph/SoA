@@ -11,6 +11,7 @@
 						<ObjectRef Name="Commercial_Ambiance" ID="{5972D42D-C2B4-42B3-974C-CC34517058C6}" WorkUnitID="{5972D42D-C2B4-42B3-974C-CC34517058C6}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Ville_Obstacles" ID="{327481BD-CE92-4345-9F23-C7E9F3EADD7F}" WorkUnitID="{327481BD-CE92-4345-9F23-C7E9F3EADD7F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Personnage" ID="{D20AD8BF-469B-4394-9523-16D0018CC167}" WorkUnitID="{D20AD8BF-469B-4394-9523-16D0018CC167}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Shelter_Portes" ID="{F5D7A31C-1E55-44D8-A95D-3440786D8B76}" WorkUnitID="{F5D7A31C-1E55-44D8-A95D-3440786D8B76}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Cinematique" ID="{73B52B68-F45B-45FC-8D8C-F9BDA30A9842}" WorkUnitID="{73B52B68-F45B-45FC-8D8C-F9BDA30A9842}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Commercial_Obstacles" ID="{56B5A11B-E0A2-4A1F-B982-5B1D1A9AEC2C}" WorkUnitID="{56B5A11B-E0A2-4A1F-B982-5B1D1A9AEC2C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Music" ID="{5CA3354F-DAF8-4AA3-87C4-683190286603}" WorkUnitID="{5CA3354F-DAF8-4AA3-87C4-683190286603}" Origin="Manual" Filter="7"/>

@@ -64,6 +64,12 @@ namespace AK
         static const AkUniqueID PLAY_RESPIRATION_JOGGUEURH = 1582928677U;
         static const AkUniqueID PLAY_RESPIRATION_MOUVEMENT = 2860278991U;
         static const AkUniqueID PLAY_RESTORANT = 3628354934U;
+        static const AkUniqueID PLAY_SHELTER_BAR_DOOR_CLOSE = 2500736103U;
+        static const AkUniqueID PLAY_SHELTER_BAR_DOOR_OPEN = 4211204369U;
+        static const AkUniqueID PLAY_SHELTER_HOUSE_DOOR_CLOSE = 736905070U;
+        static const AkUniqueID PLAY_SHELTER_HOUSE_DOOR_OPEN = 3075461546U;
+        static const AkUniqueID PLAY_SHELTER_PARC_DOOR_CLOSE = 1128126858U;
+        static const AkUniqueID PLAY_SHELTER_PARC_DOOR_OPEN = 2116268718U;
         static const AkUniqueID PLAY_SONNETTE_MAGASINS = 2056330270U;
         static const AkUniqueID PLAY_SURVOL = 2105670071U;
         static const AkUniqueID PLAY_TEXTE_ANIM_PARTICULE = 1410339968U;
@@ -114,6 +120,12 @@ namespace AK
         static const AkUniqueID STOP_PORTES_OPEN = 2216609116U;
         static const AkUniqueID STOP_QUEL_MOTEUR = 3507864100U;
         static const AkUniqueID STOP_RESTORANT = 970688548U;
+        static const AkUniqueID STOP_SHELTER_BAR_DOOR_CLOSE = 2099532353U;
+        static const AkUniqueID STOP_SHELTER_BAR_DOOR_OPEN = 3374793443U;
+        static const AkUniqueID STOP_SHELTER_HOUSE_DOOR_CLOSE = 2784745848U;
+        static const AkUniqueID STOP_SHELTER_HOUSE_DOOR_OPEN = 1068587196U;
+        static const AkUniqueID STOP_SHELTER_PARC_DOOR_CLOSE = 3420555944U;
+        static const AkUniqueID STOP_SHELTER_PARC_DOOR_OPEN = 788503180U;
         static const AkUniqueID STOP_SONNETTE_MAGASINS = 3549513284U;
         static const AkUniqueID STOP_SURVOL = 507140941U;
         static const AkUniqueID STOP_TEXTE_ANIM_PARTICULE = 2148170426U;

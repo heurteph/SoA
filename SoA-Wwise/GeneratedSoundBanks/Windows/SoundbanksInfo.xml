@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\</ProjectRoot>
-		<SourceFilesRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>F:\Users\user\Desktop\MASTER ENJMIN\M1\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\</ProjectRoot>
+		<SourceFilesRoot>F:\Users\user\Desktop\MASTER ENJMIN\M1\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>F:\Users\user\Desktop\MASTER ENJMIN\M1\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:\Users\user\Desktop\MASTER ENJMIN\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>F:\Users\user\Desktop\MASTER ENJMIN\M1\1. Projet M1\Sense of Adventure\Projet\SoA\SoA-Wwise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2647690599">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,8 +21,17 @@
 				<AuxBus Id="3204322453" Name="Reverb_Lieu_Repos" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Lieu_Repos"/>
 				<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
 			</IncludedAuxBusses>
+			<StateGroups>
+				<StateGroup Id="2551007772" Name="Menu_Oui_Non" ObjectPath="\States\Default Work Unit\Menu_Oui_Non">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Menu_Oui_Non\None"/>
+						<State Id="2818768592" Name="Menu_oui" ObjectPath="\States\Default Work Unit\Menu_Oui_Non\Menu_oui"/>
+						<State Id="2651242748" Name="Menu_Non" ObjectPath="\States\Default Work Unit\Menu_Oui_Non\Menu_Non"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3163481603" Language="SFX">
+		<SoundBank Id="3163481603" Language="SFX" Hash="2964614642">
 			<ObjectPath>\SoundBanks\Default Work Unit\SoundBankPC</ObjectPath>
 			<ShortName>SoundBankPC</ShortName>
 			<Path>SoundBankPC.bnk</Path>
@@ -70,6 +79,10 @@
 							<Path>SFX\Parc_Obstacles_EauAuto08_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="235882589" Name="Play_Battement_Coeur" ObjectPath="\Events\Personnage\Play_Battement_Coeur" DurationType="OneShot" DurationMin="32.277332" DurationMax="32.277332">
 					<IncludedMemoryFiles>
@@ -78,6 +91,11 @@
 							<Path>SFX\Esthesia_Reaction_HeartBeat_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2261546958" Name="Reverb_Tunnel" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Tunnel"/>
+						<AuxBus Id="3204322453" Name="Reverb_Lieu_Repos" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Lieu_Repos"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="2412280354" Name="Play_Branches_Tombent" ObjectPath="\Events\Parc_Obstacles\Play_Branches_Tombent" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -98,6 +116,10 @@
 							<Path>SFX\Parc_Obstacle_Branches_Tombent-003_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3232482810" Name="Play_Bus_Door_Close" ObjectPath="\Events\Ville_Obstacles\Play_Bus_Door_Close" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="4.892854" DurationMax="4.892854">
 					<IncludedMemoryFiles>
@@ -106,6 +128,11 @@
 							<Path>SFX\Bus_Door_Close_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="2261546958" Name="Reverb_Tunnel" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Tunnel"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="2983975038" Name="Play_Bus_Door_Open" ObjectPath="\Events\Ville_Obstacles\Play_Bus_Door_Open" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="5.418667" DurationMax="5.418667">
 					<IncludedMemoryFiles>
@@ -114,6 +141,11 @@
 							<Path>SFX\Bus_Door_Open_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="2261546958" Name="Reverb_Tunnel" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Tunnel"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="932140571" Name="Play_Canard" ObjectPath="\Events\Parc_Obstacles\Play_Canard" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -170,6 +202,10 @@
 							<Path>SFX\Canard 04_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="1218834549" Name="Play_Clavier_Assignation" ObjectPath="\Events\Menu\Play_Clavier_Assignation" DurationType="OneShot" DurationMin="0.220199" DurationMax="0.220199">
 					<IncludedMemoryFiles>
@@ -254,6 +290,10 @@
 							<Path>SFX\Climatiseur_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="2464503011" Name="Play_Cris_Tous" ObjectPath="\Events\Personnage\Play_Cris_Tous" DurationType="OneShot" DurationMin="0.311854" DurationMax="1.055458">
 					<IncludedMemoryFiles>
@@ -294,6 +334,9 @@
 							<Path>SFX\Perso_Douleur 03_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2261546958" Name="Reverb_Tunnel" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Tunnel"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="1753498456" Name="Play_Ecole" ObjectPath="\Events\Ville_Obstacles\Play_Ecole" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -302,6 +345,10 @@
 							<Path>SFX\School_57F582E5.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="4276677556" Name="Play_Ecriture_Animation" ObjectPath="\Events\Cinematique\Play_Ecriture_Animation" DurationType="OneShot" DurationMin="0.227533" DurationMax="0.543468">
 					<IncludedMemoryFiles>
@@ -350,6 +397,10 @@
 							<Path>SFX\Ville_Obstacles_Evacuation_Eau_04_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="2500875145" Name="Play_Electrique_Buzz" ObjectPath="\Events\Ville_Obstacles\Play_Electrique_Buzz" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -358,6 +409,10 @@
 							<Path>SFX\Electrique_Buzz_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="1086738306" Name="Play_Horloge" ObjectPath="\Events\Ville_Obstacles\Play_Horloge" MaxAttenuation="30.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -366,6 +421,10 @@
 							<Path>SFX\Horloge_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3446893022" Name="Play_Humain_Mange1" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Mange1" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="16.954771" DurationMax="22.342501">
 					<IncludedMemoryFiles>
@@ -378,6 +437,10 @@
 							<Path>SFX\Parc_Obstacles_Humain_Mange01-002_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3446893021" Name="Play_Humain_Mange2" ObjectPath="\Events\Parc_Obstacles\Play_Humain_Mange2" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="14.432000" DurationMax="21.525541">
 					<IncludedMemoryFiles>
@@ -390,6 +453,10 @@
 							<Path>SFX\Parc_Obstacles_Humain_Mange01-003_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="2894920242" Name="Play_Klaxons" ObjectPath="\Events\Ville_Obstacles\Play_Klaxons" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.115583" DurationMax="0.393208">
 					<IncludedMemoryFiles>
@@ -470,6 +537,7 @@
 							<Path>SFX\Klaxon 21_1C85F76B.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{8BB8AF89-EF19-45B4-9ADC-94E814EA87B8}</DefaultSwitchValue>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{B79D7107-7C1E-4E54-BAC2-703ED42CDFEA}">
 							<Media>
@@ -511,6 +579,11 @@
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="2261546958" Name="Reverb_Tunnel" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Tunnel"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3516174833" Name="Play_Marteau_Piqueur" ObjectPath="\Events\Ville_Obstacles\Play_Marteau_Piqueur" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -519,6 +592,10 @@
 							<Path>SFX\Marteau-piqueur_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3366277958" Name="Play_Messages_Radio" ObjectPath="\Events\Commercial_Ambiance\Play_Messages_Radio" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -543,6 +620,9 @@
 							<Path>SFX\Commerce_Obstacle_Message_Complet_1_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="1615608444" Name="Play_Mort" ObjectPath="\Events\Personnage\Play_Mort" DurationType="OneShot" DurationMin="5.042687" DurationMax="5.042687">
 					<IncludedMemoryFiles>
@@ -559,6 +639,10 @@
 							<Path>SFX\Parc_Obstacles_Humain_Moteur_Elagueur01_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="1403256204" Name="Play_Moteur_VoitureElec" ObjectPath="\Events\Parc_Obstacles\Play_Moteur_VoitureElec" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -567,6 +651,10 @@
 							<Path>SFX\Parc_Obstacles_VoitureElec_Moteurs Lent_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="1625096966" Name="Play_Music_Appart" ObjectPath="\Events\Ville_Obstacles\Play_Music_Appart" MaxAttenuation="50.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -595,6 +683,10 @@
 							<Path>SFX\Ville_Obstacle_Ana_Loop1_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3134804369" Name="Play_Music_Cinematique" ObjectPath="\Events\Music\Play_Music_Cinematique" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -635,6 +727,9 @@
 							<Path>SFX\Safe Zone v2 LOOP R128_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="4079445273" Name="Play_Music_Safe_Zone_Parc" ObjectPath="\Events\Music\Play_Music_Safe_Zone_Parc" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -643,6 +738,9 @@
 							<Path>SFX\Shelter Parc LOOP V2 R128_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3326642619" Name="Play_Music_Safe_Zone_Ville" ObjectPath="\Events\Music\Play_Music_Safe_Zone_Ville" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -651,6 +749,9 @@
 							<Path>SFX\Shelter Ville LOOP V2 R128_9EDFC787.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="4134052420" Name="Play_Parc_Chien" ObjectPath="\Events\Parc_Obstacles\Play_Parc_Chien" MaxAttenuation="60.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -699,6 +800,10 @@
 							<Path>SFX\Parc_Obstacles_Chien04_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="865874921" Name="Play_Parc_Eau_Lac" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Eau_Lac" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -707,6 +812,9 @@
 							<Path>SFX\Parc_Ambiance_Nature_EauLac01_4ABEFC67.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="1074315535" Name="Play_Parc_Jardinier" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Jardinier" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -775,6 +883,9 @@
 							<Path>SFX\Parc_Ambiance_Jardinier_11_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3725651506" Name="Play_Parc_Oiseaux1" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Oiseaux1" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -967,6 +1078,9 @@
 							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3725651505" Name="Play_Parc_Oiseaux2" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Oiseaux2" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -1159,6 +1273,9 @@
 							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3725651504" Name="Play_Parc_Oiseaux3" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Oiseaux3" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -1351,6 +1468,9 @@
 							<Path>SFX\Parc_Ambiance_Oiseaux_XC565441 - Pinson des arbres - Fringilla coelebs-007_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="4135899644" Name="Play_Parc_Vent" ObjectPath="\Events\Parc_Ambiance\Play_Parc_Vent" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -1359,6 +1479,9 @@
 							<Path>SFX\Parc_Ambiance_Nature_OiseauxetVent01_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="2968327968" Name="Play_Pigeon" ObjectPath="\Events\Ville_Ambiance\Play_Pigeon" MaxAttenuation="70.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -1423,6 +1546,9 @@
 							<Path>SFX\Pigeon 01_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="1479939285" Name="Play_Pigeon_Fixe" ObjectPath="\Events\Ville_Ambiance\Play_Pigeon_Fixe" MaxAttenuation="70.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -1463,6 +1589,9 @@
 							<Path>SFX\Pigeon 01_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="4114146970" Name="Play_Pleure_B_b_" ObjectPath="\Events\Parc_Obstacles\Play_Pleure_B_b_" MaxAttenuation="40.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -1495,6 +1624,10 @@
 							<Path>SFX\Parc_Obstacle_Bébé Pleure_06_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="11904902" Name="Play_Portes_Close" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Close" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="1.599425" DurationMax="2.286062">
 					<IncludedMemoryFiles>
@@ -1519,6 +1652,10 @@
 							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Close_01_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="540531537" Name="Play_Portes_Grande" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Grande" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="3.133413" DurationMax="4.482804">
 					<IncludedMemoryFiles>
@@ -1527,6 +1664,10 @@
 							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Close_Seul_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="2755465042" Name="Play_Portes_Open" ObjectPath="\Events\Commercial_Obstacles\Play_Portes_Open" MaxAttenuation="40.000000" DurationType="OneShot" DurationMin="1.563316" DurationMax="2.510979">
 					<IncludedMemoryFiles>
@@ -1551,6 +1692,10 @@
 							<Path>SFX\Commerce_Obstacle_Portes_Coulissantes_Open_02_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3518090694" Name="Play_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Play_Quel_Moteur" MaxAttenuation="100.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
@@ -1683,8 +1828,10 @@
 							<Path>SFX\M2_Idle-001_1314D7CF.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{FCFCE899-E509-4001-A272-B16E990DB770}</DefaultSwitchValue>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{FCFCE899-E509-4001-A272-B16E990DB770}">
+							<DefaultSwitchValue>{3DE31401-7944-4243-AB4C-A04EC18D2004}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1709,6 +1856,7 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{6F29EDEB-2EAE-498A-BEF7-A0318A987B0D}">
+							<DefaultSwitchValue>{3DE31401-7944-4243-AB4C-A04EC18D2004}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1733,6 +1881,7 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{D13F1666-0A64-4026-9C02-E0B8E505EFA4}">
+							<DefaultSwitchValue>{3DE31401-7944-4243-AB4C-A04EC18D2004}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1757,6 +1906,7 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{9E1CEE2D-D169-4824-8F10-62506E9760A2}">
+							<DefaultSwitchValue>{3DE31401-7944-4243-AB4C-A04EC18D2004}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1776,6 +1926,7 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{7F0D8038-1B7E-4153-91CA-C0534557D6B7}">
+							<DefaultSwitchValue>{3DE31401-7944-4243-AB4C-A04EC18D2004}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1795,6 +1946,7 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{0167492A-AABC-4E2D-A2BF-A91488D1D4F8}">
+							<DefaultSwitchValue>{3DE31401-7944-4243-AB4C-A04EC18D2004}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1819,6 +1971,7 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{4E476E70-45DD-4B66-B879-A10E60F4DC07}">
+							<DefaultSwitchValue>{3DE31401-7944-4243-AB4C-A04EC18D2004}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1833,6 +1986,7 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{270BE1CE-08E1-408F-9C4F-5F390CAFFD6B}">
+							<DefaultSwitchValue>{3DE31401-7944-4243-AB4C-A04EC18D2004}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1857,6 +2011,7 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{D9DFBE8B-AC74-4DF0-B1F1-F96C7CF1EF8D}">
+							<DefaultSwitchValue>{3DE31401-7944-4243-AB4C-A04EC18D2004}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{575AC416-23B8-43F6-8005-669346C1342C}">
 									<Media>
@@ -1881,6 +2036,11 @@
 							</Children>
 						</SwitchContainer>
 					</SwitchContainers>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="2261546958" Name="Reverb_Tunnel" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Tunnel"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="1582928683" Name="Play_Respiration_JoggueurF" ObjectPath="\Events\Parc_Obstacles\Play_Respiration_JoggueurF" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.886625" DurationMax="1.007667">
 					<IncludedMemoryFiles>
@@ -1961,6 +2121,10 @@
 							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiFemme15_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="1582928677" Name="Play_Respiration_JoggueurH" ObjectPath="\Events\Parc_Obstacles\Play_Respiration_JoggueurH" MaxAttenuation="10.000000" DurationType="OneShot" DurationMin="0.556083" DurationMax="0.625687">
 					<IncludedMemoryFiles>
@@ -1985,6 +2149,10 @@
 							<Path>SFX\Parc_Obstacles_Humain_Joggueur_RespiHomme02_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="2860278991" Name="Play_Respiration_Mouvement" ObjectPath="\Events\Personnage\Play_Respiration_Mouvement" DurationType="OneShot" DurationMin="0.261021" DurationMax="1.311500">
 					<IncludedMemoryFiles>
@@ -2509,8 +2677,10 @@
 							<Path>SFX\Respiration_Idle_Inspire 04_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{735E6AAB-BB90-4C0D-8F0B-E13EA2E2848F}</DefaultSwitchValue>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}">
+							<DefaultSwitchValue>{F7D3A280-1D9A-4432-998D-4526DC3381AD}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{F7D3A280-1D9A-4432-998D-4526DC3381AD}">
 									<Media>
@@ -2565,6 +2735,7 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}">
+							<DefaultSwitchValue>{F7D3A280-1D9A-4432-998D-4526DC3381AD}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{F7D3A280-1D9A-4432-998D-4526DC3381AD}">
 									<Media>
@@ -2642,6 +2813,7 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{735E6AAB-BB90-4C0D-8F0B-E13EA2E2848F}">
+							<DefaultSwitchValue>{F7D3A280-1D9A-4432-998D-4526DC3381AD}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{F7D3A280-1D9A-4432-998D-4526DC3381AD}">
 									<Media>
@@ -2677,12 +2849,81 @@
 							</Children>
 						</SwitchContainer>
 					</SwitchContainers>
+					<AuxBusSends>
+						<AuxBus Id="2261546958" Name="Reverb_Tunnel" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Tunnel"/>
+						<AuxBus Id="3204322453" Name="Reverb_Lieu_Repos" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Lieu_Repos"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3628354934" Name="Play_Restorant" ObjectPath="\Events\Ville_Obstacles\Play_Restorant" MaxAttenuation="60.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="630798042" Language="SFX">
 							<ShortName>AMB_Resto 01.wav</ShortName>
 							<Path>SFX\AMB_Resto 01_9EDFC787.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
+				</Event>
+				<Event Id="2500736103" Name="Play_Shelter_Bar_Door_Close" ObjectPath="\Events\Shelter_Portes\Play_Shelter_Bar_Door_Close" DurationType="OneShot" DurationMin="0.766542" DurationMax="0.909000">
+					<IncludedMemoryFiles>
+						<File Id="112964218" Language="SFX">
+							<ShortName>Shelter_Porte_Close_Type1-002.wav</ShortName>
+							<Path>SFX\Shelter_Porte_Close_Type1-002_3F75BDB9.wem</Path>
+						</File>
+						<File Id="229250747" Language="SFX">
+							<ShortName>Shelter_Porte_Close_Type1-001.wav</ShortName>
+							<Path>SFX\Shelter_Porte_Close_Type1-001_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4211204369" Name="Play_Shelter_Bar_Door_Open" ObjectPath="\Events\Shelter_Portes\Play_Shelter_Bar_Door_Open" DurationType="OneShot" DurationMin="0.708271" DurationMax="0.708271">
+					<IncludedMemoryFiles>
+						<File Id="606153935" Language="SFX">
+							<ShortName>Shelter_Porte_Open_Type1.wav</ShortName>
+							<Path>SFX\Shelter_Porte_Open_Type1_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="736905070" Name="Play_Shelter_House_Door_Close" ObjectPath="\Events\Shelter_Portes\Play_Shelter_House_Door_Close" DurationType="OneShot" DurationMin="0.574604" DurationMax="0.668417">
+					<IncludedMemoryFiles>
+						<File Id="586746517" Language="SFX">
+							<ShortName>Shelter_Porte_Close_Type2-001.wav</ShortName>
+							<Path>SFX\Shelter_Porte_Close_Type2-001_3F75BDB9.wem</Path>
+						</File>
+						<File Id="1044608650" Language="SFX">
+							<ShortName>Shelter_Porte_Close_Type2-002.wav</ShortName>
+							<Path>SFX\Shelter_Porte_Close_Type2-002_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3075461546" Name="Play_Shelter_House_Door_Open" ObjectPath="\Events\Shelter_Portes\Play_Shelter_House_Door_Open" DurationType="OneShot" DurationMin="0.513125" DurationMax="0.513125">
+					<IncludedMemoryFiles>
+						<File Id="90888304" Language="SFX">
+							<ShortName>Shelter_Porte_Open_Type2.wav</ShortName>
+							<Path>SFX\Shelter_Porte_Open_Type2_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1128126858" Name="Play_Shelter_Parc_Door_Close" ObjectPath="\Events\Shelter_Portes\Play_Shelter_Parc_Door_Close" DurationType="OneShot" DurationMin="0.633509" DurationMax="0.751243">
+					<IncludedMemoryFiles>
+						<File Id="112964218" Language="SFX">
+							<ShortName>Shelter_Porte_Close_Type1-002.wav</ShortName>
+							<Path>SFX\Shelter_Porte_Close_Type1-002_3F75BDB9.wem</Path>
+						</File>
+						<File Id="229250747" Language="SFX">
+							<ShortName>Shelter_Porte_Close_Type1-001.wav</ShortName>
+							<Path>SFX\Shelter_Porte_Close_Type1-001_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2116268718" Name="Play_Shelter_Parc_Door_Open" ObjectPath="\Events\Shelter_Portes\Play_Shelter_Parc_Door_Open" DurationType="OneShot" DurationMin="0.585351" DurationMax="0.585351">
+					<IncludedMemoryFiles>
+						<File Id="606153935" Language="SFX">
+							<ShortName>Shelter_Porte_Open_Type1.wav</ShortName>
+							<Path>SFX\Shelter_Porte_Open_Type1_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -2701,6 +2942,10 @@
 							<Path>SFX\Commerce_Obstacle_Sonnette_Entrée_01_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="2105670071" Name="Play_Survol" ObjectPath="\Events\Menu\Play_Survol" DurationType="OneShot" DurationMin="0.935007" DurationMax="0.935007">
 					<IncludedMemoryFiles>
@@ -3873,10 +4118,13 @@
 							<Path>SFX\Asphalt_Walk_Pied_Gauche07_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}</DefaultSwitchValue>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{FD05A887-BA22-4D15-930C-592B452C079F}">
+							<DefaultSwitchValue>{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
@@ -3917,6 +4165,7 @@
 									</Children>
 								</SwitchContainer>
 								<SwitchContainer SwitchValue="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
@@ -3976,8 +4225,10 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{D6FB39F5-1646-47B5-AF81-9AC121A7856E}">
+							<DefaultSwitchValue>{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{9A26DE1D-4A5C-46F7-91EA-87FCBDFE108F}">
 											<Media>
@@ -4029,6 +4280,7 @@
 									</Children>
 								</SwitchContainer>
 								<SwitchContainer SwitchValue="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
@@ -4099,8 +4351,10 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{075C11D6-EA5D-44E7-B016-07566D3DE40C}">
+							<DefaultSwitchValue>{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
@@ -4155,6 +4409,7 @@
 									</Children>
 								</SwitchContainer>
 								<SwitchContainer SwitchValue="{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{9A26DE1D-4A5C-46F7-91EA-87FCBDFE108F}">
 											<Media>
@@ -4193,8 +4448,10 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}">
+							<DefaultSwitchValue>{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{9A26DE1D-4A5C-46F7-91EA-87FCBDFE108F}">
 											<Media>
@@ -4225,6 +4482,7 @@
 									</Children>
 								</SwitchContainer>
 								<SwitchContainer SwitchValue="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
@@ -4271,6 +4529,11 @@
 							</Children>
 						</SwitchContainer>
 					</SwitchContainers>
+					<AuxBusSends>
+						<AuxBus Id="2261546958" Name="Reverb_Tunnel" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Tunnel"/>
+						<AuxBus Id="3204322453" Name="Reverb_Lieu_Repos" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Lieu_Repos"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="482787459" Name="Play_Texture_Pas_Jogger" ObjectPath="\Events\Parc_Obstacles\Play_Texture_Pas_Jogger" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.063854" DurationMax="0.621896">
 					<IncludedMemoryFiles>
@@ -5411,10 +5674,13 @@
 							<Path>SFX\Asphalt_Walk_Pied_Gauche07_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}</DefaultSwitchValue>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{FD05A887-BA22-4D15-930C-592B452C079F}">
+							<DefaultSwitchValue>{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
@@ -5455,6 +5721,7 @@
 									</Children>
 								</SwitchContainer>
 								<SwitchContainer SwitchValue="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
@@ -5514,8 +5781,10 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{D6FB39F5-1646-47B5-AF81-9AC121A7856E}">
+							<DefaultSwitchValue>{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{9A26DE1D-4A5C-46F7-91EA-87FCBDFE108F}">
 											<Media>
@@ -5567,6 +5836,7 @@
 									</Children>
 								</SwitchContainer>
 								<SwitchContainer SwitchValue="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
@@ -5637,8 +5907,10 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{075C11D6-EA5D-44E7-B016-07566D3DE40C}">
+							<DefaultSwitchValue>{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
@@ -5693,6 +5965,7 @@
 									</Children>
 								</SwitchContainer>
 								<SwitchContainer SwitchValue="{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{9A26DE1D-4A5C-46F7-91EA-87FCBDFE108F}">
 											<Media>
@@ -5731,8 +6004,10 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{36D8D94F-0DF7-4D05-B8C1-701179BA63EF}">
+							<DefaultSwitchValue>{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}</DefaultSwitchValue>
 							<Children>
 								<SwitchContainer SwitchValue="{048D0BEF-B5C6-4DBA-98EC-2A32C4A4F875}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{9A26DE1D-4A5C-46F7-91EA-87FCBDFE108F}">
 											<Media>
@@ -5763,6 +6038,7 @@
 									</Children>
 								</SwitchContainer>
 								<SwitchContainer SwitchValue="{5C4DE485-AC93-4DF8-8D5F-40EDC53D3612}">
+									<DefaultSwitchValue>{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}</DefaultSwitchValue>
 									<Children>
 										<SwitchContainer SwitchValue="{13A09A6A-3A8F-4113-BB2B-8EA6983CBEAC}">
 											<Media>
@@ -5809,6 +6085,11 @@
 							</Children>
 						</SwitchContainer>
 					</SwitchContainers>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3204322453" Name="Reverb_Lieu_Repos" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Mix REVERB\Reverb_Lieu_Repos"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="3029881444" Name="Play_Touche_Next" ObjectPath="\Events\Cinematique\Play_Touche_Next" DurationType="OneShot" DurationMin="0.305833" DurationMax="0.305833">
 					<IncludedMemoryFiles>
@@ -5825,6 +6106,10 @@
 							<Path>SFX\Chantier_A4BA7504.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2093609463" Name="MixEcoutePerso" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\NiveauEcoutePerso\MixEcoutePerso"/>
+						<AuxBus Id="3971758071" Name="EQ_Protection" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\MixPROTECTION\EQ_Protection"/>
+					</AuxBusSends>
 				</Event>
 				<Event Id="452547817" Name="Stop_All" ObjectPath="\Events\Default Work Unit\Stop_All" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1056565793" Name="Stop_ArrosageAuto" ObjectPath="\Events\Parc_Obstacles\Stop_ArrosageAuto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -5869,6 +6154,12 @@
 				<Event Id="2216609116" Name="Stop_Portes_Open" ObjectPath="\Events\Commercial_Obstacles\Stop_Portes_Open" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3507864100" Name="Stop_Quel_Moteur" ObjectPath="\Events\Ville_Obstacles\Stop_Quel_Moteur" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="970688548" Name="Stop_Restorant" ObjectPath="\Events\Ville_Obstacles\Stop_Restorant" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2099532353" Name="Stop_Shelter_Bar_Door_Close" ObjectPath="\Events\Shelter_Portes\Stop_Shelter_Bar_Door_Close" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3374793443" Name="Stop_Shelter_Bar_Door_Open" ObjectPath="\Events\Shelter_Portes\Stop_Shelter_Bar_Door_Open" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2784745848" Name="Stop_Shelter_House_Door_Close" ObjectPath="\Events\Shelter_Portes\Stop_Shelter_House_Door_Close" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1068587196" Name="Stop_Shelter_House_Door_Open" ObjectPath="\Events\Shelter_Portes\Stop_Shelter_House_Door_Open" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3420555944" Name="Stop_Shelter_Parc_Door_Close" ObjectPath="\Events\Shelter_Portes\Stop_Shelter_Parc_Door_Close" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="788503180" Name="Stop_Shelter_Parc_Door_Open" ObjectPath="\Events\Shelter_Portes\Stop_Shelter_Parc_Door_Open" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3549513284" Name="Stop_Sonnette_Magasins" ObjectPath="\Events\Ville_Obstacles\Stop_Sonnette_Magasins" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="507140941" Name="Stop_Survol" ObjectPath="\Events\Menu\Stop_Survol" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2148170426" Name="Stop_Texte_Anim_Particule" ObjectPath="\Events\Menu\Stop_Texte_Anim_Particule" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>

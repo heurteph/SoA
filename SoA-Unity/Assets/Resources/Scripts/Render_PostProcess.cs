@@ -95,6 +95,7 @@ public class Render_PostProcess : MonoBehaviour
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
+        
         //non activé
         if (!shader_actif)
         {
@@ -105,8 +106,8 @@ public class Render_PostProcess : MonoBehaviour
             mat.SetFloat("type", 0);
 
             changeShader("PostProcessV2");
-            /*mat.SetFloat("width", coef_blur);
-            mat.SetFloat("height", coef_blur);*/
+            //mat.SetFloat("width", coef_blur);
+            //mat.SetFloat("height", coef_blur);
             mat.SetFloat("width", source.width);
             mat.SetFloat("height", source.height);
             mat.SetFloat("life", player.GetComponent<EnergyBehaviour>().Energy / 10); // 0-1000 -> 0-100

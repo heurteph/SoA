@@ -167,12 +167,14 @@ public class ControlsManager : MonoBehaviour
     {
         button.transform.GetChild(0).GetComponent<Text>().color = reactivatedColor;
         button.GetComponent<Button>().interactable = true;
+        button.GetComponent<EventTrigger>().enabled = true;
     }
 
     private void DeactivateButton(GameObject button)
     {
         button.transform.GetChild(0).GetComponent<Text>().color = deactivatedColor;
         button.GetComponent<Button>().interactable = false;
+        button.GetComponent<EventTrigger>().enabled = false;
     }
 
     /* Key bindings */

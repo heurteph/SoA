@@ -225,6 +225,9 @@ public class EnterShelter : MonoBehaviour
 
         AkSoundEngine.SetState("Dans_Lieu_Repos", "Oui");
 
+        shelter.transform.Find("Shelter Camera").GetComponent<AkAudioListener>().enabled = true;
+        mainCamera.gameObject.GetComponent<AkAudioListener>().enabled = false;
+
         // Ambiance sound
         if (shelterTag == "Home")
         {

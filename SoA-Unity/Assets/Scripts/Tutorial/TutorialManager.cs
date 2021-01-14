@@ -42,7 +42,8 @@ public class TutorialManager : MonoBehaviour
             skipButton.sprite = Resources.Load<Sprite>("Cutscene\\Images\\cutscene 1920\\skip-key-white");
         }
 
-        message.GetComponent<TextMeshProUGUI>().text = "Quand vous ne pouvez éviter un <color=#adb1d0><b>obstacle</b></color>, utilisez <color=#adb1d0><b>" + inputs.Player.ProtectEyes.GetBindingDisplayString() + "</b></color> ou <color=#adb1d0><b>" + inputs.Player.ProtectEars.GetBindingDisplayString() + "</b></color> pour vous protéger.";
+        //message.GetComponent<TextMeshProUGUI>().text = "Quand vous ne pouvez éviter un <color=#adb1d0><b>obstacle</b></color>, utilisez <color=#adb1d0><b>" + inputs.Player.ProtectEyes.GetBindingDisplayString() + "</b></color> ou <color=#adb1d0><b>" + inputs.Player.ProtectEars.GetBindingDisplayString() + "</b></color> pour vous protéger";
+        message.GetComponent<TextMeshProUGUI>().text = "When you can't avoid an <color=#adb1d0><b>obstacle</b></color>, use <color=#adb1d0><b>" + inputs.Player.ProtectEyes.GetBindingDisplayString() + "</b></color> or <color=#adb1d0><b>" + inputs.Player.ProtectEars.GetBindingDisplayString() + "</b></color> to protect yourself";
     }
 
     // Update is called once per frame

@@ -127,7 +127,7 @@ namespace story
                     AkSoundEngine.PostEvent("Stop_Music_Cinematique", gameObject);
 
                     //SceneManager.LoadScene("Tuto");
-                    StartCoroutine(transitions.GetComponent<Transitions>().FadeOut("Tuto"));
+                    StartCoroutine(transitions.GetComponent<Transitions>().FadeOut("Tuto-EN")); // Replace with Tuto-FR for french version
 
                     return null;
                 }

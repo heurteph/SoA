@@ -15,7 +15,7 @@
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "Aujourd'hui non plus ..."
+          "data": "Not today either ..."
         },
 		{
           "type": "image",
@@ -25,17 +25,17 @@
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "Allo, Silhouelle ... j'ai essayé, je ne pourrai pas venir ..."
+          "data": "Hello, Silhouelle ... I tried, I won't be able to come ..."
         },
 		{
           "type": "image",
           "metadata": "background",
           "data": "cutscene 1920\\cutscene02-upset"
         },
-		{
+        {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "Oui, je sais ... on se dit à une autre fois ... oui, salut ..."
+          "data": "Yes, I know ... we'll talk some other time ... yes, bye ..."
         },
         {
           "type": "image",
@@ -74,7 +74,7 @@
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data" : "Ha ! C'est l'endroit de mes rêves, tout sonne si merveilleusement bien !"
+          "data": "Ha ! This is the place of my dreams, everything sounds so wonderful !"
         },
 		{
           "type": "image",
@@ -83,8 +83,8 @@
         },
         {
           "type": "message",
-          "metadata": "Ange",
-          "data": "Eh bien, pour nous, c'est un important sanctuaire. Nous veillons sur lui comme gardiens."
+          "metadata": "Angel",
+          "data": "Well, for us it is an important sanctuary. We watch over it as guardians."
         },
 		{
           "type": "image",
@@ -94,7 +94,7 @@
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "Les habitants aussi sont en cristal ! Quelle chance vous avez d'habiter ici."
+          "data": "The inhabitants too are made of crystal! How lucky you are to live here."
         },
 		{
           "type": "image",
@@ -103,13 +103,13 @@
         },
         {
           "type": "message",
-          "metadata": "Ange",
-          "data": "Oui, tout y est fait de matière vibrante. Même nos noms ! Le Z revient souvent de par chez nous !"
+          "metadata": "Angel",
+          "data": "Yes, everything is made of vibrating matter. Even our names! The Z often comes back from around here!"
         },
         {
           "type": "message",
-          "metadata": "Ange",
-          "data": "Comme tu l'as ressenti, ce lieu est un foyer de vibrations élémentaires, et nous veillons à ce que rien ne le fasse dévier de son équilibre."
+          "metadata": "Angel",
+          "data": "As you have felt, this place is a hotbed of elemental vibrations, and we make sure that nothing distracts it from its balance."
         },
 		{
           "type": "image",
@@ -119,7 +119,7 @@
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "Ça n'a vraiment rien à voir avec là d'où je viens."
+          "data": "It really has nothing to do with where I come from."
         },
 		{
           "type": "image",
@@ -128,28 +128,28 @@
         },
         {
           "type": "message",
-          "metadata": "Ange",
-          "data": "Je connais bien la Terre moi aussi. J'avais essayé d'y rétablir l'équilibre, mais je suis vite arrivé à épuisement de mes pouvoirs."
+          "metadata": "Angel",
+          "data": "I know the Earth well too. I had tried to restore the balance, but my powers were soon exhausted."
         },
         {
           "type": "message",
-          "metadata": "Ange",
-          "data": "Toutefois, j'ai pu comprendre les causes de ce déséquilibre, j'en ai compté trois qui doivent t'être familières."
+          "metadata": "Angel",
+          "data": "However, I was able to understand the causes of this imbalance, I counted three that must be familiar to you."
         },
         {
           "type": "message",
-          "metadata": "Ange",
-          "data": "J'ai d'abord pu constater les dissonances produites par toutes sortes d'engins mécaniques."
+          "metadata": "Angel",
+          "data": "First of all, I was able to observe the dissonances produced by all kinds of mechanical machines."
         },
         {
           "type": "message",
-          "metadata": "Ange",
-          "data": "Et encore, à d'autres moments, des lumières artificielles qui oscillent à un rythme frénétique."
+          "metadata": "Angel",
+          "data": "And again, at other times, artificial lights that oscillate at a frenetic pace."
         },
         {
           "type": "message",
-          "metadata": "Ange",
-          "data": "Et enfin des terriens stressés, qui communiquent sans le savoir leurs ondes nerveuses."
+          "metadata": "Angel",
+          "data": "And finally stressed earthlings, who unknowingly communicate their nerve waves."
         },
 		{
           "type": "image",
@@ -159,7 +159,7 @@
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "Ah ! Tout ça me parle beaucoup ! Est-ce que mon hypersensibilité a à voir avec ces vibrations ?"
+          "data": "Ah ! All this speaks to me a lot ! Does my hypersensitivity have to do with these vibrations ?"
         },
 		{
           "type": "image",
@@ -168,13 +168,13 @@
         },
         {
           "type": "message",
-          "metadata": "Ange",
-          "data": "Oui. Mais je n'ai pas le pouvoir de changer cela. Par contre, je tiens vraiment à t'aider, et peut-être d'une autre manière."
+          "metadata": "Angel",
+          "data": "Yes, but I don't have the power to change that. However, I do want to help you, and maybe in another way."
         },
         {
           "type": "message",
-          "metadata": "Ange",
-          "data": "Je te proposes de t'accompagner où que tu ailles. Je peux percevoir les dissonances dans l'environnement, je saurai toujours t'orienter sur le chemin le plus calme."
+          "metadata": "Angel",
+          "data": "I propose to accompany you wherever you go. I can perceive the dissonances in the environment, I will always know how to guide you on the calmest path."
         },
 		{
           "type": "image",
@@ -184,7 +184,7 @@
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "Ca veut dire ... que j'aurai de nouveau le pouvoir de me déplacer comme je veux en ville ?"
+          "data": "Does this mean ... that I will once again have the power to move around the city as I want ?"
         }
       ]
     },
@@ -213,7 +213,7 @@
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "Re, c'est encore moi. Tu es toujours sortie ?"
+          "data": "Hey, it's me again. Are you still out?"
         },
 		{
           "type": "image",
@@ -223,7 +223,7 @@
         {
           "type": "message",
           "metadata": "Silhouelle",
-          "data": "Oui, je suis au supermarché."
+          "data": "Yes, I'm at the supermarket."
         },
 		{
           "type": "image",
@@ -233,7 +233,7 @@
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "D'accord, reste où tu es, ne bouge pas et attends-moi, j'arrive."
+          "data": "All right, stay where you are, don't move and wait for me, I'm coming."
         },
 		{
           "type": "image",
@@ -243,7 +243,7 @@
         {
           "type": "message",
           "metadata": "Silhouelle",
-          "data": "Ca me ferait plaisir, mais tu sais que ça ne sert à rien d'insister si tu ne peux vraiment pas venir."
+          "data": "I'd love to, but you know there's no point in insisting if you really can't come."
         },
 		{
           "type": "image",
@@ -253,12 +253,12 @@
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "Mais j'ai trouvé le moyen de venir quand même."
+          "data": "But I found a way to come anyway."
         },
         {
           "type": "message",
           "metadata": "Esthesia",
-          "data": "C'est maintenant que je vais voir s'il a dit vrai."
+          "data": "Now I'm going to see if he was telling the truth."
         },
         {
           "type": "scene",

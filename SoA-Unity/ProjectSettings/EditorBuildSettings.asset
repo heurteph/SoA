@@ -8,12 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: dc2ad1b09d98bf7479fc3bb29a58837b
-  - enabled: 1
-    path: Assets/Scenes/Intro.unity
+  - enabled: 0
+    path: Assets/Scenes/Intro-FR.unity
     guid: df803aa0167711f44bd5e0e15151ee2b
   - enabled: 1
-    path: Assets/Scenes/Tuto.unity
+    path: Assets/Scenes/Intro-EN.unity
+    guid: 6f7517918ba35b44b98f25a9689c0c02
+  - enabled: 0
+    path: Assets/Scenes/Tuto-FR.unity
     guid: 94b788b3ce9e29d4d89baa54210eff71
+  - enabled: 1
+    path: Assets/Scenes/Tuto-EN.unity
+    guid: 45b2683e65067bc488cb467233315261
   - enabled: 1
     path: Assets/Scenes/GameElise.unity
     guid: ee3306d87b39d0a4d877ba794a0b3e91

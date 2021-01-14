@@ -228,7 +228,7 @@ public class MenuManager : MonoBehaviour
         // Let's get to work !
         // TO DO : Make sure to add the intro when we have one
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        StartCoroutine(transitions.GetComponent<Transitions>().FadeOut("Intro"));
+        StartCoroutine(transitions.GetComponent<Transitions>().FadeOut("Intro-EN")); // Replace with Intro-FR for french version
         AkSoundEngine.PostEvent("Stop_Music_Main_Title", gameObject);
     }
 
